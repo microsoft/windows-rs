@@ -4464,6 +4464,90 @@ pub struct IEnumDiskQuotaUsers_Vtbl {
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ACCESS_ALL: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(32768u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ACCESS_ATRIB: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(32u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ACCESS_CREATE: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ACCESS_DELETE: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(16u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ACCESS_EXEC: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(8u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ACCESS_PERM: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(64u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ACCESS_READ: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ACCESS_WRITE: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BACKUP_ALTERNATE_DATA: WIN_STREAM_ID = WIN_STREAM_ID(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BACKUP_DATA: WIN_STREAM_ID = WIN_STREAM_ID(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BACKUP_EA_DATA: WIN_STREAM_ID = WIN_STREAM_ID(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BACKUP_LINK: WIN_STREAM_ID = WIN_STREAM_ID(5u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BACKUP_OBJECT_ID: WIN_STREAM_ID = WIN_STREAM_ID(7u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BACKUP_PROPERTY_DATA: WIN_STREAM_ID = WIN_STREAM_ID(6u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BACKUP_REPARSE_DATA: WIN_STREAM_ID = WIN_STREAM_ID(8u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BACKUP_SECURITY_DATA: WIN_STREAM_ID = WIN_STREAM_ID(3u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BACKUP_SPARSE_BLOCK: WIN_STREAM_ID = WIN_STREAM_ID(9u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BACKUP_TXFS_DATA: WIN_STREAM_ID = WIN_STREAM_ID(10u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusType1394: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusTypeAta: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusTypeAtapi: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusTypeFibre: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusTypeFileBackedVirtual: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(15i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusTypeMax: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(20i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusTypeMaxReserved: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(127i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusTypeMmc: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusTypeNvme: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(17i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusTypeRAID: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusTypeSCM: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(18i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusTypeSas: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusTypeSata: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusTypeScsi: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusTypeSd: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusTypeSpaces: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusTypeSsa: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusTypeUfs: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(19i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusTypeUnknown: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusTypeUsb: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusTypeVirtual: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(14i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const BusTypeiScsi: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const CALLBACK_CHUNK_FINISHED: LPPROGRESS_ROUTINE_CALLBACK_REASON = LPPROGRESS_ROUTINE_CALLBACK_REASON(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const CALLBACK_STREAM_SWITCH: LPPROGRESS_ROUTINE_CALLBACK_REASON = LPPROGRESS_ROUTINE_CALLBACK_REASON(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_BASELOG_EXTENSION: ::windows_core::PCWSTR = ::windows_core::w!(".blf");
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_CONTAINER_RELATIVE_PREFIX: ::windows_core::PCWSTR = ::windows_core::w!("%BLF%\\");
@@ -4474,6 +4558,10 @@ pub const CLFS_FLAG_FILTER_INTERMEDIATE_LEVEL: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_FLAG_FILTER_TOP_LEVEL: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const CLFS_FLAG_FORCE_APPEND: CLFS_FLAG = CLFS_FLAG(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const CLFS_FLAG_FORCE_FLUSH: CLFS_FLAG = CLFS_FLAG(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_FLAG_HIDDEN_SYSTEM_LOG: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_FLAG_IGNORE_SHARE_ACCESS: u32 = 64u32;
@@ -4482,11 +4570,15 @@ pub const CLFS_FLAG_MINIFILTER_LEVEL: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_FLAG_NON_REENTRANT_FILTER: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const CLFS_FLAG_NO_FLAGS: CLFS_FLAG = CLFS_FLAG(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_FLAG_READ_IN_PROGRESS: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_FLAG_REENTRANT_FILE_SYSTEM: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_FLAG_REENTRANT_FILTER: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const CLFS_FLAG_USE_RESERVATION: CLFS_FLAG = CLFS_FLAG(4u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_MARSHALLING_FLAG_DISABLE_BUFF_INIT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -4511,6 +4603,64 @@ pub const CLFS_SCAN_INIT: u8 = 1u8;
 pub const CLFS_SCAN_INITIALIZED: u8 = 16u8;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLSID_DiskQuotaControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7988b571_ec89_11cf_9c00_00aa00a14f56);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COMPRESSION_FORMAT_DEFAULT: COMPRESSION_FORMAT = COMPRESSION_FORMAT(1u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COMPRESSION_FORMAT_LZNT1: COMPRESSION_FORMAT = COMPRESSION_FORMAT(2u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COMPRESSION_FORMAT_NONE: COMPRESSION_FORMAT = COMPRESSION_FORMAT(0u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COMPRESSION_FORMAT_XP10: COMPRESSION_FORMAT = COMPRESSION_FORMAT(5u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COMPRESSION_FORMAT_XPRESS: COMPRESSION_FORMAT = COMPRESSION_FORMAT(3u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COMPRESSION_FORMAT_XPRESS_HUFF: COMPRESSION_FORMAT = COMPRESSION_FORMAT(4u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COPYFILE2_CALLBACK_CHUNK_FINISHED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COPYFILE2_CALLBACK_CHUNK_STARTED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COPYFILE2_CALLBACK_ERROR: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COPYFILE2_CALLBACK_MAX: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COPYFILE2_CALLBACK_NONE: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COPYFILE2_CALLBACK_POLL_CONTINUE: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COPYFILE2_CALLBACK_STREAM_FINISHED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COPYFILE2_CALLBACK_STREAM_STARTED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COPYFILE2_PHASE_MAX: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(7i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COPYFILE2_PHASE_NAMEGRAFT_COPY: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(6i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COPYFILE2_PHASE_NONE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COPYFILE2_PHASE_PREPARE_DEST: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COPYFILE2_PHASE_PREPARE_SOURCE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COPYFILE2_PHASE_READ_SOURCE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COPYFILE2_PHASE_SERVER_COPY: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COPYFILE2_PHASE_WRITE_DESTINATION: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COPYFILE2_PROGRESS_CANCEL: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COPYFILE2_PROGRESS_CONTINUE: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COPYFILE2_PROGRESS_PAUSE: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COPYFILE2_PROGRESS_QUIET: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const COPYFILE2_PROGRESS_STOP: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const CREATE_ALWAYS: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const CREATE_NEW: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(1u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CRM_PROTOCOL_DYNAMIC_MARSHAL_INFO: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -4548,7 +4698,65 @@ pub const ClfsContainerPendingArchive: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsContainerPendingArchiveAndDelete: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsContextForward: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsContextNone: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsContextPrevious: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsContextUndoNext: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsDataRecord: u8 = 1u8;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsIoStatsDefault: CLFS_IOSTATS_CLASS = CLFS_IOSTATS_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsIoStatsMax: CLFS_IOSTATS_CLASS = CLFS_IOSTATS_CLASS(65535i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsLogArchiveDisabled: CLFS_LOG_ARCHIVE_MODE = CLFS_LOG_ARCHIVE_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsLogArchiveEnabled: CLFS_LOG_ARCHIVE_MODE = CLFS_LOG_ARCHIVE_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsLogBasicInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsLogBasicInformationPhysical: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsLogPhysicalLsnInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsLogPhysicalNameInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsLogStreamIdentifierInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsLogSystemMarkingInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsMgmtAdvanceTailNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsMgmtLogFullHandlerNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsMgmtLogUnpinnedNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsMgmtLogWriteNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsMgmtPolicyAutoGrow: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsMgmtPolicyAutoShrink: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsMgmtPolicyGrowthRate: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsMgmtPolicyInvalid: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsMgmtPolicyLogTail: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsMgmtPolicyMaximumSize: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsMgmtPolicyMinimumSize: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsMgmtPolicyNewContainerExtension: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsMgmtPolicyNewContainerPrefix: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsMgmtPolicyNewContainerSize: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClfsMgmtPolicyNewContainerSuffix: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(8i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsNullRecord: u8 = 0u8;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -4565,6 +4773,30 @@ pub const ClsContainerInitializing: u32 = 1u32;
 pub const ClsContainerPendingArchive: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClsContainerPendingArchiveAndDelete: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClsContextForward: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClsContextNone: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClsContextPrevious: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClsContextUndoNext: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClsIoStatsDefault: CLS_IOSTATS_CLASS = CLS_IOSTATS_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ClsIoStatsMax: CLS_IOSTATS_CLASS = CLS_IOSTATS_CLASS(65535i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const DDD_EXACT_MATCH_ON_REMOVE: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const DDD_LUID_BROADCAST_DRIVE: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const DDD_NO_BROADCAST_SYSTEM: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const DDD_RAW_TARGET_PATH: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const DDD_REMOVE_DEFINITION: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const DELETE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(65536u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_FILESTATE_INCOMPLETE: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -4583,6 +4815,12 @@ pub const DISKQUOTA_STATE_ENFORCE: u32 = 2u32;
 pub const DISKQUOTA_STATE_MASK: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_STATE_TRACK: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const DISKQUOTA_USERNAME_RESOLVE_ASYNC: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const DISKQUOTA_USERNAME_RESOLVE_NONE: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const DISKQUOTA_USERNAME_RESOLVE_SYNC: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(1u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_USER_ACCOUNT_DELETED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -4626,6 +4864,162 @@ pub const ENLISTMENT_OBJECT_PATH: ::windows_core::PCWSTR = ::windows_core::w!("\
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ENLISTMENT_SUPERIOR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ExtendedFileIdType: FILE_ID_TYPE = FILE_ID_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ACTION_ADDED: FILE_ACTION = FILE_ACTION(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ACTION_MODIFIED: FILE_ACTION = FILE_ACTION(3u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ACTION_REMOVED: FILE_ACTION = FILE_ACTION(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ACTION_RENAMED_NEW_NAME: FILE_ACTION = FILE_ACTION(5u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ACTION_RENAMED_OLD_NAME: FILE_ACTION = FILE_ACTION(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ADD_FILE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ADD_SUBDIRECTORY: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ALL_ACCESS: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(2032127u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_APPEND_DATA: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_ARCHIVE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(32u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_COMPRESSED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2048u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_DEVICE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(64u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_DIRECTORY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(16u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_EA: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(262144u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_ENCRYPTED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(16384u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_HIDDEN: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_INTEGRITY_STREAM: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(32768u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_NORMAL: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(128u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_NOT_CONTENT_INDEXED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(8192u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_NO_SCRUB_DATA: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(131072u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_OFFLINE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(4096u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_PINNED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(524288u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_READONLY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(4194304u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_RECALL_ON_OPEN: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(262144u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_REPARSE_POINT: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1024u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_SPARSE_FILE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(512u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_SYSTEM: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_TEMPORARY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(256u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_UNPINNED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1048576u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_ATTRIBUTE_VIRTUAL: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(65536u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_BEGIN: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_CREATE_PIPE_INSTANCE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_CURRENT: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DELETE_CHILD: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(64u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DEVICE_CD_ROM: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DEVICE_DISK: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(7u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DEVICE_DVD: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(51u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DEVICE_TAPE: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(31u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DISPOSITION_FLAG_DELETE: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DISPOSITION_FLAG_DO_NOT_DELETE: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DISPOSITION_FLAG_FORCE_IMAGE_SECTION_CHECK: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DISPOSITION_FLAG_IGNORE_READONLY_ATTRIBUTE: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DISPOSITION_FLAG_ON_CLOSE: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_DISPOSITION_FLAG_POSIX_SEMANTICS: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_END: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_EXECUTE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(32u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_FLAG_BACKUP_SEMANTICS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(33554432u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_FLAG_DELETE_ON_CLOSE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(67108864u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_FLAG_FIRST_PIPE_INSTANCE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(524288u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_FLAG_NO_BUFFERING: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(536870912u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_FLAG_OPEN_NO_RECALL: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1048576u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_FLAG_OPEN_REPARSE_POINT: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2097152u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_FLAG_OVERLAPPED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1073741824u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_FLAG_POSIX_SEMANTICS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(16777216u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_FLAG_RANDOM_ACCESS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(268435456u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_FLAG_SEQUENTIAL_SCAN: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(134217728u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_FLAG_SESSION_AWARE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(8388608u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_FLAG_WRITE_THROUGH: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2147483648u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_FLUSH_DATA: FILE_FLUSH_MODE = FILE_FLUSH_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_FLUSH_DEFAULT: FILE_FLUSH_MODE = FILE_FLUSH_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_FLUSH_MIN_METADATA: FILE_FLUSH_MODE = FILE_FLUSH_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_FLUSH_NO_SYNC: FILE_FLUSH_MODE = FILE_FLUSH_MODE(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_GENERIC_EXECUTE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1179808u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_GENERIC_READ: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1179785u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_GENERIC_WRITE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1179926u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_LIST_DIRECTORY: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_NAME_NORMALIZED: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_NAME_OPENED: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_NOTIFY_CHANGE_ATTRIBUTES: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_NOTIFY_CHANGE_CREATION: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(64u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_NOTIFY_CHANGE_DIR_NAME: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_NOTIFY_CHANGE_FILE_NAME: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_NOTIFY_CHANGE_LAST_ACCESS: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(32u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_NOTIFY_CHANGE_LAST_WRITE: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(16u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_NOTIFY_CHANGE_SECURITY: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(256u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_NOTIFY_CHANGE_SIZE: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(8u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_PROVIDER_COMPRESSION_LZX: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_PROVIDER_COMPRESSION_XPRESS16K: u32 = 3u32;
@@ -4633,6 +5027,132 @@ pub const FILE_PROVIDER_COMPRESSION_XPRESS16K: u32 = 3u32;
 pub const FILE_PROVIDER_COMPRESSION_XPRESS4K: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_PROVIDER_COMPRESSION_XPRESS8K: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_READ_ATTRIBUTES: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(128u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_READ_DATA: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_READ_EA: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(8u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_SHARE_DELETE: FILE_SHARE_MODE = FILE_SHARE_MODE(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_SHARE_NONE: FILE_SHARE_MODE = FILE_SHARE_MODE(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_SHARE_READ: FILE_SHARE_MODE = FILE_SHARE_MODE(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_SHARE_WRITE: FILE_SHARE_MODE = FILE_SHARE_MODE(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_TRAVERSE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(32u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_TYPE_CHAR: FILE_TYPE = FILE_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_TYPE_DISK: FILE_TYPE = FILE_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_TYPE_PIPE: FILE_TYPE = FILE_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_TYPE_REMOTE: FILE_TYPE = FILE_TYPE(32768u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_TYPE_UNKNOWN: FILE_TYPE = FILE_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_VER_GET_LOCALISED: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_VER_GET_NEUTRAL: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_VER_GET_PREFETCHED: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_WRITE_ATTRIBUTES: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(256u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_WRITE_DATA: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_WRITE_EA: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(16u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_WRITE_FLAGS_NONE: FILE_WRITE_FLAGS = FILE_WRITE_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FILE_WRITE_FLAGS_WRITE_THROUGH: FILE_WRITE_FLAGS = FILE_WRITE_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FIND_FIRST_EX_CASE_SENSITIVE: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FIND_FIRST_EX_LARGE_FETCH: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FIND_FIRST_EX_ON_DISK_ENTRIES_ONLY: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileAlignmentInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(17i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileAllocationInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileAttributeTagInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(9i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileBasicInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileCaseSensitiveInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(23i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileCompressionInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(8i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileDispositionInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileDispositionInfoEx: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(21i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileEndOfFileInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(6i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileFullDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(14i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileFullDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(15i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileIdBothDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(10i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileIdBothDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(11i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileIdExtdDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(19i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileIdExtdDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(20i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileIdInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(18i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileIdType: FILE_ID_TYPE = FILE_ID_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileIoPriorityHintInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(12i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileNameInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileNormalizedNameInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(24i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileRemoteProtocolInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(13i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileRenameInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileRenameInfoEx: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(22i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileStandardInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileStorageInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(16i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FileStreamInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(7i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FindExInfoBasic: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FindExInfoMaxInfoLevel: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FindExInfoStandard: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FindExSearchLimitToDevices: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FindExSearchLimitToDirectories: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FindExSearchMaxSearchOp: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FindExSearchNameMatch: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FindStreamInfoMaxInfoLevel: STREAM_INFO_LEVELS = STREAM_INFO_LEVELS(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const FindStreamInfoStandard: STREAM_INFO_LEVELS = STREAM_INFO_LEVELS(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const GET_TAPE_DRIVE_INFORMATION: GET_TAPE_DRIVE_PARAMETERS_OPERATION = GET_TAPE_DRIVE_PARAMETERS_OPERATION(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const GET_TAPE_MEDIA_INFORMATION: GET_TAPE_DRIVE_PARAMETERS_OPERATION = GET_TAPE_DRIVE_PARAMETERS_OPERATION(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const GetFileExInfoStandard: GET_FILEEX_INFO_LEVELS = GET_FILEEX_INFO_LEVELS(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const GetFileExMaxInfoLevel: GET_FILEEX_INFO_LEVELS = GET_FILEEX_INFO_LEVELS(1i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const INVALID_FILE_ATTRIBUTES: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -4698,9 +5218,59 @@ pub const IOCTL_VOLUME_SUPPORTS_ONLINE_OFFLINE: u32 = 5636100u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_UPDATE_PROPERTIES: u32 = 5636180u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_CREATE_ADVISORY_FLAGS_NONE: IORING_CREATE_ADVISORY_FLAGS = IORING_CREATE_ADVISORY_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_CREATE_REQUIRED_FLAGS_NONE: IORING_CREATE_REQUIRED_FLAGS = IORING_CREATE_REQUIRED_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_FEATURE_FLAGS_NONE: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_FEATURE_SET_COMPLETION_EVENT: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_FEATURE_UM_EMULATION: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_OP_CANCEL: IORING_OP_CODE = IORING_OP_CODE(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_OP_FLUSH: IORING_OP_CODE = IORING_OP_CODE(6i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_OP_NOP: IORING_OP_CODE = IORING_OP_CODE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_OP_READ: IORING_OP_CODE = IORING_OP_CODE(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_OP_REGISTER_BUFFERS: IORING_OP_CODE = IORING_OP_CODE(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_OP_REGISTER_FILES: IORING_OP_CODE = IORING_OP_CODE(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_OP_WRITE: IORING_OP_CODE = IORING_OP_CODE(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_REF_RAW: IORING_REF_KIND = IORING_REF_KIND(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_REF_REGISTERED: IORING_REF_KIND = IORING_REF_KIND(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_VERSION_1: IORING_VERSION = IORING_VERSION(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_VERSION_2: IORING_VERSION = IORING_VERSION(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_VERSION_3: IORING_VERSION = IORING_VERSION(300i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IORING_VERSION_INVALID: IORING_VERSION = IORING_VERSION(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IOSQE_FLAGS_DRAIN_PRECEDING_OPS: IORING_SQE_FLAGS = IORING_SQE_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IOSQE_FLAGS_NONE: IORING_SQE_FLAGS = IORING_SQE_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IoPriorityHintLow: PRIORITY_HINT = PRIORITY_HINT(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IoPriorityHintNormal: PRIORITY_HINT = PRIORITY_HINT(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const IoPriorityHintVeryLow: PRIORITY_HINT = PRIORITY_HINT(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const KTM_MARSHAL_BLOB_VERSION_MAJOR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const KTM_MARSHAL_BLOB_VERSION_MINOR: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const LOCKFILE_EXCLUSIVE_LOCK: LOCK_FILE_FLAGS = LOCK_FILE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const LOCKFILE_FAIL_IMMEDIATELY: LOCK_FILE_FLAGS = LOCK_FILE_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const LOG_POLICY_OVERWRITE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -4730,31 +5300,317 @@ pub const MAX_SID_SIZE: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const MAX_TRANSACTION_DESCRIPTION_LENGTH: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const MOVEFILE_COPY_ALLOWED: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const MOVEFILE_CREATE_HARDLINK: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const MOVEFILE_DELAY_UNTIL_REBOOT: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const MOVEFILE_FAIL_IF_NOT_TRACKABLE: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const MOVEFILE_REPLACE_EXISTING: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const MOVEFILE_WRITE_THROUGH: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const MaximumFileIdType: FILE_ID_TYPE = FILE_ID_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const MaximumFileInfoByHandleClass: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(25i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const MaximumIoPriorityHintType: PRIORITY_HINT = PRIORITY_HINT(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMSMLI_MAXAPPDESCR: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMSMLI_MAXIDSIZE: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMSMLI_MAXTYPE: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_ALLOCATE_ERROR_IF_UNAVAILABLE: NtmsAllocateOptions = NtmsAllocateOptions(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_ALLOCATE_FROMSCRATCH: NtmsAllocationPolicy = NtmsAllocationPolicy(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_ALLOCATE_NEW: NtmsAllocateOptions = NtmsAllocateOptions(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_ALLOCATE_NEXT: NtmsAllocateOptions = NtmsAllocateOptions(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_APPLICATIONNAME_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_ASYNCOP_MOUNT: NtmsAsyncOperations = NtmsAsyncOperations(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_ASYNCSTATE_COMPLETE: NtmsAsyncStatus = NtmsAsyncStatus(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_ASYNCSTATE_INPROCESS: NtmsAsyncStatus = NtmsAsyncStatus(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_ASYNCSTATE_QUEUED: NtmsAsyncStatus = NtmsAsyncStatus(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_ASYNCSTATE_WAIT_OPERATOR: NtmsAsyncStatus = NtmsAsyncStatus(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_ASYNCSTATE_WAIT_RESOURCE: NtmsAsyncStatus = NtmsAsyncStatus(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_BARCODESTATE_OK: NtmsBarCodeState = NtmsBarCodeState(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_BARCODESTATE_UNREADABLE: NtmsBarCodeState = NtmsBarCodeState(2i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_BARCODE_LENGTH: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_CHANGER: NtmsObjectsTypes = NtmsObjectsTypes(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_CHANGER_TYPE: NtmsObjectsTypes = NtmsObjectsTypes(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_COMPUTER: NtmsObjectsTypes = NtmsObjectsTypes(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_COMPUTERNAME_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_CONTROL_ACCESS: NtmsAccessMask = NtmsAccessMask(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_CREATE_NEW: NtmsCreateOptions = NtmsCreateOptions(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_DEALLOCATE_TOSCRATCH: NtmsDeallocationPolicy = NtmsDeallocationPolicy(1i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DESCRIPTION_LENGTH: u32 = 127u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DEVICENAME_LENGTH: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_DISMOUNT_DEFERRED: NtmsDismountOptions = NtmsDismountOptions(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_DISMOUNT_IMMEDIATE: NtmsDismountOptions = NtmsDismountOptions(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_DOORSTATE_CLOSED: NtmsDoorState = NtmsDoorState(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_DOORSTATE_OPEN: NtmsDoorState = NtmsDoorState(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_DOORSTATE_UNKNOWN: NtmsDoorState = NtmsDoorState(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_DRIVE: NtmsObjectsTypes = NtmsObjectsTypes(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_DRIVESTATE_BEING_CLEANED: NtmsDriveState = NtmsDriveState(6i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_DRIVESTATE_DISMOUNTABLE: NtmsDriveState = NtmsDriveState(7i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_DRIVESTATE_DISMOUNTED: NtmsDriveState = NtmsDriveState(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_DRIVESTATE_LOADED: NtmsDriveState = NtmsDriveState(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_DRIVESTATE_MOUNTED: NtmsDriveState = NtmsDriveState(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_DRIVESTATE_UNLOADED: NtmsDriveState = NtmsDriveState(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_DRIVE_TYPE: NtmsObjectsTypes = NtmsObjectsTypes(6i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_EJECT_ASK_USER: NtmsEjectOperation = NtmsEjectOperation(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_EJECT_FORCE: NtmsEjectOperation = NtmsEjectOperation(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_EJECT_IMMEDIATE: NtmsEjectOperation = NtmsEjectOperation(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_EJECT_QUEUE: NtmsEjectOperation = NtmsEjectOperation(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_EJECT_START: NtmsEjectOperation = NtmsEjectOperation(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_EJECT_STOP: NtmsEjectOperation = NtmsEjectOperation(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_ENUM_DEFAULT: NtmsEnumerateOption = NtmsEnumerateOption(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_ENUM_ROOTPOOL: NtmsEnumerateOption = NtmsEnumerateOption(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_ERROR_ON_DUPLICATE: NtmsCreateNtmsMediaOptions = NtmsCreateNtmsMediaOptions(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_EVENT_COMPLETE: NtmsNotificationOperations = NtmsNotificationOperations(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_EVENT_SIGNAL: NtmsNotificationOperations = NtmsNotificationOperations(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_I1_MESSAGE_LENGTH: u32 = 127u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_IEDOOR: NtmsObjectsTypes = NtmsObjectsTypes(7i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_IEPORT: NtmsObjectsTypes = NtmsObjectsTypes(8i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_INITIALIZING: NtmsOperationalState = NtmsOperationalState(10i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_INJECT_RETRACT: NtmsInjectOperation = NtmsInjectOperation(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_INJECT_START: NtmsInjectOperation = NtmsInjectOperation(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_INJECT_STARTMANY: NtmsInjectOperation = NtmsInjectOperation(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_INJECT_STOP: NtmsInjectOperation = NtmsInjectOperation(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_INVENTORY_DEFAULT: NtmsInventoryMethod = NtmsInventoryMethod(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_INVENTORY_FAST: NtmsInventoryMethod = NtmsInventoryMethod(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_INVENTORY_MAX: NtmsInventoryMethod = NtmsInventoryMethod(6i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_INVENTORY_NONE: NtmsInventoryMethod = NtmsInventoryMethod(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_INVENTORY_OMID: NtmsInventoryMethod = NtmsInventoryMethod(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_INVENTORY_SLOT: NtmsInventoryMethod = NtmsInventoryMethod(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_INVENTORY_STOP: NtmsInventoryMethod = NtmsInventoryMethod(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LIBRARY: NtmsObjectsTypes = NtmsObjectsTypes(9i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LIBRARYFLAG_AUTODETECTCHANGE: NtmsLibraryFlags = NtmsLibraryFlags(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LIBRARYFLAG_CLEANERPRESENT: NtmsLibraryFlags = NtmsLibraryFlags(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LIBRARYFLAG_FIXEDOFFLINE: NtmsLibraryFlags = NtmsLibraryFlags(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LIBRARYFLAG_IGNORECLEANERUSESREMAINING: NtmsLibraryFlags = NtmsLibraryFlags(8i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LIBRARYFLAG_RECOGNIZECLEANERBARCODE: NtmsLibraryFlags = NtmsLibraryFlags(16i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LIBRARYTYPE_OFFLINE: NtmsLibraryType = NtmsLibraryType(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LIBRARYTYPE_ONLINE: NtmsLibraryType = NtmsLibraryType(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LIBRARYTYPE_STANDALONE: NtmsLibraryType = NtmsLibraryType(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LIBRARYTYPE_UNKNOWN: NtmsLibraryType = NtmsLibraryType(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LIBREQFLAGS_NOAUTOPURGE: NtmsLibRequestFlags = NtmsLibRequestFlags(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LIBREQFLAGS_NOFAILEDPURGE: NtmsLibRequestFlags = NtmsLibRequestFlags(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LIBREQUEST: NtmsObjectsTypes = NtmsObjectsTypes(10i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_CANCELLED: NtmsLmState = NtmsLmState(7i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_CLASSIFY: NtmsLmOperation = NtmsLmOperation(19i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_CLEANDRIVE: NtmsLmOperation = NtmsLmOperation(15i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_DEFERRED: NtmsLmState = NtmsLmState(6i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_DEFFERED: NtmsLmState = NtmsLmState(6i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_DISABLECHANGER: NtmsLmOperation = NtmsLmOperation(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_DISABLEDRIVE: NtmsLmOperation = NtmsLmOperation(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_DISABLELIBRARY: NtmsLmOperation = NtmsLmOperation(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_DISABLEMEDIA: NtmsLmOperation = NtmsLmOperation(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_DISMOUNT: NtmsLmOperation = NtmsLmOperation(16i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_DOORACCESS: NtmsLmOperation = NtmsLmOperation(9i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_EJECT: NtmsLmOperation = NtmsLmOperation(10i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_EJECTCLEANER: NtmsLmOperation = NtmsLmOperation(11i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_ENABLECHANGER: NtmsLmOperation = NtmsLmOperation(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_ENABLEDRIVE: NtmsLmOperation = NtmsLmOperation(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_ENABLELIBRARY: NtmsLmOperation = NtmsLmOperation(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_ENABLEMEDIA: NtmsLmOperation = NtmsLmOperation(6i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_FAILED: NtmsLmState = NtmsLmState(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_INJECT: NtmsLmOperation = NtmsLmOperation(12i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_INJECTCLEANER: NtmsLmOperation = NtmsLmOperation(13i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_INPROCESS: NtmsLmState = NtmsLmState(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_INVALID: NtmsLmState = NtmsLmState(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_INVENTORY: NtmsLmOperation = NtmsLmOperation(8i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_MAXWORKITEM: NtmsLmOperation = NtmsLmOperation(22i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_MOUNT: NtmsLmOperation = NtmsLmOperation(17i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_PASSED: NtmsLmState = NtmsLmState(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_PROCESSOMID: NtmsLmOperation = NtmsLmOperation(14i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_QUEUED: NtmsLmState = NtmsLmState(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_RELEASECLEANER: NtmsLmOperation = NtmsLmOperation(21i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_REMOVE: NtmsLmOperation = NtmsLmOperation(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_RESERVECLEANER: NtmsLmOperation = NtmsLmOperation(20i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_STOPPED: NtmsLmState = NtmsLmState(8i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_UPDATEOMID: NtmsLmOperation = NtmsLmOperation(7i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_WAITING: NtmsLmState = NtmsLmState(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LM_WRITESCRATCH: NtmsLmOperation = NtmsLmOperation(18i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_LOGICAL_MEDIA: NtmsObjectsTypes = NtmsObjectsTypes(11i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MAXATTR_LENGTH: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MAXATTR_NAMELEN: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MEDIARW_READONLY: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MEDIARW_REWRITABLE: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MEDIARW_UNKNOWN: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MEDIARW_WRITEONCE: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MEDIASTATE_IDLE: NtmsMediaState = NtmsMediaState(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MEDIASTATE_INUSE: NtmsMediaState = NtmsMediaState(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MEDIASTATE_LOADED: NtmsMediaState = NtmsMediaState(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MEDIASTATE_MOUNTED: NtmsMediaState = NtmsMediaState(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MEDIASTATE_OPERROR: NtmsMediaState = NtmsMediaState(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MEDIASTATE_OPREQ: NtmsMediaState = NtmsMediaState(6i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MEDIASTATE_UNLOADED: NtmsMediaState = NtmsMediaState(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MEDIA_POOL: NtmsObjectsTypes = NtmsObjectsTypes(12i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MEDIA_TYPE: NtmsObjectsTypes = NtmsObjectsTypes(13i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MESSAGE_LENGTH: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MODIFY_ACCESS: NtmsAccessMask = NtmsAccessMask(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MOUNT_ERROR_IF_OFFLINE: NtmsMountOptions = NtmsMountOptions(8i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MOUNT_ERROR_IF_UNAVAILABLE: NtmsMountOptions = NtmsMountOptions(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MOUNT_ERROR_NOT_AVAILABLE: NtmsMountOptions = NtmsMountOptions(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MOUNT_ERROR_OFFLINE: NtmsMountOptions = NtmsMountOptions(8i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MOUNT_NOWAIT: NtmsMountOptions = NtmsMountOptions(32i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MOUNT_READ: NtmsMountOptions = NtmsMountOptions(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MOUNT_SPECIFIC_DRIVE: NtmsMountOptions = NtmsMountOptions(16i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_MOUNT_WRITE: NtmsMountOptions = NtmsMountOptions(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_NEEDS_SERVICE: NtmsOperationalState = NtmsOperationalState(20i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_NOT_PRESENT: NtmsOperationalState = NtmsOperationalState(21i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_NUMBER_OF_OBJECT_TYPES: NtmsObjectsTypes = NtmsObjectsTypes(19i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OBJECT: NtmsObjectsTypes = NtmsObjectsTypes(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OBJECTNAME_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OBJ_DELETE: NtmsNotificationOperations = NtmsNotificationOperations(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OBJ_INSERT: NtmsNotificationOperations = NtmsNotificationOperations(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OBJ_UPDATE: NtmsNotificationOperations = NtmsNotificationOperations(1i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OMIDLABELID_LENGTH: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -4762,9 +5618,115 @@ pub const NTMS_OMIDLABELINFO_LENGTH: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OMIDLABELTYPE_LENGTH: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OMID_TYPE_FILESYSTEM_INFO: NTMS_OMID_TYPE = NTMS_OMID_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OMID_TYPE_RAW_LABEL: NTMS_OMID_TYPE = NTMS_OMID_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OPEN_ALWAYS: NtmsCreateOptions = NtmsCreateOptions(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OPEN_EXISTING: NtmsCreateOptions = NtmsCreateOptions(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OPREQFLAGS_NOALERTS: NtmsOpRequestFlags = NtmsOpRequestFlags(16i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OPREQFLAGS_NOAUTOPURGE: NtmsOpRequestFlags = NtmsOpRequestFlags(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OPREQFLAGS_NOFAILEDPURGE: NtmsOpRequestFlags = NtmsOpRequestFlags(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OPREQFLAGS_NOTRAYICON: NtmsOpRequestFlags = NtmsOpRequestFlags(32i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OPREQUEST: NtmsObjectsTypes = NtmsObjectsTypes(17i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OPREQ_CLEANER: NtmsOpreqCommand = NtmsOpreqCommand(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OPREQ_DEVICESERVICE: NtmsOpreqCommand = NtmsOpreqCommand(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OPREQ_MESSAGE: NtmsOpreqCommand = NtmsOpreqCommand(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OPREQ_MOVEMEDIA: NtmsOpreqCommand = NtmsOpreqCommand(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OPREQ_NEWMEDIA: NtmsOpreqCommand = NtmsOpreqCommand(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OPREQ_UNKNOWN: NtmsOpreqCommand = NtmsOpreqCommand(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OPSTATE_ACTIVE: NtmsOpreqState = NtmsOpreqState(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OPSTATE_COMPLETE: NtmsOpreqState = NtmsOpreqState(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OPSTATE_INPROGRESS: NtmsOpreqState = NtmsOpreqState(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OPSTATE_REFUSED: NtmsOpreqState = NtmsOpreqState(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OPSTATE_SUBMITTED: NtmsOpreqState = NtmsOpreqState(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_OPSTATE_UNKNOWN: NtmsOpreqState = NtmsOpreqState(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PARTITION: NtmsObjectsTypes = NtmsObjectsTypes(14i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PARTSTATE_ALLOCATED: NtmsPartitionState = NtmsPartitionState(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PARTSTATE_AVAILABLE: NtmsPartitionState = NtmsPartitionState(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PARTSTATE_COMPLETE: NtmsPartitionState = NtmsPartitionState(6i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PARTSTATE_DECOMMISSIONED: NtmsPartitionState = NtmsPartitionState(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PARTSTATE_FOREIGN: NtmsPartitionState = NtmsPartitionState(7i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PARTSTATE_IMPORT: NtmsPartitionState = NtmsPartitionState(8i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PARTSTATE_INCOMPATIBLE: NtmsPartitionState = NtmsPartitionState(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PARTSTATE_RESERVED: NtmsPartitionState = NtmsPartitionState(9i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PARTSTATE_UNKNOWN: NtmsPartitionState = NtmsPartitionState(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PARTSTATE_UNPREPARED: NtmsPartitionState = NtmsPartitionState(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PHYSICAL_MEDIA: NtmsObjectsTypes = NtmsObjectsTypes(15i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_POOLHIERARCHY_LENGTH: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_POOLPOLICY_KEEPOFFLINEIMPORT: NtmsMediaPoolPolicy = NtmsMediaPoolPolicy(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_POOLPOLICY_PURGEOFFLINESCRATCH: NtmsMediaPoolPolicy = NtmsMediaPoolPolicy(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_POOLTYPE_APPLICATION: NtmsPoolType = NtmsPoolType(1000i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_POOLTYPE_FOREIGN: NtmsPoolType = NtmsPoolType(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_POOLTYPE_IMPORT: NtmsPoolType = NtmsPoolType(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_POOLTYPE_SCRATCH: NtmsPoolType = NtmsPoolType(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_POOLTYPE_UNKNOWN: NtmsPoolType = NtmsPoolType(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PORTCONTENT_EMPTY: NtmsPortContent = NtmsPortContent(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PORTCONTENT_FULL: NtmsPortContent = NtmsPortContent(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PORTCONTENT_UNKNOWN: NtmsPortContent = NtmsPortContent(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PORTPOSITION_EXTENDED: NtmsPortPosition = NtmsPortPosition(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PORTPOSITION_RETRACTED: NtmsPortPosition = NtmsPortPosition(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PORTPOSITION_UNKNOWN: NtmsPortPosition = NtmsPortPosition(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PRIORITY_DEFAULT: NtmsMountPriority = NtmsMountPriority(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PRIORITY_HIGH: NtmsMountPriority = NtmsMountPriority(7i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PRIORITY_HIGHEST: NtmsMountPriority = NtmsMountPriority(15i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PRIORITY_LOW: NtmsMountPriority = NtmsMountPriority(-7i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PRIORITY_LOWEST: NtmsMountPriority = NtmsMountPriority(-15i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_PRIORITY_NORMAL: NtmsMountPriority = NtmsMountPriority(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PRODUCTNAME_LENGTH: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_READY: NtmsOperationalState = NtmsOperationalState(0i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_REVISION_LENGTH: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -4772,9 +5734,87 @@ pub const NTMS_SEQUENCE_LENGTH: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_SERIALNUMBER_LENGTH: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_SESSION_QUERYEXPEDITE: NtmsSessionOptions = NtmsSessionOptions(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_SLOTSTATE_EMPTY: NtmsSlotState = NtmsSlotState(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_SLOTSTATE_FULL: NtmsSlotState = NtmsSlotState(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_SLOTSTATE_NEEDSINVENTORY: NtmsSlotState = NtmsSlotState(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_SLOTSTATE_NOTPRESENT: NtmsSlotState = NtmsSlotState(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_SLOTSTATE_UNKNOWN: NtmsSlotState = NtmsSlotState(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_STORAGESLOT: NtmsObjectsTypes = NtmsObjectsTypes(16i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_UIDEST_ADD: NtmsUIOperations = NtmsUIOperations(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_UIDEST_DELETE: NtmsUIOperations = NtmsUIOperations(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_UIDEST_DELETEALL: NtmsUIOperations = NtmsUIOperations(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_UIOPERATION_MAX: NtmsUIOperations = NtmsUIOperations(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_UITYPE_ERR: NtmsUITypes = NtmsUITypes(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_UITYPE_INFO: NtmsUITypes = NtmsUITypes(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_UITYPE_INVALID: NtmsUITypes = NtmsUITypes(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_UITYPE_MAX: NtmsUITypes = NtmsUITypes(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_UITYPE_REQ: NtmsUITypes = NtmsUITypes(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_UI_DESTINATION: NtmsObjectsTypes = NtmsObjectsTypes(18i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_UNKNOWN: NtmsObjectsTypes = NtmsObjectsTypes(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_UNKNOWN_DRIVE: NtmsDriveType = NtmsDriveType(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_USERNAME_LENGTH: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const NTMS_USE_ACCESS: NtmsAccessMask = NtmsAccessMask(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_VENDORNAME_LENGTH: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const OF_CANCEL: LZOPENFILE_STYLE = LZOPENFILE_STYLE(2048u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const OF_CREATE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(4096u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const OF_DELETE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(512u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const OF_EXIST: LZOPENFILE_STYLE = LZOPENFILE_STYLE(16384u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const OF_PARSE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(256u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const OF_PROMPT: LZOPENFILE_STYLE = LZOPENFILE_STYLE(8192u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const OF_READ: LZOPENFILE_STYLE = LZOPENFILE_STYLE(0u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const OF_READWRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(2u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const OF_REOPEN: LZOPENFILE_STYLE = LZOPENFILE_STYLE(32768u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const OF_SHARE_COMPAT: LZOPENFILE_STYLE = LZOPENFILE_STYLE(0u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const OF_SHARE_DENY_NONE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(64u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const OF_SHARE_DENY_READ: LZOPENFILE_STYLE = LZOPENFILE_STYLE(48u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const OF_SHARE_DENY_WRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(32u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const OF_SHARE_EXCLUSIVE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(16u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const OF_VERIFY: LZOPENFILE_STYLE = LZOPENFILE_STYLE(1024u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const OF_WRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(1u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const OPEN_ALWAYS: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const OPEN_EXISTING: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(3u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ObjectIdType: FILE_ID_TYPE = FILE_ID_TYPE(1i32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const PARTITION_BASIC_DATA_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xebd0a0a2_b9e5_4433_87c0_68b6b72699c7);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -4830,6 +5870,28 @@ pub const PARTITION_SYSTEM_GUID: ::windows_core::GUID = ::windows_core::GUID::fr
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const PARTITION_WINDOWS_SYSTEM_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x57434f53_e3e3_4631_a5c5_26d2243873aa);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const PERM_FILE_CREATE: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const PERM_FILE_READ: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const PERM_FILE_WRITE: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const PIPE_ACCESS_DUPLEX: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(3u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const PIPE_ACCESS_INBOUND: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const PIPE_ACCESS_OUTBOUND: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const QUIC: SERVER_CERTIFICATE_TYPE = SERVER_CERTIFICATE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const READ_CONTROL: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(131072u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const REPLACEFILE_IGNORE_ACL_ERRORS: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const REPLACEFILE_IGNORE_MERGE_ERRORS: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const REPLACEFILE_WRITE_THROUGH: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const RESOURCE_MANAGER_COMMUNICATION: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const RESOURCE_MANAGER_MAXIMUM_OPTION: u32 = 3u32;
@@ -4838,9 +5900,41 @@ pub const RESOURCE_MANAGER_OBJECT_PATH: ::windows_core::PCWSTR = ::windows_core:
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const RESOURCE_MANAGER_VOLATILE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ReadDirectoryNotifyExtendedInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ReadDirectoryNotifyFullInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ReadDirectoryNotifyInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const ReadDirectoryNotifyMaximumInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const SECURITY_ANONYMOUS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const SECURITY_CONTEXT_TRACKING: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(262144u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const SECURITY_DELEGATION: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(196608u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const SECURITY_EFFECTIVE_ONLY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(524288u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const SECURITY_IDENTIFICATION: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(65536u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const SECURITY_IMPERSONATION: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(131072u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const SECURITY_SQOS_PRESENT: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1048576u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const SECURITY_VALID_SQOS_FLAGS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2031616u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SESI1_NUM_ELEMENTS: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SESI2_NUM_ELEMENTS: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const SESS_GUEST: SESSION_INFO_USER_FLAGS = SESSION_INFO_USER_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const SESS_NOENCRYPTION: SESSION_INFO_USER_FLAGS = SESSION_INFO_USER_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const SET_TAPE_DRIVE_INFORMATION: TAPE_INFORMATION_TYPE = TAPE_INFORMATION_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const SET_TAPE_MEDIA_INFORMATION: TAPE_INFORMATION_TYPE = TAPE_INFORMATION_TYPE(0u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHARE_CURRENT_USES_PARMNUM: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -4904,7 +5998,29 @@ pub const SHI2_NUM_ELEMENTS: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI_USES_UNLIMITED: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const SPECIFIC_RIGHTS_ALL: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(65535u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const STANDARD_RIGHTS_ALL: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(2031616u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const STANDARD_RIGHTS_EXECUTE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(131072u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const STANDARD_RIGHTS_READ: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(131072u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const STANDARD_RIGHTS_REQUIRED: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(983040u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const STANDARD_RIGHTS_WRITE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(131072u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STATSOPT_CLR: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const STYPE_DEVICE: SHARE_TYPE = SHARE_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const STYPE_DISKTREE: SHARE_TYPE = SHARE_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const STYPE_IPC: SHARE_TYPE = SHARE_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const STYPE_MASK: SHARE_TYPE = SHARE_TYPE(255u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const STYPE_PRINTQ: SHARE_TYPE = SHARE_TYPE(1u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STYPE_RESERVED1: u32 = 16777216u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -4917,6 +6033,68 @@ pub const STYPE_RESERVED4: u32 = 134217728u32;
 pub const STYPE_RESERVED5: u32 = 1048576u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STYPE_RESERVED_ALL: u32 = 1073741568u32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const STYPE_SPECIAL: SHARE_TYPE = SHARE_TYPE(2147483648u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const STYPE_TEMPORARY: SHARE_TYPE = SHARE_TYPE(1073741824u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const SYMBOLIC_LINK_FLAG_ALLOW_UNPRIVILEGED_CREATE: SYMBOLIC_LINK_FLAGS = SYMBOLIC_LINK_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const SYMBOLIC_LINK_FLAG_DIRECTORY: SYMBOLIC_LINK_FLAGS = SYMBOLIC_LINK_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const SYNCHRONIZE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1048576u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_ABSOLUTE_BLOCK: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_ABSOLUTE_POSITION: TAPE_POSITION_TYPE = TAPE_POSITION_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_ERASE_LONG: ERASE_TAPE_TYPE = ERASE_TAPE_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_ERASE_SHORT: ERASE_TAPE_TYPE = ERASE_TAPE_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_FIXED_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_FORMAT: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(5u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_INITIATOR_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_LOAD: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_LOCK: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(3u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_LOGICAL_BLOCK: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_LOGICAL_POSITION: TAPE_POSITION_TYPE = TAPE_POSITION_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_LONG_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_REWIND: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_SELECT_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_SETMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_SHORT_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_SPACE_END_OF_DATA: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_SPACE_FILEMARKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(6u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_SPACE_RELATIVE_BLOCKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(5u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_SPACE_SEQUENTIAL_FMKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(7u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_SPACE_SEQUENTIAL_SMKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(9u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_SPACE_SETMARKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(8u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_TENSION: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_UNLOAD: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TAPE_UNLOCK: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(4u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTIONMANAGER_OBJECT_PATH: ::windows_core::PCWSTR = ::windows_core::w!("\\TransactionManager\\");
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -4998,6 +6176,14 @@ pub const TRANSACTION_NOTIFY_TM_ONLINE: u32 = 33554432u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_OBJECT_PATH: ::windows_core::PCWSTR = ::windows_core::w!("\\Transaction\\");
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TRUNCATE_EXISTING: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(5u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TXFS_MINIVERSION_COMMITTED_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TXFS_MINIVERSION_DEFAULT_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(65534u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TXFS_MINIVERSION_DIRTY_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(65535u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TXF_LOG_RECORD_GENERIC_TYPE_ABORT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TXF_LOG_RECORD_GENERIC_TYPE_COMMIT: u32 = 1u32;
@@ -5006,11 +6192,175 @@ pub const TXF_LOG_RECORD_GENERIC_TYPE_DATA: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TXF_LOG_RECORD_GENERIC_TYPE_PREPARE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TXF_LOG_RECORD_TYPE_AFFECTED_FILE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(4u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TXF_LOG_RECORD_TYPE_TRUNCATE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(2u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TXF_LOG_RECORD_TYPE_WRITE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(1u16);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TransactionOutcomeAborted: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TransactionOutcomeCommitted: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const TransactionOutcomeUndetermined: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFFF_ISSHAREDFILE: VER_FIND_FILE_FLAGS = VER_FIND_FILE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFF_BUFFTOOSMALL: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFF_CURNEDEST: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFF_FILEINUSE: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT2_DRV_COMM: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(10i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT2_DRV_DISPLAY: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT2_DRV_INPUTMETHOD: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(11i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT2_DRV_INSTALLABLE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(8i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT2_DRV_KEYBOARD: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT2_DRV_LANGUAGE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT2_DRV_MOUSE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT2_DRV_NETWORK: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(6i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT2_DRV_PRINTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT2_DRV_SOUND: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(9i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT2_DRV_SYSTEM: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(7i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT2_DRV_VERSIONED_PRINTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(12i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT2_FONT_RASTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT2_FONT_TRUETYPE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT2_FONT_VECTOR: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT2_UNKNOWN: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT_APP: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT_DLL: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT_DRV: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT_FONT: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT_STATIC_LIB: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT_UNKNOWN: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VFT_VXD: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIFF_DONTDELETEOLD: VER_INSTALL_FILE_FLAGS = VER_INSTALL_FILE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIFF_FORCEINSTALL: VER_INSTALL_FILE_FLAGS = VER_INSTALL_FILE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIF_ACCESSVIOLATION: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(512u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIF_BUFFTOOSMALL: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(262144u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIF_CANNOTCREATE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(2048u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIF_CANNOTDELETE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(4096u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIF_CANNOTDELETECUR: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(16384u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIF_CANNOTLOADCABINET: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1048576u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIF_CANNOTLOADLZ32: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(524288u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIF_CANNOTREADDST: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(131072u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIF_CANNOTREADSRC: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(65536u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIF_CANNOTRENAME: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(8192u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIF_DIFFCODEPG: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(16u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIF_DIFFLANG: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(8u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIF_DIFFTYPE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(32u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIF_FILEINUSE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(128u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIF_MISMATCH: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIF_OUTOFMEMORY: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(32768u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIF_OUTOFSPACE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(256u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIF_SHARINGVIOLATION: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1024u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIF_SRCOLD: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIF_TEMPFILE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VIF_WRITEPROT: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(64u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOLUME_NAME_DOS: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOLUME_NAME_GUID: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOLUME_NAME_NONE: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOLUME_NAME_NT: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOS_DOS: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(65536u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOS_DOS_WINDOWS16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(65537u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOS_DOS_WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(65540u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOS_NT: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(262144u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOS_NT_WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(262148u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOS_OS216: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(131072u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOS_OS216_PM16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(131074u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOS_OS232: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(196608u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOS_OS232_PM32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(196611u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOS_UNKNOWN: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOS_WINCE: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(327680u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOS__BASE: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(0u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOS__PM16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOS__PM32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(3u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOS__WINDOWS16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VOS__WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VS_FFI_FILEFLAGSMASK: i32 = 63i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VS_FFI_SIGNATURE: i32 = -17890115i32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VS_FFI_STRUCVERSION: i32 = 65536i32;
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VS_FF_DEBUG: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VS_FF_INFOINFERRED: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VS_FF_PATCHED: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VS_FF_PRERELEASE: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VS_FF_PRIVATEBUILD: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const VS_FF_SPECIALBUILD: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(32u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VS_USER_DEFINED: u32 = 100u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -5036,19 +6386,15 @@ pub const WOF_PROVIDER_FILE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const WOF_PROVIDER_WIM: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const WRITE_DAC: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(262144u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const WRITE_OWNER: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(524288u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const _FT_TYPES_DEFINITION_: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLFS_CONTEXT_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsContextNone: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsContextUndoNext: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsContextPrevious: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsContextForward: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(3i32);
 impl ::core::marker::Copy for CLFS_CONTEXT_MODE {}
 impl ::core::clone::Clone for CLFS_CONTEXT_MODE {
     fn clone(&self) -> Self {
@@ -5072,14 +6418,6 @@ impl ::core::fmt::Debug for CLFS_CONTEXT_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLFS_FLAG(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const CLFS_FLAG_FORCE_APPEND: CLFS_FLAG = CLFS_FLAG(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const CLFS_FLAG_FORCE_FLUSH: CLFS_FLAG = CLFS_FLAG(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const CLFS_FLAG_NO_FLAGS: CLFS_FLAG = CLFS_FLAG(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const CLFS_FLAG_USE_RESERVATION: CLFS_FLAG = CLFS_FLAG(4u32);
 impl ::core::marker::Copy for CLFS_FLAG {}
 impl ::core::clone::Clone for CLFS_FLAG {
     fn clone(&self) -> Self {
@@ -5136,10 +6474,6 @@ impl ::core::ops::Not for CLFS_FLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLFS_IOSTATS_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsIoStatsDefault: CLFS_IOSTATS_CLASS = CLFS_IOSTATS_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsIoStatsMax: CLFS_IOSTATS_CLASS = CLFS_IOSTATS_CLASS(65535i32);
 impl ::core::marker::Copy for CLFS_IOSTATS_CLASS {}
 impl ::core::clone::Clone for CLFS_IOSTATS_CLASS {
     fn clone(&self) -> Self {
@@ -5163,10 +6497,6 @@ impl ::core::fmt::Debug for CLFS_IOSTATS_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLFS_LOG_ARCHIVE_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsLogArchiveEnabled: CLFS_LOG_ARCHIVE_MODE = CLFS_LOG_ARCHIVE_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsLogArchiveDisabled: CLFS_LOG_ARCHIVE_MODE = CLFS_LOG_ARCHIVE_MODE(2i32);
 impl ::core::marker::Copy for CLFS_LOG_ARCHIVE_MODE {}
 impl ::core::clone::Clone for CLFS_LOG_ARCHIVE_MODE {
     fn clone(&self) -> Self {
@@ -5190,14 +6520,6 @@ impl ::core::fmt::Debug for CLFS_LOG_ARCHIVE_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLFS_MGMT_NOTIFICATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsMgmtAdvanceTailNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsMgmtLogFullHandlerNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsMgmtLogUnpinnedNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsMgmtLogWriteNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(3i32);
 impl ::core::marker::Copy for CLFS_MGMT_NOTIFICATION_TYPE {}
 impl ::core::clone::Clone for CLFS_MGMT_NOTIFICATION_TYPE {
     fn clone(&self) -> Self {
@@ -5221,28 +6543,6 @@ impl ::core::fmt::Debug for CLFS_MGMT_NOTIFICATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLFS_MGMT_POLICY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsMgmtPolicyMaximumSize: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsMgmtPolicyMinimumSize: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsMgmtPolicyNewContainerSize: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsMgmtPolicyGrowthRate: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsMgmtPolicyLogTail: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsMgmtPolicyAutoShrink: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsMgmtPolicyAutoGrow: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsMgmtPolicyNewContainerPrefix: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsMgmtPolicyNewContainerSuffix: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsMgmtPolicyNewContainerExtension: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsMgmtPolicyInvalid: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(10i32);
 impl ::core::marker::Copy for CLFS_MGMT_POLICY_TYPE {}
 impl ::core::clone::Clone for CLFS_MGMT_POLICY_TYPE {
     fn clone(&self) -> Self {
@@ -5266,14 +6566,6 @@ impl ::core::fmt::Debug for CLFS_MGMT_POLICY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLS_CONTEXT_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClsContextNone: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClsContextUndoNext: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClsContextPrevious: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClsContextForward: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(3i32);
 impl ::core::marker::Copy for CLS_CONTEXT_MODE {}
 impl ::core::clone::Clone for CLS_CONTEXT_MODE {
     fn clone(&self) -> Self {
@@ -5297,10 +6589,6 @@ impl ::core::fmt::Debug for CLS_CONTEXT_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLS_IOSTATS_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClsIoStatsDefault: CLS_IOSTATS_CLASS = CLS_IOSTATS_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClsIoStatsMax: CLS_IOSTATS_CLASS = CLS_IOSTATS_CLASS(65535i32);
 impl ::core::marker::Copy for CLS_IOSTATS_CLASS {}
 impl ::core::clone::Clone for CLS_IOSTATS_CLASS {
     fn clone(&self) -> Self {
@@ -5324,18 +6612,6 @@ impl ::core::fmt::Debug for CLS_IOSTATS_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLS_LOG_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsLogBasicInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsLogBasicInformationPhysical: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsLogPhysicalNameInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsLogStreamIdentifierInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsLogSystemMarkingInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ClfsLogPhysicalLsnInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(5i32);
 impl ::core::marker::Copy for CLS_LOG_INFORMATION_CLASS {}
 impl ::core::clone::Clone for CLS_LOG_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -5359,18 +6635,6 @@ impl ::core::fmt::Debug for CLS_LOG_INFORMATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMPRESSION_FORMAT(pub u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COMPRESSION_FORMAT_NONE: COMPRESSION_FORMAT = COMPRESSION_FORMAT(0u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COMPRESSION_FORMAT_DEFAULT: COMPRESSION_FORMAT = COMPRESSION_FORMAT(1u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COMPRESSION_FORMAT_LZNT1: COMPRESSION_FORMAT = COMPRESSION_FORMAT(2u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COMPRESSION_FORMAT_XPRESS: COMPRESSION_FORMAT = COMPRESSION_FORMAT(3u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COMPRESSION_FORMAT_XPRESS_HUFF: COMPRESSION_FORMAT = COMPRESSION_FORMAT(4u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COMPRESSION_FORMAT_XP10: COMPRESSION_FORMAT = COMPRESSION_FORMAT(5u16);
 impl ::core::marker::Copy for COMPRESSION_FORMAT {}
 impl ::core::clone::Clone for COMPRESSION_FORMAT {
     fn clone(&self) -> Self {
@@ -5394,22 +6658,6 @@ impl ::core::fmt::Debug for COMPRESSION_FORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPYFILE2_COPY_PHASE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COPYFILE2_PHASE_NONE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COPYFILE2_PHASE_PREPARE_SOURCE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COPYFILE2_PHASE_PREPARE_DEST: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COPYFILE2_PHASE_READ_SOURCE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COPYFILE2_PHASE_WRITE_DESTINATION: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COPYFILE2_PHASE_SERVER_COPY: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COPYFILE2_PHASE_NAMEGRAFT_COPY: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COPYFILE2_PHASE_MAX: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(7i32);
 impl ::core::marker::Copy for COPYFILE2_COPY_PHASE {}
 impl ::core::clone::Clone for COPYFILE2_COPY_PHASE {
     fn clone(&self) -> Self {
@@ -5433,16 +6681,6 @@ impl ::core::fmt::Debug for COPYFILE2_COPY_PHASE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPYFILE2_MESSAGE_ACTION(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COPYFILE2_PROGRESS_CONTINUE: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COPYFILE2_PROGRESS_CANCEL: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COPYFILE2_PROGRESS_STOP: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COPYFILE2_PROGRESS_QUIET: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COPYFILE2_PROGRESS_PAUSE: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(4i32);
 impl ::core::marker::Copy for COPYFILE2_MESSAGE_ACTION {}
 impl ::core::clone::Clone for COPYFILE2_MESSAGE_ACTION {
     fn clone(&self) -> Self {
@@ -5466,22 +6704,6 @@ impl ::core::fmt::Debug for COPYFILE2_MESSAGE_ACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPYFILE2_MESSAGE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COPYFILE2_CALLBACK_NONE: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COPYFILE2_CALLBACK_CHUNK_STARTED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COPYFILE2_CALLBACK_CHUNK_FINISHED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COPYFILE2_CALLBACK_STREAM_STARTED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COPYFILE2_CALLBACK_STREAM_FINISHED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COPYFILE2_CALLBACK_POLL_CONTINUE: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COPYFILE2_CALLBACK_ERROR: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const COPYFILE2_CALLBACK_MAX: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(7i32);
 impl ::core::marker::Copy for COPYFILE2_MESSAGE_TYPE {}
 impl ::core::clone::Clone for COPYFILE2_MESSAGE_TYPE {
     fn clone(&self) -> Self {
@@ -5505,12 +6727,6 @@ impl ::core::fmt::Debug for COPYFILE2_MESSAGE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATE_TAPE_PARTITION_METHOD(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_FIXED_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_INITIATOR_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_SELECT_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(1u32);
 impl ::core::marker::Copy for CREATE_TAPE_PARTITION_METHOD {}
 impl ::core::clone::Clone for CREATE_TAPE_PARTITION_METHOD {
     fn clone(&self) -> Self {
@@ -5534,16 +6750,6 @@ impl ::core::fmt::Debug for CREATE_TAPE_PARTITION_METHOD {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEFINE_DOS_DEVICE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const DDD_RAW_TARGET_PATH: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const DDD_REMOVE_DEFINITION: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const DDD_EXACT_MATCH_ON_REMOVE: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const DDD_NO_BROADCAST_SYSTEM: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const DDD_LUID_BROADCAST_DRIVE: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(16u32);
 impl ::core::marker::Copy for DEFINE_DOS_DEVICE_FLAGS {}
 impl ::core::clone::Clone for DEFINE_DOS_DEVICE_FLAGS {
     fn clone(&self) -> Self {
@@ -5600,12 +6806,6 @@ impl ::core::ops::Not for DEFINE_DOS_DEVICE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISKQUOTA_USERNAME_RESOLVE(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const DISKQUOTA_USERNAME_RESOLVE_ASYNC: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const DISKQUOTA_USERNAME_RESOLVE_NONE: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const DISKQUOTA_USERNAME_RESOLVE_SYNC: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(1u32);
 impl ::core::marker::Copy for DISKQUOTA_USERNAME_RESOLVE {}
 impl ::core::clone::Clone for DISKQUOTA_USERNAME_RESOLVE {
     fn clone(&self) -> Self {
@@ -5629,10 +6829,6 @@ impl ::core::fmt::Debug for DISKQUOTA_USERNAME_RESOLVE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ERASE_TAPE_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_ERASE_LONG: ERASE_TAPE_TYPE = ERASE_TAPE_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_ERASE_SHORT: ERASE_TAPE_TYPE = ERASE_TAPE_TYPE(0u32);
 impl ::core::marker::Copy for ERASE_TAPE_TYPE {}
 impl ::core::clone::Clone for ERASE_TAPE_TYPE {
     fn clone(&self) -> Self {
@@ -5656,64 +6852,6 @@ impl ::core::fmt::Debug for ERASE_TAPE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_ACCESS_RIGHTS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_READ_DATA: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_LIST_DIRECTORY: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_WRITE_DATA: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ADD_FILE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_APPEND_DATA: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ADD_SUBDIRECTORY: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_CREATE_PIPE_INSTANCE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_READ_EA: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(8u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_WRITE_EA: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(16u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_EXECUTE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(32u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_TRAVERSE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(32u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_DELETE_CHILD: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(64u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_READ_ATTRIBUTES: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(128u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_WRITE_ATTRIBUTES: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(256u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const DELETE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(65536u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const READ_CONTROL: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(131072u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const WRITE_DAC: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(262144u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const WRITE_OWNER: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(524288u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const SYNCHRONIZE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1048576u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const STANDARD_RIGHTS_REQUIRED: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(983040u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const STANDARD_RIGHTS_READ: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(131072u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const STANDARD_RIGHTS_WRITE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(131072u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const STANDARD_RIGHTS_EXECUTE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(131072u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const STANDARD_RIGHTS_ALL: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(2031616u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const SPECIFIC_RIGHTS_ALL: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(65535u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ALL_ACCESS: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(2032127u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_GENERIC_READ: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1179785u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_GENERIC_WRITE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1179926u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_GENERIC_EXECUTE: FILE_ACCESS_RIGHTS = FILE_ACCESS_RIGHTS(1179808u32);
 impl ::core::marker::Copy for FILE_ACCESS_RIGHTS {}
 impl ::core::clone::Clone for FILE_ACCESS_RIGHTS {
     fn clone(&self) -> Self {
@@ -5770,16 +6908,6 @@ impl ::core::ops::Not for FILE_ACCESS_RIGHTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_ACTION(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ACTION_ADDED: FILE_ACTION = FILE_ACTION(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ACTION_REMOVED: FILE_ACTION = FILE_ACTION(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ACTION_MODIFIED: FILE_ACTION = FILE_ACTION(3u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ACTION_RENAMED_OLD_NAME: FILE_ACTION = FILE_ACTION(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ACTION_RENAMED_NEW_NAME: FILE_ACTION = FILE_ACTION(5u32);
 impl ::core::marker::Copy for FILE_ACTION {}
 impl ::core::clone::Clone for FILE_ACTION {
     fn clone(&self) -> Self {
@@ -5803,16 +6931,6 @@ impl ::core::fmt::Debug for FILE_ACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_CREATION_DISPOSITION(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const CREATE_NEW: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const CREATE_ALWAYS: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OPEN_EXISTING: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(3u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OPEN_ALWAYS: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TRUNCATE_EXISTING: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(5u32);
 impl ::core::marker::Copy for FILE_CREATION_DISPOSITION {}
 impl ::core::clone::Clone for FILE_CREATION_DISPOSITION {
     fn clone(&self) -> Self {
@@ -5836,14 +6954,6 @@ impl ::core::fmt::Debug for FILE_CREATION_DISPOSITION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_DEVICE_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_DEVICE_CD_ROM: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_DEVICE_DISK: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(7u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_DEVICE_TAPE: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(31u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_DEVICE_DVD: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(51u32);
 impl ::core::marker::Copy for FILE_DEVICE_TYPE {}
 impl ::core::clone::Clone for FILE_DEVICE_TYPE {
     fn clone(&self) -> Self {
@@ -5867,18 +6977,6 @@ impl ::core::fmt::Debug for FILE_DEVICE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_DISPOSITION_INFO_EX_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_DISPOSITION_FLAG_DO_NOT_DELETE: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_DISPOSITION_FLAG_DELETE: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_DISPOSITION_FLAG_POSIX_SEMANTICS: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_DISPOSITION_FLAG_FORCE_IMAGE_SECTION_CHECK: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_DISPOSITION_FLAG_ON_CLOSE: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_DISPOSITION_FLAG_IGNORE_READONLY_ATTRIBUTE: FILE_DISPOSITION_INFO_EX_FLAGS = FILE_DISPOSITION_INFO_EX_FLAGS(16u32);
 impl ::core::marker::Copy for FILE_DISPOSITION_INFO_EX_FLAGS {}
 impl ::core::clone::Clone for FILE_DISPOSITION_INFO_EX_FLAGS {
     fn clone(&self) -> Self {
@@ -5902,96 +7000,6 @@ impl ::core::fmt::Debug for FILE_DISPOSITION_INFO_EX_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_FLAGS_AND_ATTRIBUTES(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_READONLY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_HIDDEN: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_SYSTEM: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_DIRECTORY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(16u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_ARCHIVE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(32u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_DEVICE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(64u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_NORMAL: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(128u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_TEMPORARY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(256u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_SPARSE_FILE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(512u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_REPARSE_POINT: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1024u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_COMPRESSED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2048u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_OFFLINE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(4096u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_NOT_CONTENT_INDEXED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(8192u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_ENCRYPTED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(16384u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_INTEGRITY_STREAM: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(32768u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_VIRTUAL: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(65536u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_NO_SCRUB_DATA: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(131072u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_EA: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(262144u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_PINNED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(524288u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_UNPINNED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1048576u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_RECALL_ON_OPEN: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(262144u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(4194304u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_FLAG_WRITE_THROUGH: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2147483648u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_FLAG_OVERLAPPED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1073741824u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_FLAG_NO_BUFFERING: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(536870912u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_FLAG_RANDOM_ACCESS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(268435456u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_FLAG_SEQUENTIAL_SCAN: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(134217728u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_FLAG_DELETE_ON_CLOSE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(67108864u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_FLAG_BACKUP_SEMANTICS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(33554432u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_FLAG_POSIX_SEMANTICS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(16777216u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_FLAG_SESSION_AWARE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(8388608u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_FLAG_OPEN_REPARSE_POINT: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2097152u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_FLAG_OPEN_NO_RECALL: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1048576u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_FLAG_FIRST_PIPE_INSTANCE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(524288u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const PIPE_ACCESS_DUPLEX: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(3u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const PIPE_ACCESS_INBOUND: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const PIPE_ACCESS_OUTBOUND: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const SECURITY_ANONYMOUS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const SECURITY_IDENTIFICATION: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(65536u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const SECURITY_IMPERSONATION: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(131072u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const SECURITY_DELEGATION: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(196608u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const SECURITY_CONTEXT_TRACKING: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(262144u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const SECURITY_EFFECTIVE_ONLY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(524288u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const SECURITY_SQOS_PRESENT: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1048576u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const SECURITY_VALID_SQOS_FLAGS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2031616u32);
 impl ::core::marker::Copy for FILE_FLAGS_AND_ATTRIBUTES {}
 impl ::core::clone::Clone for FILE_FLAGS_AND_ATTRIBUTES {
     fn clone(&self) -> Self {
@@ -6048,14 +7056,6 @@ impl ::core::ops::Not for FILE_FLAGS_AND_ATTRIBUTES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_FLUSH_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_FLUSH_DEFAULT: FILE_FLUSH_MODE = FILE_FLUSH_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_FLUSH_DATA: FILE_FLUSH_MODE = FILE_FLUSH_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_FLUSH_MIN_METADATA: FILE_FLUSH_MODE = FILE_FLUSH_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_FLUSH_NO_SYNC: FILE_FLUSH_MODE = FILE_FLUSH_MODE(3i32);
 impl ::core::marker::Copy for FILE_FLUSH_MODE {}
 impl ::core::clone::Clone for FILE_FLUSH_MODE {
     fn clone(&self) -> Self {
@@ -6079,14 +7079,6 @@ impl ::core::fmt::Debug for FILE_FLUSH_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_ID_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileIdType: FILE_ID_TYPE = FILE_ID_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ObjectIdType: FILE_ID_TYPE = FILE_ID_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ExtendedFileIdType: FILE_ID_TYPE = FILE_ID_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const MaximumFileIdType: FILE_ID_TYPE = FILE_ID_TYPE(3i32);
 impl ::core::marker::Copy for FILE_ID_TYPE {}
 impl ::core::clone::Clone for FILE_ID_TYPE {
     fn clone(&self) -> Self {
@@ -6110,58 +7102,6 @@ impl ::core::fmt::Debug for FILE_ID_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_INFO_BY_HANDLE_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileBasicInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileStandardInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileNameInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileRenameInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileDispositionInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileAllocationInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileEndOfFileInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileStreamInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileCompressionInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileAttributeTagInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(9i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileIdBothDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(10i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileIdBothDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(11i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileIoPriorityHintInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(12i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileRemoteProtocolInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(13i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileFullDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(14i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileFullDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(15i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileStorageInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(16i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileAlignmentInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(17i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileIdInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(18i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileIdExtdDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(19i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileIdExtdDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(20i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileDispositionInfoEx: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(21i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileRenameInfoEx: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(22i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileCaseSensitiveInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(23i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FileNormalizedNameInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(24i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const MaximumFileInfoByHandleClass: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(25i32);
 impl ::core::marker::Copy for FILE_INFO_BY_HANDLE_CLASS {}
 impl ::core::clone::Clone for FILE_INFO_BY_HANDLE_CLASS {
     fn clone(&self) -> Self {
@@ -6185,12 +7125,6 @@ impl ::core::fmt::Debug for FILE_INFO_BY_HANDLE_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_INFO_FLAGS_PERMISSIONS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const PERM_FILE_READ: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const PERM_FILE_WRITE: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const PERM_FILE_CREATE: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(4u32);
 impl ::core::marker::Copy for FILE_INFO_FLAGS_PERMISSIONS {}
 impl ::core::clone::Clone for FILE_INFO_FLAGS_PERMISSIONS {
     fn clone(&self) -> Self {
@@ -6247,22 +7181,6 @@ impl ::core::ops::Not for FILE_INFO_FLAGS_PERMISSIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_NOTIFY_CHANGE(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_NOTIFY_CHANGE_FILE_NAME: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_NOTIFY_CHANGE_DIR_NAME: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_NOTIFY_CHANGE_ATTRIBUTES: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_NOTIFY_CHANGE_SIZE: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(8u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_NOTIFY_CHANGE_LAST_WRITE: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(16u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_NOTIFY_CHANGE_LAST_ACCESS: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(32u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_NOTIFY_CHANGE_CREATION: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(64u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_NOTIFY_CHANGE_SECURITY: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(256u32);
 impl ::core::marker::Copy for FILE_NOTIFY_CHANGE {}
 impl ::core::clone::Clone for FILE_NOTIFY_CHANGE {
     fn clone(&self) -> Self {
@@ -6319,14 +7237,6 @@ impl ::core::ops::Not for FILE_NOTIFY_CHANGE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_SHARE_MODE(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_SHARE_NONE: FILE_SHARE_MODE = FILE_SHARE_MODE(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_SHARE_DELETE: FILE_SHARE_MODE = FILE_SHARE_MODE(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_SHARE_READ: FILE_SHARE_MODE = FILE_SHARE_MODE(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_SHARE_WRITE: FILE_SHARE_MODE = FILE_SHARE_MODE(2u32);
 impl ::core::marker::Copy for FILE_SHARE_MODE {}
 impl ::core::clone::Clone for FILE_SHARE_MODE {
     fn clone(&self) -> Self {
@@ -6383,16 +7293,6 @@ impl ::core::ops::Not for FILE_SHARE_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_TYPE_UNKNOWN: FILE_TYPE = FILE_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_TYPE_DISK: FILE_TYPE = FILE_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_TYPE_CHAR: FILE_TYPE = FILE_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_TYPE_PIPE: FILE_TYPE = FILE_TYPE(3u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_TYPE_REMOTE: FILE_TYPE = FILE_TYPE(32768u32);
 impl ::core::marker::Copy for FILE_TYPE {}
 impl ::core::clone::Clone for FILE_TYPE {
     fn clone(&self) -> Self {
@@ -6416,10 +7316,6 @@ impl ::core::fmt::Debug for FILE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_WRITE_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_WRITE_FLAGS_NONE: FILE_WRITE_FLAGS = FILE_WRITE_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_WRITE_FLAGS_WRITE_THROUGH: FILE_WRITE_FLAGS = FILE_WRITE_FLAGS(1i32);
 impl ::core::marker::Copy for FILE_WRITE_FLAGS {}
 impl ::core::clone::Clone for FILE_WRITE_FLAGS {
     fn clone(&self) -> Self {
@@ -6476,12 +7372,6 @@ impl ::core::ops::Not for FILE_WRITE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FINDEX_INFO_LEVELS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FindExInfoStandard: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FindExInfoBasic: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FindExInfoMaxInfoLevel: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(2i32);
 impl ::core::marker::Copy for FINDEX_INFO_LEVELS {}
 impl ::core::clone::Clone for FINDEX_INFO_LEVELS {
     fn clone(&self) -> Self {
@@ -6505,14 +7395,6 @@ impl ::core::fmt::Debug for FINDEX_INFO_LEVELS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FINDEX_SEARCH_OPS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FindExSearchNameMatch: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FindExSearchLimitToDirectories: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FindExSearchLimitToDevices: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FindExSearchMaxSearchOp: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(3i32);
 impl ::core::marker::Copy for FINDEX_SEARCH_OPS {}
 impl ::core::clone::Clone for FINDEX_SEARCH_OPS {
     fn clone(&self) -> Self {
@@ -6536,12 +7418,6 @@ impl ::core::fmt::Debug for FINDEX_SEARCH_OPS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FIND_FIRST_EX_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FIND_FIRST_EX_CASE_SENSITIVE: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FIND_FIRST_EX_LARGE_FETCH: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FIND_FIRST_EX_ON_DISK_ENTRIES_ONLY: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(4u32);
 impl ::core::marker::Copy for FIND_FIRST_EX_FLAGS {}
 impl ::core::clone::Clone for FIND_FIRST_EX_FLAGS {
     fn clone(&self) -> Self {
@@ -6598,18 +7474,6 @@ impl ::core::ops::Not for FIND_FIRST_EX_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GETFINALPATHNAMEBYHANDLE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VOLUME_NAME_DOS: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VOLUME_NAME_GUID: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VOLUME_NAME_NT: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VOLUME_NAME_NONE: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_NAME_NORMALIZED: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_NAME_OPENED: GETFINALPATHNAMEBYHANDLE_FLAGS = GETFINALPATHNAMEBYHANDLE_FLAGS(8u32);
 impl ::core::marker::Copy for GETFINALPATHNAMEBYHANDLE_FLAGS {}
 impl ::core::clone::Clone for GETFINALPATHNAMEBYHANDLE_FLAGS {
     fn clone(&self) -> Self {
@@ -6633,10 +7497,6 @@ impl ::core::fmt::Debug for GETFINALPATHNAMEBYHANDLE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_FILEEX_INFO_LEVELS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const GetFileExInfoStandard: GET_FILEEX_INFO_LEVELS = GET_FILEEX_INFO_LEVELS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const GetFileExMaxInfoLevel: GET_FILEEX_INFO_LEVELS = GET_FILEEX_INFO_LEVELS(1i32);
 impl ::core::marker::Copy for GET_FILEEX_INFO_LEVELS {}
 impl ::core::clone::Clone for GET_FILEEX_INFO_LEVELS {
     fn clone(&self) -> Self {
@@ -6660,12 +7520,6 @@ impl ::core::fmt::Debug for GET_FILEEX_INFO_LEVELS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_FILE_VERSION_INFO_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_VER_GET_LOCALISED: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_VER_GET_NEUTRAL: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_VER_GET_PREFETCHED: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(4u32);
 impl ::core::marker::Copy for GET_FILE_VERSION_INFO_FLAGS {}
 impl ::core::clone::Clone for GET_FILE_VERSION_INFO_FLAGS {
     fn clone(&self) -> Self {
@@ -6722,10 +7576,6 @@ impl ::core::ops::Not for GET_FILE_VERSION_INFO_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_TAPE_DRIVE_PARAMETERS_OPERATION(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const GET_TAPE_DRIVE_INFORMATION: GET_TAPE_DRIVE_PARAMETERS_OPERATION = GET_TAPE_DRIVE_PARAMETERS_OPERATION(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const GET_TAPE_MEDIA_INFORMATION: GET_TAPE_DRIVE_PARAMETERS_OPERATION = GET_TAPE_DRIVE_PARAMETERS_OPERATION(0u32);
 impl ::core::marker::Copy for GET_TAPE_DRIVE_PARAMETERS_OPERATION {}
 impl ::core::clone::Clone for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
     fn clone(&self) -> Self {
@@ -6749,8 +7599,6 @@ impl ::core::fmt::Debug for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IORING_CREATE_ADVISORY_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IORING_CREATE_ADVISORY_FLAGS_NONE: IORING_CREATE_ADVISORY_FLAGS = IORING_CREATE_ADVISORY_FLAGS(0i32);
 impl ::core::marker::Copy for IORING_CREATE_ADVISORY_FLAGS {}
 impl ::core::clone::Clone for IORING_CREATE_ADVISORY_FLAGS {
     fn clone(&self) -> Self {
@@ -6807,8 +7655,6 @@ impl ::core::ops::Not for IORING_CREATE_ADVISORY_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IORING_CREATE_REQUIRED_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IORING_CREATE_REQUIRED_FLAGS_NONE: IORING_CREATE_REQUIRED_FLAGS = IORING_CREATE_REQUIRED_FLAGS(0i32);
 impl ::core::marker::Copy for IORING_CREATE_REQUIRED_FLAGS {}
 impl ::core::clone::Clone for IORING_CREATE_REQUIRED_FLAGS {
     fn clone(&self) -> Self {
@@ -6865,12 +7711,6 @@ impl ::core::ops::Not for IORING_CREATE_REQUIRED_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IORING_FEATURE_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IORING_FEATURE_FLAGS_NONE: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IORING_FEATURE_UM_EMULATION: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IORING_FEATURE_SET_COMPLETION_EVENT: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(2i32);
 impl ::core::marker::Copy for IORING_FEATURE_FLAGS {}
 impl ::core::clone::Clone for IORING_FEATURE_FLAGS {
     fn clone(&self) -> Self {
@@ -6927,20 +7767,6 @@ impl ::core::ops::Not for IORING_FEATURE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IORING_OP_CODE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IORING_OP_NOP: IORING_OP_CODE = IORING_OP_CODE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IORING_OP_READ: IORING_OP_CODE = IORING_OP_CODE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IORING_OP_REGISTER_FILES: IORING_OP_CODE = IORING_OP_CODE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IORING_OP_REGISTER_BUFFERS: IORING_OP_CODE = IORING_OP_CODE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IORING_OP_CANCEL: IORING_OP_CODE = IORING_OP_CODE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IORING_OP_WRITE: IORING_OP_CODE = IORING_OP_CODE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IORING_OP_FLUSH: IORING_OP_CODE = IORING_OP_CODE(6i32);
 impl ::core::marker::Copy for IORING_OP_CODE {}
 impl ::core::clone::Clone for IORING_OP_CODE {
     fn clone(&self) -> Self {
@@ -6964,10 +7790,6 @@ impl ::core::fmt::Debug for IORING_OP_CODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IORING_REF_KIND(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IORING_REF_RAW: IORING_REF_KIND = IORING_REF_KIND(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IORING_REF_REGISTERED: IORING_REF_KIND = IORING_REF_KIND(1i32);
 impl ::core::marker::Copy for IORING_REF_KIND {}
 impl ::core::clone::Clone for IORING_REF_KIND {
     fn clone(&self) -> Self {
@@ -6991,10 +7813,6 @@ impl ::core::fmt::Debug for IORING_REF_KIND {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IORING_SQE_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IOSQE_FLAGS_NONE: IORING_SQE_FLAGS = IORING_SQE_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IOSQE_FLAGS_DRAIN_PRECEDING_OPS: IORING_SQE_FLAGS = IORING_SQE_FLAGS(1i32);
 impl ::core::marker::Copy for IORING_SQE_FLAGS {}
 impl ::core::clone::Clone for IORING_SQE_FLAGS {
     fn clone(&self) -> Self {
@@ -7051,14 +7869,6 @@ impl ::core::ops::Not for IORING_SQE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IORING_VERSION(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IORING_VERSION_INVALID: IORING_VERSION = IORING_VERSION(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IORING_VERSION_1: IORING_VERSION = IORING_VERSION(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IORING_VERSION_2: IORING_VERSION = IORING_VERSION(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IORING_VERSION_3: IORING_VERSION = IORING_VERSION(300i32);
 impl ::core::marker::Copy for IORING_VERSION {}
 impl ::core::clone::Clone for IORING_VERSION {
     fn clone(&self) -> Self {
@@ -7082,10 +7892,6 @@ impl ::core::fmt::Debug for IORING_VERSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOCK_FILE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const LOCKFILE_EXCLUSIVE_LOCK: LOCK_FILE_FLAGS = LOCK_FILE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const LOCKFILE_FAIL_IMMEDIATELY: LOCK_FILE_FLAGS = LOCK_FILE_FLAGS(1u32);
 impl ::core::marker::Copy for LOCK_FILE_FLAGS {}
 impl ::core::clone::Clone for LOCK_FILE_FLAGS {
     fn clone(&self) -> Self {
@@ -7142,10 +7948,6 @@ impl ::core::ops::Not for LOCK_FILE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LPPROGRESS_ROUTINE_CALLBACK_REASON(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const CALLBACK_CHUNK_FINISHED: LPPROGRESS_ROUTINE_CALLBACK_REASON = LPPROGRESS_ROUTINE_CALLBACK_REASON(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const CALLBACK_STREAM_SWITCH: LPPROGRESS_ROUTINE_CALLBACK_REASON = LPPROGRESS_ROUTINE_CALLBACK_REASON(1u32);
 impl ::core::marker::Copy for LPPROGRESS_ROUTINE_CALLBACK_REASON {}
 impl ::core::clone::Clone for LPPROGRESS_ROUTINE_CALLBACK_REASON {
     fn clone(&self) -> Self {
@@ -7169,38 +7971,6 @@ impl ::core::fmt::Debug for LPPROGRESS_ROUTINE_CALLBACK_REASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LZOPENFILE_STYLE(pub u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_CANCEL: LZOPENFILE_STYLE = LZOPENFILE_STYLE(2048u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_CREATE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(4096u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_DELETE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(512u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_EXIST: LZOPENFILE_STYLE = LZOPENFILE_STYLE(16384u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_PARSE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(256u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_PROMPT: LZOPENFILE_STYLE = LZOPENFILE_STYLE(8192u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_READ: LZOPENFILE_STYLE = LZOPENFILE_STYLE(0u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_READWRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(2u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_REOPEN: LZOPENFILE_STYLE = LZOPENFILE_STYLE(32768u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_SHARE_DENY_NONE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(64u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_SHARE_DENY_READ: LZOPENFILE_STYLE = LZOPENFILE_STYLE(48u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_SHARE_DENY_WRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(32u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_SHARE_EXCLUSIVE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(16u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_WRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(1u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_SHARE_COMPAT: LZOPENFILE_STYLE = LZOPENFILE_STYLE(0u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const OF_VERIFY: LZOPENFILE_STYLE = LZOPENFILE_STYLE(1024u16);
 impl ::core::marker::Copy for LZOPENFILE_STYLE {}
 impl ::core::clone::Clone for LZOPENFILE_STYLE {
     fn clone(&self) -> Self {
@@ -7257,18 +8027,6 @@ impl ::core::ops::Not for LZOPENFILE_STYLE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MOVE_FILE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const MOVEFILE_COPY_ALLOWED: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const MOVEFILE_CREATE_HARDLINK: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const MOVEFILE_DELAY_UNTIL_REBOOT: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const MOVEFILE_REPLACE_EXISTING: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const MOVEFILE_WRITE_THROUGH: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const MOVEFILE_FAIL_IF_NOT_TRACKABLE: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(32u32);
 impl ::core::marker::Copy for MOVE_FILE_FLAGS {}
 impl ::core::clone::Clone for MOVE_FILE_FLAGS {
     fn clone(&self) -> Self {
@@ -7325,10 +8083,6 @@ impl ::core::ops::Not for MOVE_FILE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NTMS_OMID_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OMID_TYPE_FILESYSTEM_INFO: NTMS_OMID_TYPE = NTMS_OMID_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OMID_TYPE_RAW_LABEL: NTMS_OMID_TYPE = NTMS_OMID_TYPE(1u32);
 impl ::core::marker::Copy for NTMS_OMID_TYPE {}
 impl ::core::clone::Clone for NTMS_OMID_TYPE {
     fn clone(&self) -> Self {
@@ -7352,12 +8106,6 @@ impl ::core::fmt::Debug for NTMS_OMID_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsAccessMask(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_USE_ACCESS: NtmsAccessMask = NtmsAccessMask(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MODIFY_ACCESS: NtmsAccessMask = NtmsAccessMask(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_CONTROL_ACCESS: NtmsAccessMask = NtmsAccessMask(4i32);
 impl ::core::marker::Copy for NtmsAccessMask {}
 impl ::core::clone::Clone for NtmsAccessMask {
     fn clone(&self) -> Self {
@@ -7381,12 +8129,6 @@ impl ::core::fmt::Debug for NtmsAccessMask {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsAllocateOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_ALLOCATE_NEW: NtmsAllocateOptions = NtmsAllocateOptions(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_ALLOCATE_NEXT: NtmsAllocateOptions = NtmsAllocateOptions(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_ALLOCATE_ERROR_IF_UNAVAILABLE: NtmsAllocateOptions = NtmsAllocateOptions(4i32);
 impl ::core::marker::Copy for NtmsAllocateOptions {}
 impl ::core::clone::Clone for NtmsAllocateOptions {
     fn clone(&self) -> Self {
@@ -7410,8 +8152,6 @@ impl ::core::fmt::Debug for NtmsAllocateOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsAllocationPolicy(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_ALLOCATE_FROMSCRATCH: NtmsAllocationPolicy = NtmsAllocationPolicy(1i32);
 impl ::core::marker::Copy for NtmsAllocationPolicy {}
 impl ::core::clone::Clone for NtmsAllocationPolicy {
     fn clone(&self) -> Self {
@@ -7435,8 +8175,6 @@ impl ::core::fmt::Debug for NtmsAllocationPolicy {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsAsyncOperations(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_ASYNCOP_MOUNT: NtmsAsyncOperations = NtmsAsyncOperations(1i32);
 impl ::core::marker::Copy for NtmsAsyncOperations {}
 impl ::core::clone::Clone for NtmsAsyncOperations {
     fn clone(&self) -> Self {
@@ -7460,16 +8198,6 @@ impl ::core::fmt::Debug for NtmsAsyncOperations {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsAsyncStatus(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_ASYNCSTATE_QUEUED: NtmsAsyncStatus = NtmsAsyncStatus(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_ASYNCSTATE_WAIT_RESOURCE: NtmsAsyncStatus = NtmsAsyncStatus(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_ASYNCSTATE_WAIT_OPERATOR: NtmsAsyncStatus = NtmsAsyncStatus(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_ASYNCSTATE_INPROCESS: NtmsAsyncStatus = NtmsAsyncStatus(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_ASYNCSTATE_COMPLETE: NtmsAsyncStatus = NtmsAsyncStatus(4i32);
 impl ::core::marker::Copy for NtmsAsyncStatus {}
 impl ::core::clone::Clone for NtmsAsyncStatus {
     fn clone(&self) -> Self {
@@ -7493,10 +8221,6 @@ impl ::core::fmt::Debug for NtmsAsyncStatus {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsBarCodeState(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_BARCODESTATE_OK: NtmsBarCodeState = NtmsBarCodeState(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_BARCODESTATE_UNREADABLE: NtmsBarCodeState = NtmsBarCodeState(2i32);
 impl ::core::marker::Copy for NtmsBarCodeState {}
 impl ::core::clone::Clone for NtmsBarCodeState {
     fn clone(&self) -> Self {
@@ -7520,8 +8244,6 @@ impl ::core::fmt::Debug for NtmsBarCodeState {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsCreateNtmsMediaOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_ERROR_ON_DUPLICATE: NtmsCreateNtmsMediaOptions = NtmsCreateNtmsMediaOptions(1i32);
 impl ::core::marker::Copy for NtmsCreateNtmsMediaOptions {}
 impl ::core::clone::Clone for NtmsCreateNtmsMediaOptions {
     fn clone(&self) -> Self {
@@ -7545,12 +8267,6 @@ impl ::core::fmt::Debug for NtmsCreateNtmsMediaOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsCreateOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OPEN_EXISTING: NtmsCreateOptions = NtmsCreateOptions(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_CREATE_NEW: NtmsCreateOptions = NtmsCreateOptions(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OPEN_ALWAYS: NtmsCreateOptions = NtmsCreateOptions(3i32);
 impl ::core::marker::Copy for NtmsCreateOptions {}
 impl ::core::clone::Clone for NtmsCreateOptions {
     fn clone(&self) -> Self {
@@ -7574,8 +8290,6 @@ impl ::core::fmt::Debug for NtmsCreateOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsDeallocationPolicy(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_DEALLOCATE_TOSCRATCH: NtmsDeallocationPolicy = NtmsDeallocationPolicy(1i32);
 impl ::core::marker::Copy for NtmsDeallocationPolicy {}
 impl ::core::clone::Clone for NtmsDeallocationPolicy {
     fn clone(&self) -> Self {
@@ -7599,10 +8313,6 @@ impl ::core::fmt::Debug for NtmsDeallocationPolicy {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsDismountOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_DISMOUNT_DEFERRED: NtmsDismountOptions = NtmsDismountOptions(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_DISMOUNT_IMMEDIATE: NtmsDismountOptions = NtmsDismountOptions(2i32);
 impl ::core::marker::Copy for NtmsDismountOptions {}
 impl ::core::clone::Clone for NtmsDismountOptions {
     fn clone(&self) -> Self {
@@ -7626,12 +8336,6 @@ impl ::core::fmt::Debug for NtmsDismountOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsDoorState(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_DOORSTATE_UNKNOWN: NtmsDoorState = NtmsDoorState(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_DOORSTATE_CLOSED: NtmsDoorState = NtmsDoorState(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_DOORSTATE_OPEN: NtmsDoorState = NtmsDoorState(2i32);
 impl ::core::marker::Copy for NtmsDoorState {}
 impl ::core::clone::Clone for NtmsDoorState {
     fn clone(&self) -> Self {
@@ -7655,18 +8359,6 @@ impl ::core::fmt::Debug for NtmsDoorState {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsDriveState(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_DRIVESTATE_DISMOUNTED: NtmsDriveState = NtmsDriveState(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_DRIVESTATE_MOUNTED: NtmsDriveState = NtmsDriveState(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_DRIVESTATE_LOADED: NtmsDriveState = NtmsDriveState(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_DRIVESTATE_UNLOADED: NtmsDriveState = NtmsDriveState(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_DRIVESTATE_BEING_CLEANED: NtmsDriveState = NtmsDriveState(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_DRIVESTATE_DISMOUNTABLE: NtmsDriveState = NtmsDriveState(7i32);
 impl ::core::marker::Copy for NtmsDriveState {}
 impl ::core::clone::Clone for NtmsDriveState {
     fn clone(&self) -> Self {
@@ -7690,8 +8382,6 @@ impl ::core::fmt::Debug for NtmsDriveState {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsDriveType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_UNKNOWN_DRIVE: NtmsDriveType = NtmsDriveType(0i32);
 impl ::core::marker::Copy for NtmsDriveType {}
 impl ::core::clone::Clone for NtmsDriveType {
     fn clone(&self) -> Self {
@@ -7715,18 +8405,6 @@ impl ::core::fmt::Debug for NtmsDriveType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsEjectOperation(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_EJECT_START: NtmsEjectOperation = NtmsEjectOperation(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_EJECT_STOP: NtmsEjectOperation = NtmsEjectOperation(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_EJECT_QUEUE: NtmsEjectOperation = NtmsEjectOperation(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_EJECT_FORCE: NtmsEjectOperation = NtmsEjectOperation(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_EJECT_IMMEDIATE: NtmsEjectOperation = NtmsEjectOperation(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_EJECT_ASK_USER: NtmsEjectOperation = NtmsEjectOperation(5i32);
 impl ::core::marker::Copy for NtmsEjectOperation {}
 impl ::core::clone::Clone for NtmsEjectOperation {
     fn clone(&self) -> Self {
@@ -7750,10 +8428,6 @@ impl ::core::fmt::Debug for NtmsEjectOperation {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsEnumerateOption(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_ENUM_DEFAULT: NtmsEnumerateOption = NtmsEnumerateOption(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_ENUM_ROOTPOOL: NtmsEnumerateOption = NtmsEnumerateOption(1i32);
 impl ::core::marker::Copy for NtmsEnumerateOption {}
 impl ::core::clone::Clone for NtmsEnumerateOption {
     fn clone(&self) -> Self {
@@ -7777,14 +8451,6 @@ impl ::core::fmt::Debug for NtmsEnumerateOption {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsInjectOperation(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_INJECT_START: NtmsInjectOperation = NtmsInjectOperation(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_INJECT_STOP: NtmsInjectOperation = NtmsInjectOperation(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_INJECT_RETRACT: NtmsInjectOperation = NtmsInjectOperation(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_INJECT_STARTMANY: NtmsInjectOperation = NtmsInjectOperation(3i32);
 impl ::core::marker::Copy for NtmsInjectOperation {}
 impl ::core::clone::Clone for NtmsInjectOperation {
     fn clone(&self) -> Self {
@@ -7808,20 +8474,6 @@ impl ::core::fmt::Debug for NtmsInjectOperation {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsInventoryMethod(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_INVENTORY_NONE: NtmsInventoryMethod = NtmsInventoryMethod(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_INVENTORY_FAST: NtmsInventoryMethod = NtmsInventoryMethod(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_INVENTORY_OMID: NtmsInventoryMethod = NtmsInventoryMethod(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_INVENTORY_DEFAULT: NtmsInventoryMethod = NtmsInventoryMethod(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_INVENTORY_SLOT: NtmsInventoryMethod = NtmsInventoryMethod(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_INVENTORY_STOP: NtmsInventoryMethod = NtmsInventoryMethod(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_INVENTORY_MAX: NtmsInventoryMethod = NtmsInventoryMethod(6i32);
 impl ::core::marker::Copy for NtmsInventoryMethod {}
 impl ::core::clone::Clone for NtmsInventoryMethod {
     fn clone(&self) -> Self {
@@ -7845,10 +8497,6 @@ impl ::core::fmt::Debug for NtmsInventoryMethod {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsLibRequestFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LIBREQFLAGS_NOAUTOPURGE: NtmsLibRequestFlags = NtmsLibRequestFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LIBREQFLAGS_NOFAILEDPURGE: NtmsLibRequestFlags = NtmsLibRequestFlags(2i32);
 impl ::core::marker::Copy for NtmsLibRequestFlags {}
 impl ::core::clone::Clone for NtmsLibRequestFlags {
     fn clone(&self) -> Self {
@@ -7872,16 +8520,6 @@ impl ::core::fmt::Debug for NtmsLibRequestFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsLibraryFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LIBRARYFLAG_FIXEDOFFLINE: NtmsLibraryFlags = NtmsLibraryFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LIBRARYFLAG_CLEANERPRESENT: NtmsLibraryFlags = NtmsLibraryFlags(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LIBRARYFLAG_AUTODETECTCHANGE: NtmsLibraryFlags = NtmsLibraryFlags(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LIBRARYFLAG_IGNORECLEANERUSESREMAINING: NtmsLibraryFlags = NtmsLibraryFlags(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LIBRARYFLAG_RECOGNIZECLEANERBARCODE: NtmsLibraryFlags = NtmsLibraryFlags(16i32);
 impl ::core::marker::Copy for NtmsLibraryFlags {}
 impl ::core::clone::Clone for NtmsLibraryFlags {
     fn clone(&self) -> Self {
@@ -7905,14 +8543,6 @@ impl ::core::fmt::Debug for NtmsLibraryFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsLibraryType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LIBRARYTYPE_UNKNOWN: NtmsLibraryType = NtmsLibraryType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LIBRARYTYPE_OFFLINE: NtmsLibraryType = NtmsLibraryType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LIBRARYTYPE_ONLINE: NtmsLibraryType = NtmsLibraryType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LIBRARYTYPE_STANDALONE: NtmsLibraryType = NtmsLibraryType(3i32);
 impl ::core::marker::Copy for NtmsLibraryType {}
 impl ::core::clone::Clone for NtmsLibraryType {
     fn clone(&self) -> Self {
@@ -7936,56 +8566,6 @@ impl ::core::fmt::Debug for NtmsLibraryType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsLmOperation(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_REMOVE: NtmsLmOperation = NtmsLmOperation(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_DISABLECHANGER: NtmsLmOperation = NtmsLmOperation(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_DISABLELIBRARY: NtmsLmOperation = NtmsLmOperation(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_ENABLECHANGER: NtmsLmOperation = NtmsLmOperation(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_ENABLELIBRARY: NtmsLmOperation = NtmsLmOperation(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_DISABLEDRIVE: NtmsLmOperation = NtmsLmOperation(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_ENABLEDRIVE: NtmsLmOperation = NtmsLmOperation(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_DISABLEMEDIA: NtmsLmOperation = NtmsLmOperation(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_ENABLEMEDIA: NtmsLmOperation = NtmsLmOperation(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_UPDATEOMID: NtmsLmOperation = NtmsLmOperation(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_INVENTORY: NtmsLmOperation = NtmsLmOperation(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_DOORACCESS: NtmsLmOperation = NtmsLmOperation(9i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_EJECT: NtmsLmOperation = NtmsLmOperation(10i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_EJECTCLEANER: NtmsLmOperation = NtmsLmOperation(11i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_INJECT: NtmsLmOperation = NtmsLmOperation(12i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_INJECTCLEANER: NtmsLmOperation = NtmsLmOperation(13i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_PROCESSOMID: NtmsLmOperation = NtmsLmOperation(14i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_CLEANDRIVE: NtmsLmOperation = NtmsLmOperation(15i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_DISMOUNT: NtmsLmOperation = NtmsLmOperation(16i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_MOUNT: NtmsLmOperation = NtmsLmOperation(17i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_WRITESCRATCH: NtmsLmOperation = NtmsLmOperation(18i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_CLASSIFY: NtmsLmOperation = NtmsLmOperation(19i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_RESERVECLEANER: NtmsLmOperation = NtmsLmOperation(20i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_RELEASECLEANER: NtmsLmOperation = NtmsLmOperation(21i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_MAXWORKITEM: NtmsLmOperation = NtmsLmOperation(22i32);
 impl ::core::marker::Copy for NtmsLmOperation {}
 impl ::core::clone::Clone for NtmsLmOperation {
     fn clone(&self) -> Self {
@@ -8009,26 +8589,6 @@ impl ::core::fmt::Debug for NtmsLmOperation {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsLmState(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_QUEUED: NtmsLmState = NtmsLmState(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_INPROCESS: NtmsLmState = NtmsLmState(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_PASSED: NtmsLmState = NtmsLmState(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_FAILED: NtmsLmState = NtmsLmState(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_INVALID: NtmsLmState = NtmsLmState(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_WAITING: NtmsLmState = NtmsLmState(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_DEFERRED: NtmsLmState = NtmsLmState(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_DEFFERED: NtmsLmState = NtmsLmState(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_CANCELLED: NtmsLmState = NtmsLmState(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LM_STOPPED: NtmsLmState = NtmsLmState(8i32);
 impl ::core::marker::Copy for NtmsLmState {}
 impl ::core::clone::Clone for NtmsLmState {
     fn clone(&self) -> Self {
@@ -8052,10 +8612,6 @@ impl ::core::fmt::Debug for NtmsLmState {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsMediaPoolPolicy(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_POOLPOLICY_PURGEOFFLINESCRATCH: NtmsMediaPoolPolicy = NtmsMediaPoolPolicy(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_POOLPOLICY_KEEPOFFLINEIMPORT: NtmsMediaPoolPolicy = NtmsMediaPoolPolicy(2i32);
 impl ::core::marker::Copy for NtmsMediaPoolPolicy {}
 impl ::core::clone::Clone for NtmsMediaPoolPolicy {
     fn clone(&self) -> Self {
@@ -8079,20 +8635,6 @@ impl ::core::fmt::Debug for NtmsMediaPoolPolicy {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsMediaState(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MEDIASTATE_IDLE: NtmsMediaState = NtmsMediaState(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MEDIASTATE_INUSE: NtmsMediaState = NtmsMediaState(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MEDIASTATE_MOUNTED: NtmsMediaState = NtmsMediaState(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MEDIASTATE_LOADED: NtmsMediaState = NtmsMediaState(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MEDIASTATE_UNLOADED: NtmsMediaState = NtmsMediaState(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MEDIASTATE_OPERROR: NtmsMediaState = NtmsMediaState(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MEDIASTATE_OPREQ: NtmsMediaState = NtmsMediaState(6i32);
 impl ::core::marker::Copy for NtmsMediaState {}
 impl ::core::clone::Clone for NtmsMediaState {
     fn clone(&self) -> Self {
@@ -8116,22 +8658,6 @@ impl ::core::fmt::Debug for NtmsMediaState {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsMountOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MOUNT_READ: NtmsMountOptions = NtmsMountOptions(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MOUNT_WRITE: NtmsMountOptions = NtmsMountOptions(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MOUNT_ERROR_NOT_AVAILABLE: NtmsMountOptions = NtmsMountOptions(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MOUNT_ERROR_IF_UNAVAILABLE: NtmsMountOptions = NtmsMountOptions(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MOUNT_ERROR_OFFLINE: NtmsMountOptions = NtmsMountOptions(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MOUNT_ERROR_IF_OFFLINE: NtmsMountOptions = NtmsMountOptions(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MOUNT_SPECIFIC_DRIVE: NtmsMountOptions = NtmsMountOptions(16i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MOUNT_NOWAIT: NtmsMountOptions = NtmsMountOptions(32i32);
 impl ::core::marker::Copy for NtmsMountOptions {}
 impl ::core::clone::Clone for NtmsMountOptions {
     fn clone(&self) -> Self {
@@ -8155,18 +8681,6 @@ impl ::core::fmt::Debug for NtmsMountOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsMountPriority(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PRIORITY_DEFAULT: NtmsMountPriority = NtmsMountPriority(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PRIORITY_HIGHEST: NtmsMountPriority = NtmsMountPriority(15i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PRIORITY_HIGH: NtmsMountPriority = NtmsMountPriority(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PRIORITY_NORMAL: NtmsMountPriority = NtmsMountPriority(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PRIORITY_LOW: NtmsMountPriority = NtmsMountPriority(-7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PRIORITY_LOWEST: NtmsMountPriority = NtmsMountPriority(-15i32);
 impl ::core::marker::Copy for NtmsMountPriority {}
 impl ::core::clone::Clone for NtmsMountPriority {
     fn clone(&self) -> Self {
@@ -8190,16 +8704,6 @@ impl ::core::fmt::Debug for NtmsMountPriority {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsNotificationOperations(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OBJ_UPDATE: NtmsNotificationOperations = NtmsNotificationOperations(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OBJ_INSERT: NtmsNotificationOperations = NtmsNotificationOperations(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OBJ_DELETE: NtmsNotificationOperations = NtmsNotificationOperations(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_EVENT_SIGNAL: NtmsNotificationOperations = NtmsNotificationOperations(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_EVENT_COMPLETE: NtmsNotificationOperations = NtmsNotificationOperations(5i32);
 impl ::core::marker::Copy for NtmsNotificationOperations {}
 impl ::core::clone::Clone for NtmsNotificationOperations {
     fn clone(&self) -> Self {
@@ -8223,46 +8727,6 @@ impl ::core::fmt::Debug for NtmsNotificationOperations {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsObjectsTypes(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_UNKNOWN: NtmsObjectsTypes = NtmsObjectsTypes(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OBJECT: NtmsObjectsTypes = NtmsObjectsTypes(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_CHANGER: NtmsObjectsTypes = NtmsObjectsTypes(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_CHANGER_TYPE: NtmsObjectsTypes = NtmsObjectsTypes(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_COMPUTER: NtmsObjectsTypes = NtmsObjectsTypes(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_DRIVE: NtmsObjectsTypes = NtmsObjectsTypes(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_DRIVE_TYPE: NtmsObjectsTypes = NtmsObjectsTypes(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_IEDOOR: NtmsObjectsTypes = NtmsObjectsTypes(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_IEPORT: NtmsObjectsTypes = NtmsObjectsTypes(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LIBRARY: NtmsObjectsTypes = NtmsObjectsTypes(9i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LIBREQUEST: NtmsObjectsTypes = NtmsObjectsTypes(10i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_LOGICAL_MEDIA: NtmsObjectsTypes = NtmsObjectsTypes(11i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MEDIA_POOL: NtmsObjectsTypes = NtmsObjectsTypes(12i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MEDIA_TYPE: NtmsObjectsTypes = NtmsObjectsTypes(13i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PARTITION: NtmsObjectsTypes = NtmsObjectsTypes(14i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PHYSICAL_MEDIA: NtmsObjectsTypes = NtmsObjectsTypes(15i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_STORAGESLOT: NtmsObjectsTypes = NtmsObjectsTypes(16i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OPREQUEST: NtmsObjectsTypes = NtmsObjectsTypes(17i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_UI_DESTINATION: NtmsObjectsTypes = NtmsObjectsTypes(18i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_NUMBER_OF_OBJECT_TYPES: NtmsObjectsTypes = NtmsObjectsTypes(19i32);
 impl ::core::marker::Copy for NtmsObjectsTypes {}
 impl ::core::clone::Clone for NtmsObjectsTypes {
     fn clone(&self) -> Self {
@@ -8286,14 +8750,6 @@ impl ::core::fmt::Debug for NtmsObjectsTypes {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsOpRequestFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OPREQFLAGS_NOAUTOPURGE: NtmsOpRequestFlags = NtmsOpRequestFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OPREQFLAGS_NOFAILEDPURGE: NtmsOpRequestFlags = NtmsOpRequestFlags(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OPREQFLAGS_NOALERTS: NtmsOpRequestFlags = NtmsOpRequestFlags(16i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OPREQFLAGS_NOTRAYICON: NtmsOpRequestFlags = NtmsOpRequestFlags(32i32);
 impl ::core::marker::Copy for NtmsOpRequestFlags {}
 impl ::core::clone::Clone for NtmsOpRequestFlags {
     fn clone(&self) -> Self {
@@ -8317,14 +8773,6 @@ impl ::core::fmt::Debug for NtmsOpRequestFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsOperationalState(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_READY: NtmsOperationalState = NtmsOperationalState(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_INITIALIZING: NtmsOperationalState = NtmsOperationalState(10i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_NEEDS_SERVICE: NtmsOperationalState = NtmsOperationalState(20i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_NOT_PRESENT: NtmsOperationalState = NtmsOperationalState(21i32);
 impl ::core::marker::Copy for NtmsOperationalState {}
 impl ::core::clone::Clone for NtmsOperationalState {
     fn clone(&self) -> Self {
@@ -8348,18 +8796,6 @@ impl ::core::fmt::Debug for NtmsOperationalState {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsOpreqCommand(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OPREQ_UNKNOWN: NtmsOpreqCommand = NtmsOpreqCommand(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OPREQ_NEWMEDIA: NtmsOpreqCommand = NtmsOpreqCommand(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OPREQ_CLEANER: NtmsOpreqCommand = NtmsOpreqCommand(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OPREQ_DEVICESERVICE: NtmsOpreqCommand = NtmsOpreqCommand(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OPREQ_MOVEMEDIA: NtmsOpreqCommand = NtmsOpreqCommand(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OPREQ_MESSAGE: NtmsOpreqCommand = NtmsOpreqCommand(5i32);
 impl ::core::marker::Copy for NtmsOpreqCommand {}
 impl ::core::clone::Clone for NtmsOpreqCommand {
     fn clone(&self) -> Self {
@@ -8383,18 +8819,6 @@ impl ::core::fmt::Debug for NtmsOpreqCommand {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsOpreqState(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OPSTATE_UNKNOWN: NtmsOpreqState = NtmsOpreqState(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OPSTATE_SUBMITTED: NtmsOpreqState = NtmsOpreqState(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OPSTATE_ACTIVE: NtmsOpreqState = NtmsOpreqState(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OPSTATE_INPROGRESS: NtmsOpreqState = NtmsOpreqState(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OPSTATE_REFUSED: NtmsOpreqState = NtmsOpreqState(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_OPSTATE_COMPLETE: NtmsOpreqState = NtmsOpreqState(5i32);
 impl ::core::marker::Copy for NtmsOpreqState {}
 impl ::core::clone::Clone for NtmsOpreqState {
     fn clone(&self) -> Self {
@@ -8418,26 +8842,6 @@ impl ::core::fmt::Debug for NtmsOpreqState {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsPartitionState(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PARTSTATE_UNKNOWN: NtmsPartitionState = NtmsPartitionState(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PARTSTATE_UNPREPARED: NtmsPartitionState = NtmsPartitionState(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PARTSTATE_INCOMPATIBLE: NtmsPartitionState = NtmsPartitionState(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PARTSTATE_DECOMMISSIONED: NtmsPartitionState = NtmsPartitionState(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PARTSTATE_AVAILABLE: NtmsPartitionState = NtmsPartitionState(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PARTSTATE_ALLOCATED: NtmsPartitionState = NtmsPartitionState(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PARTSTATE_COMPLETE: NtmsPartitionState = NtmsPartitionState(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PARTSTATE_FOREIGN: NtmsPartitionState = NtmsPartitionState(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PARTSTATE_IMPORT: NtmsPartitionState = NtmsPartitionState(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PARTSTATE_RESERVED: NtmsPartitionState = NtmsPartitionState(9i32);
 impl ::core::marker::Copy for NtmsPartitionState {}
 impl ::core::clone::Clone for NtmsPartitionState {
     fn clone(&self) -> Self {
@@ -8461,16 +8865,6 @@ impl ::core::fmt::Debug for NtmsPartitionState {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsPoolType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_POOLTYPE_UNKNOWN: NtmsPoolType = NtmsPoolType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_POOLTYPE_SCRATCH: NtmsPoolType = NtmsPoolType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_POOLTYPE_FOREIGN: NtmsPoolType = NtmsPoolType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_POOLTYPE_IMPORT: NtmsPoolType = NtmsPoolType(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_POOLTYPE_APPLICATION: NtmsPoolType = NtmsPoolType(1000i32);
 impl ::core::marker::Copy for NtmsPoolType {}
 impl ::core::clone::Clone for NtmsPoolType {
     fn clone(&self) -> Self {
@@ -8494,12 +8888,6 @@ impl ::core::fmt::Debug for NtmsPoolType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsPortContent(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PORTCONTENT_UNKNOWN: NtmsPortContent = NtmsPortContent(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PORTCONTENT_FULL: NtmsPortContent = NtmsPortContent(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PORTCONTENT_EMPTY: NtmsPortContent = NtmsPortContent(2i32);
 impl ::core::marker::Copy for NtmsPortContent {}
 impl ::core::clone::Clone for NtmsPortContent {
     fn clone(&self) -> Self {
@@ -8523,12 +8911,6 @@ impl ::core::fmt::Debug for NtmsPortContent {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsPortPosition(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PORTPOSITION_UNKNOWN: NtmsPortPosition = NtmsPortPosition(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PORTPOSITION_EXTENDED: NtmsPortPosition = NtmsPortPosition(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_PORTPOSITION_RETRACTED: NtmsPortPosition = NtmsPortPosition(2i32);
 impl ::core::marker::Copy for NtmsPortPosition {}
 impl ::core::clone::Clone for NtmsPortPosition {
     fn clone(&self) -> Self {
@@ -8552,14 +8934,6 @@ impl ::core::fmt::Debug for NtmsPortPosition {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsReadWriteCharacteristics(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MEDIARW_UNKNOWN: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MEDIARW_REWRITABLE: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MEDIARW_WRITEONCE: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_MEDIARW_READONLY: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(3i32);
 impl ::core::marker::Copy for NtmsReadWriteCharacteristics {}
 impl ::core::clone::Clone for NtmsReadWriteCharacteristics {
     fn clone(&self) -> Self {
@@ -8583,8 +8957,6 @@ impl ::core::fmt::Debug for NtmsReadWriteCharacteristics {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsSessionOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_SESSION_QUERYEXPEDITE: NtmsSessionOptions = NtmsSessionOptions(1i32);
 impl ::core::marker::Copy for NtmsSessionOptions {}
 impl ::core::clone::Clone for NtmsSessionOptions {
     fn clone(&self) -> Self {
@@ -8608,16 +8980,6 @@ impl ::core::fmt::Debug for NtmsSessionOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsSlotState(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_SLOTSTATE_UNKNOWN: NtmsSlotState = NtmsSlotState(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_SLOTSTATE_FULL: NtmsSlotState = NtmsSlotState(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_SLOTSTATE_EMPTY: NtmsSlotState = NtmsSlotState(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_SLOTSTATE_NOTPRESENT: NtmsSlotState = NtmsSlotState(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_SLOTSTATE_NEEDSINVENTORY: NtmsSlotState = NtmsSlotState(4i32);
 impl ::core::marker::Copy for NtmsSlotState {}
 impl ::core::clone::Clone for NtmsSlotState {
     fn clone(&self) -> Self {
@@ -8641,14 +9003,6 @@ impl ::core::fmt::Debug for NtmsSlotState {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsUIOperations(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_UIDEST_ADD: NtmsUIOperations = NtmsUIOperations(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_UIDEST_DELETE: NtmsUIOperations = NtmsUIOperations(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_UIDEST_DELETEALL: NtmsUIOperations = NtmsUIOperations(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_UIOPERATION_MAX: NtmsUIOperations = NtmsUIOperations(4i32);
 impl ::core::marker::Copy for NtmsUIOperations {}
 impl ::core::clone::Clone for NtmsUIOperations {
     fn clone(&self) -> Self {
@@ -8672,16 +9026,6 @@ impl ::core::fmt::Debug for NtmsUIOperations {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsUITypes(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_UITYPE_INVALID: NtmsUITypes = NtmsUITypes(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_UITYPE_INFO: NtmsUITypes = NtmsUITypes(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_UITYPE_REQ: NtmsUITypes = NtmsUITypes(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_UITYPE_ERR: NtmsUITypes = NtmsUITypes(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const NTMS_UITYPE_MAX: NtmsUITypes = NtmsUITypes(4i32);
 impl ::core::marker::Copy for NtmsUITypes {}
 impl ::core::clone::Clone for NtmsUITypes {
     fn clone(&self) -> Self {
@@ -8705,18 +9049,6 @@ impl ::core::fmt::Debug for NtmsUITypes {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PREPARE_TAPE_OPERATION(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_FORMAT: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(5u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_LOAD: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_LOCK: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(3u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_TENSION: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_UNLOAD: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_UNLOCK: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(4u32);
 impl ::core::marker::Copy for PREPARE_TAPE_OPERATION {}
 impl ::core::clone::Clone for PREPARE_TAPE_OPERATION {
     fn clone(&self) -> Self {
@@ -8740,14 +9072,6 @@ impl ::core::fmt::Debug for PREPARE_TAPE_OPERATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRIORITY_HINT(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IoPriorityHintVeryLow: PRIORITY_HINT = PRIORITY_HINT(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IoPriorityHintLow: PRIORITY_HINT = PRIORITY_HINT(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const IoPriorityHintNormal: PRIORITY_HINT = PRIORITY_HINT(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const MaximumIoPriorityHintType: PRIORITY_HINT = PRIORITY_HINT(3i32);
 impl ::core::marker::Copy for PRIORITY_HINT {}
 impl ::core::clone::Clone for PRIORITY_HINT {
     fn clone(&self) -> Self {
@@ -8771,14 +9095,6 @@ impl ::core::fmt::Debug for PRIORITY_HINT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ReadDirectoryNotifyInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ReadDirectoryNotifyExtendedInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ReadDirectoryNotifyFullInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ReadDirectoryNotifyMaximumInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(4i32);
 impl ::core::marker::Copy for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {}
 impl ::core::clone::Clone for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -8802,12 +9118,6 @@ impl ::core::fmt::Debug for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REPLACE_FILE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const REPLACEFILE_WRITE_THROUGH: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const REPLACEFILE_IGNORE_MERGE_ERRORS: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const REPLACEFILE_IGNORE_ACL_ERRORS: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(4u32);
 impl ::core::marker::Copy for REPLACE_FILE_FLAGS {}
 impl ::core::clone::Clone for REPLACE_FILE_FLAGS {
     fn clone(&self) -> Self {
@@ -8864,8 +9174,6 @@ impl ::core::ops::Not for REPLACE_FILE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVER_CERTIFICATE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const QUIC: SERVER_CERTIFICATE_TYPE = SERVER_CERTIFICATE_TYPE(0i32);
 impl ::core::marker::Copy for SERVER_CERTIFICATE_TYPE {}
 impl ::core::clone::Clone for SERVER_CERTIFICATE_TYPE {
     fn clone(&self) -> Self {
@@ -8889,10 +9197,6 @@ impl ::core::fmt::Debug for SERVER_CERTIFICATE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SESSION_INFO_USER_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const SESS_GUEST: SESSION_INFO_USER_FLAGS = SESSION_INFO_USER_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const SESS_NOENCRYPTION: SESSION_INFO_USER_FLAGS = SESSION_INFO_USER_FLAGS(2u32);
 impl ::core::marker::Copy for SESSION_INFO_USER_FLAGS {}
 impl ::core::clone::Clone for SESSION_INFO_USER_FLAGS {
     fn clone(&self) -> Self {
@@ -8916,12 +9220,6 @@ impl ::core::fmt::Debug for SESSION_INFO_USER_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SET_FILE_POINTER_MOVE_METHOD(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_BEGIN: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_CURRENT: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FILE_END: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(2u32);
 impl ::core::marker::Copy for SET_FILE_POINTER_MOVE_METHOD {}
 impl ::core::clone::Clone for SET_FILE_POINTER_MOVE_METHOD {
     fn clone(&self) -> Self {
@@ -8945,22 +9243,6 @@ impl ::core::fmt::Debug for SET_FILE_POINTER_MOVE_METHOD {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SHARE_INFO_PERMISSIONS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ACCESS_READ: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ACCESS_WRITE: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ACCESS_CREATE: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ACCESS_EXEC: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(8u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ACCESS_DELETE: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(16u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ACCESS_ATRIB: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(32u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ACCESS_PERM: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(64u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const ACCESS_ALL: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(32768u32);
 impl ::core::marker::Copy for SHARE_INFO_PERMISSIONS {}
 impl ::core::clone::Clone for SHARE_INFO_PERMISSIONS {
     fn clone(&self) -> Self {
@@ -8984,20 +9266,6 @@ impl ::core::fmt::Debug for SHARE_INFO_PERMISSIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SHARE_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const STYPE_DISKTREE: SHARE_TYPE = SHARE_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const STYPE_PRINTQ: SHARE_TYPE = SHARE_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const STYPE_DEVICE: SHARE_TYPE = SHARE_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const STYPE_IPC: SHARE_TYPE = SHARE_TYPE(3u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const STYPE_SPECIAL: SHARE_TYPE = SHARE_TYPE(2147483648u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const STYPE_TEMPORARY: SHARE_TYPE = SHARE_TYPE(1073741824u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const STYPE_MASK: SHARE_TYPE = SHARE_TYPE(255u32);
 impl ::core::marker::Copy for SHARE_TYPE {}
 impl ::core::clone::Clone for SHARE_TYPE {
     fn clone(&self) -> Self {
@@ -9054,50 +9322,6 @@ impl ::core::ops::Not for SHARE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_BUS_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusTypeUnknown: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusTypeScsi: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusTypeAtapi: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusTypeAta: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusType1394: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusTypeSsa: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusTypeFibre: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusTypeUsb: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusTypeRAID: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusTypeiScsi: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusTypeSas: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusTypeSata: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusTypeSd: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusTypeMmc: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusTypeVirtual: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusTypeFileBackedVirtual: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusTypeSpaces: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusTypeNvme: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(17i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusTypeSCM: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(18i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusTypeUfs: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(19i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusTypeMax: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(20i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BusTypeMaxReserved: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(127i32);
 impl ::core::marker::Copy for STORAGE_BUS_TYPE {}
 impl ::core::clone::Clone for STORAGE_BUS_TYPE {
     fn clone(&self) -> Self {
@@ -9121,10 +9345,6 @@ impl ::core::fmt::Debug for STORAGE_BUS_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STREAM_INFO_LEVELS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FindStreamInfoStandard: STREAM_INFO_LEVELS = STREAM_INFO_LEVELS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const FindStreamInfoMaxInfoLevel: STREAM_INFO_LEVELS = STREAM_INFO_LEVELS(1i32);
 impl ::core::marker::Copy for STREAM_INFO_LEVELS {}
 impl ::core::clone::Clone for STREAM_INFO_LEVELS {
     fn clone(&self) -> Self {
@@ -9148,10 +9368,6 @@ impl ::core::fmt::Debug for STREAM_INFO_LEVELS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYMBOLIC_LINK_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const SYMBOLIC_LINK_FLAG_DIRECTORY: SYMBOLIC_LINK_FLAGS = SYMBOLIC_LINK_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const SYMBOLIC_LINK_FLAG_ALLOW_UNPRIVILEGED_CREATE: SYMBOLIC_LINK_FLAGS = SYMBOLIC_LINK_FLAGS(2u32);
 impl ::core::marker::Copy for SYMBOLIC_LINK_FLAGS {}
 impl ::core::clone::Clone for SYMBOLIC_LINK_FLAGS {
     fn clone(&self) -> Self {
@@ -9208,14 +9424,6 @@ impl ::core::ops::Not for SYMBOLIC_LINK_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPEMARK_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_LONG_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(3u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_SETMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_SHORT_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(2u32);
 impl ::core::marker::Copy for TAPEMARK_TYPE {}
 impl ::core::clone::Clone for TAPEMARK_TYPE {
     fn clone(&self) -> Self {
@@ -9239,10 +9447,6 @@ impl ::core::fmt::Debug for TAPEMARK_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPE_INFORMATION_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const SET_TAPE_DRIVE_INFORMATION: TAPE_INFORMATION_TYPE = TAPE_INFORMATION_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const SET_TAPE_MEDIA_INFORMATION: TAPE_INFORMATION_TYPE = TAPE_INFORMATION_TYPE(0u32);
 impl ::core::marker::Copy for TAPE_INFORMATION_TYPE {}
 impl ::core::clone::Clone for TAPE_INFORMATION_TYPE {
     fn clone(&self) -> Self {
@@ -9266,24 +9470,6 @@ impl ::core::fmt::Debug for TAPE_INFORMATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPE_POSITION_METHOD(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_ABSOLUTE_BLOCK: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_LOGICAL_BLOCK: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_REWIND: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_SPACE_END_OF_DATA: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_SPACE_FILEMARKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(6u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_SPACE_RELATIVE_BLOCKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(5u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_SPACE_SEQUENTIAL_FMKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(7u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_SPACE_SEQUENTIAL_SMKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(9u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_SPACE_SETMARKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(8u32);
 impl ::core::marker::Copy for TAPE_POSITION_METHOD {}
 impl ::core::clone::Clone for TAPE_POSITION_METHOD {
     fn clone(&self) -> Self {
@@ -9307,10 +9493,6 @@ impl ::core::fmt::Debug for TAPE_POSITION_METHOD {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPE_POSITION_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_ABSOLUTE_POSITION: TAPE_POSITION_TYPE = TAPE_POSITION_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TAPE_LOGICAL_POSITION: TAPE_POSITION_TYPE = TAPE_POSITION_TYPE(1u32);
 impl ::core::marker::Copy for TAPE_POSITION_TYPE {}
 impl ::core::clone::Clone for TAPE_POSITION_TYPE {
     fn clone(&self) -> Self {
@@ -9334,12 +9516,6 @@ impl ::core::fmt::Debug for TAPE_POSITION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRANSACTION_OUTCOME(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TransactionOutcomeUndetermined: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TransactionOutcomeCommitted: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TransactionOutcomeAborted: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(3i32);
 impl ::core::marker::Copy for TRANSACTION_OUTCOME {}
 impl ::core::clone::Clone for TRANSACTION_OUTCOME {
     fn clone(&self) -> Self {
@@ -9363,12 +9539,6 @@ impl ::core::fmt::Debug for TRANSACTION_OUTCOME {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TXFS_MINIVERSION(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TXFS_MINIVERSION_COMMITTED_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TXFS_MINIVERSION_DIRTY_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(65535u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TXFS_MINIVERSION_DEFAULT_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(65534u32);
 impl ::core::marker::Copy for TXFS_MINIVERSION {}
 impl ::core::clone::Clone for TXFS_MINIVERSION {
     fn clone(&self) -> Self {
@@ -9392,12 +9562,6 @@ impl ::core::fmt::Debug for TXFS_MINIVERSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TXF_LOG_RECORD_TYPE(pub u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TXF_LOG_RECORD_TYPE_AFFECTED_FILE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(4u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TXF_LOG_RECORD_TYPE_TRUNCATE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(2u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const TXF_LOG_RECORD_TYPE_WRITE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(1u16);
 impl ::core::marker::Copy for TXF_LOG_RECORD_TYPE {}
 impl ::core::clone::Clone for TXF_LOG_RECORD_TYPE {
     fn clone(&self) -> Self {
@@ -9421,8 +9585,6 @@ impl ::core::fmt::Debug for TXF_LOG_RECORD_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VER_FIND_FILE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFFF_ISSHAREDFILE: VER_FIND_FILE_FLAGS = VER_FIND_FILE_FLAGS(1u32);
 impl ::core::marker::Copy for VER_FIND_FILE_FLAGS {}
 impl ::core::clone::Clone for VER_FIND_FILE_FLAGS {
     fn clone(&self) -> Self {
@@ -9446,12 +9608,6 @@ impl ::core::fmt::Debug for VER_FIND_FILE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VER_FIND_FILE_STATUS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFF_CURNEDEST: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFF_FILEINUSE: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFF_BUFFTOOSMALL: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(4u32);
 impl ::core::marker::Copy for VER_FIND_FILE_STATUS {}
 impl ::core::clone::Clone for VER_FIND_FILE_STATUS {
     fn clone(&self) -> Self {
@@ -9508,10 +9664,6 @@ impl ::core::ops::Not for VER_FIND_FILE_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VER_INSTALL_FILE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIFF_FORCEINSTALL: VER_INSTALL_FILE_FLAGS = VER_INSTALL_FILE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIFF_DONTDELETEOLD: VER_INSTALL_FILE_FLAGS = VER_INSTALL_FILE_FLAGS(2u32);
 impl ::core::marker::Copy for VER_INSTALL_FILE_FLAGS {}
 impl ::core::clone::Clone for VER_INSTALL_FILE_FLAGS {
     fn clone(&self) -> Self {
@@ -9535,48 +9687,6 @@ impl ::core::fmt::Debug for VER_INSTALL_FILE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VER_INSTALL_FILE_STATUS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIF_TEMPFILE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIF_MISMATCH: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIF_SRCOLD: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIF_DIFFLANG: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(8u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIF_DIFFCODEPG: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(16u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIF_DIFFTYPE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(32u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIF_WRITEPROT: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(64u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIF_FILEINUSE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(128u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIF_OUTOFSPACE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(256u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIF_ACCESSVIOLATION: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(512u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIF_SHARINGVIOLATION: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1024u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIF_CANNOTCREATE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(2048u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIF_CANNOTDELETE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(4096u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIF_CANNOTRENAME: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(8192u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIF_CANNOTDELETECUR: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(16384u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIF_OUTOFMEMORY: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(32768u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIF_CANNOTREADSRC: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(65536u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIF_CANNOTREADDST: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(131072u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIF_BUFFTOOSMALL: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(262144u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIF_CANNOTLOADLZ32: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(524288u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VIF_CANNOTLOADCABINET: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1048576u32);
 impl ::core::marker::Copy for VER_INSTALL_FILE_STATUS {}
 impl ::core::clone::Clone for VER_INSTALL_FILE_STATUS {
     fn clone(&self) -> Self {
@@ -9633,18 +9743,6 @@ impl ::core::ops::Not for VER_INSTALL_FILE_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VS_FIXEDFILEINFO_FILE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VS_FF_DEBUG: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VS_FF_PRERELEASE: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VS_FF_PATCHED: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VS_FF_PRIVATEBUILD: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VS_FF_INFOINFERRED: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VS_FF_SPECIALBUILD: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(32u32);
 impl ::core::marker::Copy for VS_FIXEDFILEINFO_FILE_FLAGS {}
 impl ::core::clone::Clone for VS_FIXEDFILEINFO_FILE_FLAGS {
     fn clone(&self) -> Self {
@@ -9701,38 +9799,6 @@ impl ::core::ops::Not for VS_FIXEDFILEINFO_FILE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VS_FIXEDFILEINFO_FILE_OS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VOS_UNKNOWN: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VOS_DOS: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(65536u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VOS_OS216: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(131072u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VOS_OS232: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(196608u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VOS_NT: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(262144u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VOS_WINCE: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(327680u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VOS__BASE: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VOS__WINDOWS16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VOS__PM16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VOS__PM32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(3u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VOS__WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VOS_DOS_WINDOWS16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(65537u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VOS_DOS_WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(65540u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VOS_OS216_PM16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(131074u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VOS_OS232_PM32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(196611u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VOS_NT_WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(262148u32);
 impl ::core::marker::Copy for VS_FIXEDFILEINFO_FILE_OS {}
 impl ::core::clone::Clone for VS_FIXEDFILEINFO_FILE_OS {
     fn clone(&self) -> Self {
@@ -9756,38 +9822,6 @@ impl ::core::fmt::Debug for VS_FIXEDFILEINFO_FILE_OS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VS_FIXEDFILEINFO_FILE_SUBTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT2_UNKNOWN: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT2_DRV_PRINTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT2_DRV_KEYBOARD: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT2_DRV_LANGUAGE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT2_DRV_DISPLAY: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT2_DRV_MOUSE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT2_DRV_NETWORK: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT2_DRV_SYSTEM: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT2_DRV_INSTALLABLE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT2_DRV_SOUND: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(9i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT2_DRV_COMM: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(10i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT2_DRV_INPUTMETHOD: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(11i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT2_DRV_VERSIONED_PRINTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(12i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT2_FONT_RASTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT2_FONT_VECTOR: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT2_FONT_TRUETYPE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(3i32);
 impl ::core::marker::Copy for VS_FIXEDFILEINFO_FILE_SUBTYPE {}
 impl ::core::clone::Clone for VS_FIXEDFILEINFO_FILE_SUBTYPE {
     fn clone(&self) -> Self {
@@ -9811,20 +9845,6 @@ impl ::core::fmt::Debug for VS_FIXEDFILEINFO_FILE_SUBTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VS_FIXEDFILEINFO_FILE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT_UNKNOWN: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT_APP: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT_DLL: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT_DRV: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT_FONT: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT_VXD: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const VFT_STATIC_LIB: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(7i32);
 impl ::core::marker::Copy for VS_FIXEDFILEINFO_FILE_TYPE {}
 impl ::core::clone::Clone for VS_FIXEDFILEINFO_FILE_TYPE {
     fn clone(&self) -> Self {
@@ -9848,26 +9868,6 @@ impl ::core::fmt::Debug for VS_FIXEDFILEINFO_FILE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WIN_STREAM_ID(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BACKUP_ALTERNATE_DATA: WIN_STREAM_ID = WIN_STREAM_ID(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BACKUP_DATA: WIN_STREAM_ID = WIN_STREAM_ID(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BACKUP_EA_DATA: WIN_STREAM_ID = WIN_STREAM_ID(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BACKUP_LINK: WIN_STREAM_ID = WIN_STREAM_ID(5u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BACKUP_OBJECT_ID: WIN_STREAM_ID = WIN_STREAM_ID(7u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BACKUP_PROPERTY_DATA: WIN_STREAM_ID = WIN_STREAM_ID(6u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BACKUP_REPARSE_DATA: WIN_STREAM_ID = WIN_STREAM_ID(8u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BACKUP_SECURITY_DATA: WIN_STREAM_ID = WIN_STREAM_ID(3u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BACKUP_SPARSE_BLOCK: WIN_STREAM_ID = WIN_STREAM_ID(9u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
-pub const BACKUP_TXFS_DATA: WIN_STREAM_ID = WIN_STREAM_ID(10u32);
 impl ::core::marker::Copy for WIN_STREAM_ID {}
 impl ::core::clone::Clone for WIN_STREAM_ID {
     fn clone(&self) -> Self {

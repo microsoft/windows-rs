@@ -96,6 +96,52 @@ pub const CB_MAX_DISK_NAME: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 pub const CB_MAX_FILENAME: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FCIERR_ALLOC_FAIL: FCIERROR = FCIERROR(3i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FCIERR_BAD_COMPR_TYPE: FCIERROR = FCIERROR(5i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FCIERR_CAB_FILE: FCIERROR = FCIERROR(6i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FCIERR_CAB_FORMAT_LIMIT: FCIERROR = FCIERROR(9i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FCIERR_MCI_FAIL: FCIERROR = FCIERROR(8i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FCIERR_NONE: FCIERROR = FCIERROR(0i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FCIERR_OPEN_SRC: FCIERROR = FCIERROR(1i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FCIERR_READ_SRC: FCIERROR = FCIERROR(2i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FCIERR_TEMP_FILE: FCIERROR = FCIERROR(4i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FCIERR_USER_ABORT: FCIERROR = FCIERROR(7i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FDIERROR_ALLOC_FAIL: FDIERROR = FDIERROR(5i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FDIERROR_BAD_COMPR_TYPE: FDIERROR = FDIERROR(6i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FDIERROR_CABINET_NOT_FOUND: FDIERROR = FDIERROR(1i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FDIERROR_CORRUPT_CABINET: FDIERROR = FDIERROR(4i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FDIERROR_EOF: FDIERROR = FDIERROR(12i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FDIERROR_MDI_FAIL: FDIERROR = FDIERROR(7i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FDIERROR_NONE: FDIERROR = FDIERROR(0i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FDIERROR_NOT_A_CABINET: FDIERROR = FDIERROR(2i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FDIERROR_RESERVE_MISMATCH: FDIERROR = FDIERROR(9i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FDIERROR_TARGET_FILE: FDIERROR = FDIERROR(8i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FDIERROR_UNKNOWN_CABINET_VERSION: FDIERROR = FDIERROR(3i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FDIERROR_USER_ABORT: FDIERROR = FDIERROR(11i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const FDIERROR_WRONG_CABINET: FDIERROR = FDIERROR(10i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 pub const INCLUDED_FCI: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 pub const INCLUDED_FDI: u32 = 1u32;
@@ -105,6 +151,30 @@ pub const INCLUDED_TYPES_FCI_FDI: u32 = 1u32;
 pub const _A_EXEC: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 pub const _A_NAME_IS_UTF: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const cpu80286: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const cpu80386: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const cpuUNKNOWN: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(-1i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const fdidtDECRYPT: FDIDECRYPTTYPE = FDIDECRYPTTYPE(2i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const fdidtNEW_CABINET: FDIDECRYPTTYPE = FDIDECRYPTTYPE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const fdidtNEW_FOLDER: FDIDECRYPTTYPE = FDIDECRYPTTYPE(1i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const fdintCABINET_INFO: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(0i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const fdintCLOSE_FILE_INFO: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(3i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const fdintCOPY_FILE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(2i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const fdintENUMERATE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(5i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const fdintNEXT_CABINET: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(4i32);
+#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
+pub const fdintPARTIAL_FILE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(1i32);
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
 pub const statusCabinet: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
@@ -153,26 +223,6 @@ pub const tcompTYPE_QUANTUM: u32 = 2u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FCIERROR(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FCIERR_NONE: FCIERROR = FCIERROR(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FCIERR_OPEN_SRC: FCIERROR = FCIERROR(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FCIERR_READ_SRC: FCIERROR = FCIERROR(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FCIERR_ALLOC_FAIL: FCIERROR = FCIERROR(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FCIERR_TEMP_FILE: FCIERROR = FCIERROR(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FCIERR_BAD_COMPR_TYPE: FCIERROR = FCIERROR(5i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FCIERR_CAB_FILE: FCIERROR = FCIERROR(6i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FCIERR_USER_ABORT: FCIERROR = FCIERROR(7i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FCIERR_MCI_FAIL: FCIERROR = FCIERROR(8i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FCIERR_CAB_FORMAT_LIMIT: FCIERROR = FCIERROR(9i32);
 impl ::core::marker::Copy for FCIERROR {}
 impl ::core::clone::Clone for FCIERROR {
     fn clone(&self) -> Self {
@@ -196,12 +246,6 @@ impl ::core::fmt::Debug for FCIERROR {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FDICREATE_CPU_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const cpuUNKNOWN: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(-1i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const cpu80286: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const cpu80386: FDICREATE_CPU_TYPE = FDICREATE_CPU_TYPE(1i32);
 impl ::core::marker::Copy for FDICREATE_CPU_TYPE {}
 impl ::core::clone::Clone for FDICREATE_CPU_TYPE {
     fn clone(&self) -> Self {
@@ -225,12 +269,6 @@ impl ::core::fmt::Debug for FDICREATE_CPU_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FDIDECRYPTTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const fdidtNEW_CABINET: FDIDECRYPTTYPE = FDIDECRYPTTYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const fdidtNEW_FOLDER: FDIDECRYPTTYPE = FDIDECRYPTTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const fdidtDECRYPT: FDIDECRYPTTYPE = FDIDECRYPTTYPE(2i32);
 impl ::core::marker::Copy for FDIDECRYPTTYPE {}
 impl ::core::clone::Clone for FDIDECRYPTTYPE {
     fn clone(&self) -> Self {
@@ -254,32 +292,6 @@ impl ::core::fmt::Debug for FDIDECRYPTTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FDIERROR(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FDIERROR_NONE: FDIERROR = FDIERROR(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FDIERROR_CABINET_NOT_FOUND: FDIERROR = FDIERROR(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FDIERROR_NOT_A_CABINET: FDIERROR = FDIERROR(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FDIERROR_UNKNOWN_CABINET_VERSION: FDIERROR = FDIERROR(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FDIERROR_CORRUPT_CABINET: FDIERROR = FDIERROR(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FDIERROR_ALLOC_FAIL: FDIERROR = FDIERROR(5i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FDIERROR_BAD_COMPR_TYPE: FDIERROR = FDIERROR(6i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FDIERROR_MDI_FAIL: FDIERROR = FDIERROR(7i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FDIERROR_TARGET_FILE: FDIERROR = FDIERROR(8i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FDIERROR_RESERVE_MISMATCH: FDIERROR = FDIERROR(9i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FDIERROR_WRONG_CABINET: FDIERROR = FDIERROR(10i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FDIERROR_USER_ABORT: FDIERROR = FDIERROR(11i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const FDIERROR_EOF: FDIERROR = FDIERROR(12i32);
 impl ::core::marker::Copy for FDIERROR {}
 impl ::core::clone::Clone for FDIERROR {
     fn clone(&self) -> Self {
@@ -303,18 +315,6 @@ impl ::core::fmt::Debug for FDIERROR {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FDINOTIFICATIONTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const fdintCABINET_INFO: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const fdintPARTIAL_FILE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const fdintCOPY_FILE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const fdintCLOSE_FILE_INFO: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const fdintNEXT_CABINET: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Cabinets\"`*"]
-pub const fdintENUMERATE: FDINOTIFICATIONTYPE = FDINOTIFICATIONTYPE(5i32);
 impl ::core::marker::Copy for FDINOTIFICATIONTYPE {}
 impl ::core::clone::Clone for FDINOTIFICATIONTYPE {
     fn clone(&self) -> Self {

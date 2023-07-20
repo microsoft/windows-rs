@@ -5392,9 +5392,39 @@ pub const CM_NAME_ATTRIBUTE_NAME_RETRIEVED_FROM_DEVICE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const CM_NAME_ATTRIBUTE_USER_ASSIGNED_NAME: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CM_NOTIFY_ACTION_DEVICECUSTOMEVENT: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(6i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CM_NOTIFY_ACTION_DEVICEINSTANCEENUMERATED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(7i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CM_NOTIFY_ACTION_DEVICEINSTANCEREMOVED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(9i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CM_NOTIFY_ACTION_DEVICEINSTANCESTARTED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(8i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CM_NOTIFY_ACTION_DEVICEINTERFACEARRIVAL: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(0i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CM_NOTIFY_ACTION_DEVICEINTERFACEREMOVAL: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(1i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CM_NOTIFY_ACTION_DEVICEQUERYREMOVE: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(2i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CM_NOTIFY_ACTION_DEVICEQUERYREMOVEFAILED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(3i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CM_NOTIFY_ACTION_DEVICEREMOVECOMPLETE: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(5i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CM_NOTIFY_ACTION_DEVICEREMOVEPENDING: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(4i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CM_NOTIFY_ACTION_MAX: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(10i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const CM_NOTIFY_FILTER_FLAG_ALL_DEVICE_INSTANCES: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const CM_NOTIFY_FILTER_FLAG_ALL_INTERFACE_CLASSES: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CM_NOTIFY_FILTER_TYPE_DEVICEHANDLE: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CM_NOTIFY_FILTER_TYPE_DEVICEINSTANCE: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CM_NOTIFY_FILTER_TYPE_DEVICEINTERFACE: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CM_NOTIFY_FILTER_TYPE_MAX: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(3i32);
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const CM_OPEN_CLASS_KEY_BITS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -5653,6 +5683,134 @@ pub const COPYFLG_REPLACEONLY: u32 = 1024u32;
 pub const COPYFLG_REPLACE_BOOT_FILE: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const COPYFLG_WARN_IF_SKIP: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_ACCESS_DENIED: CONFIGRET = CONFIGRET(51u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_ALREADY_SUCH_DEVINST: CONFIGRET = CONFIGRET(16u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_ALREADY_SUCH_DEVNODE: CONFIGRET = CONFIGRET(16u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_APM_VETOED: CONFIGRET = CONFIGRET(24u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_BUFFER_SMALL: CONFIGRET = CONFIGRET(26u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_CALL_NOT_IMPLEMENTED: CONFIGRET = CONFIGRET(52u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_CANT_SHARE_IRQ: CONFIGRET = CONFIGRET(43u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_CREATE_BLOCKED: CONFIGRET = CONFIGRET(21u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_DEFAULT: CONFIGRET = CONFIGRET(1u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_DEVICE_INTERFACE_ACTIVE: CONFIGRET = CONFIGRET(54u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_DEVICE_NOT_THERE: CONFIGRET = CONFIGRET(36u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_DEVINST_HAS_REQS: CONFIGRET = CONFIGRET(10u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_DEVLOADER_NOT_READY: CONFIGRET = CONFIGRET(33u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_DEVNODE_HAS_REQS: CONFIGRET = CONFIGRET(10u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_DLVXD_NOT_FOUND: CONFIGRET = CONFIGRET(12u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_FAILURE: CONFIGRET = CONFIGRET(19u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_FREE_RESOURCES: CONFIGRET = CONFIGRET(41u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_API: CONFIGRET = CONFIGRET(32u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_ARBITRATOR: CONFIGRET = CONFIGRET(8u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_CONFLICT_LIST: CONFIGRET = CONFIGRET(57u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_DATA: CONFIGRET = CONFIGRET(31u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_DEVICE_ID: CONFIGRET = CONFIGRET(30u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_DEVINST: CONFIGRET = CONFIGRET(5u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_DEVNODE: CONFIGRET = CONFIGRET(5u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_FLAG: CONFIGRET = CONFIGRET(4u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_INDEX: CONFIGRET = CONFIGRET(58u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_LOAD_TYPE: CONFIGRET = CONFIGRET(25u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_LOG_CONF: CONFIGRET = CONFIGRET(7u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_MACHINENAME: CONFIGRET = CONFIGRET(47u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_NODELIST: CONFIGRET = CONFIGRET(9u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_POINTER: CONFIGRET = CONFIGRET(3u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_PRIORITY: CONFIGRET = CONFIGRET(39u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_PROPERTY: CONFIGRET = CONFIGRET(53u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_RANGE: CONFIGRET = CONFIGRET(18u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_RANGE_LIST: CONFIGRET = CONFIGRET(17u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_REFERENCE_STRING: CONFIGRET = CONFIGRET(56u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_RESOURCEID: CONFIGRET = CONFIGRET(11u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_RES_DES: CONFIGRET = CONFIGRET(6u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_INVALID_STRUCTURE_SIZE: CONFIGRET = CONFIGRET(59u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_MACHINE_UNAVAILABLE: CONFIGRET = CONFIGRET(49u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_NEED_RESTART: CONFIGRET = CONFIGRET(34u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_NOT_DISABLEABLE: CONFIGRET = CONFIGRET(40u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_NOT_SYSTEM_VM: CONFIGRET = CONFIGRET(22u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_NO_ARBITRATOR: CONFIGRET = CONFIGRET(27u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_NO_CM_SERVICES: CONFIGRET = CONFIGRET(50u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_NO_DEPENDENT: CONFIGRET = CONFIGRET(44u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_NO_MORE_HW_PROFILES: CONFIGRET = CONFIGRET(35u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_NO_MORE_LOG_CONF: CONFIGRET = CONFIGRET(14u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_NO_MORE_RES_DES: CONFIGRET = CONFIGRET(15u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_NO_REGISTRY_HANDLE: CONFIGRET = CONFIGRET(28u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_NO_SUCH_DEVICE_INTERFACE: CONFIGRET = CONFIGRET(55u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_NO_SUCH_DEVINST: CONFIGRET = CONFIGRET(13u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_NO_SUCH_DEVNODE: CONFIGRET = CONFIGRET(13u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_NO_SUCH_LOGICAL_DEV: CONFIGRET = CONFIGRET(20u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_NO_SUCH_REGISTRY_KEY: CONFIGRET = CONFIGRET(46u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_NO_SUCH_VALUE: CONFIGRET = CONFIGRET(37u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_OUT_OF_MEMORY: CONFIGRET = CONFIGRET(2u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_QUERY_VETOED: CONFIGRET = CONFIGRET(42u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_REGISTRY_ERROR: CONFIGRET = CONFIGRET(29u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_REMOTE_COMM_FAILURE: CONFIGRET = CONFIGRET(48u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_REMOVE_VETOED: CONFIGRET = CONFIGRET(23u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_SAME_RESOURCES: CONFIGRET = CONFIGRET(45u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_SUCCESS: CONFIGRET = CONFIGRET(0u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const CR_WRONG_TYPE: CONFIGRET = CONFIGRET(38u32);
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const DELFLG_IN_USE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -6243,6 +6401,10 @@ pub const ENABLECLASS_SUCCESS: u32 = 1u32;
 pub const FILEOP_ABORT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const FILEOP_BACKUP: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const FILEOP_COPY: SETUP_FILE_OPERATION = SETUP_FILE_OPERATION(0u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const FILEOP_DELETE: SETUP_FILE_OPERATION = SETUP_FILE_OPERATION(2u32);
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const FILEOP_DOIT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -7170,6 +7332,12 @@ pub const INF_STYLE_CACHE_ENABLE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const INF_STYLE_CACHE_IGNORE: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const INF_STYLE_NONE: SP_INF_STYLE = SP_INF_STYLE(0u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const INF_STYLE_OLDNT: SP_INF_STYLE = SP_INF_STYLE(1u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const INF_STYLE_WIN4: SP_INF_STYLE = SP_INF_STYLE(2u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const INSTALLFLAG_BITS: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const INSTALLFLAG_FORCE: u32 = 1u32;
@@ -7332,6 +7500,8 @@ pub const NUM_CM_PROB_V8: u32 = 57u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const NUM_CM_PROB_V9: u32 = 58u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const NUM_CR_RESULTS: CONFIGRET = CONFIGRET(60u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const NUM_LOG_CONF: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const OVERRIDE_LOG_CONF: u32 = 5u32;
@@ -7339,6 +7509,34 @@ pub const OVERRIDE_LOG_CONF: u32 = 5u32;
 pub const PCD_MAX_IO: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const PCD_MAX_MEMORY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const PNP_VetoAlreadyRemoved: PNP_VETO_TYPE = PNP_VETO_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const PNP_VetoDevice: PNP_VETO_TYPE = PNP_VETO_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const PNP_VetoDriver: PNP_VETO_TYPE = PNP_VETO_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const PNP_VetoIllegalDeviceRequest: PNP_VETO_TYPE = PNP_VETO_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const PNP_VetoInsufficientPower: PNP_VETO_TYPE = PNP_VETO_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const PNP_VetoInsufficientRights: PNP_VETO_TYPE = PNP_VETO_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const PNP_VetoLegacyDevice: PNP_VETO_TYPE = PNP_VETO_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const PNP_VetoLegacyDriver: PNP_VETO_TYPE = PNP_VETO_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const PNP_VetoNonDisableable: PNP_VETO_TYPE = PNP_VETO_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const PNP_VetoOutstandingOpen: PNP_VETO_TYPE = PNP_VETO_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const PNP_VetoPendingClose: PNP_VETO_TYPE = PNP_VETO_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const PNP_VetoTypeUnknown: PNP_VETO_TYPE = PNP_VETO_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const PNP_VetoWindowsApp: PNP_VETO_TYPE = PNP_VETO_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const PNP_VetoWindowsService: PNP_VETO_TYPE = PNP_VETO_TYPE(4i32);
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const PRIORITY_BIT: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -7431,6 +7629,10 @@ pub const SPCRP_SECURITY: u32 = 23u32;
 pub const SPCRP_SECURITY_SDS: u32 = 24u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const SPCRP_UPPERFILTERS: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SPDIT_CLASSDRIVER: SETUP_DI_BUILD_DRIVER_DRIVER_TYPE = SETUP_DI_BUILD_DRIVER_DRIVER_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SPDIT_COMPATDRIVER: SETUP_DI_BUILD_DRIVER_DRIVER_TYPE = SETUP_DI_BUILD_DRIVER_DRIVER_TYPE(2u32);
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const SPDIT_NODRIVER: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -7636,6 +7838,12 @@ pub const SPINT_REMOVED: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const SPOST_MAX: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SPOST_NONE: OEM_SOURCE_MEDIA_TYPE = OEM_SOURCE_MEDIA_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SPOST_PATH: OEM_SOURCE_MEDIA_TYPE = OEM_SOURCE_MEDIA_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SPOST_URL: OEM_SOURCE_MEDIA_TYPE = OEM_SOURCE_MEDIA_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const SPPSR_ENUM_ADV_DEVICE_PROPERTIES: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const SPPSR_ENUM_BASIC_DEVICE_PROPERTIES: u32 = 2u32;
@@ -7743,6 +7951,62 @@ pub const SP_BACKUP_BOOTFILE: u32 = 8u32;
 pub const SP_BACKUP_DEMANDPASS: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const SP_BACKUP_SPECIAL: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_ALREADYDECOMP: SP_COPY_STYLE = SP_COPY_STYLE(4194304u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_DELETESOURCE: SP_COPY_STYLE = SP_COPY_STYLE(1u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_FORCE_IN_USE: SP_COPY_STYLE = SP_COPY_STYLE(512u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_FORCE_NEWER: SP_COPY_STYLE = SP_COPY_STYLE(8192u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_FORCE_NOOVERWRITE: SP_COPY_STYLE = SP_COPY_STYLE(4096u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_HARDLINK: SP_COPY_STYLE = SP_COPY_STYLE(268435456u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_INBOX_INF: SP_COPY_STYLE = SP_COPY_STYLE(134217728u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_IN_USE_NEEDS_REBOOT: SP_COPY_STYLE = SP_COPY_STYLE(256u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_IN_USE_TRY_RENAME: SP_COPY_STYLE = SP_COPY_STYLE(67108864u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_LANGUAGEAWARE: SP_COPY_STYLE = SP_COPY_STYLE(32u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_NEWER: SP_COPY_STYLE = SP_COPY_STYLE(4u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_NEWER_ONLY: SP_COPY_STYLE = SP_COPY_STYLE(65536u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_NEWER_OR_SAME: SP_COPY_STYLE = SP_COPY_STYLE(4u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_NOBROWSE: SP_COPY_STYLE = SP_COPY_STYLE(32768u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_NODECOMP: SP_COPY_STYLE = SP_COPY_STYLE(16u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_NOOVERWRITE: SP_COPY_STYLE = SP_COPY_STYLE(8u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_NOPRUNE: SP_COPY_STYLE = SP_COPY_STYLE(1048576u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_NOSKIP: SP_COPY_STYLE = SP_COPY_STYLE(1024u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_OEMINF_CATALOG_ONLY: SP_COPY_STYLE = SP_COPY_STYLE(262144u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_OEM_F6_INF: SP_COPY_STYLE = SP_COPY_STYLE(2097152u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_PNPLOCKED: SP_COPY_STYLE = SP_COPY_STYLE(33554432u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_REPLACEONLY: SP_COPY_STYLE = SP_COPY_STYLE(2u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_REPLACE_BOOT_FILE: SP_COPY_STYLE = SP_COPY_STYLE(524288u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_RESERVED: SP_COPY_STYLE = SP_COPY_STYLE(131072u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_SOURCEPATH_ABSOLUTE: SP_COPY_STYLE = SP_COPY_STYLE(128u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_SOURCE_ABSOLUTE: SP_COPY_STYLE = SP_COPY_STYLE(64u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_WARNIFSKIP: SP_COPY_STYLE = SP_COPY_STYLE(16384u32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SP_COPY_WINDOWS_SIGNED: SP_COPY_STYLE = SP_COPY_STYLE(16777216u32);
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const SP_FLAG_CABINETCONTINUATION: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -7885,6 +8149,18 @@ pub const SZ_KEY_UPDATEINIFIELDS: ::windows_core::PCWSTR = ::windows_core::w!("U
 pub const SZ_KEY_UPDATEINIS: ::windows_core::PCWSTR = ::windows_core::w!("UpdateInis");
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const SZ_KEY_UPGRADEONLY: ::windows_core::PCWSTR = ::windows_core::w!("UpgradeOnly");
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SetupFileLogChecksum: SetupFileLogInfo = SetupFileLogInfo(1i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SetupFileLogDiskDescription: SetupFileLogInfo = SetupFileLogInfo(3i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SetupFileLogDiskTagfile: SetupFileLogInfo = SetupFileLogInfo(2i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SetupFileLogMax: SetupFileLogInfo = SetupFileLogInfo(5i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SetupFileLogOtherInfo: SetupFileLogInfo = SetupFileLogInfo(4i32);
+#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
+pub const SetupFileLogSourceFilename: SetupFileLogInfo = SetupFileLogInfo(0i32);
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 pub const fDD_BYTE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
@@ -8081,28 +8357,6 @@ pub const mPMF_AUDIO_ENABLE: u32 = 8u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CM_NOTIFY_ACTION(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CM_NOTIFY_ACTION_DEVICEINTERFACEARRIVAL: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(0i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CM_NOTIFY_ACTION_DEVICEINTERFACEREMOVAL: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(1i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CM_NOTIFY_ACTION_DEVICEQUERYREMOVE: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(2i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CM_NOTIFY_ACTION_DEVICEQUERYREMOVEFAILED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(3i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CM_NOTIFY_ACTION_DEVICEREMOVEPENDING: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(4i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CM_NOTIFY_ACTION_DEVICEREMOVECOMPLETE: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(5i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CM_NOTIFY_ACTION_DEVICECUSTOMEVENT: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(6i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CM_NOTIFY_ACTION_DEVICEINSTANCEENUMERATED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(7i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CM_NOTIFY_ACTION_DEVICEINSTANCESTARTED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(8i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CM_NOTIFY_ACTION_DEVICEINSTANCEREMOVED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(9i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CM_NOTIFY_ACTION_MAX: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(10i32);
 impl ::core::marker::Copy for CM_NOTIFY_ACTION {}
 impl ::core::clone::Clone for CM_NOTIFY_ACTION {
     fn clone(&self) -> Self {
@@ -8126,14 +8380,6 @@ impl ::core::fmt::Debug for CM_NOTIFY_ACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CM_NOTIFY_FILTER_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CM_NOTIFY_FILTER_TYPE_DEVICEINTERFACE: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CM_NOTIFY_FILTER_TYPE_DEVICEHANDLE: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CM_NOTIFY_FILTER_TYPE_DEVICEINSTANCE: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CM_NOTIFY_FILTER_TYPE_MAX: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(3i32);
 impl ::core::marker::Copy for CM_NOTIFY_FILTER_TYPE {}
 impl ::core::clone::Clone for CM_NOTIFY_FILTER_TYPE {
     fn clone(&self) -> Self {
@@ -8157,136 +8403,6 @@ impl ::core::fmt::Debug for CM_NOTIFY_FILTER_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONFIGRET(pub u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_SUCCESS: CONFIGRET = CONFIGRET(0u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_DEFAULT: CONFIGRET = CONFIGRET(1u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_OUT_OF_MEMORY: CONFIGRET = CONFIGRET(2u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_POINTER: CONFIGRET = CONFIGRET(3u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_FLAG: CONFIGRET = CONFIGRET(4u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_DEVNODE: CONFIGRET = CONFIGRET(5u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_DEVINST: CONFIGRET = CONFIGRET(5u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_RES_DES: CONFIGRET = CONFIGRET(6u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_LOG_CONF: CONFIGRET = CONFIGRET(7u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_ARBITRATOR: CONFIGRET = CONFIGRET(8u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_NODELIST: CONFIGRET = CONFIGRET(9u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_DEVNODE_HAS_REQS: CONFIGRET = CONFIGRET(10u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_DEVINST_HAS_REQS: CONFIGRET = CONFIGRET(10u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_RESOURCEID: CONFIGRET = CONFIGRET(11u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_DLVXD_NOT_FOUND: CONFIGRET = CONFIGRET(12u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_NO_SUCH_DEVNODE: CONFIGRET = CONFIGRET(13u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_NO_SUCH_DEVINST: CONFIGRET = CONFIGRET(13u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_NO_MORE_LOG_CONF: CONFIGRET = CONFIGRET(14u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_NO_MORE_RES_DES: CONFIGRET = CONFIGRET(15u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_ALREADY_SUCH_DEVNODE: CONFIGRET = CONFIGRET(16u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_ALREADY_SUCH_DEVINST: CONFIGRET = CONFIGRET(16u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_RANGE_LIST: CONFIGRET = CONFIGRET(17u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_RANGE: CONFIGRET = CONFIGRET(18u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_FAILURE: CONFIGRET = CONFIGRET(19u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_NO_SUCH_LOGICAL_DEV: CONFIGRET = CONFIGRET(20u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_CREATE_BLOCKED: CONFIGRET = CONFIGRET(21u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_NOT_SYSTEM_VM: CONFIGRET = CONFIGRET(22u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_REMOVE_VETOED: CONFIGRET = CONFIGRET(23u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_APM_VETOED: CONFIGRET = CONFIGRET(24u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_LOAD_TYPE: CONFIGRET = CONFIGRET(25u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_BUFFER_SMALL: CONFIGRET = CONFIGRET(26u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_NO_ARBITRATOR: CONFIGRET = CONFIGRET(27u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_NO_REGISTRY_HANDLE: CONFIGRET = CONFIGRET(28u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_REGISTRY_ERROR: CONFIGRET = CONFIGRET(29u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_DEVICE_ID: CONFIGRET = CONFIGRET(30u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_DATA: CONFIGRET = CONFIGRET(31u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_API: CONFIGRET = CONFIGRET(32u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_DEVLOADER_NOT_READY: CONFIGRET = CONFIGRET(33u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_NEED_RESTART: CONFIGRET = CONFIGRET(34u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_NO_MORE_HW_PROFILES: CONFIGRET = CONFIGRET(35u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_DEVICE_NOT_THERE: CONFIGRET = CONFIGRET(36u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_NO_SUCH_VALUE: CONFIGRET = CONFIGRET(37u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_WRONG_TYPE: CONFIGRET = CONFIGRET(38u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_PRIORITY: CONFIGRET = CONFIGRET(39u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_NOT_DISABLEABLE: CONFIGRET = CONFIGRET(40u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_FREE_RESOURCES: CONFIGRET = CONFIGRET(41u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_QUERY_VETOED: CONFIGRET = CONFIGRET(42u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_CANT_SHARE_IRQ: CONFIGRET = CONFIGRET(43u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_NO_DEPENDENT: CONFIGRET = CONFIGRET(44u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_SAME_RESOURCES: CONFIGRET = CONFIGRET(45u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_NO_SUCH_REGISTRY_KEY: CONFIGRET = CONFIGRET(46u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_MACHINENAME: CONFIGRET = CONFIGRET(47u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_REMOTE_COMM_FAILURE: CONFIGRET = CONFIGRET(48u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_MACHINE_UNAVAILABLE: CONFIGRET = CONFIGRET(49u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_NO_CM_SERVICES: CONFIGRET = CONFIGRET(50u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_ACCESS_DENIED: CONFIGRET = CONFIGRET(51u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_CALL_NOT_IMPLEMENTED: CONFIGRET = CONFIGRET(52u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_PROPERTY: CONFIGRET = CONFIGRET(53u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_DEVICE_INTERFACE_ACTIVE: CONFIGRET = CONFIGRET(54u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_NO_SUCH_DEVICE_INTERFACE: CONFIGRET = CONFIGRET(55u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_REFERENCE_STRING: CONFIGRET = CONFIGRET(56u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_CONFLICT_LIST: CONFIGRET = CONFIGRET(57u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_INDEX: CONFIGRET = CONFIGRET(58u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const CR_INVALID_STRUCTURE_SIZE: CONFIGRET = CONFIGRET(59u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const NUM_CR_RESULTS: CONFIGRET = CONFIGRET(60u32);
 impl ::core::marker::Copy for CONFIGRET {}
 impl ::core::clone::Clone for CONFIGRET {
     fn clone(&self) -> Self {
@@ -8310,12 +8426,6 @@ impl ::core::fmt::Debug for CONFIGRET {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OEM_SOURCE_MEDIA_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SPOST_NONE: OEM_SOURCE_MEDIA_TYPE = OEM_SOURCE_MEDIA_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SPOST_PATH: OEM_SOURCE_MEDIA_TYPE = OEM_SOURCE_MEDIA_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SPOST_URL: OEM_SOURCE_MEDIA_TYPE = OEM_SOURCE_MEDIA_TYPE(2u32);
 impl ::core::marker::Copy for OEM_SOURCE_MEDIA_TYPE {}
 impl ::core::clone::Clone for OEM_SOURCE_MEDIA_TYPE {
     fn clone(&self) -> Self {
@@ -8339,34 +8449,6 @@ impl ::core::fmt::Debug for OEM_SOURCE_MEDIA_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PNP_VETO_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const PNP_VetoTypeUnknown: PNP_VETO_TYPE = PNP_VETO_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const PNP_VetoLegacyDevice: PNP_VETO_TYPE = PNP_VETO_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const PNP_VetoPendingClose: PNP_VETO_TYPE = PNP_VETO_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const PNP_VetoWindowsApp: PNP_VETO_TYPE = PNP_VETO_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const PNP_VetoWindowsService: PNP_VETO_TYPE = PNP_VETO_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const PNP_VetoOutstandingOpen: PNP_VETO_TYPE = PNP_VETO_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const PNP_VetoDevice: PNP_VETO_TYPE = PNP_VETO_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const PNP_VetoDriver: PNP_VETO_TYPE = PNP_VETO_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const PNP_VetoIllegalDeviceRequest: PNP_VETO_TYPE = PNP_VETO_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const PNP_VetoInsufficientPower: PNP_VETO_TYPE = PNP_VETO_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const PNP_VetoNonDisableable: PNP_VETO_TYPE = PNP_VETO_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const PNP_VetoLegacyDriver: PNP_VETO_TYPE = PNP_VETO_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const PNP_VetoInsufficientRights: PNP_VETO_TYPE = PNP_VETO_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const PNP_VetoAlreadyRemoved: PNP_VETO_TYPE = PNP_VETO_TYPE(13i32);
 impl ::core::marker::Copy for PNP_VETO_TYPE {}
 impl ::core::clone::Clone for PNP_VETO_TYPE {
     fn clone(&self) -> Self {
@@ -8390,10 +8472,6 @@ impl ::core::fmt::Debug for PNP_VETO_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SETUP_DI_BUILD_DRIVER_DRIVER_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SPDIT_CLASSDRIVER: SETUP_DI_BUILD_DRIVER_DRIVER_TYPE = SETUP_DI_BUILD_DRIVER_DRIVER_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SPDIT_COMPATDRIVER: SETUP_DI_BUILD_DRIVER_DRIVER_TYPE = SETUP_DI_BUILD_DRIVER_DRIVER_TYPE(2u32);
 impl ::core::marker::Copy for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {}
 impl ::core::clone::Clone for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
     fn clone(&self) -> Self {
@@ -8417,10 +8495,6 @@ impl ::core::fmt::Debug for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SETUP_FILE_OPERATION(pub u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const FILEOP_DELETE: SETUP_FILE_OPERATION = SETUP_FILE_OPERATION(2u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const FILEOP_COPY: SETUP_FILE_OPERATION = SETUP_FILE_OPERATION(0u32);
 impl ::core::marker::Copy for SETUP_FILE_OPERATION {}
 impl ::core::clone::Clone for SETUP_FILE_OPERATION {
     fn clone(&self) -> Self {
@@ -8444,62 +8518,6 @@ impl ::core::fmt::Debug for SETUP_FILE_OPERATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SP_COPY_STYLE(pub u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_DELETESOURCE: SP_COPY_STYLE = SP_COPY_STYLE(1u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_REPLACEONLY: SP_COPY_STYLE = SP_COPY_STYLE(2u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_NEWER_OR_SAME: SP_COPY_STYLE = SP_COPY_STYLE(4u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_NEWER_ONLY: SP_COPY_STYLE = SP_COPY_STYLE(65536u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_NOOVERWRITE: SP_COPY_STYLE = SP_COPY_STYLE(8u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_NODECOMP: SP_COPY_STYLE = SP_COPY_STYLE(16u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_LANGUAGEAWARE: SP_COPY_STYLE = SP_COPY_STYLE(32u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_SOURCE_ABSOLUTE: SP_COPY_STYLE = SP_COPY_STYLE(64u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_SOURCEPATH_ABSOLUTE: SP_COPY_STYLE = SP_COPY_STYLE(128u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_FORCE_IN_USE: SP_COPY_STYLE = SP_COPY_STYLE(512u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_IN_USE_NEEDS_REBOOT: SP_COPY_STYLE = SP_COPY_STYLE(256u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_NOSKIP: SP_COPY_STYLE = SP_COPY_STYLE(1024u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_FORCE_NOOVERWRITE: SP_COPY_STYLE = SP_COPY_STYLE(4096u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_FORCE_NEWER: SP_COPY_STYLE = SP_COPY_STYLE(8192u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_WARNIFSKIP: SP_COPY_STYLE = SP_COPY_STYLE(16384u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_NOBROWSE: SP_COPY_STYLE = SP_COPY_STYLE(32768u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_NEWER: SP_COPY_STYLE = SP_COPY_STYLE(4u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_RESERVED: SP_COPY_STYLE = SP_COPY_STYLE(131072u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_OEMINF_CATALOG_ONLY: SP_COPY_STYLE = SP_COPY_STYLE(262144u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_REPLACE_BOOT_FILE: SP_COPY_STYLE = SP_COPY_STYLE(524288u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_NOPRUNE: SP_COPY_STYLE = SP_COPY_STYLE(1048576u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_OEM_F6_INF: SP_COPY_STYLE = SP_COPY_STYLE(2097152u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_ALREADYDECOMP: SP_COPY_STYLE = SP_COPY_STYLE(4194304u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_WINDOWS_SIGNED: SP_COPY_STYLE = SP_COPY_STYLE(16777216u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_PNPLOCKED: SP_COPY_STYLE = SP_COPY_STYLE(33554432u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_IN_USE_TRY_RENAME: SP_COPY_STYLE = SP_COPY_STYLE(67108864u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_INBOX_INF: SP_COPY_STYLE = SP_COPY_STYLE(134217728u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SP_COPY_HARDLINK: SP_COPY_STYLE = SP_COPY_STYLE(268435456u32);
 impl ::core::marker::Copy for SP_COPY_STYLE {}
 impl ::core::clone::Clone for SP_COPY_STYLE {
     fn clone(&self) -> Self {
@@ -8556,12 +8574,6 @@ impl ::core::ops::Not for SP_COPY_STYLE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SP_INF_STYLE(pub u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const INF_STYLE_NONE: SP_INF_STYLE = SP_INF_STYLE(0u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const INF_STYLE_OLDNT: SP_INF_STYLE = SP_INF_STYLE(1u32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const INF_STYLE_WIN4: SP_INF_STYLE = SP_INF_STYLE(2u32);
 impl ::core::marker::Copy for SP_INF_STYLE {}
 impl ::core::clone::Clone for SP_INF_STYLE {
     fn clone(&self) -> Self {
@@ -8585,18 +8597,6 @@ impl ::core::fmt::Debug for SP_INF_STYLE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SetupFileLogInfo(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SetupFileLogSourceFilename: SetupFileLogInfo = SetupFileLogInfo(0i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SetupFileLogChecksum: SetupFileLogInfo = SetupFileLogInfo(1i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SetupFileLogDiskTagfile: SetupFileLogInfo = SetupFileLogInfo(2i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SetupFileLogDiskDescription: SetupFileLogInfo = SetupFileLogInfo(3i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SetupFileLogOtherInfo: SetupFileLogInfo = SetupFileLogInfo(4i32);
-#[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
-pub const SetupFileLogMax: SetupFileLogInfo = SetupFileLogInfo(5i32);
 impl ::core::marker::Copy for SetupFileLogInfo {}
 impl ::core::clone::Clone for SetupFileLogInfo {
     fn clone(&self) -> Self {

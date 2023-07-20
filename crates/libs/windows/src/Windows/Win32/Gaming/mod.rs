@@ -819,6 +819,40 @@ pub struct IXblIdpAuthTokenResult2_Vtbl {
     pub GetUniqueModernGamertag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::windows_core::PWSTR) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const GAMESTATS_OPEN_CREATED: GAMESTATS_OPEN_RESULT = GAMESTATS_OPEN_RESULT(0i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const GAMESTATS_OPEN_OPENED: GAMESTATS_OPEN_RESULT = GAMESTATS_OPEN_RESULT(1i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const GAMESTATS_OPEN_OPENONLY: GAMESTATS_OPEN_TYPE = GAMESTATS_OPEN_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const GAMESTATS_OPEN_OPENORCREATE: GAMESTATS_OPEN_TYPE = GAMESTATS_OPEN_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const GAMING_DEVICE_DEVICE_ID_NONE: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(0i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(1988865574i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_S: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(712204761i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(1523980231i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X_DEVKIT: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(284675555i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_S: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(489159355i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_X: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(796540415i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_X_DEVKIT: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(-561359263i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const GAMING_DEVICE_VENDOR_ID_MICROSOFT: GAMING_DEVICE_VENDOR_ID = GAMING_DEVICE_VENDOR_ID(-1024700366i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const GAMING_DEVICE_VENDOR_ID_NONE: GAMING_DEVICE_VENDOR_ID = GAMING_DEVICE_VENDOR_ID(0i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const GIS_ALL_USERS: GAME_INSTALL_SCOPE = GAME_INSTALL_SCOPE(3i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const GIS_CURRENT_USER: GAME_INSTALL_SCOPE = GAME_INSTALL_SCOPE(2i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const GIS_NOT_INSTALLED: GAME_INSTALL_SCOPE = GAME_INSTALL_SCOPE(1i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GameExplorer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a5ea990_3034_4d6f_9128_01f3c61022bc);
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const GameStatistics: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdbc85a2c_c0dc_4961_b6e2_d28b62c11ad4);
@@ -827,6 +861,68 @@ pub const ID_GDF_THUMBNAIL_STR: ::windows_core::PCWSTR = ::windows_core::w!("__G
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const ID_GDF_XML_STR: ::windows_core::PCWSTR = ::windows_core::w!("__GDF_XML");
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XBL_IDP_AUTH_TOKEN_STATUS_LOAD_MSA_ACCOUNT_FAILED: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XBL_IDP_AUTH_TOKEN_STATUS_MSA_INTERRUPT: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(5i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XBL_IDP_AUTH_TOKEN_STATUS_NO_ACCOUNT_SET: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XBL_IDP_AUTH_TOKEN_STATUS_OFFLINE_NO_CONSENT: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(6i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XBL_IDP_AUTH_TOKEN_STATUS_OFFLINE_SUCCESS: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XBL_IDP_AUTH_TOKEN_STATUS_SUCCESS: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XBL_IDP_AUTH_TOKEN_STATUS_UNKNOWN: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(-1i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XBL_IDP_AUTH_TOKEN_STATUS_VIEW_NOT_SET: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(7i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XBL_IDP_AUTH_TOKEN_STATUS_XBOX_VETO: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(4i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_ADD_FRIEND: KnownGamingPrivileges = KnownGamingPrivileges(255i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_BROADCAST: KnownGamingPrivileges = KnownGamingPrivileges(190i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_CLOUD_GAMING_JOIN_SESSION: KnownGamingPrivileges = KnownGamingPrivileges(208i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_CLOUD_GAMING_MANAGE_SESSION: KnownGamingPrivileges = KnownGamingPrivileges(207i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_CLOUD_SAVED_GAMES: KnownGamingPrivileges = KnownGamingPrivileges(209i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_COMMUNICATIONS: KnownGamingPrivileges = KnownGamingPrivileges(252i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_COMMUNICATION_VOICE_INGAME: KnownGamingPrivileges = KnownGamingPrivileges(205i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_COMMUNICATION_VOICE_SKYPE: KnownGamingPrivileges = KnownGamingPrivileges(206i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_GAME_DVR: KnownGamingPrivileges = KnownGamingPrivileges(198i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_MULTIPLAYER_PARTIES: KnownGamingPrivileges = KnownGamingPrivileges(203i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_MULTIPLAYER_SESSIONS: KnownGamingPrivileges = KnownGamingPrivileges(254i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_PREMIUM_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(214i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_PREMIUM_VIDEO: KnownGamingPrivileges = KnownGamingPrivileges(224i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_PROFILE_VIEWING: KnownGamingPrivileges = KnownGamingPrivileges(249i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_PURCHASE_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(245i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_SHARE_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(211i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_SHARE_KINECT_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(199i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_SOCIAL_NETWORK_SHARING: KnownGamingPrivileges = KnownGamingPrivileges(220i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_SUBSCRIPTION_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(219i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_USER_CREATED_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(247i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_VIDEO_COMMUNICATIONS: KnownGamingPrivileges = KnownGamingPrivileges(235i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
+pub const XPRIVILEGE_VIEW_FRIENDS_LIST: KnownGamingPrivileges = KnownGamingPrivileges(197i32);
+#[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XblIdpAuthManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xce23534b_56d8_4978_86a2_7ee570640468);
 #[doc = "*Required features: `\"Win32_Gaming\"`*"]
 pub const XblIdpAuthTokenResult: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f493441_744a_410c_ae2b_9a22f7c7731f);
@@ -834,10 +930,6 @@ pub const XblIdpAuthTokenResult: ::windows_core::GUID = ::windows_core::GUID::fr
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GAMESTATS_OPEN_RESULT(pub i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const GAMESTATS_OPEN_CREATED: GAMESTATS_OPEN_RESULT = GAMESTATS_OPEN_RESULT(0i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const GAMESTATS_OPEN_OPENED: GAMESTATS_OPEN_RESULT = GAMESTATS_OPEN_RESULT(1i32);
 impl ::core::marker::Copy for GAMESTATS_OPEN_RESULT {}
 impl ::core::clone::Clone for GAMESTATS_OPEN_RESULT {
     fn clone(&self) -> Self {
@@ -861,10 +953,6 @@ impl ::core::fmt::Debug for GAMESTATS_OPEN_RESULT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GAMESTATS_OPEN_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const GAMESTATS_OPEN_OPENORCREATE: GAMESTATS_OPEN_TYPE = GAMESTATS_OPEN_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const GAMESTATS_OPEN_OPENONLY: GAMESTATS_OPEN_TYPE = GAMESTATS_OPEN_TYPE(1i32);
 impl ::core::marker::Copy for GAMESTATS_OPEN_TYPE {}
 impl ::core::clone::Clone for GAMESTATS_OPEN_TYPE {
     fn clone(&self) -> Self {
@@ -888,12 +976,6 @@ impl ::core::fmt::Debug for GAMESTATS_OPEN_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GAME_INSTALL_SCOPE(pub i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const GIS_NOT_INSTALLED: GAME_INSTALL_SCOPE = GAME_INSTALL_SCOPE(1i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const GIS_CURRENT_USER: GAME_INSTALL_SCOPE = GAME_INSTALL_SCOPE(2i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const GIS_ALL_USERS: GAME_INSTALL_SCOPE = GAME_INSTALL_SCOPE(3i32);
 impl ::core::marker::Copy for GAME_INSTALL_SCOPE {}
 impl ::core::clone::Clone for GAME_INSTALL_SCOPE {
     fn clone(&self) -> Self {
@@ -917,22 +999,6 @@ impl ::core::fmt::Debug for GAME_INSTALL_SCOPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GAMING_DEVICE_DEVICE_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const GAMING_DEVICE_DEVICE_ID_NONE: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(0i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(1988865574i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_S: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(712204761i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(1523980231i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X_DEVKIT: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(284675555i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_S: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(489159355i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_X: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(796540415i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const GAMING_DEVICE_DEVICE_ID_XBOX_SERIES_X_DEVKIT: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(-561359263i32);
 impl ::core::marker::Copy for GAMING_DEVICE_DEVICE_ID {}
 impl ::core::clone::Clone for GAMING_DEVICE_DEVICE_ID {
     fn clone(&self) -> Self {
@@ -956,10 +1022,6 @@ impl ::core::fmt::Debug for GAMING_DEVICE_DEVICE_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GAMING_DEVICE_VENDOR_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const GAMING_DEVICE_VENDOR_ID_NONE: GAMING_DEVICE_VENDOR_ID = GAMING_DEVICE_VENDOR_ID(0i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const GAMING_DEVICE_VENDOR_ID_MICROSOFT: GAMING_DEVICE_VENDOR_ID = GAMING_DEVICE_VENDOR_ID(-1024700366i32);
 impl ::core::marker::Copy for GAMING_DEVICE_VENDOR_ID {}
 impl ::core::clone::Clone for GAMING_DEVICE_VENDOR_ID {
     fn clone(&self) -> Self {
@@ -983,50 +1045,6 @@ impl ::core::fmt::Debug for GAMING_DEVICE_VENDOR_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KnownGamingPrivileges(pub i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_BROADCAST: KnownGamingPrivileges = KnownGamingPrivileges(190i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_VIEW_FRIENDS_LIST: KnownGamingPrivileges = KnownGamingPrivileges(197i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_GAME_DVR: KnownGamingPrivileges = KnownGamingPrivileges(198i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_SHARE_KINECT_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(199i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_MULTIPLAYER_PARTIES: KnownGamingPrivileges = KnownGamingPrivileges(203i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_COMMUNICATION_VOICE_INGAME: KnownGamingPrivileges = KnownGamingPrivileges(205i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_COMMUNICATION_VOICE_SKYPE: KnownGamingPrivileges = KnownGamingPrivileges(206i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_CLOUD_GAMING_MANAGE_SESSION: KnownGamingPrivileges = KnownGamingPrivileges(207i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_CLOUD_GAMING_JOIN_SESSION: KnownGamingPrivileges = KnownGamingPrivileges(208i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_CLOUD_SAVED_GAMES: KnownGamingPrivileges = KnownGamingPrivileges(209i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_SHARE_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(211i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_PREMIUM_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(214i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_SUBSCRIPTION_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(219i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_SOCIAL_NETWORK_SHARING: KnownGamingPrivileges = KnownGamingPrivileges(220i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_PREMIUM_VIDEO: KnownGamingPrivileges = KnownGamingPrivileges(224i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_VIDEO_COMMUNICATIONS: KnownGamingPrivileges = KnownGamingPrivileges(235i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_PURCHASE_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(245i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_USER_CREATED_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(247i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_PROFILE_VIEWING: KnownGamingPrivileges = KnownGamingPrivileges(249i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_COMMUNICATIONS: KnownGamingPrivileges = KnownGamingPrivileges(252i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_MULTIPLAYER_SESSIONS: KnownGamingPrivileges = KnownGamingPrivileges(254i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XPRIVILEGE_ADD_FRIEND: KnownGamingPrivileges = KnownGamingPrivileges(255i32);
 impl ::core::marker::Copy for KnownGamingPrivileges {}
 impl ::core::clone::Clone for KnownGamingPrivileges {
     fn clone(&self) -> Self {
@@ -1050,24 +1068,6 @@ impl ::core::fmt::Debug for KnownGamingPrivileges {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XBL_IDP_AUTH_TOKEN_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XBL_IDP_AUTH_TOKEN_STATUS_SUCCESS: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XBL_IDP_AUTH_TOKEN_STATUS_OFFLINE_SUCCESS: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XBL_IDP_AUTH_TOKEN_STATUS_NO_ACCOUNT_SET: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XBL_IDP_AUTH_TOKEN_STATUS_LOAD_MSA_ACCOUNT_FAILED: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XBL_IDP_AUTH_TOKEN_STATUS_XBOX_VETO: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XBL_IDP_AUTH_TOKEN_STATUS_MSA_INTERRUPT: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(5i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XBL_IDP_AUTH_TOKEN_STATUS_OFFLINE_NO_CONSENT: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(6i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XBL_IDP_AUTH_TOKEN_STATUS_VIEW_NOT_SET: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(7i32);
-#[doc = "*Required features: `\"Win32_Gaming\"`*"]
-pub const XBL_IDP_AUTH_TOKEN_STATUS_UNKNOWN: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(-1i32);
 impl ::core::marker::Copy for XBL_IDP_AUTH_TOKEN_STATUS {}
 impl ::core::clone::Clone for XBL_IDP_AUTH_TOKEN_STATUS {
     fn clone(&self) -> Self {

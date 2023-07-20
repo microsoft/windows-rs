@@ -322,6 +322,22 @@ where
     WinUsb_WritePipe(interfacehandle.into_param().abi(), pipeid, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ::core::mem::transmute(lengthtransferred.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(overlapped.unwrap_or(::std::ptr::null()))).ok()
 }
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const ALLOW_PARTIAL_READS: WINUSB_PIPE_POLICY = WINUSB_PIPE_POLICY(5u32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const ALL_PIPE: PIPE_TYPE = PIPE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const AUTO_CLEAR_STALL: WINUSB_PIPE_POLICY = WINUSB_PIPE_POLICY(2u32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const AUTO_FLUSH: WINUSB_PIPE_POLICY = WINUSB_PIPE_POLICY(6u32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const AUTO_SUSPEND: WINUSB_POWER_POLICY = WINUSB_POWER_POLICY(129u32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const AcquireBusInfo: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const AcquireControllerName: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const AcquireHubName: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const BMREQUEST_CLASS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const BMREQUEST_DEVICE_TO_HOST: u32 = 1u32;
@@ -342,7 +358,45 @@ pub const BMREQUEST_VENDOR: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const BULKIN_FLAG: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const CompositeDevice: USB_WMI_DEVICE_NODE_TYPE = USB_WMI_DEVICE_NODE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const DEVICE_SPEED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const DeviceCausedOvercurrent: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const DeviceConnected: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const DeviceEnumerating: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(9i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const DeviceFailedEnumeration: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const DeviceGeneralFailure: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const DeviceHubNestedTooDeeply: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const DeviceInLegacyHub: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const DeviceNotEnoughBandwidth: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const DeviceNotEnoughPower: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const DeviceReset: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(10i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const EHCI_Generic: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(1000i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const EHCI_Intel_Medfield: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(5001i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const EHCI_Lucent: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(3000i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const EHCI_NEC: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(2000i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const EHCI_NVIDIA_Tegra2: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(4000i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const EHCI_NVIDIA_Tegra3: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(4001i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const EVENT_PIPE: PIPE_TYPE = PIPE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const EnumerationFailure: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(0i32);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const FILE_DEVICE_USB: u32 = 34u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
@@ -397,6 +451,16 @@ pub const HCD_TRACE_READ_REQUEST: u32 = 275u32;
 pub const HCD_USER_REQUEST: u32 = 270u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const HighSpeed: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const HubDevice: USB_WMI_DEVICE_NODE_TYPE = USB_WMI_DEVICE_NODE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const HubNestedTooDeeply: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const HubOvercurrent: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const HubPowerChange: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const IGNORE_SHORT_PACKETS: WINUSB_PIPE_POLICY = WINUSB_PIPE_POLICY(4u32);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const IOCTL_ABORT_PIPE: u32 = 2147491844u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
@@ -570,11 +634,17 @@ pub const IOCTL_WAIT_ON_DEVICE_EVENT: u32 = 2147491848u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const IOCTL_WRITE_REGISTERS: u32 = 2147491856u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const InsufficentBandwidth: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const InsufficentPower: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const KREGMANUSBFNENUMPATH: ::windows_core::PCWSTR = ::windows_core::w!("\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\ManufacturingMode\\Current\\USBFN\\");
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const KREGUSBFNENUMPATH: ::windows_core::PCWSTR = ::windows_core::w!("\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\USBFN\\");
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const LowSpeed: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const MAXIMUM_TRANSFER_SIZE: WINUSB_PIPE_POLICY = WINUSB_PIPE_POLICY(8u32);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const MAXIMUM_USB_STRING_LENGTH: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
@@ -602,7 +672,21 @@ pub const MS_OS_STRING_SIGNATURE: ::windows_core::PCWSTR = ::windows_core::w!("M
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const MS_POWER_DESCRIPTOR_INDEX: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const ModernDeviceInLegacyHub: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const NoDeviceConnected: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const OHCI_Generic: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(100i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const OHCI_Hydra: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(101i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const OHCI_NEC: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(102i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const OS_STRING_DESCRIPTOR_INDEX: u32 = 238u32;
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const OverCurrent: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const PIPE_TRANSFER_TIMEOUT: WINUSB_PIPE_POLICY = WINUSB_PIPE_POLICY(3u32);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const PORT_LINK_STATE_COMPLIANCE_MODE: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
@@ -629,6 +713,52 @@ pub const PORT_LINK_STATE_U1: u32 = 1u32;
 pub const PORT_LINK_STATE_U2: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const PORT_LINK_STATE_U3: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const RAW_IO: WINUSB_PIPE_POLICY = WINUSB_PIPE_POLICY(7u32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const READ_DATA_PIPE: PIPE_TYPE = PIPE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const RESET_PIPE_ON_RESUME: WINUSB_PIPE_POLICY = WINUSB_PIPE_POLICY(9u32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const ResetOvercurrent: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const SHORT_PACKET_TERMINATE: WINUSB_PIPE_POLICY = WINUSB_PIPE_POLICY(1u32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const SUSPEND_DELAY: WINUSB_POWER_POLICY = WINUSB_POWER_POLICY(131u32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UHCI_Generic: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(200i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UHCI_Ich1: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(205i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UHCI_Ich2: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(203i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UHCI_Ich3m: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(206i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UHCI_Ich4: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(207i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UHCI_Ich5: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(208i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UHCI_Ich6: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(209i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UHCI_Intel: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(249i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UHCI_Piix3: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(202i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UHCI_Piix4: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(201i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UHCI_Reserved204: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(204i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UHCI_VIA: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(250i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UHCI_VIA_x01: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(251i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UHCI_VIA_x02: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(252i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UHCI_VIA_x03: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(253i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UHCI_VIA_x04: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(254i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UHCI_VIA_x0E_FIFO: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(264i32);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const URB_FUNCTION_ABORT_PIPE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
@@ -797,6 +927,14 @@ pub const USBD_TRANSFER_DIRECTION_IN: u32 = 1u32;
 pub const USBD_TRANSFER_DIRECTION_OUT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const USBFN_INTERRUPT_ENDPOINT_SIZE_NOT_UPDATEABLE_MASK: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const USBSCAN_PIPE_BULK: RAW_PIPE_TYPE = RAW_PIPE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const USBSCAN_PIPE_CONTROL: RAW_PIPE_TYPE = RAW_PIPE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const USBSCAN_PIPE_INTERRUPT: RAW_PIPE_TYPE = RAW_PIPE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const USBSCAN_PIPE_ISOCHRONOUS: RAW_PIPE_TYPE = RAW_PIPE_TYPE(1i32);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const USBUSER_CLEAR_ROOTPORT_FEATURE: u32 = 536870918u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
@@ -1196,6 +1334,8 @@ pub const USB_HC_FEATURE_TIME_SYNC_API: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const USB_HUB_CYCLE_PORT: u32 = 273u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const USB_HcGeneric: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const USB_IDLE_NOTIFICATION: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const USB_IDLE_NOTIFICATION_EX: u32 = 272u32;
@@ -1384,6 +1524,146 @@ pub const USB_UNREGISTER_COMPOSITE_DEVICE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const USB_UNREGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: u32 = 284u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const Usb11Device: USB_DEVICE_TYPE = USB_DEVICE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const Usb20Device: USB_DEVICE_TYPE = USB_DEVICE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const Usb20Hub: USB_HUB_TYPE = USB_HUB_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const Usb30Hub: USB_HUB_TYPE = USB_HUB_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbController: USB_WMI_DEVICE_NODE_TYPE = USB_WMI_DEVICE_NODE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbDevice: USB_WMI_DEVICE_NODE_TYPE = USB_WMI_DEVICE_NODE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbFullSpeed: USB_DEVICE_SPEED = USB_DEVICE_SPEED(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbHighSpeed: USB_DEVICE_SPEED = USB_DEVICE_SPEED(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbHub: USB_HUB_NODE = USB_HUB_NODE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbLowSpeed: USB_DEVICE_SPEED = USB_DEVICE_SPEED(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbMIParent: USB_HUB_NODE = USB_HUB_NODE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbRootHub: USB_HUB_TYPE = USB_HUB_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbSuperSpeed: USB_DEVICE_SPEED = USB_DEVICE_SPEED(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbUserBufferTooSmall: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbUserDeviceNotStarted: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(9i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbUserErrorNotMapped: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbUserFeatureDisabled: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbUserInvalidHeaderParameter: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbUserInvalidParameter: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbUserInvalidRequestCode: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbUserMiniportError: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbUserNoDeviceConnected: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(10i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbUserNotSupported: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbUserSuccess: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbdEndpointOffloadHardwareAssisted: USBD_ENDPOINT_OFFLOAD_MODE = USBD_ENDPOINT_OFFLOAD_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbdEndpointOffloadModeNotSupported: USBD_ENDPOINT_OFFLOAD_MODE = USBD_ENDPOINT_OFFLOAD_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbdEndpointOffloadSoftwareAssisted: USBD_ENDPOINT_OFFLOAD_MODE = USBD_ENDPOINT_OFFLOAD_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbdPipeTypeBulk: USBD_PIPE_TYPE = USBD_PIPE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbdPipeTypeControl: USBD_PIPE_TYPE = USBD_PIPE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbdPipeTypeInterrupt: USBD_PIPE_TYPE = USBD_PIPE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbdPipeTypeIsochronous: USBD_PIPE_TYPE = USBD_PIPE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnBusSpeedFull: USBFN_BUS_SPEED = USBFN_BUS_SPEED(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnBusSpeedHigh: USBFN_BUS_SPEED = USBFN_BUS_SPEED(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnBusSpeedLow: USBFN_BUS_SPEED = USBFN_BUS_SPEED(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnBusSpeedMaximum: USBFN_BUS_SPEED = USBFN_BUS_SPEED(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnBusSpeedSuper: USBFN_BUS_SPEED = USBFN_BUS_SPEED(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnChargingDownstreamPort: USBFN_PORT_TYPE = USBFN_PORT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnDedicatedChargingPort: USBFN_PORT_TYPE = USBFN_PORT_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnDeviceStateAddressed: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnDeviceStateAttached: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnDeviceStateConfigured: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnDeviceStateDefault: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnDeviceStateDetached: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnDeviceStateMinimum: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnDeviceStateStateMaximum: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnDeviceStateSuspended: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnDirectionIn: USBFN_DIRECTION = USBFN_DIRECTION(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnDirectionMaximum: USBFN_DIRECTION = USBFN_DIRECTION(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnDirectionMinimum: USBFN_DIRECTION = USBFN_DIRECTION(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnDirectionOut: USBFN_DIRECTION = USBFN_DIRECTION(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnDirectionRx: USBFN_DIRECTION = USBFN_DIRECTION(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnDirectionTx: USBFN_DIRECTION = USBFN_DIRECTION(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnEventAttach: USBFN_EVENT = USBFN_EVENT(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnEventBusTearDown: USBFN_EVENT = USBFN_EVENT(10i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnEventConfigured: USBFN_EVENT = USBFN_EVENT(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnEventDetach: USBFN_EVENT = USBFN_EVENT(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnEventMaximum: USBFN_EVENT = USBFN_EVENT(12i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnEventMinimum: USBFN_EVENT = USBFN_EVENT(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnEventPortType: USBFN_EVENT = USBFN_EVENT(9i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnEventReset: USBFN_EVENT = USBFN_EVENT(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnEventResume: USBFN_EVENT = USBFN_EVENT(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnEventSetInterface: USBFN_EVENT = USBFN_EVENT(11i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnEventSetupPacket: USBFN_EVENT = USBFN_EVENT(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnEventSuspend: USBFN_EVENT = USBFN_EVENT(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnEventUnConfigured: USBFN_EVENT = USBFN_EVENT(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnInvalidDedicatedChargingPort: USBFN_PORT_TYPE = USBFN_PORT_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnPortTypeMaximum: USBFN_PORT_TYPE = USBFN_PORT_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnProprietaryDedicatedChargingPort: USBFN_PORT_TYPE = USBFN_PORT_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnStandardDownstreamPort: USBFN_PORT_TYPE = USBFN_PORT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const UsbfnUnknownPort: USBFN_PORT_TYPE = USBFN_PORT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const WMI_USB_DEVICE_NODE_INFORMATION: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const WMI_USB_DRIVER_INFORMATION: u32 = 0u32;
@@ -1396,19 +1676,39 @@ pub const WMI_USB_PERFORMANCE_INFORMATION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const WMI_USB_POWER_DEVICE_ENABLE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const WRITE_DATA_PIPE: PIPE_TYPE = PIPE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const WdmUsbPowerDeviceD0: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(201i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const WdmUsbPowerDeviceD1: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(202i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const WdmUsbPowerDeviceD2: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(203i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const WdmUsbPowerDeviceD3: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(204i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const WdmUsbPowerDeviceUnspecified: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(200i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const WdmUsbPowerNotMapped: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const WdmUsbPowerSystemHibernate: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(105i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const WdmUsbPowerSystemShutdown: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(106i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const WdmUsbPowerSystemSleeping1: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(102i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const WdmUsbPowerSystemSleeping2: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(103i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const WdmUsbPowerSystemSleeping3: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(104i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const WdmUsbPowerSystemUnspecified: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(100i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
+pub const WdmUsbPowerSystemWorking: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(101i32);
+#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 pub const WinUSB_TestGuid: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda812bff_12c3_46a2_8e2b_dbd3b7834c43);
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PIPE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const EVENT_PIPE: PIPE_TYPE = PIPE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const READ_DATA_PIPE: PIPE_TYPE = PIPE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const WRITE_DATA_PIPE: PIPE_TYPE = PIPE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const ALL_PIPE: PIPE_TYPE = PIPE_TYPE(3i32);
 impl ::core::marker::Copy for PIPE_TYPE {}
 impl ::core::clone::Clone for PIPE_TYPE {
     fn clone(&self) -> Self {
@@ -1432,14 +1732,6 @@ impl ::core::fmt::Debug for PIPE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RAW_PIPE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const USBSCAN_PIPE_CONTROL: RAW_PIPE_TYPE = RAW_PIPE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const USBSCAN_PIPE_ISOCHRONOUS: RAW_PIPE_TYPE = RAW_PIPE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const USBSCAN_PIPE_BULK: RAW_PIPE_TYPE = RAW_PIPE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const USBSCAN_PIPE_INTERRUPT: RAW_PIPE_TYPE = RAW_PIPE_TYPE(3i32);
 impl ::core::marker::Copy for RAW_PIPE_TYPE {}
 impl ::core::clone::Clone for RAW_PIPE_TYPE {
     fn clone(&self) -> Self {
@@ -1463,12 +1755,6 @@ impl ::core::fmt::Debug for RAW_PIPE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USBD_ENDPOINT_OFFLOAD_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbdEndpointOffloadModeNotSupported: USBD_ENDPOINT_OFFLOAD_MODE = USBD_ENDPOINT_OFFLOAD_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbdEndpointOffloadSoftwareAssisted: USBD_ENDPOINT_OFFLOAD_MODE = USBD_ENDPOINT_OFFLOAD_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbdEndpointOffloadHardwareAssisted: USBD_ENDPOINT_OFFLOAD_MODE = USBD_ENDPOINT_OFFLOAD_MODE(2i32);
 impl ::core::marker::Copy for USBD_ENDPOINT_OFFLOAD_MODE {}
 impl ::core::clone::Clone for USBD_ENDPOINT_OFFLOAD_MODE {
     fn clone(&self) -> Self {
@@ -1492,14 +1778,6 @@ impl ::core::fmt::Debug for USBD_ENDPOINT_OFFLOAD_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USBD_PIPE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbdPipeTypeControl: USBD_PIPE_TYPE = USBD_PIPE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbdPipeTypeIsochronous: USBD_PIPE_TYPE = USBD_PIPE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbdPipeTypeBulk: USBD_PIPE_TYPE = USBD_PIPE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbdPipeTypeInterrupt: USBD_PIPE_TYPE = USBD_PIPE_TYPE(3i32);
 impl ::core::marker::Copy for USBD_PIPE_TYPE {}
 impl ::core::clone::Clone for USBD_PIPE_TYPE {
     fn clone(&self) -> Self {
@@ -1523,16 +1801,6 @@ impl ::core::fmt::Debug for USBD_PIPE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USBFN_BUS_SPEED(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnBusSpeedLow: USBFN_BUS_SPEED = USBFN_BUS_SPEED(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnBusSpeedFull: USBFN_BUS_SPEED = USBFN_BUS_SPEED(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnBusSpeedHigh: USBFN_BUS_SPEED = USBFN_BUS_SPEED(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnBusSpeedSuper: USBFN_BUS_SPEED = USBFN_BUS_SPEED(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnBusSpeedMaximum: USBFN_BUS_SPEED = USBFN_BUS_SPEED(4i32);
 impl ::core::marker::Copy for USBFN_BUS_SPEED {}
 impl ::core::clone::Clone for USBFN_BUS_SPEED {
     fn clone(&self) -> Self {
@@ -1556,22 +1824,6 @@ impl ::core::fmt::Debug for USBFN_BUS_SPEED {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USBFN_DEVICE_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnDeviceStateMinimum: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnDeviceStateAttached: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnDeviceStateDefault: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnDeviceStateDetached: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnDeviceStateAddressed: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnDeviceStateConfigured: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnDeviceStateSuspended: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnDeviceStateStateMaximum: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(7i32);
 impl ::core::marker::Copy for USBFN_DEVICE_STATE {}
 impl ::core::clone::Clone for USBFN_DEVICE_STATE {
     fn clone(&self) -> Self {
@@ -1595,18 +1847,6 @@ impl ::core::fmt::Debug for USBFN_DEVICE_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USBFN_DIRECTION(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnDirectionMinimum: USBFN_DIRECTION = USBFN_DIRECTION(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnDirectionIn: USBFN_DIRECTION = USBFN_DIRECTION(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnDirectionOut: USBFN_DIRECTION = USBFN_DIRECTION(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnDirectionTx: USBFN_DIRECTION = USBFN_DIRECTION(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnDirectionRx: USBFN_DIRECTION = USBFN_DIRECTION(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnDirectionMaximum: USBFN_DIRECTION = USBFN_DIRECTION(3i32);
 impl ::core::marker::Copy for USBFN_DIRECTION {}
 impl ::core::clone::Clone for USBFN_DIRECTION {
     fn clone(&self) -> Self {
@@ -1630,32 +1870,6 @@ impl ::core::fmt::Debug for USBFN_DIRECTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USBFN_EVENT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnEventMinimum: USBFN_EVENT = USBFN_EVENT(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnEventAttach: USBFN_EVENT = USBFN_EVENT(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnEventReset: USBFN_EVENT = USBFN_EVENT(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnEventDetach: USBFN_EVENT = USBFN_EVENT(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnEventSuspend: USBFN_EVENT = USBFN_EVENT(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnEventResume: USBFN_EVENT = USBFN_EVENT(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnEventSetupPacket: USBFN_EVENT = USBFN_EVENT(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnEventConfigured: USBFN_EVENT = USBFN_EVENT(7i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnEventUnConfigured: USBFN_EVENT = USBFN_EVENT(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnEventPortType: USBFN_EVENT = USBFN_EVENT(9i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnEventBusTearDown: USBFN_EVENT = USBFN_EVENT(10i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnEventSetInterface: USBFN_EVENT = USBFN_EVENT(11i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnEventMaximum: USBFN_EVENT = USBFN_EVENT(12i32);
 impl ::core::marker::Copy for USBFN_EVENT {}
 impl ::core::clone::Clone for USBFN_EVENT {
     fn clone(&self) -> Self {
@@ -1679,20 +1893,6 @@ impl ::core::fmt::Debug for USBFN_EVENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USBFN_PORT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnUnknownPort: USBFN_PORT_TYPE = USBFN_PORT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnStandardDownstreamPort: USBFN_PORT_TYPE = USBFN_PORT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnChargingDownstreamPort: USBFN_PORT_TYPE = USBFN_PORT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnDedicatedChargingPort: USBFN_PORT_TYPE = USBFN_PORT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnInvalidDedicatedChargingPort: USBFN_PORT_TYPE = USBFN_PORT_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnProprietaryDedicatedChargingPort: USBFN_PORT_TYPE = USBFN_PORT_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbfnPortTypeMaximum: USBFN_PORT_TYPE = USBFN_PORT_TYPE(6i32);
 impl ::core::marker::Copy for USBFN_PORT_TYPE {}
 impl ::core::clone::Clone for USBFN_PORT_TYPE {
     fn clone(&self) -> Self {
@@ -1716,28 +1916,6 @@ impl ::core::fmt::Debug for USBFN_PORT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USB_CONNECTION_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const NoDeviceConnected: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const DeviceConnected: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const DeviceFailedEnumeration: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const DeviceGeneralFailure: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const DeviceCausedOvercurrent: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const DeviceNotEnoughPower: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const DeviceNotEnoughBandwidth: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const DeviceHubNestedTooDeeply: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(7i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const DeviceInLegacyHub: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const DeviceEnumerating: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(9i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const DeviceReset: USB_CONNECTION_STATUS = USB_CONNECTION_STATUS(10i32);
 impl ::core::marker::Copy for USB_CONNECTION_STATUS {}
 impl ::core::clone::Clone for USB_CONNECTION_STATUS {
     fn clone(&self) -> Self {
@@ -1761,60 +1939,6 @@ impl ::core::fmt::Debug for USB_CONNECTION_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USB_CONTROLLER_FLAVOR(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const USB_HcGeneric: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const OHCI_Generic: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(100i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const OHCI_Hydra: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(101i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const OHCI_NEC: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(102i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UHCI_Generic: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(200i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UHCI_Piix4: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(201i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UHCI_Piix3: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(202i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UHCI_Ich2: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(203i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UHCI_Reserved204: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(204i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UHCI_Ich1: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(205i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UHCI_Ich3m: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(206i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UHCI_Ich4: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(207i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UHCI_Ich5: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(208i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UHCI_Ich6: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(209i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UHCI_Intel: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(249i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UHCI_VIA: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(250i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UHCI_VIA_x01: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(251i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UHCI_VIA_x02: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(252i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UHCI_VIA_x03: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(253i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UHCI_VIA_x04: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(254i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UHCI_VIA_x0E_FIFO: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(264i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const EHCI_Generic: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(1000i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const EHCI_NEC: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(2000i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const EHCI_Lucent: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(3000i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const EHCI_NVIDIA_Tegra2: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(4000i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const EHCI_NVIDIA_Tegra3: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(4001i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const EHCI_Intel_Medfield: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(5001i32);
 impl ::core::marker::Copy for USB_CONTROLLER_FLAVOR {}
 impl ::core::clone::Clone for USB_CONTROLLER_FLAVOR {
     fn clone(&self) -> Self {
@@ -1838,14 +1962,6 @@ impl ::core::fmt::Debug for USB_CONTROLLER_FLAVOR {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USB_DEVICE_SPEED(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbLowSpeed: USB_DEVICE_SPEED = USB_DEVICE_SPEED(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbFullSpeed: USB_DEVICE_SPEED = USB_DEVICE_SPEED(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbHighSpeed: USB_DEVICE_SPEED = USB_DEVICE_SPEED(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbSuperSpeed: USB_DEVICE_SPEED = USB_DEVICE_SPEED(3i32);
 impl ::core::marker::Copy for USB_DEVICE_SPEED {}
 impl ::core::clone::Clone for USB_DEVICE_SPEED {
     fn clone(&self) -> Self {
@@ -1869,10 +1985,6 @@ impl ::core::fmt::Debug for USB_DEVICE_SPEED {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USB_DEVICE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const Usb11Device: USB_DEVICE_TYPE = USB_DEVICE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const Usb20Device: USB_DEVICE_TYPE = USB_DEVICE_TYPE(1i32);
 impl ::core::marker::Copy for USB_DEVICE_TYPE {}
 impl ::core::clone::Clone for USB_DEVICE_TYPE {
     fn clone(&self) -> Self {
@@ -1896,10 +2008,6 @@ impl ::core::fmt::Debug for USB_DEVICE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USB_HUB_NODE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbHub: USB_HUB_NODE = USB_HUB_NODE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbMIParent: USB_HUB_NODE = USB_HUB_NODE(1i32);
 impl ::core::marker::Copy for USB_HUB_NODE {}
 impl ::core::clone::Clone for USB_HUB_NODE {
     fn clone(&self) -> Self {
@@ -1923,12 +2031,6 @@ impl ::core::fmt::Debug for USB_HUB_NODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USB_HUB_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbRootHub: USB_HUB_TYPE = USB_HUB_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const Usb20Hub: USB_HUB_TYPE = USB_HUB_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const Usb30Hub: USB_HUB_TYPE = USB_HUB_TYPE(3i32);
 impl ::core::marker::Copy for USB_HUB_TYPE {}
 impl ::core::clone::Clone for USB_HUB_TYPE {
     fn clone(&self) -> Self {
@@ -1952,30 +2054,6 @@ impl ::core::fmt::Debug for USB_HUB_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USB_NOTIFICATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const EnumerationFailure: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const InsufficentBandwidth: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const InsufficentPower: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const OverCurrent: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const ResetOvercurrent: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const AcquireBusInfo: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const AcquireHubName: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const AcquireControllerName: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const HubOvercurrent: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const HubPowerChange: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const HubNestedTooDeeply: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const ModernDeviceInLegacyHub: USB_NOTIFICATION_TYPE = USB_NOTIFICATION_TYPE(11i32);
 impl ::core::marker::Copy for USB_NOTIFICATION_TYPE {}
 impl ::core::clone::Clone for USB_NOTIFICATION_TYPE {
     fn clone(&self) -> Self {
@@ -1999,28 +2077,6 @@ impl ::core::fmt::Debug for USB_NOTIFICATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USB_USER_ERROR_CODE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbUserSuccess: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbUserNotSupported: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbUserInvalidRequestCode: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbUserFeatureDisabled: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbUserInvalidHeaderParameter: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbUserInvalidParameter: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbUserMiniportError: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbUserBufferTooSmall: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(7i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbUserErrorNotMapped: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbUserDeviceNotStarted: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(9i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbUserNoDeviceConnected: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(10i32);
 impl ::core::marker::Copy for USB_USER_ERROR_CODE {}
 impl ::core::clone::Clone for USB_USER_ERROR_CODE {
     fn clone(&self) -> Self {
@@ -2044,14 +2100,6 @@ impl ::core::fmt::Debug for USB_USER_ERROR_CODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USB_WMI_DEVICE_NODE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbDevice: USB_WMI_DEVICE_NODE_TYPE = USB_WMI_DEVICE_NODE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const HubDevice: USB_WMI_DEVICE_NODE_TYPE = USB_WMI_DEVICE_NODE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const CompositeDevice: USB_WMI_DEVICE_NODE_TYPE = USB_WMI_DEVICE_NODE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const UsbController: USB_WMI_DEVICE_NODE_TYPE = USB_WMI_DEVICE_NODE_TYPE(3i32);
 impl ::core::marker::Copy for USB_WMI_DEVICE_NODE_TYPE {}
 impl ::core::clone::Clone for USB_WMI_DEVICE_NODE_TYPE {
     fn clone(&self) -> Self {
@@ -2075,32 +2123,6 @@ impl ::core::fmt::Debug for USB_WMI_DEVICE_NODE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WDMUSB_POWER_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const WdmUsbPowerNotMapped: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const WdmUsbPowerSystemUnspecified: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(100i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const WdmUsbPowerSystemWorking: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(101i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const WdmUsbPowerSystemSleeping1: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(102i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const WdmUsbPowerSystemSleeping2: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(103i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const WdmUsbPowerSystemSleeping3: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(104i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const WdmUsbPowerSystemHibernate: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(105i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const WdmUsbPowerSystemShutdown: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(106i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const WdmUsbPowerDeviceUnspecified: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(200i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const WdmUsbPowerDeviceD0: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(201i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const WdmUsbPowerDeviceD1: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(202i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const WdmUsbPowerDeviceD2: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(203i32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const WdmUsbPowerDeviceD3: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(204i32);
 impl ::core::marker::Copy for WDMUSB_POWER_STATE {}
 impl ::core::clone::Clone for WDMUSB_POWER_STATE {
     fn clone(&self) -> Self {
@@ -2124,24 +2146,6 @@ impl ::core::fmt::Debug for WDMUSB_POWER_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINUSB_PIPE_POLICY(pub u32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const SHORT_PACKET_TERMINATE: WINUSB_PIPE_POLICY = WINUSB_PIPE_POLICY(1u32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const AUTO_CLEAR_STALL: WINUSB_PIPE_POLICY = WINUSB_PIPE_POLICY(2u32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const PIPE_TRANSFER_TIMEOUT: WINUSB_PIPE_POLICY = WINUSB_PIPE_POLICY(3u32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const IGNORE_SHORT_PACKETS: WINUSB_PIPE_POLICY = WINUSB_PIPE_POLICY(4u32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const ALLOW_PARTIAL_READS: WINUSB_PIPE_POLICY = WINUSB_PIPE_POLICY(5u32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const AUTO_FLUSH: WINUSB_PIPE_POLICY = WINUSB_PIPE_POLICY(6u32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const RAW_IO: WINUSB_PIPE_POLICY = WINUSB_PIPE_POLICY(7u32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const MAXIMUM_TRANSFER_SIZE: WINUSB_PIPE_POLICY = WINUSB_PIPE_POLICY(8u32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const RESET_PIPE_ON_RESUME: WINUSB_PIPE_POLICY = WINUSB_PIPE_POLICY(9u32);
 impl ::core::marker::Copy for WINUSB_PIPE_POLICY {}
 impl ::core::clone::Clone for WINUSB_PIPE_POLICY {
     fn clone(&self) -> Self {
@@ -2165,10 +2169,6 @@ impl ::core::fmt::Debug for WINUSB_PIPE_POLICY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINUSB_POWER_POLICY(pub u32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const AUTO_SUSPEND: WINUSB_POWER_POLICY = WINUSB_POWER_POLICY(129u32);
-#[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
-pub const SUSPEND_DELAY: WINUSB_POWER_POLICY = WINUSB_POWER_POLICY(131u32);
 impl ::core::marker::Copy for WINUSB_POWER_POLICY {}
 impl ::core::clone::Clone for WINUSB_POWER_POLICY {
     fn clone(&self) -> Self {

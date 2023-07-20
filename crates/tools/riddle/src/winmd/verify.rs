@@ -1,5 +1,12 @@
+use metadata::RowReader;
+
 pub fn verify(reader: &metadata::Reader, filter: &metadata::Filter) -> crate::Result<()> {
-    for def in reader.types(filter) {
+    for item in reader.items(filter) {
+        // TODO: cover all variants
+        let metadata::Item::Type(def) = item else {
+            continue;
+        };
+
         let generics = &reader.type_def_generics(def);
 
         reader

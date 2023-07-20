@@ -5,6 +5,7 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
     let ident = to_ident(type_name.name);
     let underlying_type = writer.reader.type_def_underlying_type(def);
     let underlying_type = writer.type_name(&underlying_type);
+    // TODO: unscoped enums should be removed from metadata
     let is_scoped = writer.reader.type_def_is_scoped(def);
     let cfg = writer.reader.type_def_cfg(def, &[]);
     let doc = writer.cfg_doc(&cfg);
@@ -68,32 +69,6 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
                 #(#fields)*
             }
         });
-    } else if !writer.minimal {
-        if writer.sys {
-            let fields = fields.iter().map(|(field_name, value)| {
-                quote! {
-                    #doc
-                    #features
-                    pub const #field_name: #ident = #value;
-                }
-            });
-
-            tokens.combine(&quote! {
-                #(#fields)*
-            });
-        } else {
-            let fields = fields.iter().map(|(field_name, value)| {
-                quote! {
-                    #doc
-                    #features
-                    pub const #field_name: #ident = #ident(#value);
-                }
-            });
-
-            tokens.combine(&quote! {
-                #(#fields)*
-            });
-        }
     }
 
     if is_scoped || !writer.sys {

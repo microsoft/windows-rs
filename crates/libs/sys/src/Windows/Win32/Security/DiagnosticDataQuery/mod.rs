@@ -41,13 +41,13 @@
 ::windows_targets::link!("diagnosticdataquery.dll" "system" #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`, `\"Win32_Foundation\"`*"] fn DdqIsDiagnosticRecordSampledIn(hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup : *const ::windows_sys::core::GUID, providerid : *const ::windows_sys::core::GUID, providername : ::windows_sys::core::PCWSTR, eventid : *const u32, eventname : ::windows_sys::core::PCWSTR, eventversion : *const u32, eventkeywords : *const u64, issampledin : *mut super::super::Foundation:: BOOL) -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("diagnosticdataquery.dll" "system" #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"] fn DdqSetTranscriptConfiguration(hsession : super:: HDIAGNOSTIC_DATA_QUERY_SESSION, desiredconfig : *const DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION) -> ::windows_sys::core::HRESULT);
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-pub type DdqAccessLevel = i32;
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-pub const NoData: DdqAccessLevel = 0i32;
+pub const AllUserData: DdqAccessLevel = 2i32;
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 pub const CurrentUserData: DdqAccessLevel = 1i32;
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-pub const AllUserData: DdqAccessLevel = 2i32;
+pub const NoData: DdqAccessLevel = 0i32;
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+pub type DdqAccessLevel = i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 pub struct DIAGNOSTIC_DATA_EVENT_BINARY_STATS {

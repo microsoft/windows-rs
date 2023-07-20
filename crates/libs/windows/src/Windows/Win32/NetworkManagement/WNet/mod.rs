@@ -583,15 +583,39 @@ where
     WNetUseConnectionW(hwndowner.into_param().abi(), lpnetresource, lppassword.into_param().abi(), lpuserid.into_param().abi(), dwflags, ::core::mem::transmute(lpaccessname), ::core::mem::transmute(lpbuffersize.unwrap_or(::std::ptr::null_mut())), ::core::mem::transmute(lpresult.unwrap_or(::std::ptr::null_mut())))
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const CONNDLG_CONN_POINT: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const CONNDLG_HIDE_BOX: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const CONNDLG_NOT_PERSIST: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const CONNDLG_PERSIST: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const CONNDLG_RO_PATH: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const CONNDLG_USE_MRU: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const CONNECT_CMD_SAVECRED: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const CONNECT_COMMANDLINE: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const CONNECT_CRED_RESET: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const CONNECT_CURRENT_MEDIA: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const CONNECT_DEFERRED: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const CONNECT_GLOBAL_MAPPING: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const CONNECT_INTERACTIVE: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(8u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const CONNECT_LOCALDRIVE: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const CONNECT_NEED_DRIVE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const CONNECT_PROMPT: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const CONNECT_REDIRECT: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(128u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const CONNECT_REFCOUNT: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
@@ -601,13 +625,31 @@ pub const CONNECT_REQUIRE_PRIVACY: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const CONNECT_RESERVED: u32 = 4278190080u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const CONNECT_TEMPORARY: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const CONNECT_UPDATE_PROFILE: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const CONNECT_UPDATE_RECENT: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const CONNECT_WRITE_THROUGH_SEMANTICS: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const DISC_NO_FORCE: DISCDLGSTRUCT_FLAGS = DISCDLGSTRUCT_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const DISC_UPDATE_PROFILE: DISCDLGSTRUCT_FLAGS = DISCDLGSTRUCT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const NETINFO_DISKRED: NETINFOSTRUCT_CHARACTERISTICS = NETINFOSTRUCT_CHARACTERISTICS(4u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const NETINFO_DLL16: NETINFOSTRUCT_CHARACTERISTICS = NETINFOSTRUCT_CHARACTERISTICS(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const NETINFO_PRINTERRED: NETINFOSTRUCT_CHARACTERISTICS = NETINFOSTRUCT_CHARACTERISTICS(8u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const NETPROPERTY_PERSISTENT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const NOTIFY_POST: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const NOTIFY_PRE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const REMOTE_NAME_INFO_LEVEL: UNC_INFO_LEVEL = UNC_INFO_LEVEL(2u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const RESOURCEDISPLAYTYPE_DIRECTORY: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
@@ -619,17 +661,43 @@ pub const RESOURCEDISPLAYTYPE_ROOT: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const RESOURCEDISPLAYTYPE_SHAREADMIN: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const RESOURCETYPE_ANY: NET_RESOURCE_TYPE = NET_RESOURCE_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const RESOURCETYPE_DISK: NET_RESOURCE_TYPE = NET_RESOURCE_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const RESOURCETYPE_PRINT: NET_RESOURCE_TYPE = NET_RESOURCE_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const RESOURCETYPE_RESERVED: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const RESOURCETYPE_UNKNOWN: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const RESOURCEUSAGE_ALL: WNET_OPEN_ENUM_USAGE = WNET_OPEN_ENUM_USAGE(19u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const RESOURCEUSAGE_ATTACHED: WNET_OPEN_ENUM_USAGE = WNET_OPEN_ENUM_USAGE(16u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const RESOURCEUSAGE_CONNECTABLE: WNET_OPEN_ENUM_USAGE = WNET_OPEN_ENUM_USAGE(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const RESOURCEUSAGE_CONTAINER: WNET_OPEN_ENUM_USAGE = WNET_OPEN_ENUM_USAGE(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const RESOURCEUSAGE_NOLOCALDEVICE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const RESOURCEUSAGE_NONE: WNET_OPEN_ENUM_USAGE = WNET_OPEN_ENUM_USAGE(0u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const RESOURCEUSAGE_RESERVED: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const RESOURCEUSAGE_SIBLING: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const RESOURCE_CONNECTED: NET_RESOURCE_SCOPE = NET_RESOURCE_SCOPE(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const RESOURCE_CONTEXT: NET_RESOURCE_SCOPE = NET_RESOURCE_SCOPE(5u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const RESOURCE_GLOBALNET: NET_RESOURCE_SCOPE = NET_RESOURCE_SCOPE(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const RESOURCE_RECENT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const RESOURCE_REMEMBERED: NET_RESOURCE_SCOPE = NET_RESOURCE_SCOPE(3u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const UNIVERSAL_NAME_INFO_LEVEL: UNC_INFO_LEVEL = UNC_INFO_LEVEL(1u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const WNCON_DYNAMIC: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
@@ -639,13 +707,23 @@ pub const WNCON_NOTROUTED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const WNCON_SLOWLINK: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const WNDN_MKDIR: NPDIRECTORY_NOTIFY_OPERATION = NPDIRECTORY_NOTIFY_OPERATION(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const WNDN_MVDIR: NPDIRECTORY_NOTIFY_OPERATION = NPDIRECTORY_NOTIFY_OPERATION(3u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const WNDN_RMDIR: NPDIRECTORY_NOTIFY_OPERATION = NPDIRECTORY_NOTIFY_OPERATION(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const WNDT_NETWORK: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const WNDT_NORMAL: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const WNFMT_ABBREVIATED: NETWORK_NAME_FORMAT_FLAGS = NETWORK_NAME_FORMAT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const WNFMT_CONNECTION: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const WNFMT_INENUM: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const WNFMT_MULTILINE: NETWORK_NAME_FORMAT_FLAGS = NETWORK_NAME_FORMAT_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const WNGETCON_CONNECTED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
@@ -727,6 +805,18 @@ pub const WNPERMC_OWNER: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const WNPERMC_PERM: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const WNPERM_DLG_AUDIT: WNPERM_DLG = WNPERM_DLG(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const WNPERM_DLG_OWNER: WNPERM_DLG = WNPERM_DLG(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const WNPERM_DLG_PERM: WNPERM_DLG = WNPERM_DLG(0u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const WNPS_DIR: NP_PROPERTY_DIALOG_SELECTION = NP_PROPERTY_DIALOG_SELECTION(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const WNPS_FILE: NP_PROPERTY_DIALOG_SELECTION = NP_PROPERTY_DIALOG_SELECTION(0u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
+pub const WNPS_MULT: NP_PROPERTY_DIALOG_SELECTION = NP_PROPERTY_DIALOG_SELECTION(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const WNSRCH_REFRESH_FIRST_LEVEL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
 pub const WNTYPE_COMM: u32 = 4u32;
@@ -752,18 +842,6 @@ pub const WN_VALID_LOGON_ACCOUNT: u32 = 1u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONNECTDLGSTRUCT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const CONNDLG_RO_PATH: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const CONNDLG_CONN_POINT: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const CONNDLG_USE_MRU: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const CONNDLG_HIDE_BOX: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const CONNDLG_PERSIST: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const CONNDLG_NOT_PERSIST: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(32u32);
 impl ::core::marker::Copy for CONNECTDLGSTRUCT_FLAGS {}
 impl ::core::clone::Clone for CONNECTDLGSTRUCT_FLAGS {
     fn clone(&self) -> Self {
@@ -820,10 +898,6 @@ impl ::core::ops::Not for CONNECTDLGSTRUCT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISCDLGSTRUCT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const DISC_UPDATE_PROFILE: DISCDLGSTRUCT_FLAGS = DISCDLGSTRUCT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const DISC_NO_FORCE: DISCDLGSTRUCT_FLAGS = DISCDLGSTRUCT_FLAGS(64u32);
 impl ::core::marker::Copy for DISCDLGSTRUCT_FLAGS {}
 impl ::core::clone::Clone for DISCDLGSTRUCT_FLAGS {
     fn clone(&self) -> Self {
@@ -880,12 +954,6 @@ impl ::core::ops::Not for DISCDLGSTRUCT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NETINFOSTRUCT_CHARACTERISTICS(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const NETINFO_DLL16: NETINFOSTRUCT_CHARACTERISTICS = NETINFOSTRUCT_CHARACTERISTICS(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const NETINFO_DISKRED: NETINFOSTRUCT_CHARACTERISTICS = NETINFOSTRUCT_CHARACTERISTICS(4u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const NETINFO_PRINTERRED: NETINFOSTRUCT_CHARACTERISTICS = NETINFOSTRUCT_CHARACTERISTICS(8u32);
 impl ::core::marker::Copy for NETINFOSTRUCT_CHARACTERISTICS {}
 impl ::core::clone::Clone for NETINFOSTRUCT_CHARACTERISTICS {
     fn clone(&self) -> Self {
@@ -942,10 +1010,6 @@ impl ::core::ops::Not for NETINFOSTRUCT_CHARACTERISTICS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NETWORK_NAME_FORMAT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const WNFMT_MULTILINE: NETWORK_NAME_FORMAT_FLAGS = NETWORK_NAME_FORMAT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const WNFMT_ABBREVIATED: NETWORK_NAME_FORMAT_FLAGS = NETWORK_NAME_FORMAT_FLAGS(2u32);
 impl ::core::marker::Copy for NETWORK_NAME_FORMAT_FLAGS {}
 impl ::core::clone::Clone for NETWORK_NAME_FORMAT_FLAGS {
     fn clone(&self) -> Self {
@@ -969,14 +1033,6 @@ impl ::core::fmt::Debug for NETWORK_NAME_FORMAT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_RESOURCE_SCOPE(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const RESOURCE_CONNECTED: NET_RESOURCE_SCOPE = NET_RESOURCE_SCOPE(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const RESOURCE_CONTEXT: NET_RESOURCE_SCOPE = NET_RESOURCE_SCOPE(5u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const RESOURCE_GLOBALNET: NET_RESOURCE_SCOPE = NET_RESOURCE_SCOPE(2u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const RESOURCE_REMEMBERED: NET_RESOURCE_SCOPE = NET_RESOURCE_SCOPE(3u32);
 impl ::core::marker::Copy for NET_RESOURCE_SCOPE {}
 impl ::core::clone::Clone for NET_RESOURCE_SCOPE {
     fn clone(&self) -> Self {
@@ -1000,12 +1056,6 @@ impl ::core::fmt::Debug for NET_RESOURCE_SCOPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_RESOURCE_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const RESOURCETYPE_ANY: NET_RESOURCE_TYPE = NET_RESOURCE_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const RESOURCETYPE_DISK: NET_RESOURCE_TYPE = NET_RESOURCE_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const RESOURCETYPE_PRINT: NET_RESOURCE_TYPE = NET_RESOURCE_TYPE(2u32);
 impl ::core::marker::Copy for NET_RESOURCE_TYPE {}
 impl ::core::clone::Clone for NET_RESOURCE_TYPE {
     fn clone(&self) -> Self {
@@ -1062,24 +1112,6 @@ impl ::core::ops::Not for NET_RESOURCE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_USE_CONNECT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const CONNECT_INTERACTIVE: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const CONNECT_PROMPT: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const CONNECT_REDIRECT: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const CONNECT_UPDATE_PROFILE: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const CONNECT_COMMANDLINE: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const CONNECT_CMD_SAVECRED: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const CONNECT_TEMPORARY: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const CONNECT_DEFERRED: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const CONNECT_UPDATE_RECENT: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(2u32);
 impl ::core::marker::Copy for NET_USE_CONNECT_FLAGS {}
 impl ::core::clone::Clone for NET_USE_CONNECT_FLAGS {
     fn clone(&self) -> Self {
@@ -1136,12 +1168,6 @@ impl ::core::ops::Not for NET_USE_CONNECT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NPDIRECTORY_NOTIFY_OPERATION(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const WNDN_MKDIR: NPDIRECTORY_NOTIFY_OPERATION = NPDIRECTORY_NOTIFY_OPERATION(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const WNDN_RMDIR: NPDIRECTORY_NOTIFY_OPERATION = NPDIRECTORY_NOTIFY_OPERATION(2u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const WNDN_MVDIR: NPDIRECTORY_NOTIFY_OPERATION = NPDIRECTORY_NOTIFY_OPERATION(3u32);
 impl ::core::marker::Copy for NPDIRECTORY_NOTIFY_OPERATION {}
 impl ::core::clone::Clone for NPDIRECTORY_NOTIFY_OPERATION {
     fn clone(&self) -> Self {
@@ -1165,12 +1191,6 @@ impl ::core::fmt::Debug for NPDIRECTORY_NOTIFY_OPERATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NP_PROPERTY_DIALOG_SELECTION(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const WNPS_FILE: NP_PROPERTY_DIALOG_SELECTION = NP_PROPERTY_DIALOG_SELECTION(0u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const WNPS_DIR: NP_PROPERTY_DIALOG_SELECTION = NP_PROPERTY_DIALOG_SELECTION(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const WNPS_MULT: NP_PROPERTY_DIALOG_SELECTION = NP_PROPERTY_DIALOG_SELECTION(2u32);
 impl ::core::marker::Copy for NP_PROPERTY_DIALOG_SELECTION {}
 impl ::core::clone::Clone for NP_PROPERTY_DIALOG_SELECTION {
     fn clone(&self) -> Self {
@@ -1194,10 +1214,6 @@ impl ::core::fmt::Debug for NP_PROPERTY_DIALOG_SELECTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNC_INFO_LEVEL(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const UNIVERSAL_NAME_INFO_LEVEL: UNC_INFO_LEVEL = UNC_INFO_LEVEL(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const REMOTE_NAME_INFO_LEVEL: UNC_INFO_LEVEL = UNC_INFO_LEVEL(2u32);
 impl ::core::marker::Copy for UNC_INFO_LEVEL {}
 impl ::core::clone::Clone for UNC_INFO_LEVEL {
     fn clone(&self) -> Self {
@@ -1221,16 +1237,6 @@ impl ::core::fmt::Debug for UNC_INFO_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WNET_OPEN_ENUM_USAGE(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const RESOURCEUSAGE_NONE: WNET_OPEN_ENUM_USAGE = WNET_OPEN_ENUM_USAGE(0u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const RESOURCEUSAGE_CONNECTABLE: WNET_OPEN_ENUM_USAGE = WNET_OPEN_ENUM_USAGE(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const RESOURCEUSAGE_CONTAINER: WNET_OPEN_ENUM_USAGE = WNET_OPEN_ENUM_USAGE(2u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const RESOURCEUSAGE_ATTACHED: WNET_OPEN_ENUM_USAGE = WNET_OPEN_ENUM_USAGE(16u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const RESOURCEUSAGE_ALL: WNET_OPEN_ENUM_USAGE = WNET_OPEN_ENUM_USAGE(19u32);
 impl ::core::marker::Copy for WNET_OPEN_ENUM_USAGE {}
 impl ::core::clone::Clone for WNET_OPEN_ENUM_USAGE {
     fn clone(&self) -> Self {
@@ -1287,12 +1293,6 @@ impl ::core::ops::Not for WNET_OPEN_ENUM_USAGE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WNPERM_DLG(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const WNPERM_DLG_PERM: WNPERM_DLG = WNPERM_DLG(0u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const WNPERM_DLG_AUDIT: WNPERM_DLG = WNPERM_DLG(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WNet\"`*"]
-pub const WNPERM_DLG_OWNER: WNPERM_DLG = WNPERM_DLG(2u32);
 impl ::core::marker::Copy for WNPERM_DLG {}
 impl ::core::clone::Clone for WNPERM_DLG {
     fn clone(&self) -> Self {

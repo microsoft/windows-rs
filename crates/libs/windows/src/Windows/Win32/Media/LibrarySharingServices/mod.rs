@@ -499,17 +499,17 @@ pub struct IWindowsMediaLibrarySharingServices_Vtbl {
     customSettingsApplied: usize,
 }
 #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
+pub const DEVICE_AUTHORIZATION_ALLOWED: WindowsMediaLibrarySharingDeviceAuthorizationStatus = WindowsMediaLibrarySharingDeviceAuthorizationStatus(1i32);
+#[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
+pub const DEVICE_AUTHORIZATION_DENIED: WindowsMediaLibrarySharingDeviceAuthorizationStatus = WindowsMediaLibrarySharingDeviceAuthorizationStatus(2i32);
+#[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
+pub const DEVICE_AUTHORIZATION_UNKNOWN: WindowsMediaLibrarySharingDeviceAuthorizationStatus = WindowsMediaLibrarySharingDeviceAuthorizationStatus(0i32);
+#[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
 pub const WindowsMediaLibrarySharingServices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad581b00_7b64_4e59_a38d_d2c5bf51ddb3);
 #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WindowsMediaLibrarySharingDeviceAuthorizationStatus(pub i32);
-#[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
-pub const DEVICE_AUTHORIZATION_UNKNOWN: WindowsMediaLibrarySharingDeviceAuthorizationStatus = WindowsMediaLibrarySharingDeviceAuthorizationStatus(0i32);
-#[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
-pub const DEVICE_AUTHORIZATION_ALLOWED: WindowsMediaLibrarySharingDeviceAuthorizationStatus = WindowsMediaLibrarySharingDeviceAuthorizationStatus(1i32);
-#[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
-pub const DEVICE_AUTHORIZATION_DENIED: WindowsMediaLibrarySharingDeviceAuthorizationStatus = WindowsMediaLibrarySharingDeviceAuthorizationStatus(2i32);
 impl ::core::marker::Copy for WindowsMediaLibrarySharingDeviceAuthorizationStatus {}
 impl ::core::clone::Clone for WindowsMediaLibrarySharingDeviceAuthorizationStatus {
     fn clone(&self) -> Self {

@@ -2973,6 +2973,12 @@ pub const cchProfilePassMax: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub const fMapiUnicode: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
+pub const genderFemale: Gender = Gender(1i32);
+#[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
+pub const genderMale: Gender = Gender(2i32);
+#[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
+pub const genderUnspecified: Gender = Gender(0i32);
+#[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub const hrSuccess: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub const szHrDispatchNotifications: ::windows_core::PCSTR = ::windows_core::s!("HrDispatchNotifications");
@@ -2984,12 +2990,6 @@ pub const szScCreateConversationIndex: ::windows_core::PCSTR = ::windows_core::s
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Gender(pub i32);
-#[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-pub const genderUnspecified: Gender = Gender(0i32);
-#[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-pub const genderFemale: Gender = Gender(1i32);
-#[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-pub const genderMale: Gender = Gender(2i32);
 impl ::core::marker::Copy for Gender {}
 impl ::core::clone::Clone for Gender {
     fn clone(&self) -> Self {

@@ -1545,6 +1545,10 @@ pub const DNS_SETTING_SEARCHLIST: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const DNS_SETTING_SUPPLEMENTAL_SEARCH_LIST: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const DnsServerDohProperty: DNS_SERVER_PROPERTY_TYPE = DNS_SERVER_PROPERTY_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const DnsServerInvalidProperty: DNS_SERVER_PROPERTY_TYPE = DNS_SERVER_PROPERTY_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const ERROR_BASE: u32 = 23000u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const ERROR_IPV6_NOT_IMPLEMENTED: u32 = 23003u32;
@@ -1553,13 +1557,99 @@ pub const FD_FLAGS_ALLFLAGS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const FD_FLAGS_NOSYN: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const GAA_FLAG_INCLUDE_ALL_COMPARTMENTS: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const GAA_FLAG_INCLUDE_ALL_INTERFACES: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const GAA_FLAG_INCLUDE_GATEWAYS: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const GAA_FLAG_INCLUDE_PREFIX: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const GAA_FLAG_INCLUDE_TUNNEL_BINDINGORDER: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const GAA_FLAG_INCLUDE_WINS_INFO: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const GAA_FLAG_SKIP_ANYCAST: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const GAA_FLAG_SKIP_DNS_INFO: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const GAA_FLAG_SKIP_DNS_SERVER: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const GAA_FLAG_SKIP_FRIENDLY_NAME: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const GAA_FLAG_SKIP_MULTICAST: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const GAA_FLAG_SKIP_UNICAST: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const GF_FRAGCACHE: GLOBAL_FILTER = GLOBAL_FILTER(9i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const GF_FRAGMENTS: GLOBAL_FILTER = GLOBAL_FILTER(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const GF_STRONGHOST: GLOBAL_FILTER = GLOBAL_FILTER(8i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const HYBRID_NODETYPE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP4_DST_UNREACH: ICMP4_TYPE = ICMP4_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP4_ECHO_REPLY: ICMP4_TYPE = ICMP4_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP4_ECHO_REQUEST: ICMP4_TYPE = ICMP4_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP4_MASK_REPLY: ICMP4_TYPE = ICMP4_TYPE(18i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP4_MASK_REQUEST: ICMP4_TYPE = ICMP4_TYPE(17i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP4_PARAM_PROB: ICMP4_TYPE = ICMP4_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP4_REDIRECT: ICMP4_TYPE = ICMP4_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP4_ROUTER_ADVERT: ICMP4_TYPE = ICMP4_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP4_ROUTER_SOLICIT: ICMP4_TYPE = ICMP4_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP4_SOURCE_QUENCH: ICMP4_TYPE = ICMP4_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP4_TIMESTAMP_REPLY: ICMP4_TYPE = ICMP4_TYPE(14i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP4_TIMESTAMP_REQUEST: ICMP4_TYPE = ICMP4_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP4_TIME_EXCEEDED: ICMP4_TYPE = ICMP4_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP6_DST_UNREACH: ICMP6_TYPE = ICMP6_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP6_ECHO_REPLY: ICMP6_TYPE = ICMP6_TYPE(129i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP6_ECHO_REQUEST: ICMP6_TYPE = ICMP6_TYPE(128i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const ICMP6_INFOMSG_MASK: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP6_MEMBERSHIP_QUERY: ICMP6_TYPE = ICMP6_TYPE(130i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP6_MEMBERSHIP_REDUCTION: ICMP6_TYPE = ICMP6_TYPE(132i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP6_MEMBERSHIP_REPORT: ICMP6_TYPE = ICMP6_TYPE(131i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP6_PACKET_TOO_BIG: ICMP6_TYPE = ICMP6_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP6_PARAM_PROB: ICMP6_TYPE = ICMP6_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP6_TIME_EXCEEDED: ICMP6_TYPE = ICMP6_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ICMP6_V2_MEMBERSHIP_REPORT: ICMP6_TYPE = ICMP6_TYPE(143i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const ICMP_STATS: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const IF_ACCESS_BROADCAST: IF_ACCESS_TYPE = IF_ACCESS_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const IF_ACCESS_LOOPBACK: IF_ACCESS_TYPE = IF_ACCESS_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const IF_ACCESS_POINTTOMULTIPOINT: IF_ACCESS_TYPE = IF_ACCESS_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const IF_ACCESS_POINTTOPOINT: IF_ACCESS_TYPE = IF_ACCESS_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const IF_ACCESS_POINT_TO_MULTI_POINT: IF_ACCESS_TYPE = IF_ACCESS_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const IF_ACCESS_POINT_TO_POINT: IF_ACCESS_TYPE = IF_ACCESS_TYPE(3i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const IF_ADMIN_STATUS_DOWN: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
@@ -1580,6 +1670,18 @@ pub const IF_CONNECTION_DEMAND: u32 = 3u32;
 pub const IF_CONNECTION_PASSIVE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const IF_NUMBER: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const IF_OPER_STATUS_CONNECTED: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const IF_OPER_STATUS_CONNECTING: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const IF_OPER_STATUS_DISCONNECTED: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const IF_OPER_STATUS_NON_OPERATIONAL: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const IF_OPER_STATUS_OPERATIONAL: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const IF_OPER_STATUS_UNREACHABLE: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(1i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const IF_ROW: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
@@ -2297,7 +2399,61 @@ pub const MIB_IPADDR_PRIMARY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const MIB_IPADDR_TRANSIENT: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_IPNET_TYPE_DYNAMIC: MIB_IPNET_TYPE = MIB_IPNET_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_IPNET_TYPE_INVALID: MIB_IPNET_TYPE = MIB_IPNET_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_IPNET_TYPE_OTHER: MIB_IPNET_TYPE = MIB_IPNET_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_IPNET_TYPE_STATIC: MIB_IPNET_TYPE = MIB_IPNET_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const MIB_IPROUTE_METRIC_UNUSED: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_IPROUTE_TYPE_DIRECT: MIB_IPFORWARD_TYPE = MIB_IPFORWARD_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_IPROUTE_TYPE_INDIRECT: MIB_IPFORWARD_TYPE = MIB_IPFORWARD_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_IPROUTE_TYPE_INVALID: MIB_IPFORWARD_TYPE = MIB_IPFORWARD_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_IPROUTE_TYPE_OTHER: MIB_IPFORWARD_TYPE = MIB_IPFORWARD_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_IP_FORWARDING: MIB_IPSTATS_FORWARDING = MIB_IPSTATS_FORWARDING(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_IP_NOT_FORWARDING: MIB_IPSTATS_FORWARDING = MIB_IPSTATS_FORWARDING(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_TCP_RTO_CONSTANT: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_TCP_RTO_OTHER: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_TCP_RTO_RSRE: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_TCP_RTO_VANJ: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_TCP_STATE_CLOSED: MIB_TCP_STATE = MIB_TCP_STATE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_TCP_STATE_CLOSE_WAIT: MIB_TCP_STATE = MIB_TCP_STATE(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_TCP_STATE_CLOSING: MIB_TCP_STATE = MIB_TCP_STATE(9i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_TCP_STATE_DELETE_TCB: MIB_TCP_STATE = MIB_TCP_STATE(12i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_TCP_STATE_ESTAB: MIB_TCP_STATE = MIB_TCP_STATE(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_TCP_STATE_FIN_WAIT1: MIB_TCP_STATE = MIB_TCP_STATE(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_TCP_STATE_FIN_WAIT2: MIB_TCP_STATE = MIB_TCP_STATE(7i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_TCP_STATE_LAST_ACK: MIB_TCP_STATE = MIB_TCP_STATE(10i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_TCP_STATE_LISTEN: MIB_TCP_STATE = MIB_TCP_STATE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_TCP_STATE_RESERVED: MIB_TCP_STATE = MIB_TCP_STATE(100i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_TCP_STATE_SYN_RCVD: MIB_TCP_STATE = MIB_TCP_STATE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_TCP_STATE_SYN_SENT: MIB_TCP_STATE = MIB_TCP_STATE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MIB_TCP_STATE_TIME_WAIT: MIB_TCP_STATE = MIB_TCP_STATE(11i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const MIB_USE_CURRENT_FORWARDING: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
@@ -2306,6 +2462,42 @@ pub const MIB_USE_CURRENT_TTL: u32 = 4294967295u32;
 pub const MIN_IF_TYPE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const MIXED_NODETYPE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MibAddInstance: MIB_NOTIFICATION_TYPE = MIB_NOTIFICATION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MibDeleteInstance: MIB_NOTIFICATION_TYPE = MIB_NOTIFICATION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MibIfEntryNormal: MIB_IF_ENTRY_LEVEL = MIB_IF_ENTRY_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MibIfEntryNormalWithoutStatistics: MIB_IF_ENTRY_LEVEL = MIB_IF_ENTRY_LEVEL(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MibIfTableNormal: MIB_IF_TABLE_LEVEL = MIB_IF_TABLE_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MibIfTableNormalWithoutStatistics: MIB_IF_TABLE_LEVEL = MIB_IF_TABLE_LEVEL(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MibIfTableRaw: MIB_IF_TABLE_LEVEL = MIB_IF_TABLE_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MibInitialNotification: MIB_NOTIFICATION_TYPE = MIB_NOTIFICATION_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const MibParameterNotification: MIB_NOTIFICATION_TYPE = MIB_NOTIFICATION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ND_NEIGHBOR_ADVERT: ICMP6_TYPE = ICMP6_TYPE(136i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ND_NEIGHBOR_SOLICIT: ICMP6_TYPE = ICMP6_TYPE(135i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ND_REDIRECT: ICMP6_TYPE = ICMP6_TYPE(137i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ND_ROUTER_ADVERT: ICMP6_TYPE = ICMP6_TYPE(134i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const ND_ROUTER_SOLICIT: ICMP6_TYPE = ICMP6_TYPE(133i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const NET_ADDRESS_DNS_NAME: NET_ADDRESS_FORMAT = NET_ADDRESS_FORMAT(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const NET_ADDRESS_FORMAT_UNSPECIFIED: NET_ADDRESS_FORMAT = NET_ADDRESS_FORMAT(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const NET_ADDRESS_IPV4: NET_ADDRESS_FORMAT = NET_ADDRESS_FORMAT(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const NET_ADDRESS_IPV6: NET_ADDRESS_FORMAT = NET_ADDRESS_FORMAT(3i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const NET_STRING_IPV4_ADDRESS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
@@ -2337,6 +2529,20 @@ pub const PFERROR_NO_FILTERS_GIVEN: u32 = 23001u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const PFERROR_NO_PF_INTERFACE: u32 = 23000u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const PFFT_FILTER: PFFRAMETYPE = PFFRAMETYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const PFFT_FRAG: PFFRAMETYPE = PFFRAMETYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const PFFT_SPOOF: PFFRAMETYPE = PFFRAMETYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const PF_ACTION_DROP: PFFORWARD_ACTION = PFFORWARD_ACTION(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const PF_ACTION_FORWARD: PFFORWARD_ACTION = PFFORWARD_ACTION(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const PF_IPV4: PFADDRESSTYPE = PFADDRESSTYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const PF_IPV6: PFADDRESSTYPE = PFADDRESSTYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const PROXY_ARP: u32 = 22u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const ROUTE_LONGER: u32 = 32u32;
@@ -2349,6 +2555,8 @@ pub const ROUTE_STATE: u32 = 34u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const TCP6_STATS: u32 = 38u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TCPIP_OWNER_MODULE_INFO_BASIC: TCPIP_OWNER_MODULE_INFO_CLASS = TCPIP_OWNER_MODULE_INFO_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const TCPIP_OWNING_MODULE_SIZE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const TCP_ROW: u32 = 14u32;
@@ -2356,6 +2564,88 @@ pub const TCP_ROW: u32 = 14u32;
 pub const TCP_STATS: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const TCP_TABLE: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TCP_TABLE_BASIC_ALL: TCP_TABLE_CLASS = TCP_TABLE_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TCP_TABLE_BASIC_CONNECTIONS: TCP_TABLE_CLASS = TCP_TABLE_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TCP_TABLE_BASIC_LISTENER: TCP_TABLE_CLASS = TCP_TABLE_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TCP_TABLE_OWNER_MODULE_ALL: TCP_TABLE_CLASS = TCP_TABLE_CLASS(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TCP_TABLE_OWNER_MODULE_CONNECTIONS: TCP_TABLE_CLASS = TCP_TABLE_CLASS(7i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TCP_TABLE_OWNER_MODULE_LISTENER: TCP_TABLE_CLASS = TCP_TABLE_CLASS(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TCP_TABLE_OWNER_PID_ALL: TCP_TABLE_CLASS = TCP_TABLE_CLASS(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TCP_TABLE_OWNER_PID_CONNECTIONS: TCP_TABLE_CLASS = TCP_TABLE_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TCP_TABLE_OWNER_PID_LISTENER: TCP_TABLE_CLASS = TCP_TABLE_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpBoolOptDisabled: TCP_BOOLEAN_OPTIONAL = TCP_BOOLEAN_OPTIONAL(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpBoolOptEnabled: TCP_BOOLEAN_OPTIONAL = TCP_BOOLEAN_OPTIONAL(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpBoolOptUnchanged: TCP_BOOLEAN_OPTIONAL = TCP_BOOLEAN_OPTIONAL(-1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpConnectionEstatsBandwidth: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpConnectionEstatsData: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpConnectionEstatsFineRtt: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpConnectionEstatsMaximum: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpConnectionEstatsObsRec: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpConnectionEstatsPath: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpConnectionEstatsRec: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpConnectionEstatsSendBuff: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpConnectionEstatsSndCong: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpConnectionEstatsSynOpts: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpConnectionOffloadStateInHost: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpConnectionOffloadStateMax: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpConnectionOffloadStateOffloaded: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpConnectionOffloadStateOffloading: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpConnectionOffloadStateUploading: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpErrorAboveAckWindow: TCP_SOFT_ERROR = TCP_SOFT_ERROR(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpErrorAboveDataWindow: TCP_SOFT_ERROR = TCP_SOFT_ERROR(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpErrorAboveTsWindow: TCP_SOFT_ERROR = TCP_SOFT_ERROR(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpErrorBelowAckWindow: TCP_SOFT_ERROR = TCP_SOFT_ERROR(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpErrorBelowDataWindow: TCP_SOFT_ERROR = TCP_SOFT_ERROR(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpErrorBelowTsWindow: TCP_SOFT_ERROR = TCP_SOFT_ERROR(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpErrorDataChecksumError: TCP_SOFT_ERROR = TCP_SOFT_ERROR(7i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpErrorDataLengthError: TCP_SOFT_ERROR = TCP_SOFT_ERROR(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpErrorMaxSoftError: TCP_SOFT_ERROR = TCP_SOFT_ERROR(9i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpErrorNone: TCP_SOFT_ERROR = TCP_SOFT_ERROR(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpRtoAlgorithmConstant: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpRtoAlgorithmOther: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpRtoAlgorithmRsre: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const TcpRtoAlgorithmVanj: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(4i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const UDP6_STATS: u32 = 37u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
@@ -2365,13 +2655,15 @@ pub const UDP_STATS: u32 = 15u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 pub const UDP_TABLE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const UDP_TABLE_BASIC: UDP_TABLE_CLASS = UDP_TABLE_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const UDP_TABLE_OWNER_MODULE: UDP_TABLE_CLASS = UDP_TABLE_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
+pub const UDP_TABLE_OWNER_PID: UDP_TABLE_CLASS = UDP_TABLE_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DNS_SERVER_PROPERTY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const DnsServerInvalidProperty: DNS_SERVER_PROPERTY_TYPE = DNS_SERVER_PROPERTY_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const DnsServerDohProperty: DNS_SERVER_PROPERTY_TYPE = DNS_SERVER_PROPERTY_TYPE(1i32);
 impl ::core::marker::Copy for DNS_SERVER_PROPERTY_TYPE {}
 impl ::core::clone::Clone for DNS_SERVER_PROPERTY_TYPE {
     fn clone(&self) -> Self {
@@ -2395,28 +2687,6 @@ impl ::core::fmt::Debug for DNS_SERVER_PROPERTY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_ADAPTERS_ADDRESSES_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const GAA_FLAG_SKIP_UNICAST: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const GAA_FLAG_SKIP_ANYCAST: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const GAA_FLAG_SKIP_MULTICAST: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const GAA_FLAG_SKIP_DNS_SERVER: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const GAA_FLAG_INCLUDE_PREFIX: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const GAA_FLAG_SKIP_FRIENDLY_NAME: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const GAA_FLAG_INCLUDE_WINS_INFO: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const GAA_FLAG_INCLUDE_GATEWAYS: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const GAA_FLAG_INCLUDE_ALL_INTERFACES: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const GAA_FLAG_INCLUDE_ALL_COMPARTMENTS: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const GAA_FLAG_INCLUDE_TUNNEL_BINDINGORDER: GET_ADAPTERS_ADDRESSES_FLAGS = GET_ADAPTERS_ADDRESSES_FLAGS(1024u32);
 impl ::core::marker::Copy for GET_ADAPTERS_ADDRESSES_FLAGS {}
 impl ::core::clone::Clone for GET_ADAPTERS_ADDRESSES_FLAGS {
     fn clone(&self) -> Self {
@@ -2473,12 +2743,6 @@ impl ::core::ops::Not for GET_ADAPTERS_ADDRESSES_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GLOBAL_FILTER(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const GF_FRAGMENTS: GLOBAL_FILTER = GLOBAL_FILTER(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const GF_STRONGHOST: GLOBAL_FILTER = GLOBAL_FILTER(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const GF_FRAGCACHE: GLOBAL_FILTER = GLOBAL_FILTER(9i32);
 impl ::core::marker::Copy for GLOBAL_FILTER {}
 impl ::core::clone::Clone for GLOBAL_FILTER {
     fn clone(&self) -> Self {
@@ -2502,32 +2766,6 @@ impl ::core::fmt::Debug for GLOBAL_FILTER {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ICMP4_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP4_ECHO_REPLY: ICMP4_TYPE = ICMP4_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP4_DST_UNREACH: ICMP4_TYPE = ICMP4_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP4_SOURCE_QUENCH: ICMP4_TYPE = ICMP4_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP4_REDIRECT: ICMP4_TYPE = ICMP4_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP4_ECHO_REQUEST: ICMP4_TYPE = ICMP4_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP4_ROUTER_ADVERT: ICMP4_TYPE = ICMP4_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP4_ROUTER_SOLICIT: ICMP4_TYPE = ICMP4_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP4_TIME_EXCEEDED: ICMP4_TYPE = ICMP4_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP4_PARAM_PROB: ICMP4_TYPE = ICMP4_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP4_TIMESTAMP_REQUEST: ICMP4_TYPE = ICMP4_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP4_TIMESTAMP_REPLY: ICMP4_TYPE = ICMP4_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP4_MASK_REQUEST: ICMP4_TYPE = ICMP4_TYPE(17i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP4_MASK_REPLY: ICMP4_TYPE = ICMP4_TYPE(18i32);
 impl ::core::marker::Copy for ICMP4_TYPE {}
 impl ::core::clone::Clone for ICMP4_TYPE {
     fn clone(&self) -> Self {
@@ -2551,36 +2789,6 @@ impl ::core::fmt::Debug for ICMP4_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ICMP6_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP6_DST_UNREACH: ICMP6_TYPE = ICMP6_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP6_PACKET_TOO_BIG: ICMP6_TYPE = ICMP6_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP6_TIME_EXCEEDED: ICMP6_TYPE = ICMP6_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP6_PARAM_PROB: ICMP6_TYPE = ICMP6_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP6_ECHO_REQUEST: ICMP6_TYPE = ICMP6_TYPE(128i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP6_ECHO_REPLY: ICMP6_TYPE = ICMP6_TYPE(129i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP6_MEMBERSHIP_QUERY: ICMP6_TYPE = ICMP6_TYPE(130i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP6_MEMBERSHIP_REPORT: ICMP6_TYPE = ICMP6_TYPE(131i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP6_MEMBERSHIP_REDUCTION: ICMP6_TYPE = ICMP6_TYPE(132i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ND_ROUTER_SOLICIT: ICMP6_TYPE = ICMP6_TYPE(133i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ND_ROUTER_ADVERT: ICMP6_TYPE = ICMP6_TYPE(134i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ND_NEIGHBOR_SOLICIT: ICMP6_TYPE = ICMP6_TYPE(135i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ND_NEIGHBOR_ADVERT: ICMP6_TYPE = ICMP6_TYPE(136i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ND_REDIRECT: ICMP6_TYPE = ICMP6_TYPE(137i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const ICMP6_V2_MEMBERSHIP_REPORT: ICMP6_TYPE = ICMP6_TYPE(143i32);
 impl ::core::marker::Copy for ICMP6_TYPE {}
 impl ::core::clone::Clone for ICMP6_TYPE {
     fn clone(&self) -> Self {
@@ -2604,18 +2812,6 @@ impl ::core::fmt::Debug for ICMP6_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IF_ACCESS_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const IF_ACCESS_LOOPBACK: IF_ACCESS_TYPE = IF_ACCESS_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const IF_ACCESS_BROADCAST: IF_ACCESS_TYPE = IF_ACCESS_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const IF_ACCESS_POINT_TO_POINT: IF_ACCESS_TYPE = IF_ACCESS_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const IF_ACCESS_POINTTOPOINT: IF_ACCESS_TYPE = IF_ACCESS_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const IF_ACCESS_POINT_TO_MULTI_POINT: IF_ACCESS_TYPE = IF_ACCESS_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const IF_ACCESS_POINTTOMULTIPOINT: IF_ACCESS_TYPE = IF_ACCESS_TYPE(4i32);
 impl ::core::marker::Copy for IF_ACCESS_TYPE {}
 impl ::core::clone::Clone for IF_ACCESS_TYPE {
     fn clone(&self) -> Self {
@@ -2639,18 +2835,6 @@ impl ::core::fmt::Debug for IF_ACCESS_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INTERNAL_IF_OPER_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const IF_OPER_STATUS_NON_OPERATIONAL: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const IF_OPER_STATUS_UNREACHABLE: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const IF_OPER_STATUS_DISCONNECTED: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const IF_OPER_STATUS_CONNECTING: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const IF_OPER_STATUS_CONNECTED: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const IF_OPER_STATUS_OPERATIONAL: INTERNAL_IF_OPER_STATUS = INTERNAL_IF_OPER_STATUS(5i32);
 impl ::core::marker::Copy for INTERNAL_IF_OPER_STATUS {}
 impl ::core::clone::Clone for INTERNAL_IF_OPER_STATUS {
     fn clone(&self) -> Self {
@@ -2674,10 +2858,6 @@ impl ::core::fmt::Debug for INTERNAL_IF_OPER_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIB_IF_ENTRY_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MibIfEntryNormal: MIB_IF_ENTRY_LEVEL = MIB_IF_ENTRY_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MibIfEntryNormalWithoutStatistics: MIB_IF_ENTRY_LEVEL = MIB_IF_ENTRY_LEVEL(2i32);
 impl ::core::marker::Copy for MIB_IF_ENTRY_LEVEL {}
 impl ::core::clone::Clone for MIB_IF_ENTRY_LEVEL {
     fn clone(&self) -> Self {
@@ -2701,12 +2881,6 @@ impl ::core::fmt::Debug for MIB_IF_ENTRY_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIB_IF_TABLE_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MibIfTableNormal: MIB_IF_TABLE_LEVEL = MIB_IF_TABLE_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MibIfTableRaw: MIB_IF_TABLE_LEVEL = MIB_IF_TABLE_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MibIfTableNormalWithoutStatistics: MIB_IF_TABLE_LEVEL = MIB_IF_TABLE_LEVEL(2i32);
 impl ::core::marker::Copy for MIB_IF_TABLE_LEVEL {}
 impl ::core::clone::Clone for MIB_IF_TABLE_LEVEL {
     fn clone(&self) -> Self {
@@ -2730,14 +2904,6 @@ impl ::core::fmt::Debug for MIB_IF_TABLE_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIB_IPFORWARD_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_IPROUTE_TYPE_OTHER: MIB_IPFORWARD_TYPE = MIB_IPFORWARD_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_IPROUTE_TYPE_INVALID: MIB_IPFORWARD_TYPE = MIB_IPFORWARD_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_IPROUTE_TYPE_DIRECT: MIB_IPFORWARD_TYPE = MIB_IPFORWARD_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_IPROUTE_TYPE_INDIRECT: MIB_IPFORWARD_TYPE = MIB_IPFORWARD_TYPE(4i32);
 impl ::core::marker::Copy for MIB_IPFORWARD_TYPE {}
 impl ::core::clone::Clone for MIB_IPFORWARD_TYPE {
     fn clone(&self) -> Self {
@@ -2761,14 +2927,6 @@ impl ::core::fmt::Debug for MIB_IPFORWARD_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIB_IPNET_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_IPNET_TYPE_OTHER: MIB_IPNET_TYPE = MIB_IPNET_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_IPNET_TYPE_INVALID: MIB_IPNET_TYPE = MIB_IPNET_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_IPNET_TYPE_DYNAMIC: MIB_IPNET_TYPE = MIB_IPNET_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_IPNET_TYPE_STATIC: MIB_IPNET_TYPE = MIB_IPNET_TYPE(4i32);
 impl ::core::marker::Copy for MIB_IPNET_TYPE {}
 impl ::core::clone::Clone for MIB_IPNET_TYPE {
     fn clone(&self) -> Self {
@@ -2792,10 +2950,6 @@ impl ::core::fmt::Debug for MIB_IPNET_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIB_IPSTATS_FORWARDING(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_IP_FORWARDING: MIB_IPSTATS_FORWARDING = MIB_IPSTATS_FORWARDING(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_IP_NOT_FORWARDING: MIB_IPSTATS_FORWARDING = MIB_IPSTATS_FORWARDING(2i32);
 impl ::core::marker::Copy for MIB_IPSTATS_FORWARDING {}
 impl ::core::clone::Clone for MIB_IPSTATS_FORWARDING {
     fn clone(&self) -> Self {
@@ -2819,14 +2973,6 @@ impl ::core::fmt::Debug for MIB_IPSTATS_FORWARDING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIB_NOTIFICATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MibParameterNotification: MIB_NOTIFICATION_TYPE = MIB_NOTIFICATION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MibAddInstance: MIB_NOTIFICATION_TYPE = MIB_NOTIFICATION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MibDeleteInstance: MIB_NOTIFICATION_TYPE = MIB_NOTIFICATION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MibInitialNotification: MIB_NOTIFICATION_TYPE = MIB_NOTIFICATION_TYPE(3i32);
 impl ::core::marker::Copy for MIB_NOTIFICATION_TYPE {}
 impl ::core::clone::Clone for MIB_NOTIFICATION_TYPE {
     fn clone(&self) -> Self {
@@ -2850,32 +2996,6 @@ impl ::core::fmt::Debug for MIB_NOTIFICATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MIB_TCP_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_TCP_STATE_CLOSED: MIB_TCP_STATE = MIB_TCP_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_TCP_STATE_LISTEN: MIB_TCP_STATE = MIB_TCP_STATE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_TCP_STATE_SYN_SENT: MIB_TCP_STATE = MIB_TCP_STATE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_TCP_STATE_SYN_RCVD: MIB_TCP_STATE = MIB_TCP_STATE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_TCP_STATE_ESTAB: MIB_TCP_STATE = MIB_TCP_STATE(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_TCP_STATE_FIN_WAIT1: MIB_TCP_STATE = MIB_TCP_STATE(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_TCP_STATE_FIN_WAIT2: MIB_TCP_STATE = MIB_TCP_STATE(7i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_TCP_STATE_CLOSE_WAIT: MIB_TCP_STATE = MIB_TCP_STATE(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_TCP_STATE_CLOSING: MIB_TCP_STATE = MIB_TCP_STATE(9i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_TCP_STATE_LAST_ACK: MIB_TCP_STATE = MIB_TCP_STATE(10i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_TCP_STATE_TIME_WAIT: MIB_TCP_STATE = MIB_TCP_STATE(11i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_TCP_STATE_DELETE_TCB: MIB_TCP_STATE = MIB_TCP_STATE(12i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_TCP_STATE_RESERVED: MIB_TCP_STATE = MIB_TCP_STATE(100i32);
 impl ::core::marker::Copy for MIB_TCP_STATE {}
 impl ::core::clone::Clone for MIB_TCP_STATE {
     fn clone(&self) -> Self {
@@ -2899,14 +3019,6 @@ impl ::core::fmt::Debug for MIB_TCP_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NET_ADDRESS_FORMAT(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const NET_ADDRESS_FORMAT_UNSPECIFIED: NET_ADDRESS_FORMAT = NET_ADDRESS_FORMAT(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const NET_ADDRESS_DNS_NAME: NET_ADDRESS_FORMAT = NET_ADDRESS_FORMAT(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const NET_ADDRESS_IPV4: NET_ADDRESS_FORMAT = NET_ADDRESS_FORMAT(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const NET_ADDRESS_IPV6: NET_ADDRESS_FORMAT = NET_ADDRESS_FORMAT(3i32);
 impl ::core::marker::Copy for NET_ADDRESS_FORMAT {}
 impl ::core::clone::Clone for NET_ADDRESS_FORMAT {
     fn clone(&self) -> Self {
@@ -2930,10 +3042,6 @@ impl ::core::fmt::Debug for NET_ADDRESS_FORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PFADDRESSTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const PF_IPV4: PFADDRESSTYPE = PFADDRESSTYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const PF_IPV6: PFADDRESSTYPE = PFADDRESSTYPE(1i32);
 impl ::core::marker::Copy for PFADDRESSTYPE {}
 impl ::core::clone::Clone for PFADDRESSTYPE {
     fn clone(&self) -> Self {
@@ -2957,10 +3065,6 @@ impl ::core::fmt::Debug for PFADDRESSTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PFFORWARD_ACTION(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const PF_ACTION_FORWARD: PFFORWARD_ACTION = PFFORWARD_ACTION(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const PF_ACTION_DROP: PFFORWARD_ACTION = PFFORWARD_ACTION(1i32);
 impl ::core::marker::Copy for PFFORWARD_ACTION {}
 impl ::core::clone::Clone for PFFORWARD_ACTION {
     fn clone(&self) -> Self {
@@ -2984,12 +3088,6 @@ impl ::core::fmt::Debug for PFFORWARD_ACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PFFRAMETYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const PFFT_FILTER: PFFRAMETYPE = PFFRAMETYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const PFFT_FRAG: PFFRAMETYPE = PFFRAMETYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const PFFT_SPOOF: PFFRAMETYPE = PFFRAMETYPE(3i32);
 impl ::core::marker::Copy for PFFRAMETYPE {}
 impl ::core::clone::Clone for PFFRAMETYPE {
     fn clone(&self) -> Self {
@@ -3013,8 +3111,6 @@ impl ::core::fmt::Debug for PFFRAMETYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TCPIP_OWNER_MODULE_INFO_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TCPIP_OWNER_MODULE_INFO_BASIC: TCPIP_OWNER_MODULE_INFO_CLASS = TCPIP_OWNER_MODULE_INFO_CLASS(0i32);
 impl ::core::marker::Copy for TCPIP_OWNER_MODULE_INFO_CLASS {}
 impl ::core::clone::Clone for TCPIP_OWNER_MODULE_INFO_CLASS {
     fn clone(&self) -> Self {
@@ -3038,12 +3134,6 @@ impl ::core::fmt::Debug for TCPIP_OWNER_MODULE_INFO_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TCP_BOOLEAN_OPTIONAL(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpBoolOptDisabled: TCP_BOOLEAN_OPTIONAL = TCP_BOOLEAN_OPTIONAL(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpBoolOptEnabled: TCP_BOOLEAN_OPTIONAL = TCP_BOOLEAN_OPTIONAL(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpBoolOptUnchanged: TCP_BOOLEAN_OPTIONAL = TCP_BOOLEAN_OPTIONAL(-1i32);
 impl ::core::marker::Copy for TCP_BOOLEAN_OPTIONAL {}
 impl ::core::clone::Clone for TCP_BOOLEAN_OPTIONAL {
     fn clone(&self) -> Self {
@@ -3067,16 +3157,6 @@ impl ::core::fmt::Debug for TCP_BOOLEAN_OPTIONAL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TCP_CONNECTION_OFFLOAD_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpConnectionOffloadStateInHost: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpConnectionOffloadStateOffloading: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpConnectionOffloadStateOffloaded: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpConnectionOffloadStateUploading: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpConnectionOffloadStateMax: TCP_CONNECTION_OFFLOAD_STATE = TCP_CONNECTION_OFFLOAD_STATE(4i32);
 impl ::core::marker::Copy for TCP_CONNECTION_OFFLOAD_STATE {}
 impl ::core::clone::Clone for TCP_CONNECTION_OFFLOAD_STATE {
     fn clone(&self) -> Self {
@@ -3100,26 +3180,6 @@ impl ::core::fmt::Debug for TCP_CONNECTION_OFFLOAD_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TCP_ESTATS_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpConnectionEstatsSynOpts: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpConnectionEstatsData: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpConnectionEstatsSndCong: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpConnectionEstatsPath: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpConnectionEstatsSendBuff: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpConnectionEstatsRec: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpConnectionEstatsObsRec: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpConnectionEstatsBandwidth: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpConnectionEstatsFineRtt: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpConnectionEstatsMaximum: TCP_ESTATS_TYPE = TCP_ESTATS_TYPE(9i32);
 impl ::core::marker::Copy for TCP_ESTATS_TYPE {}
 impl ::core::clone::Clone for TCP_ESTATS_TYPE {
     fn clone(&self) -> Self {
@@ -3143,22 +3203,6 @@ impl ::core::fmt::Debug for TCP_ESTATS_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TCP_RTO_ALGORITHM(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpRtoAlgorithmOther: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpRtoAlgorithmConstant: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpRtoAlgorithmRsre: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpRtoAlgorithmVanj: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_TCP_RTO_OTHER: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_TCP_RTO_CONSTANT: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_TCP_RTO_RSRE: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const MIB_TCP_RTO_VANJ: TCP_RTO_ALGORITHM = TCP_RTO_ALGORITHM(4i32);
 impl ::core::marker::Copy for TCP_RTO_ALGORITHM {}
 impl ::core::clone::Clone for TCP_RTO_ALGORITHM {
     fn clone(&self) -> Self {
@@ -3182,26 +3226,6 @@ impl ::core::fmt::Debug for TCP_RTO_ALGORITHM {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TCP_SOFT_ERROR(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpErrorNone: TCP_SOFT_ERROR = TCP_SOFT_ERROR(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpErrorBelowDataWindow: TCP_SOFT_ERROR = TCP_SOFT_ERROR(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpErrorAboveDataWindow: TCP_SOFT_ERROR = TCP_SOFT_ERROR(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpErrorBelowAckWindow: TCP_SOFT_ERROR = TCP_SOFT_ERROR(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpErrorAboveAckWindow: TCP_SOFT_ERROR = TCP_SOFT_ERROR(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpErrorBelowTsWindow: TCP_SOFT_ERROR = TCP_SOFT_ERROR(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpErrorAboveTsWindow: TCP_SOFT_ERROR = TCP_SOFT_ERROR(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpErrorDataChecksumError: TCP_SOFT_ERROR = TCP_SOFT_ERROR(7i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpErrorDataLengthError: TCP_SOFT_ERROR = TCP_SOFT_ERROR(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TcpErrorMaxSoftError: TCP_SOFT_ERROR = TCP_SOFT_ERROR(9i32);
 impl ::core::marker::Copy for TCP_SOFT_ERROR {}
 impl ::core::clone::Clone for TCP_SOFT_ERROR {
     fn clone(&self) -> Self {
@@ -3225,24 +3249,6 @@ impl ::core::fmt::Debug for TCP_SOFT_ERROR {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TCP_TABLE_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TCP_TABLE_BASIC_LISTENER: TCP_TABLE_CLASS = TCP_TABLE_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TCP_TABLE_BASIC_CONNECTIONS: TCP_TABLE_CLASS = TCP_TABLE_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TCP_TABLE_BASIC_ALL: TCP_TABLE_CLASS = TCP_TABLE_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TCP_TABLE_OWNER_PID_LISTENER: TCP_TABLE_CLASS = TCP_TABLE_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TCP_TABLE_OWNER_PID_CONNECTIONS: TCP_TABLE_CLASS = TCP_TABLE_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TCP_TABLE_OWNER_PID_ALL: TCP_TABLE_CLASS = TCP_TABLE_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TCP_TABLE_OWNER_MODULE_LISTENER: TCP_TABLE_CLASS = TCP_TABLE_CLASS(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TCP_TABLE_OWNER_MODULE_CONNECTIONS: TCP_TABLE_CLASS = TCP_TABLE_CLASS(7i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const TCP_TABLE_OWNER_MODULE_ALL: TCP_TABLE_CLASS = TCP_TABLE_CLASS(8i32);
 impl ::core::marker::Copy for TCP_TABLE_CLASS {}
 impl ::core::clone::Clone for TCP_TABLE_CLASS {
     fn clone(&self) -> Self {
@@ -3266,12 +3272,6 @@ impl ::core::fmt::Debug for TCP_TABLE_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UDP_TABLE_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const UDP_TABLE_BASIC: UDP_TABLE_CLASS = UDP_TABLE_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const UDP_TABLE_OWNER_PID: UDP_TABLE_CLASS = UDP_TABLE_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_IpHelper\"`*"]
-pub const UDP_TABLE_OWNER_MODULE: UDP_TABLE_CLASS = UDP_TABLE_CLASS(2i32);
 impl ::core::marker::Copy for UDP_TABLE_CLASS {}
 impl ::core::clone::Clone for UDP_TABLE_CLASS {
     fn clone(&self) -> Self {

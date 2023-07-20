@@ -1,13 +1,16 @@
-use metadata::{Attribute, Reader, TypeName, Value};
+use metadata::*;
 
 #[test]
 fn attribute_enum() {
     let files = tool_lib::default_metadata();
     let reader = &Reader::new(&files);
 
-    let method = reader
-        .namespace_functions("Windows.Win32.UI.WindowsAndMessaging")
-        .find(|&m| reader.method_def_name(m) == "SetWindowLongPtrA")
+    let (method, _) = reader
+        .get_method_def(TypeName::new(
+            "Windows.Win32.UI.WindowsAndMessaging",
+            "SetWindowLongPtrA",
+        ))
+        .next()
         .unwrap();
     let attrs = reader.method_def_attributes(method);
     check_attr_arg_enum(
@@ -21,7 +24,7 @@ fn attribute_enum() {
 
     // The only attribute currently with a named enum argument is "GCPressure".
     let def = reader
-        .get(TypeName::new("Windows.Graphics.Imaging", "BitmapBuffer"))
+        .get_type_def(TypeName::new("Windows.Graphics.Imaging", "BitmapBuffer"))
         .next()
         .unwrap();
     let attrs = reader.type_def_attributes(def);

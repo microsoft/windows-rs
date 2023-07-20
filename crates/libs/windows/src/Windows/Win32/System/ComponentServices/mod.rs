@@ -8216,9 +8216,51 @@ pub struct SecurityProperty_Vtbl {
     pub GetOriginalCreatorName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bstrusername: *mut ::std::mem::MaybeUninit<::windows_core::BSTR>) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const APPTYPE_LIBRARY: COMPLUS_APPTYPE = COMPLUS_APPTYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const APPTYPE_SERVER: COMPLUS_APPTYPE = COMPLUS_APPTYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const APPTYPE_SWC: COMPLUS_APPTYPE = COMPLUS_APPTYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const APPTYPE_UNKNOWN: COMPLUS_APPTYPE = COMPLUS_APPTYPE(-1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const AppDomainHelper: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef24f689_14f8_4d92_b4af_d7b1f0e70fd4);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const ByotServerEx: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xecabb0aa_7f19_11d2_978e_0000f8757e2a);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdmin32BitComponent: COMAdminComponentType = COMAdminComponentType(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdmin64BitComponent: COMAdminComponentType = COMAdminComponentType(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAccessChecksApplicationComponentLevel: COMAdminAccessChecksLevelOptions = COMAdminAccessChecksLevelOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAccessChecksApplicationLevel: COMAdminAccessChecksLevelOptions = COMAdminAccessChecksLevelOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminActivationInproc: COMAdminActivationOptions = COMAdminActivationOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminActivationLocal: COMAdminActivationOptions = COMAdminActivationOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationCall: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationCapabilitiesDynamicCloaking: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(64i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationCapabilitiesNone: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationCapabilitiesSecureReference: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationCapabilitiesStaticCloaking: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(32i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationConnect: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationDefault: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationIntegrity: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(5i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationNone: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationPacket: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationPrivacy: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(6i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminCatalog: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf618c514_dfb8_11d1_a2cf_00805fc79235);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
@@ -8226,9 +8268,435 @@ pub const COMAdminCatalogCollection: ::windows_core::GUID = ::windows_core::GUID
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminCatalogObject: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf618c515_dfb8_11d1_a2cf_00805fc79235);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminCompFlagAlreadyInstalled: COMAdminComponentFlags = COMAdminComponentFlags(16i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminCompFlagCOMPlusPropertiesFound: COMAdminComponentFlags = COMAdminComponentFlags(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminCompFlagInterfacesFound: COMAdminComponentFlags = COMAdminComponentFlags(8i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminCompFlagNotInApplication: COMAdminComponentFlags = COMAdminComponentFlags(32i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminCompFlagProxyFound: COMAdminComponentFlags = COMAdminComponentFlags(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminCompFlagTypeInfoFound: COMAdminComponentFlags = COMAdminComponentFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrAlreadyInstalled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368508i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrAppDirNotFound: COMAdminErrorCodes = COMAdminErrorCodes(-2146368481i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrAppFileReadFail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368504i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrAppFileVersion: COMAdminErrorCodes = COMAdminErrorCodes(-2146368503i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrAppFileWriteFail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368505i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrAppNotRunning: COMAdminErrorCodes = COMAdminErrorCodes(-2146367478i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrApplicationExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368501i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrApplidMatchesClsid: COMAdminErrorCodes = COMAdminErrorCodes(-2146368442i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrAuthenticationLevel: COMAdminErrorCodes = COMAdminErrorCodes(-2146368493i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrBadPath: COMAdminErrorCodes = COMAdminErrorCodes(-2146368502i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrBadRegistryLibID: COMAdminErrorCodes = COMAdminErrorCodes(-2146368482i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrBadRegistryProgID: COMAdminErrorCodes = COMAdminErrorCodes(-2146368494i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrBasePartitionOnly: COMAdminErrorCodes = COMAdminErrorCodes(-2146368432i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCLSIDOrIIDMismatch: COMAdminErrorCodes = COMAdminErrorCodes(-2146368488i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCanNotExportAppProxy: COMAdminErrorCodes = COMAdminErrorCodes(-2146368438i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCanNotExportSystemApp: COMAdminErrorCodes = COMAdminErrorCodes(-2146368436i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCanNotStartApp: COMAdminErrorCodes = COMAdminErrorCodes(-2146368437i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCanNotSubscribeToComponent: COMAdminErrorCodes = COMAdminErrorCodes(-2146368435i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCannotCopyEventClass: COMAdminErrorCodes = COMAdminErrorCodes(-2146367456i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCantCopyFile: COMAdminErrorCodes = COMAdminErrorCodes(-2146368499i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCantRecycleLibraryApps: COMAdminErrorCodes = COMAdminErrorCodes(-2146367473i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCantRecycleServiceApps: COMAdminErrorCodes = COMAdminErrorCodes(-2146367471i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCatBitnessMismatch: COMAdminErrorCodes = COMAdminErrorCodes(-2146368382i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCatPauseResumeNotSupported: COMAdminErrorCodes = COMAdminErrorCodes(-2146368379i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCatServerFault: COMAdminErrorCodes = COMAdminErrorCodes(-2146368378i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCatUnacceptableBitness: COMAdminErrorCodes = COMAdminErrorCodes(-2146368381i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCatWrongAppBitnessBitness: COMAdminErrorCodes = COMAdminErrorCodes(-2146368380i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCoReqCompInstalled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368459i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompFileBadTLB: COMAdminErrorCodes = COMAdminErrorCodes(-2146368472i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompFileClassNotAvail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368473i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompFileDoesNotExist: COMAdminErrorCodes = COMAdminErrorCodes(-2146368476i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompFileGetClassObj: COMAdminErrorCodes = COMAdminErrorCodes(-2146368474i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompFileLoadDLLFail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368475i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompFileNoRegistrar: COMAdminErrorCodes = COMAdminErrorCodes(-2146368460i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompFileNotInstallable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368471i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompMoveBadDest: COMAdminErrorCodes = COMAdminErrorCodes(-2146368466i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompMoveDest: COMAdminErrorCodes = COMAdminErrorCodes(-2146367459i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompMoveLocked: COMAdminErrorCodes = COMAdminErrorCodes(-2146368467i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompMovePrivate: COMAdminErrorCodes = COMAdminErrorCodes(-2146367458i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompMoveSource: COMAdminErrorCodes = COMAdminErrorCodes(-2146367460i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrComponentExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368455i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrDllLoadFailed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368483i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrDllRegisterServer: COMAdminErrorCodes = COMAdminErrorCodes(-2146368486i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrDuplicatePartitionName: COMAdminErrorCodes = COMAdminErrorCodes(-2146368425i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrEventClassCannotBeSubscriber: COMAdminErrorCodes = COMAdminErrorCodes(-2146368434i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrImportedComponentsNotAllowed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368421i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrInvalidPartition: COMAdminErrorCodes = COMAdminErrorCodes(-2146367477i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrInvalidUserids: COMAdminErrorCodes = COMAdminErrorCodes(-2146368496i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrKeyMissing: COMAdminErrorCodes = COMAdminErrorCodes(-2146368509i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrLibAppProxyIncompatible: COMAdminErrorCodes = COMAdminErrorCodes(-2146368433i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrMigSchemaNotFound: COMAdminErrorCodes = COMAdminErrorCodes(-2146368383i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrMigVersionNotSupported: COMAdminErrorCodes = COMAdminErrorCodes(-2146368384i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrNoRegistryCLSID: COMAdminErrorCodes = COMAdminErrorCodes(-2146368495i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrNoServerShare: COMAdminErrorCodes = COMAdminErrorCodes(-2146368485i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrNoUser: COMAdminErrorCodes = COMAdminErrorCodes(-2146368497i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrNotChangeable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368470i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrNotDeletable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368469i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrNotInRegistry: COMAdminErrorCodes = COMAdminErrorCodes(-2146368450i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrObjectDoesNotExist: COMAdminErrorCodes = COMAdminErrorCodes(-2146367479i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrObjectErrors: COMAdminErrorCodes = COMAdminErrorCodes(-2146368511i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrObjectExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368456i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrObjectInvalid: COMAdminErrorCodes = COMAdminErrorCodes(-2146368510i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrObjectNotPoolable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368449i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrObjectParentMissing: COMAdminErrorCodes = COMAdminErrorCodes(-2146367480i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrPartitionInUse: COMAdminErrorCodes = COMAdminErrorCodes(-2146368423i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrPartitionMsiOnly: COMAdminErrorCodes = COMAdminErrorCodes(-2146367463i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrPausedProcessMayNotBeRecycled: COMAdminErrorCodes = COMAdminErrorCodes(-2146367469i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrProcessAlreadyRecycled: COMAdminErrorCodes = COMAdminErrorCodes(-2146367470i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrPropertyOverflow: COMAdminErrorCodes = COMAdminErrorCodes(-2146368452i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrPropertySaveFailed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368457i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrQueuingServiceNotAvailable: COMAdminErrorCodes = COMAdminErrorCodes(-2146367998i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRegFileCorrupt: COMAdminErrorCodes = COMAdminErrorCodes(-2146368453i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRegdbAlreadyRunning: COMAdminErrorCodes = COMAdminErrorCodes(-2146368395i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRegdbNotInitialized: COMAdminErrorCodes = COMAdminErrorCodes(-2146368398i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRegdbNotOpen: COMAdminErrorCodes = COMAdminErrorCodes(-2146368397i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRegdbSystemErr: COMAdminErrorCodes = COMAdminErrorCodes(-2146368396i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRegisterTLB: COMAdminErrorCodes = COMAdminErrorCodes(-2146368464i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRegistrarFailed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368477i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRemoteInterface: COMAdminErrorCodes = COMAdminErrorCodes(-2146368487i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRequiresDifferentPlatform: COMAdminErrorCodes = COMAdminErrorCodes(-2146368439i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRoleDoesNotExist: COMAdminErrorCodes = COMAdminErrorCodes(-2146368441i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRoleExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368500i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrServiceNotInstalled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368458i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrSession: COMAdminErrorCodes = COMAdminErrorCodes(-2146368468i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrStartAppDisabled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368431i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrStartAppNeedsComponents: COMAdminErrorCodes = COMAdminErrorCodes(-2146368440i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrSystemApp: COMAdminErrorCodes = COMAdminErrorCodes(-2146368461i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrUserPasswdNotValid: COMAdminErrorCodes = COMAdminErrorCodes(-2146368492i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminExportApplicationProxy: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminExportForceOverwriteOfFiles: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminExportIn10Format: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(16i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminExportNoUsers: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminExportUsers: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagAlreadyInstalled: COMAdminFileFlags = COMAdminFileFlags(512i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagBadTLB: COMAdminFileFlags = COMAdminFileFlags(1024i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagCOM: COMAdminFileFlags = COMAdminFileFlags(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagClassNotAvailable: COMAdminFileFlags = COMAdminFileFlags(4096i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagContainsComp: COMAdminFileFlags = COMAdminFileFlags(8i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagContainsPS: COMAdminFileFlags = COMAdminFileFlags(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagContainsTLB: COMAdminFileFlags = COMAdminFileFlags(16i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagDLLRegsvrFailed: COMAdminFileFlags = COMAdminFileFlags(32768i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagDoesNotExist: COMAdminFileFlags = COMAdminFileFlags(256i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagError: COMAdminFileFlags = COMAdminFileFlags(262144i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagGetClassObjFailed: COMAdminFileFlags = COMAdminFileFlags(2048i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagLoadable: COMAdminFileFlags = COMAdminFileFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagNoRegistrar: COMAdminFileFlags = COMAdminFileFlags(16384i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagRegTLBFailed: COMAdminFileFlags = COMAdminFileFlags(65536i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagRegistrar: COMAdminFileFlags = COMAdminFileFlags(8192i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagRegistrarFailed: COMAdminFileFlags = COMAdminFileFlags(131072i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagSelfReg: COMAdminFileFlags = COMAdminFileFlags(32i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagSelfUnReg: COMAdminFileFlags = COMAdminFileFlags(64i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagUnloadableDLL: COMAdminFileFlags = COMAdminFileFlags(128i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminImpersonationAnonymous: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminImpersonationDelegate: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminImpersonationIdentify: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminImpersonationImpersonate: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminInUseByCatalog: COMAdminInUse = COMAdminInUse(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminInUseByRegistryClsid: COMAdminInUse = COMAdminInUse(5i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminInUseByRegistryProxyStub: COMAdminInUse = COMAdminInUse(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminInUseByRegistryTypeLib: COMAdminInUse = COMAdminInUse(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminInUseByRegistryUnknown: COMAdminInUse = COMAdminInUse(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminInstallForceOverwriteOfFiles: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminInstallNoUsers: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminInstallUsers: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminNotInUse: COMAdminInUse = COMAdminInUse(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSNotInitialized: COMAdminOS = COMAdminOS(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSUnknown: COMAdminOS = COMAdminOS(6i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows2000: COMAdminOS = COMAdminOS(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows2000AdvancedServer: COMAdminOS = COMAdminOS(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows2000Unknown: COMAdminOS = COMAdminOS(5i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows3_1: COMAdminOS = COMAdminOS(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows7DatacenterServer: COMAdminOS = COMAdminOS(27i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows7EnterpriseServer: COMAdminOS = COMAdminOS(26i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows7Personal: COMAdminOS = COMAdminOS(23i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows7Professional: COMAdminOS = COMAdminOS(24i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows7StandardServer: COMAdminOS = COMAdminOS(25i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows7WebServer: COMAdminOS = COMAdminOS(28i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows8DatacenterServer: COMAdminOS = COMAdminOS(33i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows8EnterpriseServer: COMAdminOS = COMAdminOS(32i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows8Personal: COMAdminOS = COMAdminOS(29i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows8Professional: COMAdminOS = COMAdminOS(30i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows8StandardServer: COMAdminOS = COMAdminOS(31i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows8WebServer: COMAdminOS = COMAdminOS(34i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows9x: COMAdminOS = COMAdminOS(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsBlueDatacenterServer: COMAdminOS = COMAdminOS(39i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsBlueEnterpriseServer: COMAdminOS = COMAdminOS(38i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsBluePersonal: COMAdminOS = COMAdminOS(35i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsBlueProfessional: COMAdminOS = COMAdminOS(36i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsBlueStandardServer: COMAdminOS = COMAdminOS(37i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsBlueWebServer: COMAdminOS = COMAdminOS(40i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsLonghornDatacenterServer: COMAdminOS = COMAdminOS(21i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsLonghornEnterpriseServer: COMAdminOS = COMAdminOS(20i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsLonghornPersonal: COMAdminOS = COMAdminOS(17i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsLonghornProfessional: COMAdminOS = COMAdminOS(18i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsLonghornStandardServer: COMAdminOS = COMAdminOS(19i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsLonghornWebServer: COMAdminOS = COMAdminOS(22i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsNETDatacenterServer: COMAdminOS = COMAdminOS(15i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsNETEnterpriseServer: COMAdminOS = COMAdminOS(14i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsNETStandardServer: COMAdminOS = COMAdminOS(13i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsNETWebServer: COMAdminOS = COMAdminOS(16i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsXPPersonal: COMAdminOS = COMAdminOS(11i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsXPProfessional: COMAdminOS = COMAdminOS(12i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminQCMessageAuthenticateOff: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminQCMessageAuthenticateOn: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminQCMessageAuthenticateSecureApps: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminServiceContinuePending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminServiceLoadBalanceRouter: COMAdminServiceOptions = COMAdminServiceOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminServicePausePending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(5i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminServicePaused: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(6i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminServiceRunning: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminServiceStartPending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminServiceStopPending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminServiceStopped: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminServiceUnknownState: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(7i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminSynchronizationIgnored: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminSynchronizationNone: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminSynchronizationRequired: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminSynchronizationRequiresNew: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminSynchronizationSupported: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminThreadingModelApartment: COMAdminThreadingModels = COMAdminThreadingModels(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminThreadingModelBoth: COMAdminThreadingModels = COMAdminThreadingModels(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminThreadingModelFree: COMAdminThreadingModels = COMAdminThreadingModels(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminThreadingModelMain: COMAdminThreadingModels = COMAdminThreadingModels(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminThreadingModelNeutral: COMAdminThreadingModels = COMAdminThreadingModels(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminThreadingModelNotSpecified: COMAdminThreadingModels = COMAdminThreadingModels(5i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminTransactionIgnored: COMAdminTransactionOptions = COMAdminTransactionOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminTransactionNone: COMAdminTransactionOptions = COMAdminTransactionOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminTransactionRequired: COMAdminTransactionOptions = COMAdminTransactionOptions(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminTransactionRequiresNew: COMAdminTransactionOptions = COMAdminTransactionOptions(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminTransactionSupported: COMAdminTransactionOptions = COMAdminTransactionOptions(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminTxIsolationLevelAny: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminTxIsolationLevelReadCommitted: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminTxIsolationLevelReadUnCommitted: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminTxIsolationLevelRepeatableRead: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminTxIsolationLevelSerializable: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMEvents: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xecabb0ab_7f19_11d2_978e_0000f8757e2a);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRMClerk: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xecabb0bd_7f19_11d2_978e_0000f8757e2a);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMFLAG_FORGETTARGET: CRMFLAGS = CRMFLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMFLAG_REPLAYINPROGRESS: CRMFLAGS = CRMFLAGS(64i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMFLAG_WRITTENDURINGABORT: CRMFLAGS = CRMFLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMFLAG_WRITTENDURINGCOMMIT: CRMFLAGS = CRMFLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMFLAG_WRITTENDURINGPREPARE: CRMFLAGS = CRMFLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMFLAG_WRITTENDURINGRECOVERY: CRMFLAGS = CRMFLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMFLAG_WRITTENDURINGREPLAY: CRMFLAGS = CRMFLAGS(32i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMREGFLAG_ABORTPHASE: CRMREGFLAGS = CRMREGFLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMREGFLAG_ALLPHASES: CRMREGFLAGS = CRMREGFLAGS(7i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMREGFLAG_COMMITPHASE: CRMREGFLAGS = CRMREGFLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMREGFLAG_FAILIFINDOUBTSREMAIN: CRMREGFLAGS = CRMREGFLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMREGFLAG_PREPAREPHASE: CRMREGFLAGS = CRMREGFLAGS(1i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRMRecoveryClerk: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xecabb0be_7f19_11d2_978e_0000f8757e2a);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
@@ -8244,6 +8712,62 @@ pub const CRR_NO_REASON_SUPPLIED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRR_RECYCLED_FROM_UI: u32 = 4294967291u32;
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_BindToPoolThread: CSC_Binding = CSC_Binding(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_CreateTransactionIfNecessary: CSC_TransactionConfig = CSC_TransactionConfig(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_DontUseTracker: CSC_TrackerConfig = CSC_TrackerConfig(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_IfContainerIsSynchronized: CSC_SynchronizationConfig = CSC_SynchronizationConfig(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_IfContainerIsTransactional: CSC_TransactionConfig = CSC_TransactionConfig(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_Ignore: CSC_InheritanceConfig = CSC_InheritanceConfig(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_Inherit: CSC_InheritanceConfig = CSC_InheritanceConfig(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_InheritCOMTIIntrinsics: CSC_COMTIIntrinsicsConfig = CSC_COMTIIntrinsicsConfig(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_InheritIISIntrinsics: CSC_IISIntrinsicsConfig = CSC_IISIntrinsicsConfig(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_InheritPartition: CSC_PartitionConfig = CSC_PartitionConfig(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_InheritSxs: CSC_SxsConfig = CSC_SxsConfig(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_MTAThreadPool: CSC_ThreadPool = CSC_ThreadPool(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NewPartition: CSC_PartitionConfig = CSC_PartitionConfig(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NewSxs: CSC_SxsConfig = CSC_SxsConfig(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NewSynchronization: CSC_SynchronizationConfig = CSC_SynchronizationConfig(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NewSynchronizationIfNecessary: CSC_SynchronizationConfig = CSC_SynchronizationConfig(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NewTransaction: CSC_TransactionConfig = CSC_TransactionConfig(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NoBinding: CSC_Binding = CSC_Binding(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NoCOMTIIntrinsics: CSC_COMTIIntrinsicsConfig = CSC_COMTIIntrinsicsConfig(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NoIISIntrinsics: CSC_IISIntrinsicsConfig = CSC_IISIntrinsicsConfig(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NoPartition: CSC_PartitionConfig = CSC_PartitionConfig(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NoSxs: CSC_SxsConfig = CSC_SxsConfig(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NoSynchronization: CSC_SynchronizationConfig = CSC_SynchronizationConfig(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NoTransaction: CSC_TransactionConfig = CSC_TransactionConfig(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_STAThreadPool: CSC_ThreadPool = CSC_ThreadPool(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_ThreadPoolInherit: CSC_ThreadPool = CSC_ThreadPool(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_ThreadPoolNone: CSC_ThreadPool = CSC_ThreadPool(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_UseTracker: CSC_TrackerConfig = CSC_TrackerConfig(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CServiceConfig: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xecabb0c8_7f19_11d2_978e_0000f8757e2a);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const ClrAssemblyLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x458aa3b5_265a_4b75_bc05_9bea4630cf18);
@@ -8256,17 +8780,37 @@ pub const ComSystemAppEventData: ::windows_core::GUID = ::windows_core::GUID::fr
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const DATA_NOT_AVAILABLE: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const DUMPTYPE_FULL: DUMPTYPE = DUMPTYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const DUMPTYPE_MINI: DUMPTYPE = DUMPTYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const DUMPTYPE_NONE: DUMPTYPE = DUMPTYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const DispenserManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xecabb0c0_7f19_11d2_978e_0000f8757e2a);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const Dummy30040732: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xecabb0a9_7f19_11d2_978e_0000f8757e2a);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const EventServer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xecabafbc_7f19_11d2_978e_0000f8757e2a);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const GATD_INCLUDE_APPLICATION_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(16i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const GATD_INCLUDE_CLASS_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(8i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const GATD_INCLUDE_LIBRARY_APPS: GetAppTrackerDataFlags = GetAppTrackerDataFlags(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const GATD_INCLUDE_PROCESS_EXE_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const GATD_INCLUDE_SWC: GetAppTrackerDataFlags = GetAppTrackerDataFlags(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const GUID_STRING_SIZE: u32 = 40u32;
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const GetSecurityCallContextAppObject: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xecabb0a8_7f19_11d2_978e_0000f8757e2a);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const LBEvents: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xecabb0c1_7f19_11d2_978e_0000f8757e2a);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const LockMethod: LockModes = LockModes(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const LockSetGet: LockModes = LockModes(0i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const MTXDM_E_ENLISTRESOURCEFAILED: u32 = 2147803392u32;
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
@@ -8275,6 +8819,8 @@ pub const MessageMover: ::windows_core::GUID = ::windows_core::GUID::from_u128(0
 pub const MtsGrp: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4b2e958d_0393_11d1_b1ab_00aa00ba3258);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const PoolMgr: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xecabafb5_7f19_11d2_978e_0000f8757e2a);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const Process: ReleaseModes = ReleaseModes(1i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const SecurityCallContext: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xecabb0a7_7f19_11d2_978e_0000f8757e2a);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
@@ -8292,9 +8838,17 @@ pub const SharedPropertyGroup: ::windows_core::GUID = ::windows_core::GUID::from
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const SharedPropertyGroupManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a005c11_a5de_11cf_9e66_00aa00a3f464);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const Standard: ReleaseModes = ReleaseModes(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const TRACKER_INIT_EVENT: ::windows_core::PCWSTR = ::windows_core::w!("Global\\COM+ Tracker Init Event");
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const TRACKER_STARTSTOP_EVENT: ::windows_core::PCWSTR = ::windows_core::w!("Global\\COM+ Tracker Push Event");
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const TRKCOLL_APPLICATIONS: TRACKING_COLL_TYPE = TRACKING_COLL_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const TRKCOLL_COMPONENTS: TRACKING_COLL_TYPE = TRACKING_COLL_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const TRKCOLL_PROCESSES: TRACKING_COLL_TYPE = TRACKING_COLL_TYPE(0i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const TrackerServer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xecabafb9_7f19_11d2_978e_0000f8757e2a);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
@@ -8302,9 +8856,49 @@ pub const TransactionContext: ::windows_core::GUID = ::windows_core::GUID::from_
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const TransactionContextEx: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5cb66670_d3d4_11cf_acab_00a024a55aef);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AutoSvcs_Error_Constants(pub u32);
+pub const TxAbort: TransactionVote = TransactionVote(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const TxCommit: TransactionVote = TransactionVote(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const TxState_Aborted: CrmTransactionState = CrmTransactionState(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const TxState_Active: CrmTransactionState = CrmTransactionState(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const TxState_Committed: CrmTransactionState = CrmTransactionState(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const TxState_Indoubt: CrmTransactionState = CrmTransactionState(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comQCErrApplicationNotQueued: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599296u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comQCErrNoQueueableInterfaces: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599297u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comQCErrQueueTransactMismatch: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599299u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comQCErrQueuingServiceNotAvailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599298u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrBadMarshaledObject: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599382u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrInvalidMessage: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599376u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrMarshaledObjSameTxn: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599304u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrMsgNotAuthenticated: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599380u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrMsmqConnectorUsed: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599381u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrMsmqServiceUnavailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599379u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrMsmqSidUnavailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599377u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrOutParam: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599301u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrPSLoad: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599303u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrRecorderMarshalled: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599300u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrRecorderNotTrusted: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599302u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrWrongMsgExtension: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599378u32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const mtsErrCtxAborted: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803138u32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
@@ -8312,51 +8906,23 @@ pub const mtsErrCtxAborting: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const mtsErrCtxNoContext: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803140u32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const mtsErrCtxNotRegistered: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803141u32);
+pub const mtsErrCtxNoSecurity: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803149u32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const mtsErrCtxSynchTimeout: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803142u32);
+pub const mtsErrCtxNotRegistered: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803141u32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const mtsErrCtxOldReference: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803143u32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const mtsErrCtxRoleNotFound: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803148u32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const mtsErrCtxNoSecurity: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803149u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const mtsErrCtxWrongThread: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803150u32);
+pub const mtsErrCtxSynchTimeout: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803142u32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const mtsErrCtxTMNotAvailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803151u32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comQCErrApplicationNotQueued: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599296u32);
+pub const mtsErrCtxWrongThread: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803150u32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comQCErrNoQueueableInterfaces: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599297u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comQCErrQueuingServiceNotAvailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599298u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comQCErrQueueTransactMismatch: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599299u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrRecorderMarshalled: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599300u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrOutParam: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599301u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrRecorderNotTrusted: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599302u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrPSLoad: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599303u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrMarshaledObjSameTxn: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599304u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrInvalidMessage: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599376u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrMsmqSidUnavailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599377u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrWrongMsgExtension: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599378u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrMsmqServiceUnavailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599379u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrMsgNotAuthenticated: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599380u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrMsmqConnectorUsed: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599381u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrBadMarshaledObject: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599382u32);
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AutoSvcs_Error_Constants(pub u32);
 impl ::core::marker::Copy for AutoSvcs_Error_Constants {}
 impl ::core::clone::Clone for AutoSvcs_Error_Constants {
     fn clone(&self) -> Self {
@@ -8380,10 +8946,6 @@ impl ::core::fmt::Debug for AutoSvcs_Error_Constants {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminAccessChecksLevelOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAccessChecksApplicationLevel: COMAdminAccessChecksLevelOptions = COMAdminAccessChecksLevelOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAccessChecksApplicationComponentLevel: COMAdminAccessChecksLevelOptions = COMAdminAccessChecksLevelOptions(1i32);
 impl ::core::marker::Copy for COMAdminAccessChecksLevelOptions {}
 impl ::core::clone::Clone for COMAdminAccessChecksLevelOptions {
     fn clone(&self) -> Self {
@@ -8407,10 +8969,6 @@ impl ::core::fmt::Debug for COMAdminAccessChecksLevelOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminActivationOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminActivationInproc: COMAdminActivationOptions = COMAdminActivationOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminActivationLocal: COMAdminActivationOptions = COMAdminActivationOptions(1i32);
 impl ::core::marker::Copy for COMAdminActivationOptions {}
 impl ::core::clone::Clone for COMAdminActivationOptions {
     fn clone(&self) -> Self {
@@ -8434,16 +8992,6 @@ impl ::core::fmt::Debug for COMAdminActivationOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminApplicationExportOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminExportNoUsers: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminExportUsers: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminExportApplicationProxy: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminExportForceOverwriteOfFiles: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminExportIn10Format: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(16i32);
 impl ::core::marker::Copy for COMAdminApplicationExportOptions {}
 impl ::core::clone::Clone for COMAdminApplicationExportOptions {
     fn clone(&self) -> Self {
@@ -8467,12 +9015,6 @@ impl ::core::fmt::Debug for COMAdminApplicationExportOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminApplicationInstallOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminInstallNoUsers: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminInstallUsers: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminInstallForceOverwriteOfFiles: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(2i32);
 impl ::core::marker::Copy for COMAdminApplicationInstallOptions {}
 impl ::core::clone::Clone for COMAdminApplicationInstallOptions {
     fn clone(&self) -> Self {
@@ -8496,14 +9038,6 @@ impl ::core::fmt::Debug for COMAdminApplicationInstallOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminAuthenticationCapabilitiesOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationCapabilitiesNone: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationCapabilitiesSecureReference: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationCapabilitiesStaticCloaking: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(32i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationCapabilitiesDynamicCloaking: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(64i32);
 impl ::core::marker::Copy for COMAdminAuthenticationCapabilitiesOptions {}
 impl ::core::clone::Clone for COMAdminAuthenticationCapabilitiesOptions {
     fn clone(&self) -> Self {
@@ -8527,20 +9061,6 @@ impl ::core::fmt::Debug for COMAdminAuthenticationCapabilitiesOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminAuthenticationLevelOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationDefault: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationNone: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationConnect: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationCall: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationPacket: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationIntegrity: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(5i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationPrivacy: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(6i32);
 impl ::core::marker::Copy for COMAdminAuthenticationLevelOptions {}
 impl ::core::clone::Clone for COMAdminAuthenticationLevelOptions {
     fn clone(&self) -> Self {
@@ -8564,18 +9084,6 @@ impl ::core::fmt::Debug for COMAdminAuthenticationLevelOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminComponentFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminCompFlagTypeInfoFound: COMAdminComponentFlags = COMAdminComponentFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminCompFlagCOMPlusPropertiesFound: COMAdminComponentFlags = COMAdminComponentFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminCompFlagProxyFound: COMAdminComponentFlags = COMAdminComponentFlags(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminCompFlagInterfacesFound: COMAdminComponentFlags = COMAdminComponentFlags(8i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminCompFlagAlreadyInstalled: COMAdminComponentFlags = COMAdminComponentFlags(16i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminCompFlagNotInApplication: COMAdminComponentFlags = COMAdminComponentFlags(32i32);
 impl ::core::marker::Copy for COMAdminComponentFlags {}
 impl ::core::clone::Clone for COMAdminComponentFlags {
     fn clone(&self) -> Self {
@@ -8599,10 +9107,6 @@ impl ::core::fmt::Debug for COMAdminComponentFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminComponentType(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdmin32BitComponent: COMAdminComponentType = COMAdminComponentType(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdmin64BitComponent: COMAdminComponentType = COMAdminComponentType(2i32);
 impl ::core::marker::Copy for COMAdminComponentType {}
 impl ::core::clone::Clone for COMAdminComponentType {
     fn clone(&self) -> Self {
@@ -8626,182 +9130,6 @@ impl ::core::fmt::Debug for COMAdminComponentType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminErrorCodes(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrObjectErrors: COMAdminErrorCodes = COMAdminErrorCodes(-2146368511i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrObjectInvalid: COMAdminErrorCodes = COMAdminErrorCodes(-2146368510i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrKeyMissing: COMAdminErrorCodes = COMAdminErrorCodes(-2146368509i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrAlreadyInstalled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368508i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrAppFileWriteFail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368505i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrAppFileReadFail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368504i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrAppFileVersion: COMAdminErrorCodes = COMAdminErrorCodes(-2146368503i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrBadPath: COMAdminErrorCodes = COMAdminErrorCodes(-2146368502i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrApplicationExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368501i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRoleExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368500i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCantCopyFile: COMAdminErrorCodes = COMAdminErrorCodes(-2146368499i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrNoUser: COMAdminErrorCodes = COMAdminErrorCodes(-2146368497i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrInvalidUserids: COMAdminErrorCodes = COMAdminErrorCodes(-2146368496i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrNoRegistryCLSID: COMAdminErrorCodes = COMAdminErrorCodes(-2146368495i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrBadRegistryProgID: COMAdminErrorCodes = COMAdminErrorCodes(-2146368494i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrAuthenticationLevel: COMAdminErrorCodes = COMAdminErrorCodes(-2146368493i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrUserPasswdNotValid: COMAdminErrorCodes = COMAdminErrorCodes(-2146368492i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCLSIDOrIIDMismatch: COMAdminErrorCodes = COMAdminErrorCodes(-2146368488i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRemoteInterface: COMAdminErrorCodes = COMAdminErrorCodes(-2146368487i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrDllRegisterServer: COMAdminErrorCodes = COMAdminErrorCodes(-2146368486i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrNoServerShare: COMAdminErrorCodes = COMAdminErrorCodes(-2146368485i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrDllLoadFailed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368483i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrBadRegistryLibID: COMAdminErrorCodes = COMAdminErrorCodes(-2146368482i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrAppDirNotFound: COMAdminErrorCodes = COMAdminErrorCodes(-2146368481i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRegistrarFailed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368477i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompFileDoesNotExist: COMAdminErrorCodes = COMAdminErrorCodes(-2146368476i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompFileLoadDLLFail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368475i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompFileGetClassObj: COMAdminErrorCodes = COMAdminErrorCodes(-2146368474i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompFileClassNotAvail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368473i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompFileBadTLB: COMAdminErrorCodes = COMAdminErrorCodes(-2146368472i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompFileNotInstallable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368471i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrNotChangeable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368470i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrNotDeletable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368469i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrSession: COMAdminErrorCodes = COMAdminErrorCodes(-2146368468i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompMoveLocked: COMAdminErrorCodes = COMAdminErrorCodes(-2146368467i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompMoveBadDest: COMAdminErrorCodes = COMAdminErrorCodes(-2146368466i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRegisterTLB: COMAdminErrorCodes = COMAdminErrorCodes(-2146368464i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrSystemApp: COMAdminErrorCodes = COMAdminErrorCodes(-2146368461i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompFileNoRegistrar: COMAdminErrorCodes = COMAdminErrorCodes(-2146368460i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCoReqCompInstalled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368459i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrServiceNotInstalled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368458i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrPropertySaveFailed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368457i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrObjectExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368456i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrComponentExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368455i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRegFileCorrupt: COMAdminErrorCodes = COMAdminErrorCodes(-2146368453i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrPropertyOverflow: COMAdminErrorCodes = COMAdminErrorCodes(-2146368452i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrNotInRegistry: COMAdminErrorCodes = COMAdminErrorCodes(-2146368450i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrObjectNotPoolable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368449i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrApplidMatchesClsid: COMAdminErrorCodes = COMAdminErrorCodes(-2146368442i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRoleDoesNotExist: COMAdminErrorCodes = COMAdminErrorCodes(-2146368441i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrStartAppNeedsComponents: COMAdminErrorCodes = COMAdminErrorCodes(-2146368440i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRequiresDifferentPlatform: COMAdminErrorCodes = COMAdminErrorCodes(-2146368439i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrQueuingServiceNotAvailable: COMAdminErrorCodes = COMAdminErrorCodes(-2146367998i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrObjectParentMissing: COMAdminErrorCodes = COMAdminErrorCodes(-2146367480i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrObjectDoesNotExist: COMAdminErrorCodes = COMAdminErrorCodes(-2146367479i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCanNotExportAppProxy: COMAdminErrorCodes = COMAdminErrorCodes(-2146368438i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCanNotStartApp: COMAdminErrorCodes = COMAdminErrorCodes(-2146368437i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCanNotExportSystemApp: COMAdminErrorCodes = COMAdminErrorCodes(-2146368436i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCanNotSubscribeToComponent: COMAdminErrorCodes = COMAdminErrorCodes(-2146368435i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrAppNotRunning: COMAdminErrorCodes = COMAdminErrorCodes(-2146367478i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrEventClassCannotBeSubscriber: COMAdminErrorCodes = COMAdminErrorCodes(-2146368434i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrLibAppProxyIncompatible: COMAdminErrorCodes = COMAdminErrorCodes(-2146368433i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrBasePartitionOnly: COMAdminErrorCodes = COMAdminErrorCodes(-2146368432i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrDuplicatePartitionName: COMAdminErrorCodes = COMAdminErrorCodes(-2146368425i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrPartitionInUse: COMAdminErrorCodes = COMAdminErrorCodes(-2146368423i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrImportedComponentsNotAllowed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368421i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRegdbNotInitialized: COMAdminErrorCodes = COMAdminErrorCodes(-2146368398i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRegdbNotOpen: COMAdminErrorCodes = COMAdminErrorCodes(-2146368397i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRegdbSystemErr: COMAdminErrorCodes = COMAdminErrorCodes(-2146368396i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRegdbAlreadyRunning: COMAdminErrorCodes = COMAdminErrorCodes(-2146368395i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrMigVersionNotSupported: COMAdminErrorCodes = COMAdminErrorCodes(-2146368384i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrMigSchemaNotFound: COMAdminErrorCodes = COMAdminErrorCodes(-2146368383i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCatBitnessMismatch: COMAdminErrorCodes = COMAdminErrorCodes(-2146368382i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCatUnacceptableBitness: COMAdminErrorCodes = COMAdminErrorCodes(-2146368381i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCatWrongAppBitnessBitness: COMAdminErrorCodes = COMAdminErrorCodes(-2146368380i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCatPauseResumeNotSupported: COMAdminErrorCodes = COMAdminErrorCodes(-2146368379i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCatServerFault: COMAdminErrorCodes = COMAdminErrorCodes(-2146368378i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCantRecycleLibraryApps: COMAdminErrorCodes = COMAdminErrorCodes(-2146367473i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCantRecycleServiceApps: COMAdminErrorCodes = COMAdminErrorCodes(-2146367471i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrProcessAlreadyRecycled: COMAdminErrorCodes = COMAdminErrorCodes(-2146367470i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrPausedProcessMayNotBeRecycled: COMAdminErrorCodes = COMAdminErrorCodes(-2146367469i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrInvalidPartition: COMAdminErrorCodes = COMAdminErrorCodes(-2146367477i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrPartitionMsiOnly: COMAdminErrorCodes = COMAdminErrorCodes(-2146367463i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrStartAppDisabled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368431i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompMoveSource: COMAdminErrorCodes = COMAdminErrorCodes(-2146367460i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompMoveDest: COMAdminErrorCodes = COMAdminErrorCodes(-2146367459i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompMovePrivate: COMAdminErrorCodes = COMAdminErrorCodes(-2146367458i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCannotCopyEventClass: COMAdminErrorCodes = COMAdminErrorCodes(-2146367456i32);
 impl ::core::marker::Copy for COMAdminErrorCodes {}
 impl ::core::clone::Clone for COMAdminErrorCodes {
     fn clone(&self) -> Self {
@@ -8825,44 +9153,6 @@ impl ::core::fmt::Debug for COMAdminErrorCodes {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminFileFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagLoadable: COMAdminFileFlags = COMAdminFileFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagCOM: COMAdminFileFlags = COMAdminFileFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagContainsPS: COMAdminFileFlags = COMAdminFileFlags(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagContainsComp: COMAdminFileFlags = COMAdminFileFlags(8i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagContainsTLB: COMAdminFileFlags = COMAdminFileFlags(16i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagSelfReg: COMAdminFileFlags = COMAdminFileFlags(32i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagSelfUnReg: COMAdminFileFlags = COMAdminFileFlags(64i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagUnloadableDLL: COMAdminFileFlags = COMAdminFileFlags(128i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagDoesNotExist: COMAdminFileFlags = COMAdminFileFlags(256i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagAlreadyInstalled: COMAdminFileFlags = COMAdminFileFlags(512i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagBadTLB: COMAdminFileFlags = COMAdminFileFlags(1024i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagGetClassObjFailed: COMAdminFileFlags = COMAdminFileFlags(2048i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagClassNotAvailable: COMAdminFileFlags = COMAdminFileFlags(4096i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagRegistrar: COMAdminFileFlags = COMAdminFileFlags(8192i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagNoRegistrar: COMAdminFileFlags = COMAdminFileFlags(16384i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagDLLRegsvrFailed: COMAdminFileFlags = COMAdminFileFlags(32768i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagRegTLBFailed: COMAdminFileFlags = COMAdminFileFlags(65536i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagRegistrarFailed: COMAdminFileFlags = COMAdminFileFlags(131072i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagError: COMAdminFileFlags = COMAdminFileFlags(262144i32);
 impl ::core::marker::Copy for COMAdminFileFlags {}
 impl ::core::clone::Clone for COMAdminFileFlags {
     fn clone(&self) -> Self {
@@ -8886,14 +9176,6 @@ impl ::core::fmt::Debug for COMAdminFileFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminImpersonationLevelOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminImpersonationAnonymous: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminImpersonationIdentify: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminImpersonationImpersonate: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminImpersonationDelegate: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(4i32);
 impl ::core::marker::Copy for COMAdminImpersonationLevelOptions {}
 impl ::core::clone::Clone for COMAdminImpersonationLevelOptions {
     fn clone(&self) -> Self {
@@ -8917,18 +9199,6 @@ impl ::core::fmt::Debug for COMAdminImpersonationLevelOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminInUse(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminNotInUse: COMAdminInUse = COMAdminInUse(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminInUseByCatalog: COMAdminInUse = COMAdminInUse(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminInUseByRegistryUnknown: COMAdminInUse = COMAdminInUse(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminInUseByRegistryProxyStub: COMAdminInUse = COMAdminInUse(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminInUseByRegistryTypeLib: COMAdminInUse = COMAdminInUse(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminInUseByRegistryClsid: COMAdminInUse = COMAdminInUse(5i32);
 impl ::core::marker::Copy for COMAdminInUse {}
 impl ::core::clone::Clone for COMAdminInUse {
     fn clone(&self) -> Self {
@@ -8952,80 +9222,6 @@ impl ::core::fmt::Debug for COMAdminInUse {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminOS(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSNotInitialized: COMAdminOS = COMAdminOS(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows3_1: COMAdminOS = COMAdminOS(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows9x: COMAdminOS = COMAdminOS(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows2000: COMAdminOS = COMAdminOS(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows2000AdvancedServer: COMAdminOS = COMAdminOS(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows2000Unknown: COMAdminOS = COMAdminOS(5i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSUnknown: COMAdminOS = COMAdminOS(6i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsXPPersonal: COMAdminOS = COMAdminOS(11i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsXPProfessional: COMAdminOS = COMAdminOS(12i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsNETStandardServer: COMAdminOS = COMAdminOS(13i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsNETEnterpriseServer: COMAdminOS = COMAdminOS(14i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsNETDatacenterServer: COMAdminOS = COMAdminOS(15i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsNETWebServer: COMAdminOS = COMAdminOS(16i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsLonghornPersonal: COMAdminOS = COMAdminOS(17i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsLonghornProfessional: COMAdminOS = COMAdminOS(18i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsLonghornStandardServer: COMAdminOS = COMAdminOS(19i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsLonghornEnterpriseServer: COMAdminOS = COMAdminOS(20i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsLonghornDatacenterServer: COMAdminOS = COMAdminOS(21i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsLonghornWebServer: COMAdminOS = COMAdminOS(22i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows7Personal: COMAdminOS = COMAdminOS(23i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows7Professional: COMAdminOS = COMAdminOS(24i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows7StandardServer: COMAdminOS = COMAdminOS(25i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows7EnterpriseServer: COMAdminOS = COMAdminOS(26i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows7DatacenterServer: COMAdminOS = COMAdminOS(27i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows7WebServer: COMAdminOS = COMAdminOS(28i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows8Personal: COMAdminOS = COMAdminOS(29i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows8Professional: COMAdminOS = COMAdminOS(30i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows8StandardServer: COMAdminOS = COMAdminOS(31i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows8EnterpriseServer: COMAdminOS = COMAdminOS(32i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows8DatacenterServer: COMAdminOS = COMAdminOS(33i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows8WebServer: COMAdminOS = COMAdminOS(34i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsBluePersonal: COMAdminOS = COMAdminOS(35i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsBlueProfessional: COMAdminOS = COMAdminOS(36i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsBlueStandardServer: COMAdminOS = COMAdminOS(37i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsBlueEnterpriseServer: COMAdminOS = COMAdminOS(38i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsBlueDatacenterServer: COMAdminOS = COMAdminOS(39i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsBlueWebServer: COMAdminOS = COMAdminOS(40i32);
 impl ::core::marker::Copy for COMAdminOS {}
 impl ::core::clone::Clone for COMAdminOS {
     fn clone(&self) -> Self {
@@ -9049,12 +9245,6 @@ impl ::core::fmt::Debug for COMAdminOS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminQCMessageAuthenticateOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminQCMessageAuthenticateSecureApps: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminQCMessageAuthenticateOff: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminQCMessageAuthenticateOn: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(2i32);
 impl ::core::marker::Copy for COMAdminQCMessageAuthenticateOptions {}
 impl ::core::clone::Clone for COMAdminQCMessageAuthenticateOptions {
     fn clone(&self) -> Self {
@@ -9078,8 +9268,6 @@ impl ::core::fmt::Debug for COMAdminQCMessageAuthenticateOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminServiceOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminServiceLoadBalanceRouter: COMAdminServiceOptions = COMAdminServiceOptions(1i32);
 impl ::core::marker::Copy for COMAdminServiceOptions {}
 impl ::core::clone::Clone for COMAdminServiceOptions {
     fn clone(&self) -> Self {
@@ -9103,22 +9291,6 @@ impl ::core::fmt::Debug for COMAdminServiceOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminServiceStatusOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminServiceStopped: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminServiceStartPending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminServiceStopPending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminServiceRunning: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminServiceContinuePending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminServicePausePending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(5i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminServicePaused: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(6i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminServiceUnknownState: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(7i32);
 impl ::core::marker::Copy for COMAdminServiceStatusOptions {}
 impl ::core::clone::Clone for COMAdminServiceStatusOptions {
     fn clone(&self) -> Self {
@@ -9142,16 +9314,6 @@ impl ::core::fmt::Debug for COMAdminServiceStatusOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminSynchronizationOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminSynchronizationIgnored: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminSynchronizationNone: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminSynchronizationSupported: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminSynchronizationRequired: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminSynchronizationRequiresNew: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(4i32);
 impl ::core::marker::Copy for COMAdminSynchronizationOptions {}
 impl ::core::clone::Clone for COMAdminSynchronizationOptions {
     fn clone(&self) -> Self {
@@ -9175,18 +9337,6 @@ impl ::core::fmt::Debug for COMAdminSynchronizationOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminThreadingModels(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminThreadingModelApartment: COMAdminThreadingModels = COMAdminThreadingModels(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminThreadingModelFree: COMAdminThreadingModels = COMAdminThreadingModels(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminThreadingModelMain: COMAdminThreadingModels = COMAdminThreadingModels(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminThreadingModelBoth: COMAdminThreadingModels = COMAdminThreadingModels(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminThreadingModelNeutral: COMAdminThreadingModels = COMAdminThreadingModels(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminThreadingModelNotSpecified: COMAdminThreadingModels = COMAdminThreadingModels(5i32);
 impl ::core::marker::Copy for COMAdminThreadingModels {}
 impl ::core::clone::Clone for COMAdminThreadingModels {
     fn clone(&self) -> Self {
@@ -9210,16 +9360,6 @@ impl ::core::fmt::Debug for COMAdminThreadingModels {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminTransactionOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminTransactionIgnored: COMAdminTransactionOptions = COMAdminTransactionOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminTransactionNone: COMAdminTransactionOptions = COMAdminTransactionOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminTransactionSupported: COMAdminTransactionOptions = COMAdminTransactionOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminTransactionRequired: COMAdminTransactionOptions = COMAdminTransactionOptions(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminTransactionRequiresNew: COMAdminTransactionOptions = COMAdminTransactionOptions(4i32);
 impl ::core::marker::Copy for COMAdminTransactionOptions {}
 impl ::core::clone::Clone for COMAdminTransactionOptions {
     fn clone(&self) -> Self {
@@ -9243,16 +9383,6 @@ impl ::core::fmt::Debug for COMAdminTransactionOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminTxIsolationLevelOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminTxIsolationLevelAny: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminTxIsolationLevelReadUnCommitted: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminTxIsolationLevelReadCommitted: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminTxIsolationLevelRepeatableRead: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminTxIsolationLevelSerializable: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(4i32);
 impl ::core::marker::Copy for COMAdminTxIsolationLevelOptions {}
 impl ::core::clone::Clone for COMAdminTxIsolationLevelOptions {
     fn clone(&self) -> Self {
@@ -9276,14 +9406,6 @@ impl ::core::fmt::Debug for COMAdminTxIsolationLevelOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMPLUS_APPTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const APPTYPE_UNKNOWN: COMPLUS_APPTYPE = COMPLUS_APPTYPE(-1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const APPTYPE_SERVER: COMPLUS_APPTYPE = COMPLUS_APPTYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const APPTYPE_LIBRARY: COMPLUS_APPTYPE = COMPLUS_APPTYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const APPTYPE_SWC: COMPLUS_APPTYPE = COMPLUS_APPTYPE(2i32);
 impl ::core::marker::Copy for COMPLUS_APPTYPE {}
 impl ::core::clone::Clone for COMPLUS_APPTYPE {
     fn clone(&self) -> Self {
@@ -9307,20 +9429,6 @@ impl ::core::fmt::Debug for COMPLUS_APPTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRMFLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMFLAG_FORGETTARGET: CRMFLAGS = CRMFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMFLAG_WRITTENDURINGPREPARE: CRMFLAGS = CRMFLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMFLAG_WRITTENDURINGCOMMIT: CRMFLAGS = CRMFLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMFLAG_WRITTENDURINGABORT: CRMFLAGS = CRMFLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMFLAG_WRITTENDURINGRECOVERY: CRMFLAGS = CRMFLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMFLAG_WRITTENDURINGREPLAY: CRMFLAGS = CRMFLAGS(32i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMFLAG_REPLAYINPROGRESS: CRMFLAGS = CRMFLAGS(64i32);
 impl ::core::marker::Copy for CRMFLAGS {}
 impl ::core::clone::Clone for CRMFLAGS {
     fn clone(&self) -> Self {
@@ -9344,16 +9452,6 @@ impl ::core::fmt::Debug for CRMFLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRMREGFLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMREGFLAG_PREPAREPHASE: CRMREGFLAGS = CRMREGFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMREGFLAG_COMMITPHASE: CRMREGFLAGS = CRMREGFLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMREGFLAG_ABORTPHASE: CRMREGFLAGS = CRMREGFLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMREGFLAG_ALLPHASES: CRMREGFLAGS = CRMREGFLAGS(7i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMREGFLAG_FAILIFINDOUBTSREMAIN: CRMREGFLAGS = CRMREGFLAGS(16i32);
 impl ::core::marker::Copy for CRMREGFLAGS {}
 impl ::core::clone::Clone for CRMREGFLAGS {
     fn clone(&self) -> Self {
@@ -9377,10 +9475,6 @@ impl ::core::fmt::Debug for CRMREGFLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_Binding(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NoBinding: CSC_Binding = CSC_Binding(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_BindToPoolThread: CSC_Binding = CSC_Binding(1i32);
 impl ::core::marker::Copy for CSC_Binding {}
 impl ::core::clone::Clone for CSC_Binding {
     fn clone(&self) -> Self {
@@ -9404,10 +9498,6 @@ impl ::core::fmt::Debug for CSC_Binding {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_COMTIIntrinsicsConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NoCOMTIIntrinsics: CSC_COMTIIntrinsicsConfig = CSC_COMTIIntrinsicsConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_InheritCOMTIIntrinsics: CSC_COMTIIntrinsicsConfig = CSC_COMTIIntrinsicsConfig(1i32);
 impl ::core::marker::Copy for CSC_COMTIIntrinsicsConfig {}
 impl ::core::clone::Clone for CSC_COMTIIntrinsicsConfig {
     fn clone(&self) -> Self {
@@ -9431,10 +9521,6 @@ impl ::core::fmt::Debug for CSC_COMTIIntrinsicsConfig {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_IISIntrinsicsConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NoIISIntrinsics: CSC_IISIntrinsicsConfig = CSC_IISIntrinsicsConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_InheritIISIntrinsics: CSC_IISIntrinsicsConfig = CSC_IISIntrinsicsConfig(1i32);
 impl ::core::marker::Copy for CSC_IISIntrinsicsConfig {}
 impl ::core::clone::Clone for CSC_IISIntrinsicsConfig {
     fn clone(&self) -> Self {
@@ -9458,10 +9544,6 @@ impl ::core::fmt::Debug for CSC_IISIntrinsicsConfig {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_InheritanceConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_Inherit: CSC_InheritanceConfig = CSC_InheritanceConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_Ignore: CSC_InheritanceConfig = CSC_InheritanceConfig(1i32);
 impl ::core::marker::Copy for CSC_InheritanceConfig {}
 impl ::core::clone::Clone for CSC_InheritanceConfig {
     fn clone(&self) -> Self {
@@ -9485,12 +9567,6 @@ impl ::core::fmt::Debug for CSC_InheritanceConfig {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_PartitionConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NoPartition: CSC_PartitionConfig = CSC_PartitionConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_InheritPartition: CSC_PartitionConfig = CSC_PartitionConfig(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NewPartition: CSC_PartitionConfig = CSC_PartitionConfig(2i32);
 impl ::core::marker::Copy for CSC_PartitionConfig {}
 impl ::core::clone::Clone for CSC_PartitionConfig {
     fn clone(&self) -> Self {
@@ -9514,12 +9590,6 @@ impl ::core::fmt::Debug for CSC_PartitionConfig {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_SxsConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NoSxs: CSC_SxsConfig = CSC_SxsConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_InheritSxs: CSC_SxsConfig = CSC_SxsConfig(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NewSxs: CSC_SxsConfig = CSC_SxsConfig(2i32);
 impl ::core::marker::Copy for CSC_SxsConfig {}
 impl ::core::clone::Clone for CSC_SxsConfig {
     fn clone(&self) -> Self {
@@ -9543,14 +9613,6 @@ impl ::core::fmt::Debug for CSC_SxsConfig {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_SynchronizationConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NoSynchronization: CSC_SynchronizationConfig = CSC_SynchronizationConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_IfContainerIsSynchronized: CSC_SynchronizationConfig = CSC_SynchronizationConfig(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NewSynchronizationIfNecessary: CSC_SynchronizationConfig = CSC_SynchronizationConfig(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NewSynchronization: CSC_SynchronizationConfig = CSC_SynchronizationConfig(3i32);
 impl ::core::marker::Copy for CSC_SynchronizationConfig {}
 impl ::core::clone::Clone for CSC_SynchronizationConfig {
     fn clone(&self) -> Self {
@@ -9574,14 +9636,6 @@ impl ::core::fmt::Debug for CSC_SynchronizationConfig {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_ThreadPool(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_ThreadPoolNone: CSC_ThreadPool = CSC_ThreadPool(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_ThreadPoolInherit: CSC_ThreadPool = CSC_ThreadPool(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_STAThreadPool: CSC_ThreadPool = CSC_ThreadPool(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_MTAThreadPool: CSC_ThreadPool = CSC_ThreadPool(3i32);
 impl ::core::marker::Copy for CSC_ThreadPool {}
 impl ::core::clone::Clone for CSC_ThreadPool {
     fn clone(&self) -> Self {
@@ -9605,10 +9659,6 @@ impl ::core::fmt::Debug for CSC_ThreadPool {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_TrackerConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_DontUseTracker: CSC_TrackerConfig = CSC_TrackerConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_UseTracker: CSC_TrackerConfig = CSC_TrackerConfig(1i32);
 impl ::core::marker::Copy for CSC_TrackerConfig {}
 impl ::core::clone::Clone for CSC_TrackerConfig {
     fn clone(&self) -> Self {
@@ -9632,14 +9682,6 @@ impl ::core::fmt::Debug for CSC_TrackerConfig {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_TransactionConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NoTransaction: CSC_TransactionConfig = CSC_TransactionConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_IfContainerIsTransactional: CSC_TransactionConfig = CSC_TransactionConfig(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_CreateTransactionIfNecessary: CSC_TransactionConfig = CSC_TransactionConfig(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NewTransaction: CSC_TransactionConfig = CSC_TransactionConfig(3i32);
 impl ::core::marker::Copy for CSC_TransactionConfig {}
 impl ::core::clone::Clone for CSC_TransactionConfig {
     fn clone(&self) -> Self {
@@ -9663,14 +9705,6 @@ impl ::core::fmt::Debug for CSC_TransactionConfig {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CrmTransactionState(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const TxState_Active: CrmTransactionState = CrmTransactionState(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const TxState_Committed: CrmTransactionState = CrmTransactionState(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const TxState_Aborted: CrmTransactionState = CrmTransactionState(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const TxState_Indoubt: CrmTransactionState = CrmTransactionState(3i32);
 impl ::core::marker::Copy for CrmTransactionState {}
 impl ::core::clone::Clone for CrmTransactionState {
     fn clone(&self) -> Self {
@@ -9694,12 +9728,6 @@ impl ::core::fmt::Debug for CrmTransactionState {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DUMPTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const DUMPTYPE_FULL: DUMPTYPE = DUMPTYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const DUMPTYPE_MINI: DUMPTYPE = DUMPTYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const DUMPTYPE_NONE: DUMPTYPE = DUMPTYPE(2i32);
 impl ::core::marker::Copy for DUMPTYPE {}
 impl ::core::clone::Clone for DUMPTYPE {
     fn clone(&self) -> Self {
@@ -9723,16 +9751,6 @@ impl ::core::fmt::Debug for DUMPTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GetAppTrackerDataFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const GATD_INCLUDE_PROCESS_EXE_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const GATD_INCLUDE_LIBRARY_APPS: GetAppTrackerDataFlags = GetAppTrackerDataFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const GATD_INCLUDE_SWC: GetAppTrackerDataFlags = GetAppTrackerDataFlags(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const GATD_INCLUDE_CLASS_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(8i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const GATD_INCLUDE_APPLICATION_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(16i32);
 impl ::core::marker::Copy for GetAppTrackerDataFlags {}
 impl ::core::clone::Clone for GetAppTrackerDataFlags {
     fn clone(&self) -> Self {
@@ -9756,10 +9774,6 @@ impl ::core::fmt::Debug for GetAppTrackerDataFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LockModes(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const LockSetGet: LockModes = LockModes(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const LockMethod: LockModes = LockModes(1i32);
 impl ::core::marker::Copy for LockModes {}
 impl ::core::clone::Clone for LockModes {
     fn clone(&self) -> Self {
@@ -9783,10 +9797,6 @@ impl ::core::fmt::Debug for LockModes {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ReleaseModes(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const Standard: ReleaseModes = ReleaseModes(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const Process: ReleaseModes = ReleaseModes(1i32);
 impl ::core::marker::Copy for ReleaseModes {}
 impl ::core::clone::Clone for ReleaseModes {
     fn clone(&self) -> Self {
@@ -9810,12 +9820,6 @@ impl ::core::fmt::Debug for ReleaseModes {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRACKING_COLL_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const TRKCOLL_PROCESSES: TRACKING_COLL_TYPE = TRACKING_COLL_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const TRKCOLL_APPLICATIONS: TRACKING_COLL_TYPE = TRACKING_COLL_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const TRKCOLL_COMPONENTS: TRACKING_COLL_TYPE = TRACKING_COLL_TYPE(2i32);
 impl ::core::marker::Copy for TRACKING_COLL_TYPE {}
 impl ::core::clone::Clone for TRACKING_COLL_TYPE {
     fn clone(&self) -> Self {
@@ -9839,10 +9843,6 @@ impl ::core::fmt::Debug for TRACKING_COLL_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TransactionVote(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const TxCommit: TransactionVote = TransactionVote(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const TxAbort: TransactionVote = TransactionVote(1i32);
 impl ::core::marker::Copy for TransactionVote {}
 impl ::core::clone::Clone for TransactionVote {
     fn clone(&self) -> Self {

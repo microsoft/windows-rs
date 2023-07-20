@@ -626,15 +626,21 @@ pub const HTTP_STATUS_WEBDAV_MULTI_STATUS: u32 = 207u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const ICU_BROWSER_MODE: u32 = 33554432u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const ICU_DECODE: WIN_HTTP_CREATE_URL_FLAGS = WIN_HTTP_CREATE_URL_FLAGS(268435456u32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const ICU_ENCODE_PERCENT: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const ICU_ENCODE_SPACES_ONLY: u32 = 67108864u32;
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const ICU_ESCAPE: WIN_HTTP_CREATE_URL_FLAGS = WIN_HTTP_CREATE_URL_FLAGS(2147483648u32);
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const ICU_ESCAPE_AUTHORITY: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const ICU_NO_ENCODE: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const ICU_NO_META: u32 = 134217728u32;
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const ICU_REJECT_USERPWD: WIN_HTTP_CREATE_URL_FLAGS = WIN_HTTP_CREATE_URL_FLAGS(16384u32);
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const INTERNET_DEFAULT_HTTPS_PORT: u16 = 443u16;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
@@ -660,6 +666,14 @@ pub const SECURITY_FLAG_STRENGTH_STRONG: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const SECURITY_FLAG_STRENGTH_WEAK: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_ACCESS_TYPE_AUTOMATIC_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_ACCESS_TYPE_DEFAULT_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_ACCESS_TYPE_NAMED_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_ACCESS_TYPE_NO_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WINHTTP_ADDREQ_FLAGS_MASK: u32 = 4294901760u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WINHTTP_ADDREQ_FLAG_ADD: u32 = 536870912u32;
@@ -676,7 +690,13 @@ pub const WINHTTP_ADDREQ_FLAG_REPLACE: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WINHTTP_ADDREQ_INDEX_MASK: u32 = 65535u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_AUTH_SCHEME_BASIC: WINHTTP_CREDS_AUTHSCHEME = WINHTTP_CREDS_AUTHSCHEME(1u32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WINHTTP_AUTH_SCHEME_DIGEST: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_AUTH_SCHEME_NEGOTIATE: WINHTTP_CREDS_AUTHSCHEME = WINHTTP_CREDS_AUTHSCHEME(16u32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_AUTH_SCHEME_NTLM: WINHTTP_CREDS_AUTHSCHEME = WINHTTP_CREDS_AUTHSCHEME(2u32);
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WINHTTP_AUTH_SCHEME_PASSPORT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
@@ -998,6 +1018,20 @@ pub const WINHTTP_FLAG_ASYNC: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WINHTTP_FLAG_AUTOMATIC_CHUNKING: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_FLAG_BYPASS_PROXY_CACHE: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_FLAG_ESCAPE_DISABLE: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_FLAG_ESCAPE_DISABLE_QUERY: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_FLAG_ESCAPE_PERCENT: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_FLAG_NULL_CODEPAGE: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_FLAG_REFRESH: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_FLAG_SECURE: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(8388608u32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WINHTTP_FLAG_SECURE_DEFAULTS: u32 = 805306368u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WINHTTP_FLAG_SECURE_PROTOCOL_SSL2: u32 = 8u32;
@@ -1023,6 +1057,14 @@ pub const WINHTTP_HANDLE_TYPE_SESSION: u32 = 1u32;
 pub const WINHTTP_HANDLE_TYPE_WEBSOCKET: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WINHTTP_IGNORE_REQUEST_TOTAL_LENGTH: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_INTERNET_SCHEME_FTP: WINHTTP_INTERNET_SCHEME = WINHTTP_INTERNET_SCHEME(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_INTERNET_SCHEME_HTTP: WINHTTP_INTERNET_SCHEME = WINHTTP_INTERNET_SCHEME(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_INTERNET_SCHEME_HTTPS: WINHTTP_INTERNET_SCHEME = WINHTTP_INTERNET_SCHEME(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_INTERNET_SCHEME_SOCKS: WINHTTP_INTERNET_SCHEME = WINHTTP_INTERNET_SCHEME(4i32);
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WINHTTP_LAST_OPTION: u32 = 196u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
@@ -1518,21 +1560,183 @@ pub const WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_USE_DNS_TTL: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WINHTTP_TIME_FORMAT_BUFSIZE: u32 = 62u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_WEB_SOCKET_ABORTED_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1006i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_WEB_SOCKET_BINARY_FRAGMENT_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = WINHTTP_WEB_SOCKET_BUFFER_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_WEB_SOCKET_BINARY_MESSAGE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = WINHTTP_WEB_SOCKET_BUFFER_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_WEB_SOCKET_CLOSE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = WINHTTP_WEB_SOCKET_BUFFER_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_WEB_SOCKET_CLOSE_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = WINHTTP_WEB_SOCKET_OPERATION(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_WEB_SOCKET_EMPTY_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1005i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_WEB_SOCKET_ENDPOINT_TERMINATED_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1001i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1003i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_WEB_SOCKET_INVALID_PAYLOAD_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1007i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WINHTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1009i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 pub const WINHTTP_WEB_SOCKET_MIN_KEEPALIVE_VALUE: u32 = 15000u32;
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1008i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1002i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_WEB_SOCKET_RECEIVE_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = WINHTTP_WEB_SOCKET_OPERATION(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1015i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_WEB_SOCKET_SEND_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = WINHTTP_WEB_SOCKET_OPERATION(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1011i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_WEB_SOCKET_SHUTDOWN_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = WINHTTP_WEB_SOCKET_OPERATION(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1000i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1010i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_WEB_SOCKET_UTF8_FRAGMENT_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = WINHTTP_WEB_SOCKET_BUFFER_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WINHTTP_WEB_SOCKET_UTF8_MESSAGE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = WINHTTP_WEB_SOCKET_BUFFER_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpConnectFailureCount: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpConnectionAcquireEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpConnectionAcquireStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpConnectionAcquireWaitEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpConnectionEstablishmentEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpConnectionEstablishmentStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpNameResolutionEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpNameResolutionStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(5i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpProxyDetectionEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpProxyDetectionStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpProxyFailureCount: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpProxySettingsTypeUnknown: WINHTTP_PROXY_SETTINGS_TYPE = WINHTTP_PROXY_SETTINGS_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpProxySettingsTypeWsa: WINHTTP_PROXY_SETTINGS_TYPE = WINHTTP_PROXY_SETTINGS_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpProxySettingsTypeWsl: WINHTTP_PROXY_SETTINGS_TYPE = WINHTTP_PROXY_SETTINGS_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpProxyTlsHandshakeClientLeg1End: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(31i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpProxyTlsHandshakeClientLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(12i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpProxyTlsHandshakeClientLeg1Start: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(30i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpProxyTlsHandshakeClientLeg2End: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(33i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpProxyTlsHandshakeClientLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(14i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpProxyTlsHandshakeClientLeg2Start: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(32i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpProxyTlsHandshakeClientLeg3End: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(35i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpProxyTlsHandshakeClientLeg3Start: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(34i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpProxyTlsHandshakeServerLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(13i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpProxyTlsHandshakeServerLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(15i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpProxyTunnelEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(29i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpProxyTunnelStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(28i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpReceiveResponseBodyDecompressionDelta: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(26i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpReceiveResponseEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(27i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpReceiveResponseHeadersDecompressionEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(24i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpReceiveResponseHeadersDecompressionStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(23i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpReceiveResponseHeadersEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(25i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpReceiveResponseStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(22i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpRequestHeadersCompressedSize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(7i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpRequestHeadersSize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(6i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpRequestStatLast: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(16i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpRequestStatMax: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(32i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpRequestTimeLast: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(36i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpRequestTimeMax: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(64i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpResponseBodyCompressedSize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpResponseBodySize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(10i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpResponseHeadersCompressedSize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpResponseHeadersSize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(8i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpSecureDnsSettingDefault: WINHTTP_SECURE_DNS_SETTING = WINHTTP_SECURE_DNS_SETTING(0i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpSecureDnsSettingForcePlaintext: WINHTTP_SECURE_DNS_SETTING = WINHTTP_SECURE_DNS_SETTING(1i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpSecureDnsSettingMax: WINHTTP_SECURE_DNS_SETTING = WINHTTP_SECURE_DNS_SETTING(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpSecureDnsSettingRequireEncryption: WINHTTP_SECURE_DNS_SETTING = WINHTTP_SECURE_DNS_SETTING(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpSecureDnsSettingTryEncryptionWithFallback: WINHTTP_SECURE_DNS_SETTING = WINHTTP_SECURE_DNS_SETTING(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpSendRequestEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(21i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpSendRequestHeadersCompressionEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(19i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpSendRequestHeadersCompressionStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(18i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpSendRequestHeadersEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(20i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpSendRequestStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(17i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpStreamWaitEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(16i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpStreamWaitStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(15i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpTlsHandshakeClientLeg1End: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(10i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpTlsHandshakeClientLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(2i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpTlsHandshakeClientLeg1Start: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(9i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpTlsHandshakeClientLeg2End: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(12i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpTlsHandshakeClientLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(4i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpTlsHandshakeClientLeg2Start: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(11i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpTlsHandshakeClientLeg3End: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(14i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpTlsHandshakeClientLeg3Start: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(13i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpTlsHandshakeServerLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(3i32);
+#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
+pub const WinHttpTlsHandshakeServerLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(5i32);
 #[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINHTTP_ACCESS_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_ACCESS_TYPE_NO_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_ACCESS_TYPE_DEFAULT_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_ACCESS_TYPE_NAMED_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(3u32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_ACCESS_TYPE_AUTOMATIC_PROXY: WINHTTP_ACCESS_TYPE = WINHTTP_ACCESS_TYPE(4u32);
 impl ::core::marker::Copy for WINHTTP_ACCESS_TYPE {}
 impl ::core::clone::Clone for WINHTTP_ACCESS_TYPE {
     fn clone(&self) -> Self {
@@ -1556,12 +1760,6 @@ impl ::core::fmt::Debug for WINHTTP_ACCESS_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINHTTP_CREDS_AUTHSCHEME(pub u32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_AUTH_SCHEME_BASIC: WINHTTP_CREDS_AUTHSCHEME = WINHTTP_CREDS_AUTHSCHEME(1u32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_AUTH_SCHEME_NTLM: WINHTTP_CREDS_AUTHSCHEME = WINHTTP_CREDS_AUTHSCHEME(2u32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_AUTH_SCHEME_NEGOTIATE: WINHTTP_CREDS_AUTHSCHEME = WINHTTP_CREDS_AUTHSCHEME(16u32);
 impl ::core::marker::Copy for WINHTTP_CREDS_AUTHSCHEME {}
 impl ::core::clone::Clone for WINHTTP_CREDS_AUTHSCHEME {
     fn clone(&self) -> Self {
@@ -1585,14 +1783,6 @@ impl ::core::fmt::Debug for WINHTTP_CREDS_AUTHSCHEME {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINHTTP_INTERNET_SCHEME(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_INTERNET_SCHEME_HTTP: WINHTTP_INTERNET_SCHEME = WINHTTP_INTERNET_SCHEME(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_INTERNET_SCHEME_HTTPS: WINHTTP_INTERNET_SCHEME = WINHTTP_INTERNET_SCHEME(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_INTERNET_SCHEME_FTP: WINHTTP_INTERNET_SCHEME = WINHTTP_INTERNET_SCHEME(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_INTERNET_SCHEME_SOCKS: WINHTTP_INTERNET_SCHEME = WINHTTP_INTERNET_SCHEME(4i32);
 impl ::core::marker::Copy for WINHTTP_INTERNET_SCHEME {}
 impl ::core::clone::Clone for WINHTTP_INTERNET_SCHEME {
     fn clone(&self) -> Self {
@@ -1616,20 +1806,6 @@ impl ::core::fmt::Debug for WINHTTP_INTERNET_SCHEME {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINHTTP_OPEN_REQUEST_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_FLAG_BYPASS_PROXY_CACHE: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_FLAG_ESCAPE_DISABLE: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_FLAG_ESCAPE_DISABLE_QUERY: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_FLAG_ESCAPE_PERCENT: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_FLAG_NULL_CODEPAGE: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_FLAG_REFRESH: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_FLAG_SECURE: WINHTTP_OPEN_REQUEST_FLAGS = WINHTTP_OPEN_REQUEST_FLAGS(8388608u32);
 impl ::core::marker::Copy for WINHTTP_OPEN_REQUEST_FLAGS {}
 impl ::core::clone::Clone for WINHTTP_OPEN_REQUEST_FLAGS {
     fn clone(&self) -> Self {
@@ -1686,12 +1862,6 @@ impl ::core::ops::Not for WINHTTP_OPEN_REQUEST_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINHTTP_PROXY_SETTINGS_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpProxySettingsTypeUnknown: WINHTTP_PROXY_SETTINGS_TYPE = WINHTTP_PROXY_SETTINGS_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpProxySettingsTypeWsl: WINHTTP_PROXY_SETTINGS_TYPE = WINHTTP_PROXY_SETTINGS_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpProxySettingsTypeWsa: WINHTTP_PROXY_SETTINGS_TYPE = WINHTTP_PROXY_SETTINGS_TYPE(2i32);
 impl ::core::marker::Copy for WINHTTP_PROXY_SETTINGS_TYPE {}
 impl ::core::clone::Clone for WINHTTP_PROXY_SETTINGS_TYPE {
     fn clone(&self) -> Self {
@@ -1715,42 +1885,6 @@ impl ::core::fmt::Debug for WINHTTP_PROXY_SETTINGS_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINHTTP_REQUEST_STAT_ENTRY(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpConnectFailureCount: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpProxyFailureCount: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpTlsHandshakeClientLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpTlsHandshakeServerLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpTlsHandshakeClientLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpTlsHandshakeServerLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpRequestHeadersSize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpRequestHeadersCompressedSize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpResponseHeadersSize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpResponseHeadersCompressedSize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(9i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpResponseBodySize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(10i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpResponseBodyCompressedSize: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(11i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpProxyTlsHandshakeClientLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(12i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpProxyTlsHandshakeServerLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(13i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpProxyTlsHandshakeClientLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(14i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpProxyTlsHandshakeServerLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(15i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpRequestStatLast: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(16i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpRequestStatMax: WINHTTP_REQUEST_STAT_ENTRY = WINHTTP_REQUEST_STAT_ENTRY(32i32);
 impl ::core::marker::Copy for WINHTTP_REQUEST_STAT_ENTRY {}
 impl ::core::clone::Clone for WINHTTP_REQUEST_STAT_ENTRY {
     fn clone(&self) -> Self {
@@ -1774,82 +1908,6 @@ impl ::core::fmt::Debug for WINHTTP_REQUEST_STAT_ENTRY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINHTTP_REQUEST_TIME_ENTRY(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpProxyDetectionStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpProxyDetectionEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpConnectionAcquireStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpConnectionAcquireWaitEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpConnectionAcquireEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpNameResolutionStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpNameResolutionEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(6i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpConnectionEstablishmentStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(7i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpConnectionEstablishmentEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(8i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpTlsHandshakeClientLeg1Start: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(9i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpTlsHandshakeClientLeg1End: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(10i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpTlsHandshakeClientLeg2Start: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(11i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpTlsHandshakeClientLeg2End: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(12i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpTlsHandshakeClientLeg3Start: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(13i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpTlsHandshakeClientLeg3End: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(14i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpStreamWaitStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(15i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpStreamWaitEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(16i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpSendRequestStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(17i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpSendRequestHeadersCompressionStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(18i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpSendRequestHeadersCompressionEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(19i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpSendRequestHeadersEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(20i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpSendRequestEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(21i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpReceiveResponseStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(22i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpReceiveResponseHeadersDecompressionStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(23i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpReceiveResponseHeadersDecompressionEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(24i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpReceiveResponseHeadersEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(25i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpReceiveResponseBodyDecompressionDelta: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(26i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpReceiveResponseEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(27i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpProxyTunnelStart: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(28i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpProxyTunnelEnd: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(29i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpProxyTlsHandshakeClientLeg1Start: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(30i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpProxyTlsHandshakeClientLeg1End: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(31i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpProxyTlsHandshakeClientLeg2Start: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(32i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpProxyTlsHandshakeClientLeg2End: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(33i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpProxyTlsHandshakeClientLeg3Start: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(34i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpProxyTlsHandshakeClientLeg3End: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(35i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpRequestTimeLast: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(36i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpRequestTimeMax: WINHTTP_REQUEST_TIME_ENTRY = WINHTTP_REQUEST_TIME_ENTRY(64i32);
 impl ::core::marker::Copy for WINHTTP_REQUEST_TIME_ENTRY {}
 impl ::core::clone::Clone for WINHTTP_REQUEST_TIME_ENTRY {
     fn clone(&self) -> Self {
@@ -1873,16 +1931,6 @@ impl ::core::fmt::Debug for WINHTTP_REQUEST_TIME_ENTRY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINHTTP_SECURE_DNS_SETTING(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpSecureDnsSettingDefault: WINHTTP_SECURE_DNS_SETTING = WINHTTP_SECURE_DNS_SETTING(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpSecureDnsSettingForcePlaintext: WINHTTP_SECURE_DNS_SETTING = WINHTTP_SECURE_DNS_SETTING(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpSecureDnsSettingRequireEncryption: WINHTTP_SECURE_DNS_SETTING = WINHTTP_SECURE_DNS_SETTING(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpSecureDnsSettingTryEncryptionWithFallback: WINHTTP_SECURE_DNS_SETTING = WINHTTP_SECURE_DNS_SETTING(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WinHttpSecureDnsSettingMax: WINHTTP_SECURE_DNS_SETTING = WINHTTP_SECURE_DNS_SETTING(4i32);
 impl ::core::marker::Copy for WINHTTP_SECURE_DNS_SETTING {}
 impl ::core::clone::Clone for WINHTTP_SECURE_DNS_SETTING {
     fn clone(&self) -> Self {
@@ -1906,16 +1954,6 @@ impl ::core::fmt::Debug for WINHTTP_SECURE_DNS_SETTING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINHTTP_WEB_SOCKET_BUFFER_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_WEB_SOCKET_BINARY_MESSAGE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = WINHTTP_WEB_SOCKET_BUFFER_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_WEB_SOCKET_BINARY_FRAGMENT_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = WINHTTP_WEB_SOCKET_BUFFER_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_WEB_SOCKET_UTF8_MESSAGE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = WINHTTP_WEB_SOCKET_BUFFER_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_WEB_SOCKET_UTF8_FRAGMENT_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = WINHTTP_WEB_SOCKET_BUFFER_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_WEB_SOCKET_CLOSE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = WINHTTP_WEB_SOCKET_BUFFER_TYPE(4i32);
 impl ::core::marker::Copy for WINHTTP_WEB_SOCKET_BUFFER_TYPE {}
 impl ::core::clone::Clone for WINHTTP_WEB_SOCKET_BUFFER_TYPE {
     fn clone(&self) -> Self {
@@ -1939,30 +1977,6 @@ impl ::core::fmt::Debug for WINHTTP_WEB_SOCKET_BUFFER_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINHTTP_WEB_SOCKET_CLOSE_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1000i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_WEB_SOCKET_ENDPOINT_TERMINATED_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1001i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1002i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1003i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_WEB_SOCKET_EMPTY_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1005i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_WEB_SOCKET_ABORTED_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1006i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_WEB_SOCKET_INVALID_PAYLOAD_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1007i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1008i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1009i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1010i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1011i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = WINHTTP_WEB_SOCKET_CLOSE_STATUS(1015i32);
 impl ::core::marker::Copy for WINHTTP_WEB_SOCKET_CLOSE_STATUS {}
 impl ::core::clone::Clone for WINHTTP_WEB_SOCKET_CLOSE_STATUS {
     fn clone(&self) -> Self {
@@ -1986,14 +2000,6 @@ impl ::core::fmt::Debug for WINHTTP_WEB_SOCKET_CLOSE_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINHTTP_WEB_SOCKET_OPERATION(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_WEB_SOCKET_SEND_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = WINHTTP_WEB_SOCKET_OPERATION(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_WEB_SOCKET_RECEIVE_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = WINHTTP_WEB_SOCKET_OPERATION(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_WEB_SOCKET_CLOSE_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = WINHTTP_WEB_SOCKET_OPERATION(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const WINHTTP_WEB_SOCKET_SHUTDOWN_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = WINHTTP_WEB_SOCKET_OPERATION(3i32);
 impl ::core::marker::Copy for WINHTTP_WEB_SOCKET_OPERATION {}
 impl ::core::clone::Clone for WINHTTP_WEB_SOCKET_OPERATION {
     fn clone(&self) -> Self {
@@ -2017,12 +2023,6 @@ impl ::core::fmt::Debug for WINHTTP_WEB_SOCKET_OPERATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WIN_HTTP_CREATE_URL_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const ICU_ESCAPE: WIN_HTTP_CREATE_URL_FLAGS = WIN_HTTP_CREATE_URL_FLAGS(2147483648u32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const ICU_REJECT_USERPWD: WIN_HTTP_CREATE_URL_FLAGS = WIN_HTTP_CREATE_URL_FLAGS(16384u32);
-#[doc = "*Required features: `\"Win32_Networking_WinHttp\"`*"]
-pub const ICU_DECODE: WIN_HTTP_CREATE_URL_FLAGS = WIN_HTTP_CREATE_URL_FLAGS(268435456u32);
 impl ::core::marker::Copy for WIN_HTTP_CREATE_URL_FLAGS {}
 impl ::core::clone::Clone for WIN_HTTP_CREATE_URL_FLAGS {
     fn clone(&self) -> Self {

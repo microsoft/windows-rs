@@ -1184,6 +1184,88 @@ pub const ATTRIB_TRANSPARENCY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const BEST_MODE: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_10b_G3CH: BMFORMAT = BMFORMAT(1028i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_10b_Lab: BMFORMAT = BMFORMAT(1027i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_10b_RGB: BMFORMAT = BMFORMAT(9i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_10b_XYZ: BMFORMAT = BMFORMAT(1025i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_10b_Yxy: BMFORMAT = BMFORMAT(1026i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_16b_G3CH: BMFORMAT = BMFORMAT(1284i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_16b_GRAY: BMFORMAT = BMFORMAT(1285i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_16b_Lab: BMFORMAT = BMFORMAT(1283i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_16b_RGB: BMFORMAT = BMFORMAT(10i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_16b_XYZ: BMFORMAT = BMFORMAT(1281i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_16b_Yxy: BMFORMAT = BMFORMAT(1282i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_32b_scARGB: BMFORMAT = BMFORMAT(1538i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_32b_scRGB: BMFORMAT = BMFORMAT(1537i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_565RGB: BMFORMAT = BMFORMAT(1i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_5CHANNEL: BMFORMAT = BMFORMAT(517i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_6CHANNEL: BMFORMAT = BMFORMAT(518i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_7CHANNEL: BMFORMAT = BMFORMAT(519i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_8CHANNEL: BMFORMAT = BMFORMAT(520i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_BGRTRIPLETS: BMFORMAT = BMFORMAT(4i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_CMYKQUADS: BMFORMAT = BMFORMAT(32i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_G3CHTRIPLETS: BMFORMAT = BMFORMAT(516i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_GRAY: BMFORMAT = BMFORMAT(521i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_KYMCQUADS: BMFORMAT = BMFORMAT(773i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_LabTRIPLETS: BMFORMAT = BMFORMAT(515i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_NAMED_INDEX: BMFORMAT = BMFORMAT(1029i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_R10G10B10A2: BMFORMAT = BMFORMAT(1793i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_R10G10B10A2_XR: BMFORMAT = BMFORMAT(1794i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_R16G16B16A16_FLOAT: BMFORMAT = BMFORMAT(1795i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_RGBTRIPLETS: BMFORMAT = BMFORMAT(2i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_S2DOT13FIXED_scARGB: BMFORMAT = BMFORMAT(1540i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_S2DOT13FIXED_scRGB: BMFORMAT = BMFORMAT(1539i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_XYZTRIPLETS: BMFORMAT = BMFORMAT(513i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_YxyTRIPLETS: BMFORMAT = BMFORMAT(514i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_x555G3CH: BMFORMAT = BMFORMAT(260i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_x555Lab: BMFORMAT = BMFORMAT(259i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_x555RGB: BMFORMAT = BMFORMAT(0i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_x555XYZ: BMFORMAT = BMFORMAT(257i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_x555Yxy: BMFORMAT = BMFORMAT(258i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_xBGRQUADS: BMFORMAT = BMFORMAT(16i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_xG3CHQUADS: BMFORMAT = BMFORMAT(772i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const BM_xRGBQUADS: BMFORMAT = BMFORMAT(8i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const CATID_WcsPlugin: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa0b402e0_8240_405f_8a16_8a5b4df2f0dd);
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const CMM_DESCRIPTION: u32 = 5u32;
@@ -1236,7 +1318,71 @@ pub const CMS_USEDESCRIPTION: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const CMS_USEHOOK: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const COLOR_10b_R10G10B10A2: COLORDATATYPE = COLORDATATYPE(5i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const COLOR_10b_R10G10B10A2_XR: COLORDATATYPE = COLORDATATYPE(6i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const COLOR_3_CHANNEL: COLORTYPE = COLORTYPE(6i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const COLOR_5_CHANNEL: COLORTYPE = COLORTYPE(8i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const COLOR_6_CHANNEL: COLORTYPE = COLORTYPE(9i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const COLOR_7_CHANNEL: COLORTYPE = COLORTYPE(10i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const COLOR_8_CHANNEL: COLORTYPE = COLORTYPE(11i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const COLOR_BYTE: COLORDATATYPE = COLORDATATYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const COLOR_CMYK: COLORTYPE = COLORTYPE(7i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const COLOR_FLOAT: COLORDATATYPE = COLORDATATYPE(3i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const COLOR_FLOAT16: COLORDATATYPE = COLORDATATYPE(7i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const COLOR_GRAY: COLORTYPE = COLORTYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const COLOR_Lab: COLORTYPE = COLORTYPE(5i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const COLOR_MATCH_VERSION: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const COLOR_NAMED: COLORTYPE = COLORTYPE(12i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const COLOR_RGB: COLORTYPE = COLORTYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const COLOR_S2DOT13FIXED: COLORDATATYPE = COLORDATATYPE(4i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const COLOR_WORD: COLORDATATYPE = COLORDATATYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const COLOR_XYZ: COLORTYPE = COLORTYPE(3i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const COLOR_Yxy: COLORTYPE = COLORTYPE(4i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const CPST_ABSOLUTE_COLORIMETRIC: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(3i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const CPST_CUSTOM_WORKING_SPACE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(6i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const CPST_EXTENDED_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(8i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const CPST_NONE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(4i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const CPST_PERCEPTUAL: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(0i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const CPST_RELATIVE_COLORIMETRIC: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const CPST_RGB_WORKING_SPACE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(5i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const CPST_SATURATION: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const CPST_STANDARD_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(7i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const CPT_CAMP: COLORPROFILETYPE = COLORPROFILETYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const CPT_DMP: COLORPROFILETYPE = COLORPROFILETYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const CPT_GMMP: COLORPROFILETYPE = COLORPROFILETYPE(3i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const CPT_ICC: COLORPROFILETYPE = COLORPROFILETYPE(0i32);
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const CSA_A: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
@@ -1253,6 +1399,12 @@ pub const CSA_GRAY: u32 = 5u32;
 pub const CSA_Lab: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const CSA_RGB: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const CS_DELETE_TRANSFORM: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(3u32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const CS_DISABLE: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(2u32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const CS_ENABLE: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(1u32);
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const DONT_USE_EMBEDDED_WCS_PROFILES: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
@@ -1306,6 +1458,28 @@ pub const FLAG_EMBEDDEDPROFILE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const FLAG_ENABLE_CHROMATIC_ADAPTATION: u32 = 33554432u32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const ICM_ADDPROFILE: ICM_COMMAND = ICM_COMMAND(1u32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const ICM_DELETEPROFILE: ICM_COMMAND = ICM_COMMAND(2u32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const ICM_DONE_OUTSIDEDC: ICM_MODE = ICM_MODE(4i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const ICM_OFF: ICM_MODE = ICM_MODE(1i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const ICM_ON: ICM_MODE = ICM_MODE(2i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const ICM_QUERY: ICM_MODE = ICM_MODE(3i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const ICM_QUERYMATCH: ICM_COMMAND = ICM_COMMAND(7u32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const ICM_QUERYPROFILE: ICM_COMMAND = ICM_COMMAND(3u32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const ICM_REGISTERICMATCHER: ICM_COMMAND = ICM_COMMAND(5u32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const ICM_SETDEFAULTPROFILE: ICM_COMMAND = ICM_COMMAND(4u32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const ICM_UNREGISTERICMATCHER: ICM_COMMAND = ICM_COMMAND(6u32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const INDEX_DONT_CARE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const INTENT_ABSOLUTE_COLORIMETRIC: u32 = 3u32;
@@ -1317,6 +1491,8 @@ pub const INTENT_RELATIVE_COLORIMETRIC: u32 = 1u32;
 pub const INTENT_SATURATION: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const MAX_COLOR_CHANNELS: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const MicrosoftHardwareColorV2: WCS_DEVICE_CAPABILITIES_TYPE = WCS_DEVICE_CAPABILITIES_TYPE(2i32);
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const NORMAL_MODE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
@@ -1338,97 +1514,21 @@ pub const SEQUENTIAL_TRANSFORM: u32 = 2155872256u32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const USE_RELATIVE_COLORIMETRIC: u32 = 131072u32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const VideoCardGammaTable: WCS_DEVICE_CAPABILITIES_TYPE = WCS_DEVICE_CAPABILITIES_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const WCS_ALWAYS: u32 = 2097152u32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const WCS_DEFAULT: i32 = 0i32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 pub const WCS_ICCONLY: i32 = 65536i32;
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER: WCS_PROFILE_MANAGEMENT_SCOPE = WCS_PROFILE_MANAGEMENT_SCOPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
+pub const WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE: WCS_PROFILE_MANAGEMENT_SCOPE = WCS_PROFILE_MANAGEMENT_SCOPE(0i32);
+#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BMFORMAT(pub i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_x555RGB: BMFORMAT = BMFORMAT(0i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_x555XYZ: BMFORMAT = BMFORMAT(257i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_x555Yxy: BMFORMAT = BMFORMAT(258i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_x555Lab: BMFORMAT = BMFORMAT(259i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_x555G3CH: BMFORMAT = BMFORMAT(260i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_RGBTRIPLETS: BMFORMAT = BMFORMAT(2i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_BGRTRIPLETS: BMFORMAT = BMFORMAT(4i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_XYZTRIPLETS: BMFORMAT = BMFORMAT(513i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_YxyTRIPLETS: BMFORMAT = BMFORMAT(514i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_LabTRIPLETS: BMFORMAT = BMFORMAT(515i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_G3CHTRIPLETS: BMFORMAT = BMFORMAT(516i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_5CHANNEL: BMFORMAT = BMFORMAT(517i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_6CHANNEL: BMFORMAT = BMFORMAT(518i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_7CHANNEL: BMFORMAT = BMFORMAT(519i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_8CHANNEL: BMFORMAT = BMFORMAT(520i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_GRAY: BMFORMAT = BMFORMAT(521i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_xRGBQUADS: BMFORMAT = BMFORMAT(8i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_xBGRQUADS: BMFORMAT = BMFORMAT(16i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_xG3CHQUADS: BMFORMAT = BMFORMAT(772i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_KYMCQUADS: BMFORMAT = BMFORMAT(773i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_CMYKQUADS: BMFORMAT = BMFORMAT(32i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_10b_RGB: BMFORMAT = BMFORMAT(9i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_10b_XYZ: BMFORMAT = BMFORMAT(1025i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_10b_Yxy: BMFORMAT = BMFORMAT(1026i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_10b_Lab: BMFORMAT = BMFORMAT(1027i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_10b_G3CH: BMFORMAT = BMFORMAT(1028i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_NAMED_INDEX: BMFORMAT = BMFORMAT(1029i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_16b_RGB: BMFORMAT = BMFORMAT(10i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_16b_XYZ: BMFORMAT = BMFORMAT(1281i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_16b_Yxy: BMFORMAT = BMFORMAT(1282i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_16b_Lab: BMFORMAT = BMFORMAT(1283i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_16b_G3CH: BMFORMAT = BMFORMAT(1284i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_16b_GRAY: BMFORMAT = BMFORMAT(1285i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_565RGB: BMFORMAT = BMFORMAT(1i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_32b_scRGB: BMFORMAT = BMFORMAT(1537i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_32b_scARGB: BMFORMAT = BMFORMAT(1538i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_S2DOT13FIXED_scRGB: BMFORMAT = BMFORMAT(1539i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_S2DOT13FIXED_scARGB: BMFORMAT = BMFORMAT(1540i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_R10G10B10A2: BMFORMAT = BMFORMAT(1793i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_R10G10B10A2_XR: BMFORMAT = BMFORMAT(1794i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const BM_R16G16B16A16_FLOAT: BMFORMAT = BMFORMAT(1795i32);
 impl ::core::marker::Copy for BMFORMAT {}
 impl ::core::clone::Clone for BMFORMAT {
     fn clone(&self) -> Self {
@@ -1452,20 +1552,6 @@ impl ::core::fmt::Debug for BMFORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLORDATATYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const COLOR_BYTE: COLORDATATYPE = COLORDATATYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const COLOR_WORD: COLORDATATYPE = COLORDATATYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const COLOR_FLOAT: COLORDATATYPE = COLORDATATYPE(3i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const COLOR_S2DOT13FIXED: COLORDATATYPE = COLORDATATYPE(4i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const COLOR_10b_R10G10B10A2: COLORDATATYPE = COLORDATATYPE(5i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const COLOR_10b_R10G10B10A2_XR: COLORDATATYPE = COLORDATATYPE(6i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const COLOR_FLOAT16: COLORDATATYPE = COLORDATATYPE(7i32);
 impl ::core::marker::Copy for COLORDATATYPE {}
 impl ::core::clone::Clone for COLORDATATYPE {
     fn clone(&self) -> Self {
@@ -1489,24 +1575,6 @@ impl ::core::fmt::Debug for COLORDATATYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLORPROFILESUBTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const CPST_PERCEPTUAL: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const CPST_RELATIVE_COLORIMETRIC: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const CPST_SATURATION: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const CPST_ABSOLUTE_COLORIMETRIC: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(3i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const CPST_NONE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(4i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const CPST_RGB_WORKING_SPACE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(5i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const CPST_CUSTOM_WORKING_SPACE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(6i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const CPST_STANDARD_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(7i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const CPST_EXTENDED_DISPLAY_COLOR_MODE: COLORPROFILESUBTYPE = COLORPROFILESUBTYPE(8i32);
 impl ::core::marker::Copy for COLORPROFILESUBTYPE {}
 impl ::core::clone::Clone for COLORPROFILESUBTYPE {
     fn clone(&self) -> Self {
@@ -1530,14 +1598,6 @@ impl ::core::fmt::Debug for COLORPROFILESUBTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLORPROFILETYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const CPT_ICC: COLORPROFILETYPE = COLORPROFILETYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const CPT_DMP: COLORPROFILETYPE = COLORPROFILETYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const CPT_CAMP: COLORPROFILETYPE = COLORPROFILETYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const CPT_GMMP: COLORPROFILETYPE = COLORPROFILETYPE(3i32);
 impl ::core::marker::Copy for COLORPROFILETYPE {}
 impl ::core::clone::Clone for COLORPROFILETYPE {
     fn clone(&self) -> Self {
@@ -1561,30 +1621,6 @@ impl ::core::fmt::Debug for COLORPROFILETYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLORTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const COLOR_GRAY: COLORTYPE = COLORTYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const COLOR_RGB: COLORTYPE = COLORTYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const COLOR_XYZ: COLORTYPE = COLORTYPE(3i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const COLOR_Yxy: COLORTYPE = COLORTYPE(4i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const COLOR_Lab: COLORTYPE = COLORTYPE(5i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const COLOR_3_CHANNEL: COLORTYPE = COLORTYPE(6i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const COLOR_CMYK: COLORTYPE = COLORTYPE(7i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const COLOR_5_CHANNEL: COLORTYPE = COLORTYPE(8i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const COLOR_6_CHANNEL: COLORTYPE = COLORTYPE(9i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const COLOR_7_CHANNEL: COLORTYPE = COLORTYPE(10i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const COLOR_8_CHANNEL: COLORTYPE = COLORTYPE(11i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const COLOR_NAMED: COLORTYPE = COLORTYPE(12i32);
 impl ::core::marker::Copy for COLORTYPE {}
 impl ::core::clone::Clone for COLORTYPE {
     fn clone(&self) -> Self {
@@ -1608,12 +1644,6 @@ impl ::core::fmt::Debug for COLORTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLOR_MATCH_TO_TARGET_ACTION(pub u32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const CS_ENABLE: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(1u32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const CS_DISABLE: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(2u32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const CS_DELETE_TRANSFORM: COLOR_MATCH_TO_TARGET_ACTION = COLOR_MATCH_TO_TARGET_ACTION(3u32);
 impl ::core::marker::Copy for COLOR_MATCH_TO_TARGET_ACTION {}
 impl ::core::clone::Clone for COLOR_MATCH_TO_TARGET_ACTION {
     fn clone(&self) -> Self {
@@ -1637,20 +1667,6 @@ impl ::core::fmt::Debug for COLOR_MATCH_TO_TARGET_ACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ICM_COMMAND(pub u32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const ICM_ADDPROFILE: ICM_COMMAND = ICM_COMMAND(1u32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const ICM_DELETEPROFILE: ICM_COMMAND = ICM_COMMAND(2u32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const ICM_QUERYPROFILE: ICM_COMMAND = ICM_COMMAND(3u32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const ICM_SETDEFAULTPROFILE: ICM_COMMAND = ICM_COMMAND(4u32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const ICM_REGISTERICMATCHER: ICM_COMMAND = ICM_COMMAND(5u32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const ICM_UNREGISTERICMATCHER: ICM_COMMAND = ICM_COMMAND(6u32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const ICM_QUERYMATCH: ICM_COMMAND = ICM_COMMAND(7u32);
 impl ::core::marker::Copy for ICM_COMMAND {}
 impl ::core::clone::Clone for ICM_COMMAND {
     fn clone(&self) -> Self {
@@ -1674,14 +1690,6 @@ impl ::core::fmt::Debug for ICM_COMMAND {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ICM_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const ICM_OFF: ICM_MODE = ICM_MODE(1i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const ICM_ON: ICM_MODE = ICM_MODE(2i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const ICM_QUERY: ICM_MODE = ICM_MODE(3i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const ICM_DONE_OUTSIDEDC: ICM_MODE = ICM_MODE(4i32);
 impl ::core::marker::Copy for ICM_MODE {}
 impl ::core::clone::Clone for ICM_MODE {
     fn clone(&self) -> Self {
@@ -1705,10 +1713,6 @@ impl ::core::fmt::Debug for ICM_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WCS_DEVICE_CAPABILITIES_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const VideoCardGammaTable: WCS_DEVICE_CAPABILITIES_TYPE = WCS_DEVICE_CAPABILITIES_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const MicrosoftHardwareColorV2: WCS_DEVICE_CAPABILITIES_TYPE = WCS_DEVICE_CAPABILITIES_TYPE(2i32);
 impl ::core::marker::Copy for WCS_DEVICE_CAPABILITIES_TYPE {}
 impl ::core::clone::Clone for WCS_DEVICE_CAPABILITIES_TYPE {
     fn clone(&self) -> Self {
@@ -1732,10 +1736,6 @@ impl ::core::fmt::Debug for WCS_DEVICE_CAPABILITIES_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WCS_PROFILE_MANAGEMENT_SCOPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const WCS_PROFILE_MANAGEMENT_SCOPE_SYSTEM_WIDE: WCS_PROFILE_MANAGEMENT_SCOPE = WCS_PROFILE_MANAGEMENT_SCOPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
-pub const WCS_PROFILE_MANAGEMENT_SCOPE_CURRENT_USER: WCS_PROFILE_MANAGEMENT_SCOPE = WCS_PROFILE_MANAGEMENT_SCOPE(1i32);
 impl ::core::marker::Copy for WCS_PROFILE_MANAGEMENT_SCOPE {}
 impl ::core::clone::Clone for WCS_PROFILE_MANAGEMENT_SCOPE {
     fn clone(&self) -> Self {

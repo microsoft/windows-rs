@@ -1,74 +1,20 @@
 use super::*;
 
-pub fn standalone_imp<'a, I: Iterator<Item = &'a str>>(writer: &Writer, names: I) -> String {
+pub fn standalone_imp(writer: &Writer) -> String {
     let mut types = BTreeSet::new();
     let mut functions = BTreeSet::new();
     let mut constants = BTreeSet::new();
 
-    for name in names {
-        let mut found = false;
-        let type_name = TypeName::parse(name);
-
-        for def in writer.reader.get(type_name) {
-            found = true;
-            writer
-                .reader
-                .type_collect_standalone(&Type::TypeDef(def, vec![]), &mut types);
-        }
-
-        for method in writer
+    for item in writer.reader.items(writer.filter) {
+        writer
             .reader
-            .namespace_functions(type_name.namespace)
-            .filter(|method| writer.reader.method_def_name(*method) == type_name.name)
-        {
-            found = true;
-            functions.insert((method, type_name.namespace));
-            let signature = writer
-                .reader
-                .method_def_signature(type_name.namespace, method, &[]);
-            writer
-                .reader
-                .type_collect_standalone(&signature.return_type, &mut types);
-            signature
-                .params
-                .iter()
-                .for_each(|param| writer.reader.type_collect_standalone(&param.ty, &mut types));
-        }
+            .item_collect_standalone(item.clone(), &mut types);
 
-        if let Some(field) = writer
-            .reader
-            .namespace_constants(type_name.namespace)
-            .find(|field| writer.reader.field_name(*field) == type_name.name)
-        {
-            found = true;
-            constants.insert(field);
-            writer.reader.type_collect_standalone(
-                &writer.reader.field_type(field, None).to_const_type(),
-                &mut types,
-            );
+        match item {
+            Item::Type(_) => {}
+            Item::Fn(def, namespace) => _ = functions.insert((def, namespace.clone())),
+            Item::Const(def) => _ = constants.insert(def),
         }
-
-        if let Some(field) = writer
-            .reader
-            .namespace_types(type_name.namespace, &Default::default())
-            .find_map(|def| {
-                if writer.reader.type_def_kind(def) == TypeKind::Enum {
-                    return writer
-                        .reader
-                        .type_def_fields(def)
-                        .find(|field| writer.reader.field_name(*field) == type_name.name);
-                }
-                None
-            })
-        {
-            found = true;
-            constants.insert(field);
-            writer
-                .reader
-                .type_collect_standalone(&writer.reader.field_type(field, None), &mut types);
-        }
-
-        assert!(found, "{} not found", type_name);
     }
 
     let mut sorted = SortedTokens::default();
@@ -192,7 +138,7 @@ pub fn standalone_imp<'a, I: Iterator<Item = &'a str>>(writer: &Writer, names: I
                 writer.reader.method_def_module_name(function),
                 writer.reader.method_def_name(function)
             ),
-            functions::writer(writer, namespace, function),
+            functions::writer(writer, &namespace, function),
         );
     }
 

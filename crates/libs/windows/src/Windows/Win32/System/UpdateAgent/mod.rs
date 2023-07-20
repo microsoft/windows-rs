@@ -10651,15 +10651,163 @@ pub const WebProxy: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x650
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const WindowsUpdateAgentInfo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2e88c2f_6f5b_4aaa_894b_55c847ad3a2d);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AddServiceFlag(pub i32);
+pub const adAlwaysAutoDownload: AutoDownloadMode = AutoDownloadMode(2i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const asfAllowPendingRegistration: AddServiceFlag = AddServiceFlag(1i32);
+pub const adLetWindowsUpdateDecide: AutoDownloadMode = AutoDownloadMode(0i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const adNeverAutoDownload: AutoDownloadMode = AutoDownloadMode(1i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const asAlwaysAutoSelect: AutoSelectionMode = AutoSelectionMode(3i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const asAutoSelectIfDownloaded: AutoSelectionMode = AutoSelectionMode(1i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const asLetWindowsUpdateDecide: AutoSelectionMode = AutoSelectionMode(0i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const asNeverAutoSelect: AutoSelectionMode = AutoSelectionMode(2i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const asfAllowOnlineRegistration: AddServiceFlag = AddServiceFlag(2i32);
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const asfAllowPendingRegistration: AddServiceFlag = AddServiceFlag(1i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 pub const asfRegisterServiceWithAU: AddServiceFlag = AddServiceFlag(4i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const aunlDisabled: AutomaticUpdatesNotificationLevel = AutomaticUpdatesNotificationLevel(1i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const aunlNotConfigured: AutomaticUpdatesNotificationLevel = AutomaticUpdatesNotificationLevel(0i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const aunlNotifyBeforeDownload: AutomaticUpdatesNotificationLevel = AutomaticUpdatesNotificationLevel(2i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const aunlNotifyBeforeInstallation: AutomaticUpdatesNotificationLevel = AutomaticUpdatesNotificationLevel(3i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const aunlScheduledInstallation: AutomaticUpdatesNotificationLevel = AutomaticUpdatesNotificationLevel(4i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const auptDisableAutomaticUpdates: AutomaticUpdatesPermissionType = AutomaticUpdatesPermissionType(2i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const auptSetFeaturedUpdatesEnabled: AutomaticUpdatesPermissionType = AutomaticUpdatesPermissionType(4i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const auptSetIncludeRecommendedUpdates: AutomaticUpdatesPermissionType = AutomaticUpdatesPermissionType(3i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const auptSetNonAdministratorsElevated: AutomaticUpdatesPermissionType = AutomaticUpdatesPermissionType(5i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const auptSetNotificationLevel: AutomaticUpdatesPermissionType = AutomaticUpdatesPermissionType(1i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const ausidEveryDay: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(0i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const ausidEveryFriday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(6i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const ausidEveryMonday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(2i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const ausidEverySaturday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(7i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const ausidEverySunday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(1i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const ausidEveryThursday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(5i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const ausidEveryTuesday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(3i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const ausidEveryWednesday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(4i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const auutCurrentUser: AutomaticUpdatesUserType = AutomaticUpdatesUserType(1i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const auutLocalAdministrator: AutomaticUpdatesUserType = AutomaticUpdatesUserType(2i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const daDetection: DeploymentAction = DeploymentAction(3i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const daInstallation: DeploymentAction = DeploymentAction(1i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const daNone: DeploymentAction = DeploymentAction(0i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const daOptionalInstallation: DeploymentAction = DeploymentAction(4i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const daUninstallation: DeploymentAction = DeploymentAction(2i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const dpExtraHigh: DownloadPriority = DownloadPriority(4i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const dpHigh: DownloadPriority = DownloadPriority(3i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const dpLow: DownloadPriority = DownloadPriority(1i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const dpNormal: DownloadPriority = DownloadPriority(2i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const dphDownloading: DownloadPhase = DownloadPhase(2i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const dphInitializing: DownloadPhase = DownloadPhase(1i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const dphVerifying: DownloadPhase = DownloadPhase(3i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const iiMinor: InstallationImpact = InstallationImpact(1i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const iiNormal: InstallationImpact = InstallationImpact(0i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const iiRequiresExclusiveHandling: InstallationImpact = InstallationImpact(2i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const irbAlwaysRequiresReboot: InstallationRebootBehavior = InstallationRebootBehavior(1i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const irbCanRequestReboot: InstallationRebootBehavior = InstallationRebootBehavior(2i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const irbNeverReboots: InstallationRebootBehavior = InstallationRebootBehavior(0i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const orcAborted: OperationResultCode = OperationResultCode(5i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const orcFailed: OperationResultCode = OperationResultCode(4i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const orcInProgress: OperationResultCode = OperationResultCode(1i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const orcNotStarted: OperationResultCode = OperationResultCode(0i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const orcSucceeded: OperationResultCode = OperationResultCode(2i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const orcSucceededWithErrors: OperationResultCode = OperationResultCode(3i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const searchScopeAllUsers: SearchScope = SearchScope(5i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const searchScopeCurrentUserOnly: SearchScope = SearchScope(2i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const searchScopeDefault: SearchScope = SearchScope(0i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const searchScopeMachineAndAllUsers: SearchScope = SearchScope(4i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const searchScopeMachineAndCurrentUser: SearchScope = SearchScope(3i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const searchScopeMachineOnly: SearchScope = SearchScope(1i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const ssDefault: ServerSelection = ServerSelection(0i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const ssManagedServer: ServerSelection = ServerSelection(1i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const ssOthers: ServerSelection = ServerSelection(3i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const ssWindowsUpdate: ServerSelection = ServerSelection(2i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const uecGeneral: UpdateExceptionContext = UpdateExceptionContext(1i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const uecSearchIncomplete: UpdateExceptionContext = UpdateExceptionContext(4i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const uecWindowsDriver: UpdateExceptionContext = UpdateExceptionContext(2i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const uecWindowsInstaller: UpdateExceptionContext = UpdateExceptionContext(3i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const uloForWebsiteAccess: UpdateLockdownOption = UpdateLockdownOption(1i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const uoInstallation: UpdateOperation = UpdateOperation(1i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const uoUninstallation: UpdateOperation = UpdateOperation(2i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const usoNonVolatileService: UpdateServiceOption = UpdateServiceOption(1i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const usrsNotRegistered: UpdateServiceRegistrationState = UpdateServiceRegistrationState(1i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const usrsRegistered: UpdateServiceRegistrationState = UpdateServiceRegistrationState(3i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const usrsRegistrationPending: UpdateServiceRegistrationState = UpdateServiceRegistrationState(2i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const utDriver: UpdateType = UpdateType(2i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+pub const utSoftware: UpdateType = UpdateType(1i32);
+#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AddServiceFlag(pub i32);
 impl ::core::marker::Copy for AddServiceFlag {}
 impl ::core::clone::Clone for AddServiceFlag {
     fn clone(&self) -> Self {
@@ -10683,12 +10831,6 @@ impl ::core::fmt::Debug for AddServiceFlag {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutoDownloadMode(pub i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const adLetWindowsUpdateDecide: AutoDownloadMode = AutoDownloadMode(0i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const adNeverAutoDownload: AutoDownloadMode = AutoDownloadMode(1i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const adAlwaysAutoDownload: AutoDownloadMode = AutoDownloadMode(2i32);
 impl ::core::marker::Copy for AutoDownloadMode {}
 impl ::core::clone::Clone for AutoDownloadMode {
     fn clone(&self) -> Self {
@@ -10712,14 +10854,6 @@ impl ::core::fmt::Debug for AutoDownloadMode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutoSelectionMode(pub i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const asLetWindowsUpdateDecide: AutoSelectionMode = AutoSelectionMode(0i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const asAutoSelectIfDownloaded: AutoSelectionMode = AutoSelectionMode(1i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const asNeverAutoSelect: AutoSelectionMode = AutoSelectionMode(2i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const asAlwaysAutoSelect: AutoSelectionMode = AutoSelectionMode(3i32);
 impl ::core::marker::Copy for AutoSelectionMode {}
 impl ::core::clone::Clone for AutoSelectionMode {
     fn clone(&self) -> Self {
@@ -10743,16 +10877,6 @@ impl ::core::fmt::Debug for AutoSelectionMode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutomaticUpdatesNotificationLevel(pub i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const aunlNotConfigured: AutomaticUpdatesNotificationLevel = AutomaticUpdatesNotificationLevel(0i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const aunlDisabled: AutomaticUpdatesNotificationLevel = AutomaticUpdatesNotificationLevel(1i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const aunlNotifyBeforeDownload: AutomaticUpdatesNotificationLevel = AutomaticUpdatesNotificationLevel(2i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const aunlNotifyBeforeInstallation: AutomaticUpdatesNotificationLevel = AutomaticUpdatesNotificationLevel(3i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const aunlScheduledInstallation: AutomaticUpdatesNotificationLevel = AutomaticUpdatesNotificationLevel(4i32);
 impl ::core::marker::Copy for AutomaticUpdatesNotificationLevel {}
 impl ::core::clone::Clone for AutomaticUpdatesNotificationLevel {
     fn clone(&self) -> Self {
@@ -10776,16 +10900,6 @@ impl ::core::fmt::Debug for AutomaticUpdatesNotificationLevel {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutomaticUpdatesPermissionType(pub i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const auptSetNotificationLevel: AutomaticUpdatesPermissionType = AutomaticUpdatesPermissionType(1i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const auptDisableAutomaticUpdates: AutomaticUpdatesPermissionType = AutomaticUpdatesPermissionType(2i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const auptSetIncludeRecommendedUpdates: AutomaticUpdatesPermissionType = AutomaticUpdatesPermissionType(3i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const auptSetFeaturedUpdatesEnabled: AutomaticUpdatesPermissionType = AutomaticUpdatesPermissionType(4i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const auptSetNonAdministratorsElevated: AutomaticUpdatesPermissionType = AutomaticUpdatesPermissionType(5i32);
 impl ::core::marker::Copy for AutomaticUpdatesPermissionType {}
 impl ::core::clone::Clone for AutomaticUpdatesPermissionType {
     fn clone(&self) -> Self {
@@ -10809,22 +10923,6 @@ impl ::core::fmt::Debug for AutomaticUpdatesPermissionType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutomaticUpdatesScheduledInstallationDay(pub i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const ausidEveryDay: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(0i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const ausidEverySunday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(1i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const ausidEveryMonday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(2i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const ausidEveryTuesday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(3i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const ausidEveryWednesday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(4i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const ausidEveryThursday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(5i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const ausidEveryFriday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(6i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const ausidEverySaturday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(7i32);
 impl ::core::marker::Copy for AutomaticUpdatesScheduledInstallationDay {}
 impl ::core::clone::Clone for AutomaticUpdatesScheduledInstallationDay {
     fn clone(&self) -> Self {
@@ -10848,10 +10946,6 @@ impl ::core::fmt::Debug for AutomaticUpdatesScheduledInstallationDay {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutomaticUpdatesUserType(pub i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const auutCurrentUser: AutomaticUpdatesUserType = AutomaticUpdatesUserType(1i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const auutLocalAdministrator: AutomaticUpdatesUserType = AutomaticUpdatesUserType(2i32);
 impl ::core::marker::Copy for AutomaticUpdatesUserType {}
 impl ::core::clone::Clone for AutomaticUpdatesUserType {
     fn clone(&self) -> Self {
@@ -10875,16 +10969,6 @@ impl ::core::fmt::Debug for AutomaticUpdatesUserType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeploymentAction(pub i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const daNone: DeploymentAction = DeploymentAction(0i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const daInstallation: DeploymentAction = DeploymentAction(1i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const daUninstallation: DeploymentAction = DeploymentAction(2i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const daDetection: DeploymentAction = DeploymentAction(3i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const daOptionalInstallation: DeploymentAction = DeploymentAction(4i32);
 impl ::core::marker::Copy for DeploymentAction {}
 impl ::core::clone::Clone for DeploymentAction {
     fn clone(&self) -> Self {
@@ -10908,12 +10992,6 @@ impl ::core::fmt::Debug for DeploymentAction {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DownloadPhase(pub i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const dphInitializing: DownloadPhase = DownloadPhase(1i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const dphDownloading: DownloadPhase = DownloadPhase(2i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const dphVerifying: DownloadPhase = DownloadPhase(3i32);
 impl ::core::marker::Copy for DownloadPhase {}
 impl ::core::clone::Clone for DownloadPhase {
     fn clone(&self) -> Self {
@@ -10937,14 +11015,6 @@ impl ::core::fmt::Debug for DownloadPhase {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DownloadPriority(pub i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const dpLow: DownloadPriority = DownloadPriority(1i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const dpNormal: DownloadPriority = DownloadPriority(2i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const dpHigh: DownloadPriority = DownloadPriority(3i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const dpExtraHigh: DownloadPriority = DownloadPriority(4i32);
 impl ::core::marker::Copy for DownloadPriority {}
 impl ::core::clone::Clone for DownloadPriority {
     fn clone(&self) -> Self {
@@ -10968,12 +11038,6 @@ impl ::core::fmt::Debug for DownloadPriority {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InstallationImpact(pub i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const iiNormal: InstallationImpact = InstallationImpact(0i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const iiMinor: InstallationImpact = InstallationImpact(1i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const iiRequiresExclusiveHandling: InstallationImpact = InstallationImpact(2i32);
 impl ::core::marker::Copy for InstallationImpact {}
 impl ::core::clone::Clone for InstallationImpact {
     fn clone(&self) -> Self {
@@ -10997,12 +11061,6 @@ impl ::core::fmt::Debug for InstallationImpact {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InstallationRebootBehavior(pub i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const irbNeverReboots: InstallationRebootBehavior = InstallationRebootBehavior(0i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const irbAlwaysRequiresReboot: InstallationRebootBehavior = InstallationRebootBehavior(1i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const irbCanRequestReboot: InstallationRebootBehavior = InstallationRebootBehavior(2i32);
 impl ::core::marker::Copy for InstallationRebootBehavior {}
 impl ::core::clone::Clone for InstallationRebootBehavior {
     fn clone(&self) -> Self {
@@ -11026,18 +11084,6 @@ impl ::core::fmt::Debug for InstallationRebootBehavior {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OperationResultCode(pub i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const orcNotStarted: OperationResultCode = OperationResultCode(0i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const orcInProgress: OperationResultCode = OperationResultCode(1i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const orcSucceeded: OperationResultCode = OperationResultCode(2i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const orcSucceededWithErrors: OperationResultCode = OperationResultCode(3i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const orcFailed: OperationResultCode = OperationResultCode(4i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const orcAborted: OperationResultCode = OperationResultCode(5i32);
 impl ::core::marker::Copy for OperationResultCode {}
 impl ::core::clone::Clone for OperationResultCode {
     fn clone(&self) -> Self {
@@ -11061,18 +11107,6 @@ impl ::core::fmt::Debug for OperationResultCode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SearchScope(pub i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const searchScopeDefault: SearchScope = SearchScope(0i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const searchScopeMachineOnly: SearchScope = SearchScope(1i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const searchScopeCurrentUserOnly: SearchScope = SearchScope(2i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const searchScopeMachineAndCurrentUser: SearchScope = SearchScope(3i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const searchScopeMachineAndAllUsers: SearchScope = SearchScope(4i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const searchScopeAllUsers: SearchScope = SearchScope(5i32);
 impl ::core::marker::Copy for SearchScope {}
 impl ::core::clone::Clone for SearchScope {
     fn clone(&self) -> Self {
@@ -11096,14 +11130,6 @@ impl ::core::fmt::Debug for SearchScope {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ServerSelection(pub i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const ssDefault: ServerSelection = ServerSelection(0i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const ssManagedServer: ServerSelection = ServerSelection(1i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const ssWindowsUpdate: ServerSelection = ServerSelection(2i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const ssOthers: ServerSelection = ServerSelection(3i32);
 impl ::core::marker::Copy for ServerSelection {}
 impl ::core::clone::Clone for ServerSelection {
     fn clone(&self) -> Self {
@@ -11127,14 +11153,6 @@ impl ::core::fmt::Debug for ServerSelection {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UpdateExceptionContext(pub i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const uecGeneral: UpdateExceptionContext = UpdateExceptionContext(1i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const uecWindowsDriver: UpdateExceptionContext = UpdateExceptionContext(2i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const uecWindowsInstaller: UpdateExceptionContext = UpdateExceptionContext(3i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const uecSearchIncomplete: UpdateExceptionContext = UpdateExceptionContext(4i32);
 impl ::core::marker::Copy for UpdateExceptionContext {}
 impl ::core::clone::Clone for UpdateExceptionContext {
     fn clone(&self) -> Self {
@@ -11158,8 +11176,6 @@ impl ::core::fmt::Debug for UpdateExceptionContext {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UpdateLockdownOption(pub i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const uloForWebsiteAccess: UpdateLockdownOption = UpdateLockdownOption(1i32);
 impl ::core::marker::Copy for UpdateLockdownOption {}
 impl ::core::clone::Clone for UpdateLockdownOption {
     fn clone(&self) -> Self {
@@ -11183,10 +11199,6 @@ impl ::core::fmt::Debug for UpdateLockdownOption {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UpdateOperation(pub i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const uoInstallation: UpdateOperation = UpdateOperation(1i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const uoUninstallation: UpdateOperation = UpdateOperation(2i32);
 impl ::core::marker::Copy for UpdateOperation {}
 impl ::core::clone::Clone for UpdateOperation {
     fn clone(&self) -> Self {
@@ -11210,8 +11222,6 @@ impl ::core::fmt::Debug for UpdateOperation {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UpdateServiceOption(pub i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const usoNonVolatileService: UpdateServiceOption = UpdateServiceOption(1i32);
 impl ::core::marker::Copy for UpdateServiceOption {}
 impl ::core::clone::Clone for UpdateServiceOption {
     fn clone(&self) -> Self {
@@ -11235,12 +11245,6 @@ impl ::core::fmt::Debug for UpdateServiceOption {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UpdateServiceRegistrationState(pub i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const usrsNotRegistered: UpdateServiceRegistrationState = UpdateServiceRegistrationState(1i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const usrsRegistrationPending: UpdateServiceRegistrationState = UpdateServiceRegistrationState(2i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const usrsRegistered: UpdateServiceRegistrationState = UpdateServiceRegistrationState(3i32);
 impl ::core::marker::Copy for UpdateServiceRegistrationState {}
 impl ::core::clone::Clone for UpdateServiceRegistrationState {
     fn clone(&self) -> Self {
@@ -11264,10 +11268,6 @@ impl ::core::fmt::Debug for UpdateServiceRegistrationState {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UpdateType(pub i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const utSoftware: UpdateType = UpdateType(1i32);
-#[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-pub const utDriver: UpdateType = UpdateType(2i32);
 impl ::core::marker::Copy for UpdateType {}
 impl ::core::clone::Clone for UpdateType {
     fn clone(&self) -> Self {

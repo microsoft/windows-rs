@@ -557,6 +557,16 @@ pub const BDIF_TX_POWER: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const BDIF_VISIBLE: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const BLUETOOTH_AUTHENTICATION_METHOD_LEGACY: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const BLUETOOTH_AUTHENTICATION_METHOD_NUMERIC_COMPARISON: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const BLUETOOTH_AUTHENTICATION_METHOD_OOB: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY_NOTIFICATION: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const BLUETOOTH_DEVICE_NAME_SIZE: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const BLUETOOTH_GATT_FLAG_CONNECTION_AUTHENTICATED: u32 = 2u32;
@@ -575,6 +585,16 @@ pub const BLUETOOTH_GATT_FLAG_SIGNED_WRITE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const BLUETOOTH_GATT_FLAG_WRITE_WITHOUT_RESPONSE: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const BLUETOOTH_IO_CAPABILITY_DISPLAYONLY: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const BLUETOOTH_IO_CAPABILITY_DISPLAYYESNO: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const BLUETOOTH_IO_CAPABILITY_KEYBOARDONLY: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const BLUETOOTH_IO_CAPABILITY_NOINPUTNOOUTPUT: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const BLUETOOTH_IO_CAPABILITY_UNDEFINED: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(255i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const BLUETOOTH_MAX_NAME_SIZE: u32 = 248u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const BLUETOOTH_MAX_PASSKEY_BUFFER_SIZE: u32 = 17u32;
@@ -582,6 +602,20 @@ pub const BLUETOOTH_MAX_PASSKEY_BUFFER_SIZE: u32 = 17u32;
 pub const BLUETOOTH_MAX_PASSKEY_SIZE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const BLUETOOTH_MAX_SERVICE_NAME_SIZE: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const BLUETOOTH_MITM_ProtectionNotDefined: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(255i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const BLUETOOTH_MITM_ProtectionNotRequired: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const BLUETOOTH_MITM_ProtectionNotRequiredBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const BLUETOOTH_MITM_ProtectionNotRequiredGeneralBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const BLUETOOTH_MITM_ProtectionRequired: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const BLUETOOTH_MITM_ProtectionRequiredBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const BLUETOOTH_MITM_ProtectionRequiredGeneralBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(5i32);
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const BLUETOOTH_SERVICE_DISABLE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
@@ -1439,6 +1473,18 @@ pub const CTNNotificationServiceClassID_UUID16: u32 = 4413u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const CTNProfileID_UUID16: u32 = 4414u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const CharacteristicAggregateFormat: BTH_LE_GATT_DESCRIPTOR_TYPE = BTH_LE_GATT_DESCRIPTOR_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const CharacteristicExtendedProperties: BTH_LE_GATT_DESCRIPTOR_TYPE = BTH_LE_GATT_DESCRIPTOR_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const CharacteristicFormat: BTH_LE_GATT_DESCRIPTOR_TYPE = BTH_LE_GATT_DESCRIPTOR_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const CharacteristicUserDescription: BTH_LE_GATT_DESCRIPTOR_TYPE = BTH_LE_GATT_DESCRIPTOR_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const CharacteristicValueChangedEvent: BTH_LE_GATT_EVENT_TYPE = BTH_LE_GATT_EVENT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const ClientCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_TYPE = BTH_LE_GATT_DESCRIPTOR_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const CommonISDNAccessServiceClassID_UUID16: u32 = 4392u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const CommonISDNAccessServiceClass_UUID16: u32 = 4392u32;
@@ -1446,6 +1492,8 @@ pub const CommonISDNAccessServiceClass_UUID16: u32 = 4392u32;
 pub const CordlessServiceClassID_UUID16: u32 = 4361u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const CordlessTelephonyServiceClassID_UUID16: u32 = 4361u32;
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const CustomDescriptor: BTH_LE_GATT_DESCRIPTOR_TYPE = BTH_LE_GATT_DESCRIPTOR_TYPE(6i32);
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const DI_VENDOR_ID_SOURCE_BLUETOOTH_SIG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
@@ -1565,6 +1613,16 @@ pub const ImagingServiceProfileID_UUID16: u32 = 4378u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const IntercomServiceClassID_UUID16: u32 = 4368u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const IoCaps_DisplayOnly: IO_CAPABILITY = IO_CAPABILITY(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const IoCaps_DisplayYesNo: IO_CAPABILITY = IO_CAPABILITY(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const IoCaps_KeyboardOnly: IO_CAPABILITY = IO_CAPABILITY(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const IoCaps_NoInputNoOutput: IO_CAPABILITY = IO_CAPABILITY(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const IoCaps_Undefined: IO_CAPABILITY = IO_CAPABILITY(255i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const IrMCSyncServiceClassID_UUID16: u32 = 4356u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const IrMcSyncCommandServiceClassID_UUID16: u32 = 4359u32;
@@ -1599,6 +1657,20 @@ pub const MAX_L2CAP_PING_DATA_LENGTH: u32 = 44u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const MAX_UUIDS_IN_QUERY: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const MITMProtectionNotDefined: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(255i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const MITMProtectionNotRequired: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const MITMProtectionNotRequiredBonding: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const MITMProtectionNotRequiredGeneralBonding: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const MITMProtectionRequired: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const MITMProtectionRequiredBonding: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const MITMProtectionRequiredGeneralBonding: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const MPSProfileID_UUID16: u32 = 4410u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const MPSServiceClassID_UUID16: u32 = 4411u32;
@@ -1612,6 +1684,10 @@ pub const MessageNotificationServerServiceClassID_UUID16: u32 = 4403u32;
 pub const NAPServiceClassID_UUID16: u32 = 4374u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const NS_BTH: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const NodeContainerTypeAlternative: NodeContainerType = NodeContainerType(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const NodeContainerTypeSequence: NodeContainerType = NodeContainerType(0i32);
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const OBEXFileTransferServiceClassID_UUID16: u32 = 4358u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
@@ -1959,6 +2035,54 @@ pub const SDP_SERVICE_SEARCH_ATTRIBUTE_REQUEST: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const SDP_SERVICE_SEARCH_REQUEST: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_ST_INT128: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(1056i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_ST_INT16: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(288i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_ST_INT32: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(544i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_ST_INT64: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(800i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_ST_INT8: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(32i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_ST_NONE: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_ST_UINT128: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(1040i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_ST_UINT16: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(272i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_ST_UINT32: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(528i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_ST_UINT64: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(784i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_ST_UINT8: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(16i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_ST_UUID128: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(1072i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_ST_UUID16: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(304i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_ST_UUID32: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(544i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_TYPE_ALTERNATIVE: SDP_TYPE = SDP_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_TYPE_BOOLEAN: SDP_TYPE = SDP_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_TYPE_CONTAINER: SDP_TYPE = SDP_TYPE(32i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_TYPE_INT: SDP_TYPE = SDP_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_TYPE_NIL: SDP_TYPE = SDP_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_TYPE_SEQUENCE: SDP_TYPE = SDP_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_TYPE_STRING: SDP_TYPE = SDP_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_TYPE_UINT: SDP_TYPE = SDP_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_TYPE_URL: SDP_TYPE = SDP_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const SDP_TYPE_UUID: SDP_TYPE = SDP_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const SERVICE_OPTION_DO_NOT_PUBLISH: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const SERVICE_OPTION_DO_NOT_PUBLISH_EIR: u32 = 8u32;
@@ -2033,6 +2157,8 @@ pub const SYNCH_DATA_STORE_PHONEBOOK: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const SerialPortServiceClassID_UUID16: u32 = 4353u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
+pub const ServerCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_TYPE = BTH_LE_GATT_DESCRIPTOR_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const ServiceDiscoveryServerServiceClassID_UUID16: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
 pub const SimAccessServiceClassID_UUID16: u32 = 4397u32;
@@ -2088,20 +2214,6 @@ pub const WSP_PROTOCOL_UUID16: u32 = 14u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHENTICATION_REQUIREMENTS(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const MITMProtectionNotRequired: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const MITMProtectionRequired: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const MITMProtectionNotRequiredBonding: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const MITMProtectionRequiredBonding: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const MITMProtectionNotRequiredGeneralBonding: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const MITMProtectionRequiredGeneralBonding: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const MITMProtectionNotDefined: AUTHENTICATION_REQUIREMENTS = AUTHENTICATION_REQUIREMENTS(255i32);
 impl ::core::marker::Copy for AUTHENTICATION_REQUIREMENTS {}
 impl ::core::clone::Clone for AUTHENTICATION_REQUIREMENTS {
     fn clone(&self) -> Self {
@@ -2125,16 +2237,6 @@ impl ::core::fmt::Debug for AUTHENTICATION_REQUIREMENTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BLUETOOTH_AUTHENTICATION_METHOD(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const BLUETOOTH_AUTHENTICATION_METHOD_LEGACY: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const BLUETOOTH_AUTHENTICATION_METHOD_OOB: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const BLUETOOTH_AUTHENTICATION_METHOD_NUMERIC_COMPARISON: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY_NOTIFICATION: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY: BLUETOOTH_AUTHENTICATION_METHOD = BLUETOOTH_AUTHENTICATION_METHOD(5i32);
 impl ::core::marker::Copy for BLUETOOTH_AUTHENTICATION_METHOD {}
 impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATION_METHOD {
     fn clone(&self) -> Self {
@@ -2158,20 +2260,6 @@ impl ::core::fmt::Debug for BLUETOOTH_AUTHENTICATION_METHOD {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BLUETOOTH_AUTHENTICATION_REQUIREMENTS(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const BLUETOOTH_MITM_ProtectionNotRequired: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const BLUETOOTH_MITM_ProtectionRequired: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const BLUETOOTH_MITM_ProtectionNotRequiredBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const BLUETOOTH_MITM_ProtectionRequiredBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const BLUETOOTH_MITM_ProtectionNotRequiredGeneralBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const BLUETOOTH_MITM_ProtectionRequiredGeneralBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const BLUETOOTH_MITM_ProtectionNotDefined: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = BLUETOOTH_AUTHENTICATION_REQUIREMENTS(255i32);
 impl ::core::marker::Copy for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {}
 impl ::core::clone::Clone for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
     fn clone(&self) -> Self {
@@ -2195,16 +2283,6 @@ impl ::core::fmt::Debug for BLUETOOTH_AUTHENTICATION_REQUIREMENTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BLUETOOTH_IO_CAPABILITY(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const BLUETOOTH_IO_CAPABILITY_DISPLAYONLY: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const BLUETOOTH_IO_CAPABILITY_DISPLAYYESNO: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const BLUETOOTH_IO_CAPABILITY_KEYBOARDONLY: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const BLUETOOTH_IO_CAPABILITY_NOINPUTNOOUTPUT: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const BLUETOOTH_IO_CAPABILITY_UNDEFINED: BLUETOOTH_IO_CAPABILITY = BLUETOOTH_IO_CAPABILITY(255i32);
 impl ::core::marker::Copy for BLUETOOTH_IO_CAPABILITY {}
 impl ::core::clone::Clone for BLUETOOTH_IO_CAPABILITY {
     fn clone(&self) -> Self {
@@ -2228,20 +2306,6 @@ impl ::core::fmt::Debug for BLUETOOTH_IO_CAPABILITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BTH_LE_GATT_DESCRIPTOR_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const CharacteristicExtendedProperties: BTH_LE_GATT_DESCRIPTOR_TYPE = BTH_LE_GATT_DESCRIPTOR_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const CharacteristicUserDescription: BTH_LE_GATT_DESCRIPTOR_TYPE = BTH_LE_GATT_DESCRIPTOR_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const ClientCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_TYPE = BTH_LE_GATT_DESCRIPTOR_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const ServerCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_TYPE = BTH_LE_GATT_DESCRIPTOR_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const CharacteristicFormat: BTH_LE_GATT_DESCRIPTOR_TYPE = BTH_LE_GATT_DESCRIPTOR_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const CharacteristicAggregateFormat: BTH_LE_GATT_DESCRIPTOR_TYPE = BTH_LE_GATT_DESCRIPTOR_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const CustomDescriptor: BTH_LE_GATT_DESCRIPTOR_TYPE = BTH_LE_GATT_DESCRIPTOR_TYPE(6i32);
 impl ::core::marker::Copy for BTH_LE_GATT_DESCRIPTOR_TYPE {}
 impl ::core::clone::Clone for BTH_LE_GATT_DESCRIPTOR_TYPE {
     fn clone(&self) -> Self {
@@ -2265,8 +2329,6 @@ impl ::core::fmt::Debug for BTH_LE_GATT_DESCRIPTOR_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BTH_LE_GATT_EVENT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const CharacteristicValueChangedEvent: BTH_LE_GATT_EVENT_TYPE = BTH_LE_GATT_EVENT_TYPE(0i32);
 impl ::core::marker::Copy for BTH_LE_GATT_EVENT_TYPE {}
 impl ::core::clone::Clone for BTH_LE_GATT_EVENT_TYPE {
     fn clone(&self) -> Self {
@@ -2290,16 +2352,6 @@ impl ::core::fmt::Debug for BTH_LE_GATT_EVENT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IO_CAPABILITY(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const IoCaps_DisplayOnly: IO_CAPABILITY = IO_CAPABILITY(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const IoCaps_DisplayYesNo: IO_CAPABILITY = IO_CAPABILITY(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const IoCaps_KeyboardOnly: IO_CAPABILITY = IO_CAPABILITY(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const IoCaps_NoInputNoOutput: IO_CAPABILITY = IO_CAPABILITY(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const IoCaps_Undefined: IO_CAPABILITY = IO_CAPABILITY(255i32);
 impl ::core::marker::Copy for IO_CAPABILITY {}
 impl ::core::clone::Clone for IO_CAPABILITY {
     fn clone(&self) -> Self {
@@ -2323,10 +2375,6 @@ impl ::core::fmt::Debug for IO_CAPABILITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NodeContainerType(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const NodeContainerTypeSequence: NodeContainerType = NodeContainerType(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const NodeContainerTypeAlternative: NodeContainerType = NodeContainerType(1i32);
 impl ::core::marker::Copy for NodeContainerType {}
 impl ::core::clone::Clone for NodeContainerType {
     fn clone(&self) -> Self {
@@ -2350,34 +2398,6 @@ impl ::core::fmt::Debug for NodeContainerType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SDP_SPECIFICTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_ST_NONE: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_ST_UINT8: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(16i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_ST_UINT16: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(272i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_ST_UINT32: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(528i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_ST_UINT64: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(784i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_ST_UINT128: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(1040i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_ST_INT8: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(32i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_ST_INT16: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(288i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_ST_INT32: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(544i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_ST_INT64: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(800i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_ST_INT128: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(1056i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_ST_UUID16: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(304i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_ST_UUID32: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(544i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_ST_UUID128: SDP_SPECIFICTYPE = SDP_SPECIFICTYPE(1072i32);
 impl ::core::marker::Copy for SDP_SPECIFICTYPE {}
 impl ::core::clone::Clone for SDP_SPECIFICTYPE {
     fn clone(&self) -> Self {
@@ -2401,26 +2421,6 @@ impl ::core::fmt::Debug for SDP_SPECIFICTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SDP_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_TYPE_NIL: SDP_TYPE = SDP_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_TYPE_UINT: SDP_TYPE = SDP_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_TYPE_INT: SDP_TYPE = SDP_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_TYPE_UUID: SDP_TYPE = SDP_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_TYPE_STRING: SDP_TYPE = SDP_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_TYPE_BOOLEAN: SDP_TYPE = SDP_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_TYPE_SEQUENCE: SDP_TYPE = SDP_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_TYPE_ALTERNATIVE: SDP_TYPE = SDP_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_TYPE_URL: SDP_TYPE = SDP_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Bluetooth\"`*"]
-pub const SDP_TYPE_CONTAINER: SDP_TYPE = SDP_TYPE(32i32);
 impl ::core::marker::Copy for SDP_TYPE {}
 impl ::core::clone::Clone for SDP_TYPE {
     fn clone(&self) -> Self {

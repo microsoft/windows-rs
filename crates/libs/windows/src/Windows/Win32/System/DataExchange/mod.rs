@@ -667,9 +667,41 @@ where
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const APPCLASS_MASK: i32 = 15i32;
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const APPCLASS_MONITOR: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const APPCLASS_STANDARD: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(0u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const APPCMD_CLIENTONLY: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const APPCMD_FILTERINITS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(32u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const APPCMD_MASK: i32 = 4080i32;
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const CADV_LATEACK: u32 = 65535u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_FAIL_ADVISES: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16384u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_FAIL_ALLSVRXACTIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(258048u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_FAIL_CONNECTIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(8192u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_FAIL_EXECUTES: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(32768u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_FAIL_POKES: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(65536u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_FAIL_REQUESTS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(131072u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_FAIL_SELFCONNECTIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(4096u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_SKIP_ALLNOTIFICATIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(3932160u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_SKIP_CONNECT_CONFIRMS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(262144u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_SKIP_DISCONNECTS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(2097152u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_SKIP_REGISTRATIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(524288u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_SKIP_UNREGISTRATIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1048576u32);
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const CP_WINANSI: i32 = 1004i32;
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -735,11 +767,41 @@ pub const DMLERR_UNADVACKTIMEOUT: u32 = 16400u32;
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const DMLERR_UNFOUND_QUEUE_ID: u32 = 16401u32;
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DNS_FILTEROFF: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(8u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DNS_FILTERON: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(4u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DNS_REGISTER: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(1u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DNS_UNREGISTER: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(2u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const EC_DISABLE: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(8u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const EC_ENABLEALL: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(0u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const EC_ENABLEONE: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(128u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const EC_QUERYWAITING: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(2u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const HDATA_APPOWNED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const MAX_MONITORS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const MF_CALLBACKS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(134217728u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const MF_CONV: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1073741824u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const MF_ERRORS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(268435456u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const MF_HSZ_INFO: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16777216u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const MF_LINKS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(536870912u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const MF_MASK: u32 = 4278190080u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const MF_POSTMSGS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(67108864u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const MF_SENDMSGS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(33554432u32);
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const MH_CLEANUP: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -752,6 +814,24 @@ pub const MH_KEEP: u32 = 2u32;
 pub const MSGF_DDEMGR: u32 = 32769u32;
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const QID_SYNC: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const ST_ADVISE: CONVINFO_STATUS = CONVINFO_STATUS(2u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const ST_BLOCKED: CONVINFO_STATUS = CONVINFO_STATUS(8u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const ST_BLOCKNEXT: CONVINFO_STATUS = CONVINFO_STATUS(128u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const ST_CLIENT: CONVINFO_STATUS = CONVINFO_STATUS(16u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const ST_CONNECTED: CONVINFO_STATUS = CONVINFO_STATUS(1u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const ST_INLIST: CONVINFO_STATUS = CONVINFO_STATUS(64u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const ST_ISLOCAL: CONVINFO_STATUS = CONVINFO_STATUS(4u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const ST_ISSELF: CONVINFO_STATUS = CONVINFO_STATUS(256u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const ST_TERMINATED: CONVINFO_STATUS = CONVINFO_STATUS(32u32);
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const SZDDESYS_ITEM_FORMATS: ::windows_core::PCWSTR = ::windows_core::w!("Formats");
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
@@ -803,20 +883,6 @@ pub const XCLASS_MASK: u32 = 64512u32;
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const XCLASS_NOTIFICATION: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYPF_ACKREQ: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYPF_NOBLOCK: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYPF_NODATA: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_MASK: u32 = 240u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_SHIFT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CONVINFO_CONVERSATION_STATE(pub u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const XST_ADVACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(13u32);
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const XST_ADVDATAACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(16u32);
@@ -850,6 +916,50 @@ pub const XST_REQSENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE
 pub const XST_UNADVACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(14u32);
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub const XST_UNADVSENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(12u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYPF_ACKREQ: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYPF_NOBLOCK: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYPF_NODATA: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_ADVDATA: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(16400u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_ADVREQ: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(8226u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_ADVSTART: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(4144u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_ADVSTOP: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32832u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_CONNECT: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(4194u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_CONNECT_CONFIRM: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32882u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_DISCONNECT: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32962u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_EXECUTE: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(16464u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_MASK: u32 = 240u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_MONITOR: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(33010u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_POKE: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(16528u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_REGISTER: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32930u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_REQUEST: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(8368u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_SHIFT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_UNREGISTER: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32978u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_WILDCONNECT: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(8418u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_XACT_COMPLETE: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32896u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CONVINFO_CONVERSATION_STATE(pub u32);
 impl ::core::marker::Copy for CONVINFO_CONVERSATION_STATE {}
 impl ::core::clone::Clone for CONVINFO_CONVERSATION_STATE {
     fn clone(&self) -> Self {
@@ -873,24 +983,6 @@ impl ::core::fmt::Debug for CONVINFO_CONVERSATION_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONVINFO_STATUS(pub u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const ST_ADVISE: CONVINFO_STATUS = CONVINFO_STATUS(2u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const ST_BLOCKED: CONVINFO_STATUS = CONVINFO_STATUS(8u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const ST_BLOCKNEXT: CONVINFO_STATUS = CONVINFO_STATUS(128u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const ST_CLIENT: CONVINFO_STATUS = CONVINFO_STATUS(16u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const ST_CONNECTED: CONVINFO_STATUS = CONVINFO_STATUS(1u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const ST_INLIST: CONVINFO_STATUS = CONVINFO_STATUS(64u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const ST_ISLOCAL: CONVINFO_STATUS = CONVINFO_STATUS(4u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const ST_ISSELF: CONVINFO_STATUS = CONVINFO_STATUS(256u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const ST_TERMINATED: CONVINFO_STATUS = CONVINFO_STATUS(32u32);
 impl ::core::marker::Copy for CONVINFO_STATUS {}
 impl ::core::clone::Clone for CONVINFO_STATUS {
     fn clone(&self) -> Self {
@@ -947,36 +1039,6 @@ impl ::core::ops::Not for CONVINFO_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DDE_CLIENT_TRANSACTION_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_ADVSTART: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(4144u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_ADVSTOP: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32832u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_EXECUTE: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(16464u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_POKE: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(16528u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_REQUEST: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(8368u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_ADVDATA: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(16400u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_ADVREQ: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(8226u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_CONNECT: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(4194u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_CONNECT_CONFIRM: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32882u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_DISCONNECT: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32962u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_MONITOR: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(33010u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_REGISTER: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32930u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_UNREGISTER: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32978u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_WILDCONNECT: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(8418u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_XACT_COMPLETE: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32896u32);
 impl ::core::marker::Copy for DDE_CLIENT_TRANSACTION_TYPE {}
 impl ::core::clone::Clone for DDE_CLIENT_TRANSACTION_TYPE {
     fn clone(&self) -> Self {
@@ -1000,14 +1062,6 @@ impl ::core::fmt::Debug for DDE_CLIENT_TRANSACTION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DDE_ENABLE_CALLBACK_CMD(pub u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const EC_ENABLEALL: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(0u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const EC_ENABLEONE: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(128u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const EC_DISABLE: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(8u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const EC_QUERYWAITING: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(2u32);
 impl ::core::marker::Copy for DDE_ENABLE_CALLBACK_CMD {}
 impl ::core::clone::Clone for DDE_ENABLE_CALLBACK_CMD {
     fn clone(&self) -> Self {
@@ -1031,52 +1085,6 @@ impl ::core::fmt::Debug for DDE_ENABLE_CALLBACK_CMD {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DDE_INITIALIZE_COMMAND(pub u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const APPCLASS_MONITOR: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const APPCLASS_STANDARD: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(0u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const APPCMD_CLIENTONLY: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const APPCMD_FILTERINITS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(32u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_FAIL_ALLSVRXACTIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(258048u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_FAIL_ADVISES: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16384u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_FAIL_CONNECTIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(8192u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_FAIL_EXECUTES: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(32768u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_FAIL_POKES: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(65536u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_FAIL_REQUESTS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(131072u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_FAIL_SELFCONNECTIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(4096u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_SKIP_ALLNOTIFICATIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(3932160u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_SKIP_CONNECT_CONFIRMS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(262144u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_SKIP_DISCONNECTS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(2097152u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_SKIP_REGISTRATIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(524288u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_SKIP_UNREGISTRATIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1048576u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const MF_CALLBACKS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(134217728u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const MF_CONV: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1073741824u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const MF_ERRORS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(268435456u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const MF_HSZ_INFO: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16777216u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const MF_LINKS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(536870912u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const MF_POSTMSGS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(67108864u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const MF_SENDMSGS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(33554432u32);
 impl ::core::marker::Copy for DDE_INITIALIZE_COMMAND {}
 impl ::core::clone::Clone for DDE_INITIALIZE_COMMAND {
     fn clone(&self) -> Self {
@@ -1133,14 +1141,6 @@ impl ::core::ops::Not for DDE_INITIALIZE_COMMAND {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DDE_NAME_SERVICE_CMD(pub u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DNS_REGISTER: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(1u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DNS_UNREGISTER: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(2u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DNS_FILTERON: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(4u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DNS_FILTEROFF: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(8u32);
 impl ::core::marker::Copy for DDE_NAME_SERVICE_CMD {}
 impl ::core::clone::Clone for DDE_NAME_SERVICE_CMD {
     fn clone(&self) -> Self {

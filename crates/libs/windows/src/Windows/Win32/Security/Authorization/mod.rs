@@ -8476,11 +8476,19 @@ pub const ACCCTRL_DEFAULT_PROVIDERA: ::windows_core::PCSTR = ::windows_core::s!(
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const ACCCTRL_DEFAULT_PROVIDERW: ::windows_core::PCWSTR = ::windows_core::w!("Windows NT Access Provider");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_ACCESS_ALLOWED: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_ACCESS_DENIED: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const ACTRL_ACCESS_NO_OPTIONS: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const ACTRL_ACCESS_PROTECTED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const ACTRL_ACCESS_SUPPORTS_OBJECT_ENTRIES: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_AUDIT_FAILURE: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_AUDIT_SUCCESS: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(4u32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const ACTRL_CHANGE_ACCESS: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
@@ -8662,6 +8670,32 @@ pub const APF_AuditSuccess: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const APF_ValidFlags: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_Guid: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_Int64: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_IpAddress: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_LogonId: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_LogonIdWithSid: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_Luid: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_None: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_ObjectTypeList: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_Pointer: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_Sid: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_String: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_Time: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_Ulong: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AP_ParamTypeBits: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AP_ParamTypeMask: i32 = 255i32;
@@ -8672,6 +8706,8 @@ pub const AUDIT_TYPE_WMI: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZP_WPD_EVENT: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_ACCESS_CHECK_NO_DEEP_COPY_SD: AUTHZ_ACCESS_CHECK_FLAGS = AUTHZ_ACCESS_CHECK_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZ_AUDIT_INSTANCE_INFORMATION: u32 = 2u32;
@@ -8680,17 +8716,45 @@ pub const AUTHZ_COMPUTE_PRIVILEGES: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZ_FLAG_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_GENERATE_FAILURE_AUDIT: AUTHZ_GENERATE_RESULTS = AUTHZ_GENERATE_RESULTS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_GENERATE_SUCCESS_AUDIT: AUTHZ_GENERATE_RESULTS = AUTHZ_GENERATE_RESULTS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZ_INIT_INFO_VERSION_V1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZ_MIGRATED_LEGACY_PUBLISHER: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_NO_ALLOC_STRINGS: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_NO_FAILURE_AUDIT: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_NO_SUCCESS_AUDIT: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZ_REQUIRE_S4U_LOGON: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_RM_FLAG_INITIALIZE_UNDER_IMPERSONATION: AUTHZ_RESOURCE_MANAGER_FLAGS = AUTHZ_RESOURCE_MANAGER_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_RM_FLAG_NO_AUDIT: AUTHZ_RESOURCE_MANAGER_FLAGS = AUTHZ_RESOURCE_MANAGER_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_RM_FLAG_NO_CENTRAL_ACCESS_POLICIES: AUTHZ_RESOURCE_MANAGER_FLAGS = AUTHZ_RESOURCE_MANAGER_FLAGS(4u32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZ_RPC_INIT_INFO_CLIENT_VERSION_V1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: AUTHZ_SECURITY_ATTRIBUTE_FLAGS = AUTHZ_SECURITY_ATTRIBUTE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_ADD: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_DELETE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_NONE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(0i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE_ALL: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(1i32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
@@ -8708,9 +8772,259 @@ pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_STRING: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_UINT64: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: AUTHZ_SECURITY_ATTRIBUTE_FLAGS = AUTHZ_SECURITY_ATTRIBUTE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SID_OPERATION_ADD: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SID_OPERATION_DELETE: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SID_OPERATION_NONE: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(0i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SID_OPERATION_REPLACE: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SID_OPERATION_REPLACE_ALL: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZ_SKIP_TOKEN_GROUPS: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AUTHZ_WPD_CATEGORY_FLAG: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_DEFAULT_DOMAIN_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(15000i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_DEFAULT_MAX_SCRIPT_ENGINES: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(120i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_DEFAULT_SCRIPT_ENGINE_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(45000i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_FLAG_AUDIT_IS_CRITICAL: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(8i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_FLAG_BATCH_UPDATE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_FLAG_CREATE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_FLAG_MANAGE_ONLY_PASSIVE_SUBMIT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(32768i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_FLAG_MANAGE_STORE_ONLY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_FORCE_APPLICATION_CLOSE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(16i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_MIN_DOMAIN_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(500i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_MIN_SCRIPT_ENGINE_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(5000i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_NT6_FUNCTION_LEVEL: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(32i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_CLIENT_CONTEXT_GET_GROUPS_STORE_LEVEL_ONLY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_CLIENT_CONTEXT_GET_GROUP_RECURSIVE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_CLIENT_CONTEXT_SKIP_GROUP: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_CLIENT_CONTEXT_SKIP_LDAP_QUERY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_GROUPTYPE_BASIC: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_GROUPTYPE_BIZRULE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_GROUPTYPE_LDAP_QUERY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_APPLICATION_DATA_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(4096i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_APPLICATION_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(512i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_APPLICATION_VERSION_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(512i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_BIZRULE_STRING: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_DESCRIPTION_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1024i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_GROUP_BIZRULE_IMPORTED_PATH_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(512i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_GROUP_BIZRULE_LANGUAGE_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_GROUP_BIZRULE_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_GROUP_LDAP_QUERY_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(4096i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_GROUP_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_OPERATION_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_POLICY_URL_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_ROLE_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_SCOPE_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_TASK_BIZRULE_IMPORTED_PATH_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(512i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_TASK_BIZRULE_LANGUAGE_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_TASK_BIZRULE_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_TASK_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_APPLICATION_AUTHZ_INTERFACE_CLSID: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(800i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_APPLICATION_BIZRULE_ENABLED: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(803i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_APPLICATION_DATA: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_APPLICATION_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(802i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_APPLICATION_VERSION: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(801i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_APPLY_STORE_SACL: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(900i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_AZSTORE_DOMAIN_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(100i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_AZSTORE_MAJOR_VERSION: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(103i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_AZSTORE_MAX_SCRIPT_ENGINES: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(102i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_AZSTORE_MINOR_VERSION: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(104i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_AZSTORE_SCRIPT_ENGINE_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(101i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_AZSTORE_TARGET_MACHINE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(105i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_AZTORE_IS_ADAM_INSTANCE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(106i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_CHILD_CREATE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(5i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_CLIENT_CONTEXT_LDAP_QUERY_DN: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(709i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_CLIENT_CONTEXT_ROLE_FOR_ACCESS_CHECK: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(708i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_CLIENT_CONTEXT_USER_CANONICAL: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(704i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_CLIENT_CONTEXT_USER_DISPLAY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(702i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_CLIENT_CONTEXT_USER_DN: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(700i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_CLIENT_CONTEXT_USER_DNS_SAM_COMPAT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(707i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_CLIENT_CONTEXT_USER_GUID: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(703i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_CLIENT_CONTEXT_USER_SAM_COMPAT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(701i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_CLIENT_CONTEXT_USER_UPN: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(705i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_DELEGATED_POLICY_USERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(904i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_DELEGATED_POLICY_USERS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(907i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_DESCRIPTION: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GENERATE_AUDITS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(901i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_APP_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(401i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_APP_NON_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(402i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_BIZRULE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(408i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_BIZRULE_IMPORTED_PATH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(410i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_BIZRULE_LANGUAGE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(409i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_LDAP_QUERY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(403i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(404i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_MEMBERS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(406i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_NON_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(405i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_NON_MEMBERS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(407i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_TYPE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(400i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_OPERATION_ID: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(200i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_POLICY_ADMINS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(902i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_POLICY_ADMINS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(905i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_POLICY_READERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(903i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_POLICY_READERS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(906i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_ROLE_APP_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(500i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_ROLE_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(501i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_ROLE_MEMBERS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(505i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_ROLE_OPERATIONS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(502i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_ROLE_TASKS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(504i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_SCOPE_BIZRULES_WRITABLE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(600i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_SCOPE_CAN_BE_DELEGATED: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(601i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_TASK_BIZRULE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(301i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_TASK_BIZRULE_IMPORTED_PATH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(304i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_TASK_BIZRULE_LANGUAGE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(302i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_TASK_IS_ROLE_DEFINITION: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(305i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_TASK_OPERATIONS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(300i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_TASK_TASKS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(303i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_WRITABLE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_SUBMIT_FLAG_ABORT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_SUBMIT_FLAG_FLUSH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzAuditEventInfoAdditionalInfo: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(5i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzAuditEventInfoFlags: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzAuditEventInfoObjectName: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzAuditEventInfoObjectType: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzAuditEventInfoOperationType: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoAll: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(9i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoAppContainerSid: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(15i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoAuthenticationId: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(10i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoCapabilitySids: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(16i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoDeviceClaims: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(14i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoDeviceSids: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(12i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoExpirationTime: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(5i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoGroupsSids: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoIdentifier: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(7i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoPrivileges: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoRestrictedSids: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoSecurityAttributes: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(11i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoServerContext: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(6i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoSource: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(8i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoUserClaims: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(13i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoUserSid: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(1i32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AzAuthorizationStore: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2bcff59_a757_4b0b_a1bc_ea69981da69e);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
@@ -8718,13 +9032,35 @@ pub const AzBizRuleContext: ::windows_core::GUID = ::windows_core::GUID::from_u1
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const AzPrincipalLocator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x483afb5d_70df_4e16_abdc_a1de4d015a3e);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const DENY_ACCESS: ACCESS_MODE = ACCESS_MODE(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const GRANT_ACCESS: ACCESS_MODE = ACCESS_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const INHERITED_ACCESS_ENTRY: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const INHERITED_GRANDPARENT: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const INHERITED_PARENT: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const NOT_USED_ACCESS: ACCESS_MODE = ACCESS_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const NO_MULTIPLE_TRUSTEE: MULTIPLE_TRUSTEE_OPERATION = MULTIPLE_TRUSTEE_OPERATION(0i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const OLESCRIPT_E_SYNTAX: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147352319i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ProgressCancelOperation: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ProgressInvokeEveryObject: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ProgressInvokeNever: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ProgressInvokeOnError: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ProgressInvokePrePostError: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(6i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ProgressRetryOperation: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(5i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const REVOKE_ACCESS: ACCESS_MODE = ACCESS_MODE(4i32);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const SDDL_ACCESS_ALLOWED: ::windows_core::PCWSTR = ::windows_core::w!("A");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
@@ -9028,6 +9364,46 @@ pub const SDDL_WRITE_RESTRICTED_CODE: ::windows_core::PCWSTR = ::windows_core::w
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const SDDL_WSTRING: ::windows_core::PCWSTR = ::windows_core::w!("TS");
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const SET_ACCESS: ACCESS_MODE = ACCESS_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const SET_AUDIT_FAILURE: ACCESS_MODE = ACCESS_MODE(6i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const SET_AUDIT_SUCCESS: ACCESS_MODE = ACCESS_MODE(5i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const SE_DS_OBJECT: SE_OBJECT_TYPE = SE_OBJECT_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const SE_DS_OBJECT_ALL: SE_OBJECT_TYPE = SE_OBJECT_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const SE_FILE_OBJECT: SE_OBJECT_TYPE = SE_OBJECT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const SE_KERNEL_OBJECT: SE_OBJECT_TYPE = SE_OBJECT_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const SE_LMSHARE: SE_OBJECT_TYPE = SE_OBJECT_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const SE_PRINTER: SE_OBJECT_TYPE = SE_OBJECT_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const SE_PROVIDER_DEFINED_OBJECT: SE_OBJECT_TYPE = SE_OBJECT_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const SE_REGISTRY_KEY: SE_OBJECT_TYPE = SE_OBJECT_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const SE_REGISTRY_WOW64_32KEY: SE_OBJECT_TYPE = SE_OBJECT_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const SE_REGISTRY_WOW64_64KEY: SE_OBJECT_TYPE = SE_OBJECT_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const SE_SERVICE: SE_OBJECT_TYPE = SE_OBJECT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const SE_UNKNOWN_OBJECT_TYPE: SE_OBJECT_TYPE = SE_OBJECT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const SE_WINDOW_OBJECT: SE_OBJECT_TYPE = SE_OBJECT_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const SE_WMIGUID_OBJECT: SE_OBJECT_TYPE = SE_OBJECT_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TREE_SEC_INFO_RESET: TREE_SEC_INFO = TREE_SEC_INFO(2u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TREE_SEC_INFO_RESET_KEEP_EXPLICIT: TREE_SEC_INFO = TREE_SEC_INFO(3u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TREE_SEC_INFO_SET: TREE_SEC_INFO = TREE_SEC_INFO(1u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const TRUSTEE_ACCESS_ALL: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const TRUSTEE_ACCESS_ALLOWED: i32 = 1i32;
@@ -9038,25 +9414,41 @@ pub const TRUSTEE_ACCESS_READ: i32 = 2i32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const TRUSTEE_ACCESS_WRITE: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_BAD_FORM: TRUSTEE_FORM = TRUSTEE_FORM(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_ALIAS: TRUSTEE_TYPE = TRUSTEE_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_COMPUTER: TRUSTEE_TYPE = TRUSTEE_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_DELETED: TRUSTEE_TYPE = TRUSTEE_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_DOMAIN: TRUSTEE_TYPE = TRUSTEE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_GROUP: TRUSTEE_TYPE = TRUSTEE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_IMPERSONATE: MULTIPLE_TRUSTEE_OPERATION = MULTIPLE_TRUSTEE_OPERATION(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_INVALID: TRUSTEE_TYPE = TRUSTEE_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_NAME: TRUSTEE_FORM = TRUSTEE_FORM(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_OBJECTS_AND_NAME: TRUSTEE_FORM = TRUSTEE_FORM(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_OBJECTS_AND_SID: TRUSTEE_FORM = TRUSTEE_FORM(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_SID: TRUSTEE_FORM = TRUSTEE_FORM(0i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_UNKNOWN: TRUSTEE_TYPE = TRUSTEE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_USER: TRUSTEE_TYPE = TRUSTEE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_WELL_KNOWN_GROUP: TRUSTEE_TYPE = TRUSTEE_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const _AUTHZ_SS_MAXSIZE: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACCESS_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const NOT_USED_ACCESS: ACCESS_MODE = ACCESS_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const GRANT_ACCESS: ACCESS_MODE = ACCESS_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SET_ACCESS: ACCESS_MODE = ACCESS_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const DENY_ACCESS: ACCESS_MODE = ACCESS_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const REVOKE_ACCESS: ACCESS_MODE = ACCESS_MODE(4i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SET_AUDIT_SUCCESS: ACCESS_MODE = ACCESS_MODE(5i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SET_AUDIT_FAILURE: ACCESS_MODE = ACCESS_MODE(6i32);
 impl ::core::marker::Copy for ACCESS_MODE {}
 impl ::core::clone::Clone for ACCESS_MODE {
     fn clone(&self) -> Self {
@@ -9080,14 +9472,6 @@ impl ::core::fmt::Debug for ACCESS_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_ACCESS_ALLOWED: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_ACCESS_DENIED: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_AUDIT_SUCCESS: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_AUDIT_FAILURE: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(8u32);
 impl ::core::marker::Copy for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {}
 impl ::core::clone::Clone for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {
     fn clone(&self) -> Self {
@@ -9111,32 +9495,6 @@ impl ::core::fmt::Debug for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUDIT_PARAM_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_None: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_String: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_Ulong: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_Pointer: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_Sid: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_LogonId: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_ObjectTypeList: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_Luid: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_Guid: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_Time: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_Int64: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_IpAddress: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_LogonIdWithSid: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(13i32);
 impl ::core::marker::Copy for AUDIT_PARAM_TYPE {}
 impl ::core::clone::Clone for AUDIT_PARAM_TYPE {
     fn clone(&self) -> Self {
@@ -9160,8 +9518,6 @@ impl ::core::fmt::Debug for AUDIT_PARAM_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_ACCESS_CHECK_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_ACCESS_CHECK_NO_DEEP_COPY_SD: AUTHZ_ACCESS_CHECK_FLAGS = AUTHZ_ACCESS_CHECK_FLAGS(1u32);
 impl ::core::marker::Copy for AUTHZ_ACCESS_CHECK_FLAGS {}
 impl ::core::clone::Clone for AUTHZ_ACCESS_CHECK_FLAGS {
     fn clone(&self) -> Self {
@@ -9185,16 +9541,6 @@ impl ::core::fmt::Debug for AUTHZ_ACCESS_CHECK_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzAuditEventInfoFlags: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzAuditEventInfoOperationType: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzAuditEventInfoObjectType: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzAuditEventInfoObjectName: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzAuditEventInfoAdditionalInfo: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(5i32);
 impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {}
 impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -9218,38 +9564,6 @@ impl ::core::fmt::Debug for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_CONTEXT_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoUserSid: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoGroupsSids: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoRestrictedSids: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoPrivileges: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoExpirationTime: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoServerContext: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(6i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoIdentifier: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(7i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoSource: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(8i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoAll: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(9i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoAuthenticationId: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(10i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoSecurityAttributes: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(11i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoDeviceSids: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(12i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoUserClaims: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(13i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoDeviceClaims: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(14i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoAppContainerSid: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(15i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoCapabilitySids: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(16i32);
 impl ::core::marker::Copy for AUTHZ_CONTEXT_INFORMATION_CLASS {}
 impl ::core::clone::Clone for AUTHZ_CONTEXT_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -9273,10 +9587,6 @@ impl ::core::fmt::Debug for AUTHZ_CONTEXT_INFORMATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_GENERATE_RESULTS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_GENERATE_SUCCESS_AUDIT: AUTHZ_GENERATE_RESULTS = AUTHZ_GENERATE_RESULTS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_GENERATE_FAILURE_AUDIT: AUTHZ_GENERATE_RESULTS = AUTHZ_GENERATE_RESULTS(2u32);
 impl ::core::marker::Copy for AUTHZ_GENERATE_RESULTS {}
 impl ::core::clone::Clone for AUTHZ_GENERATE_RESULTS {
     fn clone(&self) -> Self {
@@ -9300,12 +9610,6 @@ impl ::core::fmt::Debug for AUTHZ_GENERATE_RESULTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_NO_SUCCESS_AUDIT: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_NO_FAILURE_AUDIT: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_NO_ALLOC_STRINGS: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(4u32);
 impl ::core::marker::Copy for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {}
 impl ::core::clone::Clone for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {
     fn clone(&self) -> Self {
@@ -9329,12 +9633,6 @@ impl ::core::fmt::Debug for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_RESOURCE_MANAGER_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_RM_FLAG_NO_AUDIT: AUTHZ_RESOURCE_MANAGER_FLAGS = AUTHZ_RESOURCE_MANAGER_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_RM_FLAG_INITIALIZE_UNDER_IMPERSONATION: AUTHZ_RESOURCE_MANAGER_FLAGS = AUTHZ_RESOURCE_MANAGER_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_RM_FLAG_NO_CENTRAL_ACCESS_POLICIES: AUTHZ_RESOURCE_MANAGER_FLAGS = AUTHZ_RESOURCE_MANAGER_FLAGS(4u32);
 impl ::core::marker::Copy for AUTHZ_RESOURCE_MANAGER_FLAGS {}
 impl ::core::clone::Clone for AUTHZ_RESOURCE_MANAGER_FLAGS {
     fn clone(&self) -> Self {
@@ -9391,10 +9689,6 @@ impl ::core::ops::Not for AUTHZ_RESOURCE_MANAGER_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: AUTHZ_SECURITY_ATTRIBUTE_FLAGS = AUTHZ_SECURITY_ATTRIBUTE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: AUTHZ_SECURITY_ATTRIBUTE_FLAGS = AUTHZ_SECURITY_ATTRIBUTE_FLAGS(2u32);
 impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {}
 impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
     fn clone(&self) -> Self {
@@ -9451,16 +9745,6 @@ impl ::core::ops::Not for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_OPERATION(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_NONE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(0i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE_ALL: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_ADD: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_DELETE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(4i32);
 impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {}
 impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {
     fn clone(&self) -> Self {
@@ -9484,16 +9768,6 @@ impl ::core::fmt::Debug for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AUTHZ_SID_OPERATION(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SID_OPERATION_NONE: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(0i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SID_OPERATION_REPLACE_ALL: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SID_OPERATION_ADD: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SID_OPERATION_DELETE: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SID_OPERATION_REPLACE: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(4i32);
 impl ::core::marker::Copy for AUTHZ_SID_OPERATION {}
 impl ::core::clone::Clone for AUTHZ_SID_OPERATION {
     fn clone(&self) -> Self {
@@ -9517,202 +9791,6 @@ impl ::core::fmt::Debug for AUTHZ_SID_OPERATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AZ_PROP_CONSTANTS(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_DESCRIPTION: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_WRITABLE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_APPLICATION_DATA: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(4i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_CHILD_CREATE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(5i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_APPLICATION_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(512i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_OPERATION_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_TASK_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_SCOPE_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_GROUP_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_ROLE_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_DESCRIPTION_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1024i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_APPLICATION_DATA_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(4096i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_SUBMIT_FLAG_ABORT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_SUBMIT_FLAG_FLUSH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_POLICY_URL_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_FLAG_CREATE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_FLAG_MANAGE_STORE_ONLY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_FLAG_BATCH_UPDATE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(4i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_FLAG_AUDIT_IS_CRITICAL: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(8i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_FORCE_APPLICATION_CLOSE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(16i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_NT6_FUNCTION_LEVEL: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(32i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_FLAG_MANAGE_ONLY_PASSIVE_SUBMIT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(32768i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_AZSTORE_DOMAIN_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(100i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_DEFAULT_DOMAIN_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(15000i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_AZSTORE_SCRIPT_ENGINE_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(101i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_MIN_DOMAIN_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(500i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_MIN_SCRIPT_ENGINE_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(5000i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_DEFAULT_SCRIPT_ENGINE_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(45000i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_AZSTORE_MAX_SCRIPT_ENGINES: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(102i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_DEFAULT_MAX_SCRIPT_ENGINES: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(120i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_AZSTORE_MAJOR_VERSION: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(103i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_AZSTORE_MINOR_VERSION: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(104i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_AZSTORE_TARGET_MACHINE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(105i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_AZTORE_IS_ADAM_INSTANCE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(106i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_OPERATION_ID: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(200i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_TASK_OPERATIONS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(300i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_TASK_BIZRULE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(301i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_TASK_BIZRULE_LANGUAGE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(302i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_TASK_TASKS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(303i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_TASK_BIZRULE_IMPORTED_PATH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(304i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_TASK_IS_ROLE_DEFINITION: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(305i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_TASK_BIZRULE_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_TASK_BIZRULE_LANGUAGE_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_TASK_BIZRULE_IMPORTED_PATH_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(512i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_BIZRULE_STRING: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_TYPE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(400i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_GROUPTYPE_LDAP_QUERY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_GROUPTYPE_BASIC: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_GROUPTYPE_BIZRULE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_APP_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(401i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_APP_NON_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(402i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_LDAP_QUERY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(403i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_GROUP_LDAP_QUERY_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(4096i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(404i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_NON_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(405i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_MEMBERS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(406i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_NON_MEMBERS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(407i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_BIZRULE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(408i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_BIZRULE_LANGUAGE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(409i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_BIZRULE_IMPORTED_PATH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(410i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_GROUP_BIZRULE_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_GROUP_BIZRULE_LANGUAGE_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_GROUP_BIZRULE_IMPORTED_PATH_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(512i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_ROLE_APP_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(500i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_ROLE_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(501i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_ROLE_OPERATIONS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(502i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_ROLE_TASKS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(504i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_ROLE_MEMBERS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(505i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_SCOPE_BIZRULES_WRITABLE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(600i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_SCOPE_CAN_BE_DELEGATED: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(601i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_CLIENT_CONTEXT_USER_DN: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(700i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_CLIENT_CONTEXT_USER_SAM_COMPAT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(701i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_CLIENT_CONTEXT_USER_DISPLAY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(702i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_CLIENT_CONTEXT_USER_GUID: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(703i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_CLIENT_CONTEXT_USER_CANONICAL: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(704i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_CLIENT_CONTEXT_USER_UPN: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(705i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_CLIENT_CONTEXT_USER_DNS_SAM_COMPAT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(707i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_CLIENT_CONTEXT_ROLE_FOR_ACCESS_CHECK: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(708i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_CLIENT_CONTEXT_LDAP_QUERY_DN: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(709i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_APPLICATION_AUTHZ_INTERFACE_CLSID: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(800i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_APPLICATION_VERSION: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(801i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_APPLICATION_VERSION_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(512i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_APPLICATION_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(802i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_APPLICATION_BIZRULE_ENABLED: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(803i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_APPLY_STORE_SACL: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(900i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GENERATE_AUDITS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(901i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_POLICY_ADMINS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(902i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_POLICY_READERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(903i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_DELEGATED_POLICY_USERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(904i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_POLICY_ADMINS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(905i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_POLICY_READERS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(906i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_DELEGATED_POLICY_USERS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(907i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_CLIENT_CONTEXT_SKIP_GROUP: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_CLIENT_CONTEXT_SKIP_LDAP_QUERY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_CLIENT_CONTEXT_GET_GROUP_RECURSIVE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_CLIENT_CONTEXT_GET_GROUPS_STORE_LEVEL_ONLY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
 impl ::core::marker::Copy for AZ_PROP_CONSTANTS {}
 impl ::core::clone::Clone for AZ_PROP_CONSTANTS {
     fn clone(&self) -> Self {
@@ -9736,10 +9814,6 @@ impl ::core::fmt::Debug for AZ_PROP_CONSTANTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MULTIPLE_TRUSTEE_OPERATION(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const NO_MULTIPLE_TRUSTEE: MULTIPLE_TRUSTEE_OPERATION = MULTIPLE_TRUSTEE_OPERATION(0i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_IMPERSONATE: MULTIPLE_TRUSTEE_OPERATION = MULTIPLE_TRUSTEE_OPERATION(1i32);
 impl ::core::marker::Copy for MULTIPLE_TRUSTEE_OPERATION {}
 impl ::core::clone::Clone for MULTIPLE_TRUSTEE_OPERATION {
     fn clone(&self) -> Self {
@@ -9763,18 +9837,6 @@ impl ::core::fmt::Debug for MULTIPLE_TRUSTEE_OPERATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROG_INVOKE_SETTING(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ProgressInvokeNever: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ProgressInvokeEveryObject: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ProgressInvokeOnError: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ProgressCancelOperation: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(4i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ProgressRetryOperation: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(5i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ProgressInvokePrePostError: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(6i32);
 impl ::core::marker::Copy for PROG_INVOKE_SETTING {}
 impl ::core::clone::Clone for PROG_INVOKE_SETTING {
     fn clone(&self) -> Self {
@@ -9798,34 +9860,6 @@ impl ::core::fmt::Debug for PROG_INVOKE_SETTING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SE_OBJECT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SE_UNKNOWN_OBJECT_TYPE: SE_OBJECT_TYPE = SE_OBJECT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SE_FILE_OBJECT: SE_OBJECT_TYPE = SE_OBJECT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SE_SERVICE: SE_OBJECT_TYPE = SE_OBJECT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SE_PRINTER: SE_OBJECT_TYPE = SE_OBJECT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SE_REGISTRY_KEY: SE_OBJECT_TYPE = SE_OBJECT_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SE_LMSHARE: SE_OBJECT_TYPE = SE_OBJECT_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SE_KERNEL_OBJECT: SE_OBJECT_TYPE = SE_OBJECT_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SE_WINDOW_OBJECT: SE_OBJECT_TYPE = SE_OBJECT_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SE_DS_OBJECT: SE_OBJECT_TYPE = SE_OBJECT_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SE_DS_OBJECT_ALL: SE_OBJECT_TYPE = SE_OBJECT_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SE_PROVIDER_DEFINED_OBJECT: SE_OBJECT_TYPE = SE_OBJECT_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SE_WMIGUID_OBJECT: SE_OBJECT_TYPE = SE_OBJECT_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SE_REGISTRY_WOW64_32KEY: SE_OBJECT_TYPE = SE_OBJECT_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SE_REGISTRY_WOW64_64KEY: SE_OBJECT_TYPE = SE_OBJECT_TYPE(13i32);
 impl ::core::marker::Copy for SE_OBJECT_TYPE {}
 impl ::core::clone::Clone for SE_OBJECT_TYPE {
     fn clone(&self) -> Self {
@@ -9849,12 +9883,6 @@ impl ::core::fmt::Debug for SE_OBJECT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TREE_SEC_INFO(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TREE_SEC_INFO_SET: TREE_SEC_INFO = TREE_SEC_INFO(1u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TREE_SEC_INFO_RESET: TREE_SEC_INFO = TREE_SEC_INFO(2u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TREE_SEC_INFO_RESET_KEEP_EXPLICIT: TREE_SEC_INFO = TREE_SEC_INFO(3u32);
 impl ::core::marker::Copy for TREE_SEC_INFO {}
 impl ::core::clone::Clone for TREE_SEC_INFO {
     fn clone(&self) -> Self {
@@ -9878,16 +9906,6 @@ impl ::core::fmt::Debug for TREE_SEC_INFO {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRUSTEE_FORM(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_SID: TRUSTEE_FORM = TRUSTEE_FORM(0i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_NAME: TRUSTEE_FORM = TRUSTEE_FORM(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_BAD_FORM: TRUSTEE_FORM = TRUSTEE_FORM(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_OBJECTS_AND_SID: TRUSTEE_FORM = TRUSTEE_FORM(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_OBJECTS_AND_NAME: TRUSTEE_FORM = TRUSTEE_FORM(4i32);
 impl ::core::marker::Copy for TRUSTEE_FORM {}
 impl ::core::clone::Clone for TRUSTEE_FORM {
     fn clone(&self) -> Self {
@@ -9911,24 +9929,6 @@ impl ::core::fmt::Debug for TRUSTEE_FORM {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRUSTEE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_UNKNOWN: TRUSTEE_TYPE = TRUSTEE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_USER: TRUSTEE_TYPE = TRUSTEE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_GROUP: TRUSTEE_TYPE = TRUSTEE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_DOMAIN: TRUSTEE_TYPE = TRUSTEE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_ALIAS: TRUSTEE_TYPE = TRUSTEE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_WELL_KNOWN_GROUP: TRUSTEE_TYPE = TRUSTEE_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_DELETED: TRUSTEE_TYPE = TRUSTEE_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_INVALID: TRUSTEE_TYPE = TRUSTEE_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_COMPUTER: TRUSTEE_TYPE = TRUSTEE_TYPE(8i32);
 impl ::core::marker::Copy for TRUSTEE_TYPE {}
 impl ::core::clone::Clone for TRUSTEE_TYPE {
     fn clone(&self) -> Self {

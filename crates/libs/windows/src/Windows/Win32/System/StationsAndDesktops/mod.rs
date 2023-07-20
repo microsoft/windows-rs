@@ -331,10 +331,6 @@ where
     SwitchDesktop(hdesktop.into_param().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BROADCAST_SYSTEM_MESSAGE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSF_ALLOWSFW: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(128u32);
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSF_FLUSHDISK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(4u32);
@@ -342,6 +338,8 @@ pub const BSF_FLUSHDISK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSA
 pub const BSF_FORCEIFHUNG: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(32u32);
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSF_IGNORECURRENTTASK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const BSF_LUID: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(1024u32);
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSF_NOHANG: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(8u32);
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
@@ -351,11 +349,61 @@ pub const BSF_POSTMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MES
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSF_QUERY: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const BSF_RETURNHDESK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSF_SENDNOTIFYMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(256u32);
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const BSF_LUID: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(1024u32);
+pub const BSM_ALLCOMPONENTS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(0u32);
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const BSF_RETURNHDESK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(512u32);
+pub const BSM_ALLDESKTOPS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(16u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const BSM_APPLICATIONS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(8u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_CREATEMENU: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_CREATEWINDOW: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_DELETE: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_ENUMERATE: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_HOOKCONTROL: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_JOURNALPLAYBACK: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_JOURNALRECORD: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_READOBJECTS: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_READ_CONTROL: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_SWITCHDESKTOP: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_SYNCHRONIZE: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(1048576u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_WRITEOBJECTS: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_WRITE_DAC: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(262144u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DESKTOP_WRITE_OWNER: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(524288u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const DF_ALLOWOTHERACCOUNTHOOK: DESKTOP_CONTROL_FLAGS = DESKTOP_CONTROL_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const UOI_FLAGS: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(1i32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const UOI_HEAPSIZE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(5i32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const UOI_IO: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(6i32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const UOI_NAME: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(2i32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const UOI_TYPE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(3i32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const UOI_USER_SID: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(4i32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BROADCAST_SYSTEM_MESSAGE_FLAGS(pub u32);
 impl ::core::marker::Copy for BROADCAST_SYSTEM_MESSAGE_FLAGS {}
 impl ::core::clone::Clone for BROADCAST_SYSTEM_MESSAGE_FLAGS {
     fn clone(&self) -> Self {
@@ -412,12 +460,6 @@ impl ::core::ops::Not for BROADCAST_SYSTEM_MESSAGE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BROADCAST_SYSTEM_MESSAGE_INFO(pub u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const BSM_ALLCOMPONENTS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(0u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const BSM_ALLDESKTOPS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(16u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const BSM_APPLICATIONS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(8u32);
 impl ::core::marker::Copy for BROADCAST_SYSTEM_MESSAGE_INFO {}
 impl ::core::clone::Clone for BROADCAST_SYSTEM_MESSAGE_INFO {
     fn clone(&self) -> Self {
@@ -474,34 +516,6 @@ impl ::core::ops::Not for BROADCAST_SYSTEM_MESSAGE_INFO {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DESKTOP_ACCESS_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const DESKTOP_DELETE: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const DESKTOP_READ_CONTROL: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(131072u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const DESKTOP_WRITE_DAC: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(262144u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const DESKTOP_WRITE_OWNER: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(524288u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const DESKTOP_SYNCHRONIZE: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(1048576u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const DESKTOP_READOBJECTS: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const DESKTOP_CREATEWINDOW: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const DESKTOP_CREATEMENU: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const DESKTOP_HOOKCONTROL: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const DESKTOP_JOURNALRECORD: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const DESKTOP_JOURNALPLAYBACK: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const DESKTOP_ENUMERATE: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const DESKTOP_WRITEOBJECTS: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const DESKTOP_SWITCHDESKTOP: DESKTOP_ACCESS_FLAGS = DESKTOP_ACCESS_FLAGS(256u32);
 impl ::core::marker::Copy for DESKTOP_ACCESS_FLAGS {}
 impl ::core::clone::Clone for DESKTOP_ACCESS_FLAGS {
     fn clone(&self) -> Self {
@@ -525,8 +539,6 @@ impl ::core::fmt::Debug for DESKTOP_ACCESS_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DESKTOP_CONTROL_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const DF_ALLOWOTHERACCOUNTHOOK: DESKTOP_CONTROL_FLAGS = DESKTOP_CONTROL_FLAGS(1u32);
 impl ::core::marker::Copy for DESKTOP_CONTROL_FLAGS {}
 impl ::core::clone::Clone for DESKTOP_CONTROL_FLAGS {
     fn clone(&self) -> Self {
@@ -550,18 +562,6 @@ impl ::core::fmt::Debug for DESKTOP_CONTROL_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USER_OBJECT_INFORMATION_INDEX(pub i32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const UOI_FLAGS: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(1i32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const UOI_HEAPSIZE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(5i32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const UOI_IO: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(6i32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const UOI_NAME: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(2i32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const UOI_TYPE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(3i32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const UOI_USER_SID: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(4i32);
 impl ::core::marker::Copy for USER_OBJECT_INFORMATION_INDEX {}
 impl ::core::clone::Clone for USER_OBJECT_INFORMATION_INDEX {
     fn clone(&self) -> Self {

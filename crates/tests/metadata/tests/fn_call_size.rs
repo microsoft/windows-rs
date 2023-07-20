@@ -312,17 +312,17 @@ fn size() {
 }
 
 fn function_size(reader: &Reader, namespace: &str, name: &str) -> usize {
-    for method in reader.namespace_functions(namespace) {
-        if reader.method_def_name(method) == name {
-            return reader.method_def_size(namespace, method);
-        }
-    }
-    0
+    let (method, _) = reader
+        .get_method_def(TypeName::new(namespace, name))
+        .next()
+        .expect("Function not found");
+    return reader.method_def_size(namespace, method);
 }
 
 fn struct_size(reader: &Reader, namespace: &str, name: &str) -> usize {
-    for def in reader.get(TypeName::new(namespace, name)) {
-        return reader.type_def_size(def);
-    }
-    0
+    let def = reader
+        .get_type_def(TypeName::new(namespace, name))
+        .next()
+        .expect("Type not found");
+    return reader.type_def_size(def);
 }

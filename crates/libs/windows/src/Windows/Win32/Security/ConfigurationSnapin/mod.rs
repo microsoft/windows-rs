@@ -149,7 +149,23 @@ pub const SCESTATUS_TRUST_FAIL: i32 = 19i32;
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESVC_ENUMERATION_MAX: i32 = 100i32;
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
+pub const SCE_LOG_LEVEL_ALWAYS: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
+pub const SCE_LOG_LEVEL_DEBUG: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(3i32);
+#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
+pub const SCE_LOG_LEVEL_DETAIL: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(2i32);
+#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
+pub const SCE_LOG_LEVEL_ERROR: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCE_ROOT_PATH: ::windows_core::PCWSTR = ::windows_core::w!("Software\\Microsoft\\Windows NT\\CurrentVersion\\SeCEdit");
+#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
+pub const SceSvcAnalysisInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
+pub const SceSvcConfigurationInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
+pub const SceSvcInternalUse: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
+pub const SceSvcMergedPolicyInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(1i32);
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const cNodetypeSceAnalysisServices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x678050c7_1ff8_11d1_affb_00c04fb984f9);
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
@@ -172,14 +188,6 @@ pub const struuidNodetypeSceTemplateServices: ::windows_core::PCSTR = ::windows_
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCESVC_INFO_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-pub const SceSvcConfigurationInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-pub const SceSvcMergedPolicyInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-pub const SceSvcAnalysisInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-pub const SceSvcInternalUse: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(3i32);
 impl ::core::marker::Copy for SCESVC_INFO_TYPE {}
 impl ::core::clone::Clone for SCESVC_INFO_TYPE {
     fn clone(&self) -> Self {
@@ -203,14 +211,6 @@ impl ::core::fmt::Debug for SCESVC_INFO_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCE_LOG_ERR_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-pub const SCE_LOG_LEVEL_ALWAYS: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-pub const SCE_LOG_LEVEL_ERROR: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-pub const SCE_LOG_LEVEL_DETAIL: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(2i32);
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-pub const SCE_LOG_LEVEL_DEBUG: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(3i32);
 impl ::core::marker::Copy for SCE_LOG_ERR_LEVEL {}
 impl ::core::clone::Clone for SCE_LOG_ERR_LEVEL {
     fn clone(&self) -> Self {

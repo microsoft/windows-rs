@@ -9336,17 +9336,289 @@ pub struct IMethodMalloc_Vtbl {
     pub Alloc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cb: u32) -> *mut ::core::ffi::c_void,
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COR_PRF_CLAUSE_TYPE(pub i32);
+pub const COR_PRF_ALL: COR_PRF_MONITOR = COR_PRF_MONITOR(-1879048193i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_CLAUSE_NONE: COR_PRF_CLAUSE_TYPE = COR_PRF_CLAUSE_TYPE(0i32);
+pub const COR_PRF_ALLOWABLE_AFTER_ATTACH: COR_PRF_MONITOR = COR_PRF_MONITOR(268763902i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_CLAUSE_FILTER: COR_PRF_CLAUSE_TYPE = COR_PRF_CLAUSE_TYPE(1i32);
+pub const COR_PRF_ALLOWABLE_NOTIFICATION_PROFILER: COR_PRF_MONITOR = COR_PRF_MONITOR(-1310512257i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_CACHED_FUNCTION_FOUND: COR_PRF_JIT_CACHE = COR_PRF_JIT_CACHE(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_CACHED_FUNCTION_NOT_FOUND: COR_PRF_JIT_CACHE = COR_PRF_JIT_CACHE(1i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 pub const COR_PRF_CLAUSE_CATCH: COR_PRF_CLAUSE_TYPE = COR_PRF_CLAUSE_TYPE(2i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_CLAUSE_FILTER: COR_PRF_CLAUSE_TYPE = COR_PRF_CLAUSE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 pub const COR_PRF_CLAUSE_FINALLY: COR_PRF_CLAUSE_TYPE = COR_PRF_CLAUSE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_CLAUSE_NONE: COR_PRF_CLAUSE_TYPE = COR_PRF_CLAUSE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_CODEGEN_DISABLE_ALL_OPTIMIZATIONS: COR_PRF_CODEGEN_FLAGS = COR_PRF_CODEGEN_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_CODEGEN_DISABLE_INLINING: COR_PRF_CODEGEN_FLAGS = COR_PRF_CODEGEN_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_CORE_CLR: COR_PRF_RUNTIME_TYPE = COR_PRF_RUNTIME_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_DESKTOP_CLR: COR_PRF_RUNTIME_TYPE = COR_PRF_RUNTIME_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_DISABLE_ALL_NGEN_IMAGES: COR_PRF_MONITOR = COR_PRF_MONITOR(-2147483648i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_DISABLE_INLINING: COR_PRF_MONITOR = COR_PRF_MONITOR(2097152i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_DISABLE_OPTIMIZATIONS: COR_PRF_MONITOR = COR_PRF_MONITOR(4194304i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_DISABLE_TRANSPARENCY_CHECKS_UNDER_FULL_TRUST: COR_PRF_MONITOR = COR_PRF_MONITOR(1073741824i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_ENABLE_FRAME_INFO: COR_PRF_MONITOR = COR_PRF_MONITOR(134217728i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_ENABLE_FUNCTION_ARGS: COR_PRF_MONITOR = COR_PRF_MONITOR(33554432i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_ENABLE_FUNCTION_RETVAL: COR_PRF_MONITOR = COR_PRF_MONITOR(67108864i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_ENABLE_INPROC_DEBUGGING: COR_PRF_MONITOR = COR_PRF_MONITOR(524288i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_ENABLE_JIT_MAPS: COR_PRF_MONITOR = COR_PRF_MONITOR(1048576i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_ENABLE_OBJECT_ALLOCATED: COR_PRF_MONITOR = COR_PRF_MONITOR(8388608i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_ENABLE_REJIT: COR_PRF_MONITOR = COR_PRF_MONITOR(262144i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_ENABLE_STACK_SNAPSHOT: COR_PRF_MONITOR = COR_PRF_MONITOR(268435456i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_ARRAY: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(19i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_BOOLEAN: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_BYTE: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_CHAR: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_CRITICAL: COR_PRF_EVENTPIPE_LEVEL = COR_PRF_EVENTPIPE_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_DATETIME: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_DECIMAL: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(15i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_DOUBLE: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(14i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_ERROR: COR_PRF_EVENTPIPE_LEVEL = COR_PRF_EVENTPIPE_LEVEL(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_GUID: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(17i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_INFORMATIONAL: COR_PRF_EVENTPIPE_LEVEL = COR_PRF_EVENTPIPE_LEVEL(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_INT16: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_INT32: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_INT64: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_LOGALWAYS: COR_PRF_EVENTPIPE_LEVEL = COR_PRF_EVENTPIPE_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_OBJECT: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_SBYTE: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_SINGLE: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_STRING: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(18i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_UINT16: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_UINT32: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_UINT64: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_VERBOSE: COR_PRF_EVENTPIPE_LEVEL = COR_PRF_EVENTPIPE_LEVEL(5i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_EVENTPIPE_WARNING: COR_PRF_EVENTPIPE_LEVEL = COR_PRF_EVENTPIPE_LEVEL(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_FIELD_APP_DOMAIN_STATIC: COR_PRF_STATIC_TYPE = COR_PRF_STATIC_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_FIELD_CONTEXT_STATIC: COR_PRF_STATIC_TYPE = COR_PRF_STATIC_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_FIELD_NOT_A_STATIC: COR_PRF_STATIC_TYPE = COR_PRF_STATIC_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_FIELD_RVA_STATIC: COR_PRF_STATIC_TYPE = COR_PRF_STATIC_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_FIELD_THREAD_STATIC: COR_PRF_STATIC_TYPE = COR_PRF_STATIC_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_FINALIZER_CRITICAL: COR_PRF_FINALIZER_FLAGS = COR_PRF_FINALIZER_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_GC_GEN_0: COR_PRF_GC_GENERATION = COR_PRF_GC_GENERATION(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_GC_GEN_1: COR_PRF_GC_GENERATION = COR_PRF_GC_GENERATION(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_GC_GEN_2: COR_PRF_GC_GENERATION = COR_PRF_GC_GENERATION(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_GC_INDUCED: COR_PRF_GC_REASON = COR_PRF_GC_REASON(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_GC_LARGE_OBJECT_HEAP: COR_PRF_GC_GENERATION = COR_PRF_GC_GENERATION(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_GC_OTHER: COR_PRF_GC_REASON = COR_PRF_GC_REASON(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_GC_PINNED_OBJECT_HEAP: COR_PRF_GC_GENERATION = COR_PRF_GC_GENERATION(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_GC_ROOT_FINALIZER: COR_PRF_GC_ROOT_KIND = COR_PRF_GC_ROOT_KIND(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_GC_ROOT_HANDLE: COR_PRF_GC_ROOT_KIND = COR_PRF_GC_ROOT_KIND(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_GC_ROOT_INTERIOR: COR_PRF_GC_ROOT_FLAGS = COR_PRF_GC_ROOT_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_GC_ROOT_OTHER: COR_PRF_GC_ROOT_KIND = COR_PRF_GC_ROOT_KIND(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_GC_ROOT_PINNING: COR_PRF_GC_ROOT_FLAGS = COR_PRF_GC_ROOT_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_GC_ROOT_REFCOUNTED: COR_PRF_GC_ROOT_FLAGS = COR_PRF_GC_ROOT_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_GC_ROOT_STACK: COR_PRF_GC_ROOT_KIND = COR_PRF_GC_ROOT_KIND(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_GC_ROOT_WEAKREF: COR_PRF_GC_ROOT_FLAGS = COR_PRF_GC_ROOT_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_HANDLE_TYPE_PINNED: COR_PRF_HANDLE_TYPE = COR_PRF_HANDLE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_HANDLE_TYPE_STRONG: COR_PRF_HANDLE_TYPE = COR_PRF_HANDLE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_HANDLE_TYPE_WEAK: COR_PRF_HANDLE_TYPE = COR_PRF_HANDLE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_HIGH_ADD_ASSEMBLY_REFERENCES: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_HIGH_ALLOWABLE_AFTER_ATTACH: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(246i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_HIGH_ALLOWABLE_NOTIFICATION_PROFILER: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(254i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_HIGH_BASIC_GC: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(16i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_HIGH_DISABLE_TIERED_COMPILATION: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(8i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_HIGH_IN_MEMORY_SYMBOLS_UPDATED: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_HIGH_MONITOR_DYNAMIC_FUNCTION_UNLOADS: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_HIGH_MONITOR_EVENT_PIPE: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(128i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_HIGH_MONITOR_GC_MOVED_OBJECTS: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(32i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_HIGH_MONITOR_IMMUTABLE: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(8i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_HIGH_MONITOR_LARGEOBJECT_ALLOCATED: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(64i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_HIGH_MONITOR_NONE: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_HIGH_MONITOR_PINNEDOBJECT_ALLOCATED: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(256i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_HIGH_REQUIRE_PROFILE_IMAGE: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MODULE_COLLECTIBLE: COR_PRF_MODULE_FLAGS = COR_PRF_MODULE_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MODULE_DISK: COR_PRF_MODULE_FLAGS = COR_PRF_MODULE_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MODULE_DYNAMIC: COR_PRF_MODULE_FLAGS = COR_PRF_MODULE_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MODULE_FLAT_LAYOUT: COR_PRF_MODULE_FLAGS = COR_PRF_MODULE_FLAGS(32i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MODULE_NGEN: COR_PRF_MODULE_FLAGS = COR_PRF_MODULE_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MODULE_RESOURCE: COR_PRF_MODULE_FLAGS = COR_PRF_MODULE_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MODULE_WINDOWS_RUNTIME: COR_PRF_MODULE_FLAGS = COR_PRF_MODULE_FLAGS(64i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_ALL: COR_PRF_MONITOR = COR_PRF_MONITOR(17301503i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_APPDOMAIN_LOADS: COR_PRF_MONITOR = COR_PRF_MONITOR(16i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_ASSEMBLY_LOADS: COR_PRF_MONITOR = COR_PRF_MONITOR(8i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_CACHE_SEARCHES: COR_PRF_MONITOR = COR_PRF_MONITOR(131072i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_CCW: COR_PRF_MONITOR = COR_PRF_MONITOR(8192i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_CLASS_LOADS: COR_PRF_MONITOR = COR_PRF_MONITOR(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_CLR_EXCEPTIONS: COR_PRF_MONITOR = COR_PRF_MONITOR(16777216i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_CODE_TRANSITIONS: COR_PRF_MONITOR = COR_PRF_MONITOR(2048i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_ENTERLEAVE: COR_PRF_MONITOR = COR_PRF_MONITOR(4096i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_EXCEPTIONS: COR_PRF_MONITOR = COR_PRF_MONITOR(64i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_FUNCTION_UNLOADS: COR_PRF_MONITOR = COR_PRF_MONITOR(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_GC: COR_PRF_MONITOR = COR_PRF_MONITOR(128i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_IMMUTABLE: COR_PRF_MONITOR = COR_PRF_MONITOR(-285684736i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_JIT_COMPILATION: COR_PRF_MONITOR = COR_PRF_MONITOR(32i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_MODULE_LOADS: COR_PRF_MONITOR = COR_PRF_MONITOR(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_NONE: COR_PRF_MONITOR = COR_PRF_MONITOR(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_OBJECT_ALLOCATED: COR_PRF_MONITOR = COR_PRF_MONITOR(256i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_REMOTING: COR_PRF_MONITOR = COR_PRF_MONITOR(1024i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_REMOTING_ASYNC: COR_PRF_MONITOR = COR_PRF_MONITOR(33792i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_REMOTING_COOKIE: COR_PRF_MONITOR = COR_PRF_MONITOR(17408i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_SUSPENDS: COR_PRF_MONITOR = COR_PRF_MONITOR(65536i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_MONITOR_THREADS: COR_PRF_MONITOR = COR_PRF_MONITOR(512i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_REJIT_BLOCK_INLINING: COR_PRF_REJIT_FLAGS = COR_PRF_REJIT_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_REJIT_INLINING_CALLBACKS: COR_PRF_REJIT_FLAGS = COR_PRF_REJIT_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_REQUIRE_PROFILE_IMAGE: COR_PRF_MONITOR = COR_PRF_MONITOR(536877056i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_SNAPSHOT_DEFAULT: COR_PRF_SNAPSHOT_INFO = COR_PRF_SNAPSHOT_INFO(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_SNAPSHOT_REGISTER_CONTEXT: COR_PRF_SNAPSHOT_INFO = COR_PRF_SNAPSHOT_INFO(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_SNAPSHOT_X86_OPTIMIZED: COR_PRF_SNAPSHOT_INFO = COR_PRF_SNAPSHOT_INFO(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_SUSPEND_FOR_APPDOMAIN_SHUTDOWN: COR_PRF_SUSPEND_REASON = COR_PRF_SUSPEND_REASON(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_SUSPEND_FOR_CODE_PITCHING: COR_PRF_SUSPEND_REASON = COR_PRF_SUSPEND_REASON(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_SUSPEND_FOR_GC: COR_PRF_SUSPEND_REASON = COR_PRF_SUSPEND_REASON(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_SUSPEND_FOR_GC_PREP: COR_PRF_SUSPEND_REASON = COR_PRF_SUSPEND_REASON(7i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_SUSPEND_FOR_INPROC_DEBUGGER: COR_PRF_SUSPEND_REASON = COR_PRF_SUSPEND_REASON(6i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_SUSPEND_FOR_PROFILER: COR_PRF_SUSPEND_REASON = COR_PRF_SUSPEND_REASON(9i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_SUSPEND_FOR_REJIT: COR_PRF_SUSPEND_REASON = COR_PRF_SUSPEND_REASON(8i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_SUSPEND_FOR_SHUTDOWN: COR_PRF_SUSPEND_REASON = COR_PRF_SUSPEND_REASON(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_SUSPEND_OTHER: COR_PRF_SUSPEND_REASON = COR_PRF_SUSPEND_REASON(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_TRANSITION_CALL: COR_PRF_TRANSITION_REASON = COR_PRF_TRANSITION_REASON(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_TRANSITION_RETURN: COR_PRF_TRANSITION_REASON = COR_PRF_TRANSITION_REASON(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const COR_PRF_USE_PROFILE_IMAGES: COR_PRF_MONITOR = COR_PRF_MONITOR(536870912i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const EPILOG: CorDebugIlToNativeMappingTypes = CorDebugIlToNativeMappingTypes(-3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const NO_MAPPING: CorDebugIlToNativeMappingTypes = CorDebugIlToNativeMappingTypes(-1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const PROFILER_GLOBAL_CLASS: COR_PRF_MISC = COR_PRF_MISC(-2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const PROFILER_GLOBAL_MODULE: COR_PRF_MISC = COR_PRF_MISC(-1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const PROFILER_PARENT_UNKNOWN: COR_PRF_MISC = COR_PRF_MISC(-3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+pub const PROLOG: CorDebugIlToNativeMappingTypes = CorDebugIlToNativeMappingTypes(-2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COR_PRF_CLAUSE_TYPE(pub i32);
 impl ::core::marker::Copy for COR_PRF_CLAUSE_TYPE {}
 impl ::core::clone::Clone for COR_PRF_CLAUSE_TYPE {
     fn clone(&self) -> Self {
@@ -9370,10 +9642,6 @@ impl ::core::fmt::Debug for COR_PRF_CLAUSE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_PRF_CODEGEN_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_CODEGEN_DISABLE_INLINING: COR_PRF_CODEGEN_FLAGS = COR_PRF_CODEGEN_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_CODEGEN_DISABLE_ALL_OPTIMIZATIONS: COR_PRF_CODEGEN_FLAGS = COR_PRF_CODEGEN_FLAGS(2i32);
 impl ::core::marker::Copy for COR_PRF_CODEGEN_FLAGS {}
 impl ::core::clone::Clone for COR_PRF_CODEGEN_FLAGS {
     fn clone(&self) -> Self {
@@ -9397,18 +9665,6 @@ impl ::core::fmt::Debug for COR_PRF_CODEGEN_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_PRF_EVENTPIPE_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_LOGALWAYS: COR_PRF_EVENTPIPE_LEVEL = COR_PRF_EVENTPIPE_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_CRITICAL: COR_PRF_EVENTPIPE_LEVEL = COR_PRF_EVENTPIPE_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_ERROR: COR_PRF_EVENTPIPE_LEVEL = COR_PRF_EVENTPIPE_LEVEL(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_WARNING: COR_PRF_EVENTPIPE_LEVEL = COR_PRF_EVENTPIPE_LEVEL(3i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_INFORMATIONAL: COR_PRF_EVENTPIPE_LEVEL = COR_PRF_EVENTPIPE_LEVEL(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_VERBOSE: COR_PRF_EVENTPIPE_LEVEL = COR_PRF_EVENTPIPE_LEVEL(5i32);
 impl ::core::marker::Copy for COR_PRF_EVENTPIPE_LEVEL {}
 impl ::core::clone::Clone for COR_PRF_EVENTPIPE_LEVEL {
     fn clone(&self) -> Self {
@@ -9432,42 +9688,6 @@ impl ::core::fmt::Debug for COR_PRF_EVENTPIPE_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_PRF_EVENTPIPE_PARAM_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_OBJECT: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_BOOLEAN: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_CHAR: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_SBYTE: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_BYTE: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_INT16: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_UINT16: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_INT32: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_UINT32: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_INT64: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_UINT64: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_SINGLE: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_DOUBLE: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_DECIMAL: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_DATETIME: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_GUID: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(17i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_STRING: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(18i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_EVENTPIPE_ARRAY: COR_PRF_EVENTPIPE_PARAM_TYPE = COR_PRF_EVENTPIPE_PARAM_TYPE(19i32);
 impl ::core::marker::Copy for COR_PRF_EVENTPIPE_PARAM_TYPE {}
 impl ::core::clone::Clone for COR_PRF_EVENTPIPE_PARAM_TYPE {
     fn clone(&self) -> Self {
@@ -9491,8 +9711,6 @@ impl ::core::fmt::Debug for COR_PRF_EVENTPIPE_PARAM_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_PRF_FINALIZER_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_FINALIZER_CRITICAL: COR_PRF_FINALIZER_FLAGS = COR_PRF_FINALIZER_FLAGS(1i32);
 impl ::core::marker::Copy for COR_PRF_FINALIZER_FLAGS {}
 impl ::core::clone::Clone for COR_PRF_FINALIZER_FLAGS {
     fn clone(&self) -> Self {
@@ -9516,16 +9734,6 @@ impl ::core::fmt::Debug for COR_PRF_FINALIZER_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_PRF_GC_GENERATION(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_GC_GEN_0: COR_PRF_GC_GENERATION = COR_PRF_GC_GENERATION(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_GC_GEN_1: COR_PRF_GC_GENERATION = COR_PRF_GC_GENERATION(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_GC_GEN_2: COR_PRF_GC_GENERATION = COR_PRF_GC_GENERATION(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_GC_LARGE_OBJECT_HEAP: COR_PRF_GC_GENERATION = COR_PRF_GC_GENERATION(3i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_GC_PINNED_OBJECT_HEAP: COR_PRF_GC_GENERATION = COR_PRF_GC_GENERATION(4i32);
 impl ::core::marker::Copy for COR_PRF_GC_GENERATION {}
 impl ::core::clone::Clone for COR_PRF_GC_GENERATION {
     fn clone(&self) -> Self {
@@ -9549,10 +9757,6 @@ impl ::core::fmt::Debug for COR_PRF_GC_GENERATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_PRF_GC_REASON(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_GC_INDUCED: COR_PRF_GC_REASON = COR_PRF_GC_REASON(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_GC_OTHER: COR_PRF_GC_REASON = COR_PRF_GC_REASON(0i32);
 impl ::core::marker::Copy for COR_PRF_GC_REASON {}
 impl ::core::clone::Clone for COR_PRF_GC_REASON {
     fn clone(&self) -> Self {
@@ -9576,14 +9780,6 @@ impl ::core::fmt::Debug for COR_PRF_GC_REASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_PRF_GC_ROOT_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_GC_ROOT_PINNING: COR_PRF_GC_ROOT_FLAGS = COR_PRF_GC_ROOT_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_GC_ROOT_WEAKREF: COR_PRF_GC_ROOT_FLAGS = COR_PRF_GC_ROOT_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_GC_ROOT_INTERIOR: COR_PRF_GC_ROOT_FLAGS = COR_PRF_GC_ROOT_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_GC_ROOT_REFCOUNTED: COR_PRF_GC_ROOT_FLAGS = COR_PRF_GC_ROOT_FLAGS(8i32);
 impl ::core::marker::Copy for COR_PRF_GC_ROOT_FLAGS {}
 impl ::core::clone::Clone for COR_PRF_GC_ROOT_FLAGS {
     fn clone(&self) -> Self {
@@ -9607,14 +9803,6 @@ impl ::core::fmt::Debug for COR_PRF_GC_ROOT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_PRF_GC_ROOT_KIND(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_GC_ROOT_STACK: COR_PRF_GC_ROOT_KIND = COR_PRF_GC_ROOT_KIND(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_GC_ROOT_FINALIZER: COR_PRF_GC_ROOT_KIND = COR_PRF_GC_ROOT_KIND(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_GC_ROOT_HANDLE: COR_PRF_GC_ROOT_KIND = COR_PRF_GC_ROOT_KIND(3i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_GC_ROOT_OTHER: COR_PRF_GC_ROOT_KIND = COR_PRF_GC_ROOT_KIND(0i32);
 impl ::core::marker::Copy for COR_PRF_GC_ROOT_KIND {}
 impl ::core::clone::Clone for COR_PRF_GC_ROOT_KIND {
     fn clone(&self) -> Self {
@@ -9638,12 +9826,6 @@ impl ::core::fmt::Debug for COR_PRF_GC_ROOT_KIND {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_PRF_HANDLE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_HANDLE_TYPE_WEAK: COR_PRF_HANDLE_TYPE = COR_PRF_HANDLE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_HANDLE_TYPE_STRONG: COR_PRF_HANDLE_TYPE = COR_PRF_HANDLE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_HANDLE_TYPE_PINNED: COR_PRF_HANDLE_TYPE = COR_PRF_HANDLE_TYPE(3i32);
 impl ::core::marker::Copy for COR_PRF_HANDLE_TYPE {}
 impl ::core::clone::Clone for COR_PRF_HANDLE_TYPE {
     fn clone(&self) -> Self {
@@ -9667,34 +9849,6 @@ impl ::core::fmt::Debug for COR_PRF_HANDLE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_PRF_HIGH_MONITOR(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_HIGH_MONITOR_NONE: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_HIGH_ADD_ASSEMBLY_REFERENCES: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_HIGH_IN_MEMORY_SYMBOLS_UPDATED: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_HIGH_MONITOR_DYNAMIC_FUNCTION_UNLOADS: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_HIGH_DISABLE_TIERED_COMPILATION: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(8i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_HIGH_BASIC_GC: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(16i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_HIGH_MONITOR_GC_MOVED_OBJECTS: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(32i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_HIGH_REQUIRE_PROFILE_IMAGE: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_HIGH_MONITOR_LARGEOBJECT_ALLOCATED: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(64i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_HIGH_MONITOR_EVENT_PIPE: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(128i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_HIGH_MONITOR_PINNEDOBJECT_ALLOCATED: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(256i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_HIGH_ALLOWABLE_AFTER_ATTACH: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(246i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_HIGH_ALLOWABLE_NOTIFICATION_PROFILER: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(254i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_HIGH_MONITOR_IMMUTABLE: COR_PRF_HIGH_MONITOR = COR_PRF_HIGH_MONITOR(8i32);
 impl ::core::marker::Copy for COR_PRF_HIGH_MONITOR {}
 impl ::core::clone::Clone for COR_PRF_HIGH_MONITOR {
     fn clone(&self) -> Self {
@@ -9718,10 +9872,6 @@ impl ::core::fmt::Debug for COR_PRF_HIGH_MONITOR {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_PRF_JIT_CACHE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_CACHED_FUNCTION_FOUND: COR_PRF_JIT_CACHE = COR_PRF_JIT_CACHE(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_CACHED_FUNCTION_NOT_FOUND: COR_PRF_JIT_CACHE = COR_PRF_JIT_CACHE(1i32);
 impl ::core::marker::Copy for COR_PRF_JIT_CACHE {}
 impl ::core::clone::Clone for COR_PRF_JIT_CACHE {
     fn clone(&self) -> Self {
@@ -9745,12 +9895,6 @@ impl ::core::fmt::Debug for COR_PRF_JIT_CACHE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_PRF_MISC(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const PROFILER_PARENT_UNKNOWN: COR_PRF_MISC = COR_PRF_MISC(-3i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const PROFILER_GLOBAL_CLASS: COR_PRF_MISC = COR_PRF_MISC(-2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const PROFILER_GLOBAL_MODULE: COR_PRF_MISC = COR_PRF_MISC(-1i32);
 impl ::core::marker::Copy for COR_PRF_MISC {}
 impl ::core::clone::Clone for COR_PRF_MISC {
     fn clone(&self) -> Self {
@@ -9774,20 +9918,6 @@ impl ::core::fmt::Debug for COR_PRF_MISC {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_PRF_MODULE_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MODULE_DISK: COR_PRF_MODULE_FLAGS = COR_PRF_MODULE_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MODULE_NGEN: COR_PRF_MODULE_FLAGS = COR_PRF_MODULE_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MODULE_DYNAMIC: COR_PRF_MODULE_FLAGS = COR_PRF_MODULE_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MODULE_COLLECTIBLE: COR_PRF_MODULE_FLAGS = COR_PRF_MODULE_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MODULE_RESOURCE: COR_PRF_MODULE_FLAGS = COR_PRF_MODULE_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MODULE_FLAT_LAYOUT: COR_PRF_MODULE_FLAGS = COR_PRF_MODULE_FLAGS(32i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MODULE_WINDOWS_RUNTIME: COR_PRF_MODULE_FLAGS = COR_PRF_MODULE_FLAGS(64i32);
 impl ::core::marker::Copy for COR_PRF_MODULE_FLAGS {}
 impl ::core::clone::Clone for COR_PRF_MODULE_FLAGS {
     fn clone(&self) -> Self {
@@ -9811,84 +9941,6 @@ impl ::core::fmt::Debug for COR_PRF_MODULE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_PRF_MONITOR(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_NONE: COR_PRF_MONITOR = COR_PRF_MONITOR(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_FUNCTION_UNLOADS: COR_PRF_MONITOR = COR_PRF_MONITOR(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_CLASS_LOADS: COR_PRF_MONITOR = COR_PRF_MONITOR(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_MODULE_LOADS: COR_PRF_MONITOR = COR_PRF_MONITOR(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_ASSEMBLY_LOADS: COR_PRF_MONITOR = COR_PRF_MONITOR(8i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_APPDOMAIN_LOADS: COR_PRF_MONITOR = COR_PRF_MONITOR(16i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_JIT_COMPILATION: COR_PRF_MONITOR = COR_PRF_MONITOR(32i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_EXCEPTIONS: COR_PRF_MONITOR = COR_PRF_MONITOR(64i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_GC: COR_PRF_MONITOR = COR_PRF_MONITOR(128i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_OBJECT_ALLOCATED: COR_PRF_MONITOR = COR_PRF_MONITOR(256i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_THREADS: COR_PRF_MONITOR = COR_PRF_MONITOR(512i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_REMOTING: COR_PRF_MONITOR = COR_PRF_MONITOR(1024i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_CODE_TRANSITIONS: COR_PRF_MONITOR = COR_PRF_MONITOR(2048i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_ENTERLEAVE: COR_PRF_MONITOR = COR_PRF_MONITOR(4096i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_CCW: COR_PRF_MONITOR = COR_PRF_MONITOR(8192i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_REMOTING_COOKIE: COR_PRF_MONITOR = COR_PRF_MONITOR(17408i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_REMOTING_ASYNC: COR_PRF_MONITOR = COR_PRF_MONITOR(33792i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_SUSPENDS: COR_PRF_MONITOR = COR_PRF_MONITOR(65536i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_CACHE_SEARCHES: COR_PRF_MONITOR = COR_PRF_MONITOR(131072i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_ENABLE_REJIT: COR_PRF_MONITOR = COR_PRF_MONITOR(262144i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_ENABLE_INPROC_DEBUGGING: COR_PRF_MONITOR = COR_PRF_MONITOR(524288i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_ENABLE_JIT_MAPS: COR_PRF_MONITOR = COR_PRF_MONITOR(1048576i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_DISABLE_INLINING: COR_PRF_MONITOR = COR_PRF_MONITOR(2097152i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_DISABLE_OPTIMIZATIONS: COR_PRF_MONITOR = COR_PRF_MONITOR(4194304i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_ENABLE_OBJECT_ALLOCATED: COR_PRF_MONITOR = COR_PRF_MONITOR(8388608i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_CLR_EXCEPTIONS: COR_PRF_MONITOR = COR_PRF_MONITOR(16777216i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_ALL: COR_PRF_MONITOR = COR_PRF_MONITOR(17301503i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_ENABLE_FUNCTION_ARGS: COR_PRF_MONITOR = COR_PRF_MONITOR(33554432i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_ENABLE_FUNCTION_RETVAL: COR_PRF_MONITOR = COR_PRF_MONITOR(67108864i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_ENABLE_FRAME_INFO: COR_PRF_MONITOR = COR_PRF_MONITOR(134217728i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_ENABLE_STACK_SNAPSHOT: COR_PRF_MONITOR = COR_PRF_MONITOR(268435456i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_USE_PROFILE_IMAGES: COR_PRF_MONITOR = COR_PRF_MONITOR(536870912i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_DISABLE_TRANSPARENCY_CHECKS_UNDER_FULL_TRUST: COR_PRF_MONITOR = COR_PRF_MONITOR(1073741824i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_DISABLE_ALL_NGEN_IMAGES: COR_PRF_MONITOR = COR_PRF_MONITOR(-2147483648i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_ALL: COR_PRF_MONITOR = COR_PRF_MONITOR(-1879048193i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_REQUIRE_PROFILE_IMAGE: COR_PRF_MONITOR = COR_PRF_MONITOR(536877056i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_ALLOWABLE_AFTER_ATTACH: COR_PRF_MONITOR = COR_PRF_MONITOR(268763902i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_ALLOWABLE_NOTIFICATION_PROFILER: COR_PRF_MONITOR = COR_PRF_MONITOR(-1310512257i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_MONITOR_IMMUTABLE: COR_PRF_MONITOR = COR_PRF_MONITOR(-285684736i32);
 impl ::core::marker::Copy for COR_PRF_MONITOR {}
 impl ::core::clone::Clone for COR_PRF_MONITOR {
     fn clone(&self) -> Self {
@@ -9912,10 +9964,6 @@ impl ::core::fmt::Debug for COR_PRF_MONITOR {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_PRF_REJIT_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_REJIT_BLOCK_INLINING: COR_PRF_REJIT_FLAGS = COR_PRF_REJIT_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_REJIT_INLINING_CALLBACKS: COR_PRF_REJIT_FLAGS = COR_PRF_REJIT_FLAGS(2i32);
 impl ::core::marker::Copy for COR_PRF_REJIT_FLAGS {}
 impl ::core::clone::Clone for COR_PRF_REJIT_FLAGS {
     fn clone(&self) -> Self {
@@ -9939,10 +9987,6 @@ impl ::core::fmt::Debug for COR_PRF_REJIT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_PRF_RUNTIME_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_DESKTOP_CLR: COR_PRF_RUNTIME_TYPE = COR_PRF_RUNTIME_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_CORE_CLR: COR_PRF_RUNTIME_TYPE = COR_PRF_RUNTIME_TYPE(2i32);
 impl ::core::marker::Copy for COR_PRF_RUNTIME_TYPE {}
 impl ::core::clone::Clone for COR_PRF_RUNTIME_TYPE {
     fn clone(&self) -> Self {
@@ -9966,12 +10010,6 @@ impl ::core::fmt::Debug for COR_PRF_RUNTIME_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_PRF_SNAPSHOT_INFO(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_SNAPSHOT_DEFAULT: COR_PRF_SNAPSHOT_INFO = COR_PRF_SNAPSHOT_INFO(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_SNAPSHOT_REGISTER_CONTEXT: COR_PRF_SNAPSHOT_INFO = COR_PRF_SNAPSHOT_INFO(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_SNAPSHOT_X86_OPTIMIZED: COR_PRF_SNAPSHOT_INFO = COR_PRF_SNAPSHOT_INFO(2i32);
 impl ::core::marker::Copy for COR_PRF_SNAPSHOT_INFO {}
 impl ::core::clone::Clone for COR_PRF_SNAPSHOT_INFO {
     fn clone(&self) -> Self {
@@ -9995,16 +10033,6 @@ impl ::core::fmt::Debug for COR_PRF_SNAPSHOT_INFO {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_PRF_STATIC_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_FIELD_NOT_A_STATIC: COR_PRF_STATIC_TYPE = COR_PRF_STATIC_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_FIELD_APP_DOMAIN_STATIC: COR_PRF_STATIC_TYPE = COR_PRF_STATIC_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_FIELD_THREAD_STATIC: COR_PRF_STATIC_TYPE = COR_PRF_STATIC_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_FIELD_CONTEXT_STATIC: COR_PRF_STATIC_TYPE = COR_PRF_STATIC_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_FIELD_RVA_STATIC: COR_PRF_STATIC_TYPE = COR_PRF_STATIC_TYPE(8i32);
 impl ::core::marker::Copy for COR_PRF_STATIC_TYPE {}
 impl ::core::clone::Clone for COR_PRF_STATIC_TYPE {
     fn clone(&self) -> Self {
@@ -10028,24 +10056,6 @@ impl ::core::fmt::Debug for COR_PRF_STATIC_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_PRF_SUSPEND_REASON(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_SUSPEND_OTHER: COR_PRF_SUSPEND_REASON = COR_PRF_SUSPEND_REASON(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_SUSPEND_FOR_GC: COR_PRF_SUSPEND_REASON = COR_PRF_SUSPEND_REASON(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_SUSPEND_FOR_APPDOMAIN_SHUTDOWN: COR_PRF_SUSPEND_REASON = COR_PRF_SUSPEND_REASON(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_SUSPEND_FOR_CODE_PITCHING: COR_PRF_SUSPEND_REASON = COR_PRF_SUSPEND_REASON(3i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_SUSPEND_FOR_SHUTDOWN: COR_PRF_SUSPEND_REASON = COR_PRF_SUSPEND_REASON(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_SUSPEND_FOR_INPROC_DEBUGGER: COR_PRF_SUSPEND_REASON = COR_PRF_SUSPEND_REASON(6i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_SUSPEND_FOR_GC_PREP: COR_PRF_SUSPEND_REASON = COR_PRF_SUSPEND_REASON(7i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_SUSPEND_FOR_REJIT: COR_PRF_SUSPEND_REASON = COR_PRF_SUSPEND_REASON(8i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_SUSPEND_FOR_PROFILER: COR_PRF_SUSPEND_REASON = COR_PRF_SUSPEND_REASON(9i32);
 impl ::core::marker::Copy for COR_PRF_SUSPEND_REASON {}
 impl ::core::clone::Clone for COR_PRF_SUSPEND_REASON {
     fn clone(&self) -> Self {
@@ -10069,10 +10079,6 @@ impl ::core::fmt::Debug for COR_PRF_SUSPEND_REASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COR_PRF_TRANSITION_REASON(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_TRANSITION_CALL: COR_PRF_TRANSITION_REASON = COR_PRF_TRANSITION_REASON(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const COR_PRF_TRANSITION_RETURN: COR_PRF_TRANSITION_REASON = COR_PRF_TRANSITION_REASON(1i32);
 impl ::core::marker::Copy for COR_PRF_TRANSITION_REASON {}
 impl ::core::clone::Clone for COR_PRF_TRANSITION_REASON {
     fn clone(&self) -> Self {
@@ -10096,12 +10102,6 @@ impl ::core::fmt::Debug for COR_PRF_TRANSITION_REASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorDebugIlToNativeMappingTypes(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const NO_MAPPING: CorDebugIlToNativeMappingTypes = CorDebugIlToNativeMappingTypes(-1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const PROLOG: CorDebugIlToNativeMappingTypes = CorDebugIlToNativeMappingTypes(-2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
-pub const EPILOG: CorDebugIlToNativeMappingTypes = CorDebugIlToNativeMappingTypes(-3i32);
 impl ::core::marker::Copy for CorDebugIlToNativeMappingTypes {}
 impl ::core::clone::Clone for CorDebugIlToNativeMappingTypes {
     fn clone(&self) -> Self {

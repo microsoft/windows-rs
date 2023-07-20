@@ -6205,6 +6205,42 @@ pub const DI_TRUNCATEDANDRESTARTED: ::windows_core::HRESULT = ::windows_core::HR
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub const DI_WRITEPROTECT: ::windows_core::HRESULT = ::windows_core::HRESULT(19i32);
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const GPIO_BUTTON_BACK: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const GPIO_BUTTON_CAMERA_FOCUS: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const GPIO_BUTTON_CAMERA_LENS: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const GPIO_BUTTON_CAMERA_SHUTTER: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const GPIO_BUTTON_COUNT: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const GPIO_BUTTON_COUNT_MIN: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const GPIO_BUTTON_HEADSET: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const GPIO_BUTTON_HWKB_DEPLOY: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const GPIO_BUTTON_OEM_CUSTOM: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const GPIO_BUTTON_OEM_CUSTOM2: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(14i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const GPIO_BUTTON_OEM_CUSTOM3: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(15i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const GPIO_BUTTON_POWER: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const GPIO_BUTTON_RINGER_TOGGLE: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const GPIO_BUTTON_ROTATION_LOCK: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const GPIO_BUTTON_SEARCH: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const GPIO_BUTTON_VOLUME_DOWN: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const GPIO_BUTTON_VOLUME_UP: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const GPIO_BUTTON_WINDOWS: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub const GUID_Button: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa36d02f0_c9f3_11cf_bfc7_444553540000);
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub const GUID_ConstantForce: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x13541c20_8e33_11d0_9ad0_00a0c9a06e35);
@@ -7576,6 +7612,16 @@ pub const HID_USAGE_VR_VEST: u16 = 9u16;
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub const HORIZONTAL_WHEEL_PRESENT: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const HidP_Feature: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const HidP_Input: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const HidP_Keyboard_Break: HIDP_KEYBOARD_DIRECTION = HIDP_KEYBOARD_DIRECTION(0i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const HidP_Keyboard_Make: HIDP_KEYBOARD_DIRECTION = HIDP_KEYBOARD_DIRECTION(1i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
+pub const HidP_Output: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub const IOCTL_BUTTON_GET_ENABLED_ON_IDLE: u32 = 721580u32;
 #[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
 pub const IOCTL_BUTTON_SET_ENABLED_ON_IDLE: u32 = 721576u32;
@@ -7883,42 +7929,6 @@ pub const WHEELMOUSE_SERIAL_HARDWARE: u32 = 64u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GPIOBUTTONS_BUTTON_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const GPIO_BUTTON_POWER: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const GPIO_BUTTON_WINDOWS: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const GPIO_BUTTON_VOLUME_UP: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const GPIO_BUTTON_VOLUME_DOWN: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const GPIO_BUTTON_ROTATION_LOCK: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const GPIO_BUTTON_BACK: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const GPIO_BUTTON_SEARCH: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const GPIO_BUTTON_CAMERA_FOCUS: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const GPIO_BUTTON_CAMERA_SHUTTER: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const GPIO_BUTTON_RINGER_TOGGLE: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const GPIO_BUTTON_HEADSET: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const GPIO_BUTTON_HWKB_DEPLOY: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const GPIO_BUTTON_CAMERA_LENS: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const GPIO_BUTTON_OEM_CUSTOM: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const GPIO_BUTTON_OEM_CUSTOM2: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const GPIO_BUTTON_OEM_CUSTOM3: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const GPIO_BUTTON_COUNT_MIN: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const GPIO_BUTTON_COUNT: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(16i32);
 impl ::core::marker::Copy for GPIOBUTTONS_BUTTON_TYPE {}
 impl ::core::clone::Clone for GPIOBUTTONS_BUTTON_TYPE {
     fn clone(&self) -> Self {
@@ -7942,10 +7952,6 @@ impl ::core::fmt::Debug for GPIOBUTTONS_BUTTON_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HIDP_KEYBOARD_DIRECTION(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const HidP_Keyboard_Break: HIDP_KEYBOARD_DIRECTION = HIDP_KEYBOARD_DIRECTION(0i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const HidP_Keyboard_Make: HIDP_KEYBOARD_DIRECTION = HIDP_KEYBOARD_DIRECTION(1i32);
 impl ::core::marker::Copy for HIDP_KEYBOARD_DIRECTION {}
 impl ::core::clone::Clone for HIDP_KEYBOARD_DIRECTION {
     fn clone(&self) -> Self {
@@ -7969,12 +7975,6 @@ impl ::core::fmt::Debug for HIDP_KEYBOARD_DIRECTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HIDP_REPORT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const HidP_Input: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const HidP_Output: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_HumanInterfaceDevice\"`*"]
-pub const HidP_Feature: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(2i32);
 impl ::core::marker::Copy for HIDP_REPORT_TYPE {}
 impl ::core::clone::Clone for HIDP_REPORT_TYPE {
     fn clone(&self) -> Self {

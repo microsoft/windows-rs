@@ -25,6 +25,10 @@ pub const IOCTL_PWM_PIN_START: u32 = 295331u32;
 #[doc = "*Required features: `\"Win32_Devices_Pwm\"`*"]
 pub const IOCTL_PWM_PIN_STOP: u32 = 295335u32;
 #[doc = "*Required features: `\"Win32_Devices_Pwm\"`*"]
+pub const PWM_ACTIVE_HIGH: PWM_POLARITY = 0i32;
+#[doc = "*Required features: `\"Win32_Devices_Pwm\"`*"]
+pub const PWM_ACTIVE_LOW: PWM_POLARITY = 1i32;
+#[doc = "*Required features: `\"Win32_Devices_Pwm\"`*"]
 pub const PWM_IOCTL_ID_CONTROLLER_GET_ACTUAL_PERIOD: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_Devices_Pwm\"`*"]
 pub const PWM_IOCTL_ID_CONTROLLER_GET_INFO: i32 = 0i32;
@@ -46,10 +50,6 @@ pub const PWM_IOCTL_ID_PIN_START: i32 = 104i32;
 pub const PWM_IOCTL_ID_PIN_STOP: i32 = 105i32;
 #[doc = "*Required features: `\"Win32_Devices_Pwm\"`*"]
 pub type PWM_POLARITY = i32;
-#[doc = "*Required features: `\"Win32_Devices_Pwm\"`*"]
-pub const PWM_ACTIVE_HIGH: PWM_POLARITY = 0i32;
-#[doc = "*Required features: `\"Win32_Devices_Pwm\"`*"]
-pub const PWM_ACTIVE_LOW: PWM_POLARITY = 1i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Pwm\"`*"]
 pub struct PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT {

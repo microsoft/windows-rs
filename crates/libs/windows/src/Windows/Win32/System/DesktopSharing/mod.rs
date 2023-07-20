@@ -2081,6 +2081,66 @@ pub struct _IRDPSessionEvents_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const APP_FLAG_PRIVILEGED: RDPSRAPI_APP_FLAGS = RDPSRAPI_APP_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const ATTENDEE_DISCONNECT_REASON_APP: ATTENDEE_DISCONNECT_REASON = ATTENDEE_DISCONNECT_REASON(0i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const ATTENDEE_DISCONNECT_REASON_CLI: ATTENDEE_DISCONNECT_REASON = ATTENDEE_DISCONNECT_REASON(2i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const ATTENDEE_DISCONNECT_REASON_ERR: ATTENDEE_DISCONNECT_REASON = ATTENDEE_DISCONNECT_REASON(1i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const ATTENDEE_DISCONNECT_REASON_MAX: ATTENDEE_DISCONNECT_REASON = ATTENDEE_DISCONNECT_REASON(2i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const ATTENDEE_DISCONNECT_REASON_MIN: ATTENDEE_DISCONNECT_REASON = ATTENDEE_DISCONNECT_REASON(0i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const ATTENDEE_FLAGS_LOCAL: RDPENCOMAPI_ATTENDEE_FLAGS = RDPENCOMAPI_ATTENDEE_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CHANNEL_ACCESS_ENUM_NONE: CHANNEL_ACCESS_ENUM = CHANNEL_ACCESS_ENUM(0i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CHANNEL_ACCESS_ENUM_SENDRECEIVE: CHANNEL_ACCESS_ENUM = CHANNEL_ACCESS_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CHANNEL_FLAGS_DYNAMIC: CHANNEL_FLAGS = CHANNEL_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CHANNEL_FLAGS_LEGACY: CHANNEL_FLAGS = CHANNEL_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CHANNEL_FLAGS_UNCOMPRESSED: CHANNEL_FLAGS = CHANNEL_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CHANNEL_PRIORITY_HI: CHANNEL_PRIORITY = CHANNEL_PRIORITY(2i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CHANNEL_PRIORITY_LO: CHANNEL_PRIORITY = CHANNEL_PRIORITY(0i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CHANNEL_PRIORITY_MED: CHANNEL_PRIORITY = CHANNEL_PRIORITY(1i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CONST_ATTENDEE_ID_DEFAULT: RDPENCOMAPI_CONSTANTS = RDPENCOMAPI_CONSTANTS(-1i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CONST_ATTENDEE_ID_EVERYONE: RDPENCOMAPI_CONSTANTS = RDPENCOMAPI_CONSTANTS(-1i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CONST_ATTENDEE_ID_HOST: RDPENCOMAPI_CONSTANTS = RDPENCOMAPI_CONSTANTS(0i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CONST_CONN_INTERVAL: RDPENCOMAPI_CONSTANTS = RDPENCOMAPI_CONSTANTS(50i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CONST_MAX_CHANNEL_MESSAGE_SIZE: RDPENCOMAPI_CONSTANTS = RDPENCOMAPI_CONSTANTS(1024i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CONST_MAX_CHANNEL_NAME_LEN: RDPENCOMAPI_CONSTANTS = RDPENCOMAPI_CONSTANTS(8i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CONST_MAX_LEGACY_CHANNEL_MESSAGE_SIZE: RDPENCOMAPI_CONSTANTS = RDPENCOMAPI_CONSTANTS(409600i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CTRL_LEVEL_INTERACTIVE: CTRL_LEVEL = CTRL_LEVEL(3i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CTRL_LEVEL_INVALID: CTRL_LEVEL = CTRL_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CTRL_LEVEL_MAX: CTRL_LEVEL = CTRL_LEVEL(5i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CTRL_LEVEL_MIN: CTRL_LEVEL = CTRL_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CTRL_LEVEL_NONE: CTRL_LEVEL = CTRL_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CTRL_LEVEL_REQCTRL_INTERACTIVE: CTRL_LEVEL = CTRL_LEVEL(5i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CTRL_LEVEL_REQCTRL_VIEW: CTRL_LEVEL = CTRL_LEVEL(4i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const CTRL_LEVEL_VIEW: CTRL_LEVEL = CTRL_LEVEL(2i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 pub const DISPID_RDPAPI_EVENT_ON_BOUNDING_RECT_CHANGED: u32 = 340u32;
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 pub const DISPID_RDPSRAPI_EVENT_ON_APPFILTER_UPDATE: u32 = 322u32;
@@ -2355,6 +2415,30 @@ pub const RDPSRAPIWindow: ::windows_core::GUID = ::windows_core::GUID::from_u128
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 pub const RDPSRAPIWindowList: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c21e2b8_5dd4_42cc_81ba_1c099852e6fa);
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const RDPSRAPI_KBD_CODE_SCANCODE: RDPSRAPI_KBD_CODE_TYPE = RDPSRAPI_KBD_CODE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const RDPSRAPI_KBD_CODE_UNICODE: RDPSRAPI_KBD_CODE_TYPE = RDPSRAPI_KBD_CODE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const RDPSRAPI_KBD_SYNC_FLAG_CAPS_LOCK: RDPSRAPI_KBD_SYNC_FLAG = RDPSRAPI_KBD_SYNC_FLAG(4i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const RDPSRAPI_KBD_SYNC_FLAG_KANA_LOCK: RDPSRAPI_KBD_SYNC_FLAG = RDPSRAPI_KBD_SYNC_FLAG(8i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const RDPSRAPI_KBD_SYNC_FLAG_NUM_LOCK: RDPSRAPI_KBD_SYNC_FLAG = RDPSRAPI_KBD_SYNC_FLAG(2i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const RDPSRAPI_KBD_SYNC_FLAG_SCROLL_LOCK: RDPSRAPI_KBD_SYNC_FLAG = RDPSRAPI_KBD_SYNC_FLAG(1i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const RDPSRAPI_MOUSE_BUTTON_BUTTON1: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const RDPSRAPI_MOUSE_BUTTON_BUTTON2: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const RDPSRAPI_MOUSE_BUTTON_BUTTON3: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON1: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON2: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON3: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 pub const RDPSession: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b78f0e6_3e05_4a5b_b2e8_e743a8956b65);
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 pub const RDPTransportStreamBuffer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d4a1c69_f17f_4549_a699_761c6e6b5c0a);
@@ -2363,19 +2447,11 @@ pub const RDPTransportStreamEvents: ::windows_core::GUID = ::windows_core::GUID:
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 pub const RDPViewer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x32be5ed2_5c86_480f_a914_0ff8885a1b3f);
 #[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
+pub const WND_FLAG_PRIVILEGED: RDPSRAPI_WND_FLAGS = RDPSRAPI_WND_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ATTENDEE_DISCONNECT_REASON(pub i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const ATTENDEE_DISCONNECT_REASON_MIN: ATTENDEE_DISCONNECT_REASON = ATTENDEE_DISCONNECT_REASON(0i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const ATTENDEE_DISCONNECT_REASON_APP: ATTENDEE_DISCONNECT_REASON = ATTENDEE_DISCONNECT_REASON(0i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const ATTENDEE_DISCONNECT_REASON_ERR: ATTENDEE_DISCONNECT_REASON = ATTENDEE_DISCONNECT_REASON(1i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const ATTENDEE_DISCONNECT_REASON_CLI: ATTENDEE_DISCONNECT_REASON = ATTENDEE_DISCONNECT_REASON(2i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const ATTENDEE_DISCONNECT_REASON_MAX: ATTENDEE_DISCONNECT_REASON = ATTENDEE_DISCONNECT_REASON(2i32);
 impl ::core::marker::Copy for ATTENDEE_DISCONNECT_REASON {}
 impl ::core::clone::Clone for ATTENDEE_DISCONNECT_REASON {
     fn clone(&self) -> Self {
@@ -2399,10 +2475,6 @@ impl ::core::fmt::Debug for ATTENDEE_DISCONNECT_REASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHANNEL_ACCESS_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CHANNEL_ACCESS_ENUM_NONE: CHANNEL_ACCESS_ENUM = CHANNEL_ACCESS_ENUM(0i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CHANNEL_ACCESS_ENUM_SENDRECEIVE: CHANNEL_ACCESS_ENUM = CHANNEL_ACCESS_ENUM(1i32);
 impl ::core::marker::Copy for CHANNEL_ACCESS_ENUM {}
 impl ::core::clone::Clone for CHANNEL_ACCESS_ENUM {
     fn clone(&self) -> Self {
@@ -2426,12 +2498,6 @@ impl ::core::fmt::Debug for CHANNEL_ACCESS_ENUM {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHANNEL_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CHANNEL_FLAGS_LEGACY: CHANNEL_FLAGS = CHANNEL_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CHANNEL_FLAGS_UNCOMPRESSED: CHANNEL_FLAGS = CHANNEL_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CHANNEL_FLAGS_DYNAMIC: CHANNEL_FLAGS = CHANNEL_FLAGS(4i32);
 impl ::core::marker::Copy for CHANNEL_FLAGS {}
 impl ::core::clone::Clone for CHANNEL_FLAGS {
     fn clone(&self) -> Self {
@@ -2455,12 +2521,6 @@ impl ::core::fmt::Debug for CHANNEL_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHANNEL_PRIORITY(pub i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CHANNEL_PRIORITY_LO: CHANNEL_PRIORITY = CHANNEL_PRIORITY(0i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CHANNEL_PRIORITY_MED: CHANNEL_PRIORITY = CHANNEL_PRIORITY(1i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CHANNEL_PRIORITY_HI: CHANNEL_PRIORITY = CHANNEL_PRIORITY(2i32);
 impl ::core::marker::Copy for CHANNEL_PRIORITY {}
 impl ::core::clone::Clone for CHANNEL_PRIORITY {
     fn clone(&self) -> Self {
@@ -2484,22 +2544,6 @@ impl ::core::fmt::Debug for CHANNEL_PRIORITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CTRL_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CTRL_LEVEL_MIN: CTRL_LEVEL = CTRL_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CTRL_LEVEL_INVALID: CTRL_LEVEL = CTRL_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CTRL_LEVEL_NONE: CTRL_LEVEL = CTRL_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CTRL_LEVEL_VIEW: CTRL_LEVEL = CTRL_LEVEL(2i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CTRL_LEVEL_INTERACTIVE: CTRL_LEVEL = CTRL_LEVEL(3i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CTRL_LEVEL_REQCTRL_VIEW: CTRL_LEVEL = CTRL_LEVEL(4i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CTRL_LEVEL_REQCTRL_INTERACTIVE: CTRL_LEVEL = CTRL_LEVEL(5i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CTRL_LEVEL_MAX: CTRL_LEVEL = CTRL_LEVEL(5i32);
 impl ::core::marker::Copy for CTRL_LEVEL {}
 impl ::core::clone::Clone for CTRL_LEVEL {
     fn clone(&self) -> Self {
@@ -2523,8 +2567,6 @@ impl ::core::fmt::Debug for CTRL_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RDPENCOMAPI_ATTENDEE_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const ATTENDEE_FLAGS_LOCAL: RDPENCOMAPI_ATTENDEE_FLAGS = RDPENCOMAPI_ATTENDEE_FLAGS(1i32);
 impl ::core::marker::Copy for RDPENCOMAPI_ATTENDEE_FLAGS {}
 impl ::core::clone::Clone for RDPENCOMAPI_ATTENDEE_FLAGS {
     fn clone(&self) -> Self {
@@ -2548,20 +2590,6 @@ impl ::core::fmt::Debug for RDPENCOMAPI_ATTENDEE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RDPENCOMAPI_CONSTANTS(pub i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CONST_MAX_CHANNEL_MESSAGE_SIZE: RDPENCOMAPI_CONSTANTS = RDPENCOMAPI_CONSTANTS(1024i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CONST_MAX_CHANNEL_NAME_LEN: RDPENCOMAPI_CONSTANTS = RDPENCOMAPI_CONSTANTS(8i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CONST_MAX_LEGACY_CHANNEL_MESSAGE_SIZE: RDPENCOMAPI_CONSTANTS = RDPENCOMAPI_CONSTANTS(409600i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CONST_ATTENDEE_ID_EVERYONE: RDPENCOMAPI_CONSTANTS = RDPENCOMAPI_CONSTANTS(-1i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CONST_ATTENDEE_ID_HOST: RDPENCOMAPI_CONSTANTS = RDPENCOMAPI_CONSTANTS(0i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CONST_CONN_INTERVAL: RDPENCOMAPI_CONSTANTS = RDPENCOMAPI_CONSTANTS(50i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const CONST_ATTENDEE_ID_DEFAULT: RDPENCOMAPI_CONSTANTS = RDPENCOMAPI_CONSTANTS(-1i32);
 impl ::core::marker::Copy for RDPENCOMAPI_CONSTANTS {}
 impl ::core::clone::Clone for RDPENCOMAPI_CONSTANTS {
     fn clone(&self) -> Self {
@@ -2585,8 +2613,6 @@ impl ::core::fmt::Debug for RDPENCOMAPI_CONSTANTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RDPSRAPI_APP_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const APP_FLAG_PRIVILEGED: RDPSRAPI_APP_FLAGS = RDPSRAPI_APP_FLAGS(1i32);
 impl ::core::marker::Copy for RDPSRAPI_APP_FLAGS {}
 impl ::core::clone::Clone for RDPSRAPI_APP_FLAGS {
     fn clone(&self) -> Self {
@@ -2610,10 +2636,6 @@ impl ::core::fmt::Debug for RDPSRAPI_APP_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RDPSRAPI_KBD_CODE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const RDPSRAPI_KBD_CODE_SCANCODE: RDPSRAPI_KBD_CODE_TYPE = RDPSRAPI_KBD_CODE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const RDPSRAPI_KBD_CODE_UNICODE: RDPSRAPI_KBD_CODE_TYPE = RDPSRAPI_KBD_CODE_TYPE(1i32);
 impl ::core::marker::Copy for RDPSRAPI_KBD_CODE_TYPE {}
 impl ::core::clone::Clone for RDPSRAPI_KBD_CODE_TYPE {
     fn clone(&self) -> Self {
@@ -2637,14 +2659,6 @@ impl ::core::fmt::Debug for RDPSRAPI_KBD_CODE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RDPSRAPI_KBD_SYNC_FLAG(pub i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const RDPSRAPI_KBD_SYNC_FLAG_SCROLL_LOCK: RDPSRAPI_KBD_SYNC_FLAG = RDPSRAPI_KBD_SYNC_FLAG(1i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const RDPSRAPI_KBD_SYNC_FLAG_NUM_LOCK: RDPSRAPI_KBD_SYNC_FLAG = RDPSRAPI_KBD_SYNC_FLAG(2i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const RDPSRAPI_KBD_SYNC_FLAG_CAPS_LOCK: RDPSRAPI_KBD_SYNC_FLAG = RDPSRAPI_KBD_SYNC_FLAG(4i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const RDPSRAPI_KBD_SYNC_FLAG_KANA_LOCK: RDPSRAPI_KBD_SYNC_FLAG = RDPSRAPI_KBD_SYNC_FLAG(8i32);
 impl ::core::marker::Copy for RDPSRAPI_KBD_SYNC_FLAG {}
 impl ::core::clone::Clone for RDPSRAPI_KBD_SYNC_FLAG {
     fn clone(&self) -> Self {
@@ -2668,18 +2682,6 @@ impl ::core::fmt::Debug for RDPSRAPI_KBD_SYNC_FLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RDPSRAPI_MOUSE_BUTTON_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const RDPSRAPI_MOUSE_BUTTON_BUTTON1: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const RDPSRAPI_MOUSE_BUTTON_BUTTON2: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const RDPSRAPI_MOUSE_BUTTON_BUTTON3: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON1: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON2: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON3: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(5i32);
 impl ::core::marker::Copy for RDPSRAPI_MOUSE_BUTTON_TYPE {}
 impl ::core::clone::Clone for RDPSRAPI_MOUSE_BUTTON_TYPE {
     fn clone(&self) -> Self {
@@ -2703,8 +2705,6 @@ impl ::core::fmt::Debug for RDPSRAPI_MOUSE_BUTTON_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RDPSRAPI_WND_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_DesktopSharing\"`*"]
-pub const WND_FLAG_PRIVILEGED: RDPSRAPI_WND_FLAGS = RDPSRAPI_WND_FLAGS(1i32);
 impl ::core::marker::Copy for RDPSRAPI_WND_FLAGS {}
 impl ::core::clone::Clone for RDPSRAPI_WND_FLAGS {
     fn clone(&self) -> Self {

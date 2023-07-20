@@ -2636,6 +2636,46 @@ pub struct IImageList2_Vtbl {
     pub ReplaceFromImageList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, pil: *mut ::core::ffi::c_void, isrc: i32, punk: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_DOWNDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_DOWNHOT: ARROWBTNSTATES = ARROWBTNSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_DOWNHOVER: ARROWBTNSTATES = ARROWBTNSTATES(18i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_DOWNNORMAL: ARROWBTNSTATES = ARROWBTNSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_DOWNPRESSED: ARROWBTNSTATES = ARROWBTNSTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_LEFTDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(12i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_LEFTHOT: ARROWBTNSTATES = ARROWBTNSTATES(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_LEFTHOVER: ARROWBTNSTATES = ARROWBTNSTATES(19i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_LEFTNORMAL: ARROWBTNSTATES = ARROWBTNSTATES(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_LEFTPRESSED: ARROWBTNSTATES = ARROWBTNSTATES(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_RIGHTDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(16i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_RIGHTHOT: ARROWBTNSTATES = ARROWBTNSTATES(14i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_RIGHTHOVER: ARROWBTNSTATES = ARROWBTNSTATES(20i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_RIGHTNORMAL: ARROWBTNSTATES = ARROWBTNSTATES(13i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_RIGHTPRESSED: ARROWBTNSTATES = ARROWBTNSTATES(15i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_UPDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_UPHOT: ARROWBTNSTATES = ARROWBTNSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_UPHOVER: ARROWBTNSTATES = ARROWBTNSTATES(17i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_UPNORMAL: ARROWBTNSTATES = ARROWBTNSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_UPPRESSED: ARROWBTNSTATES = ARROWBTNSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ACM_ISPLAYING: u32 = 1128u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ACM_OPEN: u32 = 1127u32;
@@ -2660,11 +2700,35 @@ pub const ACS_TIMER: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ACS_TRANSPARENT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ALLOW_CONTROLS: SET_THEME_APP_PROPERTIES_FLAGS = SET_THEME_APP_PROPERTIES_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ALLOW_NONCLIENT: SET_THEME_APP_PROPERTIES_FLAGS = SET_THEME_APP_PROPERTIES_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ALLOW_WEBCONTENT: SET_THEME_APP_PROPERTIES_FLAGS = SET_THEME_APP_PROPERTIES_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ANIMATE_CLASS: ::windows_core::PCWSTR = ::windows_core::w!("SysAnimate32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ANIMATE_CLASSA: ::windows_core::PCSTR = ::windows_core::s!("SysAnimate32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ANIMATE_CLASSW: ::windows_core::PCWSTR = ::windows_core::w!("SysAnimate32");
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const AW_BUTTON: AEROWIZARDPARTS = AEROWIZARDPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const AW_COMMANDAREA: AEROWIZARDPARTS = AEROWIZARDPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const AW_CONTENTAREA: AEROWIZARDPARTS = AEROWIZARDPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const AW_HEADERAREA: AEROWIZARDPARTS = AEROWIZARDPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const AW_S_CONTENTAREA_NOMARGIN: CONTENTAREASTATES = CONTENTAREASTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const AW_S_HEADERAREA_NOMARGIN: HEADERAREASTATES = HEADERAREASTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const AW_S_TITLEBAR_ACTIVE: TITLEBARSTATES = TITLEBARSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const AW_S_TITLEBAR_INACTIVE: TITLEBARSTATES = TITLEBARSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const AW_TITLEBAR: AEROWIZARDPARTS = AEROWIZARDPARTS(1i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const BCM_FIRST: u32 = 5632u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -2716,9 +2780,59 @@ pub const BCSS_NOSPLIT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const BCSS_STRETCH: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BPAS_CUBIC: BP_ANIMATIONSTYLE = BP_ANIMATIONSTYLE(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BPAS_LINEAR: BP_ANIMATIONSTYLE = BP_ANIMATIONSTYLE(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BPAS_NONE: BP_ANIMATIONSTYLE = BP_ANIMATIONSTYLE(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BPAS_SINE: BP_ANIMATIONSTYLE = BP_ANIMATIONSTYLE(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BPBF_COMPATIBLEBITMAP: BP_BUFFERFORMAT = BP_BUFFERFORMAT(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BPBF_DIB: BP_BUFFERFORMAT = BP_BUFFERFORMAT(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BPBF_TOPDOWNDIB: BP_BUFFERFORMAT = BP_BUFFERFORMAT(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BPBF_TOPDOWNMONODIB: BP_BUFFERFORMAT = BP_BUFFERFORMAT(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BPPF_ERASE: BP_PAINTPARAMS_FLAGS = BP_PAINTPARAMS_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BPPF_NOCLIP: BP_PAINTPARAMS_FLAGS = BP_PAINTPARAMS_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BPPF_NONCLIENT: BP_PAINTPARAMS_FLAGS = BP_PAINTPARAMS_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_CHECKBOX: BUTTONPARTS = BUTTONPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_CHECKBOX_HCDISABLED: BUTTONPARTS = BUTTONPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_COMMANDLINK: BUTTONPARTS = BUTTONPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_COMMANDLINKGLYPH: BUTTONPARTS = BUTTONPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_GROUPBOX: BUTTONPARTS = BUTTONPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_GROUPBOX_HCDISABLED: BUTTONPARTS = BUTTONPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_PUSHBUTTON: BUTTONPARTS = BUTTONPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_PUSHBUTTONDROPDOWN: BUTTONPARTS = BUTTONPARTS(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_RADIOBUTTON: BUTTONPARTS = BUTTONPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_RADIOBUTTON_HCDISABLED: BUTTONPARTS = BUTTONPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_USERBUTTON: BUTTONPARTS = BUTTONPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BST_CHECKED: DLG_BUTTON_CHECK_STATE = DLG_BUTTON_CHECK_STATE(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const BST_DROPDOWNPUSHED: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const BST_HOT: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BST_INDETERMINATE: DLG_BUTTON_CHECK_STATE = DLG_BUTTON_CHECK_STATE(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BST_UNCHECKED: DLG_BUTTON_CHECK_STATE = DLG_BUTTON_CHECK_STATE(0u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const BS_COMMANDLINK: i32 = 14i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -2745,6 +2859,68 @@ pub const BTNS_SEP: u32 = 1u32;
 pub const BTNS_SHOWTEXT: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const BTNS_WHOLEDROPDOWN: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BT_BORDERFILL: BGTYPE = BGTYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BT_ELLIPSE: BORDERTYPE = BORDERTYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BT_IMAGEFILE: BGTYPE = BGTYPE(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BT_NONE: BGTYPE = BGTYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BT_RECT: BORDERTYPE = BORDERTYPE(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BT_ROUNDRECT: BORDERTYPE = BORDERTYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BUTTON_IMAGELIST_ALIGN_BOTTOM: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(3u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BUTTON_IMAGELIST_ALIGN_CENTER: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BUTTON_IMAGELIST_ALIGN_LEFT: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BUTTON_IMAGELIST_ALIGN_RIGHT: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BUTTON_IMAGELIST_ALIGN_TOP: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CA_CENTER: CONTENTALIGNMENT = CONTENTALIGNMENT(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CA_LEFT: CONTENTALIGNMENT = CONTENTALIGNMENT(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CA_RIGHT: CONTENTALIGNMENT = CONTENTALIGNMENT(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBB_DISABLED: BORDERSTATES = BORDERSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBB_FOCUSED: BORDERSTATES = BORDERSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBB_HOT: BORDERSTATES = BORDERSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBB_NORMAL: BORDERSTATES = BORDERSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBCB_DISABLED: CUEBANNERSTATES = CUEBANNERSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBCB_HOT: CUEBANNERSTATES = CUEBANNERSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBCB_NORMAL: CUEBANNERSTATES = CUEBANNERSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBCB_PRESSED: CUEBANNERSTATES = CUEBANNERSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBDI_HIGHLIGHTED: DROPDOWNITEMSTATES = DROPDOWNITEMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBDI_NORMAL: DROPDOWNITEMSTATES = DROPDOWNITEMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBEIF_DI_SETITEM: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(268435456u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBEIF_IMAGE: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBEIF_INDENT: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBEIF_LPARAM: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBEIF_OVERLAY: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBEIF_SELECTEDIMAGE: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBEIF_TEXT: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CBEMAXSTRLEN: u32 = 260u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -2838,6 +3014,94 @@ pub const CBES_EX_TEXTENDELLIPSIS: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CBM_FIRST: u32 = 5888u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBRO_DISABLED: READONLYSTATES = READONLYSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBRO_HOT: READONLYSTATES = READONLYSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBRO_NORMAL: READONLYSTATES = READONLYSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBRO_PRESSED: READONLYSTATES = READONLYSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_CHECKEDDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_CHECKEDHOT: CHECKBOXSTATES = CHECKBOXSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_CHECKEDNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_CHECKEDPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_DISABLED: CLOSEBUTTONSTATES = CLOSEBUTTONSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_EXCLUDEDDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(20i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_EXCLUDEDHOT: CHECKBOXSTATES = CHECKBOXSTATES(18i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_EXCLUDEDNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(17i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_EXCLUDEDPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(19i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_HOT: CLOSEBUTTONSTATES = CLOSEBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_IMPLICITDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(16i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_IMPLICITHOT: CHECKBOXSTATES = CHECKBOXSTATES(14i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_IMPLICITNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(13i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_IMPLICITPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(15i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_MIXEDDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(12i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_MIXEDHOT: CHECKBOXSTATES = CHECKBOXSTATES(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_MIXEDNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_MIXEDPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_NORMAL: CLOSEBUTTONSTATES = CLOSEBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_PUSHED: CLOSEBUTTONSTATES = CLOSEBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_UNCHECKEDDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_UNCHECKEDHOT: CHECKBOXSTATES = CHECKBOXSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_UNCHECKEDNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_UNCHECKEDPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBTBS_DISABLED: TRANSPARENTBACKGROUNDSTATES = TRANSPARENTBACKGROUNDSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBTBS_FOCUSED: TRANSPARENTBACKGROUNDSTATES = TRANSPARENTBACKGROUNDSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBTBS_HOT: TRANSPARENTBACKGROUNDSTATES = TRANSPARENTBACKGROUNDSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBTBS_NORMAL: TRANSPARENTBACKGROUNDSTATES = TRANSPARENTBACKGROUNDSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXSL_DISABLED: DROPDOWNBUTTONLEFTSTATES = DROPDOWNBUTTONLEFTSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXSL_HOT: DROPDOWNBUTTONLEFTSTATES = DROPDOWNBUTTONLEFTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXSL_NORMAL: DROPDOWNBUTTONLEFTSTATES = DROPDOWNBUTTONLEFTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXSL_PRESSED: DROPDOWNBUTTONLEFTSTATES = DROPDOWNBUTTONLEFTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXSR_DISABLED: DROPDOWNBUTTONRIGHTSTATES = DROPDOWNBUTTONRIGHTSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXSR_HOT: DROPDOWNBUTTONRIGHTSTATES = DROPDOWNBUTTONRIGHTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXSR_NORMAL: DROPDOWNBUTTONRIGHTSTATES = DROPDOWNBUTTONRIGHTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXSR_PRESSED: DROPDOWNBUTTONRIGHTSTATES = DROPDOWNBUTTONRIGHTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXS_DISABLED: COMBOBOXSTYLESTATES = COMBOBOXSTYLESTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXS_HOT: COMBOBOXSTYLESTATES = COMBOBOXSTYLESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXS_NORMAL: COMBOBOXSTYLESTATES = COMBOBOXSTYLESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXS_PRESSED: COMBOBOXSTYLESTATES = COMBOBOXSTYLESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CB_GETCUEBANNER: u32 = 5892u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CB_GETMINVISIBLE: u32 = 5890u32;
@@ -2898,7 +3162,49 @@ pub const CCS_VERT: i32 = 128i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CDDS_ITEM: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDDS_ITEMPOSTERASE: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(65540u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDDS_ITEMPOSTPAINT: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(65538u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDDS_ITEMPREERASE: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(65539u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDDS_ITEMPREPAINT: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(65537u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CDDS_POSTERASE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDDS_POSTPAINT: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDDS_PREERASE: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(3u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDDS_PREPAINT: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDDS_SUBITEM: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(131072u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_CHECKED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_DEFAULT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_DISABLED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_DROPHILITED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_FOCUS: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_GRAYED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_HOT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_INDETERMINATE: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_MARKED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_NEARHOT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_OTHERSIDEHOT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_SELECTED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CDIS_SHOWKEYBOARDCUES: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(512u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CDN_FIRST: u32 = 4294966695u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -2922,17 +3228,159 @@ pub const CDRF_SKIPDEFAULT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CDRF_SKIPPOSTPAINT: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CHEVSV_HOT: CHEVRONVERTSTATES = CHEVRONVERTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CHEVSV_NORMAL: CHEVRONVERTSTATES = CHEVRONVERTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CHEVSV_PRESSED: CHEVRONVERTSTATES = CHEVRONVERTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CHEVS_HOT: CHEVRONSTATES = CHEVRONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CHEVS_NORMAL: CHEVRONSTATES = CHEVRONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CHEVS_PRESSED: CHEVRONSTATES = CHEVRONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CLP_TIME: CLOCKPARTS = CLOCKPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CLR_DEFAULT: i32 = -16777216i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CLR_HILIGHT: i32 = -16777216i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CLR_NONE: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CLS_HOT: CLOCKSTATES = CLOCKSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CLS_NORMAL: CLOCKSTATES = CLOCKSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CLS_PRESSED: CLOCKSTATES = CLOCKSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CMB_MASKED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLGS_DEFAULTED: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLGS_DISABLED: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLGS_HOT: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLGS_NORMAL: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLGS_PRESSED: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLS_DEFAULTED: COMMANDLINKSTATES = COMMANDLINKSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLS_DEFAULTED_ANIMATING: COMMANDLINKSTATES = COMMANDLINKSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLS_DISABLED: COMMANDLINKSTATES = COMMANDLINKSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLS_HOT: COMMANDLINKSTATES = COMMANDLINKSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLS_NORMAL: COMMANDLINKSTATES = COMMANDLINKSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLS_PRESSED: COMMANDLINKSTATES = COMMANDLINKSTATES(3i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const COLORMGMTDLGORD: u32 = 1551u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const COMCTL32_VERSION: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_BANNERAREA: CONTROLPANELPARTS = CONTROLPANELPARTS(18i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_BODYTEXT: CONTROLPANELPARTS = CONTROLPANELPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_BODYTITLE: CONTROLPANELPARTS = CONTROLPANELPARTS(19i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_BUTTON: CONTROLPANELPARTS = CONTROLPANELPARTS(14i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_CONTENTLINK: CONTROLPANELPARTS = CONTROLPANELPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_CONTENTPANE: CONTROLPANELPARTS = CONTROLPANELPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_CONTENTPANELABEL: CONTROLPANELPARTS = CONTROLPANELPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_CONTENTPANELINE: CONTROLPANELPARTS = CONTROLPANELPARTS(17i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_GROUPTEXT: CONTROLPANELPARTS = CONTROLPANELPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_HELPLINK: CONTROLPANELPARTS = CONTROLPANELPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_LARGECOMMANDAREA: CONTROLPANELPARTS = CONTROLPANELPARTS(12i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_MESSAGETEXT: CONTROLPANELPARTS = CONTROLPANELPARTS(15i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_NAVIGATIONPANE: CONTROLPANELPARTS = CONTROLPANELPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_NAVIGATIONPANELABEL: CONTROLPANELPARTS = CONTROLPANELPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_NAVIGATIONPANELINE: CONTROLPANELPARTS = CONTROLPANELPARTS(16i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_SECTIONTITLELINK: CONTROLPANELPARTS = CONTROLPANELPARTS(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_SMALLCOMMANDAREA: CONTROLPANELPARTS = CONTROLPANELPARTS(13i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_TASKLINK: CONTROLPANELPARTS = CONTROLPANELPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_TITLE: CONTROLPANELPARTS = CONTROLPANELPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPCL_DISABLED: CONTENTLINKSTATES = CONTENTLINKSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPCL_HOT: CONTENTLINKSTATES = CONTENTLINKSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPCL_NORMAL: CONTENTLINKSTATES = CONTENTLINKSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPCL_PRESSED: CONTENTLINKSTATES = CONTENTLINKSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPHL_DISABLED: HELPLINKSTATES = HELPLINKSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPHL_HOT: HELPLINKSTATES = HELPLINKSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPHL_NORMAL: HELPLINKSTATES = HELPLINKSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPHL_PRESSED: HELPLINKSTATES = HELPLINKSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPSTL_HOT: SECTIONTITLELINKSTATES = SECTIONTITLELINKSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPSTL_NORMAL: SECTIONTITLELINKSTATES = SECTIONTITLELINKSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPTL_DISABLED: TASKLINKSTATES = TASKLINKSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPTL_HOT: TASKLINKSTATES = TASKLINKSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPTL_NORMAL: TASKLINKSTATES = TASKLINKSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPTL_PAGE: TASKLINKSTATES = TASKLINKSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPTL_PRESSED: TASKLINKSTATES = TASKLINKSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CP_BACKGROUND: COMBOBOXPARTS = COMBOBOXPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CP_BORDER: COMBOBOXPARTS = COMBOBOXPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CP_CUEBANNER: COMBOBOXPARTS = COMBOBOXPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CP_DROPDOWNBUTTON: COMBOBOXPARTS = COMBOBOXPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CP_DROPDOWNBUTTONLEFT: COMBOBOXPARTS = COMBOBOXPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CP_DROPDOWNBUTTONRIGHT: COMBOBOXPARTS = COMBOBOXPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CP_DROPDOWNITEM: COMBOBOXPARTS = COMBOBOXPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CP_READONLY: COMBOBOXPARTS = COMBOBOXPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CP_TRANSPARENTBACKGROUND: COMBOBOXPARTS = COMBOBOXPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CSST_TAB: COMMUNICATIONSPARTS = COMMUNICATIONSPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CSTB_HOT: TABSTATES = TABSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CSTB_NORMAL: TABSTATES = TABSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CSTB_SELECTED: TABSTATES = TABSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CS_ACTIVE: CAPTIONSTATES = CAPTIONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CS_DISABLED: CAPTIONSTATES = CAPTIONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CS_INACTIVE: CAPTIONSTATES = CAPTIONSTATES(2i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DATETIMEPICK_CLASS: ::windows_core::PCWSTR = ::windows_core::w!("SysDateTimePick32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -2944,13 +3392,101 @@ pub const DA_ERR: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DA_LAST: u32 = 2147483647u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDCOPY_HIGHLIGHT: COPYSTATES = COPYSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDCOPY_NOHIGHLIGHT: COPYSTATES = COPYSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDCREATELINK_HIGHLIGHT: CREATELINKSTATES = CREATELINKSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDCREATELINK_NOHIGHLIGHT: CREATELINKSTATES = CREATELINKSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDL_ARCHIVE: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDL_DIRECTORY: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDL_DRIVES: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(16384u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDL_EXCLUSIVE: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(32768u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDL_HIDDEN: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDL_POSTMSGS: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(8192u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDL_READONLY: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDL_READWRITE: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDL_SYSTEM: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDMOVE_HIGHLIGHT: MOVESTATES = MOVESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDMOVE_NOHIGHLIGHT: MOVESTATES = MOVESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDNONE_HIGHLIGHT: NONESTATES = NONESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDNONE_NOHIGHLIGHT: NONESTATES = NONESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDUPDATEMETADATA_HIGHLIGHT: UPDATEMETADATASTATES = UPDATEMETADATASTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDUPDATEMETADATA_NOHIGHLIGHT: UPDATEMETADATASTATES = UPDATEMETADATASTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDWARNING_HIGHLIGHT: WARNINGSTATES = WARNINGSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDWARNING_NOHIGHLIGHT: WARNINGSTATES = WARNINGSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DD_COPY: DRAGDROPPARTS = DRAGDROPPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DD_CREATELINK: DRAGDROPPARTS = DRAGDROPPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DD_IMAGEBG: DRAGDROPPARTS = DRAGDROPPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DD_MOVE: DRAGDROPPARTS = DRAGDROPPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DD_NONE: DRAGDROPPARTS = DRAGDROPPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DD_TEXTBG: DRAGDROPPARTS = DRAGDROPPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DD_UPDATEMETADATA: DRAGDROPPARTS = DRAGDROPPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DD_WARNING: DRAGDROPPARTS = DRAGDROPPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DL_BEGINDRAG: DRAGLISTINFO_NOTIFICATION_FLAGS = DRAGLISTINFO_NOTIFICATION_FLAGS(1157u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DL_CANCELDRAG: DRAGLISTINFO_NOTIFICATION_FLAGS = DRAGLISTINFO_NOTIFICATION_FLAGS(1160u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DL_COPYCURSOR: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DL_CURSORSET: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DL_DRAGGING: DRAGLISTINFO_NOTIFICATION_FLAGS = DRAGLISTINFO_NOTIFICATION_FLAGS(1158u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DL_DROPPED: DRAGLISTINFO_NOTIFICATION_FLAGS = DRAGLISTINFO_NOTIFICATION_FLAGS(1159u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DL_MOVECURSOR: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DL_STOPCURSOR: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DNHZS_DISABLED: DOWNHORZSTATES = DOWNHORZSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DNHZS_HOT: DOWNHORZSTATES = DOWNHORZSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DNHZS_NORMAL: DOWNHORZSTATES = DOWNHORZSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DNHZS_PRESSED: DOWNHORZSTATES = DOWNHORZSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DNS_DISABLED: DOWNSTATES = DOWNSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DNS_HOT: DOWNSTATES = DOWNSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DNS_NORMAL: DOWNSTATES = DOWNSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DNS_PRESSED: DOWNSTATES = DOWNSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPAMM_DELETE: DPAMM_MESSAGE = DPAMM_MESSAGE(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPAMM_INSERT: DPAMM_MESSAGE = DPAMM_MESSAGE(3u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPAMM_MERGE: DPAMM_MESSAGE = DPAMM_MESSAGE(1u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DPAM_INTERSECT: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -2969,6 +3505,34 @@ pub const DPAS_SORTED: u32 = 1u32;
 pub const DPA_APPEND: u32 = 2147483647u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DPA_ERR: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPDB_DISABLED: DATEBORDERSTATES = DATEBORDERSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPDB_FOCUSED: DATEBORDERSTATES = DATEBORDERSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPDB_HOT: DATEBORDERSTATES = DATEBORDERSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPDB_NORMAL: DATEBORDERSTATES = DATEBORDERSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPDT_DISABLED: DATETEXTSTATES = DATETEXTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPDT_NORMAL: DATETEXTSTATES = DATETEXTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPDT_SELECTED: DATETEXTSTATES = DATETEXTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPSCBR_DISABLED: SHOWCALENDARBUTTONRIGHTSTATES = SHOWCALENDARBUTTONRIGHTSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPSCBR_HOT: SHOWCALENDARBUTTONRIGHTSTATES = SHOWCALENDARBUTTONRIGHTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPSCBR_NORMAL: SHOWCALENDARBUTTONRIGHTSTATES = SHOWCALENDARBUTTONRIGHTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPSCBR_PRESSED: SHOWCALENDARBUTTONRIGHTSTATES = SHOWCALENDARBUTTONRIGHTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DP_DATEBORDER: DATEPICKERPARTS = DATEPICKERPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DP_DATETEXT: DATEPICKERPARTS = DATEPICKERPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DP_SHOWCALENDARBUTTONRIGHT: DATEPICKERPARTS = DATEPICKERPARTS(3i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DRAGLISTMSGSTRING: ::windows_core::PCWSTR = ::windows_core::w!("commctrl_DragListMsg");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -3064,6 +3628,12 @@ pub const DTN_WMKEYDOWNA: u32 = 4294966539u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DTN_WMKEYDOWNW: u32 = 4294966552u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTPB_USECTLCOLORSTATIC: DRAW_THEME_PARENT_BACKGROUND_FLAGS = DRAW_THEME_PARENT_BACKGROUND_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTPB_USEERASEBKGND: DRAW_THEME_PARENT_BACKGROUND_FLAGS = DRAW_THEME_PARENT_BACKGROUND_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTPB_WINDOWDC: DRAW_THEME_PARENT_BACKGROUND_FLAGS = DRAW_THEME_PARENT_BACKGROUND_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DTS_APPCANPARSE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DTS_LONGDATEFORMAT: u32 = 4u32;
@@ -3080,11 +3650,153 @@ pub const DTS_TIMEFORMAT: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DTS_UPDOWN: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_APPLYOVERLAY: DTTOPTS_FLAGS = DTTOPTS_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_BORDERCOLOR: DTTOPTS_FLAGS = DTTOPTS_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_BORDERSIZE: DTTOPTS_FLAGS = DTTOPTS_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_CALCRECT: DTTOPTS_FLAGS = DTTOPTS_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_CALLBACK: DTTOPTS_FLAGS = DTTOPTS_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_COLORPROP: DTTOPTS_FLAGS = DTTOPTS_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_COMPOSITED: DTTOPTS_FLAGS = DTTOPTS_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DTT_FLAGS2VALIDBITS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_FONTPROP: DTTOPTS_FLAGS = DTTOPTS_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_GLOWSIZE: DTTOPTS_FLAGS = DTTOPTS_FLAGS(2048u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DTT_GRAYED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_SHADOWCOLOR: DTTOPTS_FLAGS = DTTOPTS_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_SHADOWOFFSET: DTTOPTS_FLAGS = DTTOPTS_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_SHADOWTYPE: DTTOPTS_FLAGS = DTTOPTS_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_STATEID: DTTOPTS_FLAGS = DTTOPTS_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_TEXTCOLOR: DTTOPTS_FLAGS = DTTOPTS_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_VALIDBITS: DTTOPTS_FLAGS = DTTOPTS_FLAGS(12287u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBHC_HOT: HEADERCLOSESTATES = HEADERCLOSESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBHC_NORMAL: HEADERCLOSESTATES = HEADERCLOSESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBHC_PRESSED: HEADERCLOSESTATES = HEADERCLOSESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBHP_HOT: HEADERPINSTATES = HEADERPINSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBHP_NORMAL: HEADERPINSTATES = HEADERPINSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBHP_PRESSED: HEADERPINSTATES = HEADERPINSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBHP_SELECTEDHOT: HEADERPINSTATES = HEADERPINSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBHP_SELECTEDNORMAL: HEADERPINSTATES = HEADERPINSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBHP_SELECTEDPRESSED: HEADERPINSTATES = HEADERPINSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBM_HOT: IEBARMENUSTATES = IEBARMENUSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBM_NORMAL: IEBARMENUSTATES = IEBARMENUSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBM_PRESSED: IEBARMENUSTATES = IEBARMENUSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBNGC_HOT: NORMALGROUPCOLLAPSESTATES = NORMALGROUPCOLLAPSESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBNGC_NORMAL: NORMALGROUPCOLLAPSESTATES = NORMALGROUPCOLLAPSESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBNGC_PRESSED: NORMALGROUPCOLLAPSESTATES = NORMALGROUPCOLLAPSESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBNGE_HOT: NORMALGROUPEXPANDSTATES = NORMALGROUPEXPANDSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBNGE_NORMAL: NORMALGROUPEXPANDSTATES = NORMALGROUPEXPANDSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBNGE_PRESSED: NORMALGROUPEXPANDSTATES = NORMALGROUPEXPANDSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_HEADERBACKGROUND: EXPLORERBARPARTS = EXPLORERBARPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_HEADERCLOSE: EXPLORERBARPARTS = EXPLORERBARPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_HEADERPIN: EXPLORERBARPARTS = EXPLORERBARPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_IEBARMENU: EXPLORERBARPARTS = EXPLORERBARPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_NORMALGROUPBACKGROUND: EXPLORERBARPARTS = EXPLORERBARPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_NORMALGROUPCOLLAPSE: EXPLORERBARPARTS = EXPLORERBARPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_NORMALGROUPEXPAND: EXPLORERBARPARTS = EXPLORERBARPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_NORMALGROUPHEAD: EXPLORERBARPARTS = EXPLORERBARPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_SPECIALGROUPBACKGROUND: EXPLORERBARPARTS = EXPLORERBARPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_SPECIALGROUPCOLLAPSE: EXPLORERBARPARTS = EXPLORERBARPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_SPECIALGROUPEXPAND: EXPLORERBARPARTS = EXPLORERBARPARTS(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_SPECIALGROUPHEAD: EXPLORERBARPARTS = EXPLORERBARPARTS(12i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBSGC_HOT: SPECIALGROUPCOLLAPSESTATES = SPECIALGROUPCOLLAPSESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBSGC_NORMAL: SPECIALGROUPCOLLAPSESTATES = SPECIALGROUPCOLLAPSESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBSGC_PRESSED: SPECIALGROUPCOLLAPSESTATES = SPECIALGROUPCOLLAPSESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBSGE_HOT: SPECIALGROUPEXPANDSTATES = SPECIALGROUPEXPANDSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBSGE_NORMAL: SPECIALGROUPEXPANDSTATES = SPECIALGROUPEXPANDSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBSGE_PRESSED: SPECIALGROUPEXPANDSTATES = SPECIALGROUPEXPANDSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBS_ASSIST: BACKGROUNDSTATES = BACKGROUNDSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBS_DISABLED: BACKGROUNDSTATES = BACKGROUNDSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBS_FOCUSED: BACKGROUNDSTATES = BACKGROUNDSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBS_HOT: BACKGROUNDSTATES = BACKGROUNDSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBS_NORMAL: BACKGROUNDSTATES = BACKGROUNDSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBS_READONLY: BACKGROUNDSTATES = BACKGROUNDSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBWBS_DISABLED: BACKGROUNDWITHBORDERSTATES = BACKGROUNDWITHBORDERSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBWBS_FOCUSED: BACKGROUNDWITHBORDERSTATES = BACKGROUNDWITHBORDERSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBWBS_HOT: BACKGROUNDWITHBORDERSTATES = BACKGROUNDWITHBORDERSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBWBS_NORMAL: BACKGROUNDWITHBORDERSTATES = BACKGROUNDWITHBORDERSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ECM_FIRST: u32 = 5376u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EC_ENDOFLINE_CR: EC_ENDOFLINE = EC_ENDOFLINE(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EC_ENDOFLINE_CRLF: EC_ENDOFLINE = EC_ENDOFLINE(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EC_ENDOFLINE_DETECTFROMCONTENT: EC_ENDOFLINE = EC_ENDOFLINE(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EC_ENDOFLINE_LF: EC_ENDOFLINE = EC_ENDOFLINE(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EC_SEARCHWEB_ENTRYPOINT_CONTEXTMENU: EC_SEARCHWEB_ENTRYPOINT = EC_SEARCHWEB_ENTRYPOINT(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EC_SEARCHWEB_ENTRYPOINT_EXTERNAL: EC_SEARCHWEB_ENTRYPOINT = EC_SEARCHWEB_ENTRYPOINT(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EMF_CENTERED: NMLVEMPTYMARKUP_FLAGS = NMLVEMPTYMARKUP_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EMP_MARKUPTEXT: EMPTYMARKUPPARTS = EMPTYMARKUPPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EMT_LINKTEXT: MARKUPTEXTSTATES = MARKUPTEXTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EMT_NORMALTEXT: MARKUPTEXTSTATES = MARKUPTEXTSTATES(1i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const EM_CANUNDO: u32 = 198u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -3214,6 +3926,72 @@ pub const EN_LAST: u32 = 4294965756u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const EN_SEARCHWEB: u32 = 4294965776u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSHV_DISABLED: EDITBORDER_HVSCROLLSTATES = EDITBORDER_HVSCROLLSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSHV_FOCUSED: EDITBORDER_HVSCROLLSTATES = EDITBORDER_HVSCROLLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSHV_HOT: EDITBORDER_HVSCROLLSTATES = EDITBORDER_HVSCROLLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSHV_NORMAL: EDITBORDER_HVSCROLLSTATES = EDITBORDER_HVSCROLLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSH_DISABLED: EDITBORDER_HSCROLLSTATES = EDITBORDER_HSCROLLSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSH_FOCUSED: EDITBORDER_HSCROLLSTATES = EDITBORDER_HSCROLLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSH_HOT: EDITBORDER_HSCROLLSTATES = EDITBORDER_HSCROLLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSH_NORMAL: EDITBORDER_HSCROLLSTATES = EDITBORDER_HSCROLLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSN_DISABLED: EDITBORDER_NOSCROLLSTATES = EDITBORDER_NOSCROLLSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSN_FOCUSED: EDITBORDER_NOSCROLLSTATES = EDITBORDER_NOSCROLLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSN_HOT: EDITBORDER_NOSCROLLSTATES = EDITBORDER_NOSCROLLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSN_NORMAL: EDITBORDER_NOSCROLLSTATES = EDITBORDER_NOSCROLLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSV_DISABLED: EDITBORDER_VSCROLLSTATES = EDITBORDER_VSCROLLSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSV_FOCUSED: EDITBORDER_VSCROLLSTATES = EDITBORDER_VSCROLLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSV_HOT: EDITBORDER_VSCROLLSTATES = EDITBORDER_VSCROLLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSV_NORMAL: EDITBORDER_VSCROLLSTATES = EDITBORDER_VSCROLLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EP_BACKGROUND: EDITPARTS = EDITPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EP_BACKGROUNDWITHBORDER: EDITPARTS = EDITPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EP_CARET: EDITPARTS = EDITPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EP_EDITBORDER_HSCROLL: EDITPARTS = EDITPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EP_EDITBORDER_HVSCROLL: EDITPARTS = EDITPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EP_EDITBORDER_NOSCROLL: EDITPARTS = EDITPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EP_EDITBORDER_VSCROLL: EDITPARTS = EDITPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EP_EDITTEXT: EDITPARTS = EDITPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EP_PASSWORD: EDITPARTS = EDITPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ESB_DISABLE_BOTH: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(3u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ESB_DISABLE_DOWN: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ESB_DISABLE_LEFT: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ESB_DISABLE_LTUP: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ESB_DISABLE_RIGHT: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ESB_DISABLE_RTDN: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ESB_DISABLE_UP: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ESB_ENABLE_BOTH: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ES_EX_ALLOWEOL_CR: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ES_EX_ALLOWEOL_LF: i32 = 2i32;
@@ -3230,9 +4008,85 @@ pub const ETDT_USEAEROWIZARDTABTEXTURE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ETDT_USETABTEXTURE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ETS_ASSIST: EDITTEXTSTATES = EDITTEXTSTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ETS_CUEBANNER: EDITTEXTSTATES = EDITTEXTSTATES(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ETS_DISABLED: EDITTEXTSTATES = EDITTEXTSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ETS_FOCUSED: EDITTEXTSTATES = EDITTEXTSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ETS_HOT: EDITTEXTSTATES = EDITTEXTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ETS_NORMAL: EDITTEXTSTATES = EDITTEXTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ETS_READONLY: EDITTEXTSTATES = EDITTEXTSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ETS_SELECTED: EDITTEXTSTATES = EDITTEXTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FBS_EMPHASIZED: BODYSTATES = BODYSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FBS_NORMAL: BODYSTATES = BODYSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FEEDBACK_GESTURE_PRESSANDTAP: FEEDBACK_TYPE = FEEDBACK_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FEEDBACK_MAX: FEEDBACK_TYPE = FEEDBACK_TYPE(-1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FEEDBACK_PEN_BARRELVISUALIZATION: FEEDBACK_TYPE = FEEDBACK_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FEEDBACK_PEN_DOUBLETAP: FEEDBACK_TYPE = FEEDBACK_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FEEDBACK_PEN_PRESSANDHOLD: FEEDBACK_TYPE = FEEDBACK_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FEEDBACK_PEN_RIGHTTAP: FEEDBACK_TYPE = FEEDBACK_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FEEDBACK_PEN_TAP: FEEDBACK_TYPE = FEEDBACK_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FEEDBACK_TOUCH_CONTACTVISUALIZATION: FEEDBACK_TYPE = FEEDBACK_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FEEDBACK_TOUCH_DOUBLETAP: FEEDBACK_TYPE = FEEDBACK_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FEEDBACK_TOUCH_PRESSANDHOLD: FEEDBACK_TYPE = FEEDBACK_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FEEDBACK_TOUCH_RIGHTTAP: FEEDBACK_TYPE = FEEDBACK_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FEEDBACK_TOUCH_TAP: FEEDBACK_TYPE = FEEDBACK_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const FILEOPENORD: u32 = 1536u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const FINDDLGORD: u32 = 1540u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLH_HOVER: LINKHEADERSTATES = LINKHEADERSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLH_NORMAL: LINKHEADERSTATES = LINKHEADERSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLS_DISABLED: LABELSTATES = LABELSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLS_EMPHASIZED: LABELSTATES = LABELSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLS_NORMAL: LABELSTATES = LABELSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLS_SELECTED: LABELSTATES = LABELSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLYOUTLINK_HOVER: LINKSTATES = LINKSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLYOUTLINK_NORMAL: LINKSTATES = LINKSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLYOUT_BODY: FLYOUTPARTS = FLYOUTPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLYOUT_DIVIDER: FLYOUTPARTS = FLYOUTPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLYOUT_HEADER: FLYOUTPARTS = FLYOUTPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLYOUT_LABEL: FLYOUTPARTS = FLYOUTPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLYOUT_LINK: FLYOUTPARTS = FLYOUTPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLYOUT_LINKAREA: FLYOUTPARTS = FLYOUTPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLYOUT_LINKHEADER: FLYOUTPARTS = FLYOUTPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLYOUT_WINDOW: FLYOUTPARTS = FLYOUTPARTS(6i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const FONTDLGORD: u32 = 1542u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -3240,11 +4094,47 @@ pub const FORMATDLGORD30: u32 = 1544u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const FORMATDLGORD31: u32 = 1543u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FRB_ACTIVE: FRAMEBOTTOMSTATES = FRAMEBOTTOMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FRB_INACTIVE: FRAMEBOTTOMSTATES = FRAMEBOTTOMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FRL_ACTIVE: FRAMELEFTSTATES = FRAMELEFTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FRL_INACTIVE: FRAMELEFTSTATES = FRAMELEFTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FRR_ACTIVE: FRAMERIGHTSTATES = FRAMERIGHTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FRR_INACTIVE: FRAMERIGHTSTATES = FRAMERIGHTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const FSB_ENCARTA_MODE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const FSB_FLAT_MODE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const FSB_REGULAR_MODE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FS_ACTIVE: FRAMESTATES = FRAMESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FS_INACTIVE: FRAMESTATES = FRAMESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FT_HORZGRADIENT: FILLTYPE = FILLTYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FT_RADIALGRADIENT: FILLTYPE = FILLTYPE(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FT_SOLID: FILLTYPE = FILLTYPE(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FT_TILEIMAGE: FILLTYPE = FILLTYPE(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FT_VERTGRADIENT: FILLTYPE = FILLTYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const GBF_COPY: GET_THEME_BITMAP_FLAGS = GET_THEME_BITMAP_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const GBF_DIRECT: GET_THEME_BITMAP_FLAGS = GET_THEME_BITMAP_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const GBF_VALIDBITS: GET_THEME_BITMAP_FLAGS = GET_THEME_BITMAP_FLAGS(3u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const GBS_DISABLED: GROUPBOXSTATES = GROUPBOXSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const GBS_NORMAL: GROUPBOXSTATES = GROUPBOXSTATES(1i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const GDTR_MAX: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -3252,9 +4142,123 @@ pub const GDTR_MIN: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const GDT_ERROR: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const GDT_NONE: NMDATETIMECHANGE_FLAGS = NMDATETIMECHANGE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const GDT_VALID: NMDATETIMECHANGE_FLAGS = NMDATETIMECHANGE_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const GFST_DPI: GLYPHFONTSIZINGTYPE = GLYPHFONTSIZINGTYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const GFST_NONE: GLYPHFONTSIZINGTYPE = GLYPHFONTSIZINGTYPE(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const GFST_SIZE: GLYPHFONTSIZINGTYPE = GLYPHFONTSIZINGTYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const GLPS_CLOSED: GLYPHSTATES = GLYPHSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const GLPS_OPENED: GLYPHSTATES = GLYPHSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const GMR_DAYSTATE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const GMR_VISIBLE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const GT_FONTGLYPH: GLYPHTYPE = GLYPHTYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const GT_IMAGEGLYPH: GLYPHTYPE = GLYPHTYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const GT_NONE: GLYPHTYPE = GLYPHTYPE(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HA_CENTER: HALIGN = HALIGN(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HA_LEFT: HALIGN = HALIGN(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HA_RIGHT: HALIGN = HALIGN(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HBG_DETAILS: HEADERSTYLESTATES = HEADERSTYLESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HBG_ICON: HEADERSTYLESTATES = HEADERSTYLESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HBS_DISABLED: HELPBUTTONSTATES = HELPBUTTONSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HBS_HOT: HELPBUTTONSTATES = HELPBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HBS_NORMAL: HELPBUTTONSTATES = HELPBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HBS_PUSHED: HELPBUTTONSTATES = HELPBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDDFS_HOT: HEADERDROPDOWNFILTERSTATES = HEADERDROPDOWNFILTERSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDDFS_NORMAL: HEADERDROPDOWNFILTERSTATES = HEADERDROPDOWNFILTERSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDDFS_SOFTHOT: HEADERDROPDOWNFILTERSTATES = HEADERDROPDOWNFILTERSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDDS_HOT: HEADERDROPDOWNSTATES = HEADERDROPDOWNSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDDS_NORMAL: HEADERDROPDOWNSTATES = HEADERDROPDOWNSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDDS_SOFTHOT: HEADERDROPDOWNSTATES = HEADERDROPDOWNSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDFT_HASNOVALUE: HEADER_CONTROL_FORMAT_TYPE = HEADER_CONTROL_FORMAT_TYPE(32768u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDFT_ISDATE: HEADER_CONTROL_FORMAT_TYPE = HEADER_CONTROL_FORMAT_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDFT_ISNUMBER: HEADER_CONTROL_FORMAT_TYPE = HEADER_CONTROL_FORMAT_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDFT_ISSTRING: HEADER_CONTROL_FORMAT_TYPE = HEADER_CONTROL_FORMAT_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_BITMAP: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(8192i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_BITMAP_ON_RIGHT: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(4096i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_CENTER: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_CHECKBOX: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(64i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_CHECKED: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(128i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_FIXEDWIDTH: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(256i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_IMAGE: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(2048i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_JUSTIFYMASK: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_LEFT: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_OWNERDRAW: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(32768i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_RIGHT: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_RTLREADING: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_SORTDOWN: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(512i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_SORTUP: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(1024i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_SPLITBUTTON: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(16777216i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDF_STRING: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(16384i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDIS_FOCUSED: HEADER_CONTROL_FORMAT_STATE = HEADER_CONTROL_FORMAT_STATE(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDI_BITMAP: HDI_MASK = HDI_MASK(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDI_DI_SETITEM: HDI_MASK = HDI_MASK(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDI_FILTER: HDI_MASK = HDI_MASK(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDI_FORMAT: HDI_MASK = HDI_MASK(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDI_HEIGHT: HDI_MASK = HDI_MASK(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDI_IMAGE: HDI_MASK = HDI_MASK(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDI_LPARAM: HDI_MASK = HDI_MASK(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDI_ORDER: HDI_MASK = HDI_MASK(128u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDI_STATE: HDI_MASK = HDI_MASK(512u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDI_TEXT: HDI_MASK = HDI_MASK(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDI_WIDTH: HDI_MASK = HDI_MASK(1u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HDM_CLEARFILTER: u32 = 4632u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -3426,6 +4430,74 @@ pub const HDS_NOSIZING: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HDS_OVERFLOW: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HEADER_CONTROL_NOTIFICATION_BUTTON_LEFT: HEADER_CONTROL_NOTIFICATION_BUTTON = HEADER_CONTROL_NOTIFICATION_BUTTON(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HEADER_CONTROL_NOTIFICATION_BUTTON_MIDDLE: HEADER_CONTROL_NOTIFICATION_BUTTON = HEADER_CONTROL_NOTIFICATION_BUTTON(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HEADER_CONTROL_NOTIFICATION_BUTTON_RIGHT: HEADER_CONTROL_NOTIFICATION_BUTTON = HEADER_CONTROL_NOTIFICATION_BUTTON(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HGLPS_CLOSED: HOTGLYPHSTATES = HOTGLYPHSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HGLPS_OPENED: HOTGLYPHSTATES = HOTGLYPHSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_ABOVE: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_BELOW: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_NOWHERE: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_ONDIVIDER: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_ONDIVOPEN: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_ONDROPDOWN: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_ONFILTER: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_ONFILTERBUTTON: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_ONHEADER: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_ONITEMSTATEICON: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_ONOVERFLOW: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(16384u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_TOLEFT: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HHT_TORIGHT: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HICF_ACCELERATOR: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HICF_ARROWKEYS: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HICF_DUPACCEL: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HICF_ENTERING: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HICF_LEAVING: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HICF_LMOUSE: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HICF_MOUSE: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HICF_OTHER: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HICF_RESELECT: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HICF_TOGGLEDROPDOWN: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HILS_HOT: HEADERITEMLEFTSTATES = HEADERITEMLEFTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HILS_NORMAL: HEADERITEMLEFTSTATES = HEADERITEMLEFTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HILS_PRESSED: HEADERITEMLEFTSTATES = HEADERITEMLEFTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIRS_HOT: HEADERITEMRIGHTSTATES = HEADERITEMRIGHTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIRS_NORMAL: HEADERITEMRIGHTSTATES = HEADERITEMRIGHTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIRS_PRESSED: HEADERITEMRIGHTSTATES = HEADERITEMRIGHTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HIST_ADDTOFAVORITES: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HIST_BACK: u32 = 0u32;
@@ -3435,6 +4507,30 @@ pub const HIST_FAVORITES: u32 = 2u32;
 pub const HIST_FORWARD: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HIST_VIEWTREE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_HOT: HEADERITEMSTATES = HEADERITEMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_ICONHOT: HEADERITEMSTATES = HEADERITEMSTATES(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_ICONNORMAL: HEADERITEMSTATES = HEADERITEMSTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_ICONPRESSED: HEADERITEMSTATES = HEADERITEMSTATES(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_ICONSORTEDHOT: HEADERITEMSTATES = HEADERITEMSTATES(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_ICONSORTEDNORMAL: HEADERITEMSTATES = HEADERITEMSTATES(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_ICONSORTEDPRESSED: HEADERITEMSTATES = HEADERITEMSTATES(12i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_NORMAL: HEADERITEMSTATES = HEADERITEMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_PRESSED: HEADERITEMSTATES = HEADERITEMSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_SORTEDHOT: HEADERITEMSTATES = HEADERITEMSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_SORTEDNORMAL: HEADERITEMSTATES = HEADERITEMSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_SORTEDPRESSED: HEADERITEMSTATES = HEADERITEMSTATES(6i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HKCOMB_A: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -3458,6 +4554,14 @@ pub const HKM_SETHOTKEY: u32 = 1025u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HKM_SETRULES: u32 = 1027u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HLS_LINKTEXT: HYPERLINKSTATES = HYPERLINKSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HLS_NORMALTEXT: HYPERLINKSTATES = HYPERLINKSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HOFS_HOT: HEADEROVERFLOWSTATES = HEADEROVERFLOWSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HOFS_NORMAL: HEADEROVERFLOWSTATES = HEADEROVERFLOWSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HOTKEYF_ALT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HOTKEYF_CONTROL: u32 = 2u32;
@@ -3473,6 +4577,104 @@ pub const HOTKEY_CLASSA: ::windows_core::PCSTR = ::windows_core::s!("msctls_hotk
 pub const HOTKEY_CLASSW: ::windows_core::PCWSTR = ::windows_core::w!("msctls_hotkey32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HOVER_DEFAULT: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HP_HEADERDROPDOWN: HEADERPARTS = HEADERPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HP_HEADERDROPDOWNFILTER: HEADERPARTS = HEADERPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HP_HEADERITEM: HEADERPARTS = HEADERPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HP_HEADERITEMLEFT: HEADERPARTS = HEADERPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HP_HEADERITEMRIGHT: HEADERPARTS = HEADERPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HP_HEADEROVERFLOW: HEADERPARTS = HEADERPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HP_HEADERSORTARROW: HEADERPARTS = HEADERPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HSAS_SORTEDDOWN: HEADERSORTARROWSTATES = HEADERSORTARROWSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HSAS_SORTEDUP: HEADERSORTARROWSTATES = HEADERSORTARROWSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HSS_DISABLED: HORZSCROLLSTATES = HORZSCROLLSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HSS_HOT: HORZSCROLLSTATES = HORZSCROLLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HSS_NORMAL: HORZSCROLLSTATES = HORZSCROLLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HSS_PUSHED: HORZSCROLLSTATES = HORZSCROLLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTS_DISABLED: HORZTHUMBSTATES = HORZTHUMBSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTS_HOT: HORZTHUMBSTATES = HORZTHUMBSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTS_NORMAL: HORZTHUMBSTATES = HORZTHUMBSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTS_PUSHED: HORZTHUMBSTATES = HORZTHUMBSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_BACKGROUNDSEG: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_CAPTION: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_FIXEDBORDER: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_RESIZINGBORDER: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(240u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_RESIZINGBORDER_BOTTOM: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(128u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_RESIZINGBORDER_LEFT: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_RESIZINGBORDER_RIGHT: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_RESIZINGBORDER_TOP: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_SIZINGTEMPLATE: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTTB_SYSTEMSIZINGMARGINS: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(512u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICC_ANIMATE_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(128u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICC_BAR_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICC_COOL_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(1024u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICC_DATE_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICC_HOTKEY_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICC_INTERNET_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(2048u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICC_LINK_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(32768u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICC_LISTVIEW_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICC_NATIVEFNTCTL_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(8192u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICC_PAGESCROLLER_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(4096u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICC_PROGRESS_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICC_STANDARD_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(16384u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICC_TAB_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICC_TREEVIEW_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICC_UPDOWN_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICC_USEREX_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(512u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICC_WIN95_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(255u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICE_ALPHA: ICONEFFECT = ICONEFFECT(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICE_GLOW: ICONEFFECT = ICONEFFECT(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICE_NONE: ICONEFFECT = ICONEFFECT(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICE_PULSE: ICONEFFECT = ICONEFFECT(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ICE_SHADOW: ICONEFFECT = ICONEFFECT(2i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const IDB_HIST_DISABLED: u32 = 14u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -3498,6 +4700,36 @@ pub const IDC_MANAGE_LINK: u32 = 1592u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ID_PSRESTARTWINDOWS: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILCF_MOVE: IMAGE_LIST_COPY_FLAGS = IMAGE_LIST_COPY_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILCF_SWAP: IMAGE_LIST_COPY_FLAGS = IMAGE_LIST_COPY_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILC_COLOR: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILC_COLOR16: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILC_COLOR24: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(24u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILC_COLOR32: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILC_COLOR4: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILC_COLOR8: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILC_COLORDDB: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(254u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILC_HIGHQUALITYSCALE: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILC_MASK: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILC_MIRROR: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILC_ORIGINALSIZE: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILC_PALETTE: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILC_PERITEMMIRROR: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(32768u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ILDI_PURGE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ILDI_QUERYACCESS: u32 = 8u32;
@@ -3510,6 +4742,36 @@ pub const ILDRF_IMAGELOWQUALITY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ILDRF_OVERLAYLOWQUALITY: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILD_ASYNC: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(32768u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILD_BLEND: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILD_BLEND25: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILD_BLEND50: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILD_DPISCALE: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(16384u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILD_FOCUS: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILD_IMAGE: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILD_MASK: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILD_NORMAL: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILD_OVERLAYMASK: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(3840u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILD_PRESERVEALPHA: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(4096u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILD_ROP: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILD_SCALE: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(8192u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILD_SELECTED: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILD_TRANSPARENT: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ILFIP_ALWAYS: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ILFIP_FROMSTANDBY: u32 = 1u32;
@@ -3521,6 +4783,14 @@ pub const ILGOS_FROMSTANDBY: u32 = 1u32;
 pub const ILGT_ASYNC: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ILGT_NORMAL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILIF_ALPHA: IMAGE_LIST_ITEM_FLAGS = IMAGE_LIST_ITEM_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILIF_LOWQUALITY: IMAGE_LIST_ITEM_FLAGS = IMAGE_LIST_ITEM_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILP_DOWNLEVEL: IMAGE_LIST_WRITE_STREAM_FLAGS = IMAGE_LIST_WRITE_STREAM_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ILP_NORMAL: IMAGE_LIST_WRITE_STREAM_FLAGS = IMAGE_LIST_WRITE_STREAM_FLAGS(0u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ILR_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -3550,6 +4820,10 @@ pub const ILS_SATURATE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ILS_SHADOW: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const IL_HORIZONTAL: IMAGELAYOUT = IMAGELAYOUT(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const IL_VERTICAL: IMAGELAYOUT = IMAGELAYOUT(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const INFOTIPSIZE: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const INVALID_LINK_INDEX: i32 = -1i32;
@@ -3572,13 +4846,115 @@ pub const IPN_FIRST: u32 = 4294966436u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const IPN_LAST: u32 = 4294966417u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const IST_DPI: IMAGESELECTTYPE = IMAGESELECTTYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const IST_NONE: IMAGESELECTTYPE = IMAGESELECTTYPE(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const IST_SIZE: IMAGESELECTTYPE = IMAGESELECTTYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const I_CHILDRENAUTO: TVITEMEXW_CHILDREN = TVITEMEXW_CHILDREN(-2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const I_CHILDRENCALLBACK: TVITEMEXW_CHILDREN = TVITEMEXW_CHILDREN(-1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const I_GROUPIDCALLBACK: LVITEMA_GROUP_ID = LVITEMA_GROUP_ID(-1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const I_GROUPIDNONE: LVITEMA_GROUP_ID = LVITEMA_GROUP_ID(-2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const I_IMAGECALLBACK: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const I_IMAGENONE: i32 = -2i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const I_INDENTCALLBACK: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const I_ONE_OR_MORE: TVITEMEXW_CHILDREN = TVITEMEXW_CHILDREN(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const I_ZERO: TVITEMEXW_CHILDREN = TVITEMEXW_CHILDREN(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ImageList: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7c476ba2_02b1_48f4_8048_b24619ddc058);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBCP_BORDER_HSCROLL: LISTBOXPARTS = LISTBOXPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBCP_BORDER_HVSCROLL: LISTBOXPARTS = LISTBOXPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBCP_BORDER_NOSCROLL: LISTBOXPARTS = LISTBOXPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBCP_BORDER_VSCROLL: LISTBOXPARTS = LISTBOXPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBCP_ITEM: LISTBOXPARTS = LISTBOXPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSHV_DISABLED: BORDER_HVSCROLLSTATES = BORDER_HVSCROLLSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSHV_FOCUSED: BORDER_HVSCROLLSTATES = BORDER_HVSCROLLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSHV_HOT: BORDER_HVSCROLLSTATES = BORDER_HVSCROLLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSHV_NORMAL: BORDER_HVSCROLLSTATES = BORDER_HVSCROLLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSH_DISABLED: BORDER_HSCROLLSTATES = BORDER_HSCROLLSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSH_FOCUSED: BORDER_HSCROLLSTATES = BORDER_HSCROLLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSH_HOT: BORDER_HSCROLLSTATES = BORDER_HSCROLLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSH_NORMAL: BORDER_HSCROLLSTATES = BORDER_HSCROLLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSI_HOT: ITEMSTATES = ITEMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSI_HOTSELECTED: ITEMSTATES = ITEMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSI_SELECTED: ITEMSTATES = ITEMSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSI_SELECTEDNOTFOCUS: ITEMSTATES = ITEMSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSN_DISABLED: BORDER_NOSCROLLSTATES = BORDER_NOSCROLLSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSN_FOCUSED: BORDER_NOSCROLLSTATES = BORDER_NOSCROLLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSN_HOT: BORDER_NOSCROLLSTATES = BORDER_NOSCROLLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSN_NORMAL: BORDER_NOSCROLLSTATES = BORDER_NOSCROLLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSV_DISABLED: BORDER_VSCROLLSTATES = BORDER_VSCROLLSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSV_FOCUSED: BORDER_VSCROLLSTATES = BORDER_VSCROLLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSV_HOT: BORDER_VSCROLLSTATES = BORDER_VSCROLLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSV_NORMAL: BORDER_VSCROLLSTATES = BORDER_VSCROLLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LIF_ITEMID: LIST_ITEM_FLAGS = LIST_ITEM_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LIF_ITEMINDEX: LIST_ITEM_FLAGS = LIST_ITEM_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LIF_STATE: LIST_ITEM_FLAGS = LIST_ITEM_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LIF_URL: LIST_ITEM_FLAGS = LIST_ITEM_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LIM_LARGE: _LI_METRIC = _LI_METRIC(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LIM_SMALL: _LI_METRIC = _LI_METRIC(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LISS_DISABLED: LISTITEMSTATES = LISTITEMSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LISS_HOT: LISTITEMSTATES = LISTITEMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LISS_HOTSELECTED: LISTITEMSTATES = LISTITEMSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LISS_NORMAL: LISTITEMSTATES = LISTITEMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LISS_SELECTED: LISTITEMSTATES = LISTITEMSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LISS_SELECTEDNOTFOCUS: LISTITEMSTATES = LISTITEMSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LIS_DEFAULTCOLORS: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LIS_ENABLED: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LIS_FOCUSED: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LIS_HOTTRACK: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LIS_VISITED: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(4u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LM_GETIDEALHEIGHT: u32 = 1793u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -3590,6 +4966,8 @@ pub const LM_HITTEST: u32 = 1792u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LM_SETITEM: u32 = 1794u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LP_HYPERLINK: LINKPARTS = LINKPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVA_ALIGNLEFT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVA_ALIGNTOP: u32 = 2u32;
@@ -3598,13 +4976,129 @@ pub const LVA_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVA_SNAPTOGRID: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVBKIF_FLAG_ALPHABLEND: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(536870912u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVBKIF_FLAG_TILEOFFSET: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVBKIF_SOURCE_HBITMAP: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVBKIF_SOURCE_MASK: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(3u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVBKIF_SOURCE_NONE: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVBKIF_SOURCE_URL: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVBKIF_STYLE_MASK: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVBKIF_STYLE_NORMAL: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVBKIF_STYLE_TILE: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVBKIF_TYPE_WATERMARK: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(268435456u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCB_HOVER: COLLAPSEBUTTONSTATES = COLLAPSEBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCB_NORMAL: COLLAPSEBUTTONSTATES = COLLAPSEBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCB_PUSHED: COLLAPSEBUTTONSTATES = COLLAPSEBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCDI_GROUP: NMLVCUSTOMDRAW_ITEM_TYPE = NMLVCUSTOMDRAW_ITEM_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCDI_ITEM: NMLVCUSTOMDRAW_ITEM_TYPE = NMLVCUSTOMDRAW_ITEM_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCDI_ITEMSLIST: NMLVCUSTOMDRAW_ITEM_TYPE = NMLVCUSTOMDRAW_ITEM_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVCDRF_NOGROUPFRAME: u32 = 131072u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVCDRF_NOSELECT: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCFMT_BITMAP_ON_RIGHT: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(4096i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCFMT_CENTER: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCFMT_COL_HAS_IMAGES: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(32768i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCFMT_FILL: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(2097152i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCFMT_FIXED_RATIO: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(524288i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCFMT_FIXED_WIDTH: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(256i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCFMT_IMAGE: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(2048i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCFMT_JUSTIFYMASK: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCFMT_LEFT: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCFMT_LINE_BREAK: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(1048576i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCFMT_NO_DPI_SCALE: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(262144i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCFMT_NO_TITLE: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(8388608i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCFMT_RIGHT: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCFMT_SPLITBUTTON: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(16777216i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCFMT_TILE_PLACEMENTMASK: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(3145728i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCFMT_WRAP: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(4194304i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCF_DEFAULTWIDTH: LVCOLUMNW_MASK = LVCOLUMNW_MASK(128u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCF_FMT: LVCOLUMNW_MASK = LVCOLUMNW_MASK(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCF_IDEALWIDTH: LVCOLUMNW_MASK = LVCOLUMNW_MASK(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCF_IMAGE: LVCOLUMNW_MASK = LVCOLUMNW_MASK(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCF_MINWIDTH: LVCOLUMNW_MASK = LVCOLUMNW_MASK(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCF_ORDER: LVCOLUMNW_MASK = LVCOLUMNW_MASK(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCF_SUBITEM: LVCOLUMNW_MASK = LVCOLUMNW_MASK(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCF_TEXT: LVCOLUMNW_MASK = LVCOLUMNW_MASK(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCF_WIDTH: LVCOLUMNW_MASK = LVCOLUMNW_MASK(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVEB_HOVER: EXPANDBUTTONSTATES = EXPANDBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVEB_NORMAL: EXPANDBUTTONSTATES = EXPANDBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVEB_PUSHED: EXPANDBUTTONSTATES = EXPANDBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVFF_ITEMCOUNT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVFIF_STATE: LVFOOTERITEM_MASK = LVFOOTERITEM_MASK(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVFIF_TEXT: LVFOOTERITEM_MASK = LVFOOTERITEM_MASK(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVFIS_FOCUSED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVFI_NEARESTXY: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVFI_PARAM: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVFI_PARTIAL: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVFI_STRING: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVFI_SUBSTRING: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVFI_WRAP: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGA_FOOTER_CENTER: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGA_FOOTER_LEFT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGA_FOOTER_RIGHT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGA_HEADER_CENTER: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGA_HEADER_LEFT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGA_HEADER_RIGHT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(4u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVGF_ALIGN: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -3614,9 +5108,17 @@ pub const LVGF_DESCRIPTIONTOP: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVGF_EXTENDEDIMAGE: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGF_FOOTER: LVGROUP_MASK = LVGROUP_MASK(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVGF_GROUPID: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGF_HEADER: LVGROUP_MASK = LVGROUP_MASK(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVGF_ITEMS: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGF_NONE: LVGROUP_MASK = LVGROUP_MASK(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGF_STATE: LVGROUP_MASK = LVGROUP_MASK(4u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVGF_SUBSET: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -3636,6 +5138,74 @@ pub const LVGGR_LABEL: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVGGR_SUBSETLINK: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_CLOSE: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_CLOSEHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_CLOSEMIXEDSELECTION: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(15i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_CLOSEMIXEDSELECTIONHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(16i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_CLOSESELECTED: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_CLOSESELECTEDHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(12i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_CLOSESELECTEDNOTFOCUSED: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(13i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_CLOSESELECTEDNOTFOCUSEDHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(14i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_OPEN: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_OPENHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_OPENMIXEDSELECTION: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_OPENMIXEDSELECTIONHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_OPENSELECTED: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_OPENSELECTEDHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_OPENSELECTEDNOTFOCUSED: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_OPENSELECTEDNOTFOCUSEDHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_CLOSE: GROUPHEADERSTATES = GROUPHEADERSTATES(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_CLOSEHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_CLOSEMIXEDSELECTION: GROUPHEADERSTATES = GROUPHEADERSTATES(15i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_CLOSEMIXEDSELECTIONHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(16i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_CLOSESELECTED: GROUPHEADERSTATES = GROUPHEADERSTATES(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_CLOSESELECTEDHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(12i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_CLOSESELECTEDNOTFOCUSED: GROUPHEADERSTATES = GROUPHEADERSTATES(13i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_CLOSESELECTEDNOTFOCUSEDHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(14i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_OPEN: GROUPHEADERSTATES = GROUPHEADERSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_OPENHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_OPENMIXEDSELECTION: GROUPHEADERSTATES = GROUPHEADERSTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_OPENMIXEDSELECTIONHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_OPENSELECTED: GROUPHEADERSTATES = GROUPHEADERSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_OPENSELECTEDHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_OPENSELECTEDNOTFOCUSED: GROUPHEADERSTATES = GROUPHEADERSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_OPENSELECTEDNOTFOCUSEDHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGIT_UNFOLDED: NMLVGETINFOTIP_FLAGS = NMLVGETINFOTIP_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGIT_ZERO: NMLVGETINFOTIP_FLAGS = NMLVGETINFOTIP_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVGMF_BORDERCOLOR: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVGMF_BORDERSIZE: u32 = 1u32;
@@ -3644,6 +5214,80 @@ pub const LVGMF_NONE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVGMF_TEXTCOLOR: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGS_COLLAPSED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGS_COLLAPSIBLE: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGS_FOCUSED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGS_HIDDEN: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGS_NOHEADER: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGS_NORMAL: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGS_SELECTED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGS_SUBSETED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGS_SUBSETLINKFOCUSED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVHT_ABOVE: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVHT_BELOW: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVHT_EX_FOOTER: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(134217728u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVHT_EX_GROUP: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(4076863488u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVHT_EX_GROUP_BACKGROUND: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(2147483648u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVHT_EX_GROUP_COLLAPSE: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(1073741824u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVHT_EX_GROUP_FOOTER: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(536870912u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVHT_EX_GROUP_HEADER: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(268435456u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVHT_EX_GROUP_STATEICON: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(16777216u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVHT_EX_GROUP_SUBSETLINK: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(33554432u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVHT_EX_ONCONTENTS: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(67108864u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVHT_NOWHERE: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVHT_ONITEMICON: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVHT_ONITEMLABEL: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVHT_ONITEMSTATEICON: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVHT_TOLEFT: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVHT_TORIGHT: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIF_COLFMT: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIF_COLUMNS: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIF_DI_SETITEM: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIF_GROUPID: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIF_IMAGE: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIF_INDENT: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIF_NORECOMPUTE: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIF_PARAM: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIF_STATE: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIF_TEXT: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIM_AFTER: LIST_VIEW_INSERT_MARK_FLAGS = LIST_VIEW_INSERT_MARK_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVIR_BOUNDS: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVIR_ICON: u32 = 1u32;
@@ -3651,6 +5295,22 @@ pub const LVIR_ICON: u32 = 1u32;
 pub const LVIR_LABEL: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVIR_SELECTBOUNDS: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIS_ACTIVATING: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIS_CUT: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIS_DROPHILITED: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIS_FOCUSED: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIS_GLOW: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIS_OVERLAYMASK: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(3840u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIS_SELECTED: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVIS_STATEIMAGEMASK: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(61440u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVKF_ALT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -4086,6 +5746,26 @@ pub const LVN_SETDISPINFOA: u32 = 4294967145u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVN_SETDISPINFOW: u32 = 4294967118u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVP_COLLAPSEBUTTON: LISTVIEWPARTS = LISTVIEWPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVP_COLUMNDETAIL: LISTVIEWPARTS = LISTVIEWPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVP_EMPTYTEXT: LISTVIEWPARTS = LISTVIEWPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVP_EXPANDBUTTON: LISTVIEWPARTS = LISTVIEWPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVP_GROUPHEADER: LISTVIEWPARTS = LISTVIEWPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVP_GROUPHEADERLINE: LISTVIEWPARTS = LISTVIEWPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVP_LISTDETAIL: LISTVIEWPARTS = LISTVIEWPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVP_LISTGROUP: LISTVIEWPARTS = LISTVIEWPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVP_LISTITEM: LISTVIEWPARTS = LISTVIEWPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVP_LISTSORTEDDETAIL: LISTVIEWPARTS = LISTVIEWPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVSCW_AUTOSIZE: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVSCW_AUTOSIZE_USEHEADER: i32 = -2i32;
@@ -4206,7 +5886,21 @@ pub const LVS_TYPEMASK: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVS_TYPESTYLEMASK: u32 = 64512u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVTVIF_AUTOSIZE: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LVTVIF_EXTENDED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVTVIF_FIXEDHEIGHT: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVTVIF_FIXEDSIZE: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(3u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVTVIF_FIXEDWIDTH: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVTVIM_COLUMNS: LVTILEVIEWINFO_MASK = LVTILEVIEWINFO_MASK(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVTVIM_LABELMARGIN: LVTILEVIEWINFO_MASK = LVTILEVIEWINFO_MASK(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVTVIM_TILESIZE: LVTILEVIEWINFO_MASK = LVTILEVIEWINFO_MASK(1u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LV_MAX_WORKAREAS: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -4234,6 +5928,14 @@ pub const LWS_USECUSTOMTEXT: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LWS_USEVISUALSTYLE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MAXBS_DISABLED: MAXBUTTONSTATES = MAXBUTTONSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MAXBS_HOT: MAXBUTTONSTATES = MAXBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MAXBS_NORMAL: MAXBUTTONSTATES = MAXBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MAXBS_PUSHED: MAXBUTTONSTATES = MAXBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MAXPROPPAGES: u32 = 100u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MAX_INTLIST_COUNT: u32 = 402u32;
@@ -4243,6 +5945,138 @@ pub const MAX_LINKID_TEXT: u32 = 48u32;
 pub const MAX_THEMECOLOR: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MAX_THEMESIZE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MBI_DISABLED: BARITEMSTATES = BARITEMSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MBI_DISABLEDHOT: BARITEMSTATES = BARITEMSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MBI_DISABLEDPUSHED: BARITEMSTATES = BARITEMSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MBI_HOT: BARITEMSTATES = BARITEMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MBI_NORMAL: BARITEMSTATES = BARITEMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MBI_PUSHED: BARITEMSTATES = BARITEMSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MB_ACTIVE: BARBACKGROUNDSTATES = BARBACKGROUNDSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MB_INACTIVE: BARBACKGROUNDSTATES = BARBACKGROUNDSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCB_BITMAP: POPUPCHECKBACKGROUNDSTATES = POPUPCHECKBACKGROUNDSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCB_DISABLED: POPUPCHECKBACKGROUNDSTATES = POPUPCHECKBACKGROUNDSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCB_NORMAL: POPUPCHECKBACKGROUNDSTATES = POPUPCHECKBACKGROUNDSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGCB_HOT: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGCB_SELECTED: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGCB_SELECTEDHOT: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGCB_SELECTEDNOTFOCUSED: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGCB_TODAY: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGCB_TODAYSELECTED: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGCU_HASSTATE: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGCU_HASSTATEHOT: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGCU_HOT: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGCU_SELECTED: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGCU_SELECTEDHOT: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGC_HASSTATE: GRIDCELLSTATES = GRIDCELLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGC_HASSTATEHOT: GRIDCELLSTATES = GRIDCELLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGC_HOT: GRIDCELLSTATES = GRIDCELLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGC_SELECTED: GRIDCELLSTATES = GRIDCELLSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGC_SELECTEDHOT: GRIDCELLSTATES = GRIDCELLSTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGC_TODAY: GRIDCELLSTATES = GRIDCELLSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGC_TODAYSELECTED: GRIDCELLSTATES = GRIDCELLSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGIF_DATE: MCGRIDINFO_FLAGS = MCGRIDINFO_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGIF_NAME: MCGRIDINFO_FLAGS = MCGRIDINFO_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGIF_RECT: MCGRIDINFO_FLAGS = MCGRIDINFO_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGIP_CALENDAR: MCGRIDINFO_PART = MCGRIDINFO_PART(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGIP_CALENDARBODY: MCGRIDINFO_PART = MCGRIDINFO_PART(6u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGIP_CALENDARCELL: MCGRIDINFO_PART = MCGRIDINFO_PART(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGIP_CALENDARCONTROL: MCGRIDINFO_PART = MCGRIDINFO_PART(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGIP_CALENDARHEADER: MCGRIDINFO_PART = MCGRIDINFO_PART(5u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGIP_CALENDARROW: MCGRIDINFO_PART = MCGRIDINFO_PART(7u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGIP_FOOTER: MCGRIDINFO_PART = MCGRIDINFO_PART(3u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGIP_NEXT: MCGRIDINFO_PART = MCGRIDINFO_PART(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCGIP_PREV: MCGRIDINFO_PART = MCGRIDINFO_PART(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_CALENDAR: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_CALENDARBK: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_CALENDARCONTROL: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(1048576u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_CALENDARDATE: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131073u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_CALENDARDATEMAX: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131077u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_CALENDARDATEMIN: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131076u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_CALENDARDATENEXT: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(16908289u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_CALENDARDATEPREV: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(33685505u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_CALENDARDAY: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131074u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_CALENDARWEEKNUM: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131075u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_NEXT: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(16777216u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_NOWHERE: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_PREV: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(33554432u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_TITLE: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_TITLEBK: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_TITLEBTNNEXT: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(16842755u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_TITLEBTNPREV: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(33619971u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_TITLEMONTH: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(65537u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_TITLEYEAR: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(65538u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCHT_TODAYLINK: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(196608u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCMV_CENTURY: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(3u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCMV_DECADE: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCMV_MAX: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(3u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCMV_MONTH: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCMV_YEAR: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(1u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MCM_FIRST: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -4310,6 +6144,22 @@ pub const MCM_SETUNICODEFORMAT: u32 = 8197u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MCM_SIZERECTTOMIN: u32 = 4125u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCNN_DISABLED: NAVNEXTSTATES = NAVNEXTSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCNN_HOT: NAVNEXTSTATES = NAVNEXTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCNN_NORMAL: NAVNEXTSTATES = NAVNEXTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCNN_PRESSED: NAVNEXTSTATES = NAVNEXTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCNP_DISABLED: NAVPREVSTATES = NAVPREVSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCNP_HOT: NAVPREVSTATES = NAVPREVSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCNP_NORMAL: NAVPREVSTATES = NAVPREVSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCNP_PRESSED: NAVPREVSTATES = NAVPREVSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MCN_FIRST: u32 = 4294966550u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MCN_GETDAYSTATE: u32 = 4294966549u32;
@@ -4350,11 +6200,191 @@ pub const MCS_SHORTDAYSOFWEEK: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MCS_WEEKNUMBERS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCTGCU_HASSTATE: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCTGCU_HASSTATEHOT: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCTGCU_HOT: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCTGCU_SELECTED: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCTGCU_SELECTEDHOT: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCTGC_HASSTATE: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCTGC_HASSTATEHOT: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCTGC_HOT: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCTGC_SELECTED: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCTGC_SELECTEDHOT: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCTGC_TODAY: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCTGC_TODAYSELECTED: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MC_BACKGROUND: MONTHCALPARTS = MONTHCALPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MC_BORDERS: MONTHCALPARTS = MONTHCALPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MC_BULLETDISABLED: POPUPCHECKSTATES = POPUPCHECKSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MC_BULLETNORMAL: POPUPCHECKSTATES = POPUPCHECKSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MC_CHECKMARKDISABLED: POPUPCHECKSTATES = POPUPCHECKSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MC_CHECKMARKNORMAL: POPUPCHECKSTATES = POPUPCHECKSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MC_COLHEADERSPLITTER: MONTHCALPARTS = MONTHCALPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MC_GRIDBACKGROUND: MONTHCALPARTS = MONTHCALPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MC_GRIDCELL: MONTHCALPARTS = MONTHCALPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MC_GRIDCELLBACKGROUND: MONTHCALPARTS = MONTHCALPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MC_GRIDCELLUPPER: MONTHCALPARTS = MONTHCALPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MC_NAVNEXT: MONTHCALPARTS = MONTHCALPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MC_NAVPREV: MONTHCALPARTS = MONTHCALPARTS(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MC_TRAILINGGRIDCELL: MONTHCALPARTS = MONTHCALPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MC_TRAILINGGRIDCELLUPPER: MONTHCALPARTS = MONTHCALPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDCL_DISABLED: MDICLOSEBUTTONSTATES = MDICLOSEBUTTONSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDCL_HOT: MDICLOSEBUTTONSTATES = MDICLOSEBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDCL_NORMAL: MDICLOSEBUTTONSTATES = MDICLOSEBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDCL_PUSHED: MDICLOSEBUTTONSTATES = MDICLOSEBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDMI_DISABLED: MDIMINBUTTONSTATES = MDIMINBUTTONSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDMI_HOT: MDIMINBUTTONSTATES = MDIMINBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDMI_NORMAL: MDIMINBUTTONSTATES = MDIMINBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDMI_PUSHED: MDIMINBUTTONSTATES = MDIMINBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDP_NEWAPPBUTTON: MENUBANDPARTS = MENUBANDPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDP_SEPERATOR: MENUBANDPARTS = MENUBANDPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDRE_DISABLED: MDIRESTOREBUTTONSTATES = MDIRESTOREBUTTONSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDRE_HOT: MDIRESTOREBUTTONSTATES = MDIRESTOREBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDRE_NORMAL: MDIRESTOREBUTTONSTATES = MDIRESTOREBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDRE_PUSHED: MDIRESTOREBUTTONSTATES = MDIRESTOREBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDS_CHECKED: MENUBANDSTATES = MENUBANDSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDS_DISABLED: MENUBANDSTATES = MENUBANDSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDS_HOT: MENUBANDSTATES = MENUBANDSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDS_HOTCHECKED: MENUBANDSTATES = MENUBANDSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDS_NORMAL: MENUBANDSTATES = MENUBANDSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDS_PRESSED: MENUBANDSTATES = MENUBANDSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_BARBACKGROUND: MENUPARTS = MENUPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_BARITEM: MENUPARTS = MENUPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_CHEVRON_TMSCHEMA: MENUPARTS = MENUPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_MENUBARDROPDOWN_TMSCHEMA: MENUPARTS = MENUPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_MENUBARITEM_TMSCHEMA: MENUPARTS = MENUPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_MENUDROPDOWN_TMSCHEMA: MENUPARTS = MENUPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_MENUITEM_TMSCHEMA: MENUPARTS = MENUPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPBACKGROUND: MENUPARTS = MENUPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPBORDERS: MENUPARTS = MENUPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPCHECK: MENUPARTS = MENUPARTS(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPCHECKBACKGROUND: MENUPARTS = MENUPARTS(12i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPGUTTER: MENUPARTS = MENUPARTS(13i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPITEM: MENUPARTS = MENUPARTS(14i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPITEMKBFOCUS: MENUPARTS = MENUPARTS(26i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPITEM_FOCUSABLE: MENUPARTS = MENUPARTS(27i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPSEPARATOR: MENUPARTS = MENUPARTS(15i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPSUBMENU: MENUPARTS = MENUPARTS(16i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPSUBMENU_HCHOT: MENUPARTS = MENUPARTS(21i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SEPARATOR_TMSCHEMA: MENUPARTS = MENUPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SYSTEMCLOSE: MENUPARTS = MENUPARTS(17i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SYSTEMCLOSE_HCHOT: MENUPARTS = MENUPARTS(22i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SYSTEMMAXIMIZE: MENUPARTS = MENUPARTS(18i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SYSTEMMAXIMIZE_HCHOT: MENUPARTS = MENUPARTS(23i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SYSTEMMINIMIZE: MENUPARTS = MENUPARTS(19i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SYSTEMMINIMIZE_HCHOT: MENUPARTS = MENUPARTS(24i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SYSTEMRESTORE: MENUPARTS = MENUPARTS(20i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SYSTEMRESTORE_HCHOT: MENUPARTS = MENUPARTS(25i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MINBS_DISABLED: MINBUTTONSTATES = MINBUTTONSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MINBS_HOT: MINBUTTONSTATES = MINBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MINBS_NORMAL: MINBUTTONSTATES = MINBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MINBS_PUSHED: MINBUTTONSTATES = MINBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MNCS_ACTIVE: MINCAPTIONSTATES = MINCAPTIONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MNCS_DISABLED: MINCAPTIONSTATES = MINCAPTIONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MNCS_INACTIVE: MINCAPTIONSTATES = MINCAPTIONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MONTHCAL_CLASS: ::windows_core::PCWSTR = ::windows_core::w!("SysMonthCal32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MONTHCAL_CLASSA: ::windows_core::PCSTR = ::windows_core::s!("SysMonthCal32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MONTHCAL_CLASSW: ::windows_core::PCWSTR = ::windows_core::w!("SysMonthCal32");
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPIF_DISABLED: POPUPITEMFOCUSABLESTATES = POPUPITEMFOCUSABLESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPIF_DISABLEDHOT: POPUPITEMFOCUSABLESTATES = POPUPITEMFOCUSABLESTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPIF_HOT: POPUPITEMFOCUSABLESTATES = POPUPITEMFOCUSABLESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPIF_NORMAL: POPUPITEMFOCUSABLESTATES = POPUPITEMFOCUSABLESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPIKBFOCUS_NORMAL: POPUPITEMKBFOCUSSTATES = POPUPITEMKBFOCUSSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPI_DISABLED: POPUPITEMSTATES = POPUPITEMSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPI_DISABLEDHOT: POPUPITEMSTATES = POPUPITEMSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPI_HOT: POPUPITEMSTATES = POPUPITEMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPI_NORMAL: POPUPITEMSTATES = POPUPITEMSTATES(1i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MSGF_COMMCTRL_BEGINDRAG: u32 = 16896u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -4364,7 +6394,73 @@ pub const MSGF_COMMCTRL_SIZEHEADER: u32 = 16897u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MSGF_COMMCTRL_TOOLBARCUST: u32 = 16899u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSMHC_HOT: POPUPSUBMENUHCHOTSTATES = POPUPSUBMENUHCHOTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSM_DISABLED: POPUPSUBMENUSTATES = POPUPSUBMENUSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSM_NORMAL: POPUPSUBMENUSTATES = POPUPSUBMENUSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSCHC_HOT: SYSTEMCLOSEHCHOTSTATES = SYSTEMCLOSEHCHOTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSC_DISABLED: SYSTEMCLOSESTATES = SYSTEMCLOSESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSC_NORMAL: SYSTEMCLOSESTATES = SYSTEMCLOSESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSMNHC_HOT: SYSTEMMINIMIZEHCHOTSTATES = SYSTEMMINIMIZEHCHOTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSMN_DISABLED: SYSTEMMINIMIZESTATES = SYSTEMMINIMIZESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSMN_NORMAL: SYSTEMMINIMIZESTATES = SYSTEMMINIMIZESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSMXHC_HOT: SYSTEMMAXIMIZEHCHOTSTATES = SYSTEMMAXIMIZEHCHOTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSMX_DISABLED: SYSTEMMAXIMIZESTATES = SYSTEMMAXIMIZESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSMX_NORMAL: SYSTEMMAXIMIZESTATES = SYSTEMMAXIMIZESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSRHC_HOT: SYSTEMRESTOREHCHOTSTATES = SYSTEMRESTOREHCHOTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSR_DISABLED: SYSTEMRESTORESTATES = SYSTEMRESTORESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSR_NORMAL: SYSTEMRESTORESTATES = SYSTEMRESTORESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MULTIFILEOPENORD: u32 = 1537u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MXCS_ACTIVE: MAXCAPTIONSTATES = MAXCAPTIONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MXCS_DISABLED: MAXCAPTIONSTATES = MAXCAPTIONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MXCS_INACTIVE: MAXCAPTIONSTATES = MAXCAPTIONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_BACKBUTTON: NAVIGATIONPARTS = NAVIGATIONPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_BB_DISABLED: NAV_BACKBUTTONSTATES = NAV_BACKBUTTONSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_BB_HOT: NAV_BACKBUTTONSTATES = NAV_BACKBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_BB_NORMAL: NAV_BACKBUTTONSTATES = NAV_BACKBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_BB_PRESSED: NAV_BACKBUTTONSTATES = NAV_BACKBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_FB_DISABLED: NAV_FORWARDBUTTONSTATES = NAV_FORWARDBUTTONSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_FB_HOT: NAV_FORWARDBUTTONSTATES = NAV_FORWARDBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_FB_NORMAL: NAV_FORWARDBUTTONSTATES = NAV_FORWARDBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_FB_PRESSED: NAV_FORWARDBUTTONSTATES = NAV_FORWARDBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_FORWARDBUTTON: NAVIGATIONPARTS = NAVIGATIONPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_MB_DISABLED: NAV_MENUBUTTONSTATES = NAV_MENUBUTTONSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_MB_HOT: NAV_MENUBUTTONSTATES = NAV_MENUBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_MB_NORMAL: NAV_MENUBUTTONSTATES = NAV_MENUBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_MB_PRESSED: NAV_MENUBUTTONSTATES = NAV_MENUBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_MENUBUTTON: NAVIGATIONPARTS = NAVIGATIONPARTS(3i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const NEWFILEOPENORD: u32 = 1547u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -4436,11 +6532,113 @@ pub const NM_TOOLTIPSCREATED: u32 = 4294967277u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const NM_TVSTATEIMAGECHANGING: u32 = 4294967272u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODA_DRAWENTIRE: ODA_FLAGS = ODA_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODA_FOCUS: ODA_FLAGS = ODA_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODA_SELECT: ODA_FLAGS = ODA_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_CHECKED: ODS_FLAGS = ODS_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_COMBOBOXEDIT: ODS_FLAGS = ODS_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_DEFAULT: ODS_FLAGS = ODS_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_DISABLED: ODS_FLAGS = ODS_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_FOCUS: ODS_FLAGS = ODS_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_GRAYED: ODS_FLAGS = ODS_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_HOTLIGHT: ODS_FLAGS = ODS_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_INACTIVE: ODS_FLAGS = ODS_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_NOACCEL: ODS_FLAGS = ODS_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_NOFOCUSRECT: ODS_FLAGS = ODS_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODS_SELECTED: ODS_FLAGS = ODS_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODT_BUTTON: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODT_COMBOBOX: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ODT_HEADER: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODT_LISTBOX: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODT_LISTVIEW: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(102u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODT_MENU: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODT_STATIC: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(5u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ODT_TAB: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(101u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const OTD_FORCE_RECT_SIZING: OPEN_THEME_DATA_FLAGS = OPEN_THEME_DATA_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const OTD_NONCLIENT: OPEN_THEME_DATA_FLAGS = OPEN_THEME_DATA_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const OT_ABOVELASTBUTTON: OFFSETTYPE = OFFSETTYPE(12i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const OT_BELOWLASTBUTTON: OFFSETTYPE = OFFSETTYPE(13i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const OT_BOTTOMLEFT: OFFSETTYPE = OFFSETTYPE(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const OT_BOTTOMMIDDLE: OFFSETTYPE = OFFSETTYPE(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const OT_BOTTOMRIGHT: OFFSETTYPE = OFFSETTYPE(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const OT_LEFTOFCAPTION: OFFSETTYPE = OFFSETTYPE(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const OT_LEFTOFLASTBUTTON: OFFSETTYPE = OFFSETTYPE(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const OT_MIDDLELEFT: OFFSETTYPE = OFFSETTYPE(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const OT_MIDDLERIGHT: OFFSETTYPE = OFFSETTYPE(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const OT_RIGHTOFCAPTION: OFFSETTYPE = OFFSETTYPE(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const OT_RIGHTOFLASTBUTTON: OFFSETTYPE = OFFSETTYPE(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const OT_TOPLEFT: OFFSETTYPE = OFFSETTYPE(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const OT_TOPMIDDLE: OFFSETTYPE = OFFSETTYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const OT_TOPRIGHT: OFFSETTYPE = OFFSETTYPE(1i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PAGESETUPDLGORD: u32 = 1546u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PAGESETUPDLGORDMOTIF: u32 = 1550u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBBS_NORMAL: TRANSPARENTBARSTATES = TRANSPARENTBARSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBBS_PARTIAL: TRANSPARENTBARSTATES = TRANSPARENTBARSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBBVS_NORMAL: TRANSPARENTBARVERTSTATES = TRANSPARENTBARVERTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBBVS_PARTIAL: TRANSPARENTBARVERTSTATES = TRANSPARENTBARVERTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBDDS_DISABLED: PUSHBUTTONDROPDOWNSTATES = PUSHBUTTONDROPDOWNSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBDDS_NORMAL: PUSHBUTTONDROPDOWNSTATES = PUSHBUTTONDROPDOWNSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBFS_ERROR: FILLSTATES = FILLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBFS_NORMAL: FILLSTATES = FILLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBFS_PARTIAL: FILLSTATES = FILLSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBFS_PAUSED: FILLSTATES = FILLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBFVS_ERROR: FILLVERTSTATES = FILLVERTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBFVS_NORMAL: FILLVERTSTATES = FILLVERTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBFVS_PARTIAL: FILLVERTSTATES = FILLVERTSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBFVS_PAUSED: FILLVERTSTATES = FILLVERTSTATES(3i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PBM_DELTAPOS: u32 = 1027u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -4480,7 +6678,19 @@ pub const PBST_NORMAL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PBST_PAUSED: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBS_DEFAULTED: PUSHBUTTONSTATES = PUSHBUTTONSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBS_DEFAULTED_ANIMATING: PUSHBUTTONSTATES = PUSHBUTTONSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBS_DISABLED: PUSHBUTTONSTATES = PUSHBUTTONSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBS_HOT: PUSHBUTTONSTATES = PUSHBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PBS_MARQUEE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBS_NORMAL: PUSHBUTTONSTATES = PUSHBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBS_PRESSED: PUSHBUTTONSTATES = PUSHBUTTONSTATES(3i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PBS_SMOOTH: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -4492,6 +6702,10 @@ pub const PGB_BOTTOMORRIGHT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PGB_TOPORLEFT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PGF_CALCHEIGHT: NMPGCALCSIZE_FLAGS = NMPGCALCSIZE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PGF_CALCWIDTH: NMPGCALCSIZE_FLAGS = NMPGCALCSIZE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PGF_DEPRESSED: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PGF_GRAYED: u32 = 2u32;
@@ -4501,6 +6715,22 @@ pub const PGF_HOT: u32 = 8u32;
 pub const PGF_INVISIBLE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PGF_NORMAL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PGF_SCROLLDOWN: NMPGSCROLL_DIR = NMPGSCROLL_DIR(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PGF_SCROLLLEFT: NMPGSCROLL_DIR = NMPGSCROLL_DIR(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PGF_SCROLLRIGHT: NMPGSCROLL_DIR = NMPGSCROLL_DIR(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PGF_SCROLLUP: NMPGSCROLL_DIR = NMPGSCROLL_DIR(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PGK_CONTROL: NMPGSCROLL_KEYS = NMPGSCROLL_KEYS(2u16);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PGK_MENU: NMPGSCROLL_KEYS = NMPGSCROLL_KEYS(4u16);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PGK_NONE: NMPGSCROLL_KEYS = NMPGSCROLL_KEYS(0u16);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PGK_SHIFT: NMPGSCROLL_KEYS = NMPGSCROLL_KEYS(1u16);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PGM_FIRST: u32 = 5120u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -4542,6 +6772,14 @@ pub const PGN_LAST: u32 = 4294966346u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PGN_SCROLL: u32 = 4294966395u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PGRP_DOWN: PAGEPARTS = PAGEPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PGRP_DOWNHORZ: PAGEPARTS = PAGEPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PGRP_UP: PAGEPARTS = PAGEPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PGRP_UPHORZ: PAGEPARTS = PAGEPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PGS_AUTOSCROLL: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PGS_DRAGNDROP: u32 = 4u32;
@@ -4549,6 +6787,64 @@ pub const PGS_DRAGNDROP: u32 = 4u32;
 pub const PGS_HORZ: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PGS_VERT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const POINTER_DEVICE_CURSOR_TYPE_ERASER: POINTER_DEVICE_CURSOR_TYPE = POINTER_DEVICE_CURSOR_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const POINTER_DEVICE_CURSOR_TYPE_MAX: POINTER_DEVICE_CURSOR_TYPE = POINTER_DEVICE_CURSOR_TYPE(-1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const POINTER_DEVICE_CURSOR_TYPE_TIP: POINTER_DEVICE_CURSOR_TYPE = POINTER_DEVICE_CURSOR_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const POINTER_DEVICE_CURSOR_TYPE_UNKNOWN: POINTER_DEVICE_CURSOR_TYPE = POINTER_DEVICE_CURSOR_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const POINTER_DEVICE_TYPE_EXTERNAL_PEN: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const POINTER_DEVICE_TYPE_INTEGRATED_PEN: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const POINTER_DEVICE_TYPE_MAX: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(-1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const POINTER_DEVICE_TYPE_TOUCH: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const POINTER_DEVICE_TYPE_TOUCH_PAD: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const POINTER_FEEDBACK_DEFAULT: POINTER_FEEDBACK_MODE = POINTER_FEEDBACK_MODE(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const POINTER_FEEDBACK_INDIRECT: POINTER_FEEDBACK_MODE = POINTER_FEEDBACK_MODE(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const POINTER_FEEDBACK_NONE: POINTER_FEEDBACK_MODE = POINTER_FEEDBACK_MODE(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PO_CLASS: PROPERTYORIGIN = PROPERTYORIGIN(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PO_GLOBAL: PROPERTYORIGIN = PROPERTYORIGIN(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PO_NOTFOUND: PROPERTYORIGIN = PROPERTYORIGIN(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PO_PART: PROPERTYORIGIN = PROPERTYORIGIN(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PO_STATE: PROPERTYORIGIN = PROPERTYORIGIN(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_BAR: PROGRESSPARTS = PROGRESSPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_BARVERT: PROGRESSPARTS = PROGRESSPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_CHUNK: PROGRESSPARTS = PROGRESSPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_CHUNKVERT: PROGRESSPARTS = PROGRESSPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_FILL: PROGRESSPARTS = PROGRESSPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_FILLVERT: PROGRESSPARTS = PROGRESSPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_MOVEOVERLAY: PROGRESSPARTS = PROGRESSPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_MOVEOVERLAYVERT: PROGRESSPARTS = PROGRESSPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_PULSEOVERLAY: PROGRESSPARTS = PROGRESSPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_PULSEOVERLAYVERT: PROGRESSPARTS = PROGRESSPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_TRANSPARENTBAR: PROGRESSPARTS = PROGRESSPARTS(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_TRANSPARENTBARVERT: PROGRESSPARTS = PROGRESSPARTS(12i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PRINTDLGEXORD: u32 = 1549u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -4774,6 +7070,14 @@ pub const PSN_WIZFINISH: u32 = 4294967088u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PSN_WIZNEXT: u32 = 4294967089u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PSPCB_ADDREF: PSPCB_MESSAGE = PSPCB_MESSAGE(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PSPCB_CREATE: PSPCB_MESSAGE = PSPCB_MESSAGE(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PSPCB_RELEASE: PSPCB_MESSAGE = PSPCB_MESSAGE(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PSPCB_SI_INITDIALOG: PSPCB_MESSAGE = PSPCB_MESSAGE(1025u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PSP_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PSP_DLGINDIRECT: u32 = 1u32;
@@ -4888,6 +7192,12 @@ pub const RBHT_SPLITTER: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const RBIM_IMAGELIST: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBNM_ID: NMREBAR_MASK_FLAGS = NMREBAR_MASK_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBNM_LPARAM: NMREBAR_MASK_FLAGS = NMREBAR_MASK_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBNM_STYLE: NMREBAR_MASK_FLAGS = NMREBAR_MASK_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const RBN_AUTOBREAK: u32 = 4294966443u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const RBN_AUTOSIZE: u32 = 4294966462u32;
@@ -4924,13 +7234,37 @@ pub const RBS_AUTOSIZE: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const RBS_BANDBORDERS: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_CHECKEDDISABLED: RADIOBUTTONSTATES = RADIOBUTTONSTATES(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_CHECKEDHOT: RADIOBUTTONSTATES = RADIOBUTTONSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_CHECKEDNORMAL: RADIOBUTTONSTATES = RADIOBUTTONSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_CHECKEDPRESSED: RADIOBUTTONSTATES = RADIOBUTTONSTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const RBS_DBLCLKTOGGLE: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_DISABLED: RESTOREBUTTONSTATES = RESTOREBUTTONSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const RBS_FIXEDORDER: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_HOT: RESTOREBUTTONSTATES = RESTOREBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_NORMAL: RESTOREBUTTONSTATES = RESTOREBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_PUSHED: RESTOREBUTTONSTATES = RESTOREBUTTONSTATES(3i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const RBS_REGISTERDROP: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const RBS_TOOLTIPS: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_UNCHECKEDDISABLED: RADIOBUTTONSTATES = RADIOBUTTONSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_UNCHECKEDHOT: RADIOBUTTONSTATES = RADIOBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_UNCHECKEDNORMAL: RADIOBUTTONSTATES = RADIOBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_UNCHECKEDPRESSED: RADIOBUTTONSTATES = RADIOBUTTONSTATES(3i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const RBS_VARHEIGHT: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -5040,6 +7374,22 @@ pub const REBARCLASSNAMEW: ::windows_core::PCWSTR = ::windows_core::w!("ReBarWin
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const REPLACEDLGORD: u32 = 1541u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RP_BACKGROUND: REBARPARTS = REBARPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RP_BAND: REBARPARTS = REBARPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RP_CHEVRON: REBARPARTS = REBARPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RP_CHEVRONVERT: REBARPARTS = REBARPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RP_GRIPPER: REBARPARTS = REBARPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RP_GRIPPERVERT: REBARPARTS = REBARPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RP_SPLITTER: REBARPARTS = REBARPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RP_SPLITTERVERT: REBARPARTS = REBARPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const RUNDLGORD: u32 = 1545u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const SBARS_SIZEGRIP: u32 = 256u32;
@@ -5051,6 +7401,36 @@ pub const SBN_FIRST: u32 = 4294966416u32;
 pub const SBN_LAST: u32 = 4294966397u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const SBN_SIMPLEMODECHANGE: u32 = 4294966416u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_ARROWBTN: SCROLLBARPARTS = SCROLLBARPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_GRIPPERHORZ: SCROLLBARPARTS = SCROLLBARPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_GRIPPERVERT: SCROLLBARPARTS = SCROLLBARPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_LOWERTRACKHORZ: SCROLLBARPARTS = SCROLLBARPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_LOWERTRACKVERT: SCROLLBARPARTS = SCROLLBARPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_SIZEBOX: SCROLLBARPARTS = SCROLLBARPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_SIZEBOXBKGND: SCROLLBARPARTS = SCROLLBARPARTS(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_THUMBBTNHORZ: SCROLLBARPARTS = SCROLLBARPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_THUMBBTNVERT: SCROLLBARPARTS = SCROLLBARPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_UPPERTRACKHORZ: SCROLLBARPARTS = SCROLLBARPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_UPPERTRACKVERT: SCROLLBARPARTS = SCROLLBARPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBS_DISABLED: SYSBUTTONSTATES = SYSBUTTONSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBS_HOT: SYSBUTTONSTATES = SYSBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBS_NORMAL: SYSBUTTONSTATES = SYSBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBS_PUSHED: SYSBUTTONSTATES = SYSBUTTONSTATES(3i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const SBT_NOBORDERS: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -5116,11 +7496,171 @@ pub const SB_SIMPLE: u32 = 1033u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const SB_SIMPLEID: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCBS_DISABLED: SMALLCLOSEBUTTONSTATES = SMALLCLOSEBUTTONSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCBS_HOT: SMALLCLOSEBUTTONSTATES = SMALLCLOSEBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCBS_NORMAL: SMALLCLOSEBUTTONSTATES = SMALLCLOSEBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCBS_PUSHED: SMALLCLOSEBUTTONSTATES = SMALLCLOSEBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCRBS_DISABLED: SCROLLBARSTYLESTATES = SCROLLBARSTYLESTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCRBS_HOT: SCROLLBARSTYLESTATES = SCROLLBARSTYLESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCRBS_HOVER: SCROLLBARSTYLESTATES = SCROLLBARSTYLESTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCRBS_NORMAL: SCROLLBARSTYLESTATES = SCROLLBARSTYLESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCRBS_PRESSED: SCROLLBARSTYLESTATES = SCROLLBARSTYLESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCS_ACTIVE: SMALLCAPTIONSTATES = SMALLCAPTIONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCS_DISABLED: SMALLCAPTIONSTATES = SMALLCAPTIONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCS_INACTIVE: SMALLCAPTIONSTATES = SMALLCAPTIONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SFRB_ACTIVE: SMALLFRAMEBOTTOMSTATES = SMALLFRAMEBOTTOMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SFRB_INACTIVE: SMALLFRAMEBOTTOMSTATES = SMALLFRAMEBOTTOMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SFRL_ACTIVE: SMALLFRAMELEFTSTATES = SMALLFRAMELEFTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SFRL_INACTIVE: SMALLFRAMELEFTSTATES = SMALLFRAMELEFTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SFRR_ACTIVE: SMALLFRAMERIGHTSTATES = SMALLFRAMERIGHTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SFRR_INACTIVE: SMALLFRAMERIGHTSTATES = SMALLFRAMERIGHTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPLITSV_HOT: SPLITTERVERTSTATES = SPLITTERVERTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPLITSV_NORMAL: SPLITTERVERTSTATES = SPLITTERVERTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPLITSV_PRESSED: SPLITTERVERTSTATES = SPLITTERVERTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPLITS_HOT: SPLITTERSTATES = SPLITTERSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPLITS_NORMAL: SPLITTERSTATES = SPLITTERSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPLITS_PRESSED: SPLITTERSTATES = SPLITTERSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPLS_HOT: LOGOFFBUTTONSSTATES = LOGOFFBUTTONSSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPLS_NORMAL: LOGOFFBUTTONSSTATES = LOGOFFBUTTONSSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPLS_PRESSED: LOGOFFBUTTONSSTATES = LOGOFFBUTTONSSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPMPT_DISABLED: MOREPROGRAMSTABSTATES = MOREPROGRAMSTABSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPMPT_FOCUSED: MOREPROGRAMSTABSTATES = MOREPROGRAMSTABSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPMPT_HOT: MOREPROGRAMSTABSTATES = MOREPROGRAMSTABSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPMPT_NORMAL: MOREPROGRAMSTABSTATES = MOREPROGRAMSTABSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPMPT_SELECTED: MOREPROGRAMSTABSTATES = MOREPROGRAMSTABSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPNP_DOWN: SPINPARTS = SPINPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPNP_DOWNHORZ: SPINPARTS = SPINPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPNP_UP: SPINPARTS = SPINPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPNP_UPHORZ: SPINPARTS = SPINPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPOB_DISABLED: OPENBOXSTATES = OPENBOXSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPOB_FOCUSED: OPENBOXSTATES = OPENBOXSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPOB_HOT: OPENBOXSTATES = OPENBOXSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPOB_NORMAL: OPENBOXSTATES = OPENBOXSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPOB_SELECTED: OPENBOXSTATES = OPENBOXSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPP_LOGOFF: STARTPANELPARTS = STARTPANELPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPP_LOGOFFBUTTONS: STARTPANELPARTS = STARTPANELPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPP_LOGOFFSPLITBUTTONDROPDOWN: STARTPANELPARTS = STARTPANELPARTS(19i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPP_MOREPROGRAMS: STARTPANELPARTS = STARTPANELPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPP_MOREPROGRAMSARROW: STARTPANELPARTS = STARTPANELPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPP_MOREPROGRAMSARROWBACK: STARTPANELPARTS = STARTPANELPARTS(17i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPP_MOREPROGRAMSTAB: STARTPANELPARTS = STARTPANELPARTS(12i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPP_NSCHOST: STARTPANELPARTS = STARTPANELPARTS(13i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPP_OPENBOX: STARTPANELPARTS = STARTPANELPARTS(15i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPP_PLACESLIST: STARTPANELPARTS = STARTPANELPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPP_PLACESLISTSEPARATOR: STARTPANELPARTS = STARTPANELPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPP_PREVIEW: STARTPANELPARTS = STARTPANELPARTS(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPP_PROGLIST: STARTPANELPARTS = STARTPANELPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPP_PROGLISTSEPARATOR: STARTPANELPARTS = STARTPANELPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPP_SEARCHVIEW: STARTPANELPARTS = STARTPANELPARTS(16i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPP_SOFTWAREEXPLORER: STARTPANELPARTS = STARTPANELPARTS(14i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPP_TOPMATCH: STARTPANELPARTS = STARTPANELPARTS(18i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPP_USERPANE: STARTPANELPARTS = STARTPANELPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPP_USERPICTURE: STARTPANELPARTS = STARTPANELPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPSB_HOT: MOREPROGRAMSARROWBACKSTATES = MOREPROGRAMSARROWBACKSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPSB_NORMAL: MOREPROGRAMSARROWBACKSTATES = MOREPROGRAMSARROWBACKSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPSB_PRESSED: MOREPROGRAMSARROWBACKSTATES = MOREPROGRAMSARROWBACKSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPSE_DISABLED: SOFTWAREEXPLORERSTATES = SOFTWAREEXPLORERSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPSE_FOCUSED: SOFTWAREEXPLORERSTATES = SOFTWAREEXPLORERSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPSE_HOT: SOFTWAREEXPLORERSTATES = SOFTWAREEXPLORERSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPSE_NORMAL: SOFTWAREEXPLORERSTATES = SOFTWAREEXPLORERSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPSE_SELECTED: SOFTWAREEXPLORERSTATES = SOFTWAREEXPLORERSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPS_HOT: MOREPROGRAMSARROWSTATES = MOREPROGRAMSARROWSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPS_NORMAL: MOREPROGRAMSARROWSTATES = MOREPROGRAMSARROWSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPS_PRESSED: MOREPROGRAMSARROWSTATES = MOREPROGRAMSARROWSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SP_GRIPPER: STATUSPARTS = STATUSPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SP_GRIPPERPANE: STATUSPARTS = STATUSPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SP_PANE: STATUSPARTS = STATUSPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const STATE_SYSTEM_FOCUSABLE: COMBOBOXINFO_BUTTON_STATE = COMBOBOXINFO_BUTTON_STATE(1048576u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const STATE_SYSTEM_INVISIBLE: COMBOBOXINFO_BUTTON_STATE = COMBOBOXINFO_BUTTON_STATE(32768u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const STATE_SYSTEM_OFFSCREEN: COMBOBOXINFO_BUTTON_STATE = COMBOBOXINFO_BUTTON_STATE(65536u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const STATE_SYSTEM_PRESSED: COMBOBOXINFO_BUTTON_STATE = COMBOBOXINFO_BUTTON_STATE(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const STATE_SYSTEM_UNAVAILABLE: COMBOBOXINFO_BUTTON_STATE = COMBOBOXINFO_BUTTON_STATE(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const STATUSCLASSNAME: ::windows_core::PCWSTR = ::windows_core::w!("msctls_statusbar32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const STATUSCLASSNAMEA: ::windows_core::PCSTR = ::windows_core::s!("msctls_statusbar32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const STATUSCLASSNAMEW: ::windows_core::PCWSTR = ::windows_core::w!("msctls_statusbar32");
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const STAT_TEXT: STATICPARTS = STATICPARTS(1i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const STD_COPY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -5152,6 +7692,28 @@ pub const STD_REPLACE: u32 = 13u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const STD_UNDO: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ST_STRETCH: SIZINGTYPE = SIZINGTYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ST_TILE: SIZINGTYPE = SIZINGTYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ST_TRUESIZE: SIZINGTYPE = SIZINGTYPE(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SZB_HALFBOTTOMLEFTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SZB_HALFBOTTOMRIGHTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SZB_HALFTOPLEFTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SZB_HALFTOPRIGHTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SZB_LEFTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SZB_RIGHTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SZB_TOPLEFTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SZB_TOPRIGHTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const SZ_THDOCPROP_AUTHOR: ::windows_core::PCWSTR = ::windows_core::w!("author");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const SZ_THDOCPROP_CANONICALNAME: ::windows_core::PCWSTR = ::windows_core::w!("ThemeName");
@@ -5159,6 +7721,68 @@ pub const SZ_THDOCPROP_CANONICALNAME: ::windows_core::PCWSTR = ::windows_core::w
 pub const SZ_THDOCPROP_DISPLAYNAME: ::windows_core::PCWSTR = ::windows_core::w!("DisplayName");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const SZ_THDOCPROP_TOOLTIP: ::windows_core::PCWSTR = ::windows_core::w!("ToolTip");
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_AEROWIZARDBODY: TABPARTS = TABPARTS(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_BODY: TABPARTS = TABPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_PANE: TABPARTS = TABPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_TABITEM: TABPARTS = TABPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_TABITEMBOTHEDGE: TABPARTS = TABPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_TABITEMLEFTEDGE: TABPARTS = TABPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_TABITEMRIGHTEDGE: TABPARTS = TABPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_TOPTABITEM: TABPARTS = TABPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_TOPTABITEMBOTHEDGE: TABPARTS = TABPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_TOPTABITEMLEFTEDGE: TABPARTS = TABPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_TOPTABITEMRIGHTEDGE: TABPARTS = TABPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TAPF_ALLOWCOLLECTION: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TAPF_HASBACKGROUND: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TAPF_HASPERSPECTIVE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(16i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TAPF_HASSTAGGER: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TAPF_ISRTLAWARE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TAPF_NONE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TAP_FLAGS: TA_PROPERTY = TA_PROPERTY(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TAP_STAGGERDELAY: TA_PROPERTY = TA_PROPERTY(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TAP_STAGGERDELAYCAP: TA_PROPERTY = TA_PROPERTY(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TAP_STAGGERDELAYFACTOR: TA_PROPERTY = TA_PROPERTY(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TAP_TRANSFORMCOUNT: TA_PROPERTY = TA_PROPERTY(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TAP_ZORDER: TA_PROPERTY = TA_PROPERTY(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TATF_HASINITIALVALUES: TA_TRANSFORM_FLAG = TA_TRANSFORM_FLAG(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TATF_HASORIGINVALUES: TA_TRANSFORM_FLAG = TA_TRANSFORM_FLAG(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TATF_NONE: TA_TRANSFORM_FLAG = TA_TRANSFORM_FLAG(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TATF_TARGETVALUES_USER: TA_TRANSFORM_FLAG = TA_TRANSFORM_FLAG(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TATT_CLIP: TA_TRANSFORM_TYPE = TA_TRANSFORM_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TATT_OPACITY: TA_TRANSFORM_TYPE = TA_TRANSFORM_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TATT_SCALE_2D: TA_TRANSFORM_TYPE = TA_TRANSFORM_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TATT_TRANSLATE_2D: TA_TRANSFORM_TYPE = TA_TRANSFORM_TYPE(0i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TBBF_LARGE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -5189,6 +7813,28 @@ pub const TBDDRET_DEFAULT: u32 = 0u32;
 pub const TBDDRET_NODEFAULT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TBDDRET_TREATPRESSED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBIF_BYINDEX: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(2147483648u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBIF_COMMAND: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBIF_IMAGE: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBIF_LPARAM: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBIF_SIZE: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBIF_STATE: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBIF_STYLE: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBIF_TEXT: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBIMHT_AFTER: TBINSERTMARK_FLAGS = TBINSERTMARK_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBIMHT_BACKGROUND: TBINSERTMARK_FLAGS = TBINSERTMARK_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBIMHT_NONE: TBINSERTMARK_FLAGS = TBINSERTMARK_FLAGS(0u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TBMF_BARPAD: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -5266,6 +7912,12 @@ pub const TBM_SETTOOLTIPS: u32 = 1053u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TBM_SETUNICODEFORMAT: u32 = 8197u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBNF_DI_SETITEM: NMTBDISPINFOW_MASK = NMTBDISPINFOW_MASK(268435456u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBNF_IMAGE: NMTBDISPINFOW_MASK = NMTBDISPINFOW_MASK(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBNF_TEXT: NMTBDISPINFOW_MASK = NMTBDISPINFOW_MASK(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TBNRF_ENDCUSTOMIZE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TBNRF_HIDEHELP: u32 = 1u32;
@@ -5335,6 +7987,22 @@ pub const TBN_TOOLBARCHANGE: u32 = 4294966588u32;
 pub const TBN_WRAPACCELERATOR: u32 = 4294966570u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TBN_WRAPHOTITEM: u32 = 4294966572u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBP_BACKGROUNDBOTTOM: TASKBARPARTS = TASKBARPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBP_BACKGROUNDLEFT: TASKBARPARTS = TASKBARPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBP_BACKGROUNDRIGHT: TASKBARPARTS = TASKBARPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBP_BACKGROUNDTOP: TASKBARPARTS = TASKBARPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBP_SIZINGBARBOTTOM: TASKBARPARTS = TASKBARPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBP_SIZINGBARLEFT: TASKBARPARTS = TASKBARPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBP_SIZINGBARRIGHT: TASKBARPARTS = TASKBARPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TBP_SIZINGBARTOP: TASKBARPARTS = TASKBARPARTS(7i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TBSTATE_CHECKED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -5676,6 +8344,28 @@ pub const TB_THUMBTRACK: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TB_TOP: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TCHT_NOWHERE: TCHITTESTINFO_FLAGS = TCHITTESTINFO_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TCHT_ONITEM: TCHITTESTINFO_FLAGS = TCHITTESTINFO_FLAGS(6u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TCHT_ONITEMICON: TCHITTESTINFO_FLAGS = TCHITTESTINFO_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TCHT_ONITEMLABEL: TCHITTESTINFO_FLAGS = TCHITTESTINFO_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TCIF_IMAGE: TCITEMHEADERA_MASK = TCITEMHEADERA_MASK(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TCIF_PARAM: TCITEMHEADERA_MASK = TCITEMHEADERA_MASK(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TCIF_RTLREADING: TCITEMHEADERA_MASK = TCITEMHEADERA_MASK(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TCIF_STATE: TCITEMHEADERA_MASK = TCITEMHEADERA_MASK(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TCIF_TEXT: TCITEMHEADERA_MASK = TCITEMHEADERA_MASK(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TCIS_BUTTONPRESSED: TAB_CONTROL_ITEM_STATE = TAB_CONTROL_ITEM_STATE(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TCIS_HIGHLIGHTED: TAB_CONTROL_ITEM_STATE = TAB_CONTROL_ITEM_STATE(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TCM_ADJUSTRECT: u32 = 4904u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TCM_DELETEALLITEMS: u32 = 4873u32;
@@ -5806,6 +8496,184 @@ pub const TCS_TOOLTIPS: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TCS_VERTICAL: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDCBF_CANCEL_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDCBF_CLOSE_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(32i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDCBF_NO_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDCBF_OK_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDCBF_RETRY_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDCBF_YES_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDE_CONTENT: TASKDIALOG_ELEMENTS = TASKDIALOG_ELEMENTS(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDE_EXPANDED_INFORMATION: TASKDIALOG_ELEMENTS = TASKDIALOG_ELEMENTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDE_FOOTER: TASKDIALOG_ELEMENTS = TASKDIALOG_ELEMENTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDE_MAIN_INSTRUCTION: TASKDIALOG_ELEMENTS = TASKDIALOG_ELEMENTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDF_ALLOW_DIALOG_CANCELLATION: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDF_CALLBACK_TIMER: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(2048i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDF_CAN_BE_MINIMIZED: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(32768i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDF_ENABLE_HYPERLINKS: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDF_EXPANDED_BY_DEFAULT: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(128i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDF_EXPAND_FOOTER_AREA: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(64i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDF_NO_DEFAULT_RADIO_BUTTON: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(16384i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDF_NO_SET_FOREGROUND: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(65536i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDF_POSITION_RELATIVE_TO_WINDOW: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(4096i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDF_RTL_LAYOUT: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(8192i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDF_SHOW_MARQUEE_PROGRESS_BAR: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(1024i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDF_SHOW_PROGRESS_BAR: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(512i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDF_SIZE_TO_CONTENT: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(16777216i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDF_USE_COMMAND_LINKS: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDF_USE_COMMAND_LINKS_NO_ICON: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(32i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDF_USE_HICON_FOOTER: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDF_USE_HICON_MAIN: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDF_VERIFICATION_FLAG_CHECKED: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(256i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDIE_ICON_FOOTER: TASKDIALOG_ICON_ELEMENTS = TASKDIALOG_ICON_ELEMENTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDIE_ICON_MAIN: TASKDIALOG_ICON_ELEMENTS = TASKDIALOG_ICON_ELEMENTS(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLGCPS_STANDALONE: CONTENTPANESTATES = CONTENTPANESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLGEBS_EXPANDEDDISABLED: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLGEBS_EXPANDEDHOVER: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLGEBS_EXPANDEDNORMAL: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLGEBS_EXPANDEDPRESSED: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLGEBS_HOVER: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLGEBS_NORMAL: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLGEBS_NORMALDISABLED: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLGEBS_PRESSED: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_BUTTONSECTION: TASKDIALOGPARTS = TASKDIALOGPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_BUTTONWRAPPER: TASKDIALOGPARTS = TASKDIALOGPARTS(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_COMMANDLINKPANE: TASKDIALOGPARTS = TASKDIALOGPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_CONTENTICON: TASKDIALOGPARTS = TASKDIALOGPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_CONTENTPANE: TASKDIALOGPARTS = TASKDIALOGPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_CONTROLPANE: TASKDIALOGPARTS = TASKDIALOGPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_EXPANDEDCONTENT: TASKDIALOGPARTS = TASKDIALOGPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_EXPANDEDFOOTERAREA: TASKDIALOGPARTS = TASKDIALOGPARTS(18i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_EXPANDOBUTTON: TASKDIALOGPARTS = TASKDIALOGPARTS(13i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_EXPANDOTEXT: TASKDIALOGPARTS = TASKDIALOGPARTS(12i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_FOOTNOTEAREA: TASKDIALOGPARTS = TASKDIALOGPARTS(16i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_FOOTNOTEPANE: TASKDIALOGPARTS = TASKDIALOGPARTS(15i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_FOOTNOTESEPARATOR: TASKDIALOGPARTS = TASKDIALOGPARTS(17i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_IMAGEALIGNMENT: TASKDIALOGPARTS = TASKDIALOGPARTS(20i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_MAINICON: TASKDIALOGPARTS = TASKDIALOGPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_MAININSTRUCTIONPANE: TASKDIALOGPARTS = TASKDIALOGPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_PRIMARYPANEL: TASKDIALOGPARTS = TASKDIALOGPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_PROGRESSBAR: TASKDIALOGPARTS = TASKDIALOGPARTS(19i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_RADIOBUTTONPANE: TASKDIALOGPARTS = TASKDIALOGPARTS(21i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_SECONDARYPANEL: TASKDIALOGPARTS = TASKDIALOGPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_VERIFICATIONTEXT: TASKDIALOGPARTS = TASKDIALOGPARTS(14i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDM_CLICK_BUTTON: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1126i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDM_CLICK_RADIO_BUTTON: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1134i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDM_CLICK_VERIFICATION: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1137i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDM_ENABLE_BUTTON: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1135i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDM_ENABLE_RADIO_BUTTON: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1136i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDM_NAVIGATE_PAGE: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1125i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDM_SET_BUTTON_ELEVATION_REQUIRED_STATE: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1139i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDM_SET_ELEMENT_TEXT: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1132i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDM_SET_MARQUEE_PROGRESS_BAR: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1127i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDM_SET_PROGRESS_BAR_MARQUEE: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1131i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDM_SET_PROGRESS_BAR_POS: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1130i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDM_SET_PROGRESS_BAR_RANGE: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1129i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDM_SET_PROGRESS_BAR_STATE: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1128i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDM_UPDATE_ELEMENT_TEXT: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1138i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDM_UPDATE_ICON: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1140i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDN_BUTTON_CLICKED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDN_CREATED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDN_DESTROYED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDN_DIALOG_CONSTRUCTED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDN_EXPANDO_BUTTON_CLICKED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDN_HELP: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDN_HYPERLINK_CLICKED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDN_NAVIGATED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDN_RADIO_BUTTON_CLICKED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDN_TIMER: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDN_VERIFICATION_CLICKED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDP_FLASHBUTTON: TASKBANDPARTS = TASKBANDPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDP_FLASHBUTTONGROUPMENU: TASKBANDPARTS = TASKBANDPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDP_GROUPCOUNT: TASKBANDPARTS = TASKBANDPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TD_ERROR_ICON: ::windows_core::PCWSTR = ::windows_core::PCWSTR(65534u16 as _);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TD_INFORMATION_ICON: ::windows_core::PCWSTR = ::windows_core::PCWSTR(65533u16 as _);
@@ -5814,9 +8682,607 @@ pub const TD_SHIELD_ICON: ::windows_core::PCWSTR = ::windows_core::PCWSTR(65532u
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TD_WARNING_ICON: ::windows_core::PCWSTR = ::windows_core::PCWSTR(65535u16 as _);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TEXT_BODYTEXT: TEXTSTYLEPARTS = TEXTSTYLEPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TEXT_BODYTITLE: TEXTSTYLEPARTS = TEXTSTYLEPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TEXT_CONTROLLABEL: TEXTSTYLEPARTS = TEXTSTYLEPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TEXT_EXPANDED: TEXTSTYLEPARTS = TEXTSTYLEPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TEXT_HYPERLINKTEXT: TEXTSTYLEPARTS = TEXTSTYLEPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TEXT_INSTRUCTION: TEXTSTYLEPARTS = TEXTSTYLEPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TEXT_LABEL: TEXTSTYLEPARTS = TEXTSTYLEPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TEXT_MAININSTRUCTION: TEXTSTYLEPARTS = TEXTSTYLEPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TEXT_SECONDARYTEXT: TEXTSTYLEPARTS = TEXTSTYLEPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIBES_DISABLED: TABITEMBOTHEDGESTATES = TABITEMBOTHEDGESTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIBES_FOCUSED: TABITEMBOTHEDGESTATES = TABITEMBOTHEDGESTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIBES_HOT: TABITEMBOTHEDGESTATES = TABITEMBOTHEDGESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIBES_NORMAL: TABITEMBOTHEDGESTATES = TABITEMBOTHEDGESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIBES_SELECTED: TABITEMBOTHEDGESTATES = TABITEMBOTHEDGESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TILES_DISABLED: TABITEMLEFTEDGESTATES = TABITEMLEFTEDGESTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TILES_FOCUSED: TABITEMLEFTEDGESTATES = TABITEMLEFTEDGESTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TILES_HOT: TABITEMLEFTEDGESTATES = TABITEMLEFTEDGESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TILES_NORMAL: TABITEMLEFTEDGESTATES = TABITEMLEFTEDGESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TILES_SELECTED: TABITEMLEFTEDGESTATES = TABITEMLEFTEDGESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIRES_DISABLED: TABITEMRIGHTEDGESTATES = TABITEMRIGHTEDGESTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIRES_FOCUSED: TABITEMRIGHTEDGESTATES = TABITEMRIGHTEDGESTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIRES_HOT: TABITEMRIGHTEDGESTATES = TABITEMRIGHTEDGESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIRES_NORMAL: TABITEMRIGHTEDGESTATES = TABITEMRIGHTEDGESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIRES_SELECTED: TABITEMRIGHTEDGESTATES = TABITEMRIGHTEDGESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIS_DISABLED: TABITEMSTATES = TABITEMSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIS_FOCUSED: TABITEMSTATES = TABITEMSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIS_HOT: TABITEMSTATES = TABITEMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIS_NORMAL: TABITEMSTATES = TABITEMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIS_SELECTED: TABITEMSTATES = TABITEMSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKP_THUMB: TRACKBARPARTS = TRACKBARPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKP_THUMBBOTTOM: TRACKBARPARTS = TRACKBARPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKP_THUMBLEFT: TRACKBARPARTS = TRACKBARPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKP_THUMBRIGHT: TRACKBARPARTS = TRACKBARPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKP_THUMBTOP: TRACKBARPARTS = TRACKBARPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKP_THUMBVERT: TRACKBARPARTS = TRACKBARPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKP_TICS: TRACKBARPARTS = TRACKBARPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKP_TICSVERT: TRACKBARPARTS = TRACKBARPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKP_TRACK: TRACKBARPARTS = TRACKBARPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKP_TRACKVERT: TRACKBARPARTS = TRACKBARPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKS_NORMAL: TRACKBARSTYLESTATES = TRACKBARSTYLESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TMTVS_RESERVEDHIGH: u32 = 19999u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TMTVS_RESERVEDLOW: u32 = 100000u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_ACCENTCOLORHINT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3823u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_ACTIVEBORDER: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1611u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_ACTIVECAPTION: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1603u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_ALIAS: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1404u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_ALPHALEVEL: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2402u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_ALPHATHRESHOLD: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2415u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_ALWAYSSHOWSIZINGBAR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2208u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_ANIMATIONBUTTONRECT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(5005u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_ANIMATIONDELAY: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2428u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_ANIMATIONDURATION: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(5006u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_APPWORKSPACE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1613u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_ATLASIMAGE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(8000u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_ATLASINPUTIMAGE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(8001u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_ATLASRECT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(8002u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_AUTHOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(604u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_AUTOSIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2202u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_BACKGROUND: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1602u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_BGFILL: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2205u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_BGTYPE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4001u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_BITMAPREF: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(215u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_BLENDCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(5003u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_BODYFONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(809u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_BODYTEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3827u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_BOOL: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(203u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_BORDERCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3801u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_BORDERCOLORHINT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3822u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_BORDERONLY: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2203u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_BORDERSIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2403u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_BORDERTYPE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4002u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_BTNFACE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1616u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_BTNHIGHLIGHT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1621u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_BTNSHADOW: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1617u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_BTNTEXT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1619u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_BUTTONALTERNATEFACE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1626u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_CAPTIONBARHEIGHT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1205u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_CAPTIONBARWIDTH: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1204u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_CAPTIONFONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(801u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_CAPTIONMARGINS: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3603u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_CAPTIONTEXT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1610u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_CHARSET: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(403u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_CLASSICVALUE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3202u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_COLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(204u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_COLORIZATIONCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2431u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_COLORIZATIONOPACITY: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2432u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_COLORSCHEMES: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(401u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_COMPANY: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(603u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_COMPOSITED: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2204u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_COMPOSITEDOPAQUE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2219u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_CONTENTALIGNMENT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4006u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_CONTENTMARGINS: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3602u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_COPYRIGHT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(605u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_CSSNAME: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1401u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_CUSTOMSPLITRECT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(5004u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_DEFAULTPANESIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(5002u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_DESCRIPTION: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(608u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_DIBDATA: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_DISKSTREAM: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(213u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_DISPLAYNAME: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(601u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_DKSHADOW3D: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1622u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_DRAWBORDERS: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2214u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_EDGEDKSHADOWCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3807u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_EDGEFILLCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3808u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_EDGEHIGHLIGHTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3805u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_EDGELIGHTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3804u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_EDGESHADOWCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3806u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_ENUM: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(200u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FILENAME: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(206u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FILLCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3802u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FILLCOLORHINT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3821u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FILLTYPE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4003u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FIRSTBOOL: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1001u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FIRSTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1601u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FIRSTFONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(801u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FIRSTINT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1301u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FIRSTSIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1201u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FIRSTSTRING: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1401u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FIRST_RCSTRING_NAME: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(601u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FLATMENUS: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1001u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FLOAT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(216u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FLOATLIST: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(217u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(210u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FRAMESPERSECOND: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2426u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FROMCOLOR1: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2001u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FROMCOLOR2: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2002u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FROMCOLOR3: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2003u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FROMCOLOR4: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2004u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FROMCOLOR5: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2005u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FROMHUE1: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1801u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FROMHUE2: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1802u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FROMHUE3: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1803u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FROMHUE4: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1804u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_FROMHUE5: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1805u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GLOWCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3816u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GLOWINTENSITY: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2429u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GLYPHDIBDATA: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GLYPHFONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2601u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GLYPHFONTSIZINGTYPE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4014u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GLYPHIMAGEFILE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3008u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GLYPHINDEX: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2418u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GLYPHONLY: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2207u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GLYPHTEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3819u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GLYPHTRANSPARENT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2206u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GLYPHTRANSPARENTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3820u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GLYPHTYPE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4012u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GRADIENTACTIVECAPTION: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1628u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GRADIENTCOLOR1: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3810u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GRADIENTCOLOR2: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3811u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GRADIENTCOLOR3: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3812u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GRADIENTCOLOR4: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3813u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GRADIENTCOLOR5: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3814u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GRADIENTINACTIVECAPTION: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1629u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GRADIENTRATIO1: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2406u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GRADIENTRATIO2: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2407u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GRADIENTRATIO3: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2408u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GRADIENTRATIO4: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2409u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GRADIENTRATIO5: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2410u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_GRAYTEXT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1618u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_HALIGN: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4005u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_HBITMAP: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(212u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_HEADING1FONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(807u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_HEADING1TEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3825u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_HEADING2FONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(808u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_HEADING2TEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3826u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_HEIGHT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2417u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_HIGHLIGHT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1614u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_HIGHLIGHTTEXT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1615u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_HOTTRACKING: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1627u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_ICONEFFECT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4009u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_ICONTITLEFONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(806u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_IMAGECOUNT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2401u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_IMAGEFILE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3001u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_IMAGEFILE1: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3002u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_IMAGEFILE2: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3003u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_IMAGEFILE3: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3004u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_IMAGEFILE4: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3005u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_IMAGEFILE5: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3006u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_IMAGEFILE6: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3009u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_IMAGEFILE7: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3010u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_IMAGELAYOUT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4011u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_IMAGESELECTTYPE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4013u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_INACTIVEBORDER: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1612u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_INACTIVECAPTION: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1604u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_INACTIVECAPTIONTEXT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1620u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_INFOBK: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1625u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_INFOTEXT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1624u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_INT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(202u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_INTEGRALSIZING: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2211u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_INTLIST: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(211u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_LASTBOOL: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1001u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_LASTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1631u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_LASTFONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(809u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_LASTINT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1301u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_LASTSIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1210u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_LASTSTRING: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1404u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_LASTUPDATED: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1403u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_LAST_RCSTRING_NAME: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(608u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_LIGHT3D: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1623u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_LOCALIZEDMIRRORIMAGE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2220u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MARGINS: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(205u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MENU: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1605u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MENUBAR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1631u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MENUBARHEIGHT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1209u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MENUBARWIDTH: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1208u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MENUFONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(803u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MENUHILIGHT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1630u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MENUTEXT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1608u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MINCOLORDEPTH: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1301u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MINDPI1: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2420u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MINDPI2: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2421u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MINDPI3: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2422u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MINDPI4: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2423u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MINDPI5: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2424u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MINDPI6: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2433u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MINDPI7: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2434u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MINSIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3403u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MINSIZE1: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3404u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MINSIZE2: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3405u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MINSIZE3: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3406u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MINSIZE4: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3407u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MINSIZE5: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3408u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MINSIZE6: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3410u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MINSIZE7: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3411u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MIRRORIMAGE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2209u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_MSGBOXFONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(805u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_NAME: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(600u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_NOETCHEDEFFECT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2215u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_NORMALSIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3409u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_OFFSET: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3401u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_OFFSETTYPE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4008u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_OPACITY: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2430u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_PADDEDBORDERWIDTH: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1210u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_PIXELSPERFRAME: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2427u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_POSITION: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(208u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_PROGRESSCHUNKSIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2411u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_PROGRESSSPACESIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2412u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_RECT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(209u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_RESERVEDHIGH: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(7999u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_RESERVEDLOW: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_ROUNDCORNERHEIGHT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2405u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_ROUNDCORNERWIDTH: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2404u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_SATURATION: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2413u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_SCALEDBACKGROUND: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(7001u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_SCROLLBAR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1601u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_SCROLLBARHEIGHT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1203u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_SCROLLBARWIDTH: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1202u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_SHADOWCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3815u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_SIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(207u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_SIZES: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(402u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_SIZINGBORDERWIDTH: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1201u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_SIZINGMARGINS: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3601u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_SIZINGTYPE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4004u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_SMALLCAPTIONFONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(802u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_SMCAPTIONBARHEIGHT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1207u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_SMCAPTIONBARWIDTH: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1206u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_SOURCEGROW: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2212u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_SOURCESHRINK: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2213u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_STATUSFONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(804u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_STREAM: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(214u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_STRING: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(201u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TEXT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3201u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TEXTAPPLYOVERLAY: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2216u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TEXTBORDERCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3817u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TEXTBORDERSIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2414u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3803u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TEXTCOLORHINT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3824u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TEXTGLOW: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2217u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TEXTGLOWSIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2425u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TEXTITALIC: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2218u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TEXTSHADOWCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3818u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TEXTSHADOWOFFSET: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3402u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TEXTSHADOWTYPE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4010u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TOCOLOR1: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2006u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TOCOLOR2: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2007u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TOCOLOR3: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2008u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TOCOLOR4: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2009u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TOCOLOR5: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2010u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TOHUE1: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1806u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TOHUE2: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1807u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TOHUE3: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1808u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TOHUE4: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1809u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TOHUE5: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1810u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TOOLTIP: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(602u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TRANSITIONDURATIONS: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(6000u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TRANSPARENT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2201u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TRANSPARENTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3809u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TRUESIZESCALINGTYPE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4015u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_TRUESIZESTRETCHMARK: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2419u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_UNIFORMSIZING: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2210u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_URL: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(606u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_USERPICTURE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(5001u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_VALIGN: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4007u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_VERSION: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(607u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_WIDTH: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2416u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_WINDOW: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1606u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_WINDOWFRAME: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1607u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_WINDOWTEXT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1609u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMT_XMLNAME: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1402u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TNP_ANIMBACKGROUND: TRAYNOTIFYPARTS = TRAYNOTIFYPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TNP_BACKGROUND: TRAYNOTIFYPARTS = TRAYNOTIFYPARTS(1i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TOOLBARCLASSNAME: ::windows_core::PCWSTR = ::windows_core::w!("ToolbarWindow32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -5830,6 +9296,20 @@ pub const TOOLTIPS_CLASSA: ::windows_core::PCSTR = ::windows_core::s!("tooltips_
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TOOLTIPS_CLASSW: ::windows_core::PCWSTR = ::windows_core::w!("tooltips_class32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TP_BUTTON: TOOLBARPARTS = TOOLBARPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TP_DROPDOWNBUTTON: TOOLBARPARTS = TOOLBARPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TP_DROPDOWNBUTTONGLYPH: TOOLBARPARTS = TOOLBARPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TP_SEPARATOR: TOOLBARPARTS = TOOLBARPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TP_SEPARATORVERT: TOOLBARPARTS = TOOLBARPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TP_SPLITBUTTON: TOOLBARPARTS = TOOLBARPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TP_SPLITBUTTONDROPDOWN: TOOLBARPARTS = TOOLBARPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TRACKBAR_CLASS: ::windows_core::PCWSTR = ::windows_core::w!("msctls_trackbar32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TRACKBAR_CLASSA: ::windows_core::PCSTR = ::windows_core::s!("msctls_trackbar32");
@@ -5842,6 +9322,100 @@ pub const TRBN_LAST: u32 = 4294965777u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TRBN_THUMBPOSCHANGING: u32 = 4294965794u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TREIS_DISABLED: TREEITEMSTATES = TREEITEMSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TREIS_HOT: TREEITEMSTATES = TREEITEMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TREIS_HOTSELECTED: TREEITEMSTATES = TREEITEMSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TREIS_NORMAL: TREEITEMSTATES = TREEITEMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TREIS_SELECTED: TREEITEMSTATES = TREEITEMSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TREIS_SELECTEDNOTFOCUS: TREEITEMSTATES = TREEITEMSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TRS_NORMAL: TRACKSTATES = TRACKSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TRVS_NORMAL: TRACKVERTSTATES = TRACKVERTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TSGP_GRIPPER: TEXTSELECTIONGRIPPERPARTS = TEXTSELECTIONGRIPPERPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TSGS_CENTERED: GRIPPERSTATES = GRIPPERSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TSGS_NORMAL: GRIPPERSTATES = GRIPPERSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TSST_DPI: TRUESIZESCALINGTYPE = TRUESIZESCALINGTYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TSST_NONE: TRUESIZESCALINGTYPE = TRUESIZESCALINGTYPE(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TSST_SIZE: TRUESIZESCALINGTYPE = TRUESIZESCALINGTYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TSS_NORMAL: TICSSTATES = TICSSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TST_CONTINUOUS: TEXTSHADOWTYPE = TEXTSHADOWTYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TST_NONE: TEXTSHADOWTYPE = TEXTSHADOWTYPE(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TST_SINGLE: TEXTSHADOWTYPE = TEXTSHADOWTYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TSVS_NORMAL: TICSVERTSTATES = TICSVERTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_CHECKED: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_CONTROLLABEL_DISABLED: CONTROLLABELSTATES = CONTROLLABELSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_CONTROLLABEL_NORMAL: CONTROLLABELSTATES = CONTROLLABELSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_DISABLED: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_DRAW: THEMESIZE = THEMESIZE(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_HOT: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_HOTCHECKED: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_HYPERLINK_DISABLED: HYPERLINKTEXTSTATES = HYPERLINKTEXTSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_HYPERLINK_HOT: HYPERLINKTEXTSTATES = HYPERLINKTEXTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_HYPERLINK_NORMAL: HYPERLINKTEXTSTATES = HYPERLINKTEXTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_HYPERLINK_PRESSED: HYPERLINKTEXTSTATES = HYPERLINKTEXTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_MIN: THEMESIZE = THEMESIZE(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_NEARHOT: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_NORMAL: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_OTHERSIDEHOT: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_PRESSED: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_TRUE: THEMESIZE = THEMESIZE(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTBSS_POINTINGDOWNCENTERED: BALLOONSTEMSTATES = BALLOONSTEMSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTBSS_POINTINGDOWNLEFTWALL: BALLOONSTEMSTATES = BALLOONSTEMSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTBSS_POINTINGDOWNRIGHTWALL: BALLOONSTEMSTATES = BALLOONSTEMSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTBSS_POINTINGUPCENTERED: BALLOONSTEMSTATES = BALLOONSTEMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTBSS_POINTINGUPLEFTWALL: BALLOONSTEMSTATES = BALLOONSTEMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTBSS_POINTINGUPRIGHTWALL: BALLOONSTEMSTATES = BALLOONSTEMSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTBS_LINK: BALLOONSTATES = BALLOONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTBS_NORMAL: BALLOONSTATES = BALLOONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTCS_HOT: CLOSESTATES = CLOSESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTCS_NORMAL: CLOSESTATES = CLOSESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTCS_PRESSED: CLOSESTATES = CLOSESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TTDT_AUTOMATIC: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TTDT_AUTOPOP: u32 = 2u32;
@@ -5849,6 +9423,82 @@ pub const TTDT_AUTOPOP: u32 = 2u32;
 pub const TTDT_INITIAL: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TTDT_RESHOW: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTFT_CUBIC_BEZIER: TA_TIMINGFUNCTION_TYPE = TA_TIMINGFUNCTION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTFT_UNDEFINED: TA_TIMINGFUNCTION_TYPE = TA_TIMINGFUNCTION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTF_ABSOLUTE: TOOLTIP_FLAGS = TOOLTIP_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTF_CENTERTIP: TOOLTIP_FLAGS = TOOLTIP_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTF_DI_SETITEM: TOOLTIP_FLAGS = TOOLTIP_FLAGS(32768u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTF_IDISHWND: TOOLTIP_FLAGS = TOOLTIP_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTF_PARSELINKS: TOOLTIP_FLAGS = TOOLTIP_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTF_RTLREADING: TOOLTIP_FLAGS = TOOLTIP_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTF_SUBCLASS: TOOLTIP_FLAGS = TOOLTIP_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTF_TRACK: TOOLTIP_FLAGS = TOOLTIP_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTF_TRANSPARENT: TOOLTIP_FLAGS = TOOLTIP_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIBES_DISABLED: TOPTABITEMBOTHEDGESTATES = TOPTABITEMBOTHEDGESTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIBES_FOCUSED: TOPTABITEMBOTHEDGESTATES = TOPTABITEMBOTHEDGESTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIBES_HOT: TOPTABITEMBOTHEDGESTATES = TOPTABITEMBOTHEDGESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIBES_NORMAL: TOPTABITEMBOTHEDGESTATES = TOPTABITEMBOTHEDGESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIBES_SELECTED: TOPTABITEMBOTHEDGESTATES = TOPTABITEMBOTHEDGESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTILES_DISABLED: TOPTABITEMLEFTEDGESTATES = TOPTABITEMLEFTEDGESTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTILES_FOCUSED: TOPTABITEMLEFTEDGESTATES = TOPTABITEMLEFTEDGESTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTILES_HOT: TOPTABITEMLEFTEDGESTATES = TOPTABITEMLEFTEDGESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTILES_NORMAL: TOPTABITEMLEFTEDGESTATES = TOPTABITEMLEFTEDGESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTILES_SELECTED: TOPTABITEMLEFTEDGESTATES = TOPTABITEMLEFTEDGESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIRES_DISABLED: TOPTABITEMRIGHTEDGESTATES = TOPTABITEMRIGHTEDGESTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIRES_FOCUSED: TOPTABITEMRIGHTEDGESTATES = TOPTABITEMRIGHTEDGESTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIRES_HOT: TOPTABITEMRIGHTEDGESTATES = TOPTABITEMRIGHTEDGESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIRES_NORMAL: TOPTABITEMRIGHTEDGESTATES = TOPTABITEMRIGHTEDGESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIRES_SELECTED: TOPTABITEMRIGHTEDGESTATES = TOPTABITEMRIGHTEDGESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIS_DISABLED: TOPTABITEMSTATES = TOPTABITEMSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIS_FOCUSED: TOPTABITEMSTATES = TOPTABITEMSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIS_HOT: TOPTABITEMSTATES = TOPTABITEMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIS_NORMAL: TOPTABITEMSTATES = TOPTABITEMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIS_SELECTED: TOPTABITEMSTATES = TOPTABITEMSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTI_ERROR: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTI_ERROR_LARGE: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTI_INFO: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTI_INFO_LARGE: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTI_NONE: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTI_WARNING: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTI_WARNING_LARGE: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(5i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TTM_ACTIVATE: u32 = 1025u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -5984,6 +9634,24 @@ pub const TTN_POP: u32 = 4294966774u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TTN_SHOW: u32 = 4294966775u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTP_BALLOON: TOOLTIPPARTS = TOOLTIPPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTP_BALLOONSTEM: TOOLTIPPARTS = TOOLTIPPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTP_BALLOONTITLE: TOOLTIPPARTS = TOOLTIPPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTP_CLOSE: TOOLTIPPARTS = TOOLTIPPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTP_STANDARD: TOOLTIPPARTS = TOOLTIPPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTP_STANDARDTITLE: TOOLTIPPARTS = TOOLTIPPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTP_WRENCH: TOOLTIPPARTS = TOOLTIPPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTSS_LINK: STANDARDSTATES = STANDARDSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTSS_NORMAL: STANDARDSTATES = STANDARDSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TTS_ALWAYSTIP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TTS_BALLOON: u32 = 64u32;
@@ -5998,7 +9666,91 @@ pub const TTS_NOPREFIX: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TTS_USEVISUALSTYLE: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTWS_HOT: WRENCHSTATES = WRENCHSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTWS_NORMAL: WRENCHSTATES = WRENCHSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTWS_PRESSED: WRENCHSTATES = WRENCHSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUBS_DISABLED: THUMBBOTTOMSTATES = THUMBBOTTOMSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUBS_FOCUSED: THUMBBOTTOMSTATES = THUMBBOTTOMSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUBS_HOT: THUMBBOTTOMSTATES = THUMBBOTTOMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUBS_NORMAL: THUMBBOTTOMSTATES = THUMBBOTTOMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUBS_PRESSED: THUMBBOTTOMSTATES = THUMBBOTTOMSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUS_DISABLED: THUMBSTATES = THUMBSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUS_FOCUSED: THUMBSTATES = THUMBSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUS_HOT: THUMBSTATES = THUMBSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUS_NORMAL: THUMBSTATES = THUMBSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUS_PRESSED: THUMBSTATES = THUMBSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUTS_DISABLED: THUMBTOPSTATES = THUMBTOPSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUTS_FOCUSED: THUMBTOPSTATES = THUMBTOPSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUTS_HOT: THUMBTOPSTATES = THUMBTOPSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUTS_NORMAL: THUMBTOPSTATES = THUMBTOPSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUTS_PRESSED: THUMBTOPSTATES = THUMBTOPSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVLS_DISABLED: THUMBLEFTSTATES = THUMBLEFTSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVLS_FOCUSED: THUMBLEFTSTATES = THUMBLEFTSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVLS_HOT: THUMBLEFTSTATES = THUMBLEFTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVLS_NORMAL: THUMBLEFTSTATES = THUMBLEFTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVLS_PRESSED: THUMBLEFTSTATES = THUMBLEFTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVRS_DISABLED: THUMBRIGHTSTATES = THUMBRIGHTSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVRS_FOCUSED: THUMBRIGHTSTATES = THUMBRIGHTSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVRS_HOT: THUMBRIGHTSTATES = THUMBRIGHTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVRS_NORMAL: THUMBRIGHTSTATES = THUMBRIGHTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVRS_PRESSED: THUMBRIGHTSTATES = THUMBRIGHTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVS_DISABLED: THUMBVERTSTATES = THUMBVERTSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVS_FOCUSED: THUMBVERTSTATES = THUMBVERTSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVS_HOT: THUMBVERTSTATES = THUMBVERTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVS_NORMAL: THUMBVERTSTATES = THUMBVERTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVS_PRESSED: THUMBVERTSTATES = THUMBVERTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TVCDRF_NOIMAGES: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVC_BYKEYBOARD: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVC_BYMOUSE: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVC_UNKNOWN: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(0u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVE_COLLAPSE: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVE_COLLAPSERESET: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(32768u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVE_EXPAND: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVE_EXPANDPARTIAL: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(16384u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVE_TOGGLE: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(3u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVGIPR_BUTTON: TVITEMPART = TVITEMPART(1i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TVGN_CARET: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -6023,6 +9775,78 @@ pub const TVGN_PREVIOUS: u32 = 2u32;
 pub const TVGN_PREVIOUSVISIBLE: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TVGN_ROOT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVHT_ABOVE: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVHT_BELOW: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVHT_NOWHERE: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVHT_ONITEM: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(70u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVHT_ONITEMBUTTON: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVHT_ONITEMICON: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVHT_ONITEMINDENT: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVHT_ONITEMLABEL: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVHT_ONITEMRIGHT: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVHT_ONITEMSTATEICON: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVHT_TOLEFT: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVHT_TORIGHT: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIF_CHILDREN: TVITEM_MASK = TVITEM_MASK(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIF_DI_SETITEM: TVITEM_MASK = TVITEM_MASK(4096u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIF_EXPANDEDIMAGE: TVITEM_MASK = TVITEM_MASK(512u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIF_HANDLE: TVITEM_MASK = TVITEM_MASK(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIF_IMAGE: TVITEM_MASK = TVITEM_MASK(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIF_INTEGRAL: TVITEM_MASK = TVITEM_MASK(128u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIF_PARAM: TVITEM_MASK = TVITEM_MASK(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIF_SELECTEDIMAGE: TVITEM_MASK = TVITEM_MASK(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIF_STATE: TVITEM_MASK = TVITEM_MASK(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIF_STATEEX: TVITEM_MASK = TVITEM_MASK(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIF_TEXT: TVITEM_MASK = TVITEM_MASK(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_BOLD: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_CUT: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_DROPHILITED: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_EXPANDED: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_EXPANDEDONCE: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_EXPANDPARTIAL: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_EX_ALL: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_EX_DISABLED: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_EX_FLAT: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_OVERLAYMASK: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(3840u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_SELECTED: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_STATEIMAGEMASK: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(61440u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVIS_USERMASK: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(61440u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TVI_FIRST: HTREEITEM = HTREEITEM(-65535i32 as _);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -6254,6 +10078,14 @@ pub const TVN_SETDISPINFOW: u32 = 4294966843u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TVN_SINGLEEXPAND: u32 = 4294966881u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVP_BRANCH: TREEVIEWPARTS = TREEVIEWPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVP_GLYPH: TREEVIEWPARTS = TREEVIEWPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVP_HOTGLYPH: TREEVIEWPARTS = TREEVIEWPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVP_TREEITEM: TREEVIEWPARTS = TREEVIEWPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TVSBF_XBORDER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TVSBF_YBORDER: u32 = 2u32;
@@ -6383,6 +10215,40 @@ pub const UPDOWN_CLASS: ::windows_core::PCWSTR = ::windows_core::w!("msctls_updo
 pub const UPDOWN_CLASSA: ::windows_core::PCSTR = ::windows_core::s!("msctls_updown32");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const UPDOWN_CLASSW: ::windows_core::PCWSTR = ::windows_core::w!("msctls_updown32");
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UPHZS_DISABLED: UPHORZSTATES = UPHORZSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UPHZS_HOT: UPHORZSTATES = UPHORZSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UPHZS_NORMAL: UPHORZSTATES = UPHORZSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UPHZS_PRESSED: UPHORZSTATES = UPHORZSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UPS_DISABLED: UPSTATES = UPSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UPS_HOT: UPSTATES = UPSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UPS_NORMAL: UPSTATES = UPSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UPS_PRESSED: UPSTATES = UPSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UTP_HOVERBACKGROUND: USERTILEPARTS = USERTILEPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UTP_STROKEBACKGROUND: USERTILEPARTS = USERTILEPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UTS_HOT: HOVERBACKGROUNDSTATES = HOVERBACKGROUNDSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UTS_NORMAL: HOVERBACKGROUNDSTATES = HOVERBACKGROUNDSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UTS_PRESSED: HOVERBACKGROUNDSTATES = HOVERBACKGROUNDSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VALIDBITS: SET_THEME_APP_PROPERTIES_FLAGS = SET_THEME_APP_PROPERTIES_FLAGS(7u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VA_BOTTOM: VALIGN = VALIGN(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VA_CENTER: VALIGN = VALIGN(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VA_TOP: VALIGN = VALIGN(0i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const VIEW_DETAILS: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -6544,6 +10410,38 @@ pub const VSCLASS_WINDOW: ::windows_core::PCWSTR = ::windows_core::w!("WINDOW");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const VSCLASS_WINDOWSTYLE: ::windows_core::PCWSTR = ::windows_core::w!("WINDOWSTYLE");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSS_DISABLED: VERTSCROLLSTATES = VERTSCROLLSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSS_HOT: VERTSCROLLSTATES = VERTSCROLLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSS_NORMAL: VERTSCROLLSTATES = VERTSCROLLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSS_PUSHED: VERTSCROLLSTATES = VERTSCROLLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VTS_DISABLED: VERTTHUMBSTATES = VERTTHUMBSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VTS_HOT: VERTTHUMBSTATES = VERTTHUMBSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VTS_NORMAL: VERTTHUMBSTATES = VERTTHUMBSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VTS_PUSHED: VERTTHUMBSTATES = VERTTHUMBSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WB_CLASSIFY: WORD_BREAK_ACTION = WORD_BREAK_ACTION(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WB_ISDELIMITER: WORD_BREAK_ACTION = WORD_BREAK_ACTION(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WB_LEFT: WORD_BREAK_ACTION = WORD_BREAK_ACTION(0i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WB_LEFTBREAK: WORD_BREAK_ACTION = WORD_BREAK_ACTION(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WB_MOVEWORDLEFT: WORD_BREAK_ACTION = WORD_BREAK_ACTION(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WB_MOVEWORDRIGHT: WORD_BREAK_ACTION = WORD_BREAK_ACTION(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WB_RIGHT: WORD_BREAK_ACTION = WORD_BREAK_ACTION(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WB_RIGHTBREAK: WORD_BREAK_ACTION = WORD_BREAK_ACTION(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const WC_BUTTON: ::windows_core::PCWSTR = ::windows_core::w!("Button");
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const WC_BUTTONA: ::windows_core::PCSTR = ::windows_core::s!("Button");
@@ -6650,7 +10548,111 @@ pub const WM_MOUSEHOVER: u32 = 673u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const WM_MOUSELEAVE: u32 = 675u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_BORDER: WINDOWPARTS = WINDOWPARTS(39i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_CAPTION: WINDOWPARTS = WINDOWPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_CAPTIONSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(30i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_CLOSEBUTTON: WINDOWPARTS = WINDOWPARTS(18i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_DIALOG: WINDOWPARTS = WINDOWPARTS(29i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_FRAME: WINDOWPARTS = WINDOWPARTS(38i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_FRAMEBOTTOM: WINDOWPARTS = WINDOWPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_FRAMEBOTTOMSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(36i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_FRAMELEFT: WINDOWPARTS = WINDOWPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_FRAMELEFTSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(32i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_FRAMERIGHT: WINDOWPARTS = WINDOWPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_FRAMERIGHTSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(34i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_HELPBUTTON: WINDOWPARTS = WINDOWPARTS(23i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_HORZSCROLL: WINDOWPARTS = WINDOWPARTS(25i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_HORZTHUMB: WINDOWPARTS = WINDOWPARTS(26i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_MAXBUTTON: WINDOWPARTS = WINDOWPARTS(17i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_MAXCAPTION: WINDOWPARTS = WINDOWPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_MDICLOSEBUTTON: WINDOWPARTS = WINDOWPARTS(20i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_MDIHELPBUTTON: WINDOWPARTS = WINDOWPARTS(24i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_MDIMINBUTTON: WINDOWPARTS = WINDOWPARTS(16i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_MDIRESTOREBUTTON: WINDOWPARTS = WINDOWPARTS(22i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_MDISYSBUTTON: WINDOWPARTS = WINDOWPARTS(14i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_MINBUTTON: WINDOWPARTS = WINDOWPARTS(15i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_MINCAPTION: WINDOWPARTS = WINDOWPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_RESTOREBUTTON: WINDOWPARTS = WINDOWPARTS(21i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLCAPTION: WINDOWPARTS = WINDOWPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLCAPTIONSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(31i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLCLOSEBUTTON: WINDOWPARTS = WINDOWPARTS(19i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLFRAMEBOTTOM: WINDOWPARTS = WINDOWPARTS(12i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLFRAMEBOTTOMSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(37i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLFRAMELEFT: WINDOWPARTS = WINDOWPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLFRAMELEFTSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(33i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLFRAMERIGHT: WINDOWPARTS = WINDOWPARTS(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLFRAMERIGHTSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(35i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLMAXCAPTION: WINDOWPARTS = WINDOWPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLMINCAPTION: WINDOWPARTS = WINDOWPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SYSBUTTON: WINDOWPARTS = WINDOWPARTS(13i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_VERTSCROLL: WINDOWPARTS = WINDOWPARTS(27i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_VERTTHUMB: WINDOWPARTS = WINDOWPARTS(28i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WSB_PROP_CXHSCROLL: WSB_PROP = WSB_PROP(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WSB_PROP_CXHTHUMB: WSB_PROP = WSB_PROP(16i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WSB_PROP_CXVSCROLL: WSB_PROP = WSB_PROP(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WSB_PROP_CYHSCROLL: WSB_PROP = WSB_PROP(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WSB_PROP_CYVSCROLL: WSB_PROP = WSB_PROP(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WSB_PROP_CYVTHUMB: WSB_PROP = WSB_PROP(32i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WSB_PROP_HBKGCOLOR: WSB_PROP = WSB_PROP(128i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WSB_PROP_HSTYLE: WSB_PROP = WSB_PROP(512i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const WSB_PROP_MASK: i32 = 4095i32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WSB_PROP_PALETTE: WSB_PROP = WSB_PROP(2048i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WSB_PROP_VBKGCOLOR: WSB_PROP = WSB_PROP(64i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WSB_PROP_VSTYLE: WSB_PROP = WSB_PROP(256i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WSB_PROP_WINSTYLE: WSB_PROP = WSB_PROP(1024i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WTA_NONCLIENT: WINDOWTHEMEATTRIBUTETYPE = WINDOWTHEMEATTRIBUTETYPE(1i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const WTNCA_NODRAWCAPTION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -6975,16 +10977,6 @@ pub const stc9: u32 = 1096u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AEROWIZARDPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const AW_TITLEBAR: AEROWIZARDPARTS = AEROWIZARDPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const AW_HEADERAREA: AEROWIZARDPARTS = AEROWIZARDPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const AW_CONTENTAREA: AEROWIZARDPARTS = AEROWIZARDPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const AW_COMMANDAREA: AEROWIZARDPARTS = AEROWIZARDPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const AW_BUTTON: AEROWIZARDPARTS = AEROWIZARDPARTS(5i32);
 impl ::core::marker::Copy for AEROWIZARDPARTS {}
 impl ::core::clone::Clone for AEROWIZARDPARTS {
     fn clone(&self) -> Self {
@@ -7008,46 +11000,6 @@ impl ::core::fmt::Debug for AEROWIZARDPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ARROWBTNSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ABS_UPNORMAL: ARROWBTNSTATES = ARROWBTNSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ABS_UPHOT: ARROWBTNSTATES = ARROWBTNSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ABS_UPPRESSED: ARROWBTNSTATES = ARROWBTNSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ABS_UPDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ABS_DOWNNORMAL: ARROWBTNSTATES = ARROWBTNSTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ABS_DOWNHOT: ARROWBTNSTATES = ARROWBTNSTATES(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ABS_DOWNPRESSED: ARROWBTNSTATES = ARROWBTNSTATES(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ABS_DOWNDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ABS_LEFTNORMAL: ARROWBTNSTATES = ARROWBTNSTATES(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ABS_LEFTHOT: ARROWBTNSTATES = ARROWBTNSTATES(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ABS_LEFTPRESSED: ARROWBTNSTATES = ARROWBTNSTATES(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ABS_LEFTDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(12i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ABS_RIGHTNORMAL: ARROWBTNSTATES = ARROWBTNSTATES(13i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ABS_RIGHTHOT: ARROWBTNSTATES = ARROWBTNSTATES(14i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ABS_RIGHTPRESSED: ARROWBTNSTATES = ARROWBTNSTATES(15i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ABS_RIGHTDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ABS_UPHOVER: ARROWBTNSTATES = ARROWBTNSTATES(17i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ABS_DOWNHOVER: ARROWBTNSTATES = ARROWBTNSTATES(18i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ABS_LEFTHOVER: ARROWBTNSTATES = ARROWBTNSTATES(19i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ABS_RIGHTHOVER: ARROWBTNSTATES = ARROWBTNSTATES(20i32);
 impl ::core::marker::Copy for ARROWBTNSTATES {}
 impl ::core::clone::Clone for ARROWBTNSTATES {
     fn clone(&self) -> Self {
@@ -7071,18 +11023,6 @@ impl ::core::fmt::Debug for ARROWBTNSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BACKGROUNDSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBS_NORMAL: BACKGROUNDSTATES = BACKGROUNDSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBS_HOT: BACKGROUNDSTATES = BACKGROUNDSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBS_DISABLED: BACKGROUNDSTATES = BACKGROUNDSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBS_FOCUSED: BACKGROUNDSTATES = BACKGROUNDSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBS_READONLY: BACKGROUNDSTATES = BACKGROUNDSTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBS_ASSIST: BACKGROUNDSTATES = BACKGROUNDSTATES(6i32);
 impl ::core::marker::Copy for BACKGROUNDSTATES {}
 impl ::core::clone::Clone for BACKGROUNDSTATES {
     fn clone(&self) -> Self {
@@ -7106,14 +11046,6 @@ impl ::core::fmt::Debug for BACKGROUNDSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BACKGROUNDWITHBORDERSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBWBS_NORMAL: BACKGROUNDWITHBORDERSTATES = BACKGROUNDWITHBORDERSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBWBS_HOT: BACKGROUNDWITHBORDERSTATES = BACKGROUNDWITHBORDERSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBWBS_DISABLED: BACKGROUNDWITHBORDERSTATES = BACKGROUNDWITHBORDERSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBWBS_FOCUSED: BACKGROUNDWITHBORDERSTATES = BACKGROUNDWITHBORDERSTATES(4i32);
 impl ::core::marker::Copy for BACKGROUNDWITHBORDERSTATES {}
 impl ::core::clone::Clone for BACKGROUNDWITHBORDERSTATES {
     fn clone(&self) -> Self {
@@ -7137,10 +11069,6 @@ impl ::core::fmt::Debug for BACKGROUNDWITHBORDERSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BALLOONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTBS_NORMAL: BALLOONSTATES = BALLOONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTBS_LINK: BALLOONSTATES = BALLOONSTATES(2i32);
 impl ::core::marker::Copy for BALLOONSTATES {}
 impl ::core::clone::Clone for BALLOONSTATES {
     fn clone(&self) -> Self {
@@ -7164,18 +11092,6 @@ impl ::core::fmt::Debug for BALLOONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BALLOONSTEMSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTBSS_POINTINGUPLEFTWALL: BALLOONSTEMSTATES = BALLOONSTEMSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTBSS_POINTINGUPCENTERED: BALLOONSTEMSTATES = BALLOONSTEMSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTBSS_POINTINGUPRIGHTWALL: BALLOONSTEMSTATES = BALLOONSTEMSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTBSS_POINTINGDOWNRIGHTWALL: BALLOONSTEMSTATES = BALLOONSTEMSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTBSS_POINTINGDOWNCENTERED: BALLOONSTEMSTATES = BALLOONSTEMSTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTBSS_POINTINGDOWNLEFTWALL: BALLOONSTEMSTATES = BALLOONSTEMSTATES(6i32);
 impl ::core::marker::Copy for BALLOONSTEMSTATES {}
 impl ::core::clone::Clone for BALLOONSTEMSTATES {
     fn clone(&self) -> Self {
@@ -7199,10 +11115,6 @@ impl ::core::fmt::Debug for BALLOONSTEMSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BARBACKGROUNDSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MB_ACTIVE: BARBACKGROUNDSTATES = BARBACKGROUNDSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MB_INACTIVE: BARBACKGROUNDSTATES = BARBACKGROUNDSTATES(2i32);
 impl ::core::marker::Copy for BARBACKGROUNDSTATES {}
 impl ::core::clone::Clone for BARBACKGROUNDSTATES {
     fn clone(&self) -> Self {
@@ -7226,18 +11138,6 @@ impl ::core::fmt::Debug for BARBACKGROUNDSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BARITEMSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MBI_NORMAL: BARITEMSTATES = BARITEMSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MBI_HOT: BARITEMSTATES = BARITEMSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MBI_PUSHED: BARITEMSTATES = BARITEMSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MBI_DISABLED: BARITEMSTATES = BARITEMSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MBI_DISABLEDHOT: BARITEMSTATES = BARITEMSTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MBI_DISABLEDPUSHED: BARITEMSTATES = BARITEMSTATES(6i32);
 impl ::core::marker::Copy for BARITEMSTATES {}
 impl ::core::clone::Clone for BARITEMSTATES {
     fn clone(&self) -> Self {
@@ -7261,12 +11161,6 @@ impl ::core::fmt::Debug for BARITEMSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BGTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BT_IMAGEFILE: BGTYPE = BGTYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BT_BORDERFILL: BGTYPE = BGTYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BT_NONE: BGTYPE = BGTYPE(2i32);
 impl ::core::marker::Copy for BGTYPE {}
 impl ::core::clone::Clone for BGTYPE {
     fn clone(&self) -> Self {
@@ -7290,10 +11184,6 @@ impl ::core::fmt::Debug for BGTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BODYSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FBS_NORMAL: BODYSTATES = BODYSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FBS_EMPHASIZED: BODYSTATES = BODYSTATES(2i32);
 impl ::core::marker::Copy for BODYSTATES {}
 impl ::core::clone::Clone for BODYSTATES {
     fn clone(&self) -> Self {
@@ -7317,14 +11207,6 @@ impl ::core::fmt::Debug for BODYSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BORDERSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBB_NORMAL: BORDERSTATES = BORDERSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBB_HOT: BORDERSTATES = BORDERSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBB_FOCUSED: BORDERSTATES = BORDERSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBB_DISABLED: BORDERSTATES = BORDERSTATES(4i32);
 impl ::core::marker::Copy for BORDERSTATES {}
 impl ::core::clone::Clone for BORDERSTATES {
     fn clone(&self) -> Self {
@@ -7348,12 +11230,6 @@ impl ::core::fmt::Debug for BORDERSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BORDERTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BT_RECT: BORDERTYPE = BORDERTYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BT_ROUNDRECT: BORDERTYPE = BORDERTYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BT_ELLIPSE: BORDERTYPE = BORDERTYPE(2i32);
 impl ::core::marker::Copy for BORDERTYPE {}
 impl ::core::clone::Clone for BORDERTYPE {
     fn clone(&self) -> Self {
@@ -7377,14 +11253,6 @@ impl ::core::fmt::Debug for BORDERTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BORDER_HSCROLLSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBPSH_NORMAL: BORDER_HSCROLLSTATES = BORDER_HSCROLLSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBPSH_FOCUSED: BORDER_HSCROLLSTATES = BORDER_HSCROLLSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBPSH_HOT: BORDER_HSCROLLSTATES = BORDER_HSCROLLSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBPSH_DISABLED: BORDER_HSCROLLSTATES = BORDER_HSCROLLSTATES(4i32);
 impl ::core::marker::Copy for BORDER_HSCROLLSTATES {}
 impl ::core::clone::Clone for BORDER_HSCROLLSTATES {
     fn clone(&self) -> Self {
@@ -7408,14 +11276,6 @@ impl ::core::fmt::Debug for BORDER_HSCROLLSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BORDER_HVSCROLLSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBPSHV_NORMAL: BORDER_HVSCROLLSTATES = BORDER_HVSCROLLSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBPSHV_FOCUSED: BORDER_HVSCROLLSTATES = BORDER_HVSCROLLSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBPSHV_HOT: BORDER_HVSCROLLSTATES = BORDER_HVSCROLLSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBPSHV_DISABLED: BORDER_HVSCROLLSTATES = BORDER_HVSCROLLSTATES(4i32);
 impl ::core::marker::Copy for BORDER_HVSCROLLSTATES {}
 impl ::core::clone::Clone for BORDER_HVSCROLLSTATES {
     fn clone(&self) -> Self {
@@ -7439,14 +11299,6 @@ impl ::core::fmt::Debug for BORDER_HVSCROLLSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BORDER_NOSCROLLSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBPSN_NORMAL: BORDER_NOSCROLLSTATES = BORDER_NOSCROLLSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBPSN_FOCUSED: BORDER_NOSCROLLSTATES = BORDER_NOSCROLLSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBPSN_HOT: BORDER_NOSCROLLSTATES = BORDER_NOSCROLLSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBPSN_DISABLED: BORDER_NOSCROLLSTATES = BORDER_NOSCROLLSTATES(4i32);
 impl ::core::marker::Copy for BORDER_NOSCROLLSTATES {}
 impl ::core::clone::Clone for BORDER_NOSCROLLSTATES {
     fn clone(&self) -> Self {
@@ -7470,14 +11322,6 @@ impl ::core::fmt::Debug for BORDER_NOSCROLLSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BORDER_VSCROLLSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBPSV_NORMAL: BORDER_VSCROLLSTATES = BORDER_VSCROLLSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBPSV_FOCUSED: BORDER_VSCROLLSTATES = BORDER_VSCROLLSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBPSV_HOT: BORDER_VSCROLLSTATES = BORDER_VSCROLLSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBPSV_DISABLED: BORDER_VSCROLLSTATES = BORDER_VSCROLLSTATES(4i32);
 impl ::core::marker::Copy for BORDER_VSCROLLSTATES {}
 impl ::core::clone::Clone for BORDER_VSCROLLSTATES {
     fn clone(&self) -> Self {
@@ -7501,14 +11345,6 @@ impl ::core::fmt::Debug for BORDER_VSCROLLSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BP_ANIMATIONSTYLE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BPAS_NONE: BP_ANIMATIONSTYLE = BP_ANIMATIONSTYLE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BPAS_LINEAR: BP_ANIMATIONSTYLE = BP_ANIMATIONSTYLE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BPAS_CUBIC: BP_ANIMATIONSTYLE = BP_ANIMATIONSTYLE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BPAS_SINE: BP_ANIMATIONSTYLE = BP_ANIMATIONSTYLE(3i32);
 impl ::core::marker::Copy for BP_ANIMATIONSTYLE {}
 impl ::core::clone::Clone for BP_ANIMATIONSTYLE {
     fn clone(&self) -> Self {
@@ -7532,14 +11368,6 @@ impl ::core::fmt::Debug for BP_ANIMATIONSTYLE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BP_BUFFERFORMAT(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BPBF_COMPATIBLEBITMAP: BP_BUFFERFORMAT = BP_BUFFERFORMAT(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BPBF_DIB: BP_BUFFERFORMAT = BP_BUFFERFORMAT(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BPBF_TOPDOWNDIB: BP_BUFFERFORMAT = BP_BUFFERFORMAT(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BPBF_TOPDOWNMONODIB: BP_BUFFERFORMAT = BP_BUFFERFORMAT(3i32);
 impl ::core::marker::Copy for BP_BUFFERFORMAT {}
 impl ::core::clone::Clone for BP_BUFFERFORMAT {
     fn clone(&self) -> Self {
@@ -7563,12 +11391,6 @@ impl ::core::fmt::Debug for BP_BUFFERFORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BP_PAINTPARAMS_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BPPF_ERASE: BP_PAINTPARAMS_FLAGS = BP_PAINTPARAMS_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BPPF_NOCLIP: BP_PAINTPARAMS_FLAGS = BP_PAINTPARAMS_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BPPF_NONCLIENT: BP_PAINTPARAMS_FLAGS = BP_PAINTPARAMS_FLAGS(4u32);
 impl ::core::marker::Copy for BP_PAINTPARAMS_FLAGS {}
 impl ::core::clone::Clone for BP_PAINTPARAMS_FLAGS {
     fn clone(&self) -> Self {
@@ -7625,28 +11447,6 @@ impl ::core::ops::Not for BP_PAINTPARAMS_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BUTTONPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BP_PUSHBUTTON: BUTTONPARTS = BUTTONPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BP_RADIOBUTTON: BUTTONPARTS = BUTTONPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BP_CHECKBOX: BUTTONPARTS = BUTTONPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BP_GROUPBOX: BUTTONPARTS = BUTTONPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BP_USERBUTTON: BUTTONPARTS = BUTTONPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BP_COMMANDLINK: BUTTONPARTS = BUTTONPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BP_COMMANDLINKGLYPH: BUTTONPARTS = BUTTONPARTS(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BP_RADIOBUTTON_HCDISABLED: BUTTONPARTS = BUTTONPARTS(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BP_CHECKBOX_HCDISABLED: BUTTONPARTS = BUTTONPARTS(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BP_GROUPBOX_HCDISABLED: BUTTONPARTS = BUTTONPARTS(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BP_PUSHBUTTONDROPDOWN: BUTTONPARTS = BUTTONPARTS(11i32);
 impl ::core::marker::Copy for BUTTONPARTS {}
 impl ::core::clone::Clone for BUTTONPARTS {
     fn clone(&self) -> Self {
@@ -7670,16 +11470,6 @@ impl ::core::fmt::Debug for BUTTONPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BUTTON_IMAGELIST_ALIGN(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BUTTON_IMAGELIST_ALIGN_LEFT: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BUTTON_IMAGELIST_ALIGN_RIGHT: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BUTTON_IMAGELIST_ALIGN_TOP: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BUTTON_IMAGELIST_ALIGN_BOTTOM: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(3u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BUTTON_IMAGELIST_ALIGN_CENTER: BUTTON_IMAGELIST_ALIGN = BUTTON_IMAGELIST_ALIGN(4u32);
 impl ::core::marker::Copy for BUTTON_IMAGELIST_ALIGN {}
 impl ::core::clone::Clone for BUTTON_IMAGELIST_ALIGN {
     fn clone(&self) -> Self {
@@ -7703,12 +11493,6 @@ impl ::core::fmt::Debug for BUTTON_IMAGELIST_ALIGN {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CAPTIONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CS_ACTIVE: CAPTIONSTATES = CAPTIONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CS_INACTIVE: CAPTIONSTATES = CAPTIONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CS_DISABLED: CAPTIONSTATES = CAPTIONSTATES(3i32);
 impl ::core::marker::Copy for CAPTIONSTATES {}
 impl ::core::clone::Clone for CAPTIONSTATES {
     fn clone(&self) -> Self {
@@ -7732,46 +11516,6 @@ impl ::core::fmt::Debug for CAPTIONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHECKBOXSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_UNCHECKEDNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_UNCHECKEDHOT: CHECKBOXSTATES = CHECKBOXSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_UNCHECKEDPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_UNCHECKEDDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_CHECKEDNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_CHECKEDHOT: CHECKBOXSTATES = CHECKBOXSTATES(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_CHECKEDPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_CHECKEDDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_MIXEDNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_MIXEDHOT: CHECKBOXSTATES = CHECKBOXSTATES(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_MIXEDPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_MIXEDDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(12i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_IMPLICITNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(13i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_IMPLICITHOT: CHECKBOXSTATES = CHECKBOXSTATES(14i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_IMPLICITPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(15i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_IMPLICITDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_EXCLUDEDNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(17i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_EXCLUDEDHOT: CHECKBOXSTATES = CHECKBOXSTATES(18i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_EXCLUDEDPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(19i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_EXCLUDEDDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(20i32);
 impl ::core::marker::Copy for CHECKBOXSTATES {}
 impl ::core::clone::Clone for CHECKBOXSTATES {
     fn clone(&self) -> Self {
@@ -7795,12 +11539,6 @@ impl ::core::fmt::Debug for CHECKBOXSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHEVRONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CHEVS_NORMAL: CHEVRONSTATES = CHEVRONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CHEVS_HOT: CHEVRONSTATES = CHEVRONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CHEVS_PRESSED: CHEVRONSTATES = CHEVRONSTATES(3i32);
 impl ::core::marker::Copy for CHEVRONSTATES {}
 impl ::core::clone::Clone for CHEVRONSTATES {
     fn clone(&self) -> Self {
@@ -7824,12 +11562,6 @@ impl ::core::fmt::Debug for CHEVRONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHEVRONVERTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CHEVSV_NORMAL: CHEVRONVERTSTATES = CHEVRONVERTSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CHEVSV_HOT: CHEVRONVERTSTATES = CHEVRONVERTSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CHEVSV_PRESSED: CHEVRONVERTSTATES = CHEVRONVERTSTATES(3i32);
 impl ::core::marker::Copy for CHEVRONVERTSTATES {}
 impl ::core::clone::Clone for CHEVRONVERTSTATES {
     fn clone(&self) -> Self {
@@ -7853,8 +11585,6 @@ impl ::core::fmt::Debug for CHEVRONVERTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLOCKPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CLP_TIME: CLOCKPARTS = CLOCKPARTS(1i32);
 impl ::core::marker::Copy for CLOCKPARTS {}
 impl ::core::clone::Clone for CLOCKPARTS {
     fn clone(&self) -> Self {
@@ -7878,12 +11608,6 @@ impl ::core::fmt::Debug for CLOCKPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLOCKSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CLS_NORMAL: CLOCKSTATES = CLOCKSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CLS_HOT: CLOCKSTATES = CLOCKSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CLS_PRESSED: CLOCKSTATES = CLOCKSTATES(3i32);
 impl ::core::marker::Copy for CLOCKSTATES {}
 impl ::core::clone::Clone for CLOCKSTATES {
     fn clone(&self) -> Self {
@@ -7907,14 +11631,6 @@ impl ::core::fmt::Debug for CLOCKSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLOSEBUTTONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_NORMAL: CLOSEBUTTONSTATES = CLOSEBUTTONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_HOT: CLOSEBUTTONSTATES = CLOSEBUTTONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_PUSHED: CLOSEBUTTONSTATES = CLOSEBUTTONSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBS_DISABLED: CLOSEBUTTONSTATES = CLOSEBUTTONSTATES(4i32);
 impl ::core::marker::Copy for CLOSEBUTTONSTATES {}
 impl ::core::clone::Clone for CLOSEBUTTONSTATES {
     fn clone(&self) -> Self {
@@ -7938,12 +11654,6 @@ impl ::core::fmt::Debug for CLOSEBUTTONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLOSESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTCS_NORMAL: CLOSESTATES = CLOSESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTCS_HOT: CLOSESTATES = CLOSESTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTCS_PRESSED: CLOSESTATES = CLOSESTATES(3i32);
 impl ::core::marker::Copy for CLOSESTATES {}
 impl ::core::clone::Clone for CLOSESTATES {
     fn clone(&self) -> Self {
@@ -7967,12 +11677,6 @@ impl ::core::fmt::Debug for CLOSESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLLAPSEBUTTONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCB_NORMAL: COLLAPSEBUTTONSTATES = COLLAPSEBUTTONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCB_HOVER: COLLAPSEBUTTONSTATES = COLLAPSEBUTTONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCB_PUSHED: COLLAPSEBUTTONSTATES = COLLAPSEBUTTONSTATES(3i32);
 impl ::core::marker::Copy for COLLAPSEBUTTONSTATES {}
 impl ::core::clone::Clone for COLLAPSEBUTTONSTATES {
     fn clone(&self) -> Self {
@@ -7996,16 +11700,6 @@ impl ::core::fmt::Debug for COLLAPSEBUTTONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMBOBOXINFO_BUTTON_STATE(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const STATE_SYSTEM_INVISIBLE: COMBOBOXINFO_BUTTON_STATE = COMBOBOXINFO_BUTTON_STATE(32768u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const STATE_SYSTEM_PRESSED: COMBOBOXINFO_BUTTON_STATE = COMBOBOXINFO_BUTTON_STATE(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const STATE_SYSTEM_FOCUSABLE: COMBOBOXINFO_BUTTON_STATE = COMBOBOXINFO_BUTTON_STATE(1048576u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const STATE_SYSTEM_OFFSCREEN: COMBOBOXINFO_BUTTON_STATE = COMBOBOXINFO_BUTTON_STATE(65536u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const STATE_SYSTEM_UNAVAILABLE: COMBOBOXINFO_BUTTON_STATE = COMBOBOXINFO_BUTTON_STATE(1u32);
 impl ::core::marker::Copy for COMBOBOXINFO_BUTTON_STATE {}
 impl ::core::clone::Clone for COMBOBOXINFO_BUTTON_STATE {
     fn clone(&self) -> Self {
@@ -8029,24 +11723,6 @@ impl ::core::fmt::Debug for COMBOBOXINFO_BUTTON_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMBOBOXPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CP_DROPDOWNBUTTON: COMBOBOXPARTS = COMBOBOXPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CP_BACKGROUND: COMBOBOXPARTS = COMBOBOXPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CP_TRANSPARENTBACKGROUND: COMBOBOXPARTS = COMBOBOXPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CP_BORDER: COMBOBOXPARTS = COMBOBOXPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CP_READONLY: COMBOBOXPARTS = COMBOBOXPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CP_DROPDOWNBUTTONRIGHT: COMBOBOXPARTS = COMBOBOXPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CP_DROPDOWNBUTTONLEFT: COMBOBOXPARTS = COMBOBOXPARTS(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CP_CUEBANNER: COMBOBOXPARTS = COMBOBOXPARTS(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CP_DROPDOWNITEM: COMBOBOXPARTS = COMBOBOXPARTS(9i32);
 impl ::core::marker::Copy for COMBOBOXPARTS {}
 impl ::core::clone::Clone for COMBOBOXPARTS {
     fn clone(&self) -> Self {
@@ -8070,14 +11746,6 @@ impl ::core::fmt::Debug for COMBOBOXPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMBOBOXSTYLESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBXS_NORMAL: COMBOBOXSTYLESTATES = COMBOBOXSTYLESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBXS_HOT: COMBOBOXSTYLESTATES = COMBOBOXSTYLESTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBXS_PRESSED: COMBOBOXSTYLESTATES = COMBOBOXSTYLESTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBXS_DISABLED: COMBOBOXSTYLESTATES = COMBOBOXSTYLESTATES(4i32);
 impl ::core::marker::Copy for COMBOBOXSTYLESTATES {}
 impl ::core::clone::Clone for COMBOBOXSTYLESTATES {
     fn clone(&self) -> Self {
@@ -8101,20 +11769,6 @@ impl ::core::fmt::Debug for COMBOBOXSTYLESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMBOBOX_EX_ITEM_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBEIF_DI_SETITEM: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(268435456u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBEIF_IMAGE: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBEIF_INDENT: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBEIF_LPARAM: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBEIF_OVERLAY: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBEIF_SELECTEDIMAGE: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBEIF_TEXT: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(1u32);
 impl ::core::marker::Copy for COMBOBOX_EX_ITEM_FLAGS {}
 impl ::core::clone::Clone for COMBOBOX_EX_ITEM_FLAGS {
     fn clone(&self) -> Self {
@@ -8171,16 +11825,6 @@ impl ::core::ops::Not for COMBOBOX_EX_ITEM_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMMANDLINKGLYPHSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CMDLGS_NORMAL: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CMDLGS_HOT: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CMDLGS_PRESSED: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CMDLGS_DISABLED: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CMDLGS_DEFAULTED: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(5i32);
 impl ::core::marker::Copy for COMMANDLINKGLYPHSTATES {}
 impl ::core::clone::Clone for COMMANDLINKGLYPHSTATES {
     fn clone(&self) -> Self {
@@ -8204,18 +11848,6 @@ impl ::core::fmt::Debug for COMMANDLINKGLYPHSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMMANDLINKSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CMDLS_NORMAL: COMMANDLINKSTATES = COMMANDLINKSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CMDLS_HOT: COMMANDLINKSTATES = COMMANDLINKSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CMDLS_PRESSED: COMMANDLINKSTATES = COMMANDLINKSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CMDLS_DISABLED: COMMANDLINKSTATES = COMMANDLINKSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CMDLS_DEFAULTED: COMMANDLINKSTATES = COMMANDLINKSTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CMDLS_DEFAULTED_ANIMATING: COMMANDLINKSTATES = COMMANDLINKSTATES(6i32);
 impl ::core::marker::Copy for COMMANDLINKSTATES {}
 impl ::core::clone::Clone for COMMANDLINKSTATES {
     fn clone(&self) -> Self {
@@ -8239,8 +11871,6 @@ impl ::core::fmt::Debug for COMMANDLINKSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMMUNICATIONSPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CSST_TAB: COMMUNICATIONSPARTS = COMMUNICATIONSPARTS(1i32);
 impl ::core::marker::Copy for COMMUNICATIONSPARTS {}
 impl ::core::clone::Clone for COMMUNICATIONSPARTS {
     fn clone(&self) -> Self {
@@ -8264,12 +11894,6 @@ impl ::core::fmt::Debug for COMMUNICATIONSPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONTENTALIGNMENT(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CA_LEFT: CONTENTALIGNMENT = CONTENTALIGNMENT(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CA_CENTER: CONTENTALIGNMENT = CONTENTALIGNMENT(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CA_RIGHT: CONTENTALIGNMENT = CONTENTALIGNMENT(2i32);
 impl ::core::marker::Copy for CONTENTALIGNMENT {}
 impl ::core::clone::Clone for CONTENTALIGNMENT {
     fn clone(&self) -> Self {
@@ -8293,8 +11917,6 @@ impl ::core::fmt::Debug for CONTENTALIGNMENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONTENTAREASTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const AW_S_CONTENTAREA_NOMARGIN: CONTENTAREASTATES = CONTENTAREASTATES(1i32);
 impl ::core::marker::Copy for CONTENTAREASTATES {}
 impl ::core::clone::Clone for CONTENTAREASTATES {
     fn clone(&self) -> Self {
@@ -8318,14 +11940,6 @@ impl ::core::fmt::Debug for CONTENTAREASTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONTENTLINKSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPCL_NORMAL: CONTENTLINKSTATES = CONTENTLINKSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPCL_HOT: CONTENTLINKSTATES = CONTENTLINKSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPCL_PRESSED: CONTENTLINKSTATES = CONTENTLINKSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPCL_DISABLED: CONTENTLINKSTATES = CONTENTLINKSTATES(4i32);
 impl ::core::marker::Copy for CONTENTLINKSTATES {}
 impl ::core::clone::Clone for CONTENTLINKSTATES {
     fn clone(&self) -> Self {
@@ -8349,8 +11963,6 @@ impl ::core::fmt::Debug for CONTENTLINKSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONTENTPANESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLGCPS_STANDALONE: CONTENTPANESTATES = CONTENTPANESTATES(1i32);
 impl ::core::marker::Copy for CONTENTPANESTATES {}
 impl ::core::clone::Clone for CONTENTPANESTATES {
     fn clone(&self) -> Self {
@@ -8374,10 +11986,6 @@ impl ::core::fmt::Debug for CONTENTPANESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONTROLLABELSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TS_CONTROLLABEL_NORMAL: CONTROLLABELSTATES = CONTROLLABELSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TS_CONTROLLABEL_DISABLED: CONTROLLABELSTATES = CONTROLLABELSTATES(2i32);
 impl ::core::marker::Copy for CONTROLLABELSTATES {}
 impl ::core::clone::Clone for CONTROLLABELSTATES {
     fn clone(&self) -> Self {
@@ -8401,44 +12009,6 @@ impl ::core::fmt::Debug for CONTROLLABELSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONTROLPANELPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPANEL_NAVIGATIONPANE: CONTROLPANELPARTS = CONTROLPANELPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPANEL_CONTENTPANE: CONTROLPANELPARTS = CONTROLPANELPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPANEL_NAVIGATIONPANELABEL: CONTROLPANELPARTS = CONTROLPANELPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPANEL_CONTENTPANELABEL: CONTROLPANELPARTS = CONTROLPANELPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPANEL_TITLE: CONTROLPANELPARTS = CONTROLPANELPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPANEL_BODYTEXT: CONTROLPANELPARTS = CONTROLPANELPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPANEL_HELPLINK: CONTROLPANELPARTS = CONTROLPANELPARTS(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPANEL_TASKLINK: CONTROLPANELPARTS = CONTROLPANELPARTS(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPANEL_GROUPTEXT: CONTROLPANELPARTS = CONTROLPANELPARTS(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPANEL_CONTENTLINK: CONTROLPANELPARTS = CONTROLPANELPARTS(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPANEL_SECTIONTITLELINK: CONTROLPANELPARTS = CONTROLPANELPARTS(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPANEL_LARGECOMMANDAREA: CONTROLPANELPARTS = CONTROLPANELPARTS(12i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPANEL_SMALLCOMMANDAREA: CONTROLPANELPARTS = CONTROLPANELPARTS(13i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPANEL_BUTTON: CONTROLPANELPARTS = CONTROLPANELPARTS(14i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPANEL_MESSAGETEXT: CONTROLPANELPARTS = CONTROLPANELPARTS(15i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPANEL_NAVIGATIONPANELINE: CONTROLPANELPARTS = CONTROLPANELPARTS(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPANEL_CONTENTPANELINE: CONTROLPANELPARTS = CONTROLPANELPARTS(17i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPANEL_BANNERAREA: CONTROLPANELPARTS = CONTROLPANELPARTS(18i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPANEL_BODYTITLE: CONTROLPANELPARTS = CONTROLPANELPARTS(19i32);
 impl ::core::marker::Copy for CONTROLPANELPARTS {}
 impl ::core::clone::Clone for CONTROLPANELPARTS {
     fn clone(&self) -> Self {
@@ -8462,10 +12032,6 @@ impl ::core::fmt::Debug for CONTROLPANELPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPYSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DDCOPY_HIGHLIGHT: COPYSTATES = COPYSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DDCOPY_NOHIGHLIGHT: COPYSTATES = COPYSTATES(2i32);
 impl ::core::marker::Copy for COPYSTATES {}
 impl ::core::clone::Clone for COPYSTATES {
     fn clone(&self) -> Self {
@@ -8489,10 +12055,6 @@ impl ::core::fmt::Debug for COPYSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATELINKSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DDCREATELINK_HIGHLIGHT: CREATELINKSTATES = CREATELINKSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DDCREATELINK_NOHIGHLIGHT: CREATELINKSTATES = CREATELINKSTATES(2i32);
 impl ::core::marker::Copy for CREATELINKSTATES {}
 impl ::core::clone::Clone for CREATELINKSTATES {
     fn clone(&self) -> Self {
@@ -8516,14 +12078,6 @@ impl ::core::fmt::Debug for CREATELINKSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CUEBANNERSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBCB_NORMAL: CUEBANNERSTATES = CUEBANNERSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBCB_HOT: CUEBANNERSTATES = CUEBANNERSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBCB_PRESSED: CUEBANNERSTATES = CUEBANNERSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBCB_DISABLED: CUEBANNERSTATES = CUEBANNERSTATES(4i32);
 impl ::core::marker::Copy for CUEBANNERSTATES {}
 impl ::core::clone::Clone for CUEBANNERSTATES {
     fn clone(&self) -> Self {
@@ -8547,14 +12101,6 @@ impl ::core::fmt::Debug for CUEBANNERSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DATEBORDERSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DPDB_NORMAL: DATEBORDERSTATES = DATEBORDERSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DPDB_HOT: DATEBORDERSTATES = DATEBORDERSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DPDB_FOCUSED: DATEBORDERSTATES = DATEBORDERSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DPDB_DISABLED: DATEBORDERSTATES = DATEBORDERSTATES(4i32);
 impl ::core::marker::Copy for DATEBORDERSTATES {}
 impl ::core::clone::Clone for DATEBORDERSTATES {
     fn clone(&self) -> Self {
@@ -8578,12 +12124,6 @@ impl ::core::fmt::Debug for DATEBORDERSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DATEPICKERPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DP_DATETEXT: DATEPICKERPARTS = DATEPICKERPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DP_DATEBORDER: DATEPICKERPARTS = DATEPICKERPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DP_SHOWCALENDARBUTTONRIGHT: DATEPICKERPARTS = DATEPICKERPARTS(3i32);
 impl ::core::marker::Copy for DATEPICKERPARTS {}
 impl ::core::clone::Clone for DATEPICKERPARTS {
     fn clone(&self) -> Self {
@@ -8607,12 +12147,6 @@ impl ::core::fmt::Debug for DATEPICKERPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DATETEXTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DPDT_NORMAL: DATETEXTSTATES = DATETEXTSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DPDT_DISABLED: DATETEXTSTATES = DATETEXTSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DPDT_SELECTED: DATETEXTSTATES = DATETEXTSTATES(3i32);
 impl ::core::marker::Copy for DATETEXTSTATES {}
 impl ::core::clone::Clone for DATETEXTSTATES {
     fn clone(&self) -> Self {
@@ -8636,12 +12170,6 @@ impl ::core::fmt::Debug for DATETEXTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DLG_BUTTON_CHECK_STATE(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BST_CHECKED: DLG_BUTTON_CHECK_STATE = DLG_BUTTON_CHECK_STATE(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BST_INDETERMINATE: DLG_BUTTON_CHECK_STATE = DLG_BUTTON_CHECK_STATE(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const BST_UNCHECKED: DLG_BUTTON_CHECK_STATE = DLG_BUTTON_CHECK_STATE(0u32);
 impl ::core::marker::Copy for DLG_BUTTON_CHECK_STATE {}
 impl ::core::clone::Clone for DLG_BUTTON_CHECK_STATE {
     fn clone(&self) -> Self {
@@ -8665,24 +12193,6 @@ impl ::core::fmt::Debug for DLG_BUTTON_CHECK_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DLG_DIR_LIST_FILE_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DDL_ARCHIVE: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DDL_DIRECTORY: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DDL_DRIVES: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(16384u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DDL_EXCLUSIVE: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(32768u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DDL_HIDDEN: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DDL_READONLY: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DDL_READWRITE: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DDL_SYSTEM: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DDL_POSTMSGS: DLG_DIR_LIST_FILE_TYPE = DLG_DIR_LIST_FILE_TYPE(8192u32);
 impl ::core::marker::Copy for DLG_DIR_LIST_FILE_TYPE {}
 impl ::core::clone::Clone for DLG_DIR_LIST_FILE_TYPE {
     fn clone(&self) -> Self {
@@ -8739,14 +12249,6 @@ impl ::core::ops::Not for DLG_DIR_LIST_FILE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOWNHORZSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DNHZS_NORMAL: DOWNHORZSTATES = DOWNHORZSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DNHZS_HOT: DOWNHORZSTATES = DOWNHORZSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DNHZS_PRESSED: DOWNHORZSTATES = DOWNHORZSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DNHZS_DISABLED: DOWNHORZSTATES = DOWNHORZSTATES(4i32);
 impl ::core::marker::Copy for DOWNHORZSTATES {}
 impl ::core::clone::Clone for DOWNHORZSTATES {
     fn clone(&self) -> Self {
@@ -8770,14 +12272,6 @@ impl ::core::fmt::Debug for DOWNHORZSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOWNSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DNS_NORMAL: DOWNSTATES = DOWNSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DNS_HOT: DOWNSTATES = DOWNSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DNS_PRESSED: DOWNSTATES = DOWNSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DNS_DISABLED: DOWNSTATES = DOWNSTATES(4i32);
 impl ::core::marker::Copy for DOWNSTATES {}
 impl ::core::clone::Clone for DOWNSTATES {
     fn clone(&self) -> Self {
@@ -8801,12 +12295,6 @@ impl ::core::fmt::Debug for DOWNSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DPAMM_MESSAGE(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DPAMM_MERGE: DPAMM_MESSAGE = DPAMM_MESSAGE(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DPAMM_DELETE: DPAMM_MESSAGE = DPAMM_MESSAGE(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DPAMM_INSERT: DPAMM_MESSAGE = DPAMM_MESSAGE(3u32);
 impl ::core::marker::Copy for DPAMM_MESSAGE {}
 impl ::core::clone::Clone for DPAMM_MESSAGE {
     fn clone(&self) -> Self {
@@ -8830,22 +12318,6 @@ impl ::core::fmt::Debug for DPAMM_MESSAGE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAGDROPPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DD_COPY: DRAGDROPPARTS = DRAGDROPPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DD_MOVE: DRAGDROPPARTS = DRAGDROPPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DD_UPDATEMETADATA: DRAGDROPPARTS = DRAGDROPPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DD_CREATELINK: DRAGDROPPARTS = DRAGDROPPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DD_WARNING: DRAGDROPPARTS = DRAGDROPPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DD_NONE: DRAGDROPPARTS = DRAGDROPPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DD_IMAGEBG: DRAGDROPPARTS = DRAGDROPPARTS(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DD_TEXTBG: DRAGDROPPARTS = DRAGDROPPARTS(8i32);
 impl ::core::marker::Copy for DRAGDROPPARTS {}
 impl ::core::clone::Clone for DRAGDROPPARTS {
     fn clone(&self) -> Self {
@@ -8869,14 +12341,6 @@ impl ::core::fmt::Debug for DRAGDROPPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAGLISTINFO_NOTIFICATION_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DL_BEGINDRAG: DRAGLISTINFO_NOTIFICATION_FLAGS = DRAGLISTINFO_NOTIFICATION_FLAGS(1157u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DL_CANCELDRAG: DRAGLISTINFO_NOTIFICATION_FLAGS = DRAGLISTINFO_NOTIFICATION_FLAGS(1160u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DL_DRAGGING: DRAGLISTINFO_NOTIFICATION_FLAGS = DRAGLISTINFO_NOTIFICATION_FLAGS(1158u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DL_DROPPED: DRAGLISTINFO_NOTIFICATION_FLAGS = DRAGLISTINFO_NOTIFICATION_FLAGS(1159u32);
 impl ::core::marker::Copy for DRAGLISTINFO_NOTIFICATION_FLAGS {}
 impl ::core::clone::Clone for DRAGLISTINFO_NOTIFICATION_FLAGS {
     fn clone(&self) -> Self {
@@ -8900,20 +12364,6 @@ impl ::core::fmt::Debug for DRAGLISTINFO_NOTIFICATION_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAWITEMSTRUCT_CTL_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ODT_BUTTON: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ODT_COMBOBOX: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(3u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ODT_LISTBOX: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ODT_LISTVIEW: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(102u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ODT_MENU: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ODT_STATIC: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(5u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ODT_TAB: DRAWITEMSTRUCT_CTL_TYPE = DRAWITEMSTRUCT_CTL_TYPE(101u32);
 impl ::core::marker::Copy for DRAWITEMSTRUCT_CTL_TYPE {}
 impl ::core::clone::Clone for DRAWITEMSTRUCT_CTL_TYPE {
     fn clone(&self) -> Self {
@@ -8937,12 +12387,6 @@ impl ::core::fmt::Debug for DRAWITEMSTRUCT_CTL_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAW_THEME_PARENT_BACKGROUND_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DTPB_WINDOWDC: DRAW_THEME_PARENT_BACKGROUND_FLAGS = DRAW_THEME_PARENT_BACKGROUND_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DTPB_USECTLCOLORSTATIC: DRAW_THEME_PARENT_BACKGROUND_FLAGS = DRAW_THEME_PARENT_BACKGROUND_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DTPB_USEERASEBKGND: DRAW_THEME_PARENT_BACKGROUND_FLAGS = DRAW_THEME_PARENT_BACKGROUND_FLAGS(4u32);
 impl ::core::marker::Copy for DRAW_THEME_PARENT_BACKGROUND_FLAGS {}
 impl ::core::clone::Clone for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
     fn clone(&self) -> Self {
@@ -8999,14 +12443,6 @@ impl ::core::ops::Not for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DROPDOWNBUTTONLEFTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBXSL_NORMAL: DROPDOWNBUTTONLEFTSTATES = DROPDOWNBUTTONLEFTSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBXSL_HOT: DROPDOWNBUTTONLEFTSTATES = DROPDOWNBUTTONLEFTSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBXSL_PRESSED: DROPDOWNBUTTONLEFTSTATES = DROPDOWNBUTTONLEFTSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBXSL_DISABLED: DROPDOWNBUTTONLEFTSTATES = DROPDOWNBUTTONLEFTSTATES(4i32);
 impl ::core::marker::Copy for DROPDOWNBUTTONLEFTSTATES {}
 impl ::core::clone::Clone for DROPDOWNBUTTONLEFTSTATES {
     fn clone(&self) -> Self {
@@ -9030,14 +12466,6 @@ impl ::core::fmt::Debug for DROPDOWNBUTTONLEFTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DROPDOWNBUTTONRIGHTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBXSR_NORMAL: DROPDOWNBUTTONRIGHTSTATES = DROPDOWNBUTTONRIGHTSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBXSR_HOT: DROPDOWNBUTTONRIGHTSTATES = DROPDOWNBUTTONRIGHTSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBXSR_PRESSED: DROPDOWNBUTTONRIGHTSTATES = DROPDOWNBUTTONRIGHTSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBXSR_DISABLED: DROPDOWNBUTTONRIGHTSTATES = DROPDOWNBUTTONRIGHTSTATES(4i32);
 impl ::core::marker::Copy for DROPDOWNBUTTONRIGHTSTATES {}
 impl ::core::clone::Clone for DROPDOWNBUTTONRIGHTSTATES {
     fn clone(&self) -> Self {
@@ -9061,10 +12489,6 @@ impl ::core::fmt::Debug for DROPDOWNBUTTONRIGHTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DROPDOWNITEMSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBDI_NORMAL: DROPDOWNITEMSTATES = DROPDOWNITEMSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBDI_HIGHLIGHTED: DROPDOWNITEMSTATES = DROPDOWNITEMSTATES(2i32);
 impl ::core::marker::Copy for DROPDOWNITEMSTATES {}
 impl ::core::clone::Clone for DROPDOWNITEMSTATES {
     fn clone(&self) -> Self {
@@ -9088,36 +12512,6 @@ impl ::core::fmt::Debug for DROPDOWNITEMSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DTTOPTS_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DTT_TEXTCOLOR: DTTOPTS_FLAGS = DTTOPTS_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DTT_BORDERCOLOR: DTTOPTS_FLAGS = DTTOPTS_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DTT_SHADOWCOLOR: DTTOPTS_FLAGS = DTTOPTS_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DTT_SHADOWTYPE: DTTOPTS_FLAGS = DTTOPTS_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DTT_SHADOWOFFSET: DTTOPTS_FLAGS = DTTOPTS_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DTT_BORDERSIZE: DTTOPTS_FLAGS = DTTOPTS_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DTT_FONTPROP: DTTOPTS_FLAGS = DTTOPTS_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DTT_COLORPROP: DTTOPTS_FLAGS = DTTOPTS_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DTT_STATEID: DTTOPTS_FLAGS = DTTOPTS_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DTT_CALCRECT: DTTOPTS_FLAGS = DTTOPTS_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DTT_APPLYOVERLAY: DTTOPTS_FLAGS = DTTOPTS_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DTT_GLOWSIZE: DTTOPTS_FLAGS = DTTOPTS_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DTT_CALLBACK: DTTOPTS_FLAGS = DTTOPTS_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DTT_COMPOSITED: DTTOPTS_FLAGS = DTTOPTS_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DTT_VALIDBITS: DTTOPTS_FLAGS = DTTOPTS_FLAGS(12287u32);
 impl ::core::marker::Copy for DTTOPTS_FLAGS {}
 impl ::core::clone::Clone for DTTOPTS_FLAGS {
     fn clone(&self) -> Self {
@@ -9174,14 +12568,6 @@ impl ::core::ops::Not for DTTOPTS_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EC_ENDOFLINE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EC_ENDOFLINE_DETECTFROMCONTENT: EC_ENDOFLINE = EC_ENDOFLINE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EC_ENDOFLINE_CRLF: EC_ENDOFLINE = EC_ENDOFLINE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EC_ENDOFLINE_CR: EC_ENDOFLINE = EC_ENDOFLINE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EC_ENDOFLINE_LF: EC_ENDOFLINE = EC_ENDOFLINE(3i32);
 impl ::core::marker::Copy for EC_ENDOFLINE {}
 impl ::core::clone::Clone for EC_ENDOFLINE {
     fn clone(&self) -> Self {
@@ -9205,10 +12591,6 @@ impl ::core::fmt::Debug for EC_ENDOFLINE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EC_SEARCHWEB_ENTRYPOINT(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EC_SEARCHWEB_ENTRYPOINT_EXTERNAL: EC_SEARCHWEB_ENTRYPOINT = EC_SEARCHWEB_ENTRYPOINT(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EC_SEARCHWEB_ENTRYPOINT_CONTEXTMENU: EC_SEARCHWEB_ENTRYPOINT = EC_SEARCHWEB_ENTRYPOINT(1i32);
 impl ::core::marker::Copy for EC_SEARCHWEB_ENTRYPOINT {}
 impl ::core::clone::Clone for EC_SEARCHWEB_ENTRYPOINT {
     fn clone(&self) -> Self {
@@ -9232,20 +12614,6 @@ impl ::core::fmt::Debug for EC_SEARCHWEB_ENTRYPOINT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EDITBALLOONTIP_ICON(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTI_ERROR: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTI_INFO: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTI_NONE: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTI_WARNING: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTI_INFO_LARGE: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTI_WARNING_LARGE: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTI_ERROR_LARGE: EDITBALLOONTIP_ICON = EDITBALLOONTIP_ICON(6i32);
 impl ::core::marker::Copy for EDITBALLOONTIP_ICON {}
 impl ::core::clone::Clone for EDITBALLOONTIP_ICON {
     fn clone(&self) -> Self {
@@ -9269,14 +12637,6 @@ impl ::core::fmt::Debug for EDITBALLOONTIP_ICON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EDITBORDER_HSCROLLSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EPSH_NORMAL: EDITBORDER_HSCROLLSTATES = EDITBORDER_HSCROLLSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EPSH_HOT: EDITBORDER_HSCROLLSTATES = EDITBORDER_HSCROLLSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EPSH_FOCUSED: EDITBORDER_HSCROLLSTATES = EDITBORDER_HSCROLLSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EPSH_DISABLED: EDITBORDER_HSCROLLSTATES = EDITBORDER_HSCROLLSTATES(4i32);
 impl ::core::marker::Copy for EDITBORDER_HSCROLLSTATES {}
 impl ::core::clone::Clone for EDITBORDER_HSCROLLSTATES {
     fn clone(&self) -> Self {
@@ -9300,14 +12660,6 @@ impl ::core::fmt::Debug for EDITBORDER_HSCROLLSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EDITBORDER_HVSCROLLSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EPSHV_NORMAL: EDITBORDER_HVSCROLLSTATES = EDITBORDER_HVSCROLLSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EPSHV_HOT: EDITBORDER_HVSCROLLSTATES = EDITBORDER_HVSCROLLSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EPSHV_FOCUSED: EDITBORDER_HVSCROLLSTATES = EDITBORDER_HVSCROLLSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EPSHV_DISABLED: EDITBORDER_HVSCROLLSTATES = EDITBORDER_HVSCROLLSTATES(4i32);
 impl ::core::marker::Copy for EDITBORDER_HVSCROLLSTATES {}
 impl ::core::clone::Clone for EDITBORDER_HVSCROLLSTATES {
     fn clone(&self) -> Self {
@@ -9331,14 +12683,6 @@ impl ::core::fmt::Debug for EDITBORDER_HVSCROLLSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EDITBORDER_NOSCROLLSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EPSN_NORMAL: EDITBORDER_NOSCROLLSTATES = EDITBORDER_NOSCROLLSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EPSN_HOT: EDITBORDER_NOSCROLLSTATES = EDITBORDER_NOSCROLLSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EPSN_FOCUSED: EDITBORDER_NOSCROLLSTATES = EDITBORDER_NOSCROLLSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EPSN_DISABLED: EDITBORDER_NOSCROLLSTATES = EDITBORDER_NOSCROLLSTATES(4i32);
 impl ::core::marker::Copy for EDITBORDER_NOSCROLLSTATES {}
 impl ::core::clone::Clone for EDITBORDER_NOSCROLLSTATES {
     fn clone(&self) -> Self {
@@ -9362,14 +12706,6 @@ impl ::core::fmt::Debug for EDITBORDER_NOSCROLLSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EDITBORDER_VSCROLLSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EPSV_NORMAL: EDITBORDER_VSCROLLSTATES = EDITBORDER_VSCROLLSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EPSV_HOT: EDITBORDER_VSCROLLSTATES = EDITBORDER_VSCROLLSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EPSV_FOCUSED: EDITBORDER_VSCROLLSTATES = EDITBORDER_VSCROLLSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EPSV_DISABLED: EDITBORDER_VSCROLLSTATES = EDITBORDER_VSCROLLSTATES(4i32);
 impl ::core::marker::Copy for EDITBORDER_VSCROLLSTATES {}
 impl ::core::clone::Clone for EDITBORDER_VSCROLLSTATES {
     fn clone(&self) -> Self {
@@ -9393,24 +12729,6 @@ impl ::core::fmt::Debug for EDITBORDER_VSCROLLSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EDITPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EP_EDITTEXT: EDITPARTS = EDITPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EP_CARET: EDITPARTS = EDITPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EP_BACKGROUND: EDITPARTS = EDITPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EP_PASSWORD: EDITPARTS = EDITPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EP_BACKGROUNDWITHBORDER: EDITPARTS = EDITPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EP_EDITBORDER_NOSCROLL: EDITPARTS = EDITPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EP_EDITBORDER_HSCROLL: EDITPARTS = EDITPARTS(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EP_EDITBORDER_VSCROLL: EDITPARTS = EDITPARTS(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EP_EDITBORDER_HVSCROLL: EDITPARTS = EDITPARTS(9i32);
 impl ::core::marker::Copy for EDITPARTS {}
 impl ::core::clone::Clone for EDITPARTS {
     fn clone(&self) -> Self {
@@ -9434,22 +12752,6 @@ impl ::core::fmt::Debug for EDITPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EDITTEXTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ETS_NORMAL: EDITTEXTSTATES = EDITTEXTSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ETS_HOT: EDITTEXTSTATES = EDITTEXTSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ETS_SELECTED: EDITTEXTSTATES = EDITTEXTSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ETS_DISABLED: EDITTEXTSTATES = EDITTEXTSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ETS_FOCUSED: EDITTEXTSTATES = EDITTEXTSTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ETS_READONLY: EDITTEXTSTATES = EDITTEXTSTATES(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ETS_ASSIST: EDITTEXTSTATES = EDITTEXTSTATES(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ETS_CUEBANNER: EDITTEXTSTATES = EDITTEXTSTATES(8i32);
 impl ::core::marker::Copy for EDITTEXTSTATES {}
 impl ::core::clone::Clone for EDITTEXTSTATES {
     fn clone(&self) -> Self {
@@ -9473,8 +12775,6 @@ impl ::core::fmt::Debug for EDITTEXTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EMPTYMARKUPPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EMP_MARKUPTEXT: EMPTYMARKUPPARTS = EMPTYMARKUPPARTS(1i32);
 impl ::core::marker::Copy for EMPTYMARKUPPARTS {}
 impl ::core::clone::Clone for EMPTYMARKUPPARTS {
     fn clone(&self) -> Self {
@@ -9498,22 +12798,6 @@ impl ::core::fmt::Debug for EMPTYMARKUPPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENABLE_SCROLL_BAR_ARROWS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ESB_DISABLE_BOTH: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(3u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ESB_DISABLE_DOWN: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ESB_DISABLE_LEFT: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ESB_DISABLE_LTUP: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ESB_DISABLE_RIGHT: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ESB_DISABLE_RTDN: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ESB_DISABLE_UP: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ESB_ENABLE_BOTH: ENABLE_SCROLL_BAR_ARROWS = ENABLE_SCROLL_BAR_ARROWS(0u32);
 impl ::core::marker::Copy for ENABLE_SCROLL_BAR_ARROWS {}
 impl ::core::clone::Clone for ENABLE_SCROLL_BAR_ARROWS {
     fn clone(&self) -> Self {
@@ -9537,12 +12821,6 @@ impl ::core::fmt::Debug for ENABLE_SCROLL_BAR_ARROWS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXPANDBUTTONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVEB_NORMAL: EXPANDBUTTONSTATES = EXPANDBUTTONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVEB_HOVER: EXPANDBUTTONSTATES = EXPANDBUTTONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVEB_PUSHED: EXPANDBUTTONSTATES = EXPANDBUTTONSTATES(3i32);
 impl ::core::marker::Copy for EXPANDBUTTONSTATES {}
 impl ::core::clone::Clone for EXPANDBUTTONSTATES {
     fn clone(&self) -> Self {
@@ -9566,22 +12844,6 @@ impl ::core::fmt::Debug for EXPANDBUTTONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXPANDOBUTTONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLGEBS_NORMAL: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLGEBS_HOVER: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLGEBS_PRESSED: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLGEBS_EXPANDEDNORMAL: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLGEBS_EXPANDEDHOVER: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLGEBS_EXPANDEDPRESSED: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLGEBS_NORMALDISABLED: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLGEBS_EXPANDEDDISABLED: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(8i32);
 impl ::core::marker::Copy for EXPANDOBUTTONSTATES {}
 impl ::core::clone::Clone for EXPANDOBUTTONSTATES {
     fn clone(&self) -> Self {
@@ -9605,30 +12867,6 @@ impl ::core::fmt::Debug for EXPANDOBUTTONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXPLORERBARPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBP_HEADERBACKGROUND: EXPLORERBARPARTS = EXPLORERBARPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBP_HEADERCLOSE: EXPLORERBARPARTS = EXPLORERBARPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBP_HEADERPIN: EXPLORERBARPARTS = EXPLORERBARPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBP_IEBARMENU: EXPLORERBARPARTS = EXPLORERBARPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBP_NORMALGROUPBACKGROUND: EXPLORERBARPARTS = EXPLORERBARPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBP_NORMALGROUPCOLLAPSE: EXPLORERBARPARTS = EXPLORERBARPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBP_NORMALGROUPEXPAND: EXPLORERBARPARTS = EXPLORERBARPARTS(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBP_NORMALGROUPHEAD: EXPLORERBARPARTS = EXPLORERBARPARTS(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBP_SPECIALGROUPBACKGROUND: EXPLORERBARPARTS = EXPLORERBARPARTS(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBP_SPECIALGROUPCOLLAPSE: EXPLORERBARPARTS = EXPLORERBARPARTS(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBP_SPECIALGROUPEXPAND: EXPLORERBARPARTS = EXPLORERBARPARTS(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBP_SPECIALGROUPHEAD: EXPLORERBARPARTS = EXPLORERBARPARTS(12i32);
 impl ::core::marker::Copy for EXPLORERBARPARTS {}
 impl ::core::clone::Clone for EXPLORERBARPARTS {
     fn clone(&self) -> Self {
@@ -9652,30 +12890,6 @@ impl ::core::fmt::Debug for EXPLORERBARPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FEEDBACK_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FEEDBACK_TOUCH_CONTACTVISUALIZATION: FEEDBACK_TYPE = FEEDBACK_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FEEDBACK_PEN_BARRELVISUALIZATION: FEEDBACK_TYPE = FEEDBACK_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FEEDBACK_PEN_TAP: FEEDBACK_TYPE = FEEDBACK_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FEEDBACK_PEN_DOUBLETAP: FEEDBACK_TYPE = FEEDBACK_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FEEDBACK_PEN_PRESSANDHOLD: FEEDBACK_TYPE = FEEDBACK_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FEEDBACK_PEN_RIGHTTAP: FEEDBACK_TYPE = FEEDBACK_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FEEDBACK_TOUCH_TAP: FEEDBACK_TYPE = FEEDBACK_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FEEDBACK_TOUCH_DOUBLETAP: FEEDBACK_TYPE = FEEDBACK_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FEEDBACK_TOUCH_PRESSANDHOLD: FEEDBACK_TYPE = FEEDBACK_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FEEDBACK_TOUCH_RIGHTTAP: FEEDBACK_TYPE = FEEDBACK_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FEEDBACK_GESTURE_PRESSANDTAP: FEEDBACK_TYPE = FEEDBACK_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FEEDBACK_MAX: FEEDBACK_TYPE = FEEDBACK_TYPE(-1i32);
 impl ::core::marker::Copy for FEEDBACK_TYPE {}
 impl ::core::clone::Clone for FEEDBACK_TYPE {
     fn clone(&self) -> Self {
@@ -9699,14 +12913,6 @@ impl ::core::fmt::Debug for FEEDBACK_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILLSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PBFS_NORMAL: FILLSTATES = FILLSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PBFS_ERROR: FILLSTATES = FILLSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PBFS_PAUSED: FILLSTATES = FILLSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PBFS_PARTIAL: FILLSTATES = FILLSTATES(4i32);
 impl ::core::marker::Copy for FILLSTATES {}
 impl ::core::clone::Clone for FILLSTATES {
     fn clone(&self) -> Self {
@@ -9730,16 +12936,6 @@ impl ::core::fmt::Debug for FILLSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILLTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FT_SOLID: FILLTYPE = FILLTYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FT_VERTGRADIENT: FILLTYPE = FILLTYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FT_HORZGRADIENT: FILLTYPE = FILLTYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FT_RADIALGRADIENT: FILLTYPE = FILLTYPE(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FT_TILEIMAGE: FILLTYPE = FILLTYPE(4i32);
 impl ::core::marker::Copy for FILLTYPE {}
 impl ::core::clone::Clone for FILLTYPE {
     fn clone(&self) -> Self {
@@ -9763,14 +12959,6 @@ impl ::core::fmt::Debug for FILLTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILLVERTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PBFVS_NORMAL: FILLVERTSTATES = FILLVERTSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PBFVS_ERROR: FILLVERTSTATES = FILLVERTSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PBFVS_PAUSED: FILLVERTSTATES = FILLVERTSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PBFVS_PARTIAL: FILLVERTSTATES = FILLVERTSTATES(4i32);
 impl ::core::marker::Copy for FILLVERTSTATES {}
 impl ::core::clone::Clone for FILLVERTSTATES {
     fn clone(&self) -> Self {
@@ -9794,22 +12982,6 @@ impl ::core::fmt::Debug for FILLVERTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FLYOUTPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FLYOUT_HEADER: FLYOUTPARTS = FLYOUTPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FLYOUT_BODY: FLYOUTPARTS = FLYOUTPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FLYOUT_LABEL: FLYOUTPARTS = FLYOUTPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FLYOUT_LINK: FLYOUTPARTS = FLYOUTPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FLYOUT_DIVIDER: FLYOUTPARTS = FLYOUTPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FLYOUT_WINDOW: FLYOUTPARTS = FLYOUTPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FLYOUT_LINKAREA: FLYOUTPARTS = FLYOUTPARTS(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FLYOUT_LINKHEADER: FLYOUTPARTS = FLYOUTPARTS(8i32);
 impl ::core::marker::Copy for FLYOUTPARTS {}
 impl ::core::clone::Clone for FLYOUTPARTS {
     fn clone(&self) -> Self {
@@ -9833,10 +13005,6 @@ impl ::core::fmt::Debug for FLYOUTPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FRAMEBOTTOMSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FRB_ACTIVE: FRAMEBOTTOMSTATES = FRAMEBOTTOMSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FRB_INACTIVE: FRAMEBOTTOMSTATES = FRAMEBOTTOMSTATES(2i32);
 impl ::core::marker::Copy for FRAMEBOTTOMSTATES {}
 impl ::core::clone::Clone for FRAMEBOTTOMSTATES {
     fn clone(&self) -> Self {
@@ -9860,10 +13028,6 @@ impl ::core::fmt::Debug for FRAMEBOTTOMSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FRAMELEFTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FRL_ACTIVE: FRAMELEFTSTATES = FRAMELEFTSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FRL_INACTIVE: FRAMELEFTSTATES = FRAMELEFTSTATES(2i32);
 impl ::core::marker::Copy for FRAMELEFTSTATES {}
 impl ::core::clone::Clone for FRAMELEFTSTATES {
     fn clone(&self) -> Self {
@@ -9887,10 +13051,6 @@ impl ::core::fmt::Debug for FRAMELEFTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FRAMERIGHTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FRR_ACTIVE: FRAMERIGHTSTATES = FRAMERIGHTSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FRR_INACTIVE: FRAMERIGHTSTATES = FRAMERIGHTSTATES(2i32);
 impl ::core::marker::Copy for FRAMERIGHTSTATES {}
 impl ::core::clone::Clone for FRAMERIGHTSTATES {
     fn clone(&self) -> Self {
@@ -9914,10 +13074,6 @@ impl ::core::fmt::Debug for FRAMERIGHTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FRAMESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FS_ACTIVE: FRAMESTATES = FRAMESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FS_INACTIVE: FRAMESTATES = FRAMESTATES(2i32);
 impl ::core::marker::Copy for FRAMESTATES {}
 impl ::core::clone::Clone for FRAMESTATES {
     fn clone(&self) -> Self {
@@ -9941,12 +13097,6 @@ impl ::core::fmt::Debug for FRAMESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_THEME_BITMAP_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const GBF_DIRECT: GET_THEME_BITMAP_FLAGS = GET_THEME_BITMAP_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const GBF_COPY: GET_THEME_BITMAP_FLAGS = GET_THEME_BITMAP_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const GBF_VALIDBITS: GET_THEME_BITMAP_FLAGS = GET_THEME_BITMAP_FLAGS(3u32);
 impl ::core::marker::Copy for GET_THEME_BITMAP_FLAGS {}
 impl ::core::clone::Clone for GET_THEME_BITMAP_FLAGS {
     fn clone(&self) -> Self {
@@ -9970,12 +13120,6 @@ impl ::core::fmt::Debug for GET_THEME_BITMAP_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GLYPHFONTSIZINGTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const GFST_NONE: GLYPHFONTSIZINGTYPE = GLYPHFONTSIZINGTYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const GFST_SIZE: GLYPHFONTSIZINGTYPE = GLYPHFONTSIZINGTYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const GFST_DPI: GLYPHFONTSIZINGTYPE = GLYPHFONTSIZINGTYPE(2i32);
 impl ::core::marker::Copy for GLYPHFONTSIZINGTYPE {}
 impl ::core::clone::Clone for GLYPHFONTSIZINGTYPE {
     fn clone(&self) -> Self {
@@ -9999,10 +13143,6 @@ impl ::core::fmt::Debug for GLYPHFONTSIZINGTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GLYPHSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const GLPS_CLOSED: GLYPHSTATES = GLYPHSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const GLPS_OPENED: GLYPHSTATES = GLYPHSTATES(2i32);
 impl ::core::marker::Copy for GLYPHSTATES {}
 impl ::core::clone::Clone for GLYPHSTATES {
     fn clone(&self) -> Self {
@@ -10026,12 +13166,6 @@ impl ::core::fmt::Debug for GLYPHSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GLYPHTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const GT_NONE: GLYPHTYPE = GLYPHTYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const GT_IMAGEGLYPH: GLYPHTYPE = GLYPHTYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const GT_FONTGLYPH: GLYPHTYPE = GLYPHTYPE(2i32);
 impl ::core::marker::Copy for GLYPHTYPE {}
 impl ::core::clone::Clone for GLYPHTYPE {
     fn clone(&self) -> Self {
@@ -10055,18 +13189,6 @@ impl ::core::fmt::Debug for GLYPHTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GRIDCELLBACKGROUNDSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGCB_SELECTED: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGCB_HOT: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGCB_SELECTEDHOT: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGCB_SELECTEDNOTFOCUSED: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGCB_TODAY: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGCB_TODAYSELECTED: GRIDCELLBACKGROUNDSTATES = GRIDCELLBACKGROUNDSTATES(6i32);
 impl ::core::marker::Copy for GRIDCELLBACKGROUNDSTATES {}
 impl ::core::clone::Clone for GRIDCELLBACKGROUNDSTATES {
     fn clone(&self) -> Self {
@@ -10090,20 +13212,6 @@ impl ::core::fmt::Debug for GRIDCELLBACKGROUNDSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GRIDCELLSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGC_HOT: GRIDCELLSTATES = GRIDCELLSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGC_HASSTATE: GRIDCELLSTATES = GRIDCELLSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGC_HASSTATEHOT: GRIDCELLSTATES = GRIDCELLSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGC_TODAY: GRIDCELLSTATES = GRIDCELLSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGC_TODAYSELECTED: GRIDCELLSTATES = GRIDCELLSTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGC_SELECTED: GRIDCELLSTATES = GRIDCELLSTATES(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGC_SELECTEDHOT: GRIDCELLSTATES = GRIDCELLSTATES(7i32);
 impl ::core::marker::Copy for GRIDCELLSTATES {}
 impl ::core::clone::Clone for GRIDCELLSTATES {
     fn clone(&self) -> Self {
@@ -10127,16 +13235,6 @@ impl ::core::fmt::Debug for GRIDCELLSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GRIDCELLUPPERSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGCU_HOT: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGCU_HASSTATE: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGCU_HASSTATEHOT: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGCU_SELECTED: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGCU_SELECTEDHOT: GRIDCELLUPPERSTATES = GRIDCELLUPPERSTATES(5i32);
 impl ::core::marker::Copy for GRIDCELLUPPERSTATES {}
 impl ::core::clone::Clone for GRIDCELLUPPERSTATES {
     fn clone(&self) -> Self {
@@ -10160,10 +13258,6 @@ impl ::core::fmt::Debug for GRIDCELLUPPERSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GRIPPERSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TSGS_NORMAL: GRIPPERSTATES = GRIPPERSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TSGS_CENTERED: GRIPPERSTATES = GRIPPERSTATES(2i32);
 impl ::core::marker::Copy for GRIPPERSTATES {}
 impl ::core::clone::Clone for GRIPPERSTATES {
     fn clone(&self) -> Self {
@@ -10187,10 +13281,6 @@ impl ::core::fmt::Debug for GRIPPERSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GROUPBOXSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const GBS_NORMAL: GROUPBOXSTATES = GROUPBOXSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const GBS_DISABLED: GROUPBOXSTATES = GROUPBOXSTATES(2i32);
 impl ::core::marker::Copy for GROUPBOXSTATES {}
 impl ::core::clone::Clone for GROUPBOXSTATES {
     fn clone(&self) -> Self {
@@ -10214,38 +13304,6 @@ impl ::core::fmt::Debug for GROUPBOXSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GROUPHEADERLINESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGHL_OPEN: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGHL_OPENHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGHL_OPENSELECTED: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGHL_OPENSELECTEDHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGHL_OPENSELECTEDNOTFOCUSED: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGHL_OPENSELECTEDNOTFOCUSEDHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGHL_OPENMIXEDSELECTION: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGHL_OPENMIXEDSELECTIONHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGHL_CLOSE: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGHL_CLOSEHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGHL_CLOSESELECTED: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGHL_CLOSESELECTEDHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(12i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGHL_CLOSESELECTEDNOTFOCUSED: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(13i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGHL_CLOSESELECTEDNOTFOCUSEDHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(14i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGHL_CLOSEMIXEDSELECTION: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(15i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGHL_CLOSEMIXEDSELECTIONHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(16i32);
 impl ::core::marker::Copy for GROUPHEADERLINESTATES {}
 impl ::core::clone::Clone for GROUPHEADERLINESTATES {
     fn clone(&self) -> Self {
@@ -10269,38 +13327,6 @@ impl ::core::fmt::Debug for GROUPHEADERLINESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GROUPHEADERSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGH_OPEN: GROUPHEADERSTATES = GROUPHEADERSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGH_OPENHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGH_OPENSELECTED: GROUPHEADERSTATES = GROUPHEADERSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGH_OPENSELECTEDHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGH_OPENSELECTEDNOTFOCUSED: GROUPHEADERSTATES = GROUPHEADERSTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGH_OPENSELECTEDNOTFOCUSEDHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGH_OPENMIXEDSELECTION: GROUPHEADERSTATES = GROUPHEADERSTATES(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGH_OPENMIXEDSELECTIONHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGH_CLOSE: GROUPHEADERSTATES = GROUPHEADERSTATES(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGH_CLOSEHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGH_CLOSESELECTED: GROUPHEADERSTATES = GROUPHEADERSTATES(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGH_CLOSESELECTEDHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(12i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGH_CLOSESELECTEDNOTFOCUSED: GROUPHEADERSTATES = GROUPHEADERSTATES(13i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGH_CLOSESELECTEDNOTFOCUSEDHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(14i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGH_CLOSEMIXEDSELECTION: GROUPHEADERSTATES = GROUPHEADERSTATES(15i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGH_CLOSEMIXEDSELECTIONHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(16i32);
 impl ::core::marker::Copy for GROUPHEADERSTATES {}
 impl ::core::clone::Clone for GROUPHEADERSTATES {
     fn clone(&self) -> Self {
@@ -10324,12 +13350,6 @@ impl ::core::fmt::Debug for GROUPHEADERSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HALIGN(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HA_LEFT: HALIGN = HALIGN(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HA_CENTER: HALIGN = HALIGN(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HA_RIGHT: HALIGN = HALIGN(2i32);
 impl ::core::marker::Copy for HALIGN {}
 impl ::core::clone::Clone for HALIGN {
     fn clone(&self) -> Self {
@@ -10353,28 +13373,6 @@ impl ::core::fmt::Debug for HALIGN {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDI_MASK(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDI_WIDTH: HDI_MASK = HDI_MASK(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDI_HEIGHT: HDI_MASK = HDI_MASK(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDI_TEXT: HDI_MASK = HDI_MASK(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDI_FORMAT: HDI_MASK = HDI_MASK(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDI_LPARAM: HDI_MASK = HDI_MASK(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDI_BITMAP: HDI_MASK = HDI_MASK(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDI_IMAGE: HDI_MASK = HDI_MASK(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDI_DI_SETITEM: HDI_MASK = HDI_MASK(64u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDI_ORDER: HDI_MASK = HDI_MASK(128u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDI_FILTER: HDI_MASK = HDI_MASK(256u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDI_STATE: HDI_MASK = HDI_MASK(512u32);
 impl ::core::marker::Copy for HDI_MASK {}
 impl ::core::clone::Clone for HDI_MASK {
     fn clone(&self) -> Self {
@@ -10431,8 +13429,6 @@ impl ::core::ops::Not for HDI_MASK {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEADERAREASTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const AW_S_HEADERAREA_NOMARGIN: HEADERAREASTATES = HEADERAREASTATES(1i32);
 impl ::core::marker::Copy for HEADERAREASTATES {}
 impl ::core::clone::Clone for HEADERAREASTATES {
     fn clone(&self) -> Self {
@@ -10456,12 +13452,6 @@ impl ::core::fmt::Debug for HEADERAREASTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEADERCLOSESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBHC_NORMAL: HEADERCLOSESTATES = HEADERCLOSESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBHC_HOT: HEADERCLOSESTATES = HEADERCLOSESTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBHC_PRESSED: HEADERCLOSESTATES = HEADERCLOSESTATES(3i32);
 impl ::core::marker::Copy for HEADERCLOSESTATES {}
 impl ::core::clone::Clone for HEADERCLOSESTATES {
     fn clone(&self) -> Self {
@@ -10485,12 +13475,6 @@ impl ::core::fmt::Debug for HEADERCLOSESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEADERDROPDOWNFILTERSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDDFS_NORMAL: HEADERDROPDOWNFILTERSTATES = HEADERDROPDOWNFILTERSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDDFS_SOFTHOT: HEADERDROPDOWNFILTERSTATES = HEADERDROPDOWNFILTERSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDDFS_HOT: HEADERDROPDOWNFILTERSTATES = HEADERDROPDOWNFILTERSTATES(3i32);
 impl ::core::marker::Copy for HEADERDROPDOWNFILTERSTATES {}
 impl ::core::clone::Clone for HEADERDROPDOWNFILTERSTATES {
     fn clone(&self) -> Self {
@@ -10514,12 +13498,6 @@ impl ::core::fmt::Debug for HEADERDROPDOWNFILTERSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEADERDROPDOWNSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDDS_NORMAL: HEADERDROPDOWNSTATES = HEADERDROPDOWNSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDDS_SOFTHOT: HEADERDROPDOWNSTATES = HEADERDROPDOWNSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDDS_HOT: HEADERDROPDOWNSTATES = HEADERDROPDOWNSTATES(3i32);
 impl ::core::marker::Copy for HEADERDROPDOWNSTATES {}
 impl ::core::clone::Clone for HEADERDROPDOWNSTATES {
     fn clone(&self) -> Self {
@@ -10543,12 +13521,6 @@ impl ::core::fmt::Debug for HEADERDROPDOWNSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEADERITEMLEFTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HILS_NORMAL: HEADERITEMLEFTSTATES = HEADERITEMLEFTSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HILS_HOT: HEADERITEMLEFTSTATES = HEADERITEMLEFTSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HILS_PRESSED: HEADERITEMLEFTSTATES = HEADERITEMLEFTSTATES(3i32);
 impl ::core::marker::Copy for HEADERITEMLEFTSTATES {}
 impl ::core::clone::Clone for HEADERITEMLEFTSTATES {
     fn clone(&self) -> Self {
@@ -10572,12 +13544,6 @@ impl ::core::fmt::Debug for HEADERITEMLEFTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEADERITEMRIGHTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HIRS_NORMAL: HEADERITEMRIGHTSTATES = HEADERITEMRIGHTSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HIRS_HOT: HEADERITEMRIGHTSTATES = HEADERITEMRIGHTSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HIRS_PRESSED: HEADERITEMRIGHTSTATES = HEADERITEMRIGHTSTATES(3i32);
 impl ::core::marker::Copy for HEADERITEMRIGHTSTATES {}
 impl ::core::clone::Clone for HEADERITEMRIGHTSTATES {
     fn clone(&self) -> Self {
@@ -10601,30 +13567,6 @@ impl ::core::fmt::Debug for HEADERITEMRIGHTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEADERITEMSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HIS_NORMAL: HEADERITEMSTATES = HEADERITEMSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HIS_HOT: HEADERITEMSTATES = HEADERITEMSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HIS_PRESSED: HEADERITEMSTATES = HEADERITEMSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HIS_SORTEDNORMAL: HEADERITEMSTATES = HEADERITEMSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HIS_SORTEDHOT: HEADERITEMSTATES = HEADERITEMSTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HIS_SORTEDPRESSED: HEADERITEMSTATES = HEADERITEMSTATES(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HIS_ICONNORMAL: HEADERITEMSTATES = HEADERITEMSTATES(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HIS_ICONHOT: HEADERITEMSTATES = HEADERITEMSTATES(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HIS_ICONPRESSED: HEADERITEMSTATES = HEADERITEMSTATES(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HIS_ICONSORTEDNORMAL: HEADERITEMSTATES = HEADERITEMSTATES(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HIS_ICONSORTEDHOT: HEADERITEMSTATES = HEADERITEMSTATES(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HIS_ICONSORTEDPRESSED: HEADERITEMSTATES = HEADERITEMSTATES(12i32);
 impl ::core::marker::Copy for HEADERITEMSTATES {}
 impl ::core::clone::Clone for HEADERITEMSTATES {
     fn clone(&self) -> Self {
@@ -10648,10 +13590,6 @@ impl ::core::fmt::Debug for HEADERITEMSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEADEROVERFLOWSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HOFS_NORMAL: HEADEROVERFLOWSTATES = HEADEROVERFLOWSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HOFS_HOT: HEADEROVERFLOWSTATES = HEADEROVERFLOWSTATES(2i32);
 impl ::core::marker::Copy for HEADEROVERFLOWSTATES {}
 impl ::core::clone::Clone for HEADEROVERFLOWSTATES {
     fn clone(&self) -> Self {
@@ -10675,20 +13613,6 @@ impl ::core::fmt::Debug for HEADEROVERFLOWSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEADERPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HP_HEADERITEM: HEADERPARTS = HEADERPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HP_HEADERITEMLEFT: HEADERPARTS = HEADERPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HP_HEADERITEMRIGHT: HEADERPARTS = HEADERPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HP_HEADERSORTARROW: HEADERPARTS = HEADERPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HP_HEADERDROPDOWN: HEADERPARTS = HEADERPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HP_HEADERDROPDOWNFILTER: HEADERPARTS = HEADERPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HP_HEADEROVERFLOW: HEADERPARTS = HEADERPARTS(7i32);
 impl ::core::marker::Copy for HEADERPARTS {}
 impl ::core::clone::Clone for HEADERPARTS {
     fn clone(&self) -> Self {
@@ -10712,18 +13636,6 @@ impl ::core::fmt::Debug for HEADERPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEADERPINSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBHP_NORMAL: HEADERPINSTATES = HEADERPINSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBHP_HOT: HEADERPINSTATES = HEADERPINSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBHP_PRESSED: HEADERPINSTATES = HEADERPINSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBHP_SELECTEDNORMAL: HEADERPINSTATES = HEADERPINSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBHP_SELECTEDHOT: HEADERPINSTATES = HEADERPINSTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBHP_SELECTEDPRESSED: HEADERPINSTATES = HEADERPINSTATES(6i32);
 impl ::core::marker::Copy for HEADERPINSTATES {}
 impl ::core::clone::Clone for HEADERPINSTATES {
     fn clone(&self) -> Self {
@@ -10747,10 +13659,6 @@ impl ::core::fmt::Debug for HEADERPINSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEADERSORTARROWSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HSAS_SORTEDUP: HEADERSORTARROWSTATES = HEADERSORTARROWSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HSAS_SORTEDDOWN: HEADERSORTARROWSTATES = HEADERSORTARROWSTATES(2i32);
 impl ::core::marker::Copy for HEADERSORTARROWSTATES {}
 impl ::core::clone::Clone for HEADERSORTARROWSTATES {
     fn clone(&self) -> Self {
@@ -10774,10 +13682,6 @@ impl ::core::fmt::Debug for HEADERSORTARROWSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEADERSTYLESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HBG_DETAILS: HEADERSTYLESTATES = HEADERSTYLESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HBG_ICON: HEADERSTYLESTATES = HEADERSTYLESTATES(2i32);
 impl ::core::marker::Copy for HEADERSTYLESTATES {}
 impl ::core::clone::Clone for HEADERSTYLESTATES {
     fn clone(&self) -> Self {
@@ -10801,38 +13705,6 @@ impl ::core::fmt::Debug for HEADERSTYLESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEADER_CONTROL_FORMAT_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_LEFT: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_RIGHT: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_CENTER: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_JUSTIFYMASK: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_RTLREADING: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_BITMAP: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(8192i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_STRING: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(16384i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_OWNERDRAW: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(32768i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_IMAGE: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(2048i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_BITMAP_ON_RIGHT: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(4096i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_SORTUP: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(1024i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_SORTDOWN: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(512i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_CHECKBOX: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(64i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_CHECKED: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(128i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_FIXEDWIDTH: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(256i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDF_SPLITBUTTON: HEADER_CONTROL_FORMAT_FLAGS = HEADER_CONTROL_FORMAT_FLAGS(16777216i32);
 impl ::core::marker::Copy for HEADER_CONTROL_FORMAT_FLAGS {}
 impl ::core::clone::Clone for HEADER_CONTROL_FORMAT_FLAGS {
     fn clone(&self) -> Self {
@@ -10856,8 +13728,6 @@ impl ::core::fmt::Debug for HEADER_CONTROL_FORMAT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEADER_CONTROL_FORMAT_STATE(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDIS_FOCUSED: HEADER_CONTROL_FORMAT_STATE = HEADER_CONTROL_FORMAT_STATE(1u32);
 impl ::core::marker::Copy for HEADER_CONTROL_FORMAT_STATE {}
 impl ::core::clone::Clone for HEADER_CONTROL_FORMAT_STATE {
     fn clone(&self) -> Self {
@@ -10881,14 +13751,6 @@ impl ::core::fmt::Debug for HEADER_CONTROL_FORMAT_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEADER_CONTROL_FORMAT_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDFT_ISSTRING: HEADER_CONTROL_FORMAT_TYPE = HEADER_CONTROL_FORMAT_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDFT_ISNUMBER: HEADER_CONTROL_FORMAT_TYPE = HEADER_CONTROL_FORMAT_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDFT_ISDATE: HEADER_CONTROL_FORMAT_TYPE = HEADER_CONTROL_FORMAT_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HDFT_HASNOVALUE: HEADER_CONTROL_FORMAT_TYPE = HEADER_CONTROL_FORMAT_TYPE(32768u32);
 impl ::core::marker::Copy for HEADER_CONTROL_FORMAT_TYPE {}
 impl ::core::clone::Clone for HEADER_CONTROL_FORMAT_TYPE {
     fn clone(&self) -> Self {
@@ -10912,12 +13774,6 @@ impl ::core::fmt::Debug for HEADER_CONTROL_FORMAT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEADER_CONTROL_NOTIFICATION_BUTTON(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HEADER_CONTROL_NOTIFICATION_BUTTON_LEFT: HEADER_CONTROL_NOTIFICATION_BUTTON = HEADER_CONTROL_NOTIFICATION_BUTTON(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HEADER_CONTROL_NOTIFICATION_BUTTON_RIGHT: HEADER_CONTROL_NOTIFICATION_BUTTON = HEADER_CONTROL_NOTIFICATION_BUTTON(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HEADER_CONTROL_NOTIFICATION_BUTTON_MIDDLE: HEADER_CONTROL_NOTIFICATION_BUTTON = HEADER_CONTROL_NOTIFICATION_BUTTON(2i32);
 impl ::core::marker::Copy for HEADER_CONTROL_NOTIFICATION_BUTTON {}
 impl ::core::clone::Clone for HEADER_CONTROL_NOTIFICATION_BUTTON {
     fn clone(&self) -> Self {
@@ -10941,32 +13797,6 @@ impl ::core::fmt::Debug for HEADER_CONTROL_NOTIFICATION_BUTTON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEADER_HITTEST_INFO_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_NOWHERE: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_ONHEADER: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_ONDIVIDER: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_ONDIVOPEN: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_ONFILTER: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_ONFILTERBUTTON: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_ABOVE: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_BELOW: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_TORIGHT: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_TOLEFT: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_ONITEMSTATEICON: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_ONDROPDOWN: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HHT_ONOVERFLOW: HEADER_HITTEST_INFO_FLAGS = HEADER_HITTEST_INFO_FLAGS(16384u32);
 impl ::core::marker::Copy for HEADER_HITTEST_INFO_FLAGS {}
 impl ::core::clone::Clone for HEADER_HITTEST_INFO_FLAGS {
     fn clone(&self) -> Self {
@@ -11023,14 +13853,6 @@ impl ::core::ops::Not for HEADER_HITTEST_INFO_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HELPBUTTONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HBS_NORMAL: HELPBUTTONSTATES = HELPBUTTONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HBS_HOT: HELPBUTTONSTATES = HELPBUTTONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HBS_PUSHED: HELPBUTTONSTATES = HELPBUTTONSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HBS_DISABLED: HELPBUTTONSTATES = HELPBUTTONSTATES(4i32);
 impl ::core::marker::Copy for HELPBUTTONSTATES {}
 impl ::core::clone::Clone for HELPBUTTONSTATES {
     fn clone(&self) -> Self {
@@ -11054,14 +13876,6 @@ impl ::core::fmt::Debug for HELPBUTTONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HELPLINKSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPHL_NORMAL: HELPLINKSTATES = HELPLINKSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPHL_HOT: HELPLINKSTATES = HELPLINKSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPHL_PRESSED: HELPLINKSTATES = HELPLINKSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPHL_DISABLED: HELPLINKSTATES = HELPLINKSTATES(4i32);
 impl ::core::marker::Copy for HELPLINKSTATES {}
 impl ::core::clone::Clone for HELPLINKSTATES {
     fn clone(&self) -> Self {
@@ -11085,26 +13899,6 @@ impl ::core::fmt::Debug for HELPLINKSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HIT_TEST_BACKGROUND_OPTIONS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_BACKGROUNDSEG: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_FIXEDBORDER: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_CAPTION: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_RESIZINGBORDER_LEFT: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_RESIZINGBORDER_TOP: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_RESIZINGBORDER_RIGHT: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_RESIZINGBORDER_BOTTOM: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_RESIZINGBORDER: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(240u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_SIZINGTEMPLATE: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTTB_SYSTEMSIZINGMARGINS: HIT_TEST_BACKGROUND_OPTIONS = HIT_TEST_BACKGROUND_OPTIONS(512u32);
 impl ::core::marker::Copy for HIT_TEST_BACKGROUND_OPTIONS {}
 impl ::core::clone::Clone for HIT_TEST_BACKGROUND_OPTIONS {
     fn clone(&self) -> Self {
@@ -11128,14 +13922,6 @@ impl ::core::fmt::Debug for HIT_TEST_BACKGROUND_OPTIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HORZSCROLLSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HSS_NORMAL: HORZSCROLLSTATES = HORZSCROLLSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HSS_HOT: HORZSCROLLSTATES = HORZSCROLLSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HSS_PUSHED: HORZSCROLLSTATES = HORZSCROLLSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HSS_DISABLED: HORZSCROLLSTATES = HORZSCROLLSTATES(4i32);
 impl ::core::marker::Copy for HORZSCROLLSTATES {}
 impl ::core::clone::Clone for HORZSCROLLSTATES {
     fn clone(&self) -> Self {
@@ -11159,14 +13945,6 @@ impl ::core::fmt::Debug for HORZSCROLLSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HORZTHUMBSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTS_NORMAL: HORZTHUMBSTATES = HORZTHUMBSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTS_HOT: HORZTHUMBSTATES = HORZTHUMBSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTS_PUSHED: HORZTHUMBSTATES = HORZTHUMBSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HTS_DISABLED: HORZTHUMBSTATES = HORZTHUMBSTATES(4i32);
 impl ::core::marker::Copy for HORZTHUMBSTATES {}
 impl ::core::clone::Clone for HORZTHUMBSTATES {
     fn clone(&self) -> Self {
@@ -11190,10 +13968,6 @@ impl ::core::fmt::Debug for HORZTHUMBSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HOTGLYPHSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HGLPS_CLOSED: HOTGLYPHSTATES = HOTGLYPHSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HGLPS_OPENED: HOTGLYPHSTATES = HOTGLYPHSTATES(2i32);
 impl ::core::marker::Copy for HOTGLYPHSTATES {}
 impl ::core::clone::Clone for HOTGLYPHSTATES {
     fn clone(&self) -> Self {
@@ -11217,12 +13991,6 @@ impl ::core::fmt::Debug for HOTGLYPHSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HOVERBACKGROUNDSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const UTS_NORMAL: HOVERBACKGROUNDSTATES = HOVERBACKGROUNDSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const UTS_HOT: HOVERBACKGROUNDSTATES = HOVERBACKGROUNDSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const UTS_PRESSED: HOVERBACKGROUNDSTATES = HOVERBACKGROUNDSTATES(3i32);
 impl ::core::marker::Copy for HOVERBACKGROUNDSTATES {}
 impl ::core::clone::Clone for HOVERBACKGROUNDSTATES {
     fn clone(&self) -> Self {
@@ -11246,10 +14014,6 @@ impl ::core::fmt::Debug for HOVERBACKGROUNDSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HYPERLINKSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HLS_NORMALTEXT: HYPERLINKSTATES = HYPERLINKSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HLS_LINKTEXT: HYPERLINKSTATES = HYPERLINKSTATES(2i32);
 impl ::core::marker::Copy for HYPERLINKSTATES {}
 impl ::core::clone::Clone for HYPERLINKSTATES {
     fn clone(&self) -> Self {
@@ -11273,14 +14037,6 @@ impl ::core::fmt::Debug for HYPERLINKSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HYPERLINKTEXTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TS_HYPERLINK_NORMAL: HYPERLINKTEXTSTATES = HYPERLINKTEXTSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TS_HYPERLINK_HOT: HYPERLINKTEXTSTATES = HYPERLINKTEXTSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TS_HYPERLINK_PRESSED: HYPERLINKTEXTSTATES = HYPERLINKTEXTSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TS_HYPERLINK_DISABLED: HYPERLINKTEXTSTATES = HYPERLINKTEXTSTATES(4i32);
 impl ::core::marker::Copy for HYPERLINKTEXTSTATES {}
 impl ::core::clone::Clone for HYPERLINKTEXTSTATES {
     fn clone(&self) -> Self {
@@ -11304,16 +14060,6 @@ impl ::core::fmt::Debug for HYPERLINKTEXTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ICONEFFECT(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICE_NONE: ICONEFFECT = ICONEFFECT(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICE_GLOW: ICONEFFECT = ICONEFFECT(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICE_SHADOW: ICONEFFECT = ICONEFFECT(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICE_PULSE: ICONEFFECT = ICONEFFECT(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICE_ALPHA: ICONEFFECT = ICONEFFECT(4i32);
 impl ::core::marker::Copy for ICONEFFECT {}
 impl ::core::clone::Clone for ICONEFFECT {
     fn clone(&self) -> Self {
@@ -11337,12 +14083,6 @@ impl ::core::fmt::Debug for ICONEFFECT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IEBARMENUSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBM_NORMAL: IEBARMENUSTATES = IEBARMENUSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBM_HOT: IEBARMENUSTATES = IEBARMENUSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBM_PRESSED: IEBARMENUSTATES = IEBARMENUSTATES(3i32);
 impl ::core::marker::Copy for IEBARMENUSTATES {}
 impl ::core::clone::Clone for IEBARMENUSTATES {
     fn clone(&self) -> Self {
@@ -11366,10 +14106,6 @@ impl ::core::fmt::Debug for IEBARMENUSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAGELAYOUT(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const IL_VERTICAL: IMAGELAYOUT = IMAGELAYOUT(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const IL_HORIZONTAL: IMAGELAYOUT = IMAGELAYOUT(1i32);
 impl ::core::marker::Copy for IMAGELAYOUT {}
 impl ::core::clone::Clone for IMAGELAYOUT {
     fn clone(&self) -> Self {
@@ -11393,32 +14129,6 @@ impl ::core::fmt::Debug for IMAGELAYOUT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAGELIST_CREATION_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILC_MASK: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILC_COLOR: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILC_COLORDDB: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(254u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILC_COLOR4: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILC_COLOR8: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILC_COLOR16: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILC_COLOR24: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(24u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILC_COLOR32: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILC_PALETTE: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILC_MIRROR: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILC_PERITEMMIRROR: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(32768u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILC_ORIGINALSIZE: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILC_HIGHQUALITYSCALE: IMAGELIST_CREATION_FLAGS = IMAGELIST_CREATION_FLAGS(131072u32);
 impl ::core::marker::Copy for IMAGELIST_CREATION_FLAGS {}
 impl ::core::clone::Clone for IMAGELIST_CREATION_FLAGS {
     fn clone(&self) -> Self {
@@ -11475,12 +14185,6 @@ impl ::core::ops::Not for IMAGELIST_CREATION_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAGESELECTTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const IST_NONE: IMAGESELECTTYPE = IMAGESELECTTYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const IST_SIZE: IMAGESELECTTYPE = IMAGESELECTTYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const IST_DPI: IMAGESELECTTYPE = IMAGESELECTTYPE(2i32);
 impl ::core::marker::Copy for IMAGESELECTTYPE {}
 impl ::core::clone::Clone for IMAGESELECTTYPE {
     fn clone(&self) -> Self {
@@ -11504,10 +14208,6 @@ impl ::core::fmt::Debug for IMAGESELECTTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAGE_LIST_COPY_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILCF_MOVE: IMAGE_LIST_COPY_FLAGS = IMAGE_LIST_COPY_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILCF_SWAP: IMAGE_LIST_COPY_FLAGS = IMAGE_LIST_COPY_FLAGS(1u32);
 impl ::core::marker::Copy for IMAGE_LIST_COPY_FLAGS {}
 impl ::core::clone::Clone for IMAGE_LIST_COPY_FLAGS {
     fn clone(&self) -> Self {
@@ -11531,36 +14231,6 @@ impl ::core::fmt::Debug for IMAGE_LIST_COPY_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAGE_LIST_DRAW_STYLE(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILD_NORMAL: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILD_TRANSPARENT: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILD_BLEND25: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILD_FOCUS: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILD_BLEND50: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILD_SELECTED: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILD_BLEND: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILD_MASK: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILD_IMAGE: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILD_ROP: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(64u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILD_OVERLAYMASK: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(3840u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILD_PRESERVEALPHA: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(4096u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILD_SCALE: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(8192u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILD_DPISCALE: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(16384u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILD_ASYNC: IMAGE_LIST_DRAW_STYLE = IMAGE_LIST_DRAW_STYLE(32768u32);
 impl ::core::marker::Copy for IMAGE_LIST_DRAW_STYLE {}
 impl ::core::clone::Clone for IMAGE_LIST_DRAW_STYLE {
     fn clone(&self) -> Self {
@@ -11617,10 +14287,6 @@ impl ::core::ops::Not for IMAGE_LIST_DRAW_STYLE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAGE_LIST_ITEM_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILIF_ALPHA: IMAGE_LIST_ITEM_FLAGS = IMAGE_LIST_ITEM_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILIF_LOWQUALITY: IMAGE_LIST_ITEM_FLAGS = IMAGE_LIST_ITEM_FLAGS(2u32);
 impl ::core::marker::Copy for IMAGE_LIST_ITEM_FLAGS {}
 impl ::core::clone::Clone for IMAGE_LIST_ITEM_FLAGS {
     fn clone(&self) -> Self {
@@ -11644,10 +14310,6 @@ impl ::core::fmt::Debug for IMAGE_LIST_ITEM_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAGE_LIST_WRITE_STREAM_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILP_NORMAL: IMAGE_LIST_WRITE_STREAM_FLAGS = IMAGE_LIST_WRITE_STREAM_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ILP_DOWNLEVEL: IMAGE_LIST_WRITE_STREAM_FLAGS = IMAGE_LIST_WRITE_STREAM_FLAGS(1u32);
 impl ::core::marker::Copy for IMAGE_LIST_WRITE_STREAM_FLAGS {}
 impl ::core::clone::Clone for IMAGE_LIST_WRITE_STREAM_FLAGS {
     fn clone(&self) -> Self {
@@ -11704,40 +14366,6 @@ impl ::core::ops::Not for IMAGE_LIST_WRITE_STREAM_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INITCOMMONCONTROLSEX_ICC(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICC_ANIMATE_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(128u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICC_BAR_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICC_COOL_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(1024u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICC_DATE_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(256u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICC_HOTKEY_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(64u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICC_INTERNET_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(2048u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICC_LINK_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(32768u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICC_LISTVIEW_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICC_NATIVEFNTCTL_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(8192u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICC_PAGESCROLLER_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(4096u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICC_PROGRESS_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICC_STANDARD_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(16384u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICC_TAB_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICC_TREEVIEW_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICC_UPDOWN_CLASS: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICC_USEREX_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(512u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ICC_WIN95_CLASSES: INITCOMMONCONTROLSEX_ICC = INITCOMMONCONTROLSEX_ICC(255u32);
 impl ::core::marker::Copy for INITCOMMONCONTROLSEX_ICC {}
 impl ::core::clone::Clone for INITCOMMONCONTROLSEX_ICC {
     fn clone(&self) -> Self {
@@ -11794,14 +14422,6 @@ impl ::core::ops::Not for INITCOMMONCONTROLSEX_ICC {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ITEMSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBPSI_HOT: ITEMSTATES = ITEMSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBPSI_HOTSELECTED: ITEMSTATES = ITEMSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBPSI_SELECTED: ITEMSTATES = ITEMSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBPSI_SELECTEDNOTFOCUS: ITEMSTATES = ITEMSTATES(4i32);
 impl ::core::marker::Copy for ITEMSTATES {}
 impl ::core::clone::Clone for ITEMSTATES {
     fn clone(&self) -> Self {
@@ -11825,14 +14445,6 @@ impl ::core::fmt::Debug for ITEMSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LABELSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FLS_NORMAL: LABELSTATES = LABELSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FLS_SELECTED: LABELSTATES = LABELSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FLS_EMPHASIZED: LABELSTATES = LABELSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FLS_DISABLED: LABELSTATES = LABELSTATES(4i32);
 impl ::core::marker::Copy for LABELSTATES {}
 impl ::core::clone::Clone for LABELSTATES {
     fn clone(&self) -> Self {
@@ -11856,10 +14468,6 @@ impl ::core::fmt::Debug for LABELSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LINKHEADERSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FLH_NORMAL: LINKHEADERSTATES = LINKHEADERSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FLH_HOVER: LINKHEADERSTATES = LINKHEADERSTATES(2i32);
 impl ::core::marker::Copy for LINKHEADERSTATES {}
 impl ::core::clone::Clone for LINKHEADERSTATES {
     fn clone(&self) -> Self {
@@ -11883,8 +14491,6 @@ impl ::core::fmt::Debug for LINKHEADERSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LINKPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LP_HYPERLINK: LINKPARTS = LINKPARTS(1i32);
 impl ::core::marker::Copy for LINKPARTS {}
 impl ::core::clone::Clone for LINKPARTS {
     fn clone(&self) -> Self {
@@ -11908,10 +14514,6 @@ impl ::core::fmt::Debug for LINKPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LINKSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FLYOUTLINK_NORMAL: LINKSTATES = LINKSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const FLYOUTLINK_HOVER: LINKSTATES = LINKSTATES(2i32);
 impl ::core::marker::Copy for LINKSTATES {}
 impl ::core::clone::Clone for LINKSTATES {
     fn clone(&self) -> Self {
@@ -11935,16 +14537,6 @@ impl ::core::fmt::Debug for LINKSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LISTBOXPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBCP_BORDER_HSCROLL: LISTBOXPARTS = LISTBOXPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBCP_BORDER_HVSCROLL: LISTBOXPARTS = LISTBOXPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBCP_BORDER_NOSCROLL: LISTBOXPARTS = LISTBOXPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBCP_BORDER_VSCROLL: LISTBOXPARTS = LISTBOXPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LBCP_ITEM: LISTBOXPARTS = LISTBOXPARTS(5i32);
 impl ::core::marker::Copy for LISTBOXPARTS {}
 impl ::core::clone::Clone for LISTBOXPARTS {
     fn clone(&self) -> Self {
@@ -11968,18 +14560,6 @@ impl ::core::fmt::Debug for LISTBOXPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LISTITEMSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LISS_NORMAL: LISTITEMSTATES = LISTITEMSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LISS_HOT: LISTITEMSTATES = LISTITEMSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LISS_SELECTED: LISTITEMSTATES = LISTITEMSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LISS_DISABLED: LISTITEMSTATES = LISTITEMSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LISS_SELECTEDNOTFOCUS: LISTITEMSTATES = LISTITEMSTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LISS_HOTSELECTED: LISTITEMSTATES = LISTITEMSTATES(6i32);
 impl ::core::marker::Copy for LISTITEMSTATES {}
 impl ::core::clone::Clone for LISTITEMSTATES {
     fn clone(&self) -> Self {
@@ -12003,26 +14583,6 @@ impl ::core::fmt::Debug for LISTITEMSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LISTVIEWPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVP_LISTITEM: LISTVIEWPARTS = LISTVIEWPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVP_LISTGROUP: LISTVIEWPARTS = LISTVIEWPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVP_LISTDETAIL: LISTVIEWPARTS = LISTVIEWPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVP_LISTSORTEDDETAIL: LISTVIEWPARTS = LISTVIEWPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVP_EMPTYTEXT: LISTVIEWPARTS = LISTVIEWPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVP_GROUPHEADER: LISTVIEWPARTS = LISTVIEWPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVP_GROUPHEADERLINE: LISTVIEWPARTS = LISTVIEWPARTS(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVP_EXPANDBUTTON: LISTVIEWPARTS = LISTVIEWPARTS(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVP_COLLAPSEBUTTON: LISTVIEWPARTS = LISTVIEWPARTS(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVP_COLUMNDETAIL: LISTVIEWPARTS = LISTVIEWPARTS(10i32);
 impl ::core::marker::Copy for LISTVIEWPARTS {}
 impl ::core::clone::Clone for LISTVIEWPARTS {
     fn clone(&self) -> Self {
@@ -12046,14 +14606,6 @@ impl ::core::fmt::Debug for LISTVIEWPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LIST_ITEM_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LIF_ITEMINDEX: LIST_ITEM_FLAGS = LIST_ITEM_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LIF_STATE: LIST_ITEM_FLAGS = LIST_ITEM_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LIF_ITEMID: LIST_ITEM_FLAGS = LIST_ITEM_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LIF_URL: LIST_ITEM_FLAGS = LIST_ITEM_FLAGS(8u32);
 impl ::core::marker::Copy for LIST_ITEM_FLAGS {}
 impl ::core::clone::Clone for LIST_ITEM_FLAGS {
     fn clone(&self) -> Self {
@@ -12110,16 +14662,6 @@ impl ::core::ops::Not for LIST_ITEM_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LIST_ITEM_STATE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LIS_FOCUSED: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LIS_ENABLED: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LIS_VISITED: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LIS_HOTTRACK: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LIS_DEFAULTCOLORS: LIST_ITEM_STATE_FLAGS = LIST_ITEM_STATE_FLAGS(16u32);
 impl ::core::marker::Copy for LIST_ITEM_STATE_FLAGS {}
 impl ::core::clone::Clone for LIST_ITEM_STATE_FLAGS {
     fn clone(&self) -> Self {
@@ -12176,26 +14718,6 @@ impl ::core::ops::Not for LIST_ITEM_STATE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LIST_VIEW_BACKGROUND_IMAGE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVBKIF_SOURCE_NONE: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVBKIF_SOURCE_HBITMAP: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVBKIF_SOURCE_URL: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVBKIF_SOURCE_MASK: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(3u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVBKIF_STYLE_NORMAL: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVBKIF_STYLE_TILE: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVBKIF_STYLE_MASK: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVBKIF_FLAG_TILEOFFSET: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVBKIF_TYPE_WATERMARK: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(268435456u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVBKIF_FLAG_ALPHABLEND: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = LIST_VIEW_BACKGROUND_IMAGE_FLAGS(536870912u32);
 impl ::core::marker::Copy for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {}
 impl ::core::clone::Clone for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
     fn clone(&self) -> Self {
@@ -12252,18 +14774,6 @@ impl ::core::ops::Not for LIST_VIEW_BACKGROUND_IMAGE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LIST_VIEW_GROUP_ALIGN_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGA_HEADER_LEFT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGA_HEADER_CENTER: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGA_HEADER_RIGHT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGA_FOOTER_LEFT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGA_FOOTER_CENTER: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGA_FOOTER_RIGHT: LIST_VIEW_GROUP_ALIGN_FLAGS = LIST_VIEW_GROUP_ALIGN_FLAGS(32u32);
 impl ::core::marker::Copy for LIST_VIEW_GROUP_ALIGN_FLAGS {}
 impl ::core::clone::Clone for LIST_VIEW_GROUP_ALIGN_FLAGS {
     fn clone(&self) -> Self {
@@ -12320,24 +14830,6 @@ impl ::core::ops::Not for LIST_VIEW_GROUP_ALIGN_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LIST_VIEW_GROUP_STATE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGS_NORMAL: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGS_COLLAPSED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGS_HIDDEN: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGS_NOHEADER: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGS_COLLAPSIBLE: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGS_FOCUSED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGS_SELECTED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGS_SUBSETED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGS_SUBSETLINKFOCUSED: LIST_VIEW_GROUP_STATE_FLAGS = LIST_VIEW_GROUP_STATE_FLAGS(128u32);
 impl ::core::marker::Copy for LIST_VIEW_GROUP_STATE_FLAGS {}
 impl ::core::clone::Clone for LIST_VIEW_GROUP_STATE_FLAGS {
     fn clone(&self) -> Self {
@@ -12394,8 +14886,6 @@ impl ::core::ops::Not for LIST_VIEW_GROUP_STATE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LIST_VIEW_INSERT_MARK_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIM_AFTER: LIST_VIEW_INSERT_MARK_FLAGS = LIST_VIEW_INSERT_MARK_FLAGS(1u32);
 impl ::core::marker::Copy for LIST_VIEW_INSERT_MARK_FLAGS {}
 impl ::core::clone::Clone for LIST_VIEW_INSERT_MARK_FLAGS {
     fn clone(&self) -> Self {
@@ -12452,16 +14942,6 @@ impl ::core::ops::Not for LIST_VIEW_INSERT_MARK_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCFMT_LINE_BREAK: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(1048576i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCFMT_FILL: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(2097152i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCFMT_WRAP: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(4194304i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCFMT_NO_TITLE: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(8388608i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCFMT_TILE_PLACEMENTMASK: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS(3145728i32);
 impl ::core::marker::Copy for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {}
 impl ::core::clone::Clone for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
     fn clone(&self) -> Self {
@@ -12518,26 +14998,6 @@ impl ::core::ops::Not for LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LIST_VIEW_ITEM_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIF_TEXT: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIF_IMAGE: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIF_PARAM: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIF_STATE: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIF_INDENT: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIF_NORECOMPUTE: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIF_GROUPID: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIF_COLUMNS: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIF_COLFMT: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIF_DI_SETITEM: LIST_VIEW_ITEM_FLAGS = LIST_VIEW_ITEM_FLAGS(4096u32);
 impl ::core::marker::Copy for LIST_VIEW_ITEM_FLAGS {}
 impl ::core::clone::Clone for LIST_VIEW_ITEM_FLAGS {
     fn clone(&self) -> Self {
@@ -12594,22 +15054,6 @@ impl ::core::ops::Not for LIST_VIEW_ITEM_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LIST_VIEW_ITEM_STATE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIS_FOCUSED: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIS_SELECTED: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIS_CUT: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIS_DROPHILITED: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIS_GLOW: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIS_ACTIVATING: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIS_OVERLAYMASK: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(3840u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVIS_STATEIMAGEMASK: LIST_VIEW_ITEM_STATE_FLAGS = LIST_VIEW_ITEM_STATE_FLAGS(61440u32);
 impl ::core::marker::Copy for LIST_VIEW_ITEM_STATE_FLAGS {}
 impl ::core::clone::Clone for LIST_VIEW_ITEM_STATE_FLAGS {
     fn clone(&self) -> Self {
@@ -12633,12 +15077,6 @@ impl ::core::fmt::Debug for LIST_VIEW_ITEM_STATE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOGOFFBUTTONSSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPLS_NORMAL: LOGOFFBUTTONSSTATES = LOGOFFBUTTONSSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPLS_HOT: LOGOFFBUTTONSSTATES = LOGOFFBUTTONSSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPLS_PRESSED: LOGOFFBUTTONSSTATES = LOGOFFBUTTONSSTATES(3i32);
 impl ::core::marker::Copy for LOGOFFBUTTONSSTATES {}
 impl ::core::clone::Clone for LOGOFFBUTTONSSTATES {
     fn clone(&self) -> Self {
@@ -12662,28 +15100,6 @@ impl ::core::fmt::Debug for LOGOFFBUTTONSSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LVCOLUMNW_FORMAT(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCFMT_LEFT: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCFMT_RIGHT: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCFMT_CENTER: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCFMT_JUSTIFYMASK: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCFMT_IMAGE: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(2048i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCFMT_BITMAP_ON_RIGHT: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(4096i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCFMT_COL_HAS_IMAGES: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(32768i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCFMT_FIXED_WIDTH: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(256i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCFMT_NO_DPI_SCALE: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(262144i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCFMT_FIXED_RATIO: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(524288i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCFMT_SPLITBUTTON: LVCOLUMNW_FORMAT = LVCOLUMNW_FORMAT(16777216i32);
 impl ::core::marker::Copy for LVCOLUMNW_FORMAT {}
 impl ::core::clone::Clone for LVCOLUMNW_FORMAT {
     fn clone(&self) -> Self {
@@ -12740,24 +15156,6 @@ impl ::core::ops::Not for LVCOLUMNW_FORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LVCOLUMNW_MASK(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCF_FMT: LVCOLUMNW_MASK = LVCOLUMNW_MASK(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCF_WIDTH: LVCOLUMNW_MASK = LVCOLUMNW_MASK(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCF_TEXT: LVCOLUMNW_MASK = LVCOLUMNW_MASK(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCF_SUBITEM: LVCOLUMNW_MASK = LVCOLUMNW_MASK(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCF_IMAGE: LVCOLUMNW_MASK = LVCOLUMNW_MASK(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCF_ORDER: LVCOLUMNW_MASK = LVCOLUMNW_MASK(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCF_MINWIDTH: LVCOLUMNW_MASK = LVCOLUMNW_MASK(64u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCF_DEFAULTWIDTH: LVCOLUMNW_MASK = LVCOLUMNW_MASK(128u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCF_IDEALWIDTH: LVCOLUMNW_MASK = LVCOLUMNW_MASK(256u32);
 impl ::core::marker::Copy for LVCOLUMNW_MASK {}
 impl ::core::clone::Clone for LVCOLUMNW_MASK {
     fn clone(&self) -> Self {
@@ -12814,18 +15212,6 @@ impl ::core::ops::Not for LVCOLUMNW_MASK {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LVFINDINFOW_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVFI_PARAM: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVFI_PARTIAL: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVFI_STRING: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVFI_SUBSTRING: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVFI_WRAP: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVFI_NEARESTXY: LVFINDINFOW_FLAGS = LVFINDINFOW_FLAGS(64u32);
 impl ::core::marker::Copy for LVFINDINFOW_FLAGS {}
 impl ::core::clone::Clone for LVFINDINFOW_FLAGS {
     fn clone(&self) -> Self {
@@ -12882,10 +15268,6 @@ impl ::core::ops::Not for LVFINDINFOW_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LVFOOTERITEM_MASK(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVFIF_TEXT: LVFOOTERITEM_MASK = LVFOOTERITEM_MASK(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVFIF_STATE: LVFOOTERITEM_MASK = LVFOOTERITEM_MASK(2u32);
 impl ::core::marker::Copy for LVFOOTERITEM_MASK {}
 impl ::core::clone::Clone for LVFOOTERITEM_MASK {
     fn clone(&self) -> Self {
@@ -12909,14 +15291,6 @@ impl ::core::fmt::Debug for LVFOOTERITEM_MASK {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LVGROUP_MASK(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGF_NONE: LVGROUP_MASK = LVGROUP_MASK(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGF_HEADER: LVGROUP_MASK = LVGROUP_MASK(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGF_FOOTER: LVGROUP_MASK = LVGROUP_MASK(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGF_STATE: LVGROUP_MASK = LVGROUP_MASK(4u32);
 impl ::core::marker::Copy for LVGROUP_MASK {}
 impl ::core::clone::Clone for LVGROUP_MASK {
     fn clone(&self) -> Self {
@@ -12973,40 +15347,6 @@ impl ::core::ops::Not for LVGROUP_MASK {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LVHITTESTINFO_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVHT_ABOVE: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVHT_BELOW: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVHT_NOWHERE: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVHT_ONITEMICON: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVHT_ONITEMLABEL: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVHT_ONITEMSTATEICON: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVHT_TOLEFT: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVHT_TORIGHT: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVHT_EX_GROUP_HEADER: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(268435456u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVHT_EX_GROUP_FOOTER: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(536870912u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVHT_EX_GROUP_COLLAPSE: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(1073741824u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVHT_EX_GROUP_BACKGROUND: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(2147483648u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVHT_EX_GROUP_STATEICON: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(16777216u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVHT_EX_GROUP_SUBSETLINK: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(33554432u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVHT_EX_GROUP: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(4076863488u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVHT_EX_ONCONTENTS: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(67108864u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVHT_EX_FOOTER: LVHITTESTINFO_FLAGS = LVHITTESTINFO_FLAGS(134217728u32);
 impl ::core::marker::Copy for LVHITTESTINFO_FLAGS {}
 impl ::core::clone::Clone for LVHITTESTINFO_FLAGS {
     fn clone(&self) -> Self {
@@ -13063,10 +15403,6 @@ impl ::core::ops::Not for LVHITTESTINFO_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LVITEMA_GROUP_ID(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const I_GROUPIDCALLBACK: LVITEMA_GROUP_ID = LVITEMA_GROUP_ID(-1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const I_GROUPIDNONE: LVITEMA_GROUP_ID = LVITEMA_GROUP_ID(-2i32);
 impl ::core::marker::Copy for LVITEMA_GROUP_ID {}
 impl ::core::clone::Clone for LVITEMA_GROUP_ID {
     fn clone(&self) -> Self {
@@ -13090,14 +15426,6 @@ impl ::core::fmt::Debug for LVITEMA_GROUP_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LVTILEVIEWINFO_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIF_AUTOSIZE: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIF_FIXEDWIDTH: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIF_FIXEDHEIGHT: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIF_FIXEDSIZE: LVTILEVIEWINFO_FLAGS = LVTILEVIEWINFO_FLAGS(3u32);
 impl ::core::marker::Copy for LVTILEVIEWINFO_FLAGS {}
 impl ::core::clone::Clone for LVTILEVIEWINFO_FLAGS {
     fn clone(&self) -> Self {
@@ -13154,12 +15482,6 @@ impl ::core::ops::Not for LVTILEVIEWINFO_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LVTILEVIEWINFO_MASK(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIM_TILESIZE: LVTILEVIEWINFO_MASK = LVTILEVIEWINFO_MASK(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIM_COLUMNS: LVTILEVIEWINFO_MASK = LVTILEVIEWINFO_MASK(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVTVIM_LABELMARGIN: LVTILEVIEWINFO_MASK = LVTILEVIEWINFO_MASK(4u32);
 impl ::core::marker::Copy for LVTILEVIEWINFO_MASK {}
 impl ::core::clone::Clone for LVTILEVIEWINFO_MASK {
     fn clone(&self) -> Self {
@@ -13216,10 +15538,6 @@ impl ::core::ops::Not for LVTILEVIEWINFO_MASK {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MARKUPTEXTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EMT_NORMALTEXT: MARKUPTEXTSTATES = MARKUPTEXTSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EMT_LINKTEXT: MARKUPTEXTSTATES = MARKUPTEXTSTATES(2i32);
 impl ::core::marker::Copy for MARKUPTEXTSTATES {}
 impl ::core::clone::Clone for MARKUPTEXTSTATES {
     fn clone(&self) -> Self {
@@ -13243,14 +15561,6 @@ impl ::core::fmt::Debug for MARKUPTEXTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MAXBUTTONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MAXBS_NORMAL: MAXBUTTONSTATES = MAXBUTTONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MAXBS_HOT: MAXBUTTONSTATES = MAXBUTTONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MAXBS_PUSHED: MAXBUTTONSTATES = MAXBUTTONSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MAXBS_DISABLED: MAXBUTTONSTATES = MAXBUTTONSTATES(4i32);
 impl ::core::marker::Copy for MAXBUTTONSTATES {}
 impl ::core::clone::Clone for MAXBUTTONSTATES {
     fn clone(&self) -> Self {
@@ -13274,12 +15584,6 @@ impl ::core::fmt::Debug for MAXBUTTONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MAXCAPTIONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MXCS_ACTIVE: MAXCAPTIONSTATES = MAXCAPTIONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MXCS_INACTIVE: MAXCAPTIONSTATES = MAXCAPTIONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MXCS_DISABLED: MAXCAPTIONSTATES = MAXCAPTIONSTATES(3i32);
 impl ::core::marker::Copy for MAXCAPTIONSTATES {}
 impl ::core::clone::Clone for MAXCAPTIONSTATES {
     fn clone(&self) -> Self {
@@ -13303,12 +15607,6 @@ impl ::core::fmt::Debug for MAXCAPTIONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MCGRIDINFO_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGIF_DATE: MCGRIDINFO_FLAGS = MCGRIDINFO_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGIF_RECT: MCGRIDINFO_FLAGS = MCGRIDINFO_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGIF_NAME: MCGRIDINFO_FLAGS = MCGRIDINFO_FLAGS(4u32);
 impl ::core::marker::Copy for MCGRIDINFO_FLAGS {}
 impl ::core::clone::Clone for MCGRIDINFO_FLAGS {
     fn clone(&self) -> Self {
@@ -13365,24 +15663,6 @@ impl ::core::ops::Not for MCGRIDINFO_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MCGRIDINFO_PART(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGIP_CALENDARCONTROL: MCGRIDINFO_PART = MCGRIDINFO_PART(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGIP_NEXT: MCGRIDINFO_PART = MCGRIDINFO_PART(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGIP_PREV: MCGRIDINFO_PART = MCGRIDINFO_PART(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGIP_FOOTER: MCGRIDINFO_PART = MCGRIDINFO_PART(3u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGIP_CALENDAR: MCGRIDINFO_PART = MCGRIDINFO_PART(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGIP_CALENDARHEADER: MCGRIDINFO_PART = MCGRIDINFO_PART(5u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGIP_CALENDARBODY: MCGRIDINFO_PART = MCGRIDINFO_PART(6u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGIP_CALENDARROW: MCGRIDINFO_PART = MCGRIDINFO_PART(7u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCGIP_CALENDARCELL: MCGRIDINFO_PART = MCGRIDINFO_PART(8u32);
 impl ::core::marker::Copy for MCGRIDINFO_PART {}
 impl ::core::clone::Clone for MCGRIDINFO_PART {
     fn clone(&self) -> Self {
@@ -13406,46 +15686,6 @@ impl ::core::fmt::Debug for MCGRIDINFO_PART {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MCHITTESTINFO_HIT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_TITLE: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_CALENDAR: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131072u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_TODAYLINK: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(196608u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_CALENDARCONTROL: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(1048576u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_NEXT: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(16777216u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_PREV: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(33554432u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_NOWHERE: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_TITLEBK: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_TITLEMONTH: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(65537u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_TITLEYEAR: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(65538u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_TITLEBTNNEXT: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(16842755u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_TITLEBTNPREV: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(33619971u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_CALENDARBK: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131072u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_CALENDARDATE: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131073u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_CALENDARDATENEXT: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(16908289u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_CALENDARDATEPREV: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(33685505u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_CALENDARDAY: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131074u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_CALENDARWEEKNUM: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131075u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_CALENDARDATEMIN: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131076u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCHT_CALENDARDATEMAX: MCHITTESTINFO_HIT_FLAGS = MCHITTESTINFO_HIT_FLAGS(131077u32);
 impl ::core::marker::Copy for MCHITTESTINFO_HIT_FLAGS {}
 impl ::core::clone::Clone for MCHITTESTINFO_HIT_FLAGS {
     fn clone(&self) -> Self {
@@ -13502,14 +15742,6 @@ impl ::core::ops::Not for MCHITTESTINFO_HIT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MDICLOSEBUTTONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MDCL_NORMAL: MDICLOSEBUTTONSTATES = MDICLOSEBUTTONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MDCL_HOT: MDICLOSEBUTTONSTATES = MDICLOSEBUTTONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MDCL_PUSHED: MDICLOSEBUTTONSTATES = MDICLOSEBUTTONSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MDCL_DISABLED: MDICLOSEBUTTONSTATES = MDICLOSEBUTTONSTATES(4i32);
 impl ::core::marker::Copy for MDICLOSEBUTTONSTATES {}
 impl ::core::clone::Clone for MDICLOSEBUTTONSTATES {
     fn clone(&self) -> Self {
@@ -13533,14 +15765,6 @@ impl ::core::fmt::Debug for MDICLOSEBUTTONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MDIMINBUTTONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MDMI_NORMAL: MDIMINBUTTONSTATES = MDIMINBUTTONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MDMI_HOT: MDIMINBUTTONSTATES = MDIMINBUTTONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MDMI_PUSHED: MDIMINBUTTONSTATES = MDIMINBUTTONSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MDMI_DISABLED: MDIMINBUTTONSTATES = MDIMINBUTTONSTATES(4i32);
 impl ::core::marker::Copy for MDIMINBUTTONSTATES {}
 impl ::core::clone::Clone for MDIMINBUTTONSTATES {
     fn clone(&self) -> Self {
@@ -13564,14 +15788,6 @@ impl ::core::fmt::Debug for MDIMINBUTTONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MDIRESTOREBUTTONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MDRE_NORMAL: MDIRESTOREBUTTONSTATES = MDIRESTOREBUTTONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MDRE_HOT: MDIRESTOREBUTTONSTATES = MDIRESTOREBUTTONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MDRE_PUSHED: MDIRESTOREBUTTONSTATES = MDIRESTOREBUTTONSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MDRE_DISABLED: MDIRESTOREBUTTONSTATES = MDIRESTOREBUTTONSTATES(4i32);
 impl ::core::marker::Copy for MDIRESTOREBUTTONSTATES {}
 impl ::core::clone::Clone for MDIRESTOREBUTTONSTATES {
     fn clone(&self) -> Self {
@@ -13595,10 +15811,6 @@ impl ::core::fmt::Debug for MDIRESTOREBUTTONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MENUBANDPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MDP_NEWAPPBUTTON: MENUBANDPARTS = MENUBANDPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MDP_SEPERATOR: MENUBANDPARTS = MENUBANDPARTS(2i32);
 impl ::core::marker::Copy for MENUBANDPARTS {}
 impl ::core::clone::Clone for MENUBANDPARTS {
     fn clone(&self) -> Self {
@@ -13622,18 +15834,6 @@ impl ::core::fmt::Debug for MENUBANDPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MENUBANDSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MDS_NORMAL: MENUBANDSTATES = MENUBANDSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MDS_HOT: MENUBANDSTATES = MENUBANDSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MDS_PRESSED: MENUBANDSTATES = MENUBANDSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MDS_DISABLED: MENUBANDSTATES = MENUBANDSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MDS_CHECKED: MENUBANDSTATES = MENUBANDSTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MDS_HOTCHECKED: MENUBANDSTATES = MENUBANDSTATES(6i32);
 impl ::core::marker::Copy for MENUBANDSTATES {}
 impl ::core::clone::Clone for MENUBANDSTATES {
     fn clone(&self) -> Self {
@@ -13657,60 +15857,6 @@ impl ::core::fmt::Debug for MENUBANDSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MENUPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_MENUITEM_TMSCHEMA: MENUPARTS = MENUPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_MENUDROPDOWN_TMSCHEMA: MENUPARTS = MENUPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_MENUBARITEM_TMSCHEMA: MENUPARTS = MENUPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_MENUBARDROPDOWN_TMSCHEMA: MENUPARTS = MENUPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_CHEVRON_TMSCHEMA: MENUPARTS = MENUPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_SEPARATOR_TMSCHEMA: MENUPARTS = MENUPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_BARBACKGROUND: MENUPARTS = MENUPARTS(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_BARITEM: MENUPARTS = MENUPARTS(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_POPUPBACKGROUND: MENUPARTS = MENUPARTS(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_POPUPBORDERS: MENUPARTS = MENUPARTS(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_POPUPCHECK: MENUPARTS = MENUPARTS(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_POPUPCHECKBACKGROUND: MENUPARTS = MENUPARTS(12i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_POPUPGUTTER: MENUPARTS = MENUPARTS(13i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_POPUPITEM: MENUPARTS = MENUPARTS(14i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_POPUPSEPARATOR: MENUPARTS = MENUPARTS(15i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_POPUPSUBMENU: MENUPARTS = MENUPARTS(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_SYSTEMCLOSE: MENUPARTS = MENUPARTS(17i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_SYSTEMMAXIMIZE: MENUPARTS = MENUPARTS(18i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_SYSTEMMINIMIZE: MENUPARTS = MENUPARTS(19i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_SYSTEMRESTORE: MENUPARTS = MENUPARTS(20i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_SYSTEMCLOSE_HCHOT: MENUPARTS = MENUPARTS(22i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_SYSTEMMAXIMIZE_HCHOT: MENUPARTS = MENUPARTS(23i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_SYSTEMMINIMIZE_HCHOT: MENUPARTS = MENUPARTS(24i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_SYSTEMRESTORE_HCHOT: MENUPARTS = MENUPARTS(25i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_POPUPITEMKBFOCUS: MENUPARTS = MENUPARTS(26i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_POPUPITEM_FOCUSABLE: MENUPARTS = MENUPARTS(27i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MENU_POPUPSUBMENU_HCHOT: MENUPARTS = MENUPARTS(21i32);
 impl ::core::marker::Copy for MENUPARTS {}
 impl ::core::clone::Clone for MENUPARTS {
     fn clone(&self) -> Self {
@@ -13734,14 +15880,6 @@ impl ::core::fmt::Debug for MENUPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MINBUTTONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MINBS_NORMAL: MINBUTTONSTATES = MINBUTTONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MINBS_HOT: MINBUTTONSTATES = MINBUTTONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MINBS_PUSHED: MINBUTTONSTATES = MINBUTTONSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MINBS_DISABLED: MINBUTTONSTATES = MINBUTTONSTATES(4i32);
 impl ::core::marker::Copy for MINBUTTONSTATES {}
 impl ::core::clone::Clone for MINBUTTONSTATES {
     fn clone(&self) -> Self {
@@ -13765,12 +15903,6 @@ impl ::core::fmt::Debug for MINBUTTONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MINCAPTIONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MNCS_ACTIVE: MINCAPTIONSTATES = MINCAPTIONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MNCS_INACTIVE: MINCAPTIONSTATES = MINCAPTIONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MNCS_DISABLED: MINCAPTIONSTATES = MINCAPTIONSTATES(3i32);
 impl ::core::marker::Copy for MINCAPTIONSTATES {}
 impl ::core::clone::Clone for MINCAPTIONSTATES {
     fn clone(&self) -> Self {
@@ -13794,28 +15926,6 @@ impl ::core::fmt::Debug for MINCAPTIONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MONTHCALPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MC_BACKGROUND: MONTHCALPARTS = MONTHCALPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MC_BORDERS: MONTHCALPARTS = MONTHCALPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MC_GRIDBACKGROUND: MONTHCALPARTS = MONTHCALPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MC_COLHEADERSPLITTER: MONTHCALPARTS = MONTHCALPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MC_GRIDCELLBACKGROUND: MONTHCALPARTS = MONTHCALPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MC_GRIDCELL: MONTHCALPARTS = MONTHCALPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MC_GRIDCELLUPPER: MONTHCALPARTS = MONTHCALPARTS(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MC_TRAILINGGRIDCELL: MONTHCALPARTS = MONTHCALPARTS(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MC_TRAILINGGRIDCELLUPPER: MONTHCALPARTS = MONTHCALPARTS(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MC_NAVNEXT: MONTHCALPARTS = MONTHCALPARTS(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MC_NAVPREV: MONTHCALPARTS = MONTHCALPARTS(11i32);
 impl ::core::marker::Copy for MONTHCALPARTS {}
 impl ::core::clone::Clone for MONTHCALPARTS {
     fn clone(&self) -> Self {
@@ -13839,16 +15949,6 @@ impl ::core::fmt::Debug for MONTHCALPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MONTH_CALDENDAR_MESSAGES_VIEW(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCMV_MONTH: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCMV_YEAR: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCMV_DECADE: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCMV_CENTURY: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(3u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCMV_MAX: MONTH_CALDENDAR_MESSAGES_VIEW = MONTH_CALDENDAR_MESSAGES_VIEW(3u32);
 impl ::core::marker::Copy for MONTH_CALDENDAR_MESSAGES_VIEW {}
 impl ::core::clone::Clone for MONTH_CALDENDAR_MESSAGES_VIEW {
     fn clone(&self) -> Self {
@@ -13872,12 +15972,6 @@ impl ::core::fmt::Debug for MONTH_CALDENDAR_MESSAGES_VIEW {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MOREPROGRAMSARROWBACKSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPSB_NORMAL: MOREPROGRAMSARROWBACKSTATES = MOREPROGRAMSARROWBACKSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPSB_HOT: MOREPROGRAMSARROWBACKSTATES = MOREPROGRAMSARROWBACKSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPSB_PRESSED: MOREPROGRAMSARROWBACKSTATES = MOREPROGRAMSARROWBACKSTATES(3i32);
 impl ::core::marker::Copy for MOREPROGRAMSARROWBACKSTATES {}
 impl ::core::clone::Clone for MOREPROGRAMSARROWBACKSTATES {
     fn clone(&self) -> Self {
@@ -13901,12 +15995,6 @@ impl ::core::fmt::Debug for MOREPROGRAMSARROWBACKSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MOREPROGRAMSARROWSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPS_NORMAL: MOREPROGRAMSARROWSTATES = MOREPROGRAMSARROWSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPS_HOT: MOREPROGRAMSARROWSTATES = MOREPROGRAMSARROWSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPS_PRESSED: MOREPROGRAMSARROWSTATES = MOREPROGRAMSARROWSTATES(3i32);
 impl ::core::marker::Copy for MOREPROGRAMSARROWSTATES {}
 impl ::core::clone::Clone for MOREPROGRAMSARROWSTATES {
     fn clone(&self) -> Self {
@@ -13930,16 +16018,6 @@ impl ::core::fmt::Debug for MOREPROGRAMSARROWSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MOREPROGRAMSTABSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPMPT_NORMAL: MOREPROGRAMSTABSTATES = MOREPROGRAMSTABSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPMPT_HOT: MOREPROGRAMSTABSTATES = MOREPROGRAMSTABSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPMPT_SELECTED: MOREPROGRAMSTABSTATES = MOREPROGRAMSTABSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPMPT_DISABLED: MOREPROGRAMSTABSTATES = MOREPROGRAMSTABSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPMPT_FOCUSED: MOREPROGRAMSTABSTATES = MOREPROGRAMSTABSTATES(5i32);
 impl ::core::marker::Copy for MOREPROGRAMSTABSTATES {}
 impl ::core::clone::Clone for MOREPROGRAMSTABSTATES {
     fn clone(&self) -> Self {
@@ -13963,10 +16041,6 @@ impl ::core::fmt::Debug for MOREPROGRAMSTABSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MOVESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DDMOVE_HIGHLIGHT: MOVESTATES = MOVESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DDMOVE_NOHIGHLIGHT: MOVESTATES = MOVESTATES(2i32);
 impl ::core::marker::Copy for MOVESTATES {}
 impl ::core::clone::Clone for MOVESTATES {
     fn clone(&self) -> Self {
@@ -13990,12 +16064,6 @@ impl ::core::fmt::Debug for MOVESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NAVIGATIONPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const NAV_BACKBUTTON: NAVIGATIONPARTS = NAVIGATIONPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const NAV_FORWARDBUTTON: NAVIGATIONPARTS = NAVIGATIONPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const NAV_MENUBUTTON: NAVIGATIONPARTS = NAVIGATIONPARTS(3i32);
 impl ::core::marker::Copy for NAVIGATIONPARTS {}
 impl ::core::clone::Clone for NAVIGATIONPARTS {
     fn clone(&self) -> Self {
@@ -14019,14 +16087,6 @@ impl ::core::fmt::Debug for NAVIGATIONPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NAVNEXTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCNN_NORMAL: NAVNEXTSTATES = NAVNEXTSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCNN_HOT: NAVNEXTSTATES = NAVNEXTSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCNN_PRESSED: NAVNEXTSTATES = NAVNEXTSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCNN_DISABLED: NAVNEXTSTATES = NAVNEXTSTATES(4i32);
 impl ::core::marker::Copy for NAVNEXTSTATES {}
 impl ::core::clone::Clone for NAVNEXTSTATES {
     fn clone(&self) -> Self {
@@ -14050,14 +16110,6 @@ impl ::core::fmt::Debug for NAVNEXTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NAVPREVSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCNP_NORMAL: NAVPREVSTATES = NAVPREVSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCNP_HOT: NAVPREVSTATES = NAVPREVSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCNP_PRESSED: NAVPREVSTATES = NAVPREVSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCNP_DISABLED: NAVPREVSTATES = NAVPREVSTATES(4i32);
 impl ::core::marker::Copy for NAVPREVSTATES {}
 impl ::core::clone::Clone for NAVPREVSTATES {
     fn clone(&self) -> Self {
@@ -14081,14 +16133,6 @@ impl ::core::fmt::Debug for NAVPREVSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NAV_BACKBUTTONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const NAV_BB_NORMAL: NAV_BACKBUTTONSTATES = NAV_BACKBUTTONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const NAV_BB_HOT: NAV_BACKBUTTONSTATES = NAV_BACKBUTTONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const NAV_BB_PRESSED: NAV_BACKBUTTONSTATES = NAV_BACKBUTTONSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const NAV_BB_DISABLED: NAV_BACKBUTTONSTATES = NAV_BACKBUTTONSTATES(4i32);
 impl ::core::marker::Copy for NAV_BACKBUTTONSTATES {}
 impl ::core::clone::Clone for NAV_BACKBUTTONSTATES {
     fn clone(&self) -> Self {
@@ -14112,14 +16156,6 @@ impl ::core::fmt::Debug for NAV_BACKBUTTONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NAV_FORWARDBUTTONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const NAV_FB_NORMAL: NAV_FORWARDBUTTONSTATES = NAV_FORWARDBUTTONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const NAV_FB_HOT: NAV_FORWARDBUTTONSTATES = NAV_FORWARDBUTTONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const NAV_FB_PRESSED: NAV_FORWARDBUTTONSTATES = NAV_FORWARDBUTTONSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const NAV_FB_DISABLED: NAV_FORWARDBUTTONSTATES = NAV_FORWARDBUTTONSTATES(4i32);
 impl ::core::marker::Copy for NAV_FORWARDBUTTONSTATES {}
 impl ::core::clone::Clone for NAV_FORWARDBUTTONSTATES {
     fn clone(&self) -> Self {
@@ -14143,14 +16179,6 @@ impl ::core::fmt::Debug for NAV_FORWARDBUTTONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NAV_MENUBUTTONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const NAV_MB_NORMAL: NAV_MENUBUTTONSTATES = NAV_MENUBUTTONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const NAV_MB_HOT: NAV_MENUBUTTONSTATES = NAV_MENUBUTTONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const NAV_MB_PRESSED: NAV_MENUBUTTONSTATES = NAV_MENUBUTTONSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const NAV_MB_DISABLED: NAV_MENUBUTTONSTATES = NAV_MENUBUTTONSTATES(4i32);
 impl ::core::marker::Copy for NAV_MENUBUTTONSTATES {}
 impl ::core::clone::Clone for NAV_MENUBUTTONSTATES {
     fn clone(&self) -> Self {
@@ -14174,22 +16202,6 @@ impl ::core::fmt::Debug for NAV_MENUBUTTONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMCUSTOMDRAW_DRAW_STAGE(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDDS_POSTPAINT: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDDS_PREERASE: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(3u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDDS_PREPAINT: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDDS_ITEMPOSTERASE: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(65540u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDDS_ITEMPOSTPAINT: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(65538u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDDS_ITEMPREERASE: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(65539u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDDS_ITEMPREPAINT: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(65537u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDDS_SUBITEM: NMCUSTOMDRAW_DRAW_STAGE = NMCUSTOMDRAW_DRAW_STAGE(131072u32);
 impl ::core::marker::Copy for NMCUSTOMDRAW_DRAW_STAGE {}
 impl ::core::clone::Clone for NMCUSTOMDRAW_DRAW_STAGE {
     fn clone(&self) -> Self {
@@ -14213,32 +16225,6 @@ impl ::core::fmt::Debug for NMCUSTOMDRAW_DRAW_STAGE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMCUSTOMDRAW_DRAW_STATE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_SELECTED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_GRAYED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_DISABLED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_CHECKED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_FOCUS: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_DEFAULT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_HOT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_MARKED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_INDETERMINATE: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_SHOWKEYBOARDCUES: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_NEARHOT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_OTHERSIDEHOT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CDIS_DROPHILITED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = NMCUSTOMDRAW_DRAW_STATE_FLAGS(4096u32);
 impl ::core::marker::Copy for NMCUSTOMDRAW_DRAW_STATE_FLAGS {}
 impl ::core::clone::Clone for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
     fn clone(&self) -> Self {
@@ -14295,10 +16281,6 @@ impl ::core::ops::Not for NMCUSTOMDRAW_DRAW_STATE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMDATETIMECHANGE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const GDT_NONE: NMDATETIMECHANGE_FLAGS = NMDATETIMECHANGE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const GDT_VALID: NMDATETIMECHANGE_FLAGS = NMDATETIMECHANGE_FLAGS(0u32);
 impl ::core::marker::Copy for NMDATETIMECHANGE_FLAGS {}
 impl ::core::clone::Clone for NMDATETIMECHANGE_FLAGS {
     fn clone(&self) -> Self {
@@ -14322,12 +16304,6 @@ impl ::core::fmt::Debug for NMDATETIMECHANGE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMLVCUSTOMDRAW_ITEM_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCDI_ITEM: NMLVCUSTOMDRAW_ITEM_TYPE = NMLVCUSTOMDRAW_ITEM_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCDI_GROUP: NMLVCUSTOMDRAW_ITEM_TYPE = NMLVCUSTOMDRAW_ITEM_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVCDI_ITEMSLIST: NMLVCUSTOMDRAW_ITEM_TYPE = NMLVCUSTOMDRAW_ITEM_TYPE(2u32);
 impl ::core::marker::Copy for NMLVCUSTOMDRAW_ITEM_TYPE {}
 impl ::core::clone::Clone for NMLVCUSTOMDRAW_ITEM_TYPE {
     fn clone(&self) -> Self {
@@ -14351,8 +16327,6 @@ impl ::core::fmt::Debug for NMLVCUSTOMDRAW_ITEM_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMLVEMPTYMARKUP_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EMF_CENTERED: NMLVEMPTYMARKUP_FLAGS = NMLVEMPTYMARKUP_FLAGS(1u32);
 impl ::core::marker::Copy for NMLVEMPTYMARKUP_FLAGS {}
 impl ::core::clone::Clone for NMLVEMPTYMARKUP_FLAGS {
     fn clone(&self) -> Self {
@@ -14376,10 +16350,6 @@ impl ::core::fmt::Debug for NMLVEMPTYMARKUP_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMLVGETINFOTIP_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGIT_UNFOLDED: NMLVGETINFOTIP_FLAGS = NMLVGETINFOTIP_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LVGIT_ZERO: NMLVGETINFOTIP_FLAGS = NMLVGETINFOTIP_FLAGS(0u32);
 impl ::core::marker::Copy for NMLVGETINFOTIP_FLAGS {}
 impl ::core::clone::Clone for NMLVGETINFOTIP_FLAGS {
     fn clone(&self) -> Self {
@@ -14403,10 +16373,6 @@ impl ::core::fmt::Debug for NMLVGETINFOTIP_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMPGCALCSIZE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PGF_CALCHEIGHT: NMPGCALCSIZE_FLAGS = NMPGCALCSIZE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PGF_CALCWIDTH: NMPGCALCSIZE_FLAGS = NMPGCALCSIZE_FLAGS(1u32);
 impl ::core::marker::Copy for NMPGCALCSIZE_FLAGS {}
 impl ::core::clone::Clone for NMPGCALCSIZE_FLAGS {
     fn clone(&self) -> Self {
@@ -14430,14 +16396,6 @@ impl ::core::fmt::Debug for NMPGCALCSIZE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMPGSCROLL_DIR(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PGF_SCROLLDOWN: NMPGSCROLL_DIR = NMPGSCROLL_DIR(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PGF_SCROLLLEFT: NMPGSCROLL_DIR = NMPGSCROLL_DIR(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PGF_SCROLLRIGHT: NMPGSCROLL_DIR = NMPGSCROLL_DIR(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PGF_SCROLLUP: NMPGSCROLL_DIR = NMPGSCROLL_DIR(1i32);
 impl ::core::marker::Copy for NMPGSCROLL_DIR {}
 impl ::core::clone::Clone for NMPGSCROLL_DIR {
     fn clone(&self) -> Self {
@@ -14461,14 +16419,6 @@ impl ::core::fmt::Debug for NMPGSCROLL_DIR {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMPGSCROLL_KEYS(pub u16);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PGK_NONE: NMPGSCROLL_KEYS = NMPGSCROLL_KEYS(0u16);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PGK_SHIFT: NMPGSCROLL_KEYS = NMPGSCROLL_KEYS(1u16);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PGK_CONTROL: NMPGSCROLL_KEYS = NMPGSCROLL_KEYS(2u16);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PGK_MENU: NMPGSCROLL_KEYS = NMPGSCROLL_KEYS(4u16);
 impl ::core::marker::Copy for NMPGSCROLL_KEYS {}
 impl ::core::clone::Clone for NMPGSCROLL_KEYS {
     fn clone(&self) -> Self {
@@ -14525,12 +16475,6 @@ impl ::core::ops::Not for NMPGSCROLL_KEYS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMREBAR_MASK_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RBNM_ID: NMREBAR_MASK_FLAGS = NMREBAR_MASK_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RBNM_LPARAM: NMREBAR_MASK_FLAGS = NMREBAR_MASK_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RBNM_STYLE: NMREBAR_MASK_FLAGS = NMREBAR_MASK_FLAGS(2u32);
 impl ::core::marker::Copy for NMREBAR_MASK_FLAGS {}
 impl ::core::clone::Clone for NMREBAR_MASK_FLAGS {
     fn clone(&self) -> Self {
@@ -14587,12 +16531,6 @@ impl ::core::ops::Not for NMREBAR_MASK_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMTBDISPINFOW_MASK(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBNF_IMAGE: NMTBDISPINFOW_MASK = NMTBDISPINFOW_MASK(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBNF_TEXT: NMTBDISPINFOW_MASK = NMTBDISPINFOW_MASK(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBNF_DI_SETITEM: NMTBDISPINFOW_MASK = NMTBDISPINFOW_MASK(268435456u32);
 impl ::core::marker::Copy for NMTBDISPINFOW_MASK {}
 impl ::core::clone::Clone for NMTBDISPINFOW_MASK {
     fn clone(&self) -> Self {
@@ -14649,26 +16587,6 @@ impl ::core::ops::Not for NMTBDISPINFOW_MASK {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NMTBHOTITEM_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HICF_ACCELERATOR: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HICF_ARROWKEYS: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HICF_DUPACCEL: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HICF_ENTERING: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HICF_LEAVING: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HICF_LMOUSE: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HICF_MOUSE: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HICF_OTHER: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HICF_RESELECT: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const HICF_TOGGLEDROPDOWN: NMTBHOTITEM_FLAGS = NMTBHOTITEM_FLAGS(256u32);
 impl ::core::marker::Copy for NMTBHOTITEM_FLAGS {}
 impl ::core::clone::Clone for NMTBHOTITEM_FLAGS {
     fn clone(&self) -> Self {
@@ -14725,22 +16643,6 @@ impl ::core::ops::Not for NMTBHOTITEM_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NM_TREEVIEW_ACTION(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVE_COLLAPSE: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVE_EXPAND: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVE_TOGGLE: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(3u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVE_EXPANDPARTIAL: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(16384u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVE_COLLAPSERESET: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(32768u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVC_UNKNOWN: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVC_BYMOUSE: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVC_BYKEYBOARD: NM_TREEVIEW_ACTION = NM_TREEVIEW_ACTION(2u32);
 impl ::core::marker::Copy for NM_TREEVIEW_ACTION {}
 impl ::core::clone::Clone for NM_TREEVIEW_ACTION {
     fn clone(&self) -> Self {
@@ -14797,10 +16699,6 @@ impl ::core::ops::Not for NM_TREEVIEW_ACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NONESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DDNONE_HIGHLIGHT: NONESTATES = NONESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DDNONE_NOHIGHLIGHT: NONESTATES = NONESTATES(2i32);
 impl ::core::marker::Copy for NONESTATES {}
 impl ::core::clone::Clone for NONESTATES {
     fn clone(&self) -> Self {
@@ -14824,12 +16722,6 @@ impl ::core::fmt::Debug for NONESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NORMALGROUPCOLLAPSESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBNGC_NORMAL: NORMALGROUPCOLLAPSESTATES = NORMALGROUPCOLLAPSESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBNGC_HOT: NORMALGROUPCOLLAPSESTATES = NORMALGROUPCOLLAPSESTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBNGC_PRESSED: NORMALGROUPCOLLAPSESTATES = NORMALGROUPCOLLAPSESTATES(3i32);
 impl ::core::marker::Copy for NORMALGROUPCOLLAPSESTATES {}
 impl ::core::clone::Clone for NORMALGROUPCOLLAPSESTATES {
     fn clone(&self) -> Self {
@@ -14853,12 +16745,6 @@ impl ::core::fmt::Debug for NORMALGROUPCOLLAPSESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NORMALGROUPEXPANDSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBNGE_NORMAL: NORMALGROUPEXPANDSTATES = NORMALGROUPEXPANDSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBNGE_HOT: NORMALGROUPEXPANDSTATES = NORMALGROUPEXPANDSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBNGE_PRESSED: NORMALGROUPEXPANDSTATES = NORMALGROUPEXPANDSTATES(3i32);
 impl ::core::marker::Copy for NORMALGROUPEXPANDSTATES {}
 impl ::core::clone::Clone for NORMALGROUPEXPANDSTATES {
     fn clone(&self) -> Self {
@@ -14882,12 +16768,6 @@ impl ::core::fmt::Debug for NORMALGROUPEXPANDSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ODA_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ODA_DRAWENTIRE: ODA_FLAGS = ODA_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ODA_SELECT: ODA_FLAGS = ODA_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ODA_FOCUS: ODA_FLAGS = ODA_FLAGS(4u32);
 impl ::core::marker::Copy for ODA_FLAGS {}
 impl ::core::clone::Clone for ODA_FLAGS {
     fn clone(&self) -> Self {
@@ -14911,28 +16791,6 @@ impl ::core::fmt::Debug for ODA_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ODS_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ODS_SELECTED: ODS_FLAGS = ODS_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ODS_GRAYED: ODS_FLAGS = ODS_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ODS_DISABLED: ODS_FLAGS = ODS_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ODS_CHECKED: ODS_FLAGS = ODS_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ODS_FOCUS: ODS_FLAGS = ODS_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ODS_DEFAULT: ODS_FLAGS = ODS_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ODS_COMBOBOXEDIT: ODS_FLAGS = ODS_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ODS_HOTLIGHT: ODS_FLAGS = ODS_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ODS_INACTIVE: ODS_FLAGS = ODS_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ODS_NOACCEL: ODS_FLAGS = ODS_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ODS_NOFOCUSRECT: ODS_FLAGS = ODS_FLAGS(512u32);
 impl ::core::marker::Copy for ODS_FLAGS {}
 impl ::core::clone::Clone for ODS_FLAGS {
     fn clone(&self) -> Self {
@@ -14956,34 +16814,6 @@ impl ::core::fmt::Debug for ODS_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFSETTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const OT_TOPLEFT: OFFSETTYPE = OFFSETTYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const OT_TOPRIGHT: OFFSETTYPE = OFFSETTYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const OT_TOPMIDDLE: OFFSETTYPE = OFFSETTYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const OT_BOTTOMLEFT: OFFSETTYPE = OFFSETTYPE(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const OT_BOTTOMRIGHT: OFFSETTYPE = OFFSETTYPE(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const OT_BOTTOMMIDDLE: OFFSETTYPE = OFFSETTYPE(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const OT_MIDDLELEFT: OFFSETTYPE = OFFSETTYPE(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const OT_MIDDLERIGHT: OFFSETTYPE = OFFSETTYPE(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const OT_LEFTOFCAPTION: OFFSETTYPE = OFFSETTYPE(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const OT_RIGHTOFCAPTION: OFFSETTYPE = OFFSETTYPE(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const OT_LEFTOFLASTBUTTON: OFFSETTYPE = OFFSETTYPE(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const OT_RIGHTOFLASTBUTTON: OFFSETTYPE = OFFSETTYPE(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const OT_ABOVELASTBUTTON: OFFSETTYPE = OFFSETTYPE(12i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const OT_BELOWLASTBUTTON: OFFSETTYPE = OFFSETTYPE(13i32);
 impl ::core::marker::Copy for OFFSETTYPE {}
 impl ::core::clone::Clone for OFFSETTYPE {
     fn clone(&self) -> Self {
@@ -15007,16 +16837,6 @@ impl ::core::fmt::Debug for OFFSETTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPENBOXSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPOB_NORMAL: OPENBOXSTATES = OPENBOXSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPOB_HOT: OPENBOXSTATES = OPENBOXSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPOB_SELECTED: OPENBOXSTATES = OPENBOXSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPOB_DISABLED: OPENBOXSTATES = OPENBOXSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPOB_FOCUSED: OPENBOXSTATES = OPENBOXSTATES(5i32);
 impl ::core::marker::Copy for OPENBOXSTATES {}
 impl ::core::clone::Clone for OPENBOXSTATES {
     fn clone(&self) -> Self {
@@ -15040,10 +16860,6 @@ impl ::core::fmt::Debug for OPENBOXSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OPEN_THEME_DATA_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const OTD_FORCE_RECT_SIZING: OPEN_THEME_DATA_FLAGS = OPEN_THEME_DATA_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const OTD_NONCLIENT: OPEN_THEME_DATA_FLAGS = OPEN_THEME_DATA_FLAGS(2u32);
 impl ::core::marker::Copy for OPEN_THEME_DATA_FLAGS {}
 impl ::core::clone::Clone for OPEN_THEME_DATA_FLAGS {
     fn clone(&self) -> Self {
@@ -15100,14 +16916,6 @@ impl ::core::ops::Not for OPEN_THEME_DATA_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PAGEPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PGRP_UP: PAGEPARTS = PAGEPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PGRP_DOWN: PAGEPARTS = PAGEPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PGRP_UPHORZ: PAGEPARTS = PAGEPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PGRP_DOWNHORZ: PAGEPARTS = PAGEPARTS(4i32);
 impl ::core::marker::Copy for PAGEPARTS {}
 impl ::core::clone::Clone for PAGEPARTS {
     fn clone(&self) -> Self {
@@ -15131,14 +16939,6 @@ impl ::core::fmt::Debug for PAGEPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POINTER_DEVICE_CURSOR_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const POINTER_DEVICE_CURSOR_TYPE_UNKNOWN: POINTER_DEVICE_CURSOR_TYPE = POINTER_DEVICE_CURSOR_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const POINTER_DEVICE_CURSOR_TYPE_TIP: POINTER_DEVICE_CURSOR_TYPE = POINTER_DEVICE_CURSOR_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const POINTER_DEVICE_CURSOR_TYPE_ERASER: POINTER_DEVICE_CURSOR_TYPE = POINTER_DEVICE_CURSOR_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const POINTER_DEVICE_CURSOR_TYPE_MAX: POINTER_DEVICE_CURSOR_TYPE = POINTER_DEVICE_CURSOR_TYPE(-1i32);
 impl ::core::marker::Copy for POINTER_DEVICE_CURSOR_TYPE {}
 impl ::core::clone::Clone for POINTER_DEVICE_CURSOR_TYPE {
     fn clone(&self) -> Self {
@@ -15162,16 +16962,6 @@ impl ::core::fmt::Debug for POINTER_DEVICE_CURSOR_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POINTER_DEVICE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const POINTER_DEVICE_TYPE_INTEGRATED_PEN: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const POINTER_DEVICE_TYPE_EXTERNAL_PEN: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const POINTER_DEVICE_TYPE_TOUCH: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const POINTER_DEVICE_TYPE_TOUCH_PAD: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const POINTER_DEVICE_TYPE_MAX: POINTER_DEVICE_TYPE = POINTER_DEVICE_TYPE(-1i32);
 impl ::core::marker::Copy for POINTER_DEVICE_TYPE {}
 impl ::core::clone::Clone for POINTER_DEVICE_TYPE {
     fn clone(&self) -> Self {
@@ -15195,12 +16985,6 @@ impl ::core::fmt::Debug for POINTER_DEVICE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POINTER_FEEDBACK_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const POINTER_FEEDBACK_DEFAULT: POINTER_FEEDBACK_MODE = POINTER_FEEDBACK_MODE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const POINTER_FEEDBACK_INDIRECT: POINTER_FEEDBACK_MODE = POINTER_FEEDBACK_MODE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const POINTER_FEEDBACK_NONE: POINTER_FEEDBACK_MODE = POINTER_FEEDBACK_MODE(3i32);
 impl ::core::marker::Copy for POINTER_FEEDBACK_MODE {}
 impl ::core::clone::Clone for POINTER_FEEDBACK_MODE {
     fn clone(&self) -> Self {
@@ -15224,12 +17008,6 @@ impl ::core::fmt::Debug for POINTER_FEEDBACK_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POPUPCHECKBACKGROUNDSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCB_DISABLED: POPUPCHECKBACKGROUNDSTATES = POPUPCHECKBACKGROUNDSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCB_NORMAL: POPUPCHECKBACKGROUNDSTATES = POPUPCHECKBACKGROUNDSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCB_BITMAP: POPUPCHECKBACKGROUNDSTATES = POPUPCHECKBACKGROUNDSTATES(3i32);
 impl ::core::marker::Copy for POPUPCHECKBACKGROUNDSTATES {}
 impl ::core::clone::Clone for POPUPCHECKBACKGROUNDSTATES {
     fn clone(&self) -> Self {
@@ -15253,14 +17031,6 @@ impl ::core::fmt::Debug for POPUPCHECKBACKGROUNDSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POPUPCHECKSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MC_CHECKMARKNORMAL: POPUPCHECKSTATES = POPUPCHECKSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MC_CHECKMARKDISABLED: POPUPCHECKSTATES = POPUPCHECKSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MC_BULLETNORMAL: POPUPCHECKSTATES = POPUPCHECKSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MC_BULLETDISABLED: POPUPCHECKSTATES = POPUPCHECKSTATES(4i32);
 impl ::core::marker::Copy for POPUPCHECKSTATES {}
 impl ::core::clone::Clone for POPUPCHECKSTATES {
     fn clone(&self) -> Self {
@@ -15284,14 +17054,6 @@ impl ::core::fmt::Debug for POPUPCHECKSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POPUPITEMFOCUSABLESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MPIF_NORMAL: POPUPITEMFOCUSABLESTATES = POPUPITEMFOCUSABLESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MPIF_HOT: POPUPITEMFOCUSABLESTATES = POPUPITEMFOCUSABLESTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MPIF_DISABLED: POPUPITEMFOCUSABLESTATES = POPUPITEMFOCUSABLESTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MPIF_DISABLEDHOT: POPUPITEMFOCUSABLESTATES = POPUPITEMFOCUSABLESTATES(4i32);
 impl ::core::marker::Copy for POPUPITEMFOCUSABLESTATES {}
 impl ::core::clone::Clone for POPUPITEMFOCUSABLESTATES {
     fn clone(&self) -> Self {
@@ -15315,8 +17077,6 @@ impl ::core::fmt::Debug for POPUPITEMFOCUSABLESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POPUPITEMKBFOCUSSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MPIKBFOCUS_NORMAL: POPUPITEMKBFOCUSSTATES = POPUPITEMKBFOCUSSTATES(1i32);
 impl ::core::marker::Copy for POPUPITEMKBFOCUSSTATES {}
 impl ::core::clone::Clone for POPUPITEMKBFOCUSSTATES {
     fn clone(&self) -> Self {
@@ -15340,14 +17100,6 @@ impl ::core::fmt::Debug for POPUPITEMKBFOCUSSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POPUPITEMSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MPI_NORMAL: POPUPITEMSTATES = POPUPITEMSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MPI_HOT: POPUPITEMSTATES = POPUPITEMSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MPI_DISABLED: POPUPITEMSTATES = POPUPITEMSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MPI_DISABLEDHOT: POPUPITEMSTATES = POPUPITEMSTATES(4i32);
 impl ::core::marker::Copy for POPUPITEMSTATES {}
 impl ::core::clone::Clone for POPUPITEMSTATES {
     fn clone(&self) -> Self {
@@ -15371,8 +17123,6 @@ impl ::core::fmt::Debug for POPUPITEMSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POPUPSUBMENUHCHOTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MSMHC_HOT: POPUPSUBMENUHCHOTSTATES = POPUPSUBMENUHCHOTSTATES(1i32);
 impl ::core::marker::Copy for POPUPSUBMENUHCHOTSTATES {}
 impl ::core::clone::Clone for POPUPSUBMENUHCHOTSTATES {
     fn clone(&self) -> Self {
@@ -15396,10 +17146,6 @@ impl ::core::fmt::Debug for POPUPSUBMENUHCHOTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POPUPSUBMENUSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MSM_NORMAL: POPUPSUBMENUSTATES = POPUPSUBMENUSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MSM_DISABLED: POPUPSUBMENUSTATES = POPUPSUBMENUSTATES(2i32);
 impl ::core::marker::Copy for POPUPSUBMENUSTATES {}
 impl ::core::clone::Clone for POPUPSUBMENUSTATES {
     fn clone(&self) -> Self {
@@ -15423,30 +17169,6 @@ impl ::core::fmt::Debug for POPUPSUBMENUSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROGRESSPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PP_BAR: PROGRESSPARTS = PROGRESSPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PP_BARVERT: PROGRESSPARTS = PROGRESSPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PP_CHUNK: PROGRESSPARTS = PROGRESSPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PP_CHUNKVERT: PROGRESSPARTS = PROGRESSPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PP_FILL: PROGRESSPARTS = PROGRESSPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PP_FILLVERT: PROGRESSPARTS = PROGRESSPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PP_PULSEOVERLAY: PROGRESSPARTS = PROGRESSPARTS(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PP_MOVEOVERLAY: PROGRESSPARTS = PROGRESSPARTS(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PP_PULSEOVERLAYVERT: PROGRESSPARTS = PROGRESSPARTS(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PP_MOVEOVERLAYVERT: PROGRESSPARTS = PROGRESSPARTS(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PP_TRANSPARENTBAR: PROGRESSPARTS = PROGRESSPARTS(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PP_TRANSPARENTBARVERT: PROGRESSPARTS = PROGRESSPARTS(12i32);
 impl ::core::marker::Copy for PROGRESSPARTS {}
 impl ::core::clone::Clone for PROGRESSPARTS {
     fn clone(&self) -> Self {
@@ -15470,16 +17192,6 @@ impl ::core::fmt::Debug for PROGRESSPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPERTYORIGIN(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PO_STATE: PROPERTYORIGIN = PROPERTYORIGIN(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PO_PART: PROPERTYORIGIN = PROPERTYORIGIN(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PO_CLASS: PROPERTYORIGIN = PROPERTYORIGIN(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PO_GLOBAL: PROPERTYORIGIN = PROPERTYORIGIN(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PO_NOTFOUND: PROPERTYORIGIN = PROPERTYORIGIN(4i32);
 impl ::core::marker::Copy for PROPERTYORIGIN {}
 impl ::core::clone::Clone for PROPERTYORIGIN {
     fn clone(&self) -> Self {
@@ -15503,14 +17215,6 @@ impl ::core::fmt::Debug for PROPERTYORIGIN {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSPCB_MESSAGE(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PSPCB_ADDREF: PSPCB_MESSAGE = PSPCB_MESSAGE(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PSPCB_CREATE: PSPCB_MESSAGE = PSPCB_MESSAGE(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PSPCB_RELEASE: PSPCB_MESSAGE = PSPCB_MESSAGE(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PSPCB_SI_INITDIALOG: PSPCB_MESSAGE = PSPCB_MESSAGE(1025u32);
 impl ::core::marker::Copy for PSPCB_MESSAGE {}
 impl ::core::clone::Clone for PSPCB_MESSAGE {
     fn clone(&self) -> Self {
@@ -15534,10 +17238,6 @@ impl ::core::fmt::Debug for PSPCB_MESSAGE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PUSHBUTTONDROPDOWNSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PBDDS_NORMAL: PUSHBUTTONDROPDOWNSTATES = PUSHBUTTONDROPDOWNSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PBDDS_DISABLED: PUSHBUTTONDROPDOWNSTATES = PUSHBUTTONDROPDOWNSTATES(2i32);
 impl ::core::marker::Copy for PUSHBUTTONDROPDOWNSTATES {}
 impl ::core::clone::Clone for PUSHBUTTONDROPDOWNSTATES {
     fn clone(&self) -> Self {
@@ -15561,18 +17261,6 @@ impl ::core::fmt::Debug for PUSHBUTTONDROPDOWNSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PUSHBUTTONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PBS_NORMAL: PUSHBUTTONSTATES = PUSHBUTTONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PBS_HOT: PUSHBUTTONSTATES = PUSHBUTTONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PBS_PRESSED: PUSHBUTTONSTATES = PUSHBUTTONSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PBS_DISABLED: PUSHBUTTONSTATES = PUSHBUTTONSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PBS_DEFAULTED: PUSHBUTTONSTATES = PUSHBUTTONSTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PBS_DEFAULTED_ANIMATING: PUSHBUTTONSTATES = PUSHBUTTONSTATES(6i32);
 impl ::core::marker::Copy for PUSHBUTTONSTATES {}
 impl ::core::clone::Clone for PUSHBUTTONSTATES {
     fn clone(&self) -> Self {
@@ -15596,22 +17284,6 @@ impl ::core::fmt::Debug for PUSHBUTTONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RADIOBUTTONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RBS_UNCHECKEDNORMAL: RADIOBUTTONSTATES = RADIOBUTTONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RBS_UNCHECKEDHOT: RADIOBUTTONSTATES = RADIOBUTTONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RBS_UNCHECKEDPRESSED: RADIOBUTTONSTATES = RADIOBUTTONSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RBS_UNCHECKEDDISABLED: RADIOBUTTONSTATES = RADIOBUTTONSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RBS_CHECKEDNORMAL: RADIOBUTTONSTATES = RADIOBUTTONSTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RBS_CHECKEDHOT: RADIOBUTTONSTATES = RADIOBUTTONSTATES(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RBS_CHECKEDPRESSED: RADIOBUTTONSTATES = RADIOBUTTONSTATES(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RBS_CHECKEDDISABLED: RADIOBUTTONSTATES = RADIOBUTTONSTATES(8i32);
 impl ::core::marker::Copy for RADIOBUTTONSTATES {}
 impl ::core::clone::Clone for RADIOBUTTONSTATES {
     fn clone(&self) -> Self {
@@ -15635,14 +17307,6 @@ impl ::core::fmt::Debug for RADIOBUTTONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct READONLYSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBRO_NORMAL: READONLYSTATES = READONLYSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBRO_HOT: READONLYSTATES = READONLYSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBRO_PRESSED: READONLYSTATES = READONLYSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBRO_DISABLED: READONLYSTATES = READONLYSTATES(4i32);
 impl ::core::marker::Copy for READONLYSTATES {}
 impl ::core::clone::Clone for READONLYSTATES {
     fn clone(&self) -> Self {
@@ -15666,22 +17330,6 @@ impl ::core::fmt::Debug for READONLYSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REBARPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RP_GRIPPER: REBARPARTS = REBARPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RP_GRIPPERVERT: REBARPARTS = REBARPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RP_BAND: REBARPARTS = REBARPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RP_CHEVRON: REBARPARTS = REBARPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RP_CHEVRONVERT: REBARPARTS = REBARPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RP_BACKGROUND: REBARPARTS = REBARPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RP_SPLITTER: REBARPARTS = REBARPARTS(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RP_SPLITTERVERT: REBARPARTS = REBARPARTS(8i32);
 impl ::core::marker::Copy for REBARPARTS {}
 impl ::core::clone::Clone for REBARPARTS {
     fn clone(&self) -> Self {
@@ -15705,14 +17353,6 @@ impl ::core::fmt::Debug for REBARPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RESTOREBUTTONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RBS_NORMAL: RESTOREBUTTONSTATES = RESTOREBUTTONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RBS_HOT: RESTOREBUTTONSTATES = RESTOREBUTTONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RBS_PUSHED: RESTOREBUTTONSTATES = RESTOREBUTTONSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const RBS_DISABLED: RESTOREBUTTONSTATES = RESTOREBUTTONSTATES(4i32);
 impl ::core::marker::Copy for RESTOREBUTTONSTATES {}
 impl ::core::clone::Clone for RESTOREBUTTONSTATES {
     fn clone(&self) -> Self {
@@ -15736,28 +17376,6 @@ impl ::core::fmt::Debug for RESTOREBUTTONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCROLLBARPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SBP_ARROWBTN: SCROLLBARPARTS = SCROLLBARPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SBP_THUMBBTNHORZ: SCROLLBARPARTS = SCROLLBARPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SBP_THUMBBTNVERT: SCROLLBARPARTS = SCROLLBARPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SBP_LOWERTRACKHORZ: SCROLLBARPARTS = SCROLLBARPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SBP_UPPERTRACKHORZ: SCROLLBARPARTS = SCROLLBARPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SBP_LOWERTRACKVERT: SCROLLBARPARTS = SCROLLBARPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SBP_UPPERTRACKVERT: SCROLLBARPARTS = SCROLLBARPARTS(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SBP_GRIPPERHORZ: SCROLLBARPARTS = SCROLLBARPARTS(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SBP_GRIPPERVERT: SCROLLBARPARTS = SCROLLBARPARTS(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SBP_SIZEBOX: SCROLLBARPARTS = SCROLLBARPARTS(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SBP_SIZEBOXBKGND: SCROLLBARPARTS = SCROLLBARPARTS(11i32);
 impl ::core::marker::Copy for SCROLLBARPARTS {}
 impl ::core::clone::Clone for SCROLLBARPARTS {
     fn clone(&self) -> Self {
@@ -15781,16 +17399,6 @@ impl ::core::fmt::Debug for SCROLLBARPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCROLLBARSTYLESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SCRBS_NORMAL: SCROLLBARSTYLESTATES = SCROLLBARSTYLESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SCRBS_HOT: SCROLLBARSTYLESTATES = SCROLLBARSTYLESTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SCRBS_PRESSED: SCROLLBARSTYLESTATES = SCROLLBARSTYLESTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SCRBS_DISABLED: SCROLLBARSTYLESTATES = SCROLLBARSTYLESTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SCRBS_HOVER: SCROLLBARSTYLESTATES = SCROLLBARSTYLESTATES(5i32);
 impl ::core::marker::Copy for SCROLLBARSTYLESTATES {}
 impl ::core::clone::Clone for SCROLLBARSTYLESTATES {
     fn clone(&self) -> Self {
@@ -15814,10 +17422,6 @@ impl ::core::fmt::Debug for SCROLLBARSTYLESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SECTIONTITLELINKSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPSTL_NORMAL: SECTIONTITLELINKSTATES = SECTIONTITLELINKSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPSTL_HOT: SECTIONTITLELINKSTATES = SECTIONTITLELINKSTATES(2i32);
 impl ::core::marker::Copy for SECTIONTITLELINKSTATES {}
 impl ::core::clone::Clone for SECTIONTITLELINKSTATES {
     fn clone(&self) -> Self {
@@ -15841,14 +17445,6 @@ impl ::core::fmt::Debug for SECTIONTITLELINKSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SET_THEME_APP_PROPERTIES_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ALLOW_NONCLIENT: SET_THEME_APP_PROPERTIES_FLAGS = SET_THEME_APP_PROPERTIES_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ALLOW_CONTROLS: SET_THEME_APP_PROPERTIES_FLAGS = SET_THEME_APP_PROPERTIES_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ALLOW_WEBCONTENT: SET_THEME_APP_PROPERTIES_FLAGS = SET_THEME_APP_PROPERTIES_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VALIDBITS: SET_THEME_APP_PROPERTIES_FLAGS = SET_THEME_APP_PROPERTIES_FLAGS(7u32);
 impl ::core::marker::Copy for SET_THEME_APP_PROPERTIES_FLAGS {}
 impl ::core::clone::Clone for SET_THEME_APP_PROPERTIES_FLAGS {
     fn clone(&self) -> Self {
@@ -15905,14 +17501,6 @@ impl ::core::ops::Not for SET_THEME_APP_PROPERTIES_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SHOWCALENDARBUTTONRIGHTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DPSCBR_NORMAL: SHOWCALENDARBUTTONRIGHTSTATES = SHOWCALENDARBUTTONRIGHTSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DPSCBR_HOT: SHOWCALENDARBUTTONRIGHTSTATES = SHOWCALENDARBUTTONRIGHTSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DPSCBR_PRESSED: SHOWCALENDARBUTTONRIGHTSTATES = SHOWCALENDARBUTTONRIGHTSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DPSCBR_DISABLED: SHOWCALENDARBUTTONRIGHTSTATES = SHOWCALENDARBUTTONRIGHTSTATES(4i32);
 impl ::core::marker::Copy for SHOWCALENDARBUTTONRIGHTSTATES {}
 impl ::core::clone::Clone for SHOWCALENDARBUTTONRIGHTSTATES {
     fn clone(&self) -> Self {
@@ -15936,22 +17524,6 @@ impl ::core::fmt::Debug for SHOWCALENDARBUTTONRIGHTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SIZEBOXSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SZB_RIGHTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SZB_LEFTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SZB_TOPRIGHTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SZB_TOPLEFTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SZB_HALFBOTTOMRIGHTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SZB_HALFBOTTOMLEFTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SZB_HALFTOPRIGHTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SZB_HALFTOPLEFTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(8i32);
 impl ::core::marker::Copy for SIZEBOXSTATES {}
 impl ::core::clone::Clone for SIZEBOXSTATES {
     fn clone(&self) -> Self {
@@ -15975,12 +17547,6 @@ impl ::core::fmt::Debug for SIZEBOXSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SIZINGTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ST_TRUESIZE: SIZINGTYPE = SIZINGTYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ST_STRETCH: SIZINGTYPE = SIZINGTYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const ST_TILE: SIZINGTYPE = SIZINGTYPE(2i32);
 impl ::core::marker::Copy for SIZINGTYPE {}
 impl ::core::clone::Clone for SIZINGTYPE {
     fn clone(&self) -> Self {
@@ -16004,12 +17570,6 @@ impl ::core::fmt::Debug for SIZINGTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SMALLCAPTIONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SCS_ACTIVE: SMALLCAPTIONSTATES = SMALLCAPTIONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SCS_INACTIVE: SMALLCAPTIONSTATES = SMALLCAPTIONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SCS_DISABLED: SMALLCAPTIONSTATES = SMALLCAPTIONSTATES(3i32);
 impl ::core::marker::Copy for SMALLCAPTIONSTATES {}
 impl ::core::clone::Clone for SMALLCAPTIONSTATES {
     fn clone(&self) -> Self {
@@ -16033,14 +17593,6 @@ impl ::core::fmt::Debug for SMALLCAPTIONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SMALLCLOSEBUTTONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SCBS_NORMAL: SMALLCLOSEBUTTONSTATES = SMALLCLOSEBUTTONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SCBS_HOT: SMALLCLOSEBUTTONSTATES = SMALLCLOSEBUTTONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SCBS_PUSHED: SMALLCLOSEBUTTONSTATES = SMALLCLOSEBUTTONSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SCBS_DISABLED: SMALLCLOSEBUTTONSTATES = SMALLCLOSEBUTTONSTATES(4i32);
 impl ::core::marker::Copy for SMALLCLOSEBUTTONSTATES {}
 impl ::core::clone::Clone for SMALLCLOSEBUTTONSTATES {
     fn clone(&self) -> Self {
@@ -16064,10 +17616,6 @@ impl ::core::fmt::Debug for SMALLCLOSEBUTTONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SMALLFRAMEBOTTOMSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SFRB_ACTIVE: SMALLFRAMEBOTTOMSTATES = SMALLFRAMEBOTTOMSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SFRB_INACTIVE: SMALLFRAMEBOTTOMSTATES = SMALLFRAMEBOTTOMSTATES(2i32);
 impl ::core::marker::Copy for SMALLFRAMEBOTTOMSTATES {}
 impl ::core::clone::Clone for SMALLFRAMEBOTTOMSTATES {
     fn clone(&self) -> Self {
@@ -16091,10 +17639,6 @@ impl ::core::fmt::Debug for SMALLFRAMEBOTTOMSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SMALLFRAMELEFTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SFRL_ACTIVE: SMALLFRAMELEFTSTATES = SMALLFRAMELEFTSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SFRL_INACTIVE: SMALLFRAMELEFTSTATES = SMALLFRAMELEFTSTATES(2i32);
 impl ::core::marker::Copy for SMALLFRAMELEFTSTATES {}
 impl ::core::clone::Clone for SMALLFRAMELEFTSTATES {
     fn clone(&self) -> Self {
@@ -16118,10 +17662,6 @@ impl ::core::fmt::Debug for SMALLFRAMELEFTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SMALLFRAMERIGHTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SFRR_ACTIVE: SMALLFRAMERIGHTSTATES = SMALLFRAMERIGHTSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SFRR_INACTIVE: SMALLFRAMERIGHTSTATES = SMALLFRAMERIGHTSTATES(2i32);
 impl ::core::marker::Copy for SMALLFRAMERIGHTSTATES {}
 impl ::core::clone::Clone for SMALLFRAMERIGHTSTATES {
     fn clone(&self) -> Self {
@@ -16145,16 +17685,6 @@ impl ::core::fmt::Debug for SMALLFRAMERIGHTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SOFTWAREEXPLORERSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPSE_NORMAL: SOFTWAREEXPLORERSTATES = SOFTWAREEXPLORERSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPSE_HOT: SOFTWAREEXPLORERSTATES = SOFTWAREEXPLORERSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPSE_SELECTED: SOFTWAREEXPLORERSTATES = SOFTWAREEXPLORERSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPSE_DISABLED: SOFTWAREEXPLORERSTATES = SOFTWAREEXPLORERSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPSE_FOCUSED: SOFTWAREEXPLORERSTATES = SOFTWAREEXPLORERSTATES(5i32);
 impl ::core::marker::Copy for SOFTWAREEXPLORERSTATES {}
 impl ::core::clone::Clone for SOFTWAREEXPLORERSTATES {
     fn clone(&self) -> Self {
@@ -16178,12 +17708,6 @@ impl ::core::fmt::Debug for SOFTWAREEXPLORERSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPECIALGROUPCOLLAPSESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBSGC_NORMAL: SPECIALGROUPCOLLAPSESTATES = SPECIALGROUPCOLLAPSESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBSGC_HOT: SPECIALGROUPCOLLAPSESTATES = SPECIALGROUPCOLLAPSESTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBSGC_PRESSED: SPECIALGROUPCOLLAPSESTATES = SPECIALGROUPCOLLAPSESTATES(3i32);
 impl ::core::marker::Copy for SPECIALGROUPCOLLAPSESTATES {}
 impl ::core::clone::Clone for SPECIALGROUPCOLLAPSESTATES {
     fn clone(&self) -> Self {
@@ -16207,12 +17731,6 @@ impl ::core::fmt::Debug for SPECIALGROUPCOLLAPSESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPECIALGROUPEXPANDSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBSGE_NORMAL: SPECIALGROUPEXPANDSTATES = SPECIALGROUPEXPANDSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBSGE_HOT: SPECIALGROUPEXPANDSTATES = SPECIALGROUPEXPANDSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const EBSGE_PRESSED: SPECIALGROUPEXPANDSTATES = SPECIALGROUPEXPANDSTATES(3i32);
 impl ::core::marker::Copy for SPECIALGROUPEXPANDSTATES {}
 impl ::core::clone::Clone for SPECIALGROUPEXPANDSTATES {
     fn clone(&self) -> Self {
@@ -16236,14 +17754,6 @@ impl ::core::fmt::Debug for SPECIALGROUPEXPANDSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPINPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPNP_UP: SPINPARTS = SPINPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPNP_DOWN: SPINPARTS = SPINPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPNP_UPHORZ: SPINPARTS = SPINPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPNP_DOWNHORZ: SPINPARTS = SPINPARTS(4i32);
 impl ::core::marker::Copy for SPINPARTS {}
 impl ::core::clone::Clone for SPINPARTS {
     fn clone(&self) -> Self {
@@ -16267,12 +17777,6 @@ impl ::core::fmt::Debug for SPINPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPLITTERSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPLITS_NORMAL: SPLITTERSTATES = SPLITTERSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPLITS_HOT: SPLITTERSTATES = SPLITTERSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPLITS_PRESSED: SPLITTERSTATES = SPLITTERSTATES(3i32);
 impl ::core::marker::Copy for SPLITTERSTATES {}
 impl ::core::clone::Clone for SPLITTERSTATES {
     fn clone(&self) -> Self {
@@ -16296,12 +17800,6 @@ impl ::core::fmt::Debug for SPLITTERSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SPLITTERVERTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPLITSV_NORMAL: SPLITTERVERTSTATES = SPLITTERVERTSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPLITSV_HOT: SPLITTERVERTSTATES = SPLITTERVERTSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPLITSV_PRESSED: SPLITTERVERTSTATES = SPLITTERVERTSTATES(3i32);
 impl ::core::marker::Copy for SPLITTERVERTSTATES {}
 impl ::core::clone::Clone for SPLITTERVERTSTATES {
     fn clone(&self) -> Self {
@@ -16325,10 +17823,6 @@ impl ::core::fmt::Debug for SPLITTERVERTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STANDARDSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTSS_NORMAL: STANDARDSTATES = STANDARDSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTSS_LINK: STANDARDSTATES = STANDARDSTATES(2i32);
 impl ::core::marker::Copy for STANDARDSTATES {}
 impl ::core::clone::Clone for STANDARDSTATES {
     fn clone(&self) -> Self {
@@ -16352,44 +17846,6 @@ impl ::core::fmt::Debug for STANDARDSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STARTPANELPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPP_USERPANE: STARTPANELPARTS = STARTPANELPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPP_MOREPROGRAMS: STARTPANELPARTS = STARTPANELPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPP_MOREPROGRAMSARROW: STARTPANELPARTS = STARTPANELPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPP_PROGLIST: STARTPANELPARTS = STARTPANELPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPP_PROGLISTSEPARATOR: STARTPANELPARTS = STARTPANELPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPP_PLACESLIST: STARTPANELPARTS = STARTPANELPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPP_PLACESLISTSEPARATOR: STARTPANELPARTS = STARTPANELPARTS(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPP_LOGOFF: STARTPANELPARTS = STARTPANELPARTS(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPP_LOGOFFBUTTONS: STARTPANELPARTS = STARTPANELPARTS(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPP_USERPICTURE: STARTPANELPARTS = STARTPANELPARTS(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPP_PREVIEW: STARTPANELPARTS = STARTPANELPARTS(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPP_MOREPROGRAMSTAB: STARTPANELPARTS = STARTPANELPARTS(12i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPP_NSCHOST: STARTPANELPARTS = STARTPANELPARTS(13i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPP_SOFTWAREEXPLORER: STARTPANELPARTS = STARTPANELPARTS(14i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPP_OPENBOX: STARTPANELPARTS = STARTPANELPARTS(15i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPP_SEARCHVIEW: STARTPANELPARTS = STARTPANELPARTS(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPP_MOREPROGRAMSARROWBACK: STARTPANELPARTS = STARTPANELPARTS(17i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPP_TOPMATCH: STARTPANELPARTS = STARTPANELPARTS(18i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SPP_LOGOFFSPLITBUTTONDROPDOWN: STARTPANELPARTS = STARTPANELPARTS(19i32);
 impl ::core::marker::Copy for STARTPANELPARTS {}
 impl ::core::clone::Clone for STARTPANELPARTS {
     fn clone(&self) -> Self {
@@ -16413,8 +17869,6 @@ impl ::core::fmt::Debug for STARTPANELPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STATICPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const STAT_TEXT: STATICPARTS = STATICPARTS(1i32);
 impl ::core::marker::Copy for STATICPARTS {}
 impl ::core::clone::Clone for STATICPARTS {
     fn clone(&self) -> Self {
@@ -16438,12 +17892,6 @@ impl ::core::fmt::Debug for STATICPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STATUSPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SP_PANE: STATUSPARTS = STATUSPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SP_GRIPPERPANE: STATUSPARTS = STATUSPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SP_GRIPPER: STATUSPARTS = STATUSPARTS(3i32);
 impl ::core::marker::Copy for STATUSPARTS {}
 impl ::core::clone::Clone for STATUSPARTS {
     fn clone(&self) -> Self {
@@ -16467,14 +17915,6 @@ impl ::core::fmt::Debug for STATUSPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSBUTTONSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SBS_NORMAL: SYSBUTTONSTATES = SYSBUTTONSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SBS_HOT: SYSBUTTONSTATES = SYSBUTTONSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SBS_PUSHED: SYSBUTTONSTATES = SYSBUTTONSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const SBS_DISABLED: SYSBUTTONSTATES = SYSBUTTONSTATES(4i32);
 impl ::core::marker::Copy for SYSBUTTONSTATES {}
 impl ::core::clone::Clone for SYSBUTTONSTATES {
     fn clone(&self) -> Self {
@@ -16498,8 +17938,6 @@ impl ::core::fmt::Debug for SYSBUTTONSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEMCLOSEHCHOTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MSYSCHC_HOT: SYSTEMCLOSEHCHOTSTATES = SYSTEMCLOSEHCHOTSTATES(1i32);
 impl ::core::marker::Copy for SYSTEMCLOSEHCHOTSTATES {}
 impl ::core::clone::Clone for SYSTEMCLOSEHCHOTSTATES {
     fn clone(&self) -> Self {
@@ -16523,10 +17961,6 @@ impl ::core::fmt::Debug for SYSTEMCLOSEHCHOTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEMCLOSESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MSYSC_NORMAL: SYSTEMCLOSESTATES = SYSTEMCLOSESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MSYSC_DISABLED: SYSTEMCLOSESTATES = SYSTEMCLOSESTATES(2i32);
 impl ::core::marker::Copy for SYSTEMCLOSESTATES {}
 impl ::core::clone::Clone for SYSTEMCLOSESTATES {
     fn clone(&self) -> Self {
@@ -16550,8 +17984,6 @@ impl ::core::fmt::Debug for SYSTEMCLOSESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEMMAXIMIZEHCHOTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MSYSMXHC_HOT: SYSTEMMAXIMIZEHCHOTSTATES = SYSTEMMAXIMIZEHCHOTSTATES(1i32);
 impl ::core::marker::Copy for SYSTEMMAXIMIZEHCHOTSTATES {}
 impl ::core::clone::Clone for SYSTEMMAXIMIZEHCHOTSTATES {
     fn clone(&self) -> Self {
@@ -16575,10 +18007,6 @@ impl ::core::fmt::Debug for SYSTEMMAXIMIZEHCHOTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEMMAXIMIZESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MSYSMX_NORMAL: SYSTEMMAXIMIZESTATES = SYSTEMMAXIMIZESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MSYSMX_DISABLED: SYSTEMMAXIMIZESTATES = SYSTEMMAXIMIZESTATES(2i32);
 impl ::core::marker::Copy for SYSTEMMAXIMIZESTATES {}
 impl ::core::clone::Clone for SYSTEMMAXIMIZESTATES {
     fn clone(&self) -> Self {
@@ -16602,8 +18030,6 @@ impl ::core::fmt::Debug for SYSTEMMAXIMIZESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEMMINIMIZEHCHOTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MSYSMNHC_HOT: SYSTEMMINIMIZEHCHOTSTATES = SYSTEMMINIMIZEHCHOTSTATES(1i32);
 impl ::core::marker::Copy for SYSTEMMINIMIZEHCHOTSTATES {}
 impl ::core::clone::Clone for SYSTEMMINIMIZEHCHOTSTATES {
     fn clone(&self) -> Self {
@@ -16627,10 +18053,6 @@ impl ::core::fmt::Debug for SYSTEMMINIMIZEHCHOTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEMMINIMIZESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MSYSMN_NORMAL: SYSTEMMINIMIZESTATES = SYSTEMMINIMIZESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MSYSMN_DISABLED: SYSTEMMINIMIZESTATES = SYSTEMMINIMIZESTATES(2i32);
 impl ::core::marker::Copy for SYSTEMMINIMIZESTATES {}
 impl ::core::clone::Clone for SYSTEMMINIMIZESTATES {
     fn clone(&self) -> Self {
@@ -16654,8 +18076,6 @@ impl ::core::fmt::Debug for SYSTEMMINIMIZESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEMRESTOREHCHOTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MSYSRHC_HOT: SYSTEMRESTOREHCHOTSTATES = SYSTEMRESTOREHCHOTSTATES(1i32);
 impl ::core::marker::Copy for SYSTEMRESTOREHCHOTSTATES {}
 impl ::core::clone::Clone for SYSTEMRESTOREHCHOTSTATES {
     fn clone(&self) -> Self {
@@ -16679,10 +18099,6 @@ impl ::core::fmt::Debug for SYSTEMRESTOREHCHOTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEMRESTORESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MSYSR_NORMAL: SYSTEMRESTORESTATES = SYSTEMRESTORESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MSYSR_DISABLED: SYSTEMRESTORESTATES = SYSTEMRESTORESTATES(2i32);
 impl ::core::marker::Copy for SYSTEMRESTORESTATES {}
 impl ::core::clone::Clone for SYSTEMRESTORESTATES {
     fn clone(&self) -> Self {
@@ -16706,16 +18122,6 @@ impl ::core::fmt::Debug for SYSTEMRESTORESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TABITEMBOTHEDGESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TIBES_NORMAL: TABITEMBOTHEDGESTATES = TABITEMBOTHEDGESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TIBES_HOT: TABITEMBOTHEDGESTATES = TABITEMBOTHEDGESTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TIBES_SELECTED: TABITEMBOTHEDGESTATES = TABITEMBOTHEDGESTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TIBES_DISABLED: TABITEMBOTHEDGESTATES = TABITEMBOTHEDGESTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TIBES_FOCUSED: TABITEMBOTHEDGESTATES = TABITEMBOTHEDGESTATES(5i32);
 impl ::core::marker::Copy for TABITEMBOTHEDGESTATES {}
 impl ::core::clone::Clone for TABITEMBOTHEDGESTATES {
     fn clone(&self) -> Self {
@@ -16739,16 +18145,6 @@ impl ::core::fmt::Debug for TABITEMBOTHEDGESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TABITEMLEFTEDGESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TILES_NORMAL: TABITEMLEFTEDGESTATES = TABITEMLEFTEDGESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TILES_HOT: TABITEMLEFTEDGESTATES = TABITEMLEFTEDGESTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TILES_SELECTED: TABITEMLEFTEDGESTATES = TABITEMLEFTEDGESTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TILES_DISABLED: TABITEMLEFTEDGESTATES = TABITEMLEFTEDGESTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TILES_FOCUSED: TABITEMLEFTEDGESTATES = TABITEMLEFTEDGESTATES(5i32);
 impl ::core::marker::Copy for TABITEMLEFTEDGESTATES {}
 impl ::core::clone::Clone for TABITEMLEFTEDGESTATES {
     fn clone(&self) -> Self {
@@ -16772,16 +18168,6 @@ impl ::core::fmt::Debug for TABITEMLEFTEDGESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TABITEMRIGHTEDGESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TIRES_NORMAL: TABITEMRIGHTEDGESTATES = TABITEMRIGHTEDGESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TIRES_HOT: TABITEMRIGHTEDGESTATES = TABITEMRIGHTEDGESTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TIRES_SELECTED: TABITEMRIGHTEDGESTATES = TABITEMRIGHTEDGESTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TIRES_DISABLED: TABITEMRIGHTEDGESTATES = TABITEMRIGHTEDGESTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TIRES_FOCUSED: TABITEMRIGHTEDGESTATES = TABITEMRIGHTEDGESTATES(5i32);
 impl ::core::marker::Copy for TABITEMRIGHTEDGESTATES {}
 impl ::core::clone::Clone for TABITEMRIGHTEDGESTATES {
     fn clone(&self) -> Self {
@@ -16805,16 +18191,6 @@ impl ::core::fmt::Debug for TABITEMRIGHTEDGESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TABITEMSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TIS_NORMAL: TABITEMSTATES = TABITEMSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TIS_HOT: TABITEMSTATES = TABITEMSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TIS_SELECTED: TABITEMSTATES = TABITEMSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TIS_DISABLED: TABITEMSTATES = TABITEMSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TIS_FOCUSED: TABITEMSTATES = TABITEMSTATES(5i32);
 impl ::core::marker::Copy for TABITEMSTATES {}
 impl ::core::clone::Clone for TABITEMSTATES {
     fn clone(&self) -> Self {
@@ -16838,28 +18214,6 @@ impl ::core::fmt::Debug for TABITEMSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TABPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TABP_TABITEM: TABPARTS = TABPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TABP_TABITEMLEFTEDGE: TABPARTS = TABPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TABP_TABITEMRIGHTEDGE: TABPARTS = TABPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TABP_TABITEMBOTHEDGE: TABPARTS = TABPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TABP_TOPTABITEM: TABPARTS = TABPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TABP_TOPTABITEMLEFTEDGE: TABPARTS = TABPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TABP_TOPTABITEMRIGHTEDGE: TABPARTS = TABPARTS(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TABP_TOPTABITEMBOTHEDGE: TABPARTS = TABPARTS(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TABP_PANE: TABPARTS = TABPARTS(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TABP_BODY: TABPARTS = TABPARTS(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TABP_AEROWIZARDBODY: TABPARTS = TABPARTS(11i32);
 impl ::core::marker::Copy for TABPARTS {}
 impl ::core::clone::Clone for TABPARTS {
     fn clone(&self) -> Self {
@@ -16883,12 +18237,6 @@ impl ::core::fmt::Debug for TABPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TABSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CSTB_NORMAL: TABSTATES = TABSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CSTB_HOT: TABSTATES = TABSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CSTB_SELECTED: TABSTATES = TABSTATES(3i32);
 impl ::core::marker::Copy for TABSTATES {}
 impl ::core::clone::Clone for TABSTATES {
     fn clone(&self) -> Self {
@@ -16912,10 +18260,6 @@ impl ::core::fmt::Debug for TABSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAB_CONTROL_ITEM_STATE(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TCIS_BUTTONPRESSED: TAB_CONTROL_ITEM_STATE = TAB_CONTROL_ITEM_STATE(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TCIS_HIGHLIGHTED: TAB_CONTROL_ITEM_STATE = TAB_CONTROL_ITEM_STATE(2u32);
 impl ::core::marker::Copy for TAB_CONTROL_ITEM_STATE {}
 impl ::core::clone::Clone for TAB_CONTROL_ITEM_STATE {
     fn clone(&self) -> Self {
@@ -16939,12 +18283,6 @@ impl ::core::fmt::Debug for TAB_CONTROL_ITEM_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASKBANDPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDP_GROUPCOUNT: TASKBANDPARTS = TASKBANDPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDP_FLASHBUTTON: TASKBANDPARTS = TASKBANDPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDP_FLASHBUTTONGROUPMENU: TASKBANDPARTS = TASKBANDPARTS(3i32);
 impl ::core::marker::Copy for TASKBANDPARTS {}
 impl ::core::clone::Clone for TASKBANDPARTS {
     fn clone(&self) -> Self {
@@ -16968,22 +18306,6 @@ impl ::core::fmt::Debug for TASKBANDPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASKBARPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBP_BACKGROUNDBOTTOM: TASKBARPARTS = TASKBARPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBP_BACKGROUNDRIGHT: TASKBARPARTS = TASKBARPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBP_BACKGROUNDTOP: TASKBARPARTS = TASKBARPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBP_BACKGROUNDLEFT: TASKBARPARTS = TASKBARPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBP_SIZINGBARBOTTOM: TASKBARPARTS = TASKBARPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBP_SIZINGBARRIGHT: TASKBARPARTS = TASKBARPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBP_SIZINGBARTOP: TASKBARPARTS = TASKBARPARTS(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBP_SIZINGBARLEFT: TASKBARPARTS = TASKBARPARTS(8i32);
 impl ::core::marker::Copy for TASKBARPARTS {}
 impl ::core::clone::Clone for TASKBARPARTS {
     fn clone(&self) -> Self {
@@ -17007,48 +18329,6 @@ impl ::core::fmt::Debug for TASKBARPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASKDIALOGPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLG_PRIMARYPANEL: TASKDIALOGPARTS = TASKDIALOGPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLG_MAININSTRUCTIONPANE: TASKDIALOGPARTS = TASKDIALOGPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLG_MAINICON: TASKDIALOGPARTS = TASKDIALOGPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLG_CONTENTPANE: TASKDIALOGPARTS = TASKDIALOGPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLG_CONTENTICON: TASKDIALOGPARTS = TASKDIALOGPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLG_EXPANDEDCONTENT: TASKDIALOGPARTS = TASKDIALOGPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLG_COMMANDLINKPANE: TASKDIALOGPARTS = TASKDIALOGPARTS(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLG_SECONDARYPANEL: TASKDIALOGPARTS = TASKDIALOGPARTS(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLG_CONTROLPANE: TASKDIALOGPARTS = TASKDIALOGPARTS(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLG_BUTTONSECTION: TASKDIALOGPARTS = TASKDIALOGPARTS(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLG_BUTTONWRAPPER: TASKDIALOGPARTS = TASKDIALOGPARTS(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLG_EXPANDOTEXT: TASKDIALOGPARTS = TASKDIALOGPARTS(12i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLG_EXPANDOBUTTON: TASKDIALOGPARTS = TASKDIALOGPARTS(13i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLG_VERIFICATIONTEXT: TASKDIALOGPARTS = TASKDIALOGPARTS(14i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLG_FOOTNOTEPANE: TASKDIALOGPARTS = TASKDIALOGPARTS(15i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLG_FOOTNOTEAREA: TASKDIALOGPARTS = TASKDIALOGPARTS(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLG_FOOTNOTESEPARATOR: TASKDIALOGPARTS = TASKDIALOGPARTS(17i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLG_EXPANDEDFOOTERAREA: TASKDIALOGPARTS = TASKDIALOGPARTS(18i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLG_PROGRESSBAR: TASKDIALOGPARTS = TASKDIALOGPARTS(19i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLG_IMAGEALIGNMENT: TASKDIALOGPARTS = TASKDIALOGPARTS(20i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDLG_RADIOBUTTONPANE: TASKDIALOGPARTS = TASKDIALOGPARTS(21i32);
 impl ::core::marker::Copy for TASKDIALOGPARTS {}
 impl ::core::clone::Clone for TASKDIALOGPARTS {
     fn clone(&self) -> Self {
@@ -17072,18 +18352,6 @@ impl ::core::fmt::Debug for TASKDIALOGPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASKDIALOG_COMMON_BUTTON_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDCBF_OK_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDCBF_YES_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDCBF_NO_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDCBF_CANCEL_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDCBF_RETRY_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDCBF_CLOSE_BUTTON: TASKDIALOG_COMMON_BUTTON_FLAGS = TASKDIALOG_COMMON_BUTTON_FLAGS(32i32);
 impl ::core::marker::Copy for TASKDIALOG_COMMON_BUTTON_FLAGS {}
 impl ::core::clone::Clone for TASKDIALOG_COMMON_BUTTON_FLAGS {
     fn clone(&self) -> Self {
@@ -17107,14 +18375,6 @@ impl ::core::fmt::Debug for TASKDIALOG_COMMON_BUTTON_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASKDIALOG_ELEMENTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDE_CONTENT: TASKDIALOG_ELEMENTS = TASKDIALOG_ELEMENTS(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDE_EXPANDED_INFORMATION: TASKDIALOG_ELEMENTS = TASKDIALOG_ELEMENTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDE_FOOTER: TASKDIALOG_ELEMENTS = TASKDIALOG_ELEMENTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDE_MAIN_INSTRUCTION: TASKDIALOG_ELEMENTS = TASKDIALOG_ELEMENTS(3i32);
 impl ::core::marker::Copy for TASKDIALOG_ELEMENTS {}
 impl ::core::clone::Clone for TASKDIALOG_ELEMENTS {
     fn clone(&self) -> Self {
@@ -17138,42 +18398,6 @@ impl ::core::fmt::Debug for TASKDIALOG_ELEMENTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASKDIALOG_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDF_ENABLE_HYPERLINKS: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDF_USE_HICON_MAIN: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDF_USE_HICON_FOOTER: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDF_ALLOW_DIALOG_CANCELLATION: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDF_USE_COMMAND_LINKS: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDF_USE_COMMAND_LINKS_NO_ICON: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(32i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDF_EXPAND_FOOTER_AREA: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(64i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDF_EXPANDED_BY_DEFAULT: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(128i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDF_VERIFICATION_FLAG_CHECKED: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(256i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDF_SHOW_PROGRESS_BAR: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(512i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDF_SHOW_MARQUEE_PROGRESS_BAR: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(1024i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDF_CALLBACK_TIMER: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(2048i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDF_POSITION_RELATIVE_TO_WINDOW: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(4096i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDF_RTL_LAYOUT: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(8192i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDF_NO_DEFAULT_RADIO_BUTTON: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(16384i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDF_CAN_BE_MINIMIZED: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(32768i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDF_NO_SET_FOREGROUND: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(65536i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDF_SIZE_TO_CONTENT: TASKDIALOG_FLAGS = TASKDIALOG_FLAGS(16777216i32);
 impl ::core::marker::Copy for TASKDIALOG_FLAGS {}
 impl ::core::clone::Clone for TASKDIALOG_FLAGS {
     fn clone(&self) -> Self {
@@ -17197,10 +18421,6 @@ impl ::core::fmt::Debug for TASKDIALOG_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASKDIALOG_ICON_ELEMENTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDIE_ICON_MAIN: TASKDIALOG_ICON_ELEMENTS = TASKDIALOG_ICON_ELEMENTS(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDIE_ICON_FOOTER: TASKDIALOG_ICON_ELEMENTS = TASKDIALOG_ICON_ELEMENTS(1i32);
 impl ::core::marker::Copy for TASKDIALOG_ICON_ELEMENTS {}
 impl ::core::clone::Clone for TASKDIALOG_ICON_ELEMENTS {
     fn clone(&self) -> Self {
@@ -17224,36 +18444,6 @@ impl ::core::fmt::Debug for TASKDIALOG_ICON_ELEMENTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASKDIALOG_MESSAGES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDM_NAVIGATE_PAGE: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1125i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDM_CLICK_BUTTON: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1126i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDM_SET_MARQUEE_PROGRESS_BAR: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1127i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDM_SET_PROGRESS_BAR_STATE: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1128i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDM_SET_PROGRESS_BAR_RANGE: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1129i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDM_SET_PROGRESS_BAR_POS: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1130i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDM_SET_PROGRESS_BAR_MARQUEE: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1131i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDM_SET_ELEMENT_TEXT: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1132i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDM_CLICK_RADIO_BUTTON: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1134i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDM_ENABLE_BUTTON: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1135i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDM_ENABLE_RADIO_BUTTON: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1136i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDM_CLICK_VERIFICATION: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1137i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDM_UPDATE_ELEMENT_TEXT: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1138i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDM_SET_BUTTON_ELEVATION_REQUIRED_STATE: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1139i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDM_UPDATE_ICON: TASKDIALOG_MESSAGES = TASKDIALOG_MESSAGES(1140i32);
 impl ::core::marker::Copy for TASKDIALOG_MESSAGES {}
 impl ::core::clone::Clone for TASKDIALOG_MESSAGES {
     fn clone(&self) -> Self {
@@ -17277,28 +18467,6 @@ impl ::core::fmt::Debug for TASKDIALOG_MESSAGES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASKDIALOG_NOTIFICATIONS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDN_CREATED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDN_NAVIGATED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDN_BUTTON_CLICKED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDN_HYPERLINK_CLICKED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDN_TIMER: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDN_DESTROYED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDN_RADIO_BUTTON_CLICKED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDN_DIALOG_CONSTRUCTED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDN_VERIFICATION_CLICKED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDN_HELP: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TDN_EXPANDO_BUTTON_CLICKED: TASKDIALOG_NOTIFICATIONS = TASKDIALOG_NOTIFICATIONS(10i32);
 impl ::core::marker::Copy for TASKDIALOG_NOTIFICATIONS {}
 impl ::core::clone::Clone for TASKDIALOG_NOTIFICATIONS {
     fn clone(&self) -> Self {
@@ -17322,16 +18490,6 @@ impl ::core::fmt::Debug for TASKDIALOG_NOTIFICATIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASKLINKSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPTL_NORMAL: TASKLINKSTATES = TASKLINKSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPTL_HOT: TASKLINKSTATES = TASKLINKSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPTL_PRESSED: TASKLINKSTATES = TASKLINKSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPTL_DISABLED: TASKLINKSTATES = TASKLINKSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CPTL_PAGE: TASKLINKSTATES = TASKLINKSTATES(5i32);
 impl ::core::marker::Copy for TASKLINKSTATES {}
 impl ::core::clone::Clone for TASKLINKSTATES {
     fn clone(&self) -> Self {
@@ -17355,18 +18513,6 @@ impl ::core::fmt::Debug for TASKLINKSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TA_PROPERTY(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAP_FLAGS: TA_PROPERTY = TA_PROPERTY(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAP_TRANSFORMCOUNT: TA_PROPERTY = TA_PROPERTY(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAP_STAGGERDELAY: TA_PROPERTY = TA_PROPERTY(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAP_STAGGERDELAYCAP: TA_PROPERTY = TA_PROPERTY(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAP_STAGGERDELAYFACTOR: TA_PROPERTY = TA_PROPERTY(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAP_ZORDER: TA_PROPERTY = TA_PROPERTY(5i32);
 impl ::core::marker::Copy for TA_PROPERTY {}
 impl ::core::clone::Clone for TA_PROPERTY {
     fn clone(&self) -> Self {
@@ -17390,18 +18536,6 @@ impl ::core::fmt::Debug for TA_PROPERTY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TA_PROPERTY_FLAG(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAPF_NONE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAPF_HASSTAGGER: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAPF_ISRTLAWARE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAPF_ALLOWCOLLECTION: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAPF_HASBACKGROUND: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TAPF_HASPERSPECTIVE: TA_PROPERTY_FLAG = TA_PROPERTY_FLAG(16i32);
 impl ::core::marker::Copy for TA_PROPERTY_FLAG {}
 impl ::core::clone::Clone for TA_PROPERTY_FLAG {
     fn clone(&self) -> Self {
@@ -17458,10 +18592,6 @@ impl ::core::ops::Not for TA_PROPERTY_FLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TA_TIMINGFUNCTION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTFT_UNDEFINED: TA_TIMINGFUNCTION_TYPE = TA_TIMINGFUNCTION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTFT_CUBIC_BEZIER: TA_TIMINGFUNCTION_TYPE = TA_TIMINGFUNCTION_TYPE(1i32);
 impl ::core::marker::Copy for TA_TIMINGFUNCTION_TYPE {}
 impl ::core::clone::Clone for TA_TIMINGFUNCTION_TYPE {
     fn clone(&self) -> Self {
@@ -17485,14 +18615,6 @@ impl ::core::fmt::Debug for TA_TIMINGFUNCTION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TA_TRANSFORM_FLAG(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TATF_NONE: TA_TRANSFORM_FLAG = TA_TRANSFORM_FLAG(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TATF_TARGETVALUES_USER: TA_TRANSFORM_FLAG = TA_TRANSFORM_FLAG(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TATF_HASINITIALVALUES: TA_TRANSFORM_FLAG = TA_TRANSFORM_FLAG(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TATF_HASORIGINVALUES: TA_TRANSFORM_FLAG = TA_TRANSFORM_FLAG(4i32);
 impl ::core::marker::Copy for TA_TRANSFORM_FLAG {}
 impl ::core::clone::Clone for TA_TRANSFORM_FLAG {
     fn clone(&self) -> Self {
@@ -17549,14 +18671,6 @@ impl ::core::ops::Not for TA_TRANSFORM_FLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TA_TRANSFORM_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TATT_TRANSLATE_2D: TA_TRANSFORM_TYPE = TA_TRANSFORM_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TATT_SCALE_2D: TA_TRANSFORM_TYPE = TA_TRANSFORM_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TATT_OPACITY: TA_TRANSFORM_TYPE = TA_TRANSFORM_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TATT_CLIP: TA_TRANSFORM_TYPE = TA_TRANSFORM_TYPE(3i32);
 impl ::core::marker::Copy for TA_TRANSFORM_TYPE {}
 impl ::core::clone::Clone for TA_TRANSFORM_TYPE {
     fn clone(&self) -> Self {
@@ -17580,22 +18694,6 @@ impl ::core::fmt::Debug for TA_TRANSFORM_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TBBUTTONINFOW_MASK(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBIF_BYINDEX: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(2147483648u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBIF_COMMAND: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBIF_IMAGE: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBIF_LPARAM: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBIF_SIZE: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(64u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBIF_STATE: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBIF_STYLE: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBIF_TEXT: TBBUTTONINFOW_MASK = TBBUTTONINFOW_MASK(2u32);
 impl ::core::marker::Copy for TBBUTTONINFOW_MASK {}
 impl ::core::clone::Clone for TBBUTTONINFOW_MASK {
     fn clone(&self) -> Self {
@@ -17652,12 +18750,6 @@ impl ::core::ops::Not for TBBUTTONINFOW_MASK {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TBINSERTMARK_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBIMHT_NONE: TBINSERTMARK_FLAGS = TBINSERTMARK_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBIMHT_AFTER: TBINSERTMARK_FLAGS = TBINSERTMARK_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TBIMHT_BACKGROUND: TBINSERTMARK_FLAGS = TBINSERTMARK_FLAGS(2u32);
 impl ::core::marker::Copy for TBINSERTMARK_FLAGS {}
 impl ::core::clone::Clone for TBINSERTMARK_FLAGS {
     fn clone(&self) -> Self {
@@ -17681,14 +18773,6 @@ impl ::core::fmt::Debug for TBINSERTMARK_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TCHITTESTINFO_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TCHT_NOWHERE: TCHITTESTINFO_FLAGS = TCHITTESTINFO_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TCHT_ONITEM: TCHITTESTINFO_FLAGS = TCHITTESTINFO_FLAGS(6u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TCHT_ONITEMICON: TCHITTESTINFO_FLAGS = TCHITTESTINFO_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TCHT_ONITEMLABEL: TCHITTESTINFO_FLAGS = TCHITTESTINFO_FLAGS(4u32);
 impl ::core::marker::Copy for TCHITTESTINFO_FLAGS {}
 impl ::core::clone::Clone for TCHITTESTINFO_FLAGS {
     fn clone(&self) -> Self {
@@ -17712,16 +18796,6 @@ impl ::core::fmt::Debug for TCHITTESTINFO_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TCITEMHEADERA_MASK(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TCIF_IMAGE: TCITEMHEADERA_MASK = TCITEMHEADERA_MASK(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TCIF_RTLREADING: TCITEMHEADERA_MASK = TCITEMHEADERA_MASK(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TCIF_TEXT: TCITEMHEADERA_MASK = TCITEMHEADERA_MASK(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TCIF_PARAM: TCITEMHEADERA_MASK = TCITEMHEADERA_MASK(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TCIF_STATE: TCITEMHEADERA_MASK = TCITEMHEADERA_MASK(16u32);
 impl ::core::marker::Copy for TCITEMHEADERA_MASK {}
 impl ::core::clone::Clone for TCITEMHEADERA_MASK {
     fn clone(&self) -> Self {
@@ -17778,8 +18852,6 @@ impl ::core::ops::Not for TCITEMHEADERA_MASK {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TEXTSELECTIONGRIPPERPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TSGP_GRIPPER: TEXTSELECTIONGRIPPERPARTS = TEXTSELECTIONGRIPPERPARTS(1i32);
 impl ::core::marker::Copy for TEXTSELECTIONGRIPPERPARTS {}
 impl ::core::clone::Clone for TEXTSELECTIONGRIPPERPARTS {
     fn clone(&self) -> Self {
@@ -17803,12 +18875,6 @@ impl ::core::fmt::Debug for TEXTSELECTIONGRIPPERPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TEXTSHADOWTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TST_NONE: TEXTSHADOWTYPE = TEXTSHADOWTYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TST_SINGLE: TEXTSHADOWTYPE = TEXTSHADOWTYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TST_CONTINUOUS: TEXTSHADOWTYPE = TEXTSHADOWTYPE(2i32);
 impl ::core::marker::Copy for TEXTSHADOWTYPE {}
 impl ::core::clone::Clone for TEXTSHADOWTYPE {
     fn clone(&self) -> Self {
@@ -17832,24 +18898,6 @@ impl ::core::fmt::Debug for TEXTSHADOWTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TEXTSTYLEPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TEXT_MAININSTRUCTION: TEXTSTYLEPARTS = TEXTSTYLEPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TEXT_INSTRUCTION: TEXTSTYLEPARTS = TEXTSTYLEPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TEXT_BODYTITLE: TEXTSTYLEPARTS = TEXTSTYLEPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TEXT_BODYTEXT: TEXTSTYLEPARTS = TEXTSTYLEPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TEXT_SECONDARYTEXT: TEXTSTYLEPARTS = TEXTSTYLEPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TEXT_HYPERLINKTEXT: TEXTSTYLEPARTS = TEXTSTYLEPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TEXT_EXPANDED: TEXTSTYLEPARTS = TEXTSTYLEPARTS(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TEXT_LABEL: TEXTSTYLEPARTS = TEXTSTYLEPARTS(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TEXT_CONTROLLABEL: TEXTSTYLEPARTS = TEXTSTYLEPARTS(9i32);
 impl ::core::marker::Copy for TEXTSTYLEPARTS {}
 impl ::core::clone::Clone for TEXTSTYLEPARTS {
     fn clone(&self) -> Self {
@@ -17873,12 +18921,6 @@ impl ::core::fmt::Debug for TEXTSTYLEPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct THEMESIZE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TS_MIN: THEMESIZE = THEMESIZE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TS_TRUE: THEMESIZE = THEMESIZE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TS_DRAW: THEMESIZE = THEMESIZE(2i32);
 impl ::core::marker::Copy for THEMESIZE {}
 impl ::core::clone::Clone for THEMESIZE {
     fn clone(&self) -> Self {
@@ -17902,520 +18944,6 @@ impl ::core::fmt::Debug for THEMESIZE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct THEME_PROPERTY_SYMBOL_ID(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_RESERVEDLOW: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_RESERVEDHIGH: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(7999u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_DIBDATA: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GLYPHDIBDATA: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_ENUM: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(200u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_STRING: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(201u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_INT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(202u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_BOOL: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(203u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_COLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(204u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MARGINS: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(205u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FILENAME: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(206u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_SIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(207u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_POSITION: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(208u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_RECT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(209u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(210u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_INTLIST: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(211u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_HBITMAP: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(212u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_DISKSTREAM: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(213u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_STREAM: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(214u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_BITMAPREF: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(215u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FLOAT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(216u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FLOATLIST: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(217u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_COLORSCHEMES: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(401u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_SIZES: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(402u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_CHARSET: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(403u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_NAME: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(600u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_DISPLAYNAME: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(601u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TOOLTIP: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(602u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_COMPANY: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(603u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_AUTHOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(604u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_COPYRIGHT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(605u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_URL: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(606u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_VERSION: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(607u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_DESCRIPTION: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(608u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FIRST_RCSTRING_NAME: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(601u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_LAST_RCSTRING_NAME: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(608u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_CAPTIONFONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(801u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_SMALLCAPTIONFONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(802u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MENUFONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(803u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_STATUSFONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(804u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MSGBOXFONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(805u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_ICONTITLEFONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(806u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_HEADING1FONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(807u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_HEADING2FONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(808u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_BODYFONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(809u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FIRSTFONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(801u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_LASTFONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(809u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FLATMENUS: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1001u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FIRSTBOOL: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1001u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_LASTBOOL: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1001u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_SIZINGBORDERWIDTH: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1201u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_SCROLLBARWIDTH: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1202u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_SCROLLBARHEIGHT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1203u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_CAPTIONBARWIDTH: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1204u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_CAPTIONBARHEIGHT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1205u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_SMCAPTIONBARWIDTH: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1206u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_SMCAPTIONBARHEIGHT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1207u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MENUBARWIDTH: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1208u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MENUBARHEIGHT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1209u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_PADDEDBORDERWIDTH: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1210u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FIRSTSIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1201u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_LASTSIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1210u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MINCOLORDEPTH: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1301u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FIRSTINT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1301u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_LASTINT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1301u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_CSSNAME: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1401u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_XMLNAME: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1402u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_LASTUPDATED: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1403u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_ALIAS: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1404u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FIRSTSTRING: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1401u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_LASTSTRING: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1404u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_SCROLLBAR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1601u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_BACKGROUND: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1602u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_ACTIVECAPTION: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1603u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_INACTIVECAPTION: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1604u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MENU: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1605u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_WINDOW: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1606u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_WINDOWFRAME: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1607u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MENUTEXT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1608u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_WINDOWTEXT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1609u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_CAPTIONTEXT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1610u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_ACTIVEBORDER: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1611u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_INACTIVEBORDER: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1612u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_APPWORKSPACE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1613u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_HIGHLIGHT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1614u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_HIGHLIGHTTEXT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1615u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_BTNFACE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1616u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_BTNSHADOW: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1617u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GRAYTEXT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1618u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_BTNTEXT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1619u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_INACTIVECAPTIONTEXT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1620u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_BTNHIGHLIGHT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1621u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_DKSHADOW3D: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1622u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_LIGHT3D: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1623u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_INFOTEXT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1624u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_INFOBK: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1625u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_BUTTONALTERNATEFACE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1626u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_HOTTRACKING: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1627u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GRADIENTACTIVECAPTION: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1628u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GRADIENTINACTIVECAPTION: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1629u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MENUHILIGHT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1630u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MENUBAR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1631u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FIRSTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1601u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_LASTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1631u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FROMHUE1: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1801u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FROMHUE2: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1802u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FROMHUE3: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1803u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FROMHUE4: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1804u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FROMHUE5: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1805u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TOHUE1: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1806u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TOHUE2: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1807u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TOHUE3: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1808u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TOHUE4: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1809u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TOHUE5: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(1810u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FROMCOLOR1: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2001u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FROMCOLOR2: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2002u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FROMCOLOR3: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2003u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FROMCOLOR4: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2004u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FROMCOLOR5: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2005u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TOCOLOR1: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2006u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TOCOLOR2: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2007u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TOCOLOR3: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2008u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TOCOLOR4: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2009u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TOCOLOR5: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2010u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TRANSPARENT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2201u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_AUTOSIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2202u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_BORDERONLY: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2203u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_COMPOSITED: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2204u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_BGFILL: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2205u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GLYPHTRANSPARENT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2206u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GLYPHONLY: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2207u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_ALWAYSSHOWSIZINGBAR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2208u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MIRRORIMAGE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2209u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_UNIFORMSIZING: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2210u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_INTEGRALSIZING: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2211u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_SOURCEGROW: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2212u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_SOURCESHRINK: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2213u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_DRAWBORDERS: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2214u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_NOETCHEDEFFECT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2215u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TEXTAPPLYOVERLAY: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2216u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TEXTGLOW: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2217u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TEXTITALIC: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2218u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_COMPOSITEDOPAQUE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2219u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_LOCALIZEDMIRRORIMAGE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2220u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_IMAGECOUNT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2401u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_ALPHALEVEL: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2402u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_BORDERSIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2403u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_ROUNDCORNERWIDTH: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2404u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_ROUNDCORNERHEIGHT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2405u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GRADIENTRATIO1: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2406u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GRADIENTRATIO2: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2407u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GRADIENTRATIO3: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2408u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GRADIENTRATIO4: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2409u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GRADIENTRATIO5: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2410u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_PROGRESSCHUNKSIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2411u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_PROGRESSSPACESIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2412u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_SATURATION: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2413u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TEXTBORDERSIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2414u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_ALPHATHRESHOLD: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2415u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_WIDTH: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2416u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_HEIGHT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2417u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GLYPHINDEX: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2418u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TRUESIZESTRETCHMARK: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2419u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MINDPI1: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2420u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MINDPI2: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2421u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MINDPI3: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2422u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MINDPI4: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2423u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MINDPI5: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2424u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TEXTGLOWSIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2425u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FRAMESPERSECOND: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2426u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_PIXELSPERFRAME: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2427u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_ANIMATIONDELAY: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2428u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GLOWINTENSITY: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2429u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_OPACITY: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2430u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_COLORIZATIONCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2431u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_COLORIZATIONOPACITY: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2432u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MINDPI6: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2433u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MINDPI7: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2434u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GLYPHFONT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(2601u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_IMAGEFILE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3001u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_IMAGEFILE1: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3002u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_IMAGEFILE2: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3003u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_IMAGEFILE3: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3004u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_IMAGEFILE4: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3005u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_IMAGEFILE5: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3006u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GLYPHIMAGEFILE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3008u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_IMAGEFILE6: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3009u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_IMAGEFILE7: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3010u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TEXT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3201u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_CLASSICVALUE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3202u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_OFFSET: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3401u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TEXTSHADOWOFFSET: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3402u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MINSIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3403u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MINSIZE1: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3404u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MINSIZE2: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3405u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MINSIZE3: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3406u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MINSIZE4: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3407u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MINSIZE5: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3408u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_NORMALSIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3409u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MINSIZE6: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3410u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_MINSIZE7: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3411u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_SIZINGMARGINS: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3601u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_CONTENTMARGINS: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3602u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_CAPTIONMARGINS: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3603u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_BORDERCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3801u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FILLCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3802u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3803u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_EDGELIGHTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3804u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_EDGEHIGHLIGHTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3805u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_EDGESHADOWCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3806u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_EDGEDKSHADOWCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3807u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_EDGEFILLCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3808u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TRANSPARENTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3809u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GRADIENTCOLOR1: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3810u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GRADIENTCOLOR2: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3811u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GRADIENTCOLOR3: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3812u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GRADIENTCOLOR4: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3813u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GRADIENTCOLOR5: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3814u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_SHADOWCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3815u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GLOWCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3816u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TEXTBORDERCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3817u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TEXTSHADOWCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3818u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GLYPHTEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3819u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GLYPHTRANSPARENTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3820u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FILLCOLORHINT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3821u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_BORDERCOLORHINT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3822u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_ACCENTCOLORHINT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3823u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TEXTCOLORHINT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3824u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_HEADING1TEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3825u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_HEADING2TEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3826u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_BODYTEXTCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(3827u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_BGTYPE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4001u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_BORDERTYPE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4002u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_FILLTYPE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4003u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_SIZINGTYPE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4004u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_HALIGN: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4005u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_CONTENTALIGNMENT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4006u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_VALIGN: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4007u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_OFFSETTYPE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4008u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_ICONEFFECT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4009u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TEXTSHADOWTYPE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4010u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_IMAGELAYOUT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4011u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GLYPHTYPE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4012u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_IMAGESELECTTYPE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4013u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_GLYPHFONTSIZINGTYPE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4014u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TRUESIZESCALINGTYPE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(4015u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_USERPICTURE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(5001u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_DEFAULTPANESIZE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(5002u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_BLENDCOLOR: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(5003u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_CUSTOMSPLITRECT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(5004u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_ANIMATIONBUTTONRECT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(5005u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_ANIMATIONDURATION: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(5006u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_TRANSITIONDURATIONS: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(6000u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_SCALEDBACKGROUND: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(7001u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_ATLASIMAGE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(8000u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_ATLASINPUTIMAGE: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(8001u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TMT_ATLASRECT: THEME_PROPERTY_SYMBOL_ID = THEME_PROPERTY_SYMBOL_ID(8002u32);
 impl ::core::marker::Copy for THEME_PROPERTY_SYMBOL_ID {}
 impl ::core::clone::Clone for THEME_PROPERTY_SYMBOL_ID {
     fn clone(&self) -> Self {
@@ -18439,16 +18967,6 @@ impl ::core::fmt::Debug for THEME_PROPERTY_SYMBOL_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct THUMBBOTTOMSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUBS_NORMAL: THUMBBOTTOMSTATES = THUMBBOTTOMSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUBS_HOT: THUMBBOTTOMSTATES = THUMBBOTTOMSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUBS_PRESSED: THUMBBOTTOMSTATES = THUMBBOTTOMSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUBS_FOCUSED: THUMBBOTTOMSTATES = THUMBBOTTOMSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUBS_DISABLED: THUMBBOTTOMSTATES = THUMBBOTTOMSTATES(5i32);
 impl ::core::marker::Copy for THUMBBOTTOMSTATES {}
 impl ::core::clone::Clone for THUMBBOTTOMSTATES {
     fn clone(&self) -> Self {
@@ -18472,16 +18990,6 @@ impl ::core::fmt::Debug for THUMBBOTTOMSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct THUMBLEFTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUVLS_NORMAL: THUMBLEFTSTATES = THUMBLEFTSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUVLS_HOT: THUMBLEFTSTATES = THUMBLEFTSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUVLS_PRESSED: THUMBLEFTSTATES = THUMBLEFTSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUVLS_FOCUSED: THUMBLEFTSTATES = THUMBLEFTSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUVLS_DISABLED: THUMBLEFTSTATES = THUMBLEFTSTATES(5i32);
 impl ::core::marker::Copy for THUMBLEFTSTATES {}
 impl ::core::clone::Clone for THUMBLEFTSTATES {
     fn clone(&self) -> Self {
@@ -18505,16 +19013,6 @@ impl ::core::fmt::Debug for THUMBLEFTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct THUMBRIGHTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUVRS_NORMAL: THUMBRIGHTSTATES = THUMBRIGHTSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUVRS_HOT: THUMBRIGHTSTATES = THUMBRIGHTSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUVRS_PRESSED: THUMBRIGHTSTATES = THUMBRIGHTSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUVRS_FOCUSED: THUMBRIGHTSTATES = THUMBRIGHTSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUVRS_DISABLED: THUMBRIGHTSTATES = THUMBRIGHTSTATES(5i32);
 impl ::core::marker::Copy for THUMBRIGHTSTATES {}
 impl ::core::clone::Clone for THUMBRIGHTSTATES {
     fn clone(&self) -> Self {
@@ -18538,16 +19036,6 @@ impl ::core::fmt::Debug for THUMBRIGHTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct THUMBSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUS_NORMAL: THUMBSTATES = THUMBSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUS_HOT: THUMBSTATES = THUMBSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUS_PRESSED: THUMBSTATES = THUMBSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUS_FOCUSED: THUMBSTATES = THUMBSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUS_DISABLED: THUMBSTATES = THUMBSTATES(5i32);
 impl ::core::marker::Copy for THUMBSTATES {}
 impl ::core::clone::Clone for THUMBSTATES {
     fn clone(&self) -> Self {
@@ -18571,16 +19059,6 @@ impl ::core::fmt::Debug for THUMBSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct THUMBTOPSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUTS_NORMAL: THUMBTOPSTATES = THUMBTOPSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUTS_HOT: THUMBTOPSTATES = THUMBTOPSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUTS_PRESSED: THUMBTOPSTATES = THUMBTOPSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUTS_FOCUSED: THUMBTOPSTATES = THUMBTOPSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUTS_DISABLED: THUMBTOPSTATES = THUMBTOPSTATES(5i32);
 impl ::core::marker::Copy for THUMBTOPSTATES {}
 impl ::core::clone::Clone for THUMBTOPSTATES {
     fn clone(&self) -> Self {
@@ -18604,16 +19082,6 @@ impl ::core::fmt::Debug for THUMBTOPSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct THUMBVERTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUVS_NORMAL: THUMBVERTSTATES = THUMBVERTSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUVS_HOT: THUMBVERTSTATES = THUMBVERTSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUVS_PRESSED: THUMBVERTSTATES = THUMBVERTSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUVS_FOCUSED: THUMBVERTSTATES = THUMBVERTSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TUVS_DISABLED: THUMBVERTSTATES = THUMBVERTSTATES(5i32);
 impl ::core::marker::Copy for THUMBVERTSTATES {}
 impl ::core::clone::Clone for THUMBVERTSTATES {
     fn clone(&self) -> Self {
@@ -18637,8 +19105,6 @@ impl ::core::fmt::Debug for THUMBVERTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TICSSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TSS_NORMAL: TICSSTATES = TICSSTATES(1i32);
 impl ::core::marker::Copy for TICSSTATES {}
 impl ::core::clone::Clone for TICSSTATES {
     fn clone(&self) -> Self {
@@ -18662,8 +19128,6 @@ impl ::core::fmt::Debug for TICSSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TICSVERTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TSVS_NORMAL: TICSVERTSTATES = TICSVERTSTATES(1i32);
 impl ::core::marker::Copy for TICSVERTSTATES {}
 impl ::core::clone::Clone for TICSVERTSTATES {
     fn clone(&self) -> Self {
@@ -18687,10 +19151,6 @@ impl ::core::fmt::Debug for TICSVERTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TITLEBARSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const AW_S_TITLEBAR_ACTIVE: TITLEBARSTATES = TITLEBARSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const AW_S_TITLEBAR_INACTIVE: TITLEBARSTATES = TITLEBARSTATES(2i32);
 impl ::core::marker::Copy for TITLEBARSTATES {}
 impl ::core::clone::Clone for TITLEBARSTATES {
     fn clone(&self) -> Self {
@@ -18714,20 +19174,6 @@ impl ::core::fmt::Debug for TITLEBARSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOOLBARPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TP_BUTTON: TOOLBARPARTS = TOOLBARPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TP_DROPDOWNBUTTON: TOOLBARPARTS = TOOLBARPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TP_SPLITBUTTON: TOOLBARPARTS = TOOLBARPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TP_SPLITBUTTONDROPDOWN: TOOLBARPARTS = TOOLBARPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TP_SEPARATOR: TOOLBARPARTS = TOOLBARPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TP_SEPARATORVERT: TOOLBARPARTS = TOOLBARPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TP_DROPDOWNBUTTONGLYPH: TOOLBARPARTS = TOOLBARPARTS(7i32);
 impl ::core::marker::Copy for TOOLBARPARTS {}
 impl ::core::clone::Clone for TOOLBARPARTS {
     fn clone(&self) -> Self {
@@ -18751,22 +19197,6 @@ impl ::core::fmt::Debug for TOOLBARPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOOLBARSTYLESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TS_NORMAL: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TS_HOT: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TS_PRESSED: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TS_DISABLED: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TS_CHECKED: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TS_HOTCHECKED: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TS_NEARHOT: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TS_OTHERSIDEHOT: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(8i32);
 impl ::core::marker::Copy for TOOLBARSTYLESTATES {}
 impl ::core::clone::Clone for TOOLBARSTYLESTATES {
     fn clone(&self) -> Self {
@@ -18790,20 +19220,6 @@ impl ::core::fmt::Debug for TOOLBARSTYLESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOOLTIPPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTP_STANDARD: TOOLTIPPARTS = TOOLTIPPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTP_STANDARDTITLE: TOOLTIPPARTS = TOOLTIPPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTP_BALLOON: TOOLTIPPARTS = TOOLTIPPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTP_BALLOONTITLE: TOOLTIPPARTS = TOOLTIPPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTP_CLOSE: TOOLTIPPARTS = TOOLTIPPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTP_BALLOONSTEM: TOOLTIPPARTS = TOOLTIPPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTP_WRENCH: TOOLTIPPARTS = TOOLTIPPARTS(7i32);
 impl ::core::marker::Copy for TOOLTIPPARTS {}
 impl ::core::clone::Clone for TOOLTIPPARTS {
     fn clone(&self) -> Self {
@@ -18827,24 +19243,6 @@ impl ::core::fmt::Debug for TOOLTIPPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOOLTIP_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTF_IDISHWND: TOOLTIP_FLAGS = TOOLTIP_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTF_CENTERTIP: TOOLTIP_FLAGS = TOOLTIP_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTF_RTLREADING: TOOLTIP_FLAGS = TOOLTIP_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTF_SUBCLASS: TOOLTIP_FLAGS = TOOLTIP_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTF_TRACK: TOOLTIP_FLAGS = TOOLTIP_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTF_ABSOLUTE: TOOLTIP_FLAGS = TOOLTIP_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTF_TRANSPARENT: TOOLTIP_FLAGS = TOOLTIP_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTF_PARSELINKS: TOOLTIP_FLAGS = TOOLTIP_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTF_DI_SETITEM: TOOLTIP_FLAGS = TOOLTIP_FLAGS(32768u32);
 impl ::core::marker::Copy for TOOLTIP_FLAGS {}
 impl ::core::clone::Clone for TOOLTIP_FLAGS {
     fn clone(&self) -> Self {
@@ -18901,16 +19299,6 @@ impl ::core::ops::Not for TOOLTIP_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOPTABITEMBOTHEDGESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTIBES_NORMAL: TOPTABITEMBOTHEDGESTATES = TOPTABITEMBOTHEDGESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTIBES_HOT: TOPTABITEMBOTHEDGESTATES = TOPTABITEMBOTHEDGESTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTIBES_SELECTED: TOPTABITEMBOTHEDGESTATES = TOPTABITEMBOTHEDGESTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTIBES_DISABLED: TOPTABITEMBOTHEDGESTATES = TOPTABITEMBOTHEDGESTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTIBES_FOCUSED: TOPTABITEMBOTHEDGESTATES = TOPTABITEMBOTHEDGESTATES(5i32);
 impl ::core::marker::Copy for TOPTABITEMBOTHEDGESTATES {}
 impl ::core::clone::Clone for TOPTABITEMBOTHEDGESTATES {
     fn clone(&self) -> Self {
@@ -18934,16 +19322,6 @@ impl ::core::fmt::Debug for TOPTABITEMBOTHEDGESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOPTABITEMLEFTEDGESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTILES_NORMAL: TOPTABITEMLEFTEDGESTATES = TOPTABITEMLEFTEDGESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTILES_HOT: TOPTABITEMLEFTEDGESTATES = TOPTABITEMLEFTEDGESTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTILES_SELECTED: TOPTABITEMLEFTEDGESTATES = TOPTABITEMLEFTEDGESTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTILES_DISABLED: TOPTABITEMLEFTEDGESTATES = TOPTABITEMLEFTEDGESTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTILES_FOCUSED: TOPTABITEMLEFTEDGESTATES = TOPTABITEMLEFTEDGESTATES(5i32);
 impl ::core::marker::Copy for TOPTABITEMLEFTEDGESTATES {}
 impl ::core::clone::Clone for TOPTABITEMLEFTEDGESTATES {
     fn clone(&self) -> Self {
@@ -18967,16 +19345,6 @@ impl ::core::fmt::Debug for TOPTABITEMLEFTEDGESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOPTABITEMRIGHTEDGESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTIRES_NORMAL: TOPTABITEMRIGHTEDGESTATES = TOPTABITEMRIGHTEDGESTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTIRES_HOT: TOPTABITEMRIGHTEDGESTATES = TOPTABITEMRIGHTEDGESTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTIRES_SELECTED: TOPTABITEMRIGHTEDGESTATES = TOPTABITEMRIGHTEDGESTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTIRES_DISABLED: TOPTABITEMRIGHTEDGESTATES = TOPTABITEMRIGHTEDGESTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTIRES_FOCUSED: TOPTABITEMRIGHTEDGESTATES = TOPTABITEMRIGHTEDGESTATES(5i32);
 impl ::core::marker::Copy for TOPTABITEMRIGHTEDGESTATES {}
 impl ::core::clone::Clone for TOPTABITEMRIGHTEDGESTATES {
     fn clone(&self) -> Self {
@@ -19000,16 +19368,6 @@ impl ::core::fmt::Debug for TOPTABITEMRIGHTEDGESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TOPTABITEMSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTIS_NORMAL: TOPTABITEMSTATES = TOPTABITEMSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTIS_HOT: TOPTABITEMSTATES = TOPTABITEMSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTIS_SELECTED: TOPTABITEMSTATES = TOPTABITEMSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTIS_DISABLED: TOPTABITEMSTATES = TOPTABITEMSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTIS_FOCUSED: TOPTABITEMSTATES = TOPTABITEMSTATES(5i32);
 impl ::core::marker::Copy for TOPTABITEMSTATES {}
 impl ::core::clone::Clone for TOPTABITEMSTATES {
     fn clone(&self) -> Self {
@@ -19033,26 +19391,6 @@ impl ::core::fmt::Debug for TOPTABITEMSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRACKBARPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TKP_TRACK: TRACKBARPARTS = TRACKBARPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TKP_TRACKVERT: TRACKBARPARTS = TRACKBARPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TKP_THUMB: TRACKBARPARTS = TRACKBARPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TKP_THUMBBOTTOM: TRACKBARPARTS = TRACKBARPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TKP_THUMBTOP: TRACKBARPARTS = TRACKBARPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TKP_THUMBVERT: TRACKBARPARTS = TRACKBARPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TKP_THUMBLEFT: TRACKBARPARTS = TRACKBARPARTS(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TKP_THUMBRIGHT: TRACKBARPARTS = TRACKBARPARTS(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TKP_TICS: TRACKBARPARTS = TRACKBARPARTS(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TKP_TICSVERT: TRACKBARPARTS = TRACKBARPARTS(10i32);
 impl ::core::marker::Copy for TRACKBARPARTS {}
 impl ::core::clone::Clone for TRACKBARPARTS {
     fn clone(&self) -> Self {
@@ -19076,8 +19414,6 @@ impl ::core::fmt::Debug for TRACKBARPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRACKBARSTYLESTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TKS_NORMAL: TRACKBARSTYLESTATES = TRACKBARSTYLESTATES(1i32);
 impl ::core::marker::Copy for TRACKBARSTYLESTATES {}
 impl ::core::clone::Clone for TRACKBARSTYLESTATES {
     fn clone(&self) -> Self {
@@ -19101,8 +19437,6 @@ impl ::core::fmt::Debug for TRACKBARSTYLESTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRACKSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TRS_NORMAL: TRACKSTATES = TRACKSTATES(1i32);
 impl ::core::marker::Copy for TRACKSTATES {}
 impl ::core::clone::Clone for TRACKSTATES {
     fn clone(&self) -> Self {
@@ -19126,8 +19460,6 @@ impl ::core::fmt::Debug for TRACKSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRACKVERTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TRVS_NORMAL: TRACKVERTSTATES = TRACKVERTSTATES(1i32);
 impl ::core::marker::Copy for TRACKVERTSTATES {}
 impl ::core::clone::Clone for TRACKVERTSTATES {
     fn clone(&self) -> Self {
@@ -19151,20 +19483,6 @@ impl ::core::fmt::Debug for TRACKVERTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRAILINGGRIDCELLSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCTGC_HOT: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCTGC_HASSTATE: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCTGC_HASSTATEHOT: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCTGC_TODAY: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCTGC_TODAYSELECTED: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCTGC_SELECTED: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCTGC_SELECTEDHOT: TRAILINGGRIDCELLSTATES = TRAILINGGRIDCELLSTATES(7i32);
 impl ::core::marker::Copy for TRAILINGGRIDCELLSTATES {}
 impl ::core::clone::Clone for TRAILINGGRIDCELLSTATES {
     fn clone(&self) -> Self {
@@ -19188,16 +19506,6 @@ impl ::core::fmt::Debug for TRAILINGGRIDCELLSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRAILINGGRIDCELLUPPERSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCTGCU_HOT: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCTGCU_HASSTATE: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCTGCU_HASSTATEHOT: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCTGCU_SELECTED: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const MCTGCU_SELECTEDHOT: TRAILINGGRIDCELLUPPERSTATES = TRAILINGGRIDCELLUPPERSTATES(5i32);
 impl ::core::marker::Copy for TRAILINGGRIDCELLUPPERSTATES {}
 impl ::core::clone::Clone for TRAILINGGRIDCELLUPPERSTATES {
     fn clone(&self) -> Self {
@@ -19221,14 +19529,6 @@ impl ::core::fmt::Debug for TRAILINGGRIDCELLUPPERSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRANSPARENTBACKGROUNDSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBTBS_NORMAL: TRANSPARENTBACKGROUNDSTATES = TRANSPARENTBACKGROUNDSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBTBS_HOT: TRANSPARENTBACKGROUNDSTATES = TRANSPARENTBACKGROUNDSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBTBS_DISABLED: TRANSPARENTBACKGROUNDSTATES = TRANSPARENTBACKGROUNDSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const CBTBS_FOCUSED: TRANSPARENTBACKGROUNDSTATES = TRANSPARENTBACKGROUNDSTATES(4i32);
 impl ::core::marker::Copy for TRANSPARENTBACKGROUNDSTATES {}
 impl ::core::clone::Clone for TRANSPARENTBACKGROUNDSTATES {
     fn clone(&self) -> Self {
@@ -19252,10 +19552,6 @@ impl ::core::fmt::Debug for TRANSPARENTBACKGROUNDSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRANSPARENTBARSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PBBS_NORMAL: TRANSPARENTBARSTATES = TRANSPARENTBARSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PBBS_PARTIAL: TRANSPARENTBARSTATES = TRANSPARENTBARSTATES(2i32);
 impl ::core::marker::Copy for TRANSPARENTBARSTATES {}
 impl ::core::clone::Clone for TRANSPARENTBARSTATES {
     fn clone(&self) -> Self {
@@ -19279,10 +19575,6 @@ impl ::core::fmt::Debug for TRANSPARENTBARSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRANSPARENTBARVERTSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PBBVS_NORMAL: TRANSPARENTBARVERTSTATES = TRANSPARENTBARVERTSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const PBBVS_PARTIAL: TRANSPARENTBARVERTSTATES = TRANSPARENTBARVERTSTATES(2i32);
 impl ::core::marker::Copy for TRANSPARENTBARVERTSTATES {}
 impl ::core::clone::Clone for TRANSPARENTBARVERTSTATES {
     fn clone(&self) -> Self {
@@ -19306,10 +19598,6 @@ impl ::core::fmt::Debug for TRANSPARENTBARVERTSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRAYNOTIFYPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TNP_BACKGROUND: TRAYNOTIFYPARTS = TRAYNOTIFYPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TNP_ANIMBACKGROUND: TRAYNOTIFYPARTS = TRAYNOTIFYPARTS(2i32);
 impl ::core::marker::Copy for TRAYNOTIFYPARTS {}
 impl ::core::clone::Clone for TRAYNOTIFYPARTS {
     fn clone(&self) -> Self {
@@ -19333,18 +19621,6 @@ impl ::core::fmt::Debug for TRAYNOTIFYPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TREEITEMSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TREIS_NORMAL: TREEITEMSTATES = TREEITEMSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TREIS_HOT: TREEITEMSTATES = TREEITEMSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TREIS_SELECTED: TREEITEMSTATES = TREEITEMSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TREIS_DISABLED: TREEITEMSTATES = TREEITEMSTATES(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TREIS_SELECTEDNOTFOCUS: TREEITEMSTATES = TREEITEMSTATES(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TREIS_HOTSELECTED: TREEITEMSTATES = TREEITEMSTATES(6i32);
 impl ::core::marker::Copy for TREEITEMSTATES {}
 impl ::core::clone::Clone for TREEITEMSTATES {
     fn clone(&self) -> Self {
@@ -19368,14 +19644,6 @@ impl ::core::fmt::Debug for TREEITEMSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TREEVIEWPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVP_TREEITEM: TREEVIEWPARTS = TREEVIEWPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVP_GLYPH: TREEVIEWPARTS = TREEVIEWPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVP_BRANCH: TREEVIEWPARTS = TREEVIEWPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVP_HOTGLYPH: TREEVIEWPARTS = TREEVIEWPARTS(4i32);
 impl ::core::marker::Copy for TREEVIEWPARTS {}
 impl ::core::clone::Clone for TREEVIEWPARTS {
     fn clone(&self) -> Self {
@@ -19399,32 +19667,6 @@ impl ::core::fmt::Debug for TREEVIEWPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TREE_VIEW_ITEM_STATE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_SELECTED: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_CUT: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_DROPHILITED: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_BOLD: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_EXPANDED: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_EXPANDEDONCE: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_EXPANDPARTIAL: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_OVERLAYMASK: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(3840u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_STATEIMAGEMASK: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(61440u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_USERMASK: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(61440u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_EX_FLAT: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_EX_DISABLED: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIS_EX_ALL: TREE_VIEW_ITEM_STATE_FLAGS = TREE_VIEW_ITEM_STATE_FLAGS(2u32);
 impl ::core::marker::Copy for TREE_VIEW_ITEM_STATE_FLAGS {}
 impl ::core::clone::Clone for TREE_VIEW_ITEM_STATE_FLAGS {
     fn clone(&self) -> Self {
@@ -19448,12 +19690,6 @@ impl ::core::fmt::Debug for TREE_VIEW_ITEM_STATE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRUESIZESCALINGTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TSST_NONE: TRUESIZESCALINGTYPE = TRUESIZESCALINGTYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TSST_SIZE: TRUESIZESCALINGTYPE = TRUESIZESCALINGTYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TSST_DPI: TRUESIZESCALINGTYPE = TRUESIZESCALINGTYPE(2i32);
 impl ::core::marker::Copy for TRUESIZESCALINGTYPE {}
 impl ::core::clone::Clone for TRUESIZESCALINGTYPE {
     fn clone(&self) -> Self {
@@ -19477,30 +19713,6 @@ impl ::core::fmt::Debug for TRUESIZESCALINGTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TVHITTESTINFO_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVHT_ABOVE: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVHT_BELOW: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVHT_NOWHERE: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVHT_ONITEM: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(70u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVHT_ONITEMBUTTON: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVHT_ONITEMICON: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVHT_ONITEMINDENT: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVHT_ONITEMLABEL: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVHT_ONITEMRIGHT: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVHT_ONITEMSTATEICON: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVHT_TOLEFT: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVHT_TORIGHT: TVHITTESTINFO_FLAGS = TVHITTESTINFO_FLAGS(1024u32);
 impl ::core::marker::Copy for TVHITTESTINFO_FLAGS {}
 impl ::core::clone::Clone for TVHITTESTINFO_FLAGS {
     fn clone(&self) -> Self {
@@ -19557,14 +19769,6 @@ impl ::core::ops::Not for TVHITTESTINFO_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TVITEMEXW_CHILDREN(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const I_ZERO: TVITEMEXW_CHILDREN = TVITEMEXW_CHILDREN(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const I_ONE_OR_MORE: TVITEMEXW_CHILDREN = TVITEMEXW_CHILDREN(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const I_CHILDRENCALLBACK: TVITEMEXW_CHILDREN = TVITEMEXW_CHILDREN(-1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const I_CHILDRENAUTO: TVITEMEXW_CHILDREN = TVITEMEXW_CHILDREN(-2i32);
 impl ::core::marker::Copy for TVITEMEXW_CHILDREN {}
 impl ::core::clone::Clone for TVITEMEXW_CHILDREN {
     fn clone(&self) -> Self {
@@ -19588,8 +19792,6 @@ impl ::core::fmt::Debug for TVITEMEXW_CHILDREN {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TVITEMPART(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVGIPR_BUTTON: TVITEMPART = TVITEMPART(1i32);
 impl ::core::marker::Copy for TVITEMPART {}
 impl ::core::clone::Clone for TVITEMPART {
     fn clone(&self) -> Self {
@@ -19613,28 +19815,6 @@ impl ::core::fmt::Debug for TVITEMPART {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TVITEM_MASK(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIF_CHILDREN: TVITEM_MASK = TVITEM_MASK(64u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIF_DI_SETITEM: TVITEM_MASK = TVITEM_MASK(4096u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIF_HANDLE: TVITEM_MASK = TVITEM_MASK(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIF_IMAGE: TVITEM_MASK = TVITEM_MASK(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIF_PARAM: TVITEM_MASK = TVITEM_MASK(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIF_SELECTEDIMAGE: TVITEM_MASK = TVITEM_MASK(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIF_STATE: TVITEM_MASK = TVITEM_MASK(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIF_TEXT: TVITEM_MASK = TVITEM_MASK(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIF_EXPANDEDIMAGE: TVITEM_MASK = TVITEM_MASK(512u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIF_INTEGRAL: TVITEM_MASK = TVITEM_MASK(128u32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TVIF_STATEEX: TVITEM_MASK = TVITEM_MASK(256u32);
 impl ::core::marker::Copy for TVITEM_MASK {}
 impl ::core::clone::Clone for TVITEM_MASK {
     fn clone(&self) -> Self {
@@ -19691,10 +19871,6 @@ impl ::core::ops::Not for TVITEM_MASK {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UPDATEMETADATASTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DDUPDATEMETADATA_HIGHLIGHT: UPDATEMETADATASTATES = UPDATEMETADATASTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DDUPDATEMETADATA_NOHIGHLIGHT: UPDATEMETADATASTATES = UPDATEMETADATASTATES(2i32);
 impl ::core::marker::Copy for UPDATEMETADATASTATES {}
 impl ::core::clone::Clone for UPDATEMETADATASTATES {
     fn clone(&self) -> Self {
@@ -19718,14 +19894,6 @@ impl ::core::fmt::Debug for UPDATEMETADATASTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UPHORZSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const UPHZS_NORMAL: UPHORZSTATES = UPHORZSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const UPHZS_HOT: UPHORZSTATES = UPHORZSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const UPHZS_PRESSED: UPHORZSTATES = UPHORZSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const UPHZS_DISABLED: UPHORZSTATES = UPHORZSTATES(4i32);
 impl ::core::marker::Copy for UPHORZSTATES {}
 impl ::core::clone::Clone for UPHORZSTATES {
     fn clone(&self) -> Self {
@@ -19749,14 +19917,6 @@ impl ::core::fmt::Debug for UPHORZSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UPSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const UPS_NORMAL: UPSTATES = UPSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const UPS_HOT: UPSTATES = UPSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const UPS_PRESSED: UPSTATES = UPSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const UPS_DISABLED: UPSTATES = UPSTATES(4i32);
 impl ::core::marker::Copy for UPSTATES {}
 impl ::core::clone::Clone for UPSTATES {
     fn clone(&self) -> Self {
@@ -19780,10 +19940,6 @@ impl ::core::fmt::Debug for UPSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USERTILEPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const UTP_STROKEBACKGROUND: USERTILEPARTS = USERTILEPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const UTP_HOVERBACKGROUND: USERTILEPARTS = USERTILEPARTS(2i32);
 impl ::core::marker::Copy for USERTILEPARTS {}
 impl ::core::clone::Clone for USERTILEPARTS {
     fn clone(&self) -> Self {
@@ -19807,12 +19963,6 @@ impl ::core::fmt::Debug for USERTILEPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VALIGN(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VA_TOP: VALIGN = VALIGN(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VA_CENTER: VALIGN = VALIGN(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VA_BOTTOM: VALIGN = VALIGN(2i32);
 impl ::core::marker::Copy for VALIGN {}
 impl ::core::clone::Clone for VALIGN {
     fn clone(&self) -> Self {
@@ -19836,14 +19986,6 @@ impl ::core::fmt::Debug for VALIGN {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VERTSCROLLSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSS_NORMAL: VERTSCROLLSTATES = VERTSCROLLSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSS_HOT: VERTSCROLLSTATES = VERTSCROLLSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSS_PUSHED: VERTSCROLLSTATES = VERTSCROLLSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VSS_DISABLED: VERTSCROLLSTATES = VERTSCROLLSTATES(4i32);
 impl ::core::marker::Copy for VERTSCROLLSTATES {}
 impl ::core::clone::Clone for VERTSCROLLSTATES {
     fn clone(&self) -> Self {
@@ -19867,14 +20009,6 @@ impl ::core::fmt::Debug for VERTSCROLLSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VERTTHUMBSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VTS_NORMAL: VERTTHUMBSTATES = VERTTHUMBSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VTS_HOT: VERTTHUMBSTATES = VERTTHUMBSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VTS_PUSHED: VERTTHUMBSTATES = VERTTHUMBSTATES(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const VTS_DISABLED: VERTTHUMBSTATES = VERTTHUMBSTATES(4i32);
 impl ::core::marker::Copy for VERTTHUMBSTATES {}
 impl ::core::clone::Clone for VERTTHUMBSTATES {
     fn clone(&self) -> Self {
@@ -19898,10 +20032,6 @@ impl ::core::fmt::Debug for VERTTHUMBSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WARNINGSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DDWARNING_HIGHLIGHT: WARNINGSTATES = WARNINGSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const DDWARNING_NOHIGHLIGHT: WARNINGSTATES = WARNINGSTATES(2i32);
 impl ::core::marker::Copy for WARNINGSTATES {}
 impl ::core::clone::Clone for WARNINGSTATES {
     fn clone(&self) -> Self {
@@ -19925,84 +20055,6 @@ impl ::core::fmt::Debug for WARNINGSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINDOWPARTS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_CAPTION: WINDOWPARTS = WINDOWPARTS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_SMALLCAPTION: WINDOWPARTS = WINDOWPARTS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_MINCAPTION: WINDOWPARTS = WINDOWPARTS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_SMALLMINCAPTION: WINDOWPARTS = WINDOWPARTS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_MAXCAPTION: WINDOWPARTS = WINDOWPARTS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_SMALLMAXCAPTION: WINDOWPARTS = WINDOWPARTS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_FRAMELEFT: WINDOWPARTS = WINDOWPARTS(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_FRAMERIGHT: WINDOWPARTS = WINDOWPARTS(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_FRAMEBOTTOM: WINDOWPARTS = WINDOWPARTS(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_SMALLFRAMELEFT: WINDOWPARTS = WINDOWPARTS(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_SMALLFRAMERIGHT: WINDOWPARTS = WINDOWPARTS(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_SMALLFRAMEBOTTOM: WINDOWPARTS = WINDOWPARTS(12i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_SYSBUTTON: WINDOWPARTS = WINDOWPARTS(13i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_MDISYSBUTTON: WINDOWPARTS = WINDOWPARTS(14i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_MINBUTTON: WINDOWPARTS = WINDOWPARTS(15i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_MDIMINBUTTON: WINDOWPARTS = WINDOWPARTS(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_MAXBUTTON: WINDOWPARTS = WINDOWPARTS(17i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_CLOSEBUTTON: WINDOWPARTS = WINDOWPARTS(18i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_SMALLCLOSEBUTTON: WINDOWPARTS = WINDOWPARTS(19i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_MDICLOSEBUTTON: WINDOWPARTS = WINDOWPARTS(20i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_RESTOREBUTTON: WINDOWPARTS = WINDOWPARTS(21i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_MDIRESTOREBUTTON: WINDOWPARTS = WINDOWPARTS(22i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_HELPBUTTON: WINDOWPARTS = WINDOWPARTS(23i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_MDIHELPBUTTON: WINDOWPARTS = WINDOWPARTS(24i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_HORZSCROLL: WINDOWPARTS = WINDOWPARTS(25i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_HORZTHUMB: WINDOWPARTS = WINDOWPARTS(26i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_VERTSCROLL: WINDOWPARTS = WINDOWPARTS(27i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_VERTTHUMB: WINDOWPARTS = WINDOWPARTS(28i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_DIALOG: WINDOWPARTS = WINDOWPARTS(29i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_CAPTIONSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(30i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_SMALLCAPTIONSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(31i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_FRAMELEFTSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(32i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_SMALLFRAMELEFTSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(33i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_FRAMERIGHTSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(34i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_SMALLFRAMERIGHTSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(35i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_FRAMEBOTTOMSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(36i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_SMALLFRAMEBOTTOMSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(37i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_FRAME: WINDOWPARTS = WINDOWPARTS(38i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WP_BORDER: WINDOWPARTS = WINDOWPARTS(39i32);
 impl ::core::marker::Copy for WINDOWPARTS {}
 impl ::core::clone::Clone for WINDOWPARTS {
     fn clone(&self) -> Self {
@@ -20026,8 +20078,6 @@ impl ::core::fmt::Debug for WINDOWPARTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINDOWTHEMEATTRIBUTETYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WTA_NONCLIENT: WINDOWTHEMEATTRIBUTETYPE = WINDOWTHEMEATTRIBUTETYPE(1i32);
 impl ::core::marker::Copy for WINDOWTHEMEATTRIBUTETYPE {}
 impl ::core::clone::Clone for WINDOWTHEMEATTRIBUTETYPE {
     fn clone(&self) -> Self {
@@ -20051,22 +20101,6 @@ impl ::core::fmt::Debug for WINDOWTHEMEATTRIBUTETYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WORD_BREAK_ACTION(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WB_CLASSIFY: WORD_BREAK_ACTION = WORD_BREAK_ACTION(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WB_ISDELIMITER: WORD_BREAK_ACTION = WORD_BREAK_ACTION(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WB_LEFT: WORD_BREAK_ACTION = WORD_BREAK_ACTION(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WB_LEFTBREAK: WORD_BREAK_ACTION = WORD_BREAK_ACTION(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WB_MOVEWORDLEFT: WORD_BREAK_ACTION = WORD_BREAK_ACTION(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WB_MOVEWORDRIGHT: WORD_BREAK_ACTION = WORD_BREAK_ACTION(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WB_RIGHT: WORD_BREAK_ACTION = WORD_BREAK_ACTION(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WB_RIGHTBREAK: WORD_BREAK_ACTION = WORD_BREAK_ACTION(7i32);
 impl ::core::marker::Copy for WORD_BREAK_ACTION {}
 impl ::core::clone::Clone for WORD_BREAK_ACTION {
     fn clone(&self) -> Self {
@@ -20090,12 +20124,6 @@ impl ::core::fmt::Debug for WORD_BREAK_ACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WRENCHSTATES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTWS_NORMAL: WRENCHSTATES = WRENCHSTATES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTWS_HOT: WRENCHSTATES = WRENCHSTATES(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const TTWS_PRESSED: WRENCHSTATES = WRENCHSTATES(3i32);
 impl ::core::marker::Copy for WRENCHSTATES {}
 impl ::core::clone::Clone for WRENCHSTATES {
     fn clone(&self) -> Self {
@@ -20119,30 +20147,6 @@ impl ::core::fmt::Debug for WRENCHSTATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WSB_PROP(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WSB_PROP_CXHSCROLL: WSB_PROP = WSB_PROP(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WSB_PROP_CXHTHUMB: WSB_PROP = WSB_PROP(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WSB_PROP_CXVSCROLL: WSB_PROP = WSB_PROP(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WSB_PROP_CYHSCROLL: WSB_PROP = WSB_PROP(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WSB_PROP_CYVSCROLL: WSB_PROP = WSB_PROP(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WSB_PROP_CYVTHUMB: WSB_PROP = WSB_PROP(32i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WSB_PROP_HBKGCOLOR: WSB_PROP = WSB_PROP(128i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WSB_PROP_HSTYLE: WSB_PROP = WSB_PROP(512i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WSB_PROP_PALETTE: WSB_PROP = WSB_PROP(2048i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WSB_PROP_VBKGCOLOR: WSB_PROP = WSB_PROP(64i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WSB_PROP_VSTYLE: WSB_PROP = WSB_PROP(256i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const WSB_PROP_WINSTYLE: WSB_PROP = WSB_PROP(1024i32);
 impl ::core::marker::Copy for WSB_PROP {}
 impl ::core::clone::Clone for WSB_PROP {
     fn clone(&self) -> Self {
@@ -20166,10 +20170,6 @@ impl ::core::fmt::Debug for WSB_PROP {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _LI_METRIC(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LIM_SMALL: _LI_METRIC = _LI_METRIC(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub const LIM_LARGE: _LI_METRIC = _LI_METRIC(1i32);
 impl ::core::marker::Copy for _LI_METRIC {}
 impl ::core::clone::Clone for _LI_METRIC {
     fn clone(&self) -> Self {

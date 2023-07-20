@@ -75,6 +75,20 @@ pub unsafe fn RegisterHelper(pguidparentcontext: *const ::windows_core::GUID, pf
     RegisterHelper(pguidparentcontext, pfnregistersubcontext)
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+pub const CMD_FLAG_HIDDEN: NS_CMD_FLAGS = NS_CMD_FLAGS(32i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+pub const CMD_FLAG_INTERACTIVE: NS_CMD_FLAGS = NS_CMD_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+pub const CMD_FLAG_LIMIT_MASK: NS_CMD_FLAGS = NS_CMD_FLAGS(65535i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+pub const CMD_FLAG_LOCAL: NS_CMD_FLAGS = NS_CMD_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+pub const CMD_FLAG_ONLINE: NS_CMD_FLAGS = NS_CMD_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+pub const CMD_FLAG_PRIORITY: NS_CMD_FLAGS = NS_CMD_FLAGS(-2147483648i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+pub const CMD_FLAG_PRIVATE: NS_CMD_FLAGS = NS_CMD_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const DEFAULT_CONTEXT_PRIORITY: u32 = 100u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const ERROR_CMD_NOT_FOUND: u32 = 15004u32;
@@ -127,35 +141,49 @@ pub const NETSH_ARG_DELIMITER: ::windows_core::PCWSTR = ::windows_core::w!("=");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const NETSH_CMD_DELIMITER: ::windows_core::PCWSTR = ::windows_core::w!(" ");
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+pub const NETSH_COMMIT: NS_MODE_CHANGE = NS_MODE_CHANGE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+pub const NETSH_COMMIT_STATE: NS_MODE_CHANGE = NS_MODE_CHANGE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const NETSH_ERROR_BASE: u32 = 15000u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const NETSH_ERROR_END: u32 = 15019u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+pub const NETSH_FLUSH: NS_MODE_CHANGE = NS_MODE_CHANGE(2i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const NETSH_MAX_CMD_TOKEN_LENGTH: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const NETSH_MAX_TOKEN_LENGTH: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+pub const NETSH_SAVE: NS_MODE_CHANGE = NS_MODE_CHANGE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+pub const NETSH_UNCOMMIT: NS_MODE_CHANGE = NS_MODE_CHANGE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const NETSH_VERSION_50: u32 = 20480u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+pub const NS_EVENT_FROM_N: NS_EVENTS = NS_EVENTS(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+pub const NS_EVENT_FROM_START: NS_EVENTS = NS_EVENTS(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+pub const NS_EVENT_LAST_N: NS_EVENTS = NS_EVENTS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+pub const NS_EVENT_LAST_SECS: NS_EVENTS = NS_EVENTS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+pub const NS_EVENT_LOOP: NS_EVENTS = NS_EVENTS(65536i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 pub const NS_GET_EVENT_IDS_FN_NAME: ::windows_core::PCSTR = ::windows_core::s!("GetEventIds");
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+pub const NS_REQ_ALLOW_MULTIPLE: NS_REQS = NS_REQS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+pub const NS_REQ_ONE_OR_MORE: NS_REQS = NS_REQS(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+pub const NS_REQ_PRESENT: NS_REQS = NS_REQS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
+pub const NS_REQ_ZERO: NS_REQS = NS_REQS(0i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NS_CMD_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const CMD_FLAG_PRIVATE: NS_CMD_FLAGS = NS_CMD_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const CMD_FLAG_INTERACTIVE: NS_CMD_FLAGS = NS_CMD_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const CMD_FLAG_LOCAL: NS_CMD_FLAGS = NS_CMD_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const CMD_FLAG_ONLINE: NS_CMD_FLAGS = NS_CMD_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const CMD_FLAG_HIDDEN: NS_CMD_FLAGS = NS_CMD_FLAGS(32i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const CMD_FLAG_LIMIT_MASK: NS_CMD_FLAGS = NS_CMD_FLAGS(65535i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const CMD_FLAG_PRIORITY: NS_CMD_FLAGS = NS_CMD_FLAGS(-2147483648i32);
 impl ::core::marker::Copy for NS_CMD_FLAGS {}
 impl ::core::clone::Clone for NS_CMD_FLAGS {
     fn clone(&self) -> Self {
@@ -179,16 +207,6 @@ impl ::core::fmt::Debug for NS_CMD_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NS_EVENTS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NS_EVENT_LOOP: NS_EVENTS = NS_EVENTS(65536i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NS_EVENT_LAST_N: NS_EVENTS = NS_EVENTS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NS_EVENT_LAST_SECS: NS_EVENTS = NS_EVENTS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NS_EVENT_FROM_N: NS_EVENTS = NS_EVENTS(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NS_EVENT_FROM_START: NS_EVENTS = NS_EVENTS(8i32);
 impl ::core::marker::Copy for NS_EVENTS {}
 impl ::core::clone::Clone for NS_EVENTS {
     fn clone(&self) -> Self {
@@ -212,16 +230,6 @@ impl ::core::fmt::Debug for NS_EVENTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NS_MODE_CHANGE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NETSH_COMMIT: NS_MODE_CHANGE = NS_MODE_CHANGE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NETSH_UNCOMMIT: NS_MODE_CHANGE = NS_MODE_CHANGE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NETSH_FLUSH: NS_MODE_CHANGE = NS_MODE_CHANGE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NETSH_COMMIT_STATE: NS_MODE_CHANGE = NS_MODE_CHANGE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NETSH_SAVE: NS_MODE_CHANGE = NS_MODE_CHANGE(4i32);
 impl ::core::marker::Copy for NS_MODE_CHANGE {}
 impl ::core::clone::Clone for NS_MODE_CHANGE {
     fn clone(&self) -> Self {
@@ -245,14 +253,6 @@ impl ::core::fmt::Debug for NS_MODE_CHANGE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NS_REQS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NS_REQ_ZERO: NS_REQS = NS_REQS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NS_REQ_PRESENT: NS_REQS = NS_REQS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NS_REQ_ALLOW_MULTIPLE: NS_REQS = NS_REQS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetShell\"`*"]
-pub const NS_REQ_ONE_OR_MORE: NS_REQS = NS_REQS(3i32);
 impl ::core::marker::Copy for NS_REQS {}
 impl ::core::clone::Clone for NS_REQS {
     fn clone(&self) -> Self {

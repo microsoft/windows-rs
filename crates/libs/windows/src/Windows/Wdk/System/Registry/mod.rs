@@ -68,17 +68,7 @@ where
     ZwSetInformationKey(keyhandle.into_param().abi(), keysetinformationclass, keysetinformation, keysetinformationlength).ok()
 }
 #[doc = "*Required features: `\"Wdk_System_Registry\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KEY_SET_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_Registry\"`*"]
-pub const KeyWriteTimeInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Wdk_System_Registry\"`*"]
-pub const KeyWow64FlagsInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Wdk_System_Registry\"`*"]
 pub const KeyControlFlagsInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Wdk_System_Registry\"`*"]
-pub const KeySetVirtualizationInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(3i32);
 #[doc = "*Required features: `\"Wdk_System_Registry\"`*"]
 pub const KeySetDebugInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(4i32);
 #[doc = "*Required features: `\"Wdk_System_Registry\"`*"]
@@ -86,7 +76,17 @@ pub const KeySetHandleTagsInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFOR
 #[doc = "*Required features: `\"Wdk_System_Registry\"`*"]
 pub const KeySetLayerInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(6i32);
 #[doc = "*Required features: `\"Wdk_System_Registry\"`*"]
+pub const KeySetVirtualizationInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(3i32);
+#[doc = "*Required features: `\"Wdk_System_Registry\"`*"]
+pub const KeyWow64FlagsInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Wdk_System_Registry\"`*"]
+pub const KeyWriteTimeInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(0i32);
+#[doc = "*Required features: `\"Wdk_System_Registry\"`*"]
 pub const MaxKeySetInfoClass: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(7i32);
+#[doc = "*Required features: `\"Wdk_System_Registry\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KEY_SET_INFORMATION_CLASS(pub i32);
 impl ::core::marker::Copy for KEY_SET_INFORMATION_CLASS {}
 impl ::core::clone::Clone for KEY_SET_INFORMATION_CLASS {
     fn clone(&self) -> Self {

@@ -362,9 +362,37 @@ pub const GUID_DEVINTERFACE_BIOMETRIC_READER: ::windows_core::GUID = ::windows_c
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 pub const IOCTL_BIOMETRIC_VENDOR: u32 = 4464640u32;
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_ANTI_SPOOF_DISABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(0i32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_ANTI_SPOOF_ENABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(1i32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_ANTI_SPOOF_REMOVE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(2i32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_ASYNC_NOTIFY_CALLBACK: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(1i32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_ASYNC_NOTIFY_MAXIMUM_VALUE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(3i32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_ASYNC_NOTIFY_MESSAGE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(2i32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_ASYNC_NOTIFY_NONE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(0i32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 pub const WINBIO_BIR_ALGIN_SIZE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 pub const WINBIO_BIR_ALIGN_SIZE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_COMPONENT_ENGINE: WINBIO_COMPONENT = WINBIO_COMPONENT(2u32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_COMPONENT_SENSOR: WINBIO_COMPONENT = WINBIO_COMPONENT(1u32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_COMPONENT_STORAGE: WINBIO_COMPONENT = WINBIO_COMPONENT(3u32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_CREDENTIAL_ALL: WINBIO_CREDENTIAL_TYPE = WINBIO_CREDENTIAL_TYPE(-1i32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_CREDENTIAL_NOT_SET: WINBIO_CREDENTIAL_STATE = WINBIO_CREDENTIAL_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_CREDENTIAL_PASSWORD: WINBIO_CREDENTIAL_TYPE = WINBIO_CREDENTIAL_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_CREDENTIAL_SET: WINBIO_CREDENTIAL_STATE = WINBIO_CREDENTIAL_STATE(2i32);
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 pub const WINBIO_E_ADAPTER_INTEGRITY_FAILURE: ::windows_core::HRESULT = ::windows_core::HRESULT(-2146860995i32);
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
@@ -540,6 +568,24 @@ pub const WINBIO_I_MORE_DATA: ::windows_core::HRESULT = ::windows_core::HRESULT(
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 pub const WINBIO_MAX_STRING_LEN: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_PASSWORD_GENERIC: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(1i32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_PASSWORD_PACKED: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(2i32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_PASSWORD_PROTECTED: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(3i32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_POLICY_ADMIN: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_POLICY_DEFAULT: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_POLICY_LOCAL: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_POLICY_UNKNOWN: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_POOL_PRIVATE: WINBIO_POOL = WINBIO_POOL(2u32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_POOL_SYSTEM: WINBIO_POOL = WINBIO_POOL(1u32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 pub const WINBIO_SCP_CURVE_FIELD_SIZE_V1: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 pub const WINBIO_SCP_DIGEST_SIZE_V1: u32 = 32u32;
@@ -558,6 +604,14 @@ pub const WINBIO_SCP_SIGNATURE_SIZE_V1: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 pub const WINBIO_SCP_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_SETTING_SOURCE_DEFAULT: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(1u32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_SETTING_SOURCE_INVALID: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(0u32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_SETTING_SOURCE_LOCAL: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(3u32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
+pub const WINBIO_SETTING_SOURCE_POLICY: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(2u32);
+#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 pub const WINBIO_WBDI_MAJOR_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
 pub const WINBIO_WBDI_MINOR_VERSION: u32 = 0u32;
@@ -565,12 +619,6 @@ pub const WINBIO_WBDI_MINOR_VERSION: u32 = 0u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINBIO_ANTI_SPOOF_POLICY_ACTION(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_ANTI_SPOOF_DISABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(0i32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_ANTI_SPOOF_ENABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(1i32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_ANTI_SPOOF_REMOVE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(2i32);
 impl ::core::marker::Copy for WINBIO_ANTI_SPOOF_POLICY_ACTION {}
 impl ::core::clone::Clone for WINBIO_ANTI_SPOOF_POLICY_ACTION {
     fn clone(&self) -> Self {
@@ -594,14 +642,6 @@ impl ::core::fmt::Debug for WINBIO_ANTI_SPOOF_POLICY_ACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINBIO_ASYNC_NOTIFICATION_METHOD(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_ASYNC_NOTIFY_NONE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(0i32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_ASYNC_NOTIFY_CALLBACK: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(1i32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_ASYNC_NOTIFY_MESSAGE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(2i32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_ASYNC_NOTIFY_MAXIMUM_VALUE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(3i32);
 impl ::core::marker::Copy for WINBIO_ASYNC_NOTIFICATION_METHOD {}
 impl ::core::clone::Clone for WINBIO_ASYNC_NOTIFICATION_METHOD {
     fn clone(&self) -> Self {
@@ -625,12 +665,6 @@ impl ::core::fmt::Debug for WINBIO_ASYNC_NOTIFICATION_METHOD {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINBIO_COMPONENT(pub u32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_COMPONENT_SENSOR: WINBIO_COMPONENT = WINBIO_COMPONENT(1u32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_COMPONENT_ENGINE: WINBIO_COMPONENT = WINBIO_COMPONENT(2u32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_COMPONENT_STORAGE: WINBIO_COMPONENT = WINBIO_COMPONENT(3u32);
 impl ::core::marker::Copy for WINBIO_COMPONENT {}
 impl ::core::clone::Clone for WINBIO_COMPONENT {
     fn clone(&self) -> Self {
@@ -654,12 +688,6 @@ impl ::core::fmt::Debug for WINBIO_COMPONENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINBIO_CREDENTIAL_FORMAT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_PASSWORD_GENERIC: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(1i32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_PASSWORD_PACKED: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(2i32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_PASSWORD_PROTECTED: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(3i32);
 impl ::core::marker::Copy for WINBIO_CREDENTIAL_FORMAT {}
 impl ::core::clone::Clone for WINBIO_CREDENTIAL_FORMAT {
     fn clone(&self) -> Self {
@@ -683,10 +711,6 @@ impl ::core::fmt::Debug for WINBIO_CREDENTIAL_FORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINBIO_CREDENTIAL_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_CREDENTIAL_NOT_SET: WINBIO_CREDENTIAL_STATE = WINBIO_CREDENTIAL_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_CREDENTIAL_SET: WINBIO_CREDENTIAL_STATE = WINBIO_CREDENTIAL_STATE(2i32);
 impl ::core::marker::Copy for WINBIO_CREDENTIAL_STATE {}
 impl ::core::clone::Clone for WINBIO_CREDENTIAL_STATE {
     fn clone(&self) -> Self {
@@ -710,10 +734,6 @@ impl ::core::fmt::Debug for WINBIO_CREDENTIAL_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINBIO_CREDENTIAL_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_CREDENTIAL_PASSWORD: WINBIO_CREDENTIAL_TYPE = WINBIO_CREDENTIAL_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_CREDENTIAL_ALL: WINBIO_CREDENTIAL_TYPE = WINBIO_CREDENTIAL_TYPE(-1i32);
 impl ::core::marker::Copy for WINBIO_CREDENTIAL_TYPE {}
 impl ::core::clone::Clone for WINBIO_CREDENTIAL_TYPE {
     fn clone(&self) -> Self {
@@ -737,14 +757,6 @@ impl ::core::fmt::Debug for WINBIO_CREDENTIAL_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINBIO_POLICY_SOURCE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_POLICY_UNKNOWN: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_POLICY_DEFAULT: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_POLICY_LOCAL: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_POLICY_ADMIN: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(3i32);
 impl ::core::marker::Copy for WINBIO_POLICY_SOURCE {}
 impl ::core::clone::Clone for WINBIO_POLICY_SOURCE {
     fn clone(&self) -> Self {
@@ -768,10 +780,6 @@ impl ::core::fmt::Debug for WINBIO_POLICY_SOURCE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINBIO_POOL(pub u32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_POOL_SYSTEM: WINBIO_POOL = WINBIO_POOL(1u32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_POOL_PRIVATE: WINBIO_POOL = WINBIO_POOL(2u32);
 impl ::core::marker::Copy for WINBIO_POOL {}
 impl ::core::clone::Clone for WINBIO_POOL {
     fn clone(&self) -> Self {
@@ -795,14 +803,6 @@ impl ::core::fmt::Debug for WINBIO_POOL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINBIO_SETTING_SOURCE(pub u32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_SETTING_SOURCE_INVALID: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(0u32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_SETTING_SOURCE_DEFAULT: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(1u32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_SETTING_SOURCE_LOCAL: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(3u32);
-#[doc = "*Required features: `\"Win32_Devices_BiometricFramework\"`*"]
-pub const WINBIO_SETTING_SOURCE_POLICY: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(2u32);
 impl ::core::marker::Copy for WINBIO_SETTING_SOURCE {}
 impl ::core::clone::Clone for WINBIO_SETTING_SOURCE {
     fn clone(&self) -> Self {

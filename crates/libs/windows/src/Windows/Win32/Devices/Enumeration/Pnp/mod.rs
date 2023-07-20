@@ -1699,6 +1699,22 @@ pub const FAULT_INVALID_VARIABLE: u32 = 404u32;
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
 pub const REMOTE_ADDRESS_VALUE_NAME: ::windows_core::PCWSTR = ::windows_core::w!("RemoteAddress");
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const SWDeviceCapabilitiesDriverRequired: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const SWDeviceCapabilitiesNoDisplayInUI: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const SWDeviceCapabilitiesNone: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const SWDeviceCapabilitiesRemovable: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const SWDeviceCapabilitiesSilentInstall: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const SWDeviceLifetimeHandle: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const SWDeviceLifetimeMax: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const SWDeviceLifetimeParentPresent: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
 pub const UPNP_ADDRESSFAMILY_BOTH: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
 pub const UPNP_ADDRESSFAMILY_IPv4: u32 = 1u32;
@@ -1798,16 +1814,6 @@ pub const UPnPServices: ::windows_core::GUID = ::windows_core::GUID::from_u128(0
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SW_DEVICE_CAPABILITIES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const SWDeviceCapabilitiesNone: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const SWDeviceCapabilitiesRemovable: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const SWDeviceCapabilitiesSilentInstall: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const SWDeviceCapabilitiesNoDisplayInUI: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const SWDeviceCapabilitiesDriverRequired: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(8i32);
 impl ::core::marker::Copy for SW_DEVICE_CAPABILITIES {}
 impl ::core::clone::Clone for SW_DEVICE_CAPABILITIES {
     fn clone(&self) -> Self {
@@ -1831,12 +1837,6 @@ impl ::core::fmt::Debug for SW_DEVICE_CAPABILITIES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SW_DEVICE_LIFETIME(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const SWDeviceLifetimeHandle: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const SWDeviceLifetimeParentPresent: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const SWDeviceLifetimeMax: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(2i32);
 impl ::core::marker::Copy for SW_DEVICE_LIFETIME {}
 impl ::core::clone::Clone for SW_DEVICE_LIFETIME {
     fn clone(&self) -> Self {

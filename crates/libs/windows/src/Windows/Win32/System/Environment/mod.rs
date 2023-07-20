@@ -325,6 +325,18 @@ pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ENABLED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const ENCLAVE_FLAG_FULL_DEBUG_ENABLED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_EXACT_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(1i32);
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_INVALID: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(0i32);
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_AUTHOR: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(5i32);
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_FAMILY: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(4i32);
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_IMAGE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(3i32);
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
+pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_PRIMARY_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(2i32);
+#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const ENCLAVE_REPORT_DATA_LENGTH: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const ENCLAVE_RUNTIME_POLICY_ALLOW_DYNAMIC_DEBUG: u32 = 2u32;
@@ -354,18 +366,6 @@ pub const VBS_ENCLAVE_VARDATA_MODULE: u32 = 1u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENCLAVE_SEALING_IDENTITY_POLICY(pub i32);
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_INVALID: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(0i32);
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_EXACT_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(1i32);
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_PRIMARY_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(2i32);
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_IMAGE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(3i32);
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_FAMILY: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(4i32);
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
-pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_AUTHOR: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(5i32);
 impl ::core::marker::Copy for ENCLAVE_SEALING_IDENTITY_POLICY {}
 impl ::core::clone::Clone for ENCLAVE_SEALING_IDENTITY_POLICY {
     fn clone(&self) -> Self {

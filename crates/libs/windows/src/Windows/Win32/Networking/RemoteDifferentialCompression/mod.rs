@@ -1041,6 +1041,52 @@ pub const RDCE_TABLE_CORRUPT: u32 = 2147745794u32;
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
 pub const RDCE_TABLE_FULL: u32 = 2147745793u32;
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDCGENTYPE_FilterMax: GeneratorParametersType = GeneratorParametersType(1i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDCGENTYPE_Unused: GeneratorParametersType = GeneratorParametersType(0i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDCMAPPING_ReadOnly: RdcMappingAccessMode = RdcMappingAccessMode(1i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDCMAPPING_ReadWrite: RdcMappingAccessMode = RdcMappingAccessMode(2i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDCMAPPING_Undefined: RdcMappingAccessMode = RdcMappingAccessMode(0i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDCNEED_SEED: RdcNeedType = RdcNeedType(2i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDCNEED_SEED_MAX: RdcNeedType = RdcNeedType(255i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDCNEED_SOURCE: RdcNeedType = RdcNeedType(0i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDCNEED_TARGET: RdcNeedType = RdcNeedType(1i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDCTABLE_Existing: RdcCreatedTables = RdcCreatedTables(1i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDCTABLE_InvalidOrUnknown: RdcCreatedTables = RdcCreatedTables(0i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDCTABLE_New: RdcCreatedTables = RdcCreatedTables(2i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDC_Aborted: RDC_ErrorCode = RDC_ErrorCode(9i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDC_ApplicationError: RDC_ErrorCode = RDC_ErrorCode(8i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDC_DataMissingOrCorrupt: RDC_ErrorCode = RDC_ErrorCode(5i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDC_DataTooManyRecords: RDC_ErrorCode = RDC_ErrorCode(6i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDC_FileChecksumMismatch: RDC_ErrorCode = RDC_ErrorCode(7i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDC_HeaderMissingOrCorrupt: RDC_ErrorCode = RDC_ErrorCode(3i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDC_HeaderVersionNewer: RDC_ErrorCode = RDC_ErrorCode(1i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDC_HeaderVersionOlder: RDC_ErrorCode = RDC_ErrorCode(2i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDC_HeaderWrongType: RDC_ErrorCode = RDC_ErrorCode(4i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDC_NoError: RDC_ErrorCode = RDC_ErrorCode(0i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
+pub const RDC_Win32Error: RDC_ErrorCode = RDC_ErrorCode(10i32);
+#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
 pub const RdcComparator: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a8b_9dbc_11da_9e3f_0011114ae311);
 #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
 pub const RdcFileReader: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96236a89_9dbc_11da_9e3f_0011114ae311);
@@ -1078,10 +1124,6 @@ pub const SimilarityTraitsTable: ::windows_core::GUID = ::windows_core::GUID::fr
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GeneratorParametersType(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDCGENTYPE_Unused: GeneratorParametersType = GeneratorParametersType(0i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDCGENTYPE_FilterMax: GeneratorParametersType = GeneratorParametersType(1i32);
 impl ::core::marker::Copy for GeneratorParametersType {}
 impl ::core::clone::Clone for GeneratorParametersType {
     fn clone(&self) -> Self {
@@ -1105,28 +1147,6 @@ impl ::core::fmt::Debug for GeneratorParametersType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RDC_ErrorCode(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDC_NoError: RDC_ErrorCode = RDC_ErrorCode(0i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDC_HeaderVersionNewer: RDC_ErrorCode = RDC_ErrorCode(1i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDC_HeaderVersionOlder: RDC_ErrorCode = RDC_ErrorCode(2i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDC_HeaderMissingOrCorrupt: RDC_ErrorCode = RDC_ErrorCode(3i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDC_HeaderWrongType: RDC_ErrorCode = RDC_ErrorCode(4i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDC_DataMissingOrCorrupt: RDC_ErrorCode = RDC_ErrorCode(5i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDC_DataTooManyRecords: RDC_ErrorCode = RDC_ErrorCode(6i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDC_FileChecksumMismatch: RDC_ErrorCode = RDC_ErrorCode(7i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDC_ApplicationError: RDC_ErrorCode = RDC_ErrorCode(8i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDC_Aborted: RDC_ErrorCode = RDC_ErrorCode(9i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDC_Win32Error: RDC_ErrorCode = RDC_ErrorCode(10i32);
 impl ::core::marker::Copy for RDC_ErrorCode {}
 impl ::core::clone::Clone for RDC_ErrorCode {
     fn clone(&self) -> Self {
@@ -1150,12 +1170,6 @@ impl ::core::fmt::Debug for RDC_ErrorCode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RdcCreatedTables(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDCTABLE_InvalidOrUnknown: RdcCreatedTables = RdcCreatedTables(0i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDCTABLE_Existing: RdcCreatedTables = RdcCreatedTables(1i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDCTABLE_New: RdcCreatedTables = RdcCreatedTables(2i32);
 impl ::core::marker::Copy for RdcCreatedTables {}
 impl ::core::clone::Clone for RdcCreatedTables {
     fn clone(&self) -> Self {
@@ -1179,12 +1193,6 @@ impl ::core::fmt::Debug for RdcCreatedTables {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RdcMappingAccessMode(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDCMAPPING_Undefined: RdcMappingAccessMode = RdcMappingAccessMode(0i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDCMAPPING_ReadOnly: RdcMappingAccessMode = RdcMappingAccessMode(1i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDCMAPPING_ReadWrite: RdcMappingAccessMode = RdcMappingAccessMode(2i32);
 impl ::core::marker::Copy for RdcMappingAccessMode {}
 impl ::core::clone::Clone for RdcMappingAccessMode {
     fn clone(&self) -> Self {
@@ -1208,14 +1216,6 @@ impl ::core::fmt::Debug for RdcMappingAccessMode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RdcNeedType(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDCNEED_SOURCE: RdcNeedType = RdcNeedType(0i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDCNEED_TARGET: RdcNeedType = RdcNeedType(1i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDCNEED_SEED: RdcNeedType = RdcNeedType(2i32);
-#[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-pub const RDCNEED_SEED_MAX: RdcNeedType = RdcNeedType(255i32);
 impl ::core::marker::Copy for RdcNeedType {}
 impl ::core::clone::Clone for RdcNeedType {
     fn clone(&self) -> Self {

@@ -2035,6 +2035,26 @@ pub const PIDMSI_SOURCE: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub const PIDMSI_STATUS: i32 = 7i32;
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_STATUS_DRAFT: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(3i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_STATUS_EDIT: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(5i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_STATUS_FINAL: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(8i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_STATUS_INPROGRESS: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(4i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_STATUS_NEW: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_STATUS_NORMAL: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(0i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_STATUS_OTHER: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(32767i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_STATUS_PRELIM: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_STATUS_PROOF: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(7i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_STATUS_REVIEW: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(6i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub const PIDMSI_SUPPLIER: i32 = 3i32;
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub const PIDSI_APPNAME: i32 = 18i32;
@@ -2111,31 +2131,73 @@ pub const PROPSET_BEHAVIOR_CASE_SENSITIVE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub const PRSPEC_INVALID: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PRSPEC_LPWSTR: PROPSPEC_KIND = PROPSPEC_KIND(0u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PRSPEC_PROPID: PROPSPEC_KIND = PROPSPEC_KIND(1u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PVCF_DEFAULT: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PVCF_DIGITSASNUMBERS_CASESENSITIVE: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(32i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PVCF_TREATEMPTYASGREATERTHAN: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PVCF_USESTRCMP: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PVCF_USESTRCMPC: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PVCF_USESTRCMPI: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PVCF_USESTRCMPIC: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PVCHF_ALPHABOOL: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PVCHF_DEFAULT: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PVCHF_LOCALBOOL: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PVCHF_NOHEXSTRING: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PVCHF_NOUSEROVERRIDE: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PVCHF_NOVALUEPROP: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PVCU_DAY: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(4i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PVCU_DEFAULT: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(0i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PVCU_HOUR: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(3i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PVCU_MINUTE: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PVCU_MONTH: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(5i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PVCU_SECOND: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PVCU_YEAR: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(6i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGFMT_ANY: STGFMT = STGFMT(4u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGFMT_DOCFILE: STGFMT = STGFMT(5u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGFMT_DOCUMENT: STGFMT = STGFMT(0u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGFMT_FILE: STGFMT = STGFMT(3u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGFMT_NATIVE: STGFMT = STGFMT(1u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGFMT_STORAGE: STGFMT = STGFMT(0u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGMOVE_COPY: STGMOVE = STGMOVE(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGMOVE_MOVE: STGMOVE = STGMOVE(0i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGMOVE_SHALLOWCOPY: STGMOVE = STGMOVE(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub const STGOPTIONS_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PIDMSI_STATUS_VALUE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_STATUS_NORMAL: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_STATUS_NEW: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_STATUS_PRELIM: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_STATUS_DRAFT: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(3i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_STATUS_INPROGRESS: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(4i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_STATUS_EDIT: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(5i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_STATUS_REVIEW: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(6i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_STATUS_PROOF: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(7i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_STATUS_FINAL: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(8i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_STATUS_OTHER: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(32767i32);
 impl ::core::marker::Copy for PIDMSI_STATUS_VALUE {}
 impl ::core::clone::Clone for PIDMSI_STATUS_VALUE {
     fn clone(&self) -> Self {
@@ -2159,10 +2221,6 @@ impl ::core::fmt::Debug for PIDMSI_STATUS_VALUE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPSPEC_KIND(pub u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PRSPEC_LPWSTR: PROPSPEC_KIND = PROPSPEC_KIND(0u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PRSPEC_PROPID: PROPSPEC_KIND = PROPSPEC_KIND(1u32);
 impl ::core::marker::Copy for PROPSPEC_KIND {}
 impl ::core::clone::Clone for PROPSPEC_KIND {
     fn clone(&self) -> Self {
@@ -2186,18 +2244,6 @@ impl ::core::fmt::Debug for PROPSPEC_KIND {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPVAR_CHANGE_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PVCHF_DEFAULT: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PVCHF_NOVALUEPROP: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PVCHF_ALPHABOOL: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PVCHF_NOUSEROVERRIDE: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PVCHF_LOCALBOOL: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PVCHF_NOHEXSTRING: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(16i32);
 impl ::core::marker::Copy for PROPVAR_CHANGE_FLAGS {}
 impl ::core::clone::Clone for PROPVAR_CHANGE_FLAGS {
     fn clone(&self) -> Self {
@@ -2254,20 +2300,6 @@ impl ::core::ops::Not for PROPVAR_CHANGE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPVAR_COMPARE_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PVCF_DEFAULT: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PVCF_TREATEMPTYASGREATERTHAN: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PVCF_USESTRCMP: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PVCF_USESTRCMPC: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PVCF_USESTRCMPI: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PVCF_USESTRCMPIC: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PVCF_DIGITSASNUMBERS_CASESENSITIVE: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(32i32);
 impl ::core::marker::Copy for PROPVAR_COMPARE_FLAGS {}
 impl ::core::clone::Clone for PROPVAR_COMPARE_FLAGS {
     fn clone(&self) -> Self {
@@ -2324,20 +2356,6 @@ impl ::core::ops::Not for PROPVAR_COMPARE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPVAR_COMPARE_UNIT(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PVCU_DEFAULT: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PVCU_SECOND: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PVCU_MINUTE: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PVCU_HOUR: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(3i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PVCU_DAY: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(4i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PVCU_MONTH: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(5i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PVCU_YEAR: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(6i32);
 impl ::core::marker::Copy for PROPVAR_COMPARE_UNIT {}
 impl ::core::clone::Clone for PROPVAR_COMPARE_UNIT {
     fn clone(&self) -> Self {
@@ -2361,18 +2379,6 @@ impl ::core::fmt::Debug for PROPVAR_COMPARE_UNIT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STGFMT(pub u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGFMT_STORAGE: STGFMT = STGFMT(0u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGFMT_NATIVE: STGFMT = STGFMT(1u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGFMT_FILE: STGFMT = STGFMT(3u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGFMT_ANY: STGFMT = STGFMT(4u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGFMT_DOCFILE: STGFMT = STGFMT(5u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGFMT_DOCUMENT: STGFMT = STGFMT(0u32);
 impl ::core::marker::Copy for STGFMT {}
 impl ::core::clone::Clone for STGFMT {
     fn clone(&self) -> Self {
@@ -2396,12 +2402,6 @@ impl ::core::fmt::Debug for STGFMT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STGMOVE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGMOVE_MOVE: STGMOVE = STGMOVE(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGMOVE_COPY: STGMOVE = STGMOVE(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGMOVE_SHALLOWCOPY: STGMOVE = STGMOVE(2i32);
 impl ::core::marker::Copy for STGMOVE {}
 impl ::core::clone::Clone for STGMOVE {
     fn clone(&self) -> Self {

@@ -10120,6 +10120,12 @@ pub const AccServerDocMgr: ::windows_core::GUID = ::windows_core::GUID::from_u12
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const AccStore: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5440837f_4bff_4ae5_a1b1_7722ecc6332a);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const CAND_CANCELED: TfCandidateResult = TfCandidateResult(2i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const CAND_FINALIZED: TfCandidateResult = TfCandidateResult(0i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const CAND_SELECTED: TfCandidateResult = TfCandidateResult(1i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const CLSID_TF_CategoryMgr: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa4b544a1_438d_4b41_9325_869523e2d6c7);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const CLSID_TF_ClassicLangBar: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3318360c_1afc_4d09_a86b_9f9cb6dceb9c);
@@ -10145,6 +10151,18 @@ pub const DCM_FLAGS_LOCALTHREADTSF: u32 = 4u32;
 pub const DCM_FLAGS_TASKENG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const DocWrap: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbf426f7e_7a5e_44d6_830c_a390ea9462a3);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const GETIF_DICTGRAM: TfSapiObject = TfSapiObject(4i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const GETIF_RECOCONTEXT: TfSapiObject = TfSapiObject(1i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const GETIF_RECOGNIZER: TfSapiObject = TfSapiObject(2i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const GETIF_RECOGNIZERNOINIT: TfSapiObject = TfSapiObject(5i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const GETIF_RESMGR: TfSapiObject = TfSapiObject(0i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const GETIF_VOICE: TfSapiObject = TfSapiObject(3i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const GUID_APP_FUNCTIONPROVIDER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4caef01e_12af_4b0e_9db1_a6ec5b881208);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -10296,9 +10314,185 @@ pub const ILMCM_CHECKLAYOUTANDTIPENABLED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const ILMCM_LANGUAGEBAROFF: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_ADDRESS_CITY: InputScope = InputScope(17i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_ADDRESS_COUNTRYNAME: InputScope = InputScope(18i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_ADDRESS_COUNTRYSHORTNAME: InputScope = InputScope(19i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_ADDRESS_FULLPOSTALADDRESS: InputScope = InputScope(13i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_ADDRESS_POSTALCODE: InputScope = InputScope(14i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_ADDRESS_STATEORPROVINCE: InputScope = InputScope(16i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_ADDRESS_STREET: InputScope = InputScope(15i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_ALPHANUMERIC_FULLWIDTH: InputScope = InputScope(41i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_ALPHANUMERIC_HALFWIDTH: InputScope = InputScope(40i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_ALPHANUMERIC_PIN: InputScope = InputScope(65i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_ALPHANUMERIC_PIN_SET: InputScope = InputScope(66i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_BOPOMOFO: InputScope = InputScope(43i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_CHAT: InputScope = InputScope(58i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_CHAT_WITHOUT_EMOJI: InputScope = InputScope(68i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_CHINESE_FULLWIDTH: InputScope = InputScope(54i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_CHINESE_HALFWIDTH: InputScope = InputScope(53i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_CURRENCY_AMOUNT: InputScope = InputScope(21i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_CURRENCY_AMOUNTANDSYMBOL: InputScope = InputScope(20i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_CURRENCY_CHINESE: InputScope = InputScope(42i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_DATE_DAY: InputScope = InputScope(24i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_DATE_DAYNAME: InputScope = InputScope(27i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_DATE_FULLDATE: InputScope = InputScope(22i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_DATE_MONTH: InputScope = InputScope(23i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_DATE_MONTHNAME: InputScope = InputScope(26i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_DATE_YEAR: InputScope = InputScope(25i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_DEFAULT: InputScope = InputScope(0i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_DIGITS: InputScope = InputScope(28i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_EMAILNAME_OR_ADDRESS: InputScope = InputScope(60i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_EMAIL_SMTPEMAILADDRESS: InputScope = InputScope(5i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_EMAIL_USERNAME: InputScope = InputScope(4i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_ENUMSTRING: InputScope = InputScope(-5i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_FILE_FILENAME: InputScope = InputScope(3i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_FILE_FULLFILEPATH: InputScope = InputScope(2i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_FORMULA: InputScope = InputScope(51i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_FORMULA_NUMBER: InputScope = InputScope(67i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_HANGUL_FULLWIDTH: InputScope = InputScope(49i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_HANGUL_HALFWIDTH: InputScope = InputScope(48i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_HANJA: InputScope = InputScope(47i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_HIRAGANA: InputScope = InputScope(44i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_KATAKANA_FULLWIDTH: InputScope = InputScope(46i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_KATAKANA_HALFWIDTH: InputScope = InputScope(45i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_LOGINNAME: InputScope = InputScope(6i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_MAPS: InputScope = InputScope(62i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_NAME_OR_PHONENUMBER: InputScope = InputScope(59i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_NATIVE_SCRIPT: InputScope = InputScope(55i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_NUMBER: InputScope = InputScope(29i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_NUMBER_FULLWIDTH: InputScope = InputScope(39i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_NUMERIC_PASSWORD: InputScope = InputScope(63i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_NUMERIC_PIN: InputScope = InputScope(64i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_ONECHAR: InputScope = InputScope(30i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_PASSWORD: InputScope = InputScope(31i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_PERSONALNAME_FULLNAME: InputScope = InputScope(7i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_PERSONALNAME_GIVENNAME: InputScope = InputScope(9i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_PERSONALNAME_MIDDLENAME: InputScope = InputScope(10i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_PERSONALNAME_PREFIX: InputScope = InputScope(8i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_PERSONALNAME_SUFFIX: InputScope = InputScope(12i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_PERSONALNAME_SURNAME: InputScope = InputScope(11i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_PHRASELIST: InputScope = InputScope(-1i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_PRIVATE: InputScope = InputScope(61i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_REGULAREXPRESSION: InputScope = InputScope(-2i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_SEARCH: InputScope = InputScope(50i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_SEARCH_INCREMENTAL: InputScope = InputScope(52i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_SRGS: InputScope = InputScope(-3i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_TELEPHONE_AREACODE: InputScope = InputScope(34i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_TELEPHONE_COUNTRYCODE: InputScope = InputScope(33i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_TELEPHONE_FULLTELEPHONENUMBER: InputScope = InputScope(32i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_TELEPHONE_LOCALNUMBER: InputScope = InputScope(35i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_TEXT: InputScope = InputScope(57i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_TIME_FULLTIME: InputScope = InputScope(36i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_TIME_HOUR: InputScope = InputScope(37i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_TIME_MINORSEC: InputScope = InputScope(38i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_URL: InputScope = InputScope(1i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_XML: InputScope = InputScope(-4i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const IS_YOMI: InputScope = InputScope(56i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const LIBID_MSAATEXTLib: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x150e2d7a_dac1_4582_947d_2a8fd78b82cd);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const MSAAControl: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x08cd963f_7a3e_4f5c_9bd8_d692bb043c5b);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const STYLE_ACTIVE_SELECTION: TfIntegratableCandidateListSelectionStyle = TfIntegratableCandidateListSelectionStyle(0i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const STYLE_IMPLIED_SELECTION: TfIntegratableCandidateListSelectionStyle = TfIntegratableCandidateListSelectionStyle(1i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_AE_END: TfActiveSelEnd = TfActiveSelEnd(2i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_AE_NONE: TfActiveSelEnd = TfActiveSelEnd(0i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_AE_START: TfActiveSelEnd = TfActiveSelEnd(1i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_ANCHOR_END: TfAnchor = TfAnchor(1i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_ANCHOR_START: TfAnchor = TfAnchor(0i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_ATTR_CONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(2i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_ATTR_FIXEDCONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(5i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_ATTR_INPUT: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(0i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_ATTR_INPUT_ERROR: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(4i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_ATTR_OTHER: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(-1i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_ATTR_TARGET_CONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(1i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_ATTR_TARGET_NOTCONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(3i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CHAR_EMBEDDED: u32 = 65532u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -10340,6 +10534,12 @@ pub const TF_CONVERSIONMODE_SOFTKEYBOARD: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CONVERSIONMODE_SYMBOL: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_CT_COLORREF: TF_DA_COLORTYPE = TF_DA_COLORTYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_CT_NONE: TF_DA_COLORTYPE = TF_DA_COLORTYPE(0i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_CT_SYSCOLOR: TF_DA_COLORTYPE = TF_DA_COLORTYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_DEFAULT_SELECTION: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_DICTATION_ENABLED: u32 = 2u32;
@@ -10354,7 +10554,21 @@ pub const TF_DISABLE_DICTATION: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_DISABLE_SPEECH: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_DTLBI_NONE: LANG_BAR_ITEM_ICON_MODE_FLAGS = LANG_BAR_ITEM_ICON_MODE_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_DTLBI_USEPROFILEICON: LANG_BAR_ITEM_ICON_MODE_FLAGS = LANG_BAR_ITEM_ICON_MODE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_ENABLE_PROCESS_ATOM: ::windows_core::PCWSTR = ::windows_core::w!("_CTF_ENABLE_PROCESS_ATOM_");
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_ES_ASYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_ES_ASYNCDONTCARE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_ES_READ: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_ES_READWRITE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(6u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_ES_SYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_ALREADY_EXISTS: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220218i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -10406,7 +10620,21 @@ pub const TF_FLOATINGLANGBAR_WNDTITLEA: ::windows_core::PCSTR = ::windows_core::
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_FLOATINGLANGBAR_WNDTITLEW: ::windows_core::PCWSTR = ::windows_core::w!("TF_FloatingLangBar_WndTitle");
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_GRAVITY_BACKWARD: TfGravity = TfGravity(0i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_GRAVITY_FORWARD: TfGravity = TfGravity(1i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_GTP_INCL_TEXT: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_GTP_NONE: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_HF_OBJECT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IAS_NOQUERY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IAS_NO_DEFAULT_COMPOSITION: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2147483648u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IAS_QUERYONLY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2u32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IE_CORRECTION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -10454,6 +10682,10 @@ pub const TF_LBI_BITMAP: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_BMPF_VERTICAL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_CLK_LEFT: TfLBIClick = TfLBIClick(2i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_CLK_RIGHT: TfLBIClick = TfLBIClick(1i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_CUSTOMUI: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_DESC_MAXLEN: u32 = 32u32;
@@ -10499,6 +10731,28 @@ pub const TF_LBMENUF_RADIOCHECKED: u32 = 8u32;
 pub const TF_LBMENUF_SEPARATOR: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBMENUF_SUBMENU: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LB_BALLOON_MISS: TfLBBalloonStyle = TfLBBalloonStyle(2i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LB_BALLOON_RECO: TfLBBalloonStyle = TfLBBalloonStyle(0i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LB_BALLOON_SHOW: TfLBBalloonStyle = TfLBBalloonStyle(1i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LC_CHANGE: TfLayoutCode = TfLayoutCode(1i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LC_CREATE: TfLayoutCode = TfLayoutCode(0i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LC_DESTROY: TfLayoutCode = TfLayoutCode(2i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LS_DASH: TF_DA_LINESTYLE = TF_DA_LINESTYLE(3i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LS_DOT: TF_DA_LINESTYLE = TF_DA_LINESTYLE(2i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LS_NONE: TF_DA_LINESTYLE = TF_DA_LINESTYLE(0i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LS_SOLID: TF_DA_LINESTYLE = TF_DA_LINESTYLE(1i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LS_SQUIGGLE: TF_DA_LINESTYLE = TF_DA_LINESTYLE(4i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_MENUREADY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -10589,6 +10843,10 @@ pub const TF_RP_LOCALPROCESS: u32 = 4u32;
 pub const TF_RP_LOCALTHREAD: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_RP_SUBITEMINSETTINGUI: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SD_BACKWARD: TfShiftDir = TfShiftDir(0i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SD_FORWARD: TfShiftDir = TfShiftDir(1i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SD_LOADING: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -10697,6 +10955,12 @@ pub const TF_URP_LOCALPROCESS: u32 = 4u32;
 pub const TF_URP_LOCALTHREAD: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_US_HIDETIPUI: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TKBLT_CLASSIC: TKBLayoutType = TKBLayoutType(1i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TKBLT_OPTIMIZED: TKBLayoutType = TKBLayoutType(2i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TKBLT_UNDEFINED: TKBLayoutType = TKBLayoutType(0i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_CHANGJIE: u32 = 61506u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -10890,6 +11154,12 @@ pub const TSATTRID_Text_RightToLeft: ::windows_core::GUID = ::windows_core::GUID
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TSATTRID_Text_VerticalWriting: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6bba8195_046f_4ea9_b311_97fd66c4274b);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_AE_END: TsActiveSelEnd = TsActiveSelEnd(2i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_AE_NONE: TsActiveSelEnd = TsActiveSelEnd(0i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_AE_START: TsActiveSelEnd = TsActiveSelEnd(1i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_AS_ATTR_CHANGE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_AS_LAYOUT_CHANGE: u32 = 4u32;
@@ -10918,6 +11188,10 @@ pub const TS_CHAR_REGION: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_CHAR_REPLACEMENT: u32 = 65533u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_CH_FOLLOWING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = ANCHOR_CHANGE_HISTORY_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_CH_PRECEDING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = ANCHOR_CHANGE_HISTORY_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_DEFAULT_SELECTION: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_E_FORMAT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220982i32);
@@ -10944,6 +11218,10 @@ pub const TS_E_SYNCHRONOUS: ::windows_core::HRESULT = ::windows_core::HRESULT(-2
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_GEA_HIDDEN: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_GR_BACKWARD: TsGravity = TsGravity(0i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_GR_FORWARD: TsGravity = TsGravity(1i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_GTA_HIDDEN: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_IAS_NOQUERY: u32 = 1u32;
@@ -10954,11 +11232,31 @@ pub const TS_IE_COMPOSITION: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_IE_CORRECTION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_LC_CHANGE: TsLayoutCode = TsLayoutCode(1i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_LC_CREATE: TsLayoutCode = TsLayoutCode(0i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_LC_DESTROY: TsLayoutCode = TsLayoutCode(2i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_LF_READ: TEXT_STORE_LOCK_FLAGS = TEXT_STORE_LOCK_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_LF_READWRITE: TEXT_STORE_LOCK_FLAGS = TEXT_STORE_LOCK_FLAGS(6u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_LF_SYNC: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_RT_HIDDEN: TsRunType = TsRunType(1i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_RT_OPAQUE: TsRunType = TsRunType(2i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_RT_PLAIN: TsRunType = TsRunType(0i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SD_BACKWARD: TsShiftDir = TsShiftDir(0i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_ENABLED: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_VISIBLE: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SD_FORWARD: TsShiftDir = TsShiftDir(1i32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SD_INPUTPANEMANUALDISPLAYENABLE: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -11002,17 +11300,21 @@ pub const TS_STRF_MID: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_STRF_START: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_ST_CORRECTION: TEXT_STORE_TEXT_CHANGE_FLAGS = TEXT_STORE_TEXT_CHANGE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_ST_NONE: TEXT_STORE_TEXT_CHANGE_FLAGS = TEXT_STORE_TEXT_CHANGE_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_S_ASYNC: ::windows_core::HRESULT = ::windows_core::HRESULT(262912i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_TC_CORRECTION: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_TC_NONE: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(0u32);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_VCOOKIE_NUL: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ANCHOR_CHANGE_HISTORY_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_CH_PRECEDING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = ANCHOR_CHANGE_HISTORY_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_CH_FOLLOWING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = ANCHOR_CHANGE_HISTORY_FLAGS(2u32);
 impl ::core::marker::Copy for ANCHOR_CHANGE_HISTORY_FLAGS {}
 impl ::core::clone::Clone for ANCHOR_CHANGE_HISTORY_FLAGS {
     fn clone(&self) -> Self {
@@ -11069,10 +11371,6 @@ impl ::core::ops::Not for ANCHOR_CHANGE_HISTORY_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_GTP_NONE: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_GTP_INCL_TEXT: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(1u32);
 impl ::core::marker::Copy for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {}
 impl ::core::clone::Clone for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
     fn clone(&self) -> Self {
@@ -11129,12 +11427,6 @@ impl ::core::ops::Not for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INSERT_TEXT_AT_SELECTION_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IAS_NOQUERY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IAS_QUERYONLY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IAS_NO_DEFAULT_COMPOSITION: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2147483648u32);
 impl ::core::marker::Copy for INSERT_TEXT_AT_SELECTION_FLAGS {}
 impl ::core::clone::Clone for INSERT_TEXT_AT_SELECTION_FLAGS {
     fn clone(&self) -> Self {
@@ -11158,154 +11450,6 @@ impl ::core::fmt::Debug for INSERT_TEXT_AT_SELECTION_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InputScope(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_DEFAULT: InputScope = InputScope(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_URL: InputScope = InputScope(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_FILE_FULLFILEPATH: InputScope = InputScope(2i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_FILE_FILENAME: InputScope = InputScope(3i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_EMAIL_USERNAME: InputScope = InputScope(4i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_EMAIL_SMTPEMAILADDRESS: InputScope = InputScope(5i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_LOGINNAME: InputScope = InputScope(6i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_PERSONALNAME_FULLNAME: InputScope = InputScope(7i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_PERSONALNAME_PREFIX: InputScope = InputScope(8i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_PERSONALNAME_GIVENNAME: InputScope = InputScope(9i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_PERSONALNAME_MIDDLENAME: InputScope = InputScope(10i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_PERSONALNAME_SURNAME: InputScope = InputScope(11i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_PERSONALNAME_SUFFIX: InputScope = InputScope(12i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_ADDRESS_FULLPOSTALADDRESS: InputScope = InputScope(13i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_ADDRESS_POSTALCODE: InputScope = InputScope(14i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_ADDRESS_STREET: InputScope = InputScope(15i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_ADDRESS_STATEORPROVINCE: InputScope = InputScope(16i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_ADDRESS_CITY: InputScope = InputScope(17i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_ADDRESS_COUNTRYNAME: InputScope = InputScope(18i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_ADDRESS_COUNTRYSHORTNAME: InputScope = InputScope(19i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_CURRENCY_AMOUNTANDSYMBOL: InputScope = InputScope(20i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_CURRENCY_AMOUNT: InputScope = InputScope(21i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_DATE_FULLDATE: InputScope = InputScope(22i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_DATE_MONTH: InputScope = InputScope(23i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_DATE_DAY: InputScope = InputScope(24i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_DATE_YEAR: InputScope = InputScope(25i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_DATE_MONTHNAME: InputScope = InputScope(26i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_DATE_DAYNAME: InputScope = InputScope(27i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_DIGITS: InputScope = InputScope(28i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_NUMBER: InputScope = InputScope(29i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_ONECHAR: InputScope = InputScope(30i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_PASSWORD: InputScope = InputScope(31i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_TELEPHONE_FULLTELEPHONENUMBER: InputScope = InputScope(32i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_TELEPHONE_COUNTRYCODE: InputScope = InputScope(33i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_TELEPHONE_AREACODE: InputScope = InputScope(34i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_TELEPHONE_LOCALNUMBER: InputScope = InputScope(35i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_TIME_FULLTIME: InputScope = InputScope(36i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_TIME_HOUR: InputScope = InputScope(37i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_TIME_MINORSEC: InputScope = InputScope(38i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_NUMBER_FULLWIDTH: InputScope = InputScope(39i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_ALPHANUMERIC_HALFWIDTH: InputScope = InputScope(40i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_ALPHANUMERIC_FULLWIDTH: InputScope = InputScope(41i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_CURRENCY_CHINESE: InputScope = InputScope(42i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_BOPOMOFO: InputScope = InputScope(43i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_HIRAGANA: InputScope = InputScope(44i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_KATAKANA_HALFWIDTH: InputScope = InputScope(45i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_KATAKANA_FULLWIDTH: InputScope = InputScope(46i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_HANJA: InputScope = InputScope(47i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_HANGUL_HALFWIDTH: InputScope = InputScope(48i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_HANGUL_FULLWIDTH: InputScope = InputScope(49i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_SEARCH: InputScope = InputScope(50i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_FORMULA: InputScope = InputScope(51i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_SEARCH_INCREMENTAL: InputScope = InputScope(52i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_CHINESE_HALFWIDTH: InputScope = InputScope(53i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_CHINESE_FULLWIDTH: InputScope = InputScope(54i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_NATIVE_SCRIPT: InputScope = InputScope(55i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_YOMI: InputScope = InputScope(56i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_TEXT: InputScope = InputScope(57i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_CHAT: InputScope = InputScope(58i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_NAME_OR_PHONENUMBER: InputScope = InputScope(59i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_EMAILNAME_OR_ADDRESS: InputScope = InputScope(60i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_PRIVATE: InputScope = InputScope(61i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_MAPS: InputScope = InputScope(62i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_NUMERIC_PASSWORD: InputScope = InputScope(63i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_NUMERIC_PIN: InputScope = InputScope(64i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_ALPHANUMERIC_PIN: InputScope = InputScope(65i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_ALPHANUMERIC_PIN_SET: InputScope = InputScope(66i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_FORMULA_NUMBER: InputScope = InputScope(67i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_CHAT_WITHOUT_EMOJI: InputScope = InputScope(68i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_PHRASELIST: InputScope = InputScope(-1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_REGULAREXPRESSION: InputScope = InputScope(-2i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_SRGS: InputScope = InputScope(-3i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_XML: InputScope = InputScope(-4i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const IS_ENUMSTRING: InputScope = InputScope(-5i32);
 impl ::core::marker::Copy for InputScope {}
 impl ::core::clone::Clone for InputScope {
     fn clone(&self) -> Self {
@@ -11329,10 +11473,6 @@ impl ::core::fmt::Debug for InputScope {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LANG_BAR_ITEM_ICON_MODE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_DTLBI_NONE: LANG_BAR_ITEM_ICON_MODE_FLAGS = LANG_BAR_ITEM_ICON_MODE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_DTLBI_USEPROFILEICON: LANG_BAR_ITEM_ICON_MODE_FLAGS = LANG_BAR_ITEM_ICON_MODE_FLAGS(1u32);
 impl ::core::marker::Copy for LANG_BAR_ITEM_ICON_MODE_FLAGS {}
 impl ::core::clone::Clone for LANG_BAR_ITEM_ICON_MODE_FLAGS {
     fn clone(&self) -> Self {
@@ -11356,10 +11496,6 @@ impl ::core::fmt::Debug for LANG_BAR_ITEM_ICON_MODE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TEXT_STORE_CHANGE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_TC_NONE: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_TC_CORRECTION: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(1u32);
 impl ::core::marker::Copy for TEXT_STORE_CHANGE_FLAGS {}
 impl ::core::clone::Clone for TEXT_STORE_CHANGE_FLAGS {
     fn clone(&self) -> Self {
@@ -11416,10 +11552,6 @@ impl ::core::ops::Not for TEXT_STORE_CHANGE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TEXT_STORE_LOCK_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_LF_READ: TEXT_STORE_LOCK_FLAGS = TEXT_STORE_LOCK_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_LF_READWRITE: TEXT_STORE_LOCK_FLAGS = TEXT_STORE_LOCK_FLAGS(6u32);
 impl ::core::marker::Copy for TEXT_STORE_LOCK_FLAGS {}
 impl ::core::clone::Clone for TEXT_STORE_LOCK_FLAGS {
     fn clone(&self) -> Self {
@@ -11443,10 +11575,6 @@ impl ::core::fmt::Debug for TEXT_STORE_LOCK_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TEXT_STORE_TEXT_CHANGE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_ST_NONE: TEXT_STORE_TEXT_CHANGE_FLAGS = TEXT_STORE_TEXT_CHANGE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_ST_CORRECTION: TEXT_STORE_TEXT_CHANGE_FLAGS = TEXT_STORE_TEXT_CHANGE_FLAGS(1u32);
 impl ::core::marker::Copy for TEXT_STORE_TEXT_CHANGE_FLAGS {}
 impl ::core::clone::Clone for TEXT_STORE_TEXT_CHANGE_FLAGS {
     fn clone(&self) -> Self {
@@ -11503,16 +11631,6 @@ impl ::core::ops::Not for TEXT_STORE_TEXT_CHANGE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TF_CONTEXT_EDIT_CONTEXT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_ES_ASYNCDONTCARE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_ES_SYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_ES_READ: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_ES_READWRITE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(6u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_ES_ASYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(8u32);
 impl ::core::marker::Copy for TF_CONTEXT_EDIT_CONTEXT_FLAGS {}
 impl ::core::clone::Clone for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
     fn clone(&self) -> Self {
@@ -11569,20 +11687,6 @@ impl ::core::ops::Not for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TF_DA_ATTR_INFO(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_ATTR_INPUT: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_ATTR_TARGET_CONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_ATTR_CONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(2i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_ATTR_TARGET_NOTCONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(3i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_ATTR_INPUT_ERROR: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(4i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_ATTR_FIXEDCONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(5i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_ATTR_OTHER: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(-1i32);
 impl ::core::marker::Copy for TF_DA_ATTR_INFO {}
 impl ::core::clone::Clone for TF_DA_ATTR_INFO {
     fn clone(&self) -> Self {
@@ -11606,12 +11710,6 @@ impl ::core::fmt::Debug for TF_DA_ATTR_INFO {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TF_DA_COLORTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_CT_NONE: TF_DA_COLORTYPE = TF_DA_COLORTYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_CT_SYSCOLOR: TF_DA_COLORTYPE = TF_DA_COLORTYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_CT_COLORREF: TF_DA_COLORTYPE = TF_DA_COLORTYPE(2i32);
 impl ::core::marker::Copy for TF_DA_COLORTYPE {}
 impl ::core::clone::Clone for TF_DA_COLORTYPE {
     fn clone(&self) -> Self {
@@ -11635,16 +11733,6 @@ impl ::core::fmt::Debug for TF_DA_COLORTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TF_DA_LINESTYLE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LS_NONE: TF_DA_LINESTYLE = TF_DA_LINESTYLE(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LS_SOLID: TF_DA_LINESTYLE = TF_DA_LINESTYLE(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LS_DOT: TF_DA_LINESTYLE = TF_DA_LINESTYLE(2i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LS_DASH: TF_DA_LINESTYLE = TF_DA_LINESTYLE(3i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LS_SQUIGGLE: TF_DA_LINESTYLE = TF_DA_LINESTYLE(4i32);
 impl ::core::marker::Copy for TF_DA_LINESTYLE {}
 impl ::core::clone::Clone for TF_DA_LINESTYLE {
     fn clone(&self) -> Self {
@@ -11668,12 +11756,6 @@ impl ::core::fmt::Debug for TF_DA_LINESTYLE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TKBLayoutType(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TKBLT_UNDEFINED: TKBLayoutType = TKBLayoutType(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TKBLT_CLASSIC: TKBLayoutType = TKBLayoutType(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TKBLT_OPTIMIZED: TKBLayoutType = TKBLayoutType(2i32);
 impl ::core::marker::Copy for TKBLayoutType {}
 impl ::core::clone::Clone for TKBLayoutType {
     fn clone(&self) -> Self {
@@ -11697,12 +11779,6 @@ impl ::core::fmt::Debug for TKBLayoutType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfActiveSelEnd(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_AE_NONE: TfActiveSelEnd = TfActiveSelEnd(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_AE_START: TfActiveSelEnd = TfActiveSelEnd(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_AE_END: TfActiveSelEnd = TfActiveSelEnd(2i32);
 impl ::core::marker::Copy for TfActiveSelEnd {}
 impl ::core::clone::Clone for TfActiveSelEnd {
     fn clone(&self) -> Self {
@@ -11726,10 +11802,6 @@ impl ::core::fmt::Debug for TfActiveSelEnd {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfAnchor(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_ANCHOR_START: TfAnchor = TfAnchor(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_ANCHOR_END: TfAnchor = TfAnchor(1i32);
 impl ::core::marker::Copy for TfAnchor {}
 impl ::core::clone::Clone for TfAnchor {
     fn clone(&self) -> Self {
@@ -11753,12 +11825,6 @@ impl ::core::fmt::Debug for TfAnchor {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfCandidateResult(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const CAND_FINALIZED: TfCandidateResult = TfCandidateResult(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const CAND_SELECTED: TfCandidateResult = TfCandidateResult(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const CAND_CANCELED: TfCandidateResult = TfCandidateResult(2i32);
 impl ::core::marker::Copy for TfCandidateResult {}
 impl ::core::clone::Clone for TfCandidateResult {
     fn clone(&self) -> Self {
@@ -11782,10 +11848,6 @@ impl ::core::fmt::Debug for TfCandidateResult {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfGravity(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_GRAVITY_BACKWARD: TfGravity = TfGravity(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_GRAVITY_FORWARD: TfGravity = TfGravity(1i32);
 impl ::core::marker::Copy for TfGravity {}
 impl ::core::clone::Clone for TfGravity {
     fn clone(&self) -> Self {
@@ -11809,10 +11871,6 @@ impl ::core::fmt::Debug for TfGravity {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfIntegratableCandidateListSelectionStyle(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const STYLE_ACTIVE_SELECTION: TfIntegratableCandidateListSelectionStyle = TfIntegratableCandidateListSelectionStyle(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const STYLE_IMPLIED_SELECTION: TfIntegratableCandidateListSelectionStyle = TfIntegratableCandidateListSelectionStyle(1i32);
 impl ::core::marker::Copy for TfIntegratableCandidateListSelectionStyle {}
 impl ::core::clone::Clone for TfIntegratableCandidateListSelectionStyle {
     fn clone(&self) -> Self {
@@ -11836,12 +11894,6 @@ impl ::core::fmt::Debug for TfIntegratableCandidateListSelectionStyle {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfLBBalloonStyle(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LB_BALLOON_RECO: TfLBBalloonStyle = TfLBBalloonStyle(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LB_BALLOON_SHOW: TfLBBalloonStyle = TfLBBalloonStyle(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LB_BALLOON_MISS: TfLBBalloonStyle = TfLBBalloonStyle(2i32);
 impl ::core::marker::Copy for TfLBBalloonStyle {}
 impl ::core::clone::Clone for TfLBBalloonStyle {
     fn clone(&self) -> Self {
@@ -11865,10 +11917,6 @@ impl ::core::fmt::Debug for TfLBBalloonStyle {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfLBIClick(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_CLK_RIGHT: TfLBIClick = TfLBIClick(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_CLK_LEFT: TfLBIClick = TfLBIClick(2i32);
 impl ::core::marker::Copy for TfLBIClick {}
 impl ::core::clone::Clone for TfLBIClick {
     fn clone(&self) -> Self {
@@ -11892,12 +11940,6 @@ impl ::core::fmt::Debug for TfLBIClick {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfLayoutCode(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LC_CREATE: TfLayoutCode = TfLayoutCode(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LC_CHANGE: TfLayoutCode = TfLayoutCode(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LC_DESTROY: TfLayoutCode = TfLayoutCode(2i32);
 impl ::core::marker::Copy for TfLayoutCode {}
 impl ::core::clone::Clone for TfLayoutCode {
     fn clone(&self) -> Self {
@@ -11921,18 +11963,6 @@ impl ::core::fmt::Debug for TfLayoutCode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfSapiObject(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const GETIF_RESMGR: TfSapiObject = TfSapiObject(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const GETIF_RECOCONTEXT: TfSapiObject = TfSapiObject(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const GETIF_RECOGNIZER: TfSapiObject = TfSapiObject(2i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const GETIF_VOICE: TfSapiObject = TfSapiObject(3i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const GETIF_DICTGRAM: TfSapiObject = TfSapiObject(4i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const GETIF_RECOGNIZERNOINIT: TfSapiObject = TfSapiObject(5i32);
 impl ::core::marker::Copy for TfSapiObject {}
 impl ::core::clone::Clone for TfSapiObject {
     fn clone(&self) -> Self {
@@ -11956,10 +11986,6 @@ impl ::core::fmt::Debug for TfSapiObject {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfShiftDir(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SD_BACKWARD: TfShiftDir = TfShiftDir(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SD_FORWARD: TfShiftDir = TfShiftDir(1i32);
 impl ::core::marker::Copy for TfShiftDir {}
 impl ::core::clone::Clone for TfShiftDir {
     fn clone(&self) -> Self {
@@ -11983,12 +12009,6 @@ impl ::core::fmt::Debug for TfShiftDir {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TsActiveSelEnd(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_AE_NONE: TsActiveSelEnd = TsActiveSelEnd(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_AE_START: TsActiveSelEnd = TsActiveSelEnd(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_AE_END: TsActiveSelEnd = TsActiveSelEnd(2i32);
 impl ::core::marker::Copy for TsActiveSelEnd {}
 impl ::core::clone::Clone for TsActiveSelEnd {
     fn clone(&self) -> Self {
@@ -12012,10 +12032,6 @@ impl ::core::fmt::Debug for TsActiveSelEnd {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TsGravity(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_GR_BACKWARD: TsGravity = TsGravity(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_GR_FORWARD: TsGravity = TsGravity(1i32);
 impl ::core::marker::Copy for TsGravity {}
 impl ::core::clone::Clone for TsGravity {
     fn clone(&self) -> Self {
@@ -12039,12 +12055,6 @@ impl ::core::fmt::Debug for TsGravity {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TsLayoutCode(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_LC_CREATE: TsLayoutCode = TsLayoutCode(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_LC_CHANGE: TsLayoutCode = TsLayoutCode(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_LC_DESTROY: TsLayoutCode = TsLayoutCode(2i32);
 impl ::core::marker::Copy for TsLayoutCode {}
 impl ::core::clone::Clone for TsLayoutCode {
     fn clone(&self) -> Self {
@@ -12068,12 +12078,6 @@ impl ::core::fmt::Debug for TsLayoutCode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TsRunType(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_RT_PLAIN: TsRunType = TsRunType(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_RT_HIDDEN: TsRunType = TsRunType(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_RT_OPAQUE: TsRunType = TsRunType(2i32);
 impl ::core::marker::Copy for TsRunType {}
 impl ::core::clone::Clone for TsRunType {
     fn clone(&self) -> Self {
@@ -12097,10 +12101,6 @@ impl ::core::fmt::Debug for TsRunType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TsShiftDir(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SD_BACKWARD: TsShiftDir = TsShiftDir(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SD_FORWARD: TsShiftDir = TsShiftDir(1i32);
 impl ::core::marker::Copy for TsShiftDir {}
 impl ::core::clone::Clone for TsShiftDir {
     fn clone(&self) -> Self {

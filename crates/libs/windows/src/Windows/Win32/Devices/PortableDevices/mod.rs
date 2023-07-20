@@ -2658,6 +2658,22 @@ pub const DEVSVCTYPE_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 pub const DEVSVC_SERVICEINFO_VERSION: u32 = 100u32;
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const DRS_HW_RADIO_OFF: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const DRS_HW_RADIO_OFF_UNCONTROLLABLE: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const DRS_HW_RADIO_ON_UNCONTROLLABLE: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const DRS_RADIO_INVALID: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const DRS_RADIO_MAX: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const DRS_RADIO_ON: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const DRS_SW_HW_RADIO_OFF: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const DRS_SW_RADIO_OFF: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 pub const ENUM_AnchorResults_AnchorStateInvalid: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 pub const ENUM_AnchorResults_AnchorStateNormal: u32 = 0u32;
@@ -3466,6 +3482,10 @@ pub const NAME_WordDocument: ::windows_core::PCWSTR = ::windows_core::w!("WordDo
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 pub const NAME_XMLDocument: ::windows_core::PCWSTR = ::windows_core::w!("XMLDocument");
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const PORTABLE_DEVICE_DELETE_NO_RECURSION: DELETE_OBJECT_OPTIONS = DELETE_OBJECT_OPTIONS(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const PORTABLE_DEVICE_DELETE_WITH_RECURSION: DELETE_OBJECT_OPTIONS = DELETE_OBJECT_OPTIONS(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 pub const PORTABLE_DEVICE_DRM_SCHEME_PDDRM: ::windows_core::PCWSTR = ::windows_core::w!("PDDRM");
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 pub const PORTABLE_DEVICE_DRM_SCHEME_WMDRM10_PD: ::windows_core::PCWSTR = ::windows_core::w!("WMDRM10-PD");
@@ -3535,6 +3555,20 @@ pub const RANGESTEP_MessageObj_PatternMonthOfYear: u32 = 1u32;
 pub const RANGESTEP_StatusSvc_BatteryLife: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 pub const RANGESTEP_StatusSvc_SignalStrength: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const SMS_BINARY_MESSAGE: SMS_MESSAGE_TYPES = SMS_MESSAGE_TYPES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const SMS_ENCODING_7_BIT: WPD_SMS_ENCODING_TYPES = WPD_SMS_ENCODING_TYPES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const SMS_ENCODING_8_BIT: WPD_SMS_ENCODING_TYPES = WPD_SMS_ENCODING_TYPES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const SMS_ENCODING_UTF_16: WPD_SMS_ENCODING_TYPES = WPD_SMS_ENCODING_TYPES(2i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const SMS_TEXT_MESSAGE: SMS_MESSAGE_TYPES = SMS_MESSAGE_TYPES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const SRS_RADIO_DISABLED: SYSTEM_RADIO_STATE = SYSTEM_RADIO_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const SRS_RADIO_ENABLED: SYSTEM_RADIO_STATE = SYSTEM_RADIO_STATE(0i32);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 pub const STR_WPDNSE_FAST_ENUM: ::windows_core::PCWSTR = ::windows_core::w!("WPDNSE Fast Enum");
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
@@ -3651,6 +3685,22 @@ pub const WPD_AUDIO_CHANNEL_COUNT: super::super::UI::Shell::PropertiesSystem::PR
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_AUDIO_FORMAT_CODE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0xb324f56a_dc5d_46e5_b6df_d2ea414888c6), pid: 11 };
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_BITRATE_TYPE_DISCRETE: WPD_BITRATE_TYPES = WPD_BITRATE_TYPES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_BITRATE_TYPE_FREE: WPD_BITRATE_TYPES = WPD_BITRATE_TYPES(3i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_BITRATE_TYPE_UNUSED: WPD_BITRATE_TYPES = WPD_BITRATE_TYPES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_BITRATE_TYPE_VARIABLE: WPD_BITRATE_TYPES = WPD_BITRATE_TYPES(2i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_CAPTURE_MODE_BURST: WPD_CAPTURE_MODES = WPD_CAPTURE_MODES(2i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_CAPTURE_MODE_NORMAL: WPD_CAPTURE_MODES = WPD_CAPTURE_MODES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_CAPTURE_MODE_TIMELAPSE: WPD_CAPTURE_MODES = WPD_CAPTURE_MODES(3i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_CAPTURE_MODE_UNDEFINED: WPD_CAPTURE_MODES = WPD_CAPTURE_MODES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 pub const WPD_CATEGORY_CAPABILITIES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 pub const WPD_CATEGORY_COMMON: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf0422a9c_5dc8_4440_b5bd_5df28835658a);
@@ -3755,6 +3805,22 @@ pub const WPD_CLIENT_WMDRM_APPLICATION_CERTIFICATE: super::super::UI::Shell::Pro
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_CLIENT_WMDRM_APPLICATION_PRIVATE_KEY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x204d9f0c_2292_4080_9f42_40664e70f859), pid: 6 };
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_COLOR_CORRECTED_STATUS_CORRECTED: WPD_COLOR_CORRECTED_STATUS_VALUES = WPD_COLOR_CORRECTED_STATUS_VALUES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_COLOR_CORRECTED_STATUS_NOT_CORRECTED: WPD_COLOR_CORRECTED_STATUS_VALUES = WPD_COLOR_CORRECTED_STATUS_VALUES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_COLOR_CORRECTED_STATUS_SHOULD_NOT_BE_CORRECTED: WPD_COLOR_CORRECTED_STATUS_VALUES = WPD_COLOR_CORRECTED_STATUS_VALUES(2i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_COMMAND_ACCESS_FROM_ATTRIBUTE_WITH_METHOD_ACCESS: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(16i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_COMMAND_ACCESS_FROM_PROPERTY_WITH_FILE_ACCESS: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(8i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_COMMAND_ACCESS_FROM_PROPERTY_WITH_STGM_ACCESS: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(4i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_COMMAND_ACCESS_READ: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_COMMAND_ACCESS_READWRITE: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(3i32);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_COMMAND_CAPABILITIES_GET_COMMAND_OPTIONS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x0cabec78_6b74_41c6_9216_2639d1fce356), pid: 3 };
@@ -4302,6 +4368,12 @@ pub const WPD_CONTENT_TYPE_VIDEO_ALBUM: ::windows_core::GUID = ::windows_core::G
 pub const WPD_CONTENT_TYPE_WIRELESS_PROFILE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0bac070a_9f5f_4da4_a8f6_3de44d68fd6c);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 pub const WPD_CONTROL_FUNCTION_GENERIC_MESSAGE: u32 = 66u32;
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_CROPPED_STATUS_CROPPED: WPD_CROPPED_STATUS_VALUES = WPD_CROPPED_STATUS_VALUES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_CROPPED_STATUS_NOT_CROPPED: WPD_CROPPED_STATUS_VALUES = WPD_CROPPED_STATUS_VALUES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_CROPPED_STATUS_SHOULD_NOT_BE_CROPPED: WPD_CROPPED_STATUS_VALUES = WPD_CROPPED_STATUS_VALUES(2i32);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_DATETIME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc), pid: 11 };
@@ -4364,14 +4436,44 @@ pub const WPD_DEVICE_SYNC_PARTNER: super::super::UI::Shell::PropertiesSystem::PR
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_TRANSPORT: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x463dd662_7fc4_4291_911c_7f4c9cca9799), pid: 4 };
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_DEVICE_TRANSPORT_BLUETOOTH: WPD_DEVICE_TRANSPORTS = WPD_DEVICE_TRANSPORTS(3i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_DEVICE_TRANSPORT_IP: WPD_DEVICE_TRANSPORTS = WPD_DEVICE_TRANSPORTS(2i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_DEVICE_TRANSPORT_UNSPECIFIED: WPD_DEVICE_TRANSPORTS = WPD_DEVICE_TRANSPORTS(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_DEVICE_TRANSPORT_USB: WPD_DEVICE_TRANSPORTS = WPD_DEVICE_TRANSPORTS(1i32);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x26d4979a_e643_4626_9e2b_736dc0c92fdc), pid: 15 };
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_DEVICE_TYPE_AUDIO_RECORDER: WPD_DEVICE_TYPES = WPD_DEVICE_TYPES(6i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_DEVICE_TYPE_CAMERA: WPD_DEVICE_TYPES = WPD_DEVICE_TYPES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_DEVICE_TYPE_GENERIC: WPD_DEVICE_TYPES = WPD_DEVICE_TYPES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_DEVICE_TYPE_MEDIA_PLAYER: WPD_DEVICE_TYPES = WPD_DEVICE_TYPES(2i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_DEVICE_TYPE_PERSONAL_INFORMATION_MANAGER: WPD_DEVICE_TYPES = WPD_DEVICE_TYPES(5i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_DEVICE_TYPE_PHONE: WPD_DEVICE_TYPES = WPD_DEVICE_TYPES(3i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_DEVICE_TYPE_VIDEO: WPD_DEVICE_TYPES = WPD_DEVICE_TYPES(4i32);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_DEVICE_USE_DEVICE_STAGE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x463dd662_7fc4_4291_911c_7f4c9cca9799), pid: 5 };
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 pub const WPD_DOCUMENT_OBJECT_PROPERTIES_V1: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b110203_eb95_4f02_93e0_97c631493ad5);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_EFFECT_MODE_BLACK_AND_WHITE: WPD_EFFECT_MODES = WPD_EFFECT_MODES(2i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_EFFECT_MODE_COLOR: WPD_EFFECT_MODES = WPD_EFFECT_MODES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_EFFECT_MODE_SEPIA: WPD_EFFECT_MODES = WPD_EFFECT_MODES(3i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_EFFECT_MODE_UNDEFINED: WPD_EFFECT_MODES = WPD_EFFECT_MODES(0i32);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_EMAIL_BCC_LINE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x41f8f65a_5484_4782_b13d_4740dd7c37c5), pid: 4 };
@@ -4464,6 +4566,60 @@ pub const WPD_EVENT_PROPERTIES_V2: ::windows_core::GUID = ::windows_core::GUID::
 pub const WPD_EVENT_SERVICE_METHOD_COMPLETE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a33f5f8_0acc_4d9b_9cc4_112d353b86ca);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 pub const WPD_EVENT_STORAGE_FORMAT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3782616b_22bc_4474_a251_3070f8d38857);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_EXPOSURE_METERING_MODE_AVERAGE: WPD_EXPOSURE_METERING_MODES = WPD_EXPOSURE_METERING_MODES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_EXPOSURE_METERING_MODE_CENTER_SPOT: WPD_EXPOSURE_METERING_MODES = WPD_EXPOSURE_METERING_MODES(4i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_EXPOSURE_METERING_MODE_CENTER_WEIGHTED_AVERAGE: WPD_EXPOSURE_METERING_MODES = WPD_EXPOSURE_METERING_MODES(2i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_EXPOSURE_METERING_MODE_MULTI_SPOT: WPD_EXPOSURE_METERING_MODES = WPD_EXPOSURE_METERING_MODES(3i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_EXPOSURE_METERING_MODE_UNDEFINED: WPD_EXPOSURE_METERING_MODES = WPD_EXPOSURE_METERING_MODES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_EXPOSURE_PROGRAM_MODE_ACTION: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(6i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_EXPOSURE_PROGRAM_MODE_APERTURE_PRIORITY: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(3i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_EXPOSURE_PROGRAM_MODE_AUTO: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(2i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_EXPOSURE_PROGRAM_MODE_CREATIVE: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(5i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_EXPOSURE_PROGRAM_MODE_MANUAL: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_EXPOSURE_PROGRAM_MODE_PORTRAIT: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(7i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_EXPOSURE_PROGRAM_MODE_SHUTTER_PRIORITY: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(4i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_EXPOSURE_PROGRAM_MODE_UNDEFINED: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_FLASH_MODE_AUTO: WPD_FLASH_MODES = WPD_FLASH_MODES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_FLASH_MODE_EXTERNAL_SYNC: WPD_FLASH_MODES = WPD_FLASH_MODES(6i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_FLASH_MODE_FILL: WPD_FLASH_MODES = WPD_FLASH_MODES(3i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_FLASH_MODE_OFF: WPD_FLASH_MODES = WPD_FLASH_MODES(2i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_FLASH_MODE_RED_EYE_AUTO: WPD_FLASH_MODES = WPD_FLASH_MODES(4i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_FLASH_MODE_RED_EYE_FILL: WPD_FLASH_MODES = WPD_FLASH_MODES(5i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_FLASH_MODE_UNDEFINED: WPD_FLASH_MODES = WPD_FLASH_MODES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_FOCUS_AUTOMATIC: WPD_FOCUS_MODES = WPD_FOCUS_MODES(2i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_FOCUS_AUTOMATIC_MACRO: WPD_FOCUS_MODES = WPD_FOCUS_MODES(3i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_FOCUS_MANUAL: WPD_FOCUS_MODES = WPD_FOCUS_MODES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_FOCUS_METERING_MODE_CENTER_SPOT: WPD_FOCUS_METERING_MODES = WPD_FOCUS_METERING_MODES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_FOCUS_METERING_MODE_MULTI_SPOT: WPD_FOCUS_METERING_MODES = WPD_FOCUS_METERING_MODES(2i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_FOCUS_METERING_MODE_UNDEFINED: WPD_FOCUS_METERING_MODES = WPD_FOCUS_METERING_MODES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_FOCUS_UNDEFINED: WPD_FOCUS_MODES = WPD_FOCUS_MODES(0i32);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_FOLDER_CONTENT_TYPES_ALLOWED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x7e9a7abf_e568_4b34_aa2f_13bb12ab177d), pid: 2 };
@@ -4647,6 +4803,44 @@ pub const WPD_MEDIA_WEBMASTER: super::super::UI::Shell::PropertiesSystem::PROPER
 pub const WPD_MEDIA_WIDTH: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x2ed8ba05_0ad3_42dc_b0d0_bc95ac396ac8), pid: 22 };
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 pub const WPD_MEMO_OBJECT_PROPERTIES_V1: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ffbfc7b_7483_41ad_afb9_da3f4e592b8d);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_META_GENRE_AUDIO_PODCAST: WPD_META_GENRES = WPD_META_GENRES(64i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_META_GENRE_FEATURE_FILM_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(37i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_META_GENRE_GENERIC_MUSIC_AUDIO_FILE: WPD_META_GENRES = WPD_META_GENRES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_META_GENRE_GENERIC_NON_AUDIO_NON_VIDEO: WPD_META_GENRES = WPD_META_GENRES(48i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_META_GENRE_GENERIC_NON_MUSIC_AUDIO_FILE: WPD_META_GENRES = WPD_META_GENRES(17i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_META_GENRE_GENERIC_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(33i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_META_GENRE_HOME_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(36i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_META_GENRE_MIXED_PODCAST: WPD_META_GENRES = WPD_META_GENRES(66i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_META_GENRE_MUSIC_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(35i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_META_GENRE_NEWS_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(34i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_META_GENRE_PHOTO_MONTAGE_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(40i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_META_GENRE_SPOKEN_WORD_AUDIO_BOOK_FILES: WPD_META_GENRES = WPD_META_GENRES(18i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_META_GENRE_SPOKEN_WORD_FILES_NON_AUDIO_BOOK: WPD_META_GENRES = WPD_META_GENRES(19i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_META_GENRE_SPOKEN_WORD_NEWS: WPD_META_GENRES = WPD_META_GENRES(20i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_META_GENRE_SPOKEN_WORD_TALK_SHOWS: WPD_META_GENRES = WPD_META_GENRES(21i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_META_GENRE_TELEVISION_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(38i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_META_GENRE_TRAINING_EDUCATIONAL_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(39i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_META_GENRE_UNUSED: WPD_META_GENRES = WPD_META_GENRES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_META_GENRE_VIDEO_PODCAST: WPD_META_GENRES = WPD_META_GENRES(65i32);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 pub const WPD_METHOD_ATTRIBUTES_V1: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf17a5071_f039_44af_8efe_432cf32e432a);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -4904,6 +5098,20 @@ pub const WPD_OBJECT_SUPPORTED_UNITS: super::super::UI::Shell::PropertiesSystem:
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OBJECT_SYNC_ID: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0xef6b490d_5cd8_437a_affc_da8b60ee4a3c), pid: 16 };
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_OPERATION_STATE_ABORTED: WPD_OPERATION_STATES = WPD_OPERATION_STATES(6i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_OPERATION_STATE_CANCELLED: WPD_OPERATION_STATES = WPD_OPERATION_STATES(4i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_OPERATION_STATE_FINISHED: WPD_OPERATION_STATES = WPD_OPERATION_STATES(5i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_OPERATION_STATE_PAUSED: WPD_OPERATION_STATES = WPD_OPERATION_STATES(3i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_OPERATION_STATE_RUNNING: WPD_OPERATION_STATES = WPD_OPERATION_STATES(2i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_OPERATION_STATE_STARTED: WPD_OPERATION_STATES = WPD_OPERATION_STATES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_OPERATION_STATE_UNSPECIFIED: WPD_OPERATION_STATES = WPD_OPERATION_STATES(0i32);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_OPTION_OBJECT_MANAGEMENT_RECURSIVE_DELETE_SUPPORTED: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0xef1e43dd_a9ed_4341_8bcc_186192aea089), pid: 5001 };
@@ -4933,6 +5141,16 @@ pub const WPD_PARAMETER_ATTRIBUTE_ENUMERATION_ELEMENTS: super::super::UI::Shell:
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PARAMETER_ATTRIBUTE_FORM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58), pid: 4 };
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_PARAMETER_ATTRIBUTE_FORM_ENUMERATION: WpdParameterAttributeForm = WpdParameterAttributeForm(2i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_PARAMETER_ATTRIBUTE_FORM_OBJECT_IDENTIFIER: WpdParameterAttributeForm = WpdParameterAttributeForm(4i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_PARAMETER_ATTRIBUTE_FORM_RANGE: WpdParameterAttributeForm = WpdParameterAttributeForm(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_PARAMETER_ATTRIBUTE_FORM_REGULAR_EXPRESSION: WpdParameterAttributeForm = WpdParameterAttributeForm(3i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_PARAMETER_ATTRIBUTE_FORM_UNSPECIFIED: WpdParameterAttributeForm = WpdParameterAttributeForm(0i32);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PARAMETER_ATTRIBUTE_MAX_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58), pid: 11 };
@@ -4960,6 +5178,18 @@ pub const WPD_PARAMETER_ATTRIBUTE_USAGE: super::super::UI::Shell::PropertiesSyst
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PARAMETER_ATTRIBUTE_VARTYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0xe6864dd7_f325_45ea_a1d5_97cf73b6ca58), pid: 12 };
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_PARAMETER_USAGE_IN: WPD_PARAMETER_USAGE_TYPES = WPD_PARAMETER_USAGE_TYPES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_PARAMETER_USAGE_INOUT: WPD_PARAMETER_USAGE_TYPES = WPD_PARAMETER_USAGE_TYPES(3i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_PARAMETER_USAGE_OUT: WPD_PARAMETER_USAGE_TYPES = WPD_PARAMETER_USAGE_TYPES(2i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_PARAMETER_USAGE_RETURN: WPD_PARAMETER_USAGE_TYPES = WPD_PARAMETER_USAGE_TYPES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_POWER_SOURCE_BATTERY: WPD_POWER_SOURCES = WPD_POWER_SOURCES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_POWER_SOURCE_EXTERNAL: WPD_POWER_SOURCES = WPD_POWER_SOURCES(1i32);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 pub const WPD_PROPERTIES_MTP_VENDOR_EXTENDED_DEVICE_PROPS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4d545058_8900_40b3_8f1d_dc246e1e8370);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
@@ -4989,6 +5219,16 @@ pub const WPD_PROPERTY_ATTRIBUTE_FAST_PROPERTY: super::super::UI::Shell::Propert
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_ATTRIBUTE_FORM: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37), pid: 2 };
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_PROPERTY_ATTRIBUTE_FORM_ENUMERATION: WpdAttributeForm = WpdAttributeForm(2i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_PROPERTY_ATTRIBUTE_FORM_OBJECT_IDENTIFIER: WpdAttributeForm = WpdAttributeForm(4i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_PROPERTY_ATTRIBUTE_FORM_RANGE: WpdAttributeForm = WpdAttributeForm(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_PROPERTY_ATTRIBUTE_FORM_REGULAR_EXPRESSION: WpdAttributeForm = WpdAttributeForm(3i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_PROPERTY_ATTRIBUTE_FORM_UNSPECIFIED: WpdAttributeForm = WpdAttributeForm(0i32);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_PROPERTY_ATTRIBUTE_MAX_SIZE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0xab7943d8_6332_445f_a00d_8d5ef1e96f37), pid: 13 };
@@ -5414,6 +5654,10 @@ pub const WPD_RENDERING_INFORMATION_PROFILE_ENTRY_CREATABLE_RESOURCES: super::su
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0xc53d039f_ee23_4a31_8590_7639879870b4), pid: 3 };
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPE_OBJECT: WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES = WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPE_RESOURCE: WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES = WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES(1i32);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_RESOURCE_ALBUM_ART: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0xf02aa354_2300_4e2d_a1b9_3b6730f7fa21), pid: 0 };
@@ -5480,7 +5724,13 @@ pub const WPD_SECTION_DATA_REFERENCED_OBJECT_RESOURCE: super::super::UI::Shell::
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_SECTION_DATA_UNITS: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x516afd2b_c64e_44f0_98dc_bee1c88f7d66), pid: 4 };
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_SECTION_DATA_UNITS_BYTES: WPD_SECTION_DATA_UNITS_VALUES = WPD_SECTION_DATA_UNITS_VALUES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_SECTION_DATA_UNITS_MILLISECONDS: WPD_SECTION_DATA_UNITS_VALUES = WPD_SECTION_DATA_UNITS_VALUES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 pub const WPD_SECTION_OBJECT_PROPERTIES_V1: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x516afd2b_c64e_44f0_98dc_bee1c88f7d66);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_SERVICE_INHERITANCE_IMPLEMENTATION: WPD_SERVICE_INHERITANCE_TYPES = WPD_SERVICE_INHERITANCE_TYPES(0i32);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 pub const WPD_SERVICE_PROPERTIES_V1: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7510698a_cb54_481c_b8db_0d75c93f1c06);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -5595,6 +5845,12 @@ pub const WPD_STILL_IMAGE_WHITE_BALANCE: super::super::UI::Shell::PropertiesSyst
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STORAGE_ACCESS_CAPABILITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a), pid: 11 };
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_STORAGE_ACCESS_CAPABILITY_READWRITE: WPD_STORAGE_ACCESS_CAPABILITY_VALUES = WPD_STORAGE_ACCESS_CAPABILITY_VALUES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_STORAGE_ACCESS_CAPABILITY_READ_ONLY_WITHOUT_OBJECT_DELETION: WPD_STORAGE_ACCESS_CAPABILITY_VALUES = WPD_STORAGE_ACCESS_CAPABILITY_VALUES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_STORAGE_ACCESS_CAPABILITY_READ_ONLY_WITH_OBJECT_DELETION: WPD_STORAGE_ACCESS_CAPABILITY_VALUES = WPD_STORAGE_ACCESS_CAPABILITY_VALUES(2i32);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STORAGE_CAPACITY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a), pid: 4 };
@@ -5624,6 +5880,26 @@ pub const WPD_STORAGE_SERIAL_NUMBER: super::super::UI::Shell::PropertiesSystem::
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_STORAGE_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x01a3057a_74d6_4e80_bea7_dc4c212ce50a), pid: 2 };
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_STORAGE_TYPE_FIXED_RAM: WPD_STORAGE_TYPE_VALUES = WPD_STORAGE_TYPE_VALUES(3i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_STORAGE_TYPE_FIXED_ROM: WPD_STORAGE_TYPE_VALUES = WPD_STORAGE_TYPE_VALUES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_STORAGE_TYPE_REMOVABLE_RAM: WPD_STORAGE_TYPE_VALUES = WPD_STORAGE_TYPE_VALUES(4i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_STORAGE_TYPE_REMOVABLE_ROM: WPD_STORAGE_TYPE_VALUES = WPD_STORAGE_TYPE_VALUES(2i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_STORAGE_TYPE_UNDEFINED: WPD_STORAGE_TYPE_VALUES = WPD_STORAGE_TYPE_VALUES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_STREAM_UNITS_BYTES: WPD_STREAM_UNITS = WPD_STREAM_UNITS(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_STREAM_UNITS_FRAMES: WPD_STREAM_UNITS = WPD_STREAM_UNITS(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_STREAM_UNITS_MICROSECONDS: WPD_STREAM_UNITS = WPD_STREAM_UNITS(8i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_STREAM_UNITS_MILLISECONDS: WPD_STREAM_UNITS = WPD_STREAM_UNITS(4i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_STREAM_UNITS_ROWS: WPD_STREAM_UNITS = WPD_STREAM_UNITS(2i32);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 pub const WPD_TASK_OBJECT_PROPERTIES_V1: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe354e95e_d8a0_4637_a03a_0cb26838dbc7);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -5677,15 +5953,43 @@ pub const WPD_VIDEO_RECORDEDTV_STATION_NAME: super::super::UI::Shell::Properties
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const WPD_VIDEO_SCAN_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x346f2163_f998_4146_8b01_d19b4c00de9a), pid: 12 };
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_VIDEO_SCAN_TYPE_FIELD_INTERLEAVED_LOWER_FIRST: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(3i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_VIDEO_SCAN_TYPE_FIELD_INTERLEAVED_UPPER_FIRST: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(2i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_VIDEO_SCAN_TYPE_FIELD_SINGLE_LOWER_FIRST: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(5i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_VIDEO_SCAN_TYPE_FIELD_SINGLE_UPPER_FIRST: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(4i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_VIDEO_SCAN_TYPE_MIXED_INTERLACE: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(6i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_VIDEO_SCAN_TYPE_MIXED_INTERLACE_AND_PROGRESSIVE: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(7i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_VIDEO_SCAN_TYPE_PROGRESSIVE: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_VIDEO_SCAN_TYPE_UNUSED: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_WHITE_BALANCE_AUTOMATIC: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(2i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_WHITE_BALANCE_DAYLIGHT: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(4i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_WHITE_BALANCE_FLASH: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(7i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_WHITE_BALANCE_FLORESCENT: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(5i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_WHITE_BALANCE_MANUAL: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(1i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_WHITE_BALANCE_ONE_PUSH_AUTOMATIC: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(3i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_WHITE_BALANCE_TUNGSTEN: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(6i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
+pub const WPD_WHITE_BALANCE_UNDEFINED: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(0i32);
+#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 pub const WpdSerializer: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b91a74b_ad7c_4a9d_b563_29eef9167172);
 #[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DELETE_OBJECT_OPTIONS(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const PORTABLE_DEVICE_DELETE_NO_RECURSION: DELETE_OBJECT_OPTIONS = DELETE_OBJECT_OPTIONS(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const PORTABLE_DEVICE_DELETE_WITH_RECURSION: DELETE_OBJECT_OPTIONS = DELETE_OBJECT_OPTIONS(1i32);
 impl ::core::marker::Copy for DELETE_OBJECT_OPTIONS {}
 impl ::core::clone::Clone for DELETE_OBJECT_OPTIONS {
     fn clone(&self) -> Self {
@@ -5709,22 +6013,6 @@ impl ::core::fmt::Debug for DELETE_OBJECT_OPTIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICE_RADIO_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const DRS_RADIO_ON: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const DRS_SW_RADIO_OFF: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const DRS_HW_RADIO_OFF: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const DRS_SW_HW_RADIO_OFF: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const DRS_HW_RADIO_ON_UNCONTROLLABLE: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const DRS_RADIO_INVALID: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const DRS_HW_RADIO_OFF_UNCONTROLLABLE: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(6i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const DRS_RADIO_MAX: DEVICE_RADIO_STATE = DEVICE_RADIO_STATE(6i32);
 impl ::core::marker::Copy for DEVICE_RADIO_STATE {}
 impl ::core::clone::Clone for DEVICE_RADIO_STATE {
     fn clone(&self) -> Self {
@@ -5748,10 +6036,6 @@ impl ::core::fmt::Debug for DEVICE_RADIO_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SMS_MESSAGE_TYPES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const SMS_TEXT_MESSAGE: SMS_MESSAGE_TYPES = SMS_MESSAGE_TYPES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const SMS_BINARY_MESSAGE: SMS_MESSAGE_TYPES = SMS_MESSAGE_TYPES(1i32);
 impl ::core::marker::Copy for SMS_MESSAGE_TYPES {}
 impl ::core::clone::Clone for SMS_MESSAGE_TYPES {
     fn clone(&self) -> Self {
@@ -5775,10 +6059,6 @@ impl ::core::fmt::Debug for SMS_MESSAGE_TYPES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEM_RADIO_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const SRS_RADIO_ENABLED: SYSTEM_RADIO_STATE = SYSTEM_RADIO_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const SRS_RADIO_DISABLED: SYSTEM_RADIO_STATE = SYSTEM_RADIO_STATE(1i32);
 impl ::core::marker::Copy for SYSTEM_RADIO_STATE {}
 impl ::core::clone::Clone for SYSTEM_RADIO_STATE {
     fn clone(&self) -> Self {
@@ -5802,14 +6082,6 @@ impl ::core::fmt::Debug for SYSTEM_RADIO_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_BITRATE_TYPES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_BITRATE_TYPE_UNUSED: WPD_BITRATE_TYPES = WPD_BITRATE_TYPES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_BITRATE_TYPE_DISCRETE: WPD_BITRATE_TYPES = WPD_BITRATE_TYPES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_BITRATE_TYPE_VARIABLE: WPD_BITRATE_TYPES = WPD_BITRATE_TYPES(2i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_BITRATE_TYPE_FREE: WPD_BITRATE_TYPES = WPD_BITRATE_TYPES(3i32);
 impl ::core::marker::Copy for WPD_BITRATE_TYPES {}
 impl ::core::clone::Clone for WPD_BITRATE_TYPES {
     fn clone(&self) -> Self {
@@ -5833,14 +6105,6 @@ impl ::core::fmt::Debug for WPD_BITRATE_TYPES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_CAPTURE_MODES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_CAPTURE_MODE_UNDEFINED: WPD_CAPTURE_MODES = WPD_CAPTURE_MODES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_CAPTURE_MODE_NORMAL: WPD_CAPTURE_MODES = WPD_CAPTURE_MODES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_CAPTURE_MODE_BURST: WPD_CAPTURE_MODES = WPD_CAPTURE_MODES(2i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_CAPTURE_MODE_TIMELAPSE: WPD_CAPTURE_MODES = WPD_CAPTURE_MODES(3i32);
 impl ::core::marker::Copy for WPD_CAPTURE_MODES {}
 impl ::core::clone::Clone for WPD_CAPTURE_MODES {
     fn clone(&self) -> Self {
@@ -5864,12 +6128,6 @@ impl ::core::fmt::Debug for WPD_CAPTURE_MODES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_COLOR_CORRECTED_STATUS_VALUES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_COLOR_CORRECTED_STATUS_NOT_CORRECTED: WPD_COLOR_CORRECTED_STATUS_VALUES = WPD_COLOR_CORRECTED_STATUS_VALUES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_COLOR_CORRECTED_STATUS_CORRECTED: WPD_COLOR_CORRECTED_STATUS_VALUES = WPD_COLOR_CORRECTED_STATUS_VALUES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_COLOR_CORRECTED_STATUS_SHOULD_NOT_BE_CORRECTED: WPD_COLOR_CORRECTED_STATUS_VALUES = WPD_COLOR_CORRECTED_STATUS_VALUES(2i32);
 impl ::core::marker::Copy for WPD_COLOR_CORRECTED_STATUS_VALUES {}
 impl ::core::clone::Clone for WPD_COLOR_CORRECTED_STATUS_VALUES {
     fn clone(&self) -> Self {
@@ -5893,16 +6151,6 @@ impl ::core::fmt::Debug for WPD_COLOR_CORRECTED_STATUS_VALUES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_COMMAND_ACCESS_TYPES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_COMMAND_ACCESS_READ: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_COMMAND_ACCESS_READWRITE: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(3i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_COMMAND_ACCESS_FROM_PROPERTY_WITH_STGM_ACCESS: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(4i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_COMMAND_ACCESS_FROM_PROPERTY_WITH_FILE_ACCESS: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(8i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_COMMAND_ACCESS_FROM_ATTRIBUTE_WITH_METHOD_ACCESS: WPD_COMMAND_ACCESS_TYPES = WPD_COMMAND_ACCESS_TYPES(16i32);
 impl ::core::marker::Copy for WPD_COMMAND_ACCESS_TYPES {}
 impl ::core::clone::Clone for WPD_COMMAND_ACCESS_TYPES {
     fn clone(&self) -> Self {
@@ -5926,12 +6174,6 @@ impl ::core::fmt::Debug for WPD_COMMAND_ACCESS_TYPES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_CROPPED_STATUS_VALUES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_CROPPED_STATUS_NOT_CROPPED: WPD_CROPPED_STATUS_VALUES = WPD_CROPPED_STATUS_VALUES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_CROPPED_STATUS_CROPPED: WPD_CROPPED_STATUS_VALUES = WPD_CROPPED_STATUS_VALUES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_CROPPED_STATUS_SHOULD_NOT_BE_CROPPED: WPD_CROPPED_STATUS_VALUES = WPD_CROPPED_STATUS_VALUES(2i32);
 impl ::core::marker::Copy for WPD_CROPPED_STATUS_VALUES {}
 impl ::core::clone::Clone for WPD_CROPPED_STATUS_VALUES {
     fn clone(&self) -> Self {
@@ -5955,14 +6197,6 @@ impl ::core::fmt::Debug for WPD_CROPPED_STATUS_VALUES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_DEVICE_TRANSPORTS(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_DEVICE_TRANSPORT_UNSPECIFIED: WPD_DEVICE_TRANSPORTS = WPD_DEVICE_TRANSPORTS(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_DEVICE_TRANSPORT_USB: WPD_DEVICE_TRANSPORTS = WPD_DEVICE_TRANSPORTS(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_DEVICE_TRANSPORT_IP: WPD_DEVICE_TRANSPORTS = WPD_DEVICE_TRANSPORTS(2i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_DEVICE_TRANSPORT_BLUETOOTH: WPD_DEVICE_TRANSPORTS = WPD_DEVICE_TRANSPORTS(3i32);
 impl ::core::marker::Copy for WPD_DEVICE_TRANSPORTS {}
 impl ::core::clone::Clone for WPD_DEVICE_TRANSPORTS {
     fn clone(&self) -> Self {
@@ -5986,20 +6220,6 @@ impl ::core::fmt::Debug for WPD_DEVICE_TRANSPORTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_DEVICE_TYPES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_DEVICE_TYPE_GENERIC: WPD_DEVICE_TYPES = WPD_DEVICE_TYPES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_DEVICE_TYPE_CAMERA: WPD_DEVICE_TYPES = WPD_DEVICE_TYPES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_DEVICE_TYPE_MEDIA_PLAYER: WPD_DEVICE_TYPES = WPD_DEVICE_TYPES(2i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_DEVICE_TYPE_PHONE: WPD_DEVICE_TYPES = WPD_DEVICE_TYPES(3i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_DEVICE_TYPE_VIDEO: WPD_DEVICE_TYPES = WPD_DEVICE_TYPES(4i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_DEVICE_TYPE_PERSONAL_INFORMATION_MANAGER: WPD_DEVICE_TYPES = WPD_DEVICE_TYPES(5i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_DEVICE_TYPE_AUDIO_RECORDER: WPD_DEVICE_TYPES = WPD_DEVICE_TYPES(6i32);
 impl ::core::marker::Copy for WPD_DEVICE_TYPES {}
 impl ::core::clone::Clone for WPD_DEVICE_TYPES {
     fn clone(&self) -> Self {
@@ -6023,14 +6243,6 @@ impl ::core::fmt::Debug for WPD_DEVICE_TYPES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_EFFECT_MODES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_EFFECT_MODE_UNDEFINED: WPD_EFFECT_MODES = WPD_EFFECT_MODES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_EFFECT_MODE_COLOR: WPD_EFFECT_MODES = WPD_EFFECT_MODES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_EFFECT_MODE_BLACK_AND_WHITE: WPD_EFFECT_MODES = WPD_EFFECT_MODES(2i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_EFFECT_MODE_SEPIA: WPD_EFFECT_MODES = WPD_EFFECT_MODES(3i32);
 impl ::core::marker::Copy for WPD_EFFECT_MODES {}
 impl ::core::clone::Clone for WPD_EFFECT_MODES {
     fn clone(&self) -> Self {
@@ -6054,16 +6266,6 @@ impl ::core::fmt::Debug for WPD_EFFECT_MODES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_EXPOSURE_METERING_MODES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_EXPOSURE_METERING_MODE_UNDEFINED: WPD_EXPOSURE_METERING_MODES = WPD_EXPOSURE_METERING_MODES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_EXPOSURE_METERING_MODE_AVERAGE: WPD_EXPOSURE_METERING_MODES = WPD_EXPOSURE_METERING_MODES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_EXPOSURE_METERING_MODE_CENTER_WEIGHTED_AVERAGE: WPD_EXPOSURE_METERING_MODES = WPD_EXPOSURE_METERING_MODES(2i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_EXPOSURE_METERING_MODE_MULTI_SPOT: WPD_EXPOSURE_METERING_MODES = WPD_EXPOSURE_METERING_MODES(3i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_EXPOSURE_METERING_MODE_CENTER_SPOT: WPD_EXPOSURE_METERING_MODES = WPD_EXPOSURE_METERING_MODES(4i32);
 impl ::core::marker::Copy for WPD_EXPOSURE_METERING_MODES {}
 impl ::core::clone::Clone for WPD_EXPOSURE_METERING_MODES {
     fn clone(&self) -> Self {
@@ -6087,22 +6289,6 @@ impl ::core::fmt::Debug for WPD_EXPOSURE_METERING_MODES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_EXPOSURE_PROGRAM_MODES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_EXPOSURE_PROGRAM_MODE_UNDEFINED: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_EXPOSURE_PROGRAM_MODE_MANUAL: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_EXPOSURE_PROGRAM_MODE_AUTO: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(2i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_EXPOSURE_PROGRAM_MODE_APERTURE_PRIORITY: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(3i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_EXPOSURE_PROGRAM_MODE_SHUTTER_PRIORITY: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(4i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_EXPOSURE_PROGRAM_MODE_CREATIVE: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(5i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_EXPOSURE_PROGRAM_MODE_ACTION: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(6i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_EXPOSURE_PROGRAM_MODE_PORTRAIT: WPD_EXPOSURE_PROGRAM_MODES = WPD_EXPOSURE_PROGRAM_MODES(7i32);
 impl ::core::marker::Copy for WPD_EXPOSURE_PROGRAM_MODES {}
 impl ::core::clone::Clone for WPD_EXPOSURE_PROGRAM_MODES {
     fn clone(&self) -> Self {
@@ -6126,20 +6312,6 @@ impl ::core::fmt::Debug for WPD_EXPOSURE_PROGRAM_MODES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_FLASH_MODES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_FLASH_MODE_UNDEFINED: WPD_FLASH_MODES = WPD_FLASH_MODES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_FLASH_MODE_AUTO: WPD_FLASH_MODES = WPD_FLASH_MODES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_FLASH_MODE_OFF: WPD_FLASH_MODES = WPD_FLASH_MODES(2i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_FLASH_MODE_FILL: WPD_FLASH_MODES = WPD_FLASH_MODES(3i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_FLASH_MODE_RED_EYE_AUTO: WPD_FLASH_MODES = WPD_FLASH_MODES(4i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_FLASH_MODE_RED_EYE_FILL: WPD_FLASH_MODES = WPD_FLASH_MODES(5i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_FLASH_MODE_EXTERNAL_SYNC: WPD_FLASH_MODES = WPD_FLASH_MODES(6i32);
 impl ::core::marker::Copy for WPD_FLASH_MODES {}
 impl ::core::clone::Clone for WPD_FLASH_MODES {
     fn clone(&self) -> Self {
@@ -6163,12 +6335,6 @@ impl ::core::fmt::Debug for WPD_FLASH_MODES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_FOCUS_METERING_MODES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_FOCUS_METERING_MODE_UNDEFINED: WPD_FOCUS_METERING_MODES = WPD_FOCUS_METERING_MODES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_FOCUS_METERING_MODE_CENTER_SPOT: WPD_FOCUS_METERING_MODES = WPD_FOCUS_METERING_MODES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_FOCUS_METERING_MODE_MULTI_SPOT: WPD_FOCUS_METERING_MODES = WPD_FOCUS_METERING_MODES(2i32);
 impl ::core::marker::Copy for WPD_FOCUS_METERING_MODES {}
 impl ::core::clone::Clone for WPD_FOCUS_METERING_MODES {
     fn clone(&self) -> Self {
@@ -6192,14 +6358,6 @@ impl ::core::fmt::Debug for WPD_FOCUS_METERING_MODES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_FOCUS_MODES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_FOCUS_UNDEFINED: WPD_FOCUS_MODES = WPD_FOCUS_MODES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_FOCUS_MANUAL: WPD_FOCUS_MODES = WPD_FOCUS_MODES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_FOCUS_AUTOMATIC: WPD_FOCUS_MODES = WPD_FOCUS_MODES(2i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_FOCUS_AUTOMATIC_MACRO: WPD_FOCUS_MODES = WPD_FOCUS_MODES(3i32);
 impl ::core::marker::Copy for WPD_FOCUS_MODES {}
 impl ::core::clone::Clone for WPD_FOCUS_MODES {
     fn clone(&self) -> Self {
@@ -6223,44 +6381,6 @@ impl ::core::fmt::Debug for WPD_FOCUS_MODES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_META_GENRES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_META_GENRE_UNUSED: WPD_META_GENRES = WPD_META_GENRES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_META_GENRE_GENERIC_MUSIC_AUDIO_FILE: WPD_META_GENRES = WPD_META_GENRES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_META_GENRE_GENERIC_NON_MUSIC_AUDIO_FILE: WPD_META_GENRES = WPD_META_GENRES(17i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_META_GENRE_SPOKEN_WORD_AUDIO_BOOK_FILES: WPD_META_GENRES = WPD_META_GENRES(18i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_META_GENRE_SPOKEN_WORD_FILES_NON_AUDIO_BOOK: WPD_META_GENRES = WPD_META_GENRES(19i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_META_GENRE_SPOKEN_WORD_NEWS: WPD_META_GENRES = WPD_META_GENRES(20i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_META_GENRE_SPOKEN_WORD_TALK_SHOWS: WPD_META_GENRES = WPD_META_GENRES(21i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_META_GENRE_GENERIC_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(33i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_META_GENRE_NEWS_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(34i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_META_GENRE_MUSIC_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(35i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_META_GENRE_HOME_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(36i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_META_GENRE_FEATURE_FILM_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(37i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_META_GENRE_TELEVISION_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(38i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_META_GENRE_TRAINING_EDUCATIONAL_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(39i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_META_GENRE_PHOTO_MONTAGE_VIDEO_FILE: WPD_META_GENRES = WPD_META_GENRES(40i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_META_GENRE_GENERIC_NON_AUDIO_NON_VIDEO: WPD_META_GENRES = WPD_META_GENRES(48i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_META_GENRE_AUDIO_PODCAST: WPD_META_GENRES = WPD_META_GENRES(64i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_META_GENRE_VIDEO_PODCAST: WPD_META_GENRES = WPD_META_GENRES(65i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_META_GENRE_MIXED_PODCAST: WPD_META_GENRES = WPD_META_GENRES(66i32);
 impl ::core::marker::Copy for WPD_META_GENRES {}
 impl ::core::clone::Clone for WPD_META_GENRES {
     fn clone(&self) -> Self {
@@ -6284,20 +6404,6 @@ impl ::core::fmt::Debug for WPD_META_GENRES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_OPERATION_STATES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_OPERATION_STATE_UNSPECIFIED: WPD_OPERATION_STATES = WPD_OPERATION_STATES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_OPERATION_STATE_STARTED: WPD_OPERATION_STATES = WPD_OPERATION_STATES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_OPERATION_STATE_RUNNING: WPD_OPERATION_STATES = WPD_OPERATION_STATES(2i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_OPERATION_STATE_PAUSED: WPD_OPERATION_STATES = WPD_OPERATION_STATES(3i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_OPERATION_STATE_CANCELLED: WPD_OPERATION_STATES = WPD_OPERATION_STATES(4i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_OPERATION_STATE_FINISHED: WPD_OPERATION_STATES = WPD_OPERATION_STATES(5i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_OPERATION_STATE_ABORTED: WPD_OPERATION_STATES = WPD_OPERATION_STATES(6i32);
 impl ::core::marker::Copy for WPD_OPERATION_STATES {}
 impl ::core::clone::Clone for WPD_OPERATION_STATES {
     fn clone(&self) -> Self {
@@ -6321,14 +6427,6 @@ impl ::core::fmt::Debug for WPD_OPERATION_STATES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_PARAMETER_USAGE_TYPES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_PARAMETER_USAGE_RETURN: WPD_PARAMETER_USAGE_TYPES = WPD_PARAMETER_USAGE_TYPES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_PARAMETER_USAGE_IN: WPD_PARAMETER_USAGE_TYPES = WPD_PARAMETER_USAGE_TYPES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_PARAMETER_USAGE_OUT: WPD_PARAMETER_USAGE_TYPES = WPD_PARAMETER_USAGE_TYPES(2i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_PARAMETER_USAGE_INOUT: WPD_PARAMETER_USAGE_TYPES = WPD_PARAMETER_USAGE_TYPES(3i32);
 impl ::core::marker::Copy for WPD_PARAMETER_USAGE_TYPES {}
 impl ::core::clone::Clone for WPD_PARAMETER_USAGE_TYPES {
     fn clone(&self) -> Self {
@@ -6352,10 +6450,6 @@ impl ::core::fmt::Debug for WPD_PARAMETER_USAGE_TYPES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_POWER_SOURCES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_POWER_SOURCE_BATTERY: WPD_POWER_SOURCES = WPD_POWER_SOURCES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_POWER_SOURCE_EXTERNAL: WPD_POWER_SOURCES = WPD_POWER_SOURCES(1i32);
 impl ::core::marker::Copy for WPD_POWER_SOURCES {}
 impl ::core::clone::Clone for WPD_POWER_SOURCES {
     fn clone(&self) -> Self {
@@ -6379,10 +6473,6 @@ impl ::core::fmt::Debug for WPD_POWER_SOURCES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPE_OBJECT: WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES = WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPE_RESOURCE: WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES = WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES(1i32);
 impl ::core::marker::Copy for WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES {}
 impl ::core::clone::Clone for WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES {
     fn clone(&self) -> Self {
@@ -6406,10 +6496,6 @@ impl ::core::fmt::Debug for WPD_RENDERING_INFORMATION_PROFILE_ENTRY_TYPES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_SECTION_DATA_UNITS_VALUES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_SECTION_DATA_UNITS_BYTES: WPD_SECTION_DATA_UNITS_VALUES = WPD_SECTION_DATA_UNITS_VALUES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_SECTION_DATA_UNITS_MILLISECONDS: WPD_SECTION_DATA_UNITS_VALUES = WPD_SECTION_DATA_UNITS_VALUES(1i32);
 impl ::core::marker::Copy for WPD_SECTION_DATA_UNITS_VALUES {}
 impl ::core::clone::Clone for WPD_SECTION_DATA_UNITS_VALUES {
     fn clone(&self) -> Self {
@@ -6433,8 +6519,6 @@ impl ::core::fmt::Debug for WPD_SECTION_DATA_UNITS_VALUES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_SERVICE_INHERITANCE_TYPES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_SERVICE_INHERITANCE_IMPLEMENTATION: WPD_SERVICE_INHERITANCE_TYPES = WPD_SERVICE_INHERITANCE_TYPES(0i32);
 impl ::core::marker::Copy for WPD_SERVICE_INHERITANCE_TYPES {}
 impl ::core::clone::Clone for WPD_SERVICE_INHERITANCE_TYPES {
     fn clone(&self) -> Self {
@@ -6458,12 +6542,6 @@ impl ::core::fmt::Debug for WPD_SERVICE_INHERITANCE_TYPES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_SMS_ENCODING_TYPES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const SMS_ENCODING_7_BIT: WPD_SMS_ENCODING_TYPES = WPD_SMS_ENCODING_TYPES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const SMS_ENCODING_8_BIT: WPD_SMS_ENCODING_TYPES = WPD_SMS_ENCODING_TYPES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const SMS_ENCODING_UTF_16: WPD_SMS_ENCODING_TYPES = WPD_SMS_ENCODING_TYPES(2i32);
 impl ::core::marker::Copy for WPD_SMS_ENCODING_TYPES {}
 impl ::core::clone::Clone for WPD_SMS_ENCODING_TYPES {
     fn clone(&self) -> Self {
@@ -6487,12 +6565,6 @@ impl ::core::fmt::Debug for WPD_SMS_ENCODING_TYPES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_STORAGE_ACCESS_CAPABILITY_VALUES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_STORAGE_ACCESS_CAPABILITY_READWRITE: WPD_STORAGE_ACCESS_CAPABILITY_VALUES = WPD_STORAGE_ACCESS_CAPABILITY_VALUES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_STORAGE_ACCESS_CAPABILITY_READ_ONLY_WITHOUT_OBJECT_DELETION: WPD_STORAGE_ACCESS_CAPABILITY_VALUES = WPD_STORAGE_ACCESS_CAPABILITY_VALUES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_STORAGE_ACCESS_CAPABILITY_READ_ONLY_WITH_OBJECT_DELETION: WPD_STORAGE_ACCESS_CAPABILITY_VALUES = WPD_STORAGE_ACCESS_CAPABILITY_VALUES(2i32);
 impl ::core::marker::Copy for WPD_STORAGE_ACCESS_CAPABILITY_VALUES {}
 impl ::core::clone::Clone for WPD_STORAGE_ACCESS_CAPABILITY_VALUES {
     fn clone(&self) -> Self {
@@ -6516,16 +6588,6 @@ impl ::core::fmt::Debug for WPD_STORAGE_ACCESS_CAPABILITY_VALUES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_STORAGE_TYPE_VALUES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_STORAGE_TYPE_UNDEFINED: WPD_STORAGE_TYPE_VALUES = WPD_STORAGE_TYPE_VALUES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_STORAGE_TYPE_FIXED_ROM: WPD_STORAGE_TYPE_VALUES = WPD_STORAGE_TYPE_VALUES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_STORAGE_TYPE_REMOVABLE_ROM: WPD_STORAGE_TYPE_VALUES = WPD_STORAGE_TYPE_VALUES(2i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_STORAGE_TYPE_FIXED_RAM: WPD_STORAGE_TYPE_VALUES = WPD_STORAGE_TYPE_VALUES(3i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_STORAGE_TYPE_REMOVABLE_RAM: WPD_STORAGE_TYPE_VALUES = WPD_STORAGE_TYPE_VALUES(4i32);
 impl ::core::marker::Copy for WPD_STORAGE_TYPE_VALUES {}
 impl ::core::clone::Clone for WPD_STORAGE_TYPE_VALUES {
     fn clone(&self) -> Self {
@@ -6549,16 +6611,6 @@ impl ::core::fmt::Debug for WPD_STORAGE_TYPE_VALUES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_STREAM_UNITS(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_STREAM_UNITS_BYTES: WPD_STREAM_UNITS = WPD_STREAM_UNITS(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_STREAM_UNITS_FRAMES: WPD_STREAM_UNITS = WPD_STREAM_UNITS(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_STREAM_UNITS_ROWS: WPD_STREAM_UNITS = WPD_STREAM_UNITS(2i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_STREAM_UNITS_MILLISECONDS: WPD_STREAM_UNITS = WPD_STREAM_UNITS(4i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_STREAM_UNITS_MICROSECONDS: WPD_STREAM_UNITS = WPD_STREAM_UNITS(8i32);
 impl ::core::marker::Copy for WPD_STREAM_UNITS {}
 impl ::core::clone::Clone for WPD_STREAM_UNITS {
     fn clone(&self) -> Self {
@@ -6582,22 +6634,6 @@ impl ::core::fmt::Debug for WPD_STREAM_UNITS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_VIDEO_SCAN_TYPES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_VIDEO_SCAN_TYPE_UNUSED: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_VIDEO_SCAN_TYPE_PROGRESSIVE: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_VIDEO_SCAN_TYPE_FIELD_INTERLEAVED_UPPER_FIRST: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(2i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_VIDEO_SCAN_TYPE_FIELD_INTERLEAVED_LOWER_FIRST: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(3i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_VIDEO_SCAN_TYPE_FIELD_SINGLE_UPPER_FIRST: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(4i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_VIDEO_SCAN_TYPE_FIELD_SINGLE_LOWER_FIRST: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(5i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_VIDEO_SCAN_TYPE_MIXED_INTERLACE: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(6i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_VIDEO_SCAN_TYPE_MIXED_INTERLACE_AND_PROGRESSIVE: WPD_VIDEO_SCAN_TYPES = WPD_VIDEO_SCAN_TYPES(7i32);
 impl ::core::marker::Copy for WPD_VIDEO_SCAN_TYPES {}
 impl ::core::clone::Clone for WPD_VIDEO_SCAN_TYPES {
     fn clone(&self) -> Self {
@@ -6621,22 +6657,6 @@ impl ::core::fmt::Debug for WPD_VIDEO_SCAN_TYPES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPD_WHITE_BALANCE_SETTINGS(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_WHITE_BALANCE_UNDEFINED: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_WHITE_BALANCE_MANUAL: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_WHITE_BALANCE_AUTOMATIC: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(2i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_WHITE_BALANCE_ONE_PUSH_AUTOMATIC: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(3i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_WHITE_BALANCE_DAYLIGHT: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(4i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_WHITE_BALANCE_FLORESCENT: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(5i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_WHITE_BALANCE_TUNGSTEN: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(6i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_WHITE_BALANCE_FLASH: WPD_WHITE_BALANCE_SETTINGS = WPD_WHITE_BALANCE_SETTINGS(7i32);
 impl ::core::marker::Copy for WPD_WHITE_BALANCE_SETTINGS {}
 impl ::core::clone::Clone for WPD_WHITE_BALANCE_SETTINGS {
     fn clone(&self) -> Self {
@@ -6660,16 +6680,6 @@ impl ::core::fmt::Debug for WPD_WHITE_BALANCE_SETTINGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WpdAttributeForm(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_PROPERTY_ATTRIBUTE_FORM_UNSPECIFIED: WpdAttributeForm = WpdAttributeForm(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_PROPERTY_ATTRIBUTE_FORM_RANGE: WpdAttributeForm = WpdAttributeForm(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_PROPERTY_ATTRIBUTE_FORM_ENUMERATION: WpdAttributeForm = WpdAttributeForm(2i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_PROPERTY_ATTRIBUTE_FORM_REGULAR_EXPRESSION: WpdAttributeForm = WpdAttributeForm(3i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_PROPERTY_ATTRIBUTE_FORM_OBJECT_IDENTIFIER: WpdAttributeForm = WpdAttributeForm(4i32);
 impl ::core::marker::Copy for WpdAttributeForm {}
 impl ::core::clone::Clone for WpdAttributeForm {
     fn clone(&self) -> Self {
@@ -6693,16 +6703,6 @@ impl ::core::fmt::Debug for WpdAttributeForm {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WpdParameterAttributeForm(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_PARAMETER_ATTRIBUTE_FORM_UNSPECIFIED: WpdParameterAttributeForm = WpdParameterAttributeForm(0i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_PARAMETER_ATTRIBUTE_FORM_RANGE: WpdParameterAttributeForm = WpdParameterAttributeForm(1i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_PARAMETER_ATTRIBUTE_FORM_ENUMERATION: WpdParameterAttributeForm = WpdParameterAttributeForm(2i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_PARAMETER_ATTRIBUTE_FORM_REGULAR_EXPRESSION: WpdParameterAttributeForm = WpdParameterAttributeForm(3i32);
-#[doc = "*Required features: `\"Win32_Devices_PortableDevices\"`*"]
-pub const WPD_PARAMETER_ATTRIBUTE_FORM_OBJECT_IDENTIFIER: WpdParameterAttributeForm = WpdParameterAttributeForm(4i32);
 impl ::core::marker::Copy for WpdParameterAttributeForm {}
 impl ::core::clone::Clone for WpdParameterAttributeForm {
     fn clone(&self) -> Self {

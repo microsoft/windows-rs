@@ -53,15 +53,15 @@ pub struct IDDEInitializer_Vtbl {
     Initialize: usize,
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Shell\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CreateProcessMethod(pub i32);
+pub const CpAicLaunchAdminProcess: CreateProcessMethod = CreateProcessMethod(2i32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Shell\"`*"]
 pub const CpCreateProcess: CreateProcessMethod = CreateProcessMethod(0i32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Shell\"`*"]
 pub const CpCreateProcessAsUser: CreateProcessMethod = CreateProcessMethod(1i32);
 #[doc = "*Required features: `\"Win32_System_WinRT_Shell\"`*"]
-pub const CpAicLaunchAdminProcess: CreateProcessMethod = CreateProcessMethod(2i32);
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CreateProcessMethod(pub i32);
 impl ::core::marker::Copy for CreateProcessMethod {}
 impl ::core::clone::Clone for CreateProcessMethod {
     fn clone(&self) -> Self {

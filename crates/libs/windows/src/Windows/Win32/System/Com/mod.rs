@@ -7715,6 +7715,20 @@ pub struct IWaitMultiple_Vtbl {
     pub AddSynchronize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psync: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ADVFCACHE_FORCEBUILTIN: ADVF = ADVF(16i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ADVFCACHE_NOHANDLER: ADVF = ADVF(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ADVFCACHE_ONSAVE: ADVF = ADVF(32i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ADVF_DATAONSTOP: ADVF = ADVF(64i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ADVF_NODATA: ADVF = ADVF(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ADVF_ONLYONCE: ADVF = ADVF(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ADVF_PRIMEFIRST: ADVF = ADVF(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const APPIDREGFLAGS_AAA_NO_IMPLICIT_ACTIVATE_AS_IU: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const APPIDREGFLAGS_ACTIVATE_IUSERVER_INDESKTOP: u32 = 1u32;
@@ -7745,13 +7759,217 @@ pub const APPIDREGFLAGS_RESERVED9: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const APPIDREGFLAGS_SECURE_SERVER_PROCESS_SD_AND_BIND: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPEQUALIFIER_APPLICATION_STA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(6i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPEQUALIFIER_IMPLICIT_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPEQUALIFIER_NA_ON_IMPLICIT_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPEQUALIFIER_NA_ON_MAINSTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(5i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPEQUALIFIER_NA_ON_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPEQUALIFIER_NA_ON_STA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPEQUALIFIER_NONE: APTTYPEQUALIFIER = APTTYPEQUALIFIER(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPEQUALIFIER_RESERVED_1: APTTYPEQUALIFIER = APTTYPEQUALIFIER(7i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPE_CURRENT: APTTYPE = APTTYPE(-1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPE_MAINSTA: APTTYPE = APTTYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPE_MTA: APTTYPE = APTTYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPE_NA: APTTYPE = APTTYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPE_STA: APTTYPE = APTTYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const ASYNC_MODE_COMPATIBILITY: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const ASYNC_MODE_DEFAULT: i32 = 0i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const BINDINFOF_URLENCODEDEXTRAINFO: BINDINFOF = BINDINFOF(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const BINDINFOF_URLENCODESTGMEDDATA: BINDINFOF = BINDINFOF(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const BIND_JUSTTESTEXISTENCE: BIND_FLAGS = BIND_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const BIND_MAYBOTHERUSER: BIND_FLAGS = BIND_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CALLTYPE_ASYNC: CALLTYPE = CALLTYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CALLTYPE_ASYNC_CALLPENDING: CALLTYPE = CALLTYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CALLTYPE_NESTED: CALLTYPE = CALLTYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CALLTYPE_TOPLEVEL: CALLTYPE = CALLTYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CALLTYPE_TOPLEVEL_CALLPENDING: CALLTYPE = CALLTYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_CDECL: CALLCONV = CALLCONV(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_FASTCALL: CALLCONV = CALLCONV(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_FPFASTCALL: CALLCONV = CALLCONV(5i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_MACPASCAL: CALLCONV = CALLCONV(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_MAX: CALLCONV = CALLCONV(9i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_MPWCDECL: CALLCONV = CALLCONV(7i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_MPWPASCAL: CALLCONV = CALLCONV(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_MSCPASCAL: CALLCONV = CALLCONV(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_PASCAL: CALLCONV = CALLCONV(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_STDCALL: CALLCONV = CALLCONV(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_SYSCALL: CALLCONV = CALLCONV(6i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_ACTIVATE_32_BIT_SERVER: CLSCTX = CLSCTX(262144u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_ACTIVATE_64_BIT_SERVER: CLSCTX = CLSCTX(524288u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_ACTIVATE_AAA_AS_IU: CLSCTX = CLSCTX(8388608u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_ACTIVATE_ARM32_SERVER: CLSCTX = CLSCTX(33554432u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_ACTIVATE_X86_SERVER: CLSCTX = CLSCTX(262144u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_ALL: CLSCTX = CLSCTX(23u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_ALLOW_LOWER_TRUST_REGISTRATION: CLSCTX = CLSCTX(67108864u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_APPCONTAINER: CLSCTX = CLSCTX(4194304u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_DISABLE_AAA: CLSCTX = CLSCTX(32768u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_ENABLE_AAA: CLSCTX = CLSCTX(65536u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_ENABLE_CLOAKING: CLSCTX = CLSCTX(1048576u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_ENABLE_CODE_DOWNLOAD: CLSCTX = CLSCTX(8192u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_FROM_DEFAULT_CONTEXT: CLSCTX = CLSCTX(131072u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_INPROC_HANDLER: CLSCTX = CLSCTX(2u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_INPROC_HANDLER16: CLSCTX = CLSCTX(32u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_INPROC_SERVER: CLSCTX = CLSCTX(1u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_INPROC_SERVER16: CLSCTX = CLSCTX(8u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_LOCAL_SERVER: CLSCTX = CLSCTX(4u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_NO_CODE_DOWNLOAD: CLSCTX = CLSCTX(1024u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_NO_CUSTOM_MARSHAL: CLSCTX = CLSCTX(4096u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_NO_FAILURE_LOG: CLSCTX = CLSCTX(16384u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_PS_DLL: CLSCTX = CLSCTX(2147483648u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_REMOTE_SERVER: CLSCTX = CLSCTX(16u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_RESERVED1: CLSCTX = CLSCTX(64u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_RESERVED2: CLSCTX = CLSCTX(128u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_RESERVED3: CLSCTX = CLSCTX(256u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_RESERVED4: CLSCTX = CLSCTX(512u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_RESERVED5: CLSCTX = CLSCTX(2048u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_RESERVED6: CLSCTX = CLSCTX(16777216u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_SERVER: CLSCTX = CLSCTX(21u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COINITBASE_MULTITHREADED: COINITBASE = COINITBASE(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COINIT_APARTMENTTHREADED: COINIT = COINIT(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COINIT_DISABLE_OLE1DDE: COINIT = COINIT(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COINIT_MULTITHREADED: COINIT = COINIT(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COINIT_SPEED_OVER_MEMORY: COINIT = COINIT(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const COLE_DEFAULT_AUTHINFO: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const COLE_DEFAULT_PRINCIPAL: ::windows_core::PCWSTR = ::windows_core::PCWSTR(-1i32 as _);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMBND_RESERVED1: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMBND_RESERVED2: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(5i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMBND_RESERVED3: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMBND_RESERVED4: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(16i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMBND_RPCTIMEOUT: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMBND_SERVER_LOCALITY: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_APPID: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_EXCEPTION_DONOT_HANDLE: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_EXCEPTION_DONOT_HANDLE_ANY: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_EXCEPTION_DONOT_HANDLE_FATAL: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_EXCEPTION_HANDLE: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_EXCEPTION_HANDLING: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_FAST_RUNDOWN: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_PROPERTIES_RESERVED1: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(6i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_PROPERTIES_RESERVED2: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(7i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_PROPERTIES_RESERVED3: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_RESERVED1: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_RESERVED2: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(32i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_RESERVED3: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(64i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_RESERVED4: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(256i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_RESERVED5: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(512i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_RESERVED6: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(1024i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_RO_SETTINGS: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_RPC_THREADPOOL_SETTING: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_RPC_THREADPOOL_SETTING_DEFAULT_POOL: GLOBALOPT_RPCTP_VALUES = GLOBALOPT_RPCTP_VALUES(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_RPC_THREADPOOL_SETTING_PRIVATE_POOL: GLOBALOPT_RPCTP_VALUES = GLOBALOPT_RPCTP_VALUES(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_STA_MODALLOOP_REMOVE_TOUCH_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_DONOT_REMOVE_INPUT_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_REMOVE_INPUT_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_REORDER_POINTER_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(128i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_UNMARSHALING_POLICY: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(5i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_UNMARSHALING_POLICY_HYBRID: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_UNMARSHALING_POLICY_NORMAL: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_UNMARSHALING_POLICY_STRONG: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(1i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const COM_RIGHTS_ACTIVATE_LOCAL: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7767,7 +7985,67 @@ pub const COM_RIGHTS_RESERVED1: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const COM_RIGHTS_RESERVED2: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COWAIT_ALERTABLE: COWAIT_FLAGS = COWAIT_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COWAIT_DEFAULT: COWAIT_FLAGS = COWAIT_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COWAIT_DISPATCH_CALLS: COWAIT_FLAGS = COWAIT_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COWAIT_DISPATCH_WINDOW_MESSAGES: COWAIT_FLAGS = COWAIT_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COWAIT_INPUTAVAILABLE: COWAIT_FLAGS = COWAIT_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COWAIT_WAITALL: COWAIT_FLAGS = COWAIT_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_1: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483648i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_10: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483639i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_11: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483638i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_12: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483637i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_13: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483636i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_14: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483635i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_15: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483634i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_16: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483633i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_17: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483632i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_18: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483631i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_2: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483647i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_3: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483646i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_4: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483645i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_5: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483644i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_6: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483643i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_7: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483642i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_8: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483641i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_9: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483640i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_SOURCE_IS_APP_CONTAINER: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CWMO_DEFAULT: CWMO_FLAGS = CWMO_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CWMO_DISPATCH_CALLS: CWMO_FLAGS = CWMO_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CWMO_DISPATCH_WINDOW_MESSAGES: CWMO_FLAGS = CWMO_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const CWMO_MAX_HANDLES: u32 = 56u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DATADIR_GET: DATADIR = DATADIR(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DATADIR_SET: DATADIR = DATADIR(2i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const DCOMSCM_ACTIVATION_DISALLOW_UNSECURE_CALL: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7781,15 +8059,385 @@ pub const DCOMSCM_RESOLVE_DISALLOW_UNSECURE_CALL: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const DCOMSCM_RESOLVE_USE_ALL_AUTHNSERVICES: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DCOM_CALL_CANCELED: DCOM_CALL_STATE = DCOM_CALL_STATE(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DCOM_CALL_COMPLETE: DCOM_CALL_STATE = DCOM_CALL_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DCOM_NONE: DCOM_CALL_STATE = DCOM_CALL_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DESCKIND_FUNCDESC: DESCKIND = DESCKIND(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DESCKIND_IMPLICITAPPOBJ: DESCKIND = DESCKIND(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DESCKIND_MAX: DESCKIND = DESCKIND(5i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DESCKIND_NONE: DESCKIND = DESCKIND(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DESCKIND_TYPECOMP: DESCKIND = DESCKIND(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DESCKIND_VARDESC: DESCKIND = DESCKIND(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DISPATCH_METHOD: DISPATCH_FLAGS = DISPATCH_FLAGS(1u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DISPATCH_PROPERTYGET: DISPATCH_FLAGS = DISPATCH_FLAGS(2u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DISPATCH_PROPERTYPUT: DISPATCH_FLAGS = DISPATCH_FLAGS(4u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DISPATCH_PROPERTYPUTREF: DISPATCH_FLAGS = DISPATCH_FLAGS(8u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const DMUS_ERRBASE: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DVASPECT_CONTENT: DVASPECT = DVASPECT(1u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DVASPECT_DOCPRINT: DVASPECT = DVASPECT(8u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DVASPECT_ICON: DVASPECT = DVASPECT(4u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DVASPECT_OPAQUE: DVASPECT = DVASPECT(16u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DVASPECT_THUMBNAIL: DVASPECT = DVASPECT(2u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DVASPECT_TRANSPARENT: DVASPECT = DVASPECT(32u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_ACCESS_CONTROL: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_ANY_AUTHORITY: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(128i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_APPID: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_AUTO_IMPERSONATE: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(1024i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_DEFAULT: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(2048i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_DISABLE_AAA: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(4096i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_DYNAMIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(16i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_DYNAMIC_CLOAKING: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(64i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_MAKE_FULLSIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(256i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_MUTUAL_AUTH: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_NONE: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_NO_CUSTOM_MARSHAL: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(8192i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_REQUIRE_FULLSIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(512i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_RESERVED1: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(16384i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_SECURE_REFS: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_STATIC_CLOAKING: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(32i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EXTCONN_CALLABLE: EXTCONN = EXTCONN(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EXTCONN_STRONG: EXTCONN = EXTCONN(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EXTCONN_WEAK: EXTCONN = EXTCONN(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_AUTO: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(1u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_BSTR: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(256u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_DISPATCH: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(1024u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_EMBEDDED: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(4u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_FIXEDSIZE: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(16u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_HAVEIID: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(64u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_HAVEVARTYPE: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(128u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_RECORD: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(32u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_RESERVED: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(61448u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_STATIC: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(2u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_UNKNOWN: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(512u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FADF_VARIANT: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(2048u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FBINDABLE: FUNCFLAGS = FUNCFLAGS(4u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FDEFAULTBIND: FUNCFLAGS = FUNCFLAGS(32u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FDEFAULTCOLLELEM: FUNCFLAGS = FUNCFLAGS(256u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FDISPLAYBIND: FUNCFLAGS = FUNCFLAGS(16u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FHIDDEN: FUNCFLAGS = FUNCFLAGS(64u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FIMMEDIATEBIND: FUNCFLAGS = FUNCFLAGS(4096u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FNONBROWSABLE: FUNCFLAGS = FUNCFLAGS(1024u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FREPLACEABLE: FUNCFLAGS = FUNCFLAGS(2048u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FREQUESTEDIT: FUNCFLAGS = FUNCFLAGS(8u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FRESTRICTED: FUNCFLAGS = FUNCFLAGS(1u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FSOURCE: FUNCFLAGS = FUNCFLAGS(2u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FUIDEFAULT: FUNCFLAGS = FUNCFLAGS(512u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNCFLAG_FUSESGETLASTERROR: FUNCFLAGS = FUNCFLAGS(128u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNC_DISPATCH: FUNCKIND = FUNCKIND(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNC_NONVIRTUAL: FUNCKIND = FUNCKIND(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNC_PUREVIRTUAL: FUNCKIND = FUNCKIND(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNC_STATIC: FUNCKIND = FUNCKIND(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNC_VIRTUAL: FUNCKIND = FUNCKIND(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ForcedShutdown: ShutdownType = ShutdownType(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const IDLFLAG_FIN: IDLFLAGS = IDLFLAGS(1u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const IDLFLAG_FLCID: IDLFLAGS = IDLFLAGS(4u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const IDLFLAG_FOUT: IDLFLAGS = IDLFLAGS(2u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const IDLFLAG_FRETVAL: IDLFLAGS = IDLFLAGS(8u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const IDLFLAG_NONE: IDLFLAGS = IDLFLAGS(0u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const IMPLTYPEFLAG_FDEFAULT: IMPLTYPEFLAGS = IMPLTYPEFLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const IMPLTYPEFLAG_FDEFAULTVTABLE: IMPLTYPEFLAGS = IMPLTYPEFLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const IMPLTYPEFLAG_FRESTRICTED: IMPLTYPEFLAGS = IMPLTYPEFLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const IMPLTYPEFLAG_FSOURCE: IMPLTYPEFLAGS = IMPLTYPEFLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const INVOKE_FUNC: INVOKEKIND = INVOKEKIND(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const INVOKE_PROPERTYGET: INVOKEKIND = INVOKEKIND(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const INVOKE_PROPERTYPUT: INVOKEKIND = INVOKEKIND(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const INVOKE_PROPERTYPUTREF: INVOKEKIND = INVOKEKIND(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const IdleShutdown: ShutdownType = ShutdownType(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const LOCK_EXCLUSIVE: LOCKTYPE = LOCKTYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const LOCK_ONLYONCE: LOCKTYPE = LOCKTYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const LOCK_WRITE: LOCKTYPE = LOCKTYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const LibraryApplication: ApplicationType = ApplicationType(1i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const MARSHALINTERFACE_MIN: u32 = 500u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const MAXLSN: u64 = 9223372036854775807u64;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MEMCTX_MACSYSTEM: MEMCTX = MEMCTX(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MEMCTX_SAME: MEMCTX = MEMCTX(-2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MEMCTX_SHARED: MEMCTX = MEMCTX(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MEMCTX_TASK: MEMCTX = MEMCTX(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MEMCTX_UNKNOWN: MEMCTX = MEMCTX(-1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MKRREDUCE_ALL: MKRREDUCE = MKRREDUCE(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MKRREDUCE_ONE: MKRREDUCE = MKRREDUCE(196608i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MKRREDUCE_THROUGHUSER: MKRREDUCE = MKRREDUCE(65536i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MKRREDUCE_TOUSER: MKRREDUCE = MKRREDUCE(131072i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MKSYS_ANTIMONIKER: MKSYS = MKSYS(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MKSYS_CLASSMONIKER: MKSYS = MKSYS(7i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MKSYS_FILEMONIKER: MKSYS = MKSYS(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MKSYS_GENERICCOMPOSITE: MKSYS = MKSYS(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MKSYS_ITEMMONIKER: MKSYS = MKSYS(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MKSYS_LUAMONIKER: MKSYS = MKSYS(10i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MKSYS_NONE: MKSYS = MKSYS(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MKSYS_OBJREFMONIKER: MKSYS = MKSYS(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MKSYS_POINTERMONIKER: MKSYS = MKSYS(5i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MKSYS_SESSIONMONIKER: MKSYS = MKSYS(9i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MSHCTX_CONTAINER: MSHCTX = MSHCTX(5i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MSHCTX_CROSSCTX: MSHCTX = MSHCTX(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MSHCTX_DIFFERENTMACHINE: MSHCTX = MSHCTX(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MSHCTX_INPROC: MSHCTX = MSHCTX(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MSHCTX_LOCAL: MSHCTX = MSHCTX(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MSHCTX_NOSHAREDMEM: MSHCTX = MSHCTX(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MSHLFLAGS_NOPING: MSHLFLAGS = MSHLFLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MSHLFLAGS_NORMAL: MSHLFLAGS = MSHLFLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MSHLFLAGS_RESERVED1: MSHLFLAGS = MSHLFLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MSHLFLAGS_RESERVED2: MSHLFLAGS = MSHLFLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MSHLFLAGS_RESERVED3: MSHLFLAGS = MSHLFLAGS(32i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MSHLFLAGS_RESERVED4: MSHLFLAGS = MSHLFLAGS(64i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MSHLFLAGS_TABLESTRONG: MSHLFLAGS = MSHLFLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const MSHLFLAGS_TABLEWEAK: MSHLFLAGS = MSHLFLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const PENDINGMSG_CANCELCALL: PENDINGMSG = PENDINGMSG(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const PENDINGMSG_WAITDEFPROCESS: PENDINGMSG = PENDINGMSG(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const PENDINGMSG_WAITNOPROCESS: PENDINGMSG = PENDINGMSG(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const PENDINGTYPE_NESTED: PENDINGTYPE = PENDINGTYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const PENDINGTYPE_TOPLEVEL: PENDINGTYPE = PENDINGTYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const REGCLS_AGILE: REGCLS = REGCLS(16i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const REGCLS_MULTIPLEUSE: REGCLS = REGCLS(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const REGCLS_MULTI_SEPARATE: REGCLS = REGCLS(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const REGCLS_SINGLEUSE: REGCLS = REGCLS(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const REGCLS_SURROGATE: REGCLS = REGCLS(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const REGCLS_SUSPENDED: REGCLS = REGCLS(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ROTFLAGS_ALLOWANYCLIENT: ROT_FLAGS = ROT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ROTFLAGS_REGISTRATIONKEEPSALIVE: ROT_FLAGS = ROT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const ROTREGFLAGS_ALLOWANYCLIENT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const RPC_C_AUTHN_LEVEL_CALL: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(3u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const RPC_C_AUTHN_LEVEL_CONNECT: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(2u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const RPC_C_AUTHN_LEVEL_DEFAULT: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(0u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const RPC_C_AUTHN_LEVEL_NONE: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(1u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const RPC_C_AUTHN_LEVEL_PKT: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(4u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const RPC_C_AUTHN_LEVEL_PKT_INTEGRITY: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(5u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const RPC_C_AUTHN_LEVEL_PKT_PRIVACY: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(6u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const RPC_C_IMP_LEVEL_ANONYMOUS: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(1u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const RPC_C_IMP_LEVEL_DEFAULT: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(0u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const RPC_C_IMP_LEVEL_DELEGATE: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(4u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const RPC_C_IMP_LEVEL_IDENTIFY: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(2u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const RPC_C_IMP_LEVEL_IMPERSONATE: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(3u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const SD_ACCESSPERMISSIONS: COMSD = COMSD(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const SD_ACCESSRESTRICTIONS: COMSD = COMSD(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const SD_LAUNCHPERMISSIONS: COMSD = COMSD(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const SD_LAUNCHRESTRICTIONS: COMSD = COMSD(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const SERVERCALL_ISHANDLED: SERVERCALL = SERVERCALL(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const SERVERCALL_REJECTED: SERVERCALL = SERVERCALL(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const SERVERCALL_RETRYLATER: SERVERCALL = SERVERCALL(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const SERVER_LOCALITY_MACHINE_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const SERVER_LOCALITY_PROCESS_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const SERVER_LOCALITY_REMOTE: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STATFLAG_DEFAULT: STATFLAG = STATFLAG(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STATFLAG_NONAME: STATFLAG = STATFLAG(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STATFLAG_NOOPEN: STATFLAG = STATFLAG(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGC_CONSOLIDATE: STGC = STGC(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = STGC(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGC_DEFAULT: STGC = STGC(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGC_ONLYIFCURRENT: STGC = STGC(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGC_OVERWRITE: STGC = STGC(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_CONVERT: STGM = STGM(131072u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_CREATE: STGM = STGM(4096u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_DELETEONRELEASE: STGM = STGM(67108864u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_DIRECT: STGM = STGM(0u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_DIRECT_SWMR: STGM = STGM(4194304u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_FAILIFTHERE: STGM = STGM(0u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_NOSCRATCH: STGM = STGM(1048576u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_NOSNAPSHOT: STGM = STGM(2097152u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_PRIORITY: STGM = STGM(262144u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_READ: STGM = STGM(0u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_READWRITE: STGM = STGM(2u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_SHARE_DENY_NONE: STGM = STGM(64u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_SHARE_DENY_READ: STGM = STGM(48u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_SHARE_DENY_WRITE: STGM = STGM(32u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_SHARE_EXCLUSIVE: STGM = STGM(16u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_SIMPLE: STGM = STGM(134217728u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_TRANSACTED: STGM = STGM(65536u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGM_WRITE: STGM = STGM(1u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGTY_LOCKBYTES: STGTY = STGTY(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGTY_PROPERTY: STGTY = STGTY(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const STGTY_REPEAT: i32 = 256i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGTY_STORAGE: STGTY = STGTY(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGTY_STREAM: STGTY = STGTY(2i32);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const STG_LAYOUT_INTERLEAVED: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -7797,33 +8445,193 @@ pub const STG_LAYOUT_SEQUENTIAL: i32 = 0i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const STG_TOEND: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STREAM_SEEK_CUR: STREAM_SEEK = STREAM_SEEK(1u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STREAM_SEEK_END: STREAM_SEEK = STREAM_SEEK(2u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STREAM_SEEK_SET: STREAM_SEEK = STREAM_SEEK(0u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const SYS_MAC: SYSKIND = SYSKIND(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const SYS_WIN16: SYSKIND = SYSKIND(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const SYS_WIN32: SYSKIND = SYSKIND(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const SYS_WIN64: SYSKIND = SYSKIND(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ServerApplication: ApplicationType = ApplicationType(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const THDTYPE_BLOCKMESSAGES: THDTYPE = THDTYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const THDTYPE_PROCESSMESSAGES: THDTYPE = THDTYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TKIND_ALIAS: TYPEKIND = TYPEKIND(6i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TKIND_COCLASS: TYPEKIND = TYPEKIND(5i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TKIND_DISPATCH: TYPEKIND = TYPEKIND(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TKIND_ENUM: TYPEKIND = TYPEKIND(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TKIND_INTERFACE: TYPEKIND = TYPEKIND(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TKIND_MAX: TYPEKIND = TYPEKIND(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TKIND_MODULE: TYPEKIND = TYPEKIND(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TKIND_RECORD: TYPEKIND = TYPEKIND(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TKIND_UNION: TYPEKIND = TYPEKIND(7i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TYMED_ENHMF: TYMED = TYMED(64i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TYMED_FILE: TYMED = TYMED(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TYMED_GDI: TYMED = TYMED(16i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TYMED_HGLOBAL: TYMED = TYMED(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TYMED_ISTORAGE: TYMED = TYMED(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TYMED_ISTREAM: TYMED = TYMED(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TYMED_MFPICT: TYMED = TYMED(32i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TYMED_NULL: TYMED = TYMED(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TYSPEC_CLSID: TYSPEC = TYSPEC(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TYSPEC_FILEEXT: TYSPEC = TYSPEC(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TYSPEC_FILENAME: TYSPEC = TYSPEC(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TYSPEC_MIMETYPE: TYSPEC = TYSPEC(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TYSPEC_OBJECTID: TYSPEC = TYSPEC(6i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TYSPEC_PACKAGENAME: TYSPEC = TYSPEC(5i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const TYSPEC_PROGID: TYSPEC = TYSPEC(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_CREATE_ALLOW_IMPLICIT_FILE_SCHEME: URI_CREATE_FLAGS = URI_CREATE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_CREATE_ALLOW_IMPLICIT_WILDCARD_SCHEME: URI_CREATE_FLAGS = URI_CREATE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_CREATE_ALLOW_RELATIVE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_CREATE_CANONICALIZE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_CREATE_CANONICALIZE_ABSOLUTE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_CREATE_CRACK_UNKNOWN_SCHEMES: URI_CREATE_FLAGS = URI_CREATE_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_CREATE_DECODE_EXTRA_INFO: URI_CREATE_FLAGS = URI_CREATE_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_CREATE_FILE_USE_DOS_PATH: URI_CREATE_FLAGS = URI_CREATE_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_CREATE_IE_SETTINGS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_CREATE_NOFRAG: URI_CREATE_FLAGS = URI_CREATE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_CREATE_NORMALIZE_INTL_CHARACTERS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_CREATE_NO_CANONICALIZE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_CREATE_NO_CRACK_UNKNOWN_SCHEMES: URI_CREATE_FLAGS = URI_CREATE_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_CREATE_NO_DECODE_EXTRA_INFO: URI_CREATE_FLAGS = URI_CREATE_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_CREATE_NO_ENCODE_FORBIDDEN_CHARACTERS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(32768u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_CREATE_NO_IE_SETTINGS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(16384u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_CREATE_NO_PRE_PROCESS_HTML_URI: URI_CREATE_FLAGS = URI_CREATE_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_CREATE_PRE_PROCESS_HTML_URI: URI_CREATE_FLAGS = URI_CREATE_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_ABSOLUTE_URI: Uri_PROPERTY = Uri_PROPERTY(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_AUTHORITY: Uri_PROPERTY = Uri_PROPERTY(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_DISPLAY_URI: Uri_PROPERTY = Uri_PROPERTY(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_DOMAIN: Uri_PROPERTY = Uri_PROPERTY(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_DWORD_LAST: Uri_PROPERTY = Uri_PROPERTY(18i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_DWORD_START: Uri_PROPERTY = Uri_PROPERTY(15i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_EXTENSION: Uri_PROPERTY = Uri_PROPERTY(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_FRAGMENT: Uri_PROPERTY = Uri_PROPERTY(5i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_HOST: Uri_PROPERTY = Uri_PROPERTY(6i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_HOST_TYPE: Uri_PROPERTY = Uri_PROPERTY(15i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_PASSWORD: Uri_PROPERTY = Uri_PROPERTY(7i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_PATH: Uri_PROPERTY = Uri_PROPERTY(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_PATH_AND_QUERY: Uri_PROPERTY = Uri_PROPERTY(9i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_PORT: Uri_PROPERTY = Uri_PROPERTY(16i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_QUERY: Uri_PROPERTY = Uri_PROPERTY(10i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_RAW_URI: Uri_PROPERTY = Uri_PROPERTY(11i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_SCHEME: Uri_PROPERTY = Uri_PROPERTY(17i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_SCHEME_NAME: Uri_PROPERTY = Uri_PROPERTY(12i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_STRING_LAST: Uri_PROPERTY = Uri_PROPERTY(14i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_STRING_START: Uri_PROPERTY = Uri_PROPERTY(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_USER_INFO: Uri_PROPERTY = Uri_PROPERTY(13i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_USER_NAME: Uri_PROPERTY = Uri_PROPERTY(14i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const Uri_PROPERTY_ZONE: Uri_PROPERTY = Uri_PROPERTY(18i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FBINDABLE: VARFLAGS = VARFLAGS(4u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FDEFAULTBIND: VARFLAGS = VARFLAGS(32u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FDEFAULTCOLLELEM: VARFLAGS = VARFLAGS(256u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FDISPLAYBIND: VARFLAGS = VARFLAGS(16u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FHIDDEN: VARFLAGS = VARFLAGS(64u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FIMMEDIATEBIND: VARFLAGS = VARFLAGS(4096u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FNONBROWSABLE: VARFLAGS = VARFLAGS(1024u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FREADONLY: VARFLAGS = VARFLAGS(1u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FREPLACEABLE: VARFLAGS = VARFLAGS(2048u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FREQUESTEDIT: VARFLAGS = VARFLAGS(8u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FRESTRICTED: VARFLAGS = VARFLAGS(128u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FSOURCE: VARFLAGS = VARFLAGS(2u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VARFLAG_FUIDEFAULT: VARFLAGS = VARFLAGS(512u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VAR_CONST: VARKIND = VARKIND(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VAR_DISPATCH: VARKIND = VARKIND(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VAR_PERINSTANCE: VARKIND = VARKIND(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VAR_STATIC: VARKIND = VARKIND(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ADVANCED_FEATURE_FLAGS(pub u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FADF_AUTO: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(1u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FADF_STATIC: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(2u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FADF_EMBEDDED: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(4u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FADF_FIXEDSIZE: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(16u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FADF_RECORD: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(32u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FADF_HAVEIID: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(64u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FADF_HAVEVARTYPE: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(128u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FADF_BSTR: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(256u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FADF_UNKNOWN: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(512u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FADF_DISPATCH: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(1024u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FADF_VARIANT: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(2048u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FADF_RESERVED: ADVANCED_FEATURE_FLAGS = ADVANCED_FEATURE_FLAGS(61448u16);
 impl ::core::marker::Copy for ADVANCED_FEATURE_FLAGS {}
 impl ::core::clone::Clone for ADVANCED_FEATURE_FLAGS {
     fn clone(&self) -> Self {
@@ -7880,20 +8688,6 @@ impl ::core::ops::Not for ADVANCED_FEATURE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ADVF(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ADVF_NODATA: ADVF = ADVF(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ADVF_PRIMEFIRST: ADVF = ADVF(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ADVF_ONLYONCE: ADVF = ADVF(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ADVF_DATAONSTOP: ADVF = ADVF(64i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ADVFCACHE_NOHANDLER: ADVF = ADVF(8i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ADVFCACHE_FORCEBUILTIN: ADVF = ADVF(16i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ADVFCACHE_ONSAVE: ADVF = ADVF(32i32);
 impl ::core::marker::Copy for ADVF {}
 impl ::core::clone::Clone for ADVF {
     fn clone(&self) -> Self {
@@ -7917,16 +8711,6 @@ impl ::core::fmt::Debug for ADVF {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APTTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPE_CURRENT: APTTYPE = APTTYPE(-1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPE_STA: APTTYPE = APTTYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPE_MTA: APTTYPE = APTTYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPE_NA: APTTYPE = APTTYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPE_MAINSTA: APTTYPE = APTTYPE(3i32);
 impl ::core::marker::Copy for APTTYPE {}
 impl ::core::clone::Clone for APTTYPE {
     fn clone(&self) -> Self {
@@ -7950,22 +8734,6 @@ impl ::core::fmt::Debug for APTTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APTTYPEQUALIFIER(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPEQUALIFIER_NONE: APTTYPEQUALIFIER = APTTYPEQUALIFIER(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPEQUALIFIER_IMPLICIT_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPEQUALIFIER_NA_ON_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPEQUALIFIER_NA_ON_STA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(3i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPEQUALIFIER_NA_ON_IMPLICIT_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPEQUALIFIER_NA_ON_MAINSTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(5i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPEQUALIFIER_APPLICATION_STA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(6i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPEQUALIFIER_RESERVED_1: APTTYPEQUALIFIER = APTTYPEQUALIFIER(7i32);
 impl ::core::marker::Copy for APTTYPEQUALIFIER {}
 impl ::core::clone::Clone for APTTYPEQUALIFIER {
     fn clone(&self) -> Self {
@@ -7989,10 +8757,6 @@ impl ::core::fmt::Debug for APTTYPEQUALIFIER {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ApplicationType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ServerApplication: ApplicationType = ApplicationType(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const LibraryApplication: ApplicationType = ApplicationType(1i32);
 impl ::core::marker::Copy for ApplicationType {}
 impl ::core::clone::Clone for ApplicationType {
     fn clone(&self) -> Self {
@@ -8016,10 +8780,6 @@ impl ::core::fmt::Debug for ApplicationType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BINDINFOF(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const BINDINFOF_URLENCODESTGMEDDATA: BINDINFOF = BINDINFOF(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const BINDINFOF_URLENCODEDEXTRAINFO: BINDINFOF = BINDINFOF(2i32);
 impl ::core::marker::Copy for BINDINFOF {}
 impl ::core::clone::Clone for BINDINFOF {
     fn clone(&self) -> Self {
@@ -8043,10 +8803,6 @@ impl ::core::fmt::Debug for BINDINFOF {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BIND_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const BIND_MAYBOTHERUSER: BIND_FLAGS = BIND_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const BIND_JUSTTESTEXISTENCE: BIND_FLAGS = BIND_FLAGS(2i32);
 impl ::core::marker::Copy for BIND_FLAGS {}
 impl ::core::clone::Clone for BIND_FLAGS {
     fn clone(&self) -> Self {
@@ -8070,28 +8826,6 @@ impl ::core::fmt::Debug for BIND_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALLCONV(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_FASTCALL: CALLCONV = CALLCONV(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_CDECL: CALLCONV = CALLCONV(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_MSCPASCAL: CALLCONV = CALLCONV(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_PASCAL: CALLCONV = CALLCONV(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_MACPASCAL: CALLCONV = CALLCONV(3i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_STDCALL: CALLCONV = CALLCONV(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_FPFASTCALL: CALLCONV = CALLCONV(5i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_SYSCALL: CALLCONV = CALLCONV(6i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_MPWCDECL: CALLCONV = CALLCONV(7i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_MPWPASCAL: CALLCONV = CALLCONV(8i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_MAX: CALLCONV = CALLCONV(9i32);
 impl ::core::marker::Copy for CALLCONV {}
 impl ::core::clone::Clone for CALLCONV {
     fn clone(&self) -> Self {
@@ -8115,16 +8849,6 @@ impl ::core::fmt::Debug for CALLCONV {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CALLTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CALLTYPE_TOPLEVEL: CALLTYPE = CALLTYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CALLTYPE_NESTED: CALLTYPE = CALLTYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CALLTYPE_ASYNC: CALLTYPE = CALLTYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CALLTYPE_TOPLEVEL_CALLPENDING: CALLTYPE = CALLTYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CALLTYPE_ASYNC_CALLPENDING: CALLTYPE = CALLTYPE(5i32);
 impl ::core::marker::Copy for CALLTYPE {}
 impl ::core::clone::Clone for CALLTYPE {
     fn clone(&self) -> Self {
@@ -8148,66 +8872,6 @@ impl ::core::fmt::Debug for CALLTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLSCTX(pub u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_INPROC_SERVER: CLSCTX = CLSCTX(1u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_INPROC_HANDLER: CLSCTX = CLSCTX(2u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_LOCAL_SERVER: CLSCTX = CLSCTX(4u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_INPROC_SERVER16: CLSCTX = CLSCTX(8u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_REMOTE_SERVER: CLSCTX = CLSCTX(16u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_INPROC_HANDLER16: CLSCTX = CLSCTX(32u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_RESERVED1: CLSCTX = CLSCTX(64u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_RESERVED2: CLSCTX = CLSCTX(128u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_RESERVED3: CLSCTX = CLSCTX(256u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_RESERVED4: CLSCTX = CLSCTX(512u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_NO_CODE_DOWNLOAD: CLSCTX = CLSCTX(1024u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_RESERVED5: CLSCTX = CLSCTX(2048u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_NO_CUSTOM_MARSHAL: CLSCTX = CLSCTX(4096u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_ENABLE_CODE_DOWNLOAD: CLSCTX = CLSCTX(8192u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_NO_FAILURE_LOG: CLSCTX = CLSCTX(16384u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_DISABLE_AAA: CLSCTX = CLSCTX(32768u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_ENABLE_AAA: CLSCTX = CLSCTX(65536u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_FROM_DEFAULT_CONTEXT: CLSCTX = CLSCTX(131072u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_ACTIVATE_X86_SERVER: CLSCTX = CLSCTX(262144u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_ACTIVATE_32_BIT_SERVER: CLSCTX = CLSCTX(262144u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_ACTIVATE_64_BIT_SERVER: CLSCTX = CLSCTX(524288u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_ENABLE_CLOAKING: CLSCTX = CLSCTX(1048576u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_APPCONTAINER: CLSCTX = CLSCTX(4194304u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_ACTIVATE_AAA_AS_IU: CLSCTX = CLSCTX(8388608u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_RESERVED6: CLSCTX = CLSCTX(16777216u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_ACTIVATE_ARM32_SERVER: CLSCTX = CLSCTX(33554432u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_ALLOW_LOWER_TRUST_REGISTRATION: CLSCTX = CLSCTX(67108864u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_PS_DLL: CLSCTX = CLSCTX(2147483648u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_ALL: CLSCTX = CLSCTX(23u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_SERVER: CLSCTX = CLSCTX(21u32);
 impl ::core::marker::Copy for CLSCTX {}
 impl ::core::clone::Clone for CLSCTX {
     fn clone(&self) -> Self {
@@ -8264,14 +8928,6 @@ impl ::core::ops::Not for CLSCTX {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COINIT(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COINIT_APARTMENTTHREADED: COINIT = COINIT(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COINIT_MULTITHREADED: COINIT = COINIT(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COINIT_DISABLE_OLE1DDE: COINIT = COINIT(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COINIT_SPEED_OVER_MEMORY: COINIT = COINIT(8i32);
 impl ::core::marker::Copy for COINIT {}
 impl ::core::clone::Clone for COINIT {
     fn clone(&self) -> Self {
@@ -8328,8 +8984,6 @@ impl ::core::ops::Not for COINIT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COINITBASE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COINITBASE_MULTITHREADED: COINITBASE = COINITBASE(0i32);
 impl ::core::marker::Copy for COINITBASE {}
 impl ::core::clone::Clone for COINITBASE {
     fn clone(&self) -> Self {
@@ -8353,14 +9007,6 @@ impl ::core::fmt::Debug for COINITBASE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMSD(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const SD_LAUNCHPERMISSIONS: COMSD = COMSD(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const SD_ACCESSPERMISSIONS: COMSD = COMSD(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const SD_LAUNCHRESTRICTIONS: COMSD = COMSD(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const SD_ACCESSRESTRICTIONS: COMSD = COMSD(3i32);
 impl ::core::marker::Copy for COMSD {}
 impl ::core::clone::Clone for COMSD {
     fn clone(&self) -> Self {
@@ -8384,18 +9030,6 @@ impl ::core::fmt::Debug for COMSD {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COWAIT_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COWAIT_DEFAULT: COWAIT_FLAGS = COWAIT_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COWAIT_WAITALL: COWAIT_FLAGS = COWAIT_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COWAIT_ALERTABLE: COWAIT_FLAGS = COWAIT_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COWAIT_INPUTAVAILABLE: COWAIT_FLAGS = COWAIT_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COWAIT_DISPATCH_CALLS: COWAIT_FLAGS = COWAIT_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COWAIT_DISPATCH_WINDOW_MESSAGES: COWAIT_FLAGS = COWAIT_FLAGS(16i32);
 impl ::core::marker::Copy for COWAIT_FLAGS {}
 impl ::core::clone::Clone for COWAIT_FLAGS {
     fn clone(&self) -> Self {
@@ -8452,44 +9086,6 @@ impl ::core::ops::Not for COWAIT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CO_MARSHALING_CONTEXT_ATTRIBUTES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_SOURCE_IS_APP_CONTAINER: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_1: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483648i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_2: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483647i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_3: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483646i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_4: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483645i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_5: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483644i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_6: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483643i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_7: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483642i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_8: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483641i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_9: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483640i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_10: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483639i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_11: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483638i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_12: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483637i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_13: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483636i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_14: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483635i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_15: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483634i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_16: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483633i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_17: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483632i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_18: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483631i32);
 impl ::core::marker::Copy for CO_MARSHALING_CONTEXT_ATTRIBUTES {}
 impl ::core::clone::Clone for CO_MARSHALING_CONTEXT_ATTRIBUTES {
     fn clone(&self) -> Self {
@@ -8513,12 +9109,6 @@ impl ::core::fmt::Debug for CO_MARSHALING_CONTEXT_ATTRIBUTES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CWMO_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CWMO_DEFAULT: CWMO_FLAGS = CWMO_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CWMO_DISPATCH_CALLS: CWMO_FLAGS = CWMO_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CWMO_DISPATCH_WINDOW_MESSAGES: CWMO_FLAGS = CWMO_FLAGS(2i32);
 impl ::core::marker::Copy for CWMO_FLAGS {}
 impl ::core::clone::Clone for CWMO_FLAGS {
     fn clone(&self) -> Self {
@@ -8575,10 +9165,6 @@ impl ::core::ops::Not for CWMO_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DATADIR(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DATADIR_GET: DATADIR = DATADIR(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DATADIR_SET: DATADIR = DATADIR(2i32);
 impl ::core::marker::Copy for DATADIR {}
 impl ::core::clone::Clone for DATADIR {
     fn clone(&self) -> Self {
@@ -8602,12 +9188,6 @@ impl ::core::fmt::Debug for DATADIR {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DCOM_CALL_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DCOM_NONE: DCOM_CALL_STATE = DCOM_CALL_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DCOM_CALL_COMPLETE: DCOM_CALL_STATE = DCOM_CALL_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DCOM_CALL_CANCELED: DCOM_CALL_STATE = DCOM_CALL_STATE(2i32);
 impl ::core::marker::Copy for DCOM_CALL_STATE {}
 impl ::core::clone::Clone for DCOM_CALL_STATE {
     fn clone(&self) -> Self {
@@ -8631,18 +9211,6 @@ impl ::core::fmt::Debug for DCOM_CALL_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DESCKIND(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DESCKIND_NONE: DESCKIND = DESCKIND(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DESCKIND_FUNCDESC: DESCKIND = DESCKIND(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DESCKIND_VARDESC: DESCKIND = DESCKIND(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DESCKIND_TYPECOMP: DESCKIND = DESCKIND(3i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DESCKIND_IMPLICITAPPOBJ: DESCKIND = DESCKIND(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DESCKIND_MAX: DESCKIND = DESCKIND(5i32);
 impl ::core::marker::Copy for DESCKIND {}
 impl ::core::clone::Clone for DESCKIND {
     fn clone(&self) -> Self {
@@ -8666,14 +9234,6 @@ impl ::core::fmt::Debug for DESCKIND {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPATCH_FLAGS(pub u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DISPATCH_METHOD: DISPATCH_FLAGS = DISPATCH_FLAGS(1u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DISPATCH_PROPERTYGET: DISPATCH_FLAGS = DISPATCH_FLAGS(2u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DISPATCH_PROPERTYPUT: DISPATCH_FLAGS = DISPATCH_FLAGS(4u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DISPATCH_PROPERTYPUTREF: DISPATCH_FLAGS = DISPATCH_FLAGS(8u16);
 impl ::core::marker::Copy for DISPATCH_FLAGS {}
 impl ::core::clone::Clone for DISPATCH_FLAGS {
     fn clone(&self) -> Self {
@@ -8730,18 +9290,6 @@ impl ::core::ops::Not for DISPATCH_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVASPECT(pub u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DVASPECT_CONTENT: DVASPECT = DVASPECT(1u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DVASPECT_THUMBNAIL: DVASPECT = DVASPECT(2u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DVASPECT_ICON: DVASPECT = DVASPECT(4u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DVASPECT_DOCPRINT: DVASPECT = DVASPECT(8u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DVASPECT_OPAQUE: DVASPECT = DVASPECT(16u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DVASPECT_TRANSPARENT: DVASPECT = DVASPECT(32u32);
 impl ::core::marker::Copy for DVASPECT {}
 impl ::core::clone::Clone for DVASPECT {
     fn clone(&self) -> Self {
@@ -8765,38 +9313,6 @@ impl ::core::fmt::Debug for DVASPECT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EOLE_AUTHENTICATION_CAPABILITIES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_NONE: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_MUTUAL_AUTH: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_STATIC_CLOAKING: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(32i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_DYNAMIC_CLOAKING: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(64i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_ANY_AUTHORITY: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(128i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_MAKE_FULLSIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(256i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_DEFAULT: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(2048i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_SECURE_REFS: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_ACCESS_CONTROL: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_APPID: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(8i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_DYNAMIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(16i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_REQUIRE_FULLSIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(512i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_AUTO_IMPERSONATE: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(1024i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_DISABLE_AAA: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(4096i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_NO_CUSTOM_MARSHAL: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(8192i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_RESERVED1: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(16384i32);
 impl ::core::marker::Copy for EOLE_AUTHENTICATION_CAPABILITIES {}
 impl ::core::clone::Clone for EOLE_AUTHENTICATION_CAPABILITIES {
     fn clone(&self) -> Self {
@@ -8820,12 +9336,6 @@ impl ::core::fmt::Debug for EOLE_AUTHENTICATION_CAPABILITIES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXTCONN(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EXTCONN_STRONG: EXTCONN = EXTCONN(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EXTCONN_WEAK: EXTCONN = EXTCONN(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EXTCONN_CALLABLE: EXTCONN = EXTCONN(4i32);
 impl ::core::marker::Copy for EXTCONN {}
 impl ::core::clone::Clone for EXTCONN {
     fn clone(&self) -> Self {
@@ -8849,32 +9359,6 @@ impl ::core::fmt::Debug for EXTCONN {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FUNCFLAGS(pub u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNCFLAG_FRESTRICTED: FUNCFLAGS = FUNCFLAGS(1u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNCFLAG_FSOURCE: FUNCFLAGS = FUNCFLAGS(2u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNCFLAG_FBINDABLE: FUNCFLAGS = FUNCFLAGS(4u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNCFLAG_FREQUESTEDIT: FUNCFLAGS = FUNCFLAGS(8u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNCFLAG_FDISPLAYBIND: FUNCFLAGS = FUNCFLAGS(16u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNCFLAG_FDEFAULTBIND: FUNCFLAGS = FUNCFLAGS(32u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNCFLAG_FHIDDEN: FUNCFLAGS = FUNCFLAGS(64u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNCFLAG_FUSESGETLASTERROR: FUNCFLAGS = FUNCFLAGS(128u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNCFLAG_FDEFAULTCOLLELEM: FUNCFLAGS = FUNCFLAGS(256u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNCFLAG_FUIDEFAULT: FUNCFLAGS = FUNCFLAGS(512u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNCFLAG_FNONBROWSABLE: FUNCFLAGS = FUNCFLAGS(1024u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNCFLAG_FREPLACEABLE: FUNCFLAGS = FUNCFLAGS(2048u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNCFLAG_FIMMEDIATEBIND: FUNCFLAGS = FUNCFLAGS(4096u16);
 impl ::core::marker::Copy for FUNCFLAGS {}
 impl ::core::clone::Clone for FUNCFLAGS {
     fn clone(&self) -> Self {
@@ -8898,16 +9382,6 @@ impl ::core::fmt::Debug for FUNCFLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FUNCKIND(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNC_VIRTUAL: FUNCKIND = FUNCKIND(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNC_PUREVIRTUAL: FUNCKIND = FUNCKIND(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNC_NONVIRTUAL: FUNCKIND = FUNCKIND(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNC_STATIC: FUNCKIND = FUNCKIND(3i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNC_DISPATCH: FUNCKIND = FUNCKIND(4i32);
 impl ::core::marker::Copy for FUNCKIND {}
 impl ::core::clone::Clone for FUNCKIND {
     fn clone(&self) -> Self {
@@ -8931,14 +9405,6 @@ impl ::core::fmt::Debug for FUNCKIND {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GLOBALOPT_EH_VALUES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_EXCEPTION_HANDLE: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_EXCEPTION_DONOT_HANDLE_FATAL: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_EXCEPTION_DONOT_HANDLE: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_EXCEPTION_DONOT_HANDLE_ANY: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(2i32);
 impl ::core::marker::Copy for GLOBALOPT_EH_VALUES {}
 impl ::core::clone::Clone for GLOBALOPT_EH_VALUES {
     fn clone(&self) -> Self {
@@ -8962,22 +9428,6 @@ impl ::core::fmt::Debug for GLOBALOPT_EH_VALUES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GLOBALOPT_PROPERTIES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_EXCEPTION_HANDLING: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_APPID: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_RPC_THREADPOOL_SETTING: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(3i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_RO_SETTINGS: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_UNMARSHALING_POLICY: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(5i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_PROPERTIES_RESERVED1: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(6i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_PROPERTIES_RESERVED2: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(7i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_PROPERTIES_RESERVED3: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(8i32);
 impl ::core::marker::Copy for GLOBALOPT_PROPERTIES {}
 impl ::core::clone::Clone for GLOBALOPT_PROPERTIES {
     fn clone(&self) -> Self {
@@ -9001,28 +9451,6 @@ impl ::core::fmt::Debug for GLOBALOPT_PROPERTIES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GLOBALOPT_RO_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_STA_MODALLOOP_REMOVE_TOUCH_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_REMOVE_INPUT_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_DONOT_REMOVE_INPUT_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_FAST_RUNDOWN: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_RESERVED1: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_RESERVED2: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(32i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_RESERVED3: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(64i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_REORDER_POINTER_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(128i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_RESERVED4: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(256i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_RESERVED5: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(512i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_RESERVED6: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(1024i32);
 impl ::core::marker::Copy for GLOBALOPT_RO_FLAGS {}
 impl ::core::clone::Clone for GLOBALOPT_RO_FLAGS {
     fn clone(&self) -> Self {
@@ -9046,10 +9474,6 @@ impl ::core::fmt::Debug for GLOBALOPT_RO_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GLOBALOPT_RPCTP_VALUES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_RPC_THREADPOOL_SETTING_DEFAULT_POOL: GLOBALOPT_RPCTP_VALUES = GLOBALOPT_RPCTP_VALUES(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_RPC_THREADPOOL_SETTING_PRIVATE_POOL: GLOBALOPT_RPCTP_VALUES = GLOBALOPT_RPCTP_VALUES(1i32);
 impl ::core::marker::Copy for GLOBALOPT_RPCTP_VALUES {}
 impl ::core::clone::Clone for GLOBALOPT_RPCTP_VALUES {
     fn clone(&self) -> Self {
@@ -9073,12 +9497,6 @@ impl ::core::fmt::Debug for GLOBALOPT_RPCTP_VALUES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GLOBALOPT_UNMARSHALING_POLICY_VALUES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_UNMARSHALING_POLICY_NORMAL: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_UNMARSHALING_POLICY_STRONG: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_UNMARSHALING_POLICY_HYBRID: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(2i32);
 impl ::core::marker::Copy for GLOBALOPT_UNMARSHALING_POLICY_VALUES {}
 impl ::core::clone::Clone for GLOBALOPT_UNMARSHALING_POLICY_VALUES {
     fn clone(&self) -> Self {
@@ -9102,16 +9520,6 @@ impl ::core::fmt::Debug for GLOBALOPT_UNMARSHALING_POLICY_VALUES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IDLFLAGS(pub u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const IDLFLAG_NONE: IDLFLAGS = IDLFLAGS(0u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const IDLFLAG_FIN: IDLFLAGS = IDLFLAGS(1u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const IDLFLAG_FOUT: IDLFLAGS = IDLFLAGS(2u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const IDLFLAG_FLCID: IDLFLAGS = IDLFLAGS(4u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const IDLFLAG_FRETVAL: IDLFLAGS = IDLFLAGS(8u16);
 impl ::core::marker::Copy for IDLFLAGS {}
 impl ::core::clone::Clone for IDLFLAGS {
     fn clone(&self) -> Self {
@@ -9168,14 +9576,6 @@ impl ::core::ops::Not for IDLFLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMPLTYPEFLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const IMPLTYPEFLAG_FDEFAULT: IMPLTYPEFLAGS = IMPLTYPEFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const IMPLTYPEFLAG_FSOURCE: IMPLTYPEFLAGS = IMPLTYPEFLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const IMPLTYPEFLAG_FRESTRICTED: IMPLTYPEFLAGS = IMPLTYPEFLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const IMPLTYPEFLAG_FDEFAULTVTABLE: IMPLTYPEFLAGS = IMPLTYPEFLAGS(8i32);
 impl ::core::marker::Copy for IMPLTYPEFLAGS {}
 impl ::core::clone::Clone for IMPLTYPEFLAGS {
     fn clone(&self) -> Self {
@@ -9232,14 +9632,6 @@ impl ::core::ops::Not for IMPLTYPEFLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INVOKEKIND(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const INVOKE_FUNC: INVOKEKIND = INVOKEKIND(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const INVOKE_PROPERTYGET: INVOKEKIND = INVOKEKIND(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const INVOKE_PROPERTYPUT: INVOKEKIND = INVOKEKIND(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const INVOKE_PROPERTYPUTREF: INVOKEKIND = INVOKEKIND(8i32);
 impl ::core::marker::Copy for INVOKEKIND {}
 impl ::core::clone::Clone for INVOKEKIND {
     fn clone(&self) -> Self {
@@ -9263,12 +9655,6 @@ impl ::core::fmt::Debug for INVOKEKIND {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOCKTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const LOCK_WRITE: LOCKTYPE = LOCKTYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const LOCK_EXCLUSIVE: LOCKTYPE = LOCKTYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const LOCK_ONLYONCE: LOCKTYPE = LOCKTYPE(4i32);
 impl ::core::marker::Copy for LOCKTYPE {}
 impl ::core::clone::Clone for LOCKTYPE {
     fn clone(&self) -> Self {
@@ -9292,16 +9678,6 @@ impl ::core::fmt::Debug for LOCKTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEMCTX(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MEMCTX_TASK: MEMCTX = MEMCTX(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MEMCTX_SHARED: MEMCTX = MEMCTX(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MEMCTX_MACSYSTEM: MEMCTX = MEMCTX(3i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MEMCTX_UNKNOWN: MEMCTX = MEMCTX(-1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MEMCTX_SAME: MEMCTX = MEMCTX(-2i32);
 impl ::core::marker::Copy for MEMCTX {}
 impl ::core::clone::Clone for MEMCTX {
     fn clone(&self) -> Self {
@@ -9325,14 +9701,6 @@ impl ::core::fmt::Debug for MEMCTX {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MKRREDUCE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKRREDUCE_ONE: MKRREDUCE = MKRREDUCE(196608i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKRREDUCE_TOUSER: MKRREDUCE = MKRREDUCE(131072i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKRREDUCE_THROUGHUSER: MKRREDUCE = MKRREDUCE(65536i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKRREDUCE_ALL: MKRREDUCE = MKRREDUCE(0i32);
 impl ::core::marker::Copy for MKRREDUCE {}
 impl ::core::clone::Clone for MKRREDUCE {
     fn clone(&self) -> Self {
@@ -9356,26 +9724,6 @@ impl ::core::fmt::Debug for MKRREDUCE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MKSYS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKSYS_NONE: MKSYS = MKSYS(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKSYS_GENERICCOMPOSITE: MKSYS = MKSYS(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKSYS_FILEMONIKER: MKSYS = MKSYS(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKSYS_ANTIMONIKER: MKSYS = MKSYS(3i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKSYS_ITEMMONIKER: MKSYS = MKSYS(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKSYS_POINTERMONIKER: MKSYS = MKSYS(5i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKSYS_CLASSMONIKER: MKSYS = MKSYS(7i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKSYS_OBJREFMONIKER: MKSYS = MKSYS(8i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKSYS_SESSIONMONIKER: MKSYS = MKSYS(9i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MKSYS_LUAMONIKER: MKSYS = MKSYS(10i32);
 impl ::core::marker::Copy for MKSYS {}
 impl ::core::clone::Clone for MKSYS {
     fn clone(&self) -> Self {
@@ -9399,18 +9747,6 @@ impl ::core::fmt::Debug for MKSYS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSHCTX(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MSHCTX_LOCAL: MSHCTX = MSHCTX(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MSHCTX_NOSHAREDMEM: MSHCTX = MSHCTX(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MSHCTX_DIFFERENTMACHINE: MSHCTX = MSHCTX(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MSHCTX_INPROC: MSHCTX = MSHCTX(3i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MSHCTX_CROSSCTX: MSHCTX = MSHCTX(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MSHCTX_CONTAINER: MSHCTX = MSHCTX(5i32);
 impl ::core::marker::Copy for MSHCTX {}
 impl ::core::clone::Clone for MSHCTX {
     fn clone(&self) -> Self {
@@ -9434,22 +9770,6 @@ impl ::core::fmt::Debug for MSHCTX {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MSHLFLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MSHLFLAGS_NORMAL: MSHLFLAGS = MSHLFLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MSHLFLAGS_TABLESTRONG: MSHLFLAGS = MSHLFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MSHLFLAGS_TABLEWEAK: MSHLFLAGS = MSHLFLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MSHLFLAGS_NOPING: MSHLFLAGS = MSHLFLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MSHLFLAGS_RESERVED1: MSHLFLAGS = MSHLFLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MSHLFLAGS_RESERVED2: MSHLFLAGS = MSHLFLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MSHLFLAGS_RESERVED3: MSHLFLAGS = MSHLFLAGS(32i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const MSHLFLAGS_RESERVED4: MSHLFLAGS = MSHLFLAGS(64i32);
 impl ::core::marker::Copy for MSHLFLAGS {}
 impl ::core::clone::Clone for MSHLFLAGS {
     fn clone(&self) -> Self {
@@ -9473,12 +9793,6 @@ impl ::core::fmt::Debug for MSHLFLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PENDINGMSG(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const PENDINGMSG_CANCELCALL: PENDINGMSG = PENDINGMSG(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const PENDINGMSG_WAITNOPROCESS: PENDINGMSG = PENDINGMSG(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const PENDINGMSG_WAITDEFPROCESS: PENDINGMSG = PENDINGMSG(2i32);
 impl ::core::marker::Copy for PENDINGMSG {}
 impl ::core::clone::Clone for PENDINGMSG {
     fn clone(&self) -> Self {
@@ -9502,10 +9816,6 @@ impl ::core::fmt::Debug for PENDINGMSG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PENDINGTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const PENDINGTYPE_TOPLEVEL: PENDINGTYPE = PENDINGTYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const PENDINGTYPE_NESTED: PENDINGTYPE = PENDINGTYPE(2i32);
 impl ::core::marker::Copy for PENDINGTYPE {}
 impl ::core::clone::Clone for PENDINGTYPE {
     fn clone(&self) -> Self {
@@ -9529,18 +9839,6 @@ impl ::core::fmt::Debug for PENDINGTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REGCLS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const REGCLS_SINGLEUSE: REGCLS = REGCLS(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const REGCLS_MULTIPLEUSE: REGCLS = REGCLS(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const REGCLS_MULTI_SEPARATE: REGCLS = REGCLS(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const REGCLS_SUSPENDED: REGCLS = REGCLS(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const REGCLS_SURROGATE: REGCLS = REGCLS(8i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const REGCLS_AGILE: REGCLS = REGCLS(16i32);
 impl ::core::marker::Copy for REGCLS {}
 impl ::core::clone::Clone for REGCLS {
     fn clone(&self) -> Self {
@@ -9597,10 +9895,6 @@ impl ::core::ops::Not for REGCLS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ROT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ROTFLAGS_REGISTRATIONKEEPSALIVE: ROT_FLAGS = ROT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ROTFLAGS_ALLOWANYCLIENT: ROT_FLAGS = ROT_FLAGS(2u32);
 impl ::core::marker::Copy for ROT_FLAGS {}
 impl ::core::clone::Clone for ROT_FLAGS {
     fn clone(&self) -> Self {
@@ -9657,18 +9951,6 @@ impl ::core::ops::Not for ROT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RPCOPT_PROPERTIES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMBND_RPCTIMEOUT: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMBND_SERVER_LOCALITY: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMBND_RESERVED1: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMBND_RESERVED2: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(5i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMBND_RESERVED3: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(8i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMBND_RESERVED4: RPCOPT_PROPERTIES = RPCOPT_PROPERTIES(16i32);
 impl ::core::marker::Copy for RPCOPT_PROPERTIES {}
 impl ::core::clone::Clone for RPCOPT_PROPERTIES {
     fn clone(&self) -> Self {
@@ -9692,12 +9974,6 @@ impl ::core::fmt::Debug for RPCOPT_PROPERTIES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RPCOPT_SERVER_LOCALITY_VALUES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const SERVER_LOCALITY_PROCESS_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const SERVER_LOCALITY_MACHINE_LOCAL: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const SERVER_LOCALITY_REMOTE: RPCOPT_SERVER_LOCALITY_VALUES = RPCOPT_SERVER_LOCALITY_VALUES(2i32);
 impl ::core::marker::Copy for RPCOPT_SERVER_LOCALITY_VALUES {}
 impl ::core::clone::Clone for RPCOPT_SERVER_LOCALITY_VALUES {
     fn clone(&self) -> Self {
@@ -9721,20 +9997,6 @@ impl ::core::fmt::Debug for RPCOPT_SERVER_LOCALITY_VALUES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RPC_C_AUTHN_LEVEL(pub u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const RPC_C_AUTHN_LEVEL_DEFAULT: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(0u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const RPC_C_AUTHN_LEVEL_NONE: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(1u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const RPC_C_AUTHN_LEVEL_CONNECT: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(2u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const RPC_C_AUTHN_LEVEL_CALL: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(3u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const RPC_C_AUTHN_LEVEL_PKT: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(4u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const RPC_C_AUTHN_LEVEL_PKT_INTEGRITY: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(5u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const RPC_C_AUTHN_LEVEL_PKT_PRIVACY: RPC_C_AUTHN_LEVEL = RPC_C_AUTHN_LEVEL(6u32);
 impl ::core::marker::Copy for RPC_C_AUTHN_LEVEL {}
 impl ::core::clone::Clone for RPC_C_AUTHN_LEVEL {
     fn clone(&self) -> Self {
@@ -9758,16 +10020,6 @@ impl ::core::fmt::Debug for RPC_C_AUTHN_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RPC_C_IMP_LEVEL(pub u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const RPC_C_IMP_LEVEL_DEFAULT: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(0u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const RPC_C_IMP_LEVEL_ANONYMOUS: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(1u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const RPC_C_IMP_LEVEL_IDENTIFY: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(2u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const RPC_C_IMP_LEVEL_IMPERSONATE: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(3u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const RPC_C_IMP_LEVEL_DELEGATE: RPC_C_IMP_LEVEL = RPC_C_IMP_LEVEL(4u32);
 impl ::core::marker::Copy for RPC_C_IMP_LEVEL {}
 impl ::core::clone::Clone for RPC_C_IMP_LEVEL {
     fn clone(&self) -> Self {
@@ -9791,12 +10043,6 @@ impl ::core::fmt::Debug for RPC_C_IMP_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVERCALL(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const SERVERCALL_ISHANDLED: SERVERCALL = SERVERCALL(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const SERVERCALL_REJECTED: SERVERCALL = SERVERCALL(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const SERVERCALL_RETRYLATER: SERVERCALL = SERVERCALL(2i32);
 impl ::core::marker::Copy for SERVERCALL {}
 impl ::core::clone::Clone for SERVERCALL {
     fn clone(&self) -> Self {
@@ -9820,12 +10066,6 @@ impl ::core::fmt::Debug for SERVERCALL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STATFLAG(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STATFLAG_DEFAULT: STATFLAG = STATFLAG(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STATFLAG_NONAME: STATFLAG = STATFLAG(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STATFLAG_NOOPEN: STATFLAG = STATFLAG(2i32);
 impl ::core::marker::Copy for STATFLAG {}
 impl ::core::clone::Clone for STATFLAG {
     fn clone(&self) -> Self {
@@ -9849,16 +10089,6 @@ impl ::core::fmt::Debug for STATFLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STGC(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGC_DEFAULT: STGC = STGC(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGC_OVERWRITE: STGC = STGC(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGC_ONLYIFCURRENT: STGC = STGC(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = STGC(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGC_CONSOLIDATE: STGC = STGC(8i32);
 impl ::core::marker::Copy for STGC {}
 impl ::core::clone::Clone for STGC {
     fn clone(&self) -> Self {
@@ -9915,42 +10145,6 @@ impl ::core::ops::Not for STGC {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STGM(pub u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGM_DIRECT: STGM = STGM(0u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGM_TRANSACTED: STGM = STGM(65536u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGM_SIMPLE: STGM = STGM(134217728u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGM_READ: STGM = STGM(0u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGM_WRITE: STGM = STGM(1u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGM_READWRITE: STGM = STGM(2u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGM_SHARE_DENY_NONE: STGM = STGM(64u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGM_SHARE_DENY_READ: STGM = STGM(48u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGM_SHARE_DENY_WRITE: STGM = STGM(32u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGM_SHARE_EXCLUSIVE: STGM = STGM(16u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGM_PRIORITY: STGM = STGM(262144u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGM_DELETEONRELEASE: STGM = STGM(67108864u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGM_NOSCRATCH: STGM = STGM(1048576u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGM_CREATE: STGM = STGM(4096u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGM_CONVERT: STGM = STGM(131072u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGM_FAILIFTHERE: STGM = STGM(0u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGM_NOSNAPSHOT: STGM = STGM(2097152u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGM_DIRECT_SWMR: STGM = STGM(4194304u32);
 impl ::core::marker::Copy for STGM {}
 impl ::core::clone::Clone for STGM {
     fn clone(&self) -> Self {
@@ -10007,14 +10201,6 @@ impl ::core::ops::Not for STGM {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STGTY(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGTY_STORAGE: STGTY = STGTY(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGTY_STREAM: STGTY = STGTY(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGTY_LOCKBYTES: STGTY = STGTY(3i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGTY_PROPERTY: STGTY = STGTY(4i32);
 impl ::core::marker::Copy for STGTY {}
 impl ::core::clone::Clone for STGTY {
     fn clone(&self) -> Self {
@@ -10038,12 +10224,6 @@ impl ::core::fmt::Debug for STGTY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STREAM_SEEK(pub u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STREAM_SEEK_SET: STREAM_SEEK = STREAM_SEEK(0u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STREAM_SEEK_CUR: STREAM_SEEK = STREAM_SEEK(1u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STREAM_SEEK_END: STREAM_SEEK = STREAM_SEEK(2u32);
 impl ::core::marker::Copy for STREAM_SEEK {}
 impl ::core::clone::Clone for STREAM_SEEK {
     fn clone(&self) -> Self {
@@ -10067,14 +10247,6 @@ impl ::core::fmt::Debug for STREAM_SEEK {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSKIND(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const SYS_WIN16: SYSKIND = SYSKIND(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const SYS_WIN32: SYSKIND = SYSKIND(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const SYS_MAC: SYSKIND = SYSKIND(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const SYS_WIN64: SYSKIND = SYSKIND(3i32);
 impl ::core::marker::Copy for SYSKIND {}
 impl ::core::clone::Clone for SYSKIND {
     fn clone(&self) -> Self {
@@ -10098,10 +10270,6 @@ impl ::core::fmt::Debug for SYSKIND {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ShutdownType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const IdleShutdown: ShutdownType = ShutdownType(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ForcedShutdown: ShutdownType = ShutdownType(1i32);
 impl ::core::marker::Copy for ShutdownType {}
 impl ::core::clone::Clone for ShutdownType {
     fn clone(&self) -> Self {
@@ -10125,10 +10293,6 @@ impl ::core::fmt::Debug for ShutdownType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct THDTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const THDTYPE_BLOCKMESSAGES: THDTYPE = THDTYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const THDTYPE_PROCESSMESSAGES: THDTYPE = THDTYPE(1i32);
 impl ::core::marker::Copy for THDTYPE {}
 impl ::core::clone::Clone for THDTYPE {
     fn clone(&self) -> Self {
@@ -10152,22 +10316,6 @@ impl ::core::fmt::Debug for THDTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TYMED(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TYMED_HGLOBAL: TYMED = TYMED(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TYMED_FILE: TYMED = TYMED(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TYMED_ISTREAM: TYMED = TYMED(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TYMED_ISTORAGE: TYMED = TYMED(8i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TYMED_GDI: TYMED = TYMED(16i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TYMED_MFPICT: TYMED = TYMED(32i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TYMED_ENHMF: TYMED = TYMED(64i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TYMED_NULL: TYMED = TYMED(0i32);
 impl ::core::marker::Copy for TYMED {}
 impl ::core::clone::Clone for TYMED {
     fn clone(&self) -> Self {
@@ -10191,24 +10339,6 @@ impl ::core::fmt::Debug for TYMED {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TYPEKIND(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TKIND_ENUM: TYPEKIND = TYPEKIND(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TKIND_RECORD: TYPEKIND = TYPEKIND(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TKIND_MODULE: TYPEKIND = TYPEKIND(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TKIND_INTERFACE: TYPEKIND = TYPEKIND(3i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TKIND_DISPATCH: TYPEKIND = TYPEKIND(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TKIND_COCLASS: TYPEKIND = TYPEKIND(5i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TKIND_ALIAS: TYPEKIND = TYPEKIND(6i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TKIND_UNION: TYPEKIND = TYPEKIND(7i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TKIND_MAX: TYPEKIND = TYPEKIND(8i32);
 impl ::core::marker::Copy for TYPEKIND {}
 impl ::core::clone::Clone for TYPEKIND {
     fn clone(&self) -> Self {
@@ -10232,20 +10362,6 @@ impl ::core::fmt::Debug for TYPEKIND {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TYSPEC(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TYSPEC_CLSID: TYSPEC = TYSPEC(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TYSPEC_FILEEXT: TYSPEC = TYSPEC(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TYSPEC_MIMETYPE: TYSPEC = TYSPEC(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TYSPEC_FILENAME: TYSPEC = TYSPEC(3i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TYSPEC_PROGID: TYSPEC = TYSPEC(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TYSPEC_PACKAGENAME: TYSPEC = TYSPEC(5i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const TYSPEC_OBJECTID: TYSPEC = TYSPEC(6i32);
 impl ::core::marker::Copy for TYSPEC {}
 impl ::core::clone::Clone for TYSPEC {
     fn clone(&self) -> Self {
@@ -10269,42 +10385,6 @@ impl ::core::fmt::Debug for TYSPEC {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct URI_CREATE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_CREATE_ALLOW_RELATIVE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_CREATE_ALLOW_IMPLICIT_WILDCARD_SCHEME: URI_CREATE_FLAGS = URI_CREATE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_CREATE_ALLOW_IMPLICIT_FILE_SCHEME: URI_CREATE_FLAGS = URI_CREATE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_CREATE_NOFRAG: URI_CREATE_FLAGS = URI_CREATE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_CREATE_NO_CANONICALIZE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_CREATE_CANONICALIZE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_CREATE_FILE_USE_DOS_PATH: URI_CREATE_FLAGS = URI_CREATE_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_CREATE_DECODE_EXTRA_INFO: URI_CREATE_FLAGS = URI_CREATE_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_CREATE_NO_DECODE_EXTRA_INFO: URI_CREATE_FLAGS = URI_CREATE_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_CREATE_CRACK_UNKNOWN_SCHEMES: URI_CREATE_FLAGS = URI_CREATE_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_CREATE_NO_CRACK_UNKNOWN_SCHEMES: URI_CREATE_FLAGS = URI_CREATE_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_CREATE_PRE_PROCESS_HTML_URI: URI_CREATE_FLAGS = URI_CREATE_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_CREATE_NO_PRE_PROCESS_HTML_URI: URI_CREATE_FLAGS = URI_CREATE_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_CREATE_IE_SETTINGS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_CREATE_NO_IE_SETTINGS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(16384u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_CREATE_NO_ENCODE_FORBIDDEN_CHARACTERS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(32768u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_CREATE_NORMALIZE_INTL_CHARACTERS: URI_CREATE_FLAGS = URI_CREATE_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_CREATE_CANONICALIZE_ABSOLUTE: URI_CREATE_FLAGS = URI_CREATE_FLAGS(131072u32);
 impl ::core::marker::Copy for URI_CREATE_FLAGS {}
 impl ::core::clone::Clone for URI_CREATE_FLAGS {
     fn clone(&self) -> Self {
@@ -10361,52 +10441,6 @@ impl ::core::ops::Not for URI_CREATE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Uri_PROPERTY(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_ABSOLUTE_URI: Uri_PROPERTY = Uri_PROPERTY(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_STRING_START: Uri_PROPERTY = Uri_PROPERTY(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_AUTHORITY: Uri_PROPERTY = Uri_PROPERTY(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_DISPLAY_URI: Uri_PROPERTY = Uri_PROPERTY(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_DOMAIN: Uri_PROPERTY = Uri_PROPERTY(3i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_EXTENSION: Uri_PROPERTY = Uri_PROPERTY(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_FRAGMENT: Uri_PROPERTY = Uri_PROPERTY(5i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_HOST: Uri_PROPERTY = Uri_PROPERTY(6i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_PASSWORD: Uri_PROPERTY = Uri_PROPERTY(7i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_PATH: Uri_PROPERTY = Uri_PROPERTY(8i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_PATH_AND_QUERY: Uri_PROPERTY = Uri_PROPERTY(9i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_QUERY: Uri_PROPERTY = Uri_PROPERTY(10i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_RAW_URI: Uri_PROPERTY = Uri_PROPERTY(11i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_SCHEME_NAME: Uri_PROPERTY = Uri_PROPERTY(12i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_USER_INFO: Uri_PROPERTY = Uri_PROPERTY(13i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_USER_NAME: Uri_PROPERTY = Uri_PROPERTY(14i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_STRING_LAST: Uri_PROPERTY = Uri_PROPERTY(14i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_HOST_TYPE: Uri_PROPERTY = Uri_PROPERTY(15i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_DWORD_START: Uri_PROPERTY = Uri_PROPERTY(15i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_PORT: Uri_PROPERTY = Uri_PROPERTY(16i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_SCHEME: Uri_PROPERTY = Uri_PROPERTY(17i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_ZONE: Uri_PROPERTY = Uri_PROPERTY(18i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const Uri_PROPERTY_DWORD_LAST: Uri_PROPERTY = Uri_PROPERTY(18i32);
 impl ::core::marker::Copy for Uri_PROPERTY {}
 impl ::core::clone::Clone for Uri_PROPERTY {
     fn clone(&self) -> Self {
@@ -10430,32 +10464,6 @@ impl ::core::fmt::Debug for Uri_PROPERTY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VARFLAGS(pub u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VARFLAG_FREADONLY: VARFLAGS = VARFLAGS(1u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VARFLAG_FSOURCE: VARFLAGS = VARFLAGS(2u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VARFLAG_FBINDABLE: VARFLAGS = VARFLAGS(4u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VARFLAG_FREQUESTEDIT: VARFLAGS = VARFLAGS(8u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VARFLAG_FDISPLAYBIND: VARFLAGS = VARFLAGS(16u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VARFLAG_FDEFAULTBIND: VARFLAGS = VARFLAGS(32u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VARFLAG_FHIDDEN: VARFLAGS = VARFLAGS(64u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VARFLAG_FRESTRICTED: VARFLAGS = VARFLAGS(128u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VARFLAG_FDEFAULTCOLLELEM: VARFLAGS = VARFLAGS(256u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VARFLAG_FUIDEFAULT: VARFLAGS = VARFLAGS(512u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VARFLAG_FNONBROWSABLE: VARFLAGS = VARFLAGS(1024u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VARFLAG_FREPLACEABLE: VARFLAGS = VARFLAGS(2048u16);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VARFLAG_FIMMEDIATEBIND: VARFLAGS = VARFLAGS(4096u16);
 impl ::core::marker::Copy for VARFLAGS {}
 impl ::core::clone::Clone for VARFLAGS {
     fn clone(&self) -> Self {
@@ -10479,14 +10487,6 @@ impl ::core::fmt::Debug for VARFLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VARKIND(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VAR_PERINSTANCE: VARKIND = VARKIND(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VAR_STATIC: VARKIND = VARKIND(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VAR_CONST: VARKIND = VARKIND(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VAR_DISPATCH: VARKIND = VARKIND(3i32);
 impl ::core::marker::Copy for VARKIND {}
 impl ::core::clone::Clone for VARKIND {
     fn clone(&self) -> Self {

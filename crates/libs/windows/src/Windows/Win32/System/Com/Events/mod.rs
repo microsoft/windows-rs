@@ -1431,6 +1431,12 @@ pub const CEventSubscription: ::windows_core::GUID = ::windows_core::GUID::from_
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 pub const CEventSystem: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e14fba2_2e22_11d1_9964_00c04fbbb345);
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
+pub const EOC_DeletedObject: EOC_ChangeType = EOC_ChangeType(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
+pub const EOC_ModifiedObject: EOC_ChangeType = EOC_ChangeType(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
+pub const EOC_NewObject: EOC_ChangeType = EOC_ChangeType(0i32);
+#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 pub const EventObjectChange: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd0565000_9df4_11d1_a281_00c04fca0aa7);
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 pub const EventObjectChange2: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb07bacd_cd56_4e63_a8ff_cbf0355fb9f4);
@@ -1438,12 +1444,6 @@ pub const EventObjectChange2: ::windows_core::GUID = ::windows_core::GUID::from_
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EOC_ChangeType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
-pub const EOC_NewObject: EOC_ChangeType = EOC_ChangeType(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
-pub const EOC_ModifiedObject: EOC_ChangeType = EOC_ChangeType(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
-pub const EOC_DeletedObject: EOC_ChangeType = EOC_ChangeType(2i32);
 impl ::core::marker::Copy for EOC_ChangeType {}
 impl ::core::clone::Clone for EOC_ChangeType {
     fn clone(&self) -> Self {

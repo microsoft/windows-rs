@@ -7644,6 +7644,44 @@ pub const APPBREAKFLAG_STEPTYPE_MASK: u32 = 15728640u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const APPBREAKFLAG_STEPTYPE_SOURCE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const BREAKPOINT_DELETED: BREAKPOINT_STATE = BREAKPOINT_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const BREAKPOINT_DISABLED: BREAKPOINT_STATE = BREAKPOINT_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const BREAKPOINT_ENABLED: BREAKPOINT_STATE = BREAKPOINT_STATE(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const BREAKREASON_BREAKPOINT: BREAKREASON = BREAKREASON(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const BREAKREASON_DEBUGGER_BLOCK: BREAKREASON = BREAKREASON(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const BREAKREASON_DEBUGGER_HALT: BREAKREASON = BREAKREASON(5i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const BREAKREASON_ERROR: BREAKREASON = BREAKREASON(6i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const BREAKREASON_HOST_INITIATED: BREAKREASON = BREAKREASON(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const BREAKREASON_JIT: BREAKREASON = BREAKREASON(7i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const BREAKREASON_LANGUAGE_INITIATED: BREAKREASON = BREAKREASON(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const BREAKREASON_MUTATION_BREAKPOINT: BREAKREASON = BREAKREASON(8i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const BREAKREASON_STEP: BREAKREASON = BREAKREASON(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const BREAKRESUMEACTION_ABORT: BREAKRESUMEACTION = BREAKRESUMEACTION(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const BREAKRESUMEACTION_CONTINUE: BREAKRESUMEACTION = BREAKRESUMEACTION(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const BREAKRESUMEACTION_IGNORE: BREAKRESUMEACTION = BREAKRESUMEACTION(5i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const BREAKRESUMEACTION_STEP_DOCUMENT: BREAKRESUMEACTION = BREAKRESUMEACTION(6i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const BREAKRESUMEACTION_STEP_INTO: BREAKRESUMEACTION = BREAKRESUMEACTION(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const BREAKRESUMEACTION_STEP_OUT: BREAKRESUMEACTION = BREAKRESUMEACTION(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const BREAKRESUMEACTION_STEP_OVER: BREAKRESUMEACTION = BREAKRESUMEACTION(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const CATID_ActiveScript: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf0b7a1a1_9847_11cf_8f20_00805f2cd064);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const CATID_ActiveScriptAuthor: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0aee2a92_bcbb_11d0_8c72_00c04fc2b085);
@@ -7668,9 +7706,47 @@ pub const DEBUG_TEXT_NOSIDEEFFECTS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const DEBUG_TEXT_RETURNVALUE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const DEIT_ASMJS_FAILED: DEBUG_EVENT_INFO_TYPE = DEBUG_EVENT_INFO_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const DEIT_ASMJS_IN_DEBUGGING: DEBUG_EVENT_INFO_TYPE = DEBUG_EVENT_INFO_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const DEIT_ASMJS_SUCCEEDED: DEBUG_EVENT_INFO_TYPE = DEBUG_EVENT_INFO_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const DEIT_GENERAL: DEBUG_EVENT_INFO_TYPE = DEBUG_EVENT_INFO_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const DOCUMENTNAMETYPE_APPNODE: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const DOCUMENTNAMETYPE_FILE_TAIL: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const DOCUMENTNAMETYPE_SOURCE_MAP_URL: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const DOCUMENTNAMETYPE_TITLE: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const DOCUMENTNAMETYPE_UNIQUE_TITLE: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const DOCUMENTNAMETYPE_URL: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const DST_INTERNAL_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const DST_INVOCATION_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const DST_SCRIPT_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const DebugHelper: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0bfcc060_8c1d_11d0_accd_00aa0060275c);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const DefaultDebugSessionProvider: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x834128a2_51f4_11d0_8f20_00805f2cd064);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const ERRORRESUMEACTION_AbortCallAndReturnErrorToCaller: ERRORRESUMEACTION = ERRORRESUMEACTION(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const ERRORRESUMEACTION_ReexecuteErrorStatement: ERRORRESUMEACTION = ERRORRESUMEACTION(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const ERRORRESUMEACTION_SkipErrorStatement: ERRORRESUMEACTION = ERRORRESUMEACTION(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const ETK_FIRST_CHANCE: SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const ETK_UNHANDLED: SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const ETK_USER_UNHANDLED: SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(1i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const E_JsDEBUG_INVALID_MEMORY_ADDRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(-1916338171i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
@@ -7686,6 +7762,12 @@ pub const E_JsDEBUG_UNKNOWN_THREAD: ::windows_core::HRESULT = ::windows_core::HR
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const FACILITY_JsDEBUG: u32 = 3527u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const FILTER_EXCLUDE_ANONYMOUS_CODE: APPLICATION_NODE_EVENT_FILTER = APPLICATION_NODE_EVENT_FILTER(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const FILTER_EXCLUDE_EVAL_CODE: APPLICATION_NODE_EVENT_FILTER = APPLICATION_NODE_EVENT_FILTER(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const FILTER_EXCLUDE_NOTHING: APPLICATION_NODE_EVENT_FILTER = APPLICATION_NODE_EVENT_FILTER(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const GETATTRFLAG_HUMANTEXT: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const GETATTRFLAG_THIS: u32 = 256u32;
@@ -7693,6 +7775,28 @@ pub const GETATTRFLAG_THIS: u32 = 256u32;
 pub const GETATTRTYPE_DEPSCAN: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const GETATTRTYPE_NORMAL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const JS_PROPERTY_ATTRIBUTE_NONE: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const JS_PROPERTY_FAKE: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const JS_PROPERTY_FRAME_INCATCHBLOCK: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(64i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const JS_PROPERTY_FRAME_INFINALLYBLOCK: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(128i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const JS_PROPERTY_FRAME_INTRYBLOCK: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(32i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const JS_PROPERTY_HAS_CHILDREN: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const JS_PROPERTY_MEMBERS_ALL: JS_PROPERTY_MEMBERS = JS_PROPERTY_MEMBERS(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const JS_PROPERTY_MEMBERS_ARGUMENTS: JS_PROPERTY_MEMBERS = JS_PROPERTY_MEMBERS(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const JS_PROPERTY_METHOD: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const JS_PROPERTY_NATIVE_WINRT_POINTER: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(16i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const JS_PROPERTY_READONLY: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(8i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const MachineDebugManager_DEBUG: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49769cec_3a55_4bb0_b697_88fede77e8ea);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
@@ -7704,9 +7808,117 @@ pub const OID_VBSSIP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const OID_WSFSIP: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1a610570_38ce_11d4_a2a3_00104bd35090);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_EVENT_MASK_TRACE_ALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_EVENT_MASK_TRACE_ALL_WITH_DOM: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(7i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_EVENT_MASK_TRACE_DOM_FUNCTION_CALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_EVENT_MASK_TRACE_NATIVE_FUNCTION_CALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_EVENT_MASK_TRACE_SCRIPT_FUNCTION_CALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_ENUM_FLAGS_NONE: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_ENUM_FLAGS_RELATIONSHIP_SUBSTRINGS: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_ENUM_FLAGS_STORE_RELATIONSHIP_FLAGS: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_ENUM_FLAGS_SUBSTRINGS: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL_DISPATCH: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(32i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL_UNKNOWN: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_FLAGS_IS_ROOT: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_FLAGS_NEW_OBJECT: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_FLAGS_NEW_STATE_UNAVAILABLE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(256i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_FLAGS_SITE_CLOSED: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_FLAGS_SIZE_APPROXIMATE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(64i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_FLAGS_SIZE_UNAVAILABLE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(128i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_DELEGATE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(2048i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_INSTANCE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(512i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_NAMESPACE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(4096i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_RUNTIMECLASS: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(1024i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const PROFILER_HEAP_OBJECT_NAME_ID_UNAVAILABLE: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_ELEMENT_ATTRIBUTES_SIZE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_ELEMENT_TEXT_CHILDREN_SIZE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_FUNCTION_NAME: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_INDEX_PROPERTIES: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_INTERNAL_PROPERTY: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_MAP_COLLECTION_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_MAX_VALUE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_NAME_PROPERTIES: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_PROTOTYPE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_RELATIONSHIPS: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_SCOPE_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_SET_COLLECTION_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_WEAKMAP_COLLECTION_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_WINRTEVENTS: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_CONST_VARIABLE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(524288i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_IS_GET_ACCESSOR: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(65536i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_IS_SET_ACCESSOR: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(131072i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_LET_VARIABLE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(262144i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_NONE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_HEAP_SUMMARY_VERSION_1: PROFILER_HEAP_SUMMARY_VERSION = PROFILER_HEAP_SUMMARY_VERSION(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_PROPERTY_TYPE_BSTR: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(5i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_PROPERTY_TYPE_EXTERNAL_OBJECT: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_PROPERTY_TYPE_HEAP_OBJECT: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_PROPERTY_TYPE_NUMBER: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_PROPERTY_TYPE_STRING: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_PROPERTY_TYPE_SUBSTRING: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(6i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_SCRIPT_TYPE_DOM: PROFILER_SCRIPT_TYPE = PROFILER_SCRIPT_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_SCRIPT_TYPE_DYNAMIC: PROFILER_SCRIPT_TYPE = PROFILER_SCRIPT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_SCRIPT_TYPE_NATIVE: PROFILER_SCRIPT_TYPE = PROFILER_SCRIPT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const PROFILER_SCRIPT_TYPE_USER: PROFILER_SCRIPT_TYPE = PROFILER_SCRIPT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const ProcessDebugManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x78a51822_51f4_11d0_8f20_00805f2cd064);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTGCTYPE_EXHAUSTIVE: SCRIPTGCTYPE = SCRIPTGCTYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTGCTYPE_NORMAL: SCRIPTGCTYPE = SCRIPTGCTYPE(0i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const SCRIPTINFO_ITYPEINFO: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
@@ -7727,6 +7939,14 @@ pub const SCRIPTITEM_ISSOURCE: u32 = 4u32;
 pub const SCRIPTITEM_ISVISIBLE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const SCRIPTITEM_NOCODE: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTLANGUAGEVERSION_5_7: SCRIPTLANGUAGEVERSION = SCRIPTLANGUAGEVERSION(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTLANGUAGEVERSION_5_8: SCRIPTLANGUAGEVERSION = SCRIPTLANGUAGEVERSION(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTLANGUAGEVERSION_DEFAULT: SCRIPTLANGUAGEVERSION = SCRIPTLANGUAGEVERSION(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTLANGUAGEVERSION_MAX: SCRIPTLANGUAGEVERSION = SCRIPTLANGUAGEVERSION(255i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const SCRIPTPROC_HOSTMANAGESSOURCE: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
@@ -7776,6 +7996,18 @@ pub const SCRIPTPROP_SCRIPTSAREFULLYTRUSTED: u32 = 4100u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const SCRIPTPROP_STRINGCOMPAREINSTANCE: u32 = 12289u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTSTATE_CLOSED: SCRIPTSTATE = SCRIPTSTATE(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTSTATE_CONNECTED: SCRIPTSTATE = SCRIPTSTATE(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTSTATE_DISCONNECTED: SCRIPTSTATE = SCRIPTSTATE(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTSTATE_INITIALIZED: SCRIPTSTATE = SCRIPTSTATE(5i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTSTATE_STARTED: SCRIPTSTATE = SCRIPTSTATE(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTSTATE_UNINITIALIZED: SCRIPTSTATE = SCRIPTSTATE(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const SCRIPTSTAT_INSTRUCTION_COUNT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const SCRIPTSTAT_INTSTRUCTION_TIME: u32 = 3u32;
@@ -7798,9 +8030,39 @@ pub const SCRIPTTEXT_ISVISIBLE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const SCRIPTTEXT_ISXDOMAIN: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTTHREADSTATE_NOTINSCRIPT: SCRIPTTHREADSTATE = SCRIPTTHREADSTATE(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTTHREADSTATE_RUNNING: SCRIPTTHREADSTATE = SCRIPTTHREADSTATE(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTTRACEINFO_COMCALLEND: SCRIPTTRACEINFO = SCRIPTTRACEINFO(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTTRACEINFO_COMCALLSTART: SCRIPTTRACEINFO = SCRIPTTRACEINFO(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTTRACEINFO_CREATEOBJEND: SCRIPTTRACEINFO = SCRIPTTRACEINFO(5i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTTRACEINFO_CREATEOBJSTART: SCRIPTTRACEINFO = SCRIPTTRACEINFO(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTTRACEINFO_GETOBJEND: SCRIPTTRACEINFO = SCRIPTTRACEINFO(7i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTTRACEINFO_GETOBJSTART: SCRIPTTRACEINFO = SCRIPTTRACEINFO(6i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTTRACEINFO_SCRIPTEND: SCRIPTTRACEINFO = SCRIPTTRACEINFO(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTTRACEINFO_SCRIPTSTART: SCRIPTTRACEINFO = SCRIPTTRACEINFO(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const SCRIPTTYPELIB_ISCONTROL: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const SCRIPTTYPELIB_ISPERSISTENT: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTUICHANDLING_ALLOW: SCRIPTUICHANDLING = SCRIPTUICHANDLING(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTUICHANDLING_NOUIDEFAULT: SCRIPTUICHANDLING = SCRIPTUICHANDLING(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTUICHANDLING_NOUIERROR: SCRIPTUICHANDLING = SCRIPTUICHANDLING(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTUICITEM_INPUTBOX: SCRIPTUICITEM = SCRIPTUICITEM(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SCRIPTUICITEM_MSGBOX: SCRIPTUICITEM = SCRIPTUICITEM(2i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const SCRIPT_CMPL_COMMIT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
@@ -7831,6 +8093,34 @@ pub const SCRIPT_E_PROPAGATE: i32 = -2147352318i32;
 pub const SCRIPT_E_RECORDED: i32 = -2040119292i32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const SCRIPT_E_REPORTED: i32 = -2147352319i32;
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SDO_ENABLE_FIRST_CHANCE_EXCEPTIONS: SCRIPT_DEBUGGER_OPTIONS = SCRIPT_DEBUGGER_OPTIONS(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SDO_ENABLE_LIBRARY_STACK_FRAME: SCRIPT_DEBUGGER_OPTIONS = SCRIPT_DEBUGGER_OPTIONS(8i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SDO_ENABLE_NONUSER_CODE_SUPPORT: SCRIPT_DEBUGGER_OPTIONS = SCRIPT_DEBUGGER_OPTIONS(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SDO_ENABLE_WEB_WORKER_SUPPORT: SCRIPT_DEBUGGER_OPTIONS = SCRIPT_DEBUGGER_OPTIONS(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SDO_NONE: SCRIPT_DEBUGGER_OPTIONS = SCRIPT_DEBUGGER_OPTIONS(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SICT_Event: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONTEXT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SICT_MutationObserverCheckpoint: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONTEXT_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SICT_RequestAnimationFrame: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONTEXT_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SICT_SetImmediate: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONTEXT_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SICT_SetInterval: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONTEXT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SICT_SetTimeout: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONTEXT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SICT_ToString: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONTEXT_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SICT_WWAExecAtPriority: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONTEXT_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
+pub const SICT_WWAExecUnsafeLocalFunction: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONTEXT_TYPE(7i32);
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
 pub const SOURCETEXT_ATTR_COMMENT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
@@ -7879,12 +8169,6 @@ pub const fasaSupportInternalHandler: u32 = 2u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPLICATION_NODE_EVENT_FILTER(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const FILTER_EXCLUDE_NOTHING: APPLICATION_NODE_EVENT_FILTER = APPLICATION_NODE_EVENT_FILTER(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const FILTER_EXCLUDE_ANONYMOUS_CODE: APPLICATION_NODE_EVENT_FILTER = APPLICATION_NODE_EVENT_FILTER(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const FILTER_EXCLUDE_EVAL_CODE: APPLICATION_NODE_EVENT_FILTER = APPLICATION_NODE_EVENT_FILTER(2i32);
 impl ::core::marker::Copy for APPLICATION_NODE_EVENT_FILTER {}
 impl ::core::clone::Clone for APPLICATION_NODE_EVENT_FILTER {
     fn clone(&self) -> Self {
@@ -7908,12 +8192,6 @@ impl ::core::fmt::Debug for APPLICATION_NODE_EVENT_FILTER {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BREAKPOINT_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const BREAKPOINT_DELETED: BREAKPOINT_STATE = BREAKPOINT_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const BREAKPOINT_DISABLED: BREAKPOINT_STATE = BREAKPOINT_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const BREAKPOINT_ENABLED: BREAKPOINT_STATE = BREAKPOINT_STATE(2i32);
 impl ::core::marker::Copy for BREAKPOINT_STATE {}
 impl ::core::clone::Clone for BREAKPOINT_STATE {
     fn clone(&self) -> Self {
@@ -7937,24 +8215,6 @@ impl ::core::fmt::Debug for BREAKPOINT_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BREAKREASON(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const BREAKREASON_STEP: BREAKREASON = BREAKREASON(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const BREAKREASON_BREAKPOINT: BREAKREASON = BREAKREASON(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const BREAKREASON_DEBUGGER_BLOCK: BREAKREASON = BREAKREASON(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const BREAKREASON_HOST_INITIATED: BREAKREASON = BREAKREASON(3i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const BREAKREASON_LANGUAGE_INITIATED: BREAKREASON = BREAKREASON(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const BREAKREASON_DEBUGGER_HALT: BREAKREASON = BREAKREASON(5i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const BREAKREASON_ERROR: BREAKREASON = BREAKREASON(6i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const BREAKREASON_JIT: BREAKREASON = BREAKREASON(7i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const BREAKREASON_MUTATION_BREAKPOINT: BREAKREASON = BREAKREASON(8i32);
 impl ::core::marker::Copy for BREAKREASON {}
 impl ::core::clone::Clone for BREAKREASON {
     fn clone(&self) -> Self {
@@ -7978,20 +8238,6 @@ impl ::core::fmt::Debug for BREAKREASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BREAKRESUMEACTION(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const BREAKRESUMEACTION_ABORT: BREAKRESUMEACTION = BREAKRESUMEACTION(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const BREAKRESUMEACTION_CONTINUE: BREAKRESUMEACTION = BREAKRESUMEACTION(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const BREAKRESUMEACTION_STEP_INTO: BREAKRESUMEACTION = BREAKRESUMEACTION(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const BREAKRESUMEACTION_STEP_OVER: BREAKRESUMEACTION = BREAKRESUMEACTION(3i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const BREAKRESUMEACTION_STEP_OUT: BREAKRESUMEACTION = BREAKRESUMEACTION(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const BREAKRESUMEACTION_IGNORE: BREAKRESUMEACTION = BREAKRESUMEACTION(5i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const BREAKRESUMEACTION_STEP_DOCUMENT: BREAKRESUMEACTION = BREAKRESUMEACTION(6i32);
 impl ::core::marker::Copy for BREAKRESUMEACTION {}
 impl ::core::clone::Clone for BREAKRESUMEACTION {
     fn clone(&self) -> Self {
@@ -8015,14 +8261,6 @@ impl ::core::fmt::Debug for BREAKRESUMEACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEBUG_EVENT_INFO_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const DEIT_GENERAL: DEBUG_EVENT_INFO_TYPE = DEBUG_EVENT_INFO_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const DEIT_ASMJS_IN_DEBUGGING: DEBUG_EVENT_INFO_TYPE = DEBUG_EVENT_INFO_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const DEIT_ASMJS_SUCCEEDED: DEBUG_EVENT_INFO_TYPE = DEBUG_EVENT_INFO_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const DEIT_ASMJS_FAILED: DEBUG_EVENT_INFO_TYPE = DEBUG_EVENT_INFO_TYPE(3i32);
 impl ::core::marker::Copy for DEBUG_EVENT_INFO_TYPE {}
 impl ::core::clone::Clone for DEBUG_EVENT_INFO_TYPE {
     fn clone(&self) -> Self {
@@ -8046,12 +8284,6 @@ impl ::core::fmt::Debug for DEBUG_EVENT_INFO_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEBUG_STACKFRAME_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const DST_SCRIPT_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const DST_INTERNAL_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const DST_INVOCATION_FRAME: DEBUG_STACKFRAME_TYPE = DEBUG_STACKFRAME_TYPE(2i32);
 impl ::core::marker::Copy for DEBUG_STACKFRAME_TYPE {}
 impl ::core::clone::Clone for DEBUG_STACKFRAME_TYPE {
     fn clone(&self) -> Self {
@@ -8075,18 +8307,6 @@ impl ::core::fmt::Debug for DEBUG_STACKFRAME_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DOCUMENTNAMETYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const DOCUMENTNAMETYPE_APPNODE: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const DOCUMENTNAMETYPE_TITLE: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const DOCUMENTNAMETYPE_FILE_TAIL: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const DOCUMENTNAMETYPE_URL: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const DOCUMENTNAMETYPE_UNIQUE_TITLE: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const DOCUMENTNAMETYPE_SOURCE_MAP_URL: DOCUMENTNAMETYPE = DOCUMENTNAMETYPE(5i32);
 impl ::core::marker::Copy for DOCUMENTNAMETYPE {}
 impl ::core::clone::Clone for DOCUMENTNAMETYPE {
     fn clone(&self) -> Self {
@@ -8110,12 +8330,6 @@ impl ::core::fmt::Debug for DOCUMENTNAMETYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ERRORRESUMEACTION(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const ERRORRESUMEACTION_ReexecuteErrorStatement: ERRORRESUMEACTION = ERRORRESUMEACTION(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const ERRORRESUMEACTION_AbortCallAndReturnErrorToCaller: ERRORRESUMEACTION = ERRORRESUMEACTION(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const ERRORRESUMEACTION_SkipErrorStatement: ERRORRESUMEACTION = ERRORRESUMEACTION(2i32);
 impl ::core::marker::Copy for ERRORRESUMEACTION {}
 impl ::core::clone::Clone for ERRORRESUMEACTION {
     fn clone(&self) -> Self {
@@ -8139,24 +8353,6 @@ impl ::core::fmt::Debug for ERRORRESUMEACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JS_PROPERTY_ATTRIBUTES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const JS_PROPERTY_ATTRIBUTE_NONE: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const JS_PROPERTY_HAS_CHILDREN: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const JS_PROPERTY_FAKE: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const JS_PROPERTY_METHOD: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const JS_PROPERTY_READONLY: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(8i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const JS_PROPERTY_NATIVE_WINRT_POINTER: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(16i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const JS_PROPERTY_FRAME_INTRYBLOCK: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(32i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const JS_PROPERTY_FRAME_INCATCHBLOCK: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(64i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const JS_PROPERTY_FRAME_INFINALLYBLOCK: JS_PROPERTY_ATTRIBUTES = JS_PROPERTY_ATTRIBUTES(128i32);
 impl ::core::marker::Copy for JS_PROPERTY_ATTRIBUTES {}
 impl ::core::clone::Clone for JS_PROPERTY_ATTRIBUTES {
     fn clone(&self) -> Self {
@@ -8180,10 +8376,6 @@ impl ::core::fmt::Debug for JS_PROPERTY_ATTRIBUTES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JS_PROPERTY_MEMBERS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const JS_PROPERTY_MEMBERS_ALL: JS_PROPERTY_MEMBERS = JS_PROPERTY_MEMBERS(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const JS_PROPERTY_MEMBERS_ARGUMENTS: JS_PROPERTY_MEMBERS = JS_PROPERTY_MEMBERS(1i32);
 impl ::core::marker::Copy for JS_PROPERTY_MEMBERS {}
 impl ::core::clone::Clone for JS_PROPERTY_MEMBERS {
     fn clone(&self) -> Self {
@@ -8234,16 +8426,6 @@ impl ::core::fmt::Debug for JsDebugReadMemoryFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROFILER_EVENT_MASK(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_EVENT_MASK_TRACE_SCRIPT_FUNCTION_CALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_EVENT_MASK_TRACE_NATIVE_FUNCTION_CALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_EVENT_MASK_TRACE_DOM_FUNCTION_CALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_EVENT_MASK_TRACE_ALL: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(3i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_EVENT_MASK_TRACE_ALL_WITH_DOM: PROFILER_EVENT_MASK = PROFILER_EVENT_MASK(7i32);
 impl ::core::marker::Copy for PROFILER_EVENT_MASK {}
 impl ::core::clone::Clone for PROFILER_EVENT_MASK {
     fn clone(&self) -> Self {
@@ -8300,14 +8482,6 @@ impl ::core::ops::Not for PROFILER_EVENT_MASK {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROFILER_HEAP_ENUM_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_ENUM_FLAGS_NONE: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_ENUM_FLAGS_STORE_RELATIONSHIP_FLAGS: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_ENUM_FLAGS_SUBSTRINGS: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_ENUM_FLAGS_RELATIONSHIP_SUBSTRINGS: PROFILER_HEAP_ENUM_FLAGS = PROFILER_HEAP_ENUM_FLAGS(3i32);
 impl ::core::marker::Copy for PROFILER_HEAP_ENUM_FLAGS {}
 impl ::core::clone::Clone for PROFILER_HEAP_ENUM_FLAGS {
     fn clone(&self) -> Self {
@@ -8364,32 +8538,6 @@ impl ::core::ops::Not for PROFILER_HEAP_ENUM_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROFILER_HEAP_OBJECT_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_NEW_OBJECT: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_IS_ROOT: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_SITE_CLOSED: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL_UNKNOWN: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_EXTERNAL_DISPATCH: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(32i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_SIZE_APPROXIMATE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(64i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_SIZE_UNAVAILABLE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(128i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_NEW_STATE_UNAVAILABLE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(256i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_INSTANCE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(512i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_RUNTIMECLASS: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(1024i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_DELEGATE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(2048i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_FLAGS_WINRT_NAMESPACE: PROFILER_HEAP_OBJECT_FLAGS = PROFILER_HEAP_OBJECT_FLAGS(4096i32);
 impl ::core::marker::Copy for PROFILER_HEAP_OBJECT_FLAGS {}
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_FLAGS {
     fn clone(&self) -> Self {
@@ -8446,34 +8594,6 @@ impl ::core::ops::Not for PROFILER_HEAP_OBJECT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_PROTOTYPE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_FUNCTION_NAME: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_SCOPE_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_INTERNAL_PROPERTY: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_NAME_PROPERTIES: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_INDEX_PROPERTIES: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_ELEMENT_ATTRIBUTES_SIZE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_ELEMENT_TEXT_CHILDREN_SIZE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_RELATIONSHIPS: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_WINRTEVENTS: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_WEAKMAP_COLLECTION_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_MAP_COLLECTION_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_SET_COLLECTION_LIST: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_OPTIONAL_INFO_MAX_VALUE: PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE = PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE(13i32);
 impl ::core::marker::Copy for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE {}
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE {
     fn clone(&self) -> Self {
@@ -8497,16 +8617,6 @@ impl ::core::fmt::Debug for PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_NONE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_IS_GET_ACCESSOR: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(65536i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_IS_SET_ACCESSOR: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(131072i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_LET_VARIABLE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(262144i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS_CONST_VARIABLE: PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS = PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS(524288i32);
 impl ::core::marker::Copy for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {}
 impl ::core::clone::Clone for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
     fn clone(&self) -> Self {
@@ -8563,8 +8673,6 @@ impl ::core::ops::Not for PROFILER_HEAP_OBJECT_RELATIONSHIP_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROFILER_HEAP_SUMMARY_VERSION(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_HEAP_SUMMARY_VERSION_1: PROFILER_HEAP_SUMMARY_VERSION = PROFILER_HEAP_SUMMARY_VERSION(1i32);
 impl ::core::marker::Copy for PROFILER_HEAP_SUMMARY_VERSION {}
 impl ::core::clone::Clone for PROFILER_HEAP_SUMMARY_VERSION {
     fn clone(&self) -> Self {
@@ -8588,18 +8696,6 @@ impl ::core::fmt::Debug for PROFILER_HEAP_SUMMARY_VERSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROFILER_RELATIONSHIP_INFO(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_PROPERTY_TYPE_NUMBER: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_PROPERTY_TYPE_STRING: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_PROPERTY_TYPE_HEAP_OBJECT: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(3i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_PROPERTY_TYPE_EXTERNAL_OBJECT: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_PROPERTY_TYPE_BSTR: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(5i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_PROPERTY_TYPE_SUBSTRING: PROFILER_RELATIONSHIP_INFO = PROFILER_RELATIONSHIP_INFO(6i32);
 impl ::core::marker::Copy for PROFILER_RELATIONSHIP_INFO {}
 impl ::core::clone::Clone for PROFILER_RELATIONSHIP_INFO {
     fn clone(&self) -> Self {
@@ -8623,14 +8719,6 @@ impl ::core::fmt::Debug for PROFILER_RELATIONSHIP_INFO {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROFILER_SCRIPT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_SCRIPT_TYPE_USER: PROFILER_SCRIPT_TYPE = PROFILER_SCRIPT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_SCRIPT_TYPE_DYNAMIC: PROFILER_SCRIPT_TYPE = PROFILER_SCRIPT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_SCRIPT_TYPE_NATIVE: PROFILER_SCRIPT_TYPE = PROFILER_SCRIPT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const PROFILER_SCRIPT_TYPE_DOM: PROFILER_SCRIPT_TYPE = PROFILER_SCRIPT_TYPE(3i32);
 impl ::core::marker::Copy for PROFILER_SCRIPT_TYPE {}
 impl ::core::clone::Clone for PROFILER_SCRIPT_TYPE {
     fn clone(&self) -> Self {
@@ -8654,10 +8742,6 @@ impl ::core::fmt::Debug for PROFILER_SCRIPT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCRIPTGCTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTGCTYPE_NORMAL: SCRIPTGCTYPE = SCRIPTGCTYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTGCTYPE_EXHAUSTIVE: SCRIPTGCTYPE = SCRIPTGCTYPE(1i32);
 impl ::core::marker::Copy for SCRIPTGCTYPE {}
 impl ::core::clone::Clone for SCRIPTGCTYPE {
     fn clone(&self) -> Self {
@@ -8681,14 +8765,6 @@ impl ::core::fmt::Debug for SCRIPTGCTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCRIPTLANGUAGEVERSION(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTLANGUAGEVERSION_DEFAULT: SCRIPTLANGUAGEVERSION = SCRIPTLANGUAGEVERSION(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTLANGUAGEVERSION_5_7: SCRIPTLANGUAGEVERSION = SCRIPTLANGUAGEVERSION(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTLANGUAGEVERSION_5_8: SCRIPTLANGUAGEVERSION = SCRIPTLANGUAGEVERSION(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTLANGUAGEVERSION_MAX: SCRIPTLANGUAGEVERSION = SCRIPTLANGUAGEVERSION(255i32);
 impl ::core::marker::Copy for SCRIPTLANGUAGEVERSION {}
 impl ::core::clone::Clone for SCRIPTLANGUAGEVERSION {
     fn clone(&self) -> Self {
@@ -8712,18 +8788,6 @@ impl ::core::fmt::Debug for SCRIPTLANGUAGEVERSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCRIPTSTATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTSTATE_UNINITIALIZED: SCRIPTSTATE = SCRIPTSTATE(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTSTATE_INITIALIZED: SCRIPTSTATE = SCRIPTSTATE(5i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTSTATE_STARTED: SCRIPTSTATE = SCRIPTSTATE(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTSTATE_CONNECTED: SCRIPTSTATE = SCRIPTSTATE(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTSTATE_DISCONNECTED: SCRIPTSTATE = SCRIPTSTATE(3i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTSTATE_CLOSED: SCRIPTSTATE = SCRIPTSTATE(4i32);
 impl ::core::marker::Copy for SCRIPTSTATE {}
 impl ::core::clone::Clone for SCRIPTSTATE {
     fn clone(&self) -> Self {
@@ -8747,10 +8811,6 @@ impl ::core::fmt::Debug for SCRIPTSTATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCRIPTTHREADSTATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTTHREADSTATE_NOTINSCRIPT: SCRIPTTHREADSTATE = SCRIPTTHREADSTATE(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTTHREADSTATE_RUNNING: SCRIPTTHREADSTATE = SCRIPTTHREADSTATE(1i32);
 impl ::core::marker::Copy for SCRIPTTHREADSTATE {}
 impl ::core::clone::Clone for SCRIPTTHREADSTATE {
     fn clone(&self) -> Self {
@@ -8774,22 +8834,6 @@ impl ::core::fmt::Debug for SCRIPTTHREADSTATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCRIPTTRACEINFO(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTTRACEINFO_SCRIPTSTART: SCRIPTTRACEINFO = SCRIPTTRACEINFO(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTTRACEINFO_SCRIPTEND: SCRIPTTRACEINFO = SCRIPTTRACEINFO(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTTRACEINFO_COMCALLSTART: SCRIPTTRACEINFO = SCRIPTTRACEINFO(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTTRACEINFO_COMCALLEND: SCRIPTTRACEINFO = SCRIPTTRACEINFO(3i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTTRACEINFO_CREATEOBJSTART: SCRIPTTRACEINFO = SCRIPTTRACEINFO(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTTRACEINFO_CREATEOBJEND: SCRIPTTRACEINFO = SCRIPTTRACEINFO(5i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTTRACEINFO_GETOBJSTART: SCRIPTTRACEINFO = SCRIPTTRACEINFO(6i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTTRACEINFO_GETOBJEND: SCRIPTTRACEINFO = SCRIPTTRACEINFO(7i32);
 impl ::core::marker::Copy for SCRIPTTRACEINFO {}
 impl ::core::clone::Clone for SCRIPTTRACEINFO {
     fn clone(&self) -> Self {
@@ -8813,12 +8857,6 @@ impl ::core::fmt::Debug for SCRIPTTRACEINFO {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCRIPTUICHANDLING(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTUICHANDLING_ALLOW: SCRIPTUICHANDLING = SCRIPTUICHANDLING(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTUICHANDLING_NOUIERROR: SCRIPTUICHANDLING = SCRIPTUICHANDLING(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTUICHANDLING_NOUIDEFAULT: SCRIPTUICHANDLING = SCRIPTUICHANDLING(2i32);
 impl ::core::marker::Copy for SCRIPTUICHANDLING {}
 impl ::core::clone::Clone for SCRIPTUICHANDLING {
     fn clone(&self) -> Self {
@@ -8842,10 +8880,6 @@ impl ::core::fmt::Debug for SCRIPTUICHANDLING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCRIPTUICITEM(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTUICITEM_INPUTBOX: SCRIPTUICITEM = SCRIPTUICITEM(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SCRIPTUICITEM_MSGBOX: SCRIPTUICITEM = SCRIPTUICITEM(2i32);
 impl ::core::marker::Copy for SCRIPTUICITEM {}
 impl ::core::clone::Clone for SCRIPTUICITEM {
     fn clone(&self) -> Self {
@@ -8869,16 +8903,6 @@ impl ::core::fmt::Debug for SCRIPTUICITEM {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCRIPT_DEBUGGER_OPTIONS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SDO_NONE: SCRIPT_DEBUGGER_OPTIONS = SCRIPT_DEBUGGER_OPTIONS(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SDO_ENABLE_FIRST_CHANCE_EXCEPTIONS: SCRIPT_DEBUGGER_OPTIONS = SCRIPT_DEBUGGER_OPTIONS(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SDO_ENABLE_WEB_WORKER_SUPPORT: SCRIPT_DEBUGGER_OPTIONS = SCRIPT_DEBUGGER_OPTIONS(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SDO_ENABLE_NONUSER_CODE_SUPPORT: SCRIPT_DEBUGGER_OPTIONS = SCRIPT_DEBUGGER_OPTIONS(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SDO_ENABLE_LIBRARY_STACK_FRAME: SCRIPT_DEBUGGER_OPTIONS = SCRIPT_DEBUGGER_OPTIONS(8i32);
 impl ::core::marker::Copy for SCRIPT_DEBUGGER_OPTIONS {}
 impl ::core::clone::Clone for SCRIPT_DEBUGGER_OPTIONS {
     fn clone(&self) -> Self {
@@ -8935,12 +8959,6 @@ impl ::core::ops::Not for SCRIPT_DEBUGGER_OPTIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const ETK_FIRST_CHANCE: SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const ETK_USER_UNHANDLED: SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const ETK_UNHANDLED: SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND = SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND(2i32);
 impl ::core::marker::Copy for SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND {}
 impl ::core::clone::Clone for SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND {
     fn clone(&self) -> Self {
@@ -8964,24 +8982,6 @@ impl ::core::fmt::Debug for SCRIPT_ERROR_DEBUG_EXCEPTION_THROWN_KIND {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCRIPT_INVOCATION_CONTEXT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SICT_Event: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONTEXT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SICT_SetTimeout: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONTEXT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SICT_SetInterval: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONTEXT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SICT_SetImmediate: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONTEXT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SICT_RequestAnimationFrame: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONTEXT_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SICT_ToString: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONTEXT_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SICT_MutationObserverCheckpoint: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONTEXT_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SICT_WWAExecUnsafeLocalFunction: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONTEXT_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_ActiveScript\"`*"]
-pub const SICT_WWAExecAtPriority: SCRIPT_INVOCATION_CONTEXT_TYPE = SCRIPT_INVOCATION_CONTEXT_TYPE(8i32);
 impl ::core::marker::Copy for SCRIPT_INVOCATION_CONTEXT_TYPE {}
 impl ::core::clone::Clone for SCRIPT_INVOCATION_CONTEXT_TYPE {
     fn clone(&self) -> Self {

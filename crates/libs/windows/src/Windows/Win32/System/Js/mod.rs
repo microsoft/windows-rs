@@ -574,67 +574,109 @@ pub unsafe fn JsVariantToValue(variant: *const super::Variant::VARIANT, value: *
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct JsErrorCode(pub u32);
+pub const JsArray: JsValueType = JsValueType(8i32);
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsNoError: JsErrorCode = JsErrorCode(0u32);
+pub const JsBoolean: JsValueType = JsValueType(4i32);
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorCategoryUsage: JsErrorCode = JsErrorCode(65536u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorInvalidArgument: JsErrorCode = JsErrorCode(65537u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorNullArgument: JsErrorCode = JsErrorCode(65538u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorNoCurrentContext: JsErrorCode = JsErrorCode(65539u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorInExceptionState: JsErrorCode = JsErrorCode(65540u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorNotImplemented: JsErrorCode = JsErrorCode(65541u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorWrongThread: JsErrorCode = JsErrorCode(65542u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorRuntimeInUse: JsErrorCode = JsErrorCode(65543u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorBadSerializedScript: JsErrorCode = JsErrorCode(65544u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorInDisabledState: JsErrorCode = JsErrorCode(65545u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorCannotDisableExecution: JsErrorCode = JsErrorCode(65546u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorHeapEnumInProgress: JsErrorCode = JsErrorCode(65547u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorArgumentNotObject: JsErrorCode = JsErrorCode(65548u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorInProfileCallback: JsErrorCode = JsErrorCode(65549u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorInThreadServiceCallback: JsErrorCode = JsErrorCode(65550u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorCannotSerializeDebugScript: JsErrorCode = JsErrorCode(65551u32);
+pub const JsError: JsValueType = JsValueType(7i32);
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorAlreadyDebuggingContext: JsErrorCode = JsErrorCode(65552u32);
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorAlreadyProfilingContext: JsErrorCode = JsErrorCode(65553u32);
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorIdleNotEnabled: JsErrorCode = JsErrorCode(65554u32);
+pub const JsErrorArgumentNotObject: JsErrorCode = JsErrorCode(65548u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorBadSerializedScript: JsErrorCode = JsErrorCode(65544u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorCannotDisableExecution: JsErrorCode = JsErrorCode(65546u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorCannotSerializeDebugScript: JsErrorCode = JsErrorCode(65551u32);
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorCategoryEngine: JsErrorCode = JsErrorCode(131072u32);
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorOutOfMemory: JsErrorCode = JsErrorCode(131073u32);
+pub const JsErrorCategoryFatal: JsErrorCode = JsErrorCode(262144u32);
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorCategoryScript: JsErrorCode = JsErrorCode(196608u32);
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorScriptException: JsErrorCode = JsErrorCode(196609u32);
+pub const JsErrorCategoryUsage: JsErrorCode = JsErrorCode(65536u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorFatal: JsErrorCode = JsErrorCode(262145u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorHeapEnumInProgress: JsErrorCode = JsErrorCode(65547u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorIdleNotEnabled: JsErrorCode = JsErrorCode(65554u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorInDisabledState: JsErrorCode = JsErrorCode(65545u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorInExceptionState: JsErrorCode = JsErrorCode(65540u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorInProfileCallback: JsErrorCode = JsErrorCode(65549u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorInThreadServiceCallback: JsErrorCode = JsErrorCode(65550u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorInvalidArgument: JsErrorCode = JsErrorCode(65537u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorNoCurrentContext: JsErrorCode = JsErrorCode(65539u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorNotImplemented: JsErrorCode = JsErrorCode(65541u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorNullArgument: JsErrorCode = JsErrorCode(65538u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorOutOfMemory: JsErrorCode = JsErrorCode(131073u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorRuntimeInUse: JsErrorCode = JsErrorCode(65543u32);
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorScriptCompile: JsErrorCode = JsErrorCode(196610u32);
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorScriptTerminated: JsErrorCode = JsErrorCode(196611u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 pub const JsErrorScriptEvalDisabled: JsErrorCode = JsErrorCode(196612u32);
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorCategoryFatal: JsErrorCode = JsErrorCode(262144u32);
+pub const JsErrorScriptException: JsErrorCode = JsErrorCode(196609u32);
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorFatal: JsErrorCode = JsErrorCode(262145u32);
+pub const JsErrorScriptTerminated: JsErrorCode = JsErrorCode(196611u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorWrongThread: JsErrorCode = JsErrorCode(65542u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsFunction: JsValueType = JsValueType(6i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsMemoryAllocate: JsMemoryEventType = JsMemoryEventType(0i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsMemoryFailure: JsMemoryEventType = JsMemoryEventType(2i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsMemoryFree: JsMemoryEventType = JsMemoryEventType(1i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsNoError: JsErrorCode = JsErrorCode(0u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsNull: JsValueType = JsValueType(1i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsNumber: JsValueType = JsValueType(2i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsObject: JsValueType = JsValueType(5i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsRuntimeAttributeAllowScriptInterrupt: JsRuntimeAttributes = JsRuntimeAttributes(2i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsRuntimeAttributeDisableBackgroundWork: JsRuntimeAttributes = JsRuntimeAttributes(1i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsRuntimeAttributeDisableEval: JsRuntimeAttributes = JsRuntimeAttributes(16i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsRuntimeAttributeDisableNativeCodeGeneration: JsRuntimeAttributes = JsRuntimeAttributes(8i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsRuntimeAttributeEnableIdleProcessing: JsRuntimeAttributes = JsRuntimeAttributes(4i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsRuntimeAttributeNone: JsRuntimeAttributes = JsRuntimeAttributes(0i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsRuntimeVersion10: JsRuntimeVersion = JsRuntimeVersion(0i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsRuntimeVersion11: JsRuntimeVersion = JsRuntimeVersion(1i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsRuntimeVersionEdge: JsRuntimeVersion = JsRuntimeVersion(-1i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsString: JsValueType = JsValueType(3i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsUndefined: JsValueType = JsValueType(0i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct JsErrorCode(pub u32);
 impl ::core::marker::Copy for JsErrorCode {}
 impl ::core::clone::Clone for JsErrorCode {
     fn clone(&self) -> Self {
@@ -658,12 +700,6 @@ impl ::core::fmt::Debug for JsErrorCode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JsMemoryEventType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsMemoryAllocate: JsMemoryEventType = JsMemoryEventType(0i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsMemoryFree: JsMemoryEventType = JsMemoryEventType(1i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsMemoryFailure: JsMemoryEventType = JsMemoryEventType(2i32);
 impl ::core::marker::Copy for JsMemoryEventType {}
 impl ::core::clone::Clone for JsMemoryEventType {
     fn clone(&self) -> Self {
@@ -687,18 +723,6 @@ impl ::core::fmt::Debug for JsMemoryEventType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JsRuntimeAttributes(pub i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsRuntimeAttributeNone: JsRuntimeAttributes = JsRuntimeAttributes(0i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsRuntimeAttributeDisableBackgroundWork: JsRuntimeAttributes = JsRuntimeAttributes(1i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsRuntimeAttributeAllowScriptInterrupt: JsRuntimeAttributes = JsRuntimeAttributes(2i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsRuntimeAttributeEnableIdleProcessing: JsRuntimeAttributes = JsRuntimeAttributes(4i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsRuntimeAttributeDisableNativeCodeGeneration: JsRuntimeAttributes = JsRuntimeAttributes(8i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsRuntimeAttributeDisableEval: JsRuntimeAttributes = JsRuntimeAttributes(16i32);
 impl ::core::marker::Copy for JsRuntimeAttributes {}
 impl ::core::clone::Clone for JsRuntimeAttributes {
     fn clone(&self) -> Self {
@@ -722,12 +746,6 @@ impl ::core::fmt::Debug for JsRuntimeAttributes {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JsRuntimeVersion(pub i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsRuntimeVersion10: JsRuntimeVersion = JsRuntimeVersion(0i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsRuntimeVersion11: JsRuntimeVersion = JsRuntimeVersion(1i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsRuntimeVersionEdge: JsRuntimeVersion = JsRuntimeVersion(-1i32);
 impl ::core::marker::Copy for JsRuntimeVersion {}
 impl ::core::clone::Clone for JsRuntimeVersion {
     fn clone(&self) -> Self {
@@ -751,24 +769,6 @@ impl ::core::fmt::Debug for JsRuntimeVersion {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JsValueType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsUndefined: JsValueType = JsValueType(0i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsNull: JsValueType = JsValueType(1i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsNumber: JsValueType = JsValueType(2i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsString: JsValueType = JsValueType(3i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsBoolean: JsValueType = JsValueType(4i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsObject: JsValueType = JsValueType(5i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsFunction: JsValueType = JsValueType(6i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsError: JsValueType = JsValueType(7i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsArray: JsValueType = JsValueType(8i32);
 impl ::core::marker::Copy for JsValueType {}
 impl ::core::clone::Clone for JsValueType {
     fn clone(&self) -> Self {

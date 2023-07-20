@@ -9236,6 +9236,10 @@ pub struct IXpsRasterizerNotificationCallback_Vtbl {
     pub Continue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const ALREADY_REGISTERED: PrintAsyncNotifyError = PrintAsyncNotifyError(15i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const ALREADY_UNREGISTERED: PrintAsyncNotifyError = PrintAsyncNotifyError(14i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const APD_COPY_ALL_FILES: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const APD_COPY_FROM_DIRECTORY: u32 = 16u32;
@@ -9250,6 +9254,12 @@ pub const APPLYCPSUI_NO_NEWDEF: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const APPLYCPSUI_OK_CANCEL_BUTTON: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const ASYNC_CALL_ALREADY_PARKED: PrintAsyncNotifyError = PrintAsyncNotifyError(12i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const ASYNC_CALL_IN_PROGRESS: PrintAsyncNotifyError = PrintAsyncNotifyError(17i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const ASYNC_NOTIFICATION_FAILURE: PrintAsyncNotifyError = PrintAsyncNotifyError(6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const BIDI_ACCESS_ADMINISTRATOR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const BIDI_ACCESS_USER: u32 = 2u32;
@@ -9263,6 +9273,22 @@ pub const BIDI_ACTION_GET_ALL: ::windows_core::PCWSTR = ::windows_core::w!("GetA
 pub const BIDI_ACTION_GET_WITH_ARGUMENT: ::windows_core::PCWSTR = ::windows_core::w!("GetWithArgument");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const BIDI_ACTION_SET: ::windows_core::PCWSTR = ::windows_core::w!("Set");
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const BIDI_BLOB: BIDI_TYPE = BIDI_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const BIDI_BOOL: BIDI_TYPE = BIDI_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const BIDI_ENUM: BIDI_TYPE = BIDI_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const BIDI_FLOAT: BIDI_TYPE = BIDI_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const BIDI_INT: BIDI_TYPE = BIDI_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const BIDI_NULL: BIDI_TYPE = BIDI_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const BIDI_STRING: BIDI_TYPE = BIDI_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const BIDI_TEXT: BIDI_TYPE = BIDI_TYPE(5i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const BOOKLET_EDGE_LEFT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -9311,6 +9337,24 @@ pub const CDM_CONVERT: u32 = 1u32;
 pub const CDM_CONVERT351: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const CDM_DRIVER_DEFAULT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const CHANNEL_ACQUIRED: PrintAsyncNotifyError = PrintAsyncNotifyError(16i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const CHANNEL_ALREADY_CLOSED: PrintAsyncNotifyError = PrintAsyncNotifyError(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const CHANNEL_ALREADY_OPENED: PrintAsyncNotifyError = PrintAsyncNotifyError(9i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const CHANNEL_CLOSED_BY_ANOTHER_LISTENER: PrintAsyncNotifyError = PrintAsyncNotifyError(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const CHANNEL_CLOSED_BY_SAME_LISTENER: PrintAsyncNotifyError = PrintAsyncNotifyError(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const CHANNEL_CLOSED_BY_SERVER: PrintAsyncNotifyError = PrintAsyncNotifyError(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const CHANNEL_NOT_OPENED: PrintAsyncNotifyError = PrintAsyncNotifyError(11i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const CHANNEL_RELEASED_BY_LISTENER: PrintAsyncNotifyError = PrintAsyncNotifyError(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const CHANNEL_WAITING_FOR_CLIENT_NOTIFICATION: PrintAsyncNotifyError = PrintAsyncNotifyError(10i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const CHKBOXS_FALSE_PDATA: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -9479,6 +9523,14 @@ pub const CUSTOMPARAM_ORIENTATION: u32 = 4u32;
 pub const CUSTOMPARAM_WIDTH: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const CUSTOMPARAM_WIDTHOFFSET: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const Compression_Fast: EXpsCompressionOptions = EXpsCompressionOptions(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const Compression_Normal: EXpsCompressionOptions = EXpsCompressionOptions(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const Compression_NotCompressed: EXpsCompressionOptions = EXpsCompressionOptions(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const Compression_Small: EXpsCompressionOptions = EXpsCompressionOptions(2i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const DEF_PRIORITY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -10188,6 +10240,12 @@ pub const FORM_PRINTER: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const FORM_USER: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const FinalPageCount: PageCountType = PageCountType(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const Font_Normal: EXpsFontOptions = EXpsFontOptions(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const Font_Obfusticate: EXpsFontOptions = EXpsFontOptions(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const GPD_OEMCUSTOMDATA: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const GUID_DEVINTERFACE_IPPUSB_PRINT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2f40381_f46d_4e51_bce7_62de6cf2d098);
@@ -10818,6 +10876,10 @@ pub const INSPSUIPAGE_MODE_INDEX: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const INSPSUIPAGE_MODE_LAST_CHILD: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const INTERNAL_NOTIFICATION_QUEUE_IS_FULL: PrintAsyncNotifyError = PrintAsyncNotifyError(19i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const INVALID_NOTIFICATION_TYPE: PrintAsyncNotifyError = PrintAsyncNotifyError(20i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const IOCTL_USBPRINT_ADD_CHILD_DEVICE: u32 = 2228316u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const IOCTL_USBPRINT_ADD_MSIPP_COMPAT_ID: u32 = 2228308u32;
@@ -10845,6 +10907,8 @@ pub const IOCTL_USBPRINT_VENDOR_GET_COMMAND: u32 = 2228284u32;
 pub const IOCTL_USBPRINT_VENDOR_SET_COMMAND: u32 = 2228280u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const IPDFP_COPY_ALL_FILES: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const IntermediatePageCount: PageCountType = PageCountType(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const JOB_ACCESS_ADMINISTER: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -10954,9 +11018,13 @@ pub const JOB_STATUS_SPOOLING: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const JOB_STATUS_USER_INTERVENTION: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const LOCAL_ONLY_REGISTRATION: PrintAsyncNotifyError = PrintAsyncNotifyError(23i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const LPR: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const MAX_ADDRESS_STR_LEN: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const MAX_CHANNEL_COUNT_EXCEEDED: PrintAsyncNotifyError = PrintAsyncNotifyError(22i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const MAX_CPSFUNC_INDEX: u32 = 26u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -10972,6 +11040,8 @@ pub const MAX_NETWORKNAME2_LEN: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const MAX_NETWORKNAME_LEN: u32 = 49u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const MAX_NOTIFICATION_SIZE_EXCEEDED: PrintAsyncNotifyError = PrintAsyncNotifyError(18i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const MAX_PORTNAME_LEN: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const MAX_PRIORITY: u32 = 99u32;
@@ -10981,6 +11051,8 @@ pub const MAX_PROPSHEETUI_REASON_INDEX: u32 = 5u32;
 pub const MAX_PSUIPAGEINSERT_INDEX: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const MAX_QUEUENAME_LEN: u32 = 33u32;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const MAX_REGISTRATION_COUNT_EXCEEDED: PrintAsyncNotifyError = PrintAsyncNotifyError(21i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const MAX_RES_STR_CHARS: u32 = 160u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -11040,13 +11112,65 @@ pub const MXDCOP_SET_XPSPASSTHRU_MODE: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const MXDC_ESCAPE: u32 = 4122u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const MXDC_IMAGETYPE_JPEGHIGH_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = MXDC_IMAGE_TYPE_ENUMS(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const MXDC_IMAGETYPE_JPEGLOW_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = MXDC_IMAGE_TYPE_ENUMS(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const MXDC_IMAGETYPE_JPEGMEDIUM_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = MXDC_IMAGE_TYPE_ENUMS(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const MXDC_IMAGETYPE_PNG: MXDC_IMAGE_TYPE_ENUMS = MXDC_IMAGE_TYPE_ENUMS(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_270_DEGREES: MXDC_LANDSCAPE_ROTATION_ENUMS = MXDC_LANDSCAPE_ROTATION_ENUMS(-90i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_90_DEGREES: MXDC_LANDSCAPE_ROTATION_ENUMS = MXDC_LANDSCAPE_ROTATION_ENUMS(90i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const MXDC_LANDSCAPE_ROTATE_NONE: MXDC_LANDSCAPE_ROTATION_ENUMS = MXDC_LANDSCAPE_ROTATION_ENUMS(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const MXDC_RESOURCE_DICTIONARY: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const MXDC_RESOURCE_ICC_PROFILE: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const MXDC_RESOURCE_JPEG: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const MXDC_RESOURCE_JPEG_THUMBNAIL: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(7i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const MXDC_RESOURCE_MAX: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(9i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const MXDC_RESOURCE_PNG: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const MXDC_RESOURCE_PNG_THUMBNAIL: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const MXDC_RESOURCE_TIFF: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const MXDC_RESOURCE_TTF: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const MXDC_RESOURCE_WDP: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const NORMAL_PRINT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const NOTIFICATION_COMMAND_CONTEXT_ACQUIRE: NOTIFICATION_CALLBACK_COMMANDS = NOTIFICATION_CALLBACK_COMMANDS(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const NOTIFICATION_COMMAND_CONTEXT_RELEASE: NOTIFICATION_CALLBACK_COMMANDS = NOTIFICATION_CALLBACK_COMMANDS(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const NOTIFICATION_COMMAND_NOTIFY: NOTIFICATION_CALLBACK_COMMANDS = NOTIFICATION_CALLBACK_COMMANDS(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const NOTIFICATION_CONFIG_ASYNC_CHANNEL: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const NOTIFICATION_CONFIG_CREATE_EVENT: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const NOTIFICATION_CONFIG_EVENT_TRIGGER: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const NOTIFICATION_CONFIG_REGISTER_CALLBACK: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const NOTIFICATION_RELEASE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xba9a5027_a70e_4ae7_9b7d_eb3e06ad4157);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const NOT_REGISTERED: PrintAsyncNotifyError = PrintAsyncNotifyError(13i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const NO_BORDER_PRINT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const NO_COLOR_OPTIMIZATION: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const NO_LISTENERS: PrintAsyncNotifyError = PrintAsyncNotifyError(7i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const NO_PRIORITY: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -11258,6 +11382,14 @@ pub const PPCAPS_RIGHT_THEN_DOWN: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PPCAPS_SQUARE_SCALING: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINTER_ACCESS_ADMINISTER: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(4u32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINTER_ACCESS_MANAGE_LIMITED: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(64u32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINTER_ACCESS_USE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINTER_ALL_ACCESS: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(983052u32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PRINTER_ATTRIBUTE_DEFAULT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PRINTER_ATTRIBUTE_DIRECT: u32 = 2u32;
@@ -11372,6 +11504,8 @@ pub const PRINTER_CONTROL_RESUME: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PRINTER_CONTROL_SET_STATUS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINTER_DELETE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(65536u32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PRINTER_DRIVER_CATEGORY_3D: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PRINTER_DRIVER_CATEGORY_CLOUD: u32 = 8192u32;
@@ -11480,6 +11614,8 @@ pub const PRINTER_EVENT_FLAG_NO_UI: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PRINTER_EVENT_INITIALIZE: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINTER_EXECUTE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131080u32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PRINTER_EXTENSION_DETAILEDREASON_PRINTER_STATUS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d5a1704_dfd1_4181_8eee_815c86edad31);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PRINTER_EXTENSION_REASON_DRIVER_EVENT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x23bb1328_63de_4293_915b_a6a23d929acb);
@@ -11564,6 +11700,26 @@ pub const PRINTER_NOTIFY_TYPE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PRINTER_OEMINTF_VERSION: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINTER_OPTION_CACHE: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINTER_OPTION_CLIENT_CHANGE: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINTER_OPTION_NO_CACHE: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINTER_OPTION_NO_CLIENT_DATA: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINTER_READ: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131080u32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINTER_READ_CONTROL: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131072u32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINTER_STANDARD_RIGHTS_EXECUTE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131072u32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINTER_STANDARD_RIGHTS_READ: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131072u32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINTER_STANDARD_RIGHTS_REQUIRED: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(983040u32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINTER_STANDARD_RIGHTS_WRITE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131072u32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PRINTER_STATUS_BUSY: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PRINTER_STATUS_DOOR_OPEN: u32 = 4194304u32;
@@ -11618,7 +11774,25 @@ pub const PRINTER_STATUS_WAITING: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PRINTER_STATUS_WARMING_UP: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINTER_SYNCHRONIZE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(1048576u32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINTER_WRITE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131080u32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINTER_WRITE_DAC: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(262144u32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINTER_WRITE_OWNER: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(524288u32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PRINT_APP_BIDI_NOTIFY_CHANNEL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2abad223_b994_4aca_82fc_4571b1b585ac);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINT_EXECUTION_CONTEXT_APPLICATION: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINT_EXECUTION_CONTEXT_FILTER_PIPELINE: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINT_EXECUTION_CONTEXT_SPOOLER_ISOLATION_HOST: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINT_EXECUTION_CONTEXT_SPOOLER_SERVICE: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PRINT_EXECUTION_CONTEXT_WOW64: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(4i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PRINT_PORT_MONITOR_NOTIFY_CHANNEL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x25df3b0e_74a9_47f5_80ce_79b4b1eb5c58);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -11668,6 +11842,10 @@ pub const PSUIPAGEINSERT_PFNPROPSHEETUI: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PSUIPAGEINSERT_PROPSHEETPAGE: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PTSHIM_DEFAULT: SHIMOPTS = SHIMOPTS(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PTSHIM_NOSNAPSHOT: SHIMOPTS = SHIMOPTS(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PUSHBUTTON_TYPE_CALLBACK: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PUSHBUTTON_TYPE_DLGPROC: u32 = 0u32;
@@ -11676,7 +11854,53 @@ pub const PUSHBUTTON_TYPE_HTCLRADJ: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PUSHBUTTON_TYPE_HTSETUP: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintJobStatus_BlockedDeviceQueue: PrintJobStatus = PrintJobStatus(512i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintJobStatus_Complete: PrintJobStatus = PrintJobStatus(4096i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintJobStatus_Deleted: PrintJobStatus = PrintJobStatus(256i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintJobStatus_Deleting: PrintJobStatus = PrintJobStatus(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintJobStatus_Error: PrintJobStatus = PrintJobStatus(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintJobStatus_Offline: PrintJobStatus = PrintJobStatus(32i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintJobStatus_PaperOut: PrintJobStatus = PrintJobStatus(64i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintJobStatus_Paused: PrintJobStatus = PrintJobStatus(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintJobStatus_Printed: PrintJobStatus = PrintJobStatus(128i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintJobStatus_Printing: PrintJobStatus = PrintJobStatus(16i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintJobStatus_Restarted: PrintJobStatus = PrintJobStatus(2048i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintJobStatus_Retained: PrintJobStatus = PrintJobStatus(8192i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintJobStatus_Spooling: PrintJobStatus = PrintJobStatus(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintJobStatus_UserIntervention: PrintJobStatus = PrintJobStatus(1024i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PrintSchemaAsyncOperation: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43b2f83d_10f2_48ab_831b_55fdbdbd34a4);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintSchemaConstrainedSetting_Admin: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintSchemaConstrainedSetting_Device: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintSchemaConstrainedSetting_None: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintSchemaConstrainedSetting_PrintTicket: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintSchemaParameterDataType_Integer: PrintSchemaParameterDataType = PrintSchemaParameterDataType(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintSchemaParameterDataType_NumericString: PrintSchemaParameterDataType = PrintSchemaParameterDataType(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintSchemaParameterDataType_String: PrintSchemaParameterDataType = PrintSchemaParameterDataType(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintSchemaSelectionType_PickMany: PrintSchemaSelectionType = PrintSchemaSelectionType(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const PrintSchemaSelectionType_PickOne: PrintSchemaSelectionType = PrintSchemaSelectionType(0i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const PrinterExtensionManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x331b60da_9e90_4dd0_9c84_eac4e659b61f);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -11694,6 +11918,8 @@ pub const QCP_SOURCEPROFILE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const RAWTCP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const REMOTE_ONLY_REGISTRATION: PrintAsyncNotifyError = PrintAsyncNotifyError(24i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const REVERSE_PAGES_FOR_REVERSE_DUPLEX: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const REVERSE_PRINT: u32 = 1u32;
@@ -11706,9 +11932,21 @@ pub const ROUTER_SUCCESS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const ROUTER_UNKNOWN: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const SERVER_ACCESS_ADMINISTER: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const SERVER_ACCESS_ENUMERATE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const SERVER_ALL_ACCESS: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(983043u32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const SERVER_EXECUTE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131074u32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const SERVER_NOTIFY_FIELD_PRINT_DRIVER_ISOLATION_GROUP: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const SERVER_NOTIFY_TYPE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const SERVER_READ: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131074u32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const SERVER_WRITE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131075u32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const SETOPTIONS_FLAG_KEEP_CONFLICT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -11988,6 +12226,8 @@ pub const UFO_GETINFO_STDVARIABLE: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const UNIFM_VERSION_1_0: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const UNIRECTIONAL_NOTIFICATION_LOST: PrintAsyncNotifyError = PrintAsyncNotifyError(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const UNI_GLYPHSETDATA_VERSION_1_0: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const UNKNOWN_PROTOCOL: u32 = 0u32;
@@ -12007,6 +12247,20 @@ pub const USB_PRINTER_INTERFACE_DUAL: u32 = 3u32;
 pub const USB_PRINTER_INTERFACE_IPP: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const WM_FI_FILENAME: u32 = 900u32;
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const XPSRAS_BACKGROUND_COLOR_OPAQUE: XPSRAS_BACKGROUND_COLOR = XPSRAS_BACKGROUND_COLOR(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const XPSRAS_BACKGROUND_COLOR_TRANSPARENT: XPSRAS_BACKGROUND_COLOR = XPSRAS_BACKGROUND_COLOR(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const XPSRAS_PIXEL_FORMAT_128BPP_PRGBA_FLOAT_SCRGB: XPSRAS_PIXEL_FORMAT = XPSRAS_PIXEL_FORMAT(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const XPSRAS_PIXEL_FORMAT_32BPP_PBGRA_UINT_SRGB: XPSRAS_PIXEL_FORMAT = XPSRAS_PIXEL_FORMAT(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const XPSRAS_PIXEL_FORMAT_64BPP_PRGBA_HALF_SCRGB: XPSRAS_PIXEL_FORMAT = XPSRAS_PIXEL_FORMAT(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const XPSRAS_RENDERING_MODE_ALIASED: XPSRAS_RENDERING_MODE = XPSRAS_RENDERING_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const XPSRAS_RENDERING_MODE_ANTIALIASED: XPSRAS_RENDERING_MODE = XPSRAS_RENDERING_MODE(0i32);
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const XPS_FP_DRIVER_PROPERTY_BAG: ::windows_core::PCWSTR = ::windows_core::w!("DriverPropertyBag");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
@@ -12042,25 +12296,111 @@ pub const XPS_FP_USER_PRINT_TICKET: ::windows_core::PCWSTR = ::windows_core::w!(
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 pub const XPS_FP_USER_TOKEN: ::windows_core::PCWSTR = ::windows_core::w!("UserSecurityToken");
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const XpsJob_DocumentSequenceAdded: EXpsJobConsumption = EXpsJobConsumption(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const XpsJob_FixedDocumentAdded: EXpsJobConsumption = EXpsJobConsumption(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const XpsJob_FixedPageAdded: EXpsJobConsumption = EXpsJobConsumption(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const Xps_Restricted_Font_Editable: EXpsFontRestriction = EXpsFontRestriction(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const Xps_Restricted_Font_Installable: EXpsFontRestriction = EXpsFontRestriction(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const Xps_Restricted_Font_NoEmbedding: EXpsFontRestriction = EXpsFontRestriction(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const Xps_Restricted_Font_PreviewPrint: EXpsFontRestriction = EXpsFontRestriction(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kADT_ASCII: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kADT_BINARY: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(7i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kADT_BOOL: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kADT_CUSTOMSIZEPARAMS: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(10i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kADT_DWORD: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kADT_INT: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kADT_LONG: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kADT_RECT: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(9i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kADT_SIZE: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kADT_UNICODE: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kADT_UNKNOWN: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kAddingDocumentSequence: EPrintXPSJobProgress = EPrintXPSJobProgress(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kAddingFixedDocument: EPrintXPSJobProgress = EPrintXPSJobProgress(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kAddingFixedPage: EPrintXPSJobProgress = EPrintXPSJobProgress(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kAllUsers: PrintAsyncNotifyUserFilter = PrintAsyncNotifyUserFilter(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kBiDirectional: PrintAsyncNotifyConversationStyle = PrintAsyncNotifyConversationStyle(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kDocumentSequenceAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kFixedDocumentAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kFixedPageAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kFontAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(7i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kImageAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kInvalidJobState: EBranchOfficeJobEventType = EBranchOfficeJobEventType(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kJobConsumption: EPrintXPSJobOperation = EPrintXPSJobOperation(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kJobProduction: EPrintXPSJobOperation = EPrintXPSJobOperation(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kLogJobError: EBranchOfficeJobEventType = EBranchOfficeJobEventType(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kLogJobPipelineError: EBranchOfficeJobEventType = EBranchOfficeJobEventType(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kLogJobPrinted: EBranchOfficeJobEventType = EBranchOfficeJobEventType(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kLogJobRendered: EBranchOfficeJobEventType = EBranchOfficeJobEventType(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kLogOfflineFileFull: EBranchOfficeJobEventType = EBranchOfficeJobEventType(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kMessageBox: UI_TYPE = UI_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kPerUser: PrintAsyncNotifyUserFilter = PrintAsyncNotifyUserFilter(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kPropertyTypeBuffer: EPrintPropertyType = EPrintPropertyType(10i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kPropertyTypeByte: EPrintPropertyType = EPrintPropertyType(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kPropertyTypeDevMode: EPrintPropertyType = EPrintPropertyType(6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kPropertyTypeInt32: EPrintPropertyType = EPrintPropertyType(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kPropertyTypeInt64: EPrintPropertyType = EPrintPropertyType(3i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kPropertyTypeNotificationOptions: EPrintPropertyType = EPrintPropertyType(9i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kPropertyTypeNotificationReply: EPrintPropertyType = EPrintPropertyType(8i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kPropertyTypeSD: EPrintPropertyType = EPrintPropertyType(7i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kPropertyTypeString: EPrintPropertyType = EPrintPropertyType(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kPropertyTypeTime: EPrintPropertyType = EPrintPropertyType(5i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kResourceAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(6i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kUniDirectional: PrintAsyncNotifyConversationStyle = PrintAsyncNotifyConversationStyle(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
+pub const kXpsDocumentCommitted: EPrintXPSJobProgress = EPrintXPSJobProgress(9i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BIDI_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const BIDI_NULL: BIDI_TYPE = BIDI_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const BIDI_INT: BIDI_TYPE = BIDI_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const BIDI_FLOAT: BIDI_TYPE = BIDI_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const BIDI_BOOL: BIDI_TYPE = BIDI_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const BIDI_STRING: BIDI_TYPE = BIDI_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const BIDI_TEXT: BIDI_TYPE = BIDI_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const BIDI_ENUM: BIDI_TYPE = BIDI_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const BIDI_BLOB: BIDI_TYPE = BIDI_TYPE(7i32);
 impl ::core::marker::Copy for BIDI_TYPE {}
 impl ::core::clone::Clone for BIDI_TYPE {
     fn clone(&self) -> Self {
@@ -12084,28 +12424,6 @@ impl ::core::fmt::Debug for BIDI_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EATTRIBUTE_DATATYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kADT_UNKNOWN: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kADT_BOOL: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kADT_INT: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kADT_LONG: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kADT_DWORD: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kADT_ASCII: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kADT_UNICODE: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kADT_BINARY: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kADT_SIZE: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kADT_RECT: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kADT_CUSTOMSIZEPARAMS: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(10i32);
 impl ::core::marker::Copy for EATTRIBUTE_DATATYPE {}
 impl ::core::clone::Clone for EATTRIBUTE_DATATYPE {
     fn clone(&self) -> Self {
@@ -12129,18 +12447,6 @@ impl ::core::fmt::Debug for EATTRIBUTE_DATATYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EBranchOfficeJobEventType(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kInvalidJobState: EBranchOfficeJobEventType = EBranchOfficeJobEventType(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kLogJobPrinted: EBranchOfficeJobEventType = EBranchOfficeJobEventType(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kLogJobRendered: EBranchOfficeJobEventType = EBranchOfficeJobEventType(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kLogJobError: EBranchOfficeJobEventType = EBranchOfficeJobEventType(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kLogJobPipelineError: EBranchOfficeJobEventType = EBranchOfficeJobEventType(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kLogOfflineFileFull: EBranchOfficeJobEventType = EBranchOfficeJobEventType(5i32);
 impl ::core::marker::Copy for EBranchOfficeJobEventType {}
 impl ::core::clone::Clone for EBranchOfficeJobEventType {
     fn clone(&self) -> Self {
@@ -12164,26 +12470,6 @@ impl ::core::fmt::Debug for EBranchOfficeJobEventType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EPrintPropertyType(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kPropertyTypeString: EPrintPropertyType = EPrintPropertyType(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kPropertyTypeInt32: EPrintPropertyType = EPrintPropertyType(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kPropertyTypeInt64: EPrintPropertyType = EPrintPropertyType(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kPropertyTypeByte: EPrintPropertyType = EPrintPropertyType(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kPropertyTypeTime: EPrintPropertyType = EPrintPropertyType(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kPropertyTypeDevMode: EPrintPropertyType = EPrintPropertyType(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kPropertyTypeSD: EPrintPropertyType = EPrintPropertyType(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kPropertyTypeNotificationReply: EPrintPropertyType = EPrintPropertyType(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kPropertyTypeNotificationOptions: EPrintPropertyType = EPrintPropertyType(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kPropertyTypeBuffer: EPrintPropertyType = EPrintPropertyType(10i32);
 impl ::core::marker::Copy for EPrintPropertyType {}
 impl ::core::clone::Clone for EPrintPropertyType {
     fn clone(&self) -> Self {
@@ -12207,10 +12493,6 @@ impl ::core::fmt::Debug for EPrintPropertyType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EPrintXPSJobOperation(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kJobProduction: EPrintXPSJobOperation = EPrintXPSJobOperation(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kJobConsumption: EPrintXPSJobOperation = EPrintXPSJobOperation(2i32);
 impl ::core::marker::Copy for EPrintXPSJobOperation {}
 impl ::core::clone::Clone for EPrintXPSJobOperation {
     fn clone(&self) -> Self {
@@ -12234,26 +12516,6 @@ impl ::core::fmt::Debug for EPrintXPSJobOperation {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EPrintXPSJobProgress(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kAddingDocumentSequence: EPrintXPSJobProgress = EPrintXPSJobProgress(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kDocumentSequenceAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kAddingFixedDocument: EPrintXPSJobProgress = EPrintXPSJobProgress(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kFixedDocumentAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kAddingFixedPage: EPrintXPSJobProgress = EPrintXPSJobProgress(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kFixedPageAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kResourceAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kFontAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kImageAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kXpsDocumentCommitted: EPrintXPSJobProgress = EPrintXPSJobProgress(9i32);
 impl ::core::marker::Copy for EPrintXPSJobProgress {}
 impl ::core::clone::Clone for EPrintXPSJobProgress {
     fn clone(&self) -> Self {
@@ -12277,14 +12539,6 @@ impl ::core::fmt::Debug for EPrintXPSJobProgress {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXpsCompressionOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const Compression_NotCompressed: EXpsCompressionOptions = EXpsCompressionOptions(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const Compression_Normal: EXpsCompressionOptions = EXpsCompressionOptions(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const Compression_Small: EXpsCompressionOptions = EXpsCompressionOptions(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const Compression_Fast: EXpsCompressionOptions = EXpsCompressionOptions(3i32);
 impl ::core::marker::Copy for EXpsCompressionOptions {}
 impl ::core::clone::Clone for EXpsCompressionOptions {
     fn clone(&self) -> Self {
@@ -12308,10 +12562,6 @@ impl ::core::fmt::Debug for EXpsCompressionOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXpsFontOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const Font_Normal: EXpsFontOptions = EXpsFontOptions(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const Font_Obfusticate: EXpsFontOptions = EXpsFontOptions(1i32);
 impl ::core::marker::Copy for EXpsFontOptions {}
 impl ::core::clone::Clone for EXpsFontOptions {
     fn clone(&self) -> Self {
@@ -12335,14 +12585,6 @@ impl ::core::fmt::Debug for EXpsFontOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXpsFontRestriction(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const Xps_Restricted_Font_Installable: EXpsFontRestriction = EXpsFontRestriction(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const Xps_Restricted_Font_NoEmbedding: EXpsFontRestriction = EXpsFontRestriction(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const Xps_Restricted_Font_PreviewPrint: EXpsFontRestriction = EXpsFontRestriction(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const Xps_Restricted_Font_Editable: EXpsFontRestriction = EXpsFontRestriction(8i32);
 impl ::core::marker::Copy for EXpsFontRestriction {}
 impl ::core::clone::Clone for EXpsFontRestriction {
     fn clone(&self) -> Self {
@@ -12366,12 +12608,6 @@ impl ::core::fmt::Debug for EXpsFontRestriction {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXpsJobConsumption(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XpsJob_DocumentSequenceAdded: EXpsJobConsumption = EXpsJobConsumption(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XpsJob_FixedDocumentAdded: EXpsJobConsumption = EXpsJobConsumption(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XpsJob_FixedPageAdded: EXpsJobConsumption = EXpsJobConsumption(2i32);
 impl ::core::marker::Copy for EXpsJobConsumption {}
 impl ::core::clone::Clone for EXpsJobConsumption {
     fn clone(&self) -> Self {
@@ -12395,14 +12631,6 @@ impl ::core::fmt::Debug for EXpsJobConsumption {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MXDC_IMAGE_TYPE_ENUMS(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_IMAGETYPE_JPEGHIGH_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = MXDC_IMAGE_TYPE_ENUMS(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_IMAGETYPE_JPEGMEDIUM_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = MXDC_IMAGE_TYPE_ENUMS(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_IMAGETYPE_JPEGLOW_COMPRESSION: MXDC_IMAGE_TYPE_ENUMS = MXDC_IMAGE_TYPE_ENUMS(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_IMAGETYPE_PNG: MXDC_IMAGE_TYPE_ENUMS = MXDC_IMAGE_TYPE_ENUMS(4i32);
 impl ::core::marker::Copy for MXDC_IMAGE_TYPE_ENUMS {}
 impl ::core::clone::Clone for MXDC_IMAGE_TYPE_ENUMS {
     fn clone(&self) -> Self {
@@ -12426,12 +12654,6 @@ impl ::core::fmt::Debug for MXDC_IMAGE_TYPE_ENUMS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MXDC_LANDSCAPE_ROTATION_ENUMS(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_90_DEGREES: MXDC_LANDSCAPE_ROTATION_ENUMS = MXDC_LANDSCAPE_ROTATION_ENUMS(90i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_LANDSCAPE_ROTATE_NONE: MXDC_LANDSCAPE_ROTATION_ENUMS = MXDC_LANDSCAPE_ROTATION_ENUMS(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_270_DEGREES: MXDC_LANDSCAPE_ROTATION_ENUMS = MXDC_LANDSCAPE_ROTATION_ENUMS(-90i32);
 impl ::core::marker::Copy for MXDC_LANDSCAPE_ROTATION_ENUMS {}
 impl ::core::clone::Clone for MXDC_LANDSCAPE_ROTATION_ENUMS {
     fn clone(&self) -> Self {
@@ -12455,26 +12677,6 @@ impl ::core::fmt::Debug for MXDC_LANDSCAPE_ROTATION_ENUMS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MXDC_S0_PAGE_ENUMS(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_RESOURCE_TTF: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_RESOURCE_JPEG: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_RESOURCE_PNG: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_RESOURCE_TIFF: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_RESOURCE_WDP: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_RESOURCE_DICTIONARY: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_RESOURCE_ICC_PROFILE: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_RESOURCE_JPEG_THUMBNAIL: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_RESOURCE_PNG_THUMBNAIL: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MXDC_RESOURCE_MAX: MXDC_S0_PAGE_ENUMS = MXDC_S0_PAGE_ENUMS(9i32);
 impl ::core::marker::Copy for MXDC_S0_PAGE_ENUMS {}
 impl ::core::clone::Clone for MXDC_S0_PAGE_ENUMS {
     fn clone(&self) -> Self {
@@ -12498,12 +12700,6 @@ impl ::core::fmt::Debug for MXDC_S0_PAGE_ENUMS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NOTIFICATION_CALLBACK_COMMANDS(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const NOTIFICATION_COMMAND_NOTIFY: NOTIFICATION_CALLBACK_COMMANDS = NOTIFICATION_CALLBACK_COMMANDS(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const NOTIFICATION_COMMAND_CONTEXT_ACQUIRE: NOTIFICATION_CALLBACK_COMMANDS = NOTIFICATION_CALLBACK_COMMANDS(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const NOTIFICATION_COMMAND_CONTEXT_RELEASE: NOTIFICATION_CALLBACK_COMMANDS = NOTIFICATION_CALLBACK_COMMANDS(2i32);
 impl ::core::marker::Copy for NOTIFICATION_CALLBACK_COMMANDS {}
 impl ::core::clone::Clone for NOTIFICATION_CALLBACK_COMMANDS {
     fn clone(&self) -> Self {
@@ -12527,14 +12723,6 @@ impl ::core::fmt::Debug for NOTIFICATION_CALLBACK_COMMANDS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NOTIFICATION_CONFIG_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const NOTIFICATION_CONFIG_CREATE_EVENT: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const NOTIFICATION_CONFIG_REGISTER_CALLBACK: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const NOTIFICATION_CONFIG_EVENT_TRIGGER: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const NOTIFICATION_CONFIG_ASYNC_CHANNEL: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(8i32);
 impl ::core::marker::Copy for NOTIFICATION_CONFIG_FLAGS {}
 impl ::core::clone::Clone for NOTIFICATION_CONFIG_FLAGS {
     fn clone(&self) -> Self {
@@ -12558,50 +12746,6 @@ impl ::core::fmt::Debug for NOTIFICATION_CONFIG_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRINTER_ACCESS_RIGHTS(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINTER_ALL_ACCESS: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(983052u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINTER_READ: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131080u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINTER_WRITE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131080u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINTER_EXECUTE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131080u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SERVER_ALL_ACCESS: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(983043u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SERVER_READ: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131074u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SERVER_WRITE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131075u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SERVER_EXECUTE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131074u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINTER_DELETE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(65536u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINTER_READ_CONTROL: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131072u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINTER_WRITE_DAC: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(262144u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINTER_WRITE_OWNER: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(524288u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINTER_SYNCHRONIZE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(1048576u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINTER_STANDARD_RIGHTS_REQUIRED: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(983040u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINTER_STANDARD_RIGHTS_READ: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131072u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINTER_STANDARD_RIGHTS_WRITE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131072u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINTER_STANDARD_RIGHTS_EXECUTE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131072u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SERVER_ACCESS_ADMINISTER: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const SERVER_ACCESS_ENUMERATE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(2u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINTER_ACCESS_ADMINISTER: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(4u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINTER_ACCESS_USE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(8u32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINTER_ACCESS_MANAGE_LIMITED: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(64u32);
 impl ::core::marker::Copy for PRINTER_ACCESS_RIGHTS {}
 impl ::core::clone::Clone for PRINTER_ACCESS_RIGHTS {
     fn clone(&self) -> Self {
@@ -12658,14 +12802,6 @@ impl ::core::ops::Not for PRINTER_ACCESS_RIGHTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRINTER_OPTION_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINTER_OPTION_NO_CACHE: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINTER_OPTION_CACHE: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINTER_OPTION_CLIENT_CHANGE: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINTER_OPTION_NO_CLIENT_DATA: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(8i32);
 impl ::core::marker::Copy for PRINTER_OPTION_FLAGS {}
 impl ::core::clone::Clone for PRINTER_OPTION_FLAGS {
     fn clone(&self) -> Self {
@@ -12689,16 +12825,6 @@ impl ::core::fmt::Debug for PRINTER_OPTION_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRINT_EXECUTION_CONTEXT(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINT_EXECUTION_CONTEXT_APPLICATION: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINT_EXECUTION_CONTEXT_SPOOLER_SERVICE: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINT_EXECUTION_CONTEXT_SPOOLER_ISOLATION_HOST: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINT_EXECUTION_CONTEXT_FILTER_PIPELINE: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PRINT_EXECUTION_CONTEXT_WOW64: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(4i32);
 impl ::core::marker::Copy for PRINT_EXECUTION_CONTEXT {}
 impl ::core::clone::Clone for PRINT_EXECUTION_CONTEXT {
     fn clone(&self) -> Self {
@@ -12722,10 +12848,6 @@ impl ::core::fmt::Debug for PRINT_EXECUTION_CONTEXT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PageCountType(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const FinalPageCount: PageCountType = PageCountType(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const IntermediatePageCount: PageCountType = PageCountType(1i32);
 impl ::core::marker::Copy for PageCountType {}
 impl ::core::clone::Clone for PageCountType {
     fn clone(&self) -> Self {
@@ -12749,10 +12871,6 @@ impl ::core::fmt::Debug for PageCountType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintAsyncNotifyConversationStyle(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kBiDirectional: PrintAsyncNotifyConversationStyle = PrintAsyncNotifyConversationStyle(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kUniDirectional: PrintAsyncNotifyConversationStyle = PrintAsyncNotifyConversationStyle(1i32);
 impl ::core::marker::Copy for PrintAsyncNotifyConversationStyle {}
 impl ::core::clone::Clone for PrintAsyncNotifyConversationStyle {
     fn clone(&self) -> Self {
@@ -12776,54 +12894,6 @@ impl ::core::fmt::Debug for PrintAsyncNotifyConversationStyle {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintAsyncNotifyError(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const CHANNEL_CLOSED_BY_SERVER: PrintAsyncNotifyError = PrintAsyncNotifyError(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const CHANNEL_CLOSED_BY_ANOTHER_LISTENER: PrintAsyncNotifyError = PrintAsyncNotifyError(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const CHANNEL_CLOSED_BY_SAME_LISTENER: PrintAsyncNotifyError = PrintAsyncNotifyError(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const CHANNEL_RELEASED_BY_LISTENER: PrintAsyncNotifyError = PrintAsyncNotifyError(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const UNIRECTIONAL_NOTIFICATION_LOST: PrintAsyncNotifyError = PrintAsyncNotifyError(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const ASYNC_NOTIFICATION_FAILURE: PrintAsyncNotifyError = PrintAsyncNotifyError(6i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const NO_LISTENERS: PrintAsyncNotifyError = PrintAsyncNotifyError(7i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const CHANNEL_ALREADY_CLOSED: PrintAsyncNotifyError = PrintAsyncNotifyError(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const CHANNEL_ALREADY_OPENED: PrintAsyncNotifyError = PrintAsyncNotifyError(9i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const CHANNEL_WAITING_FOR_CLIENT_NOTIFICATION: PrintAsyncNotifyError = PrintAsyncNotifyError(10i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const CHANNEL_NOT_OPENED: PrintAsyncNotifyError = PrintAsyncNotifyError(11i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const ASYNC_CALL_ALREADY_PARKED: PrintAsyncNotifyError = PrintAsyncNotifyError(12i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const NOT_REGISTERED: PrintAsyncNotifyError = PrintAsyncNotifyError(13i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const ALREADY_UNREGISTERED: PrintAsyncNotifyError = PrintAsyncNotifyError(14i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const ALREADY_REGISTERED: PrintAsyncNotifyError = PrintAsyncNotifyError(15i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const CHANNEL_ACQUIRED: PrintAsyncNotifyError = PrintAsyncNotifyError(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const ASYNC_CALL_IN_PROGRESS: PrintAsyncNotifyError = PrintAsyncNotifyError(17i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MAX_NOTIFICATION_SIZE_EXCEEDED: PrintAsyncNotifyError = PrintAsyncNotifyError(18i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const INTERNAL_NOTIFICATION_QUEUE_IS_FULL: PrintAsyncNotifyError = PrintAsyncNotifyError(19i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const INVALID_NOTIFICATION_TYPE: PrintAsyncNotifyError = PrintAsyncNotifyError(20i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MAX_REGISTRATION_COUNT_EXCEEDED: PrintAsyncNotifyError = PrintAsyncNotifyError(21i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const MAX_CHANNEL_COUNT_EXCEEDED: PrintAsyncNotifyError = PrintAsyncNotifyError(22i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const LOCAL_ONLY_REGISTRATION: PrintAsyncNotifyError = PrintAsyncNotifyError(23i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const REMOTE_ONLY_REGISTRATION: PrintAsyncNotifyError = PrintAsyncNotifyError(24i32);
 impl ::core::marker::Copy for PrintAsyncNotifyError {}
 impl ::core::clone::Clone for PrintAsyncNotifyError {
     fn clone(&self) -> Self {
@@ -12847,10 +12917,6 @@ impl ::core::fmt::Debug for PrintAsyncNotifyError {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintAsyncNotifyUserFilter(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kPerUser: PrintAsyncNotifyUserFilter = PrintAsyncNotifyUserFilter(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kAllUsers: PrintAsyncNotifyUserFilter = PrintAsyncNotifyUserFilter(1i32);
 impl ::core::marker::Copy for PrintAsyncNotifyUserFilter {}
 impl ::core::clone::Clone for PrintAsyncNotifyUserFilter {
     fn clone(&self) -> Self {
@@ -12874,34 +12940,6 @@ impl ::core::fmt::Debug for PrintAsyncNotifyUserFilter {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintJobStatus(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintJobStatus_Paused: PrintJobStatus = PrintJobStatus(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintJobStatus_Error: PrintJobStatus = PrintJobStatus(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintJobStatus_Deleting: PrintJobStatus = PrintJobStatus(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintJobStatus_Spooling: PrintJobStatus = PrintJobStatus(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintJobStatus_Printing: PrintJobStatus = PrintJobStatus(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintJobStatus_Offline: PrintJobStatus = PrintJobStatus(32i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintJobStatus_PaperOut: PrintJobStatus = PrintJobStatus(64i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintJobStatus_Printed: PrintJobStatus = PrintJobStatus(128i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintJobStatus_Deleted: PrintJobStatus = PrintJobStatus(256i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintJobStatus_BlockedDeviceQueue: PrintJobStatus = PrintJobStatus(512i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintJobStatus_UserIntervention: PrintJobStatus = PrintJobStatus(1024i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintJobStatus_Restarted: PrintJobStatus = PrintJobStatus(2048i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintJobStatus_Complete: PrintJobStatus = PrintJobStatus(4096i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintJobStatus_Retained: PrintJobStatus = PrintJobStatus(8192i32);
 impl ::core::marker::Copy for PrintJobStatus {}
 impl ::core::clone::Clone for PrintJobStatus {
     fn clone(&self) -> Self {
@@ -12925,14 +12963,6 @@ impl ::core::fmt::Debug for PrintJobStatus {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintSchemaConstrainedSetting(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintSchemaConstrainedSetting_None: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintSchemaConstrainedSetting_PrintTicket: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintSchemaConstrainedSetting_Admin: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintSchemaConstrainedSetting_Device: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(3i32);
 impl ::core::marker::Copy for PrintSchemaConstrainedSetting {}
 impl ::core::clone::Clone for PrintSchemaConstrainedSetting {
     fn clone(&self) -> Self {
@@ -12956,12 +12986,6 @@ impl ::core::fmt::Debug for PrintSchemaConstrainedSetting {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintSchemaParameterDataType(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintSchemaParameterDataType_Integer: PrintSchemaParameterDataType = PrintSchemaParameterDataType(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintSchemaParameterDataType_NumericString: PrintSchemaParameterDataType = PrintSchemaParameterDataType(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintSchemaParameterDataType_String: PrintSchemaParameterDataType = PrintSchemaParameterDataType(2i32);
 impl ::core::marker::Copy for PrintSchemaParameterDataType {}
 impl ::core::clone::Clone for PrintSchemaParameterDataType {
     fn clone(&self) -> Self {
@@ -12985,10 +13009,6 @@ impl ::core::fmt::Debug for PrintSchemaParameterDataType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintSchemaSelectionType(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintSchemaSelectionType_PickOne: PrintSchemaSelectionType = PrintSchemaSelectionType(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PrintSchemaSelectionType_PickMany: PrintSchemaSelectionType = PrintSchemaSelectionType(1i32);
 impl ::core::marker::Copy for PrintSchemaSelectionType {}
 impl ::core::clone::Clone for PrintSchemaSelectionType {
     fn clone(&self) -> Self {
@@ -13012,10 +13032,6 @@ impl ::core::fmt::Debug for PrintSchemaSelectionType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SHIMOPTS(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PTSHIM_DEFAULT: SHIMOPTS = SHIMOPTS(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const PTSHIM_NOSNAPSHOT: SHIMOPTS = SHIMOPTS(1i32);
 impl ::core::marker::Copy for SHIMOPTS {}
 impl ::core::clone::Clone for SHIMOPTS {
     fn clone(&self) -> Self {
@@ -13039,8 +13055,6 @@ impl ::core::fmt::Debug for SHIMOPTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const kMessageBox: UI_TYPE = UI_TYPE(0i32);
 impl ::core::marker::Copy for UI_TYPE {}
 impl ::core::clone::Clone for UI_TYPE {
     fn clone(&self) -> Self {
@@ -13064,10 +13078,6 @@ impl ::core::fmt::Debug for UI_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPSRAS_BACKGROUND_COLOR(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPSRAS_BACKGROUND_COLOR_TRANSPARENT: XPSRAS_BACKGROUND_COLOR = XPSRAS_BACKGROUND_COLOR(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPSRAS_BACKGROUND_COLOR_OPAQUE: XPSRAS_BACKGROUND_COLOR = XPSRAS_BACKGROUND_COLOR(1i32);
 impl ::core::marker::Copy for XPSRAS_BACKGROUND_COLOR {}
 impl ::core::clone::Clone for XPSRAS_BACKGROUND_COLOR {
     fn clone(&self) -> Self {
@@ -13091,12 +13101,6 @@ impl ::core::fmt::Debug for XPSRAS_BACKGROUND_COLOR {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPSRAS_PIXEL_FORMAT(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPSRAS_PIXEL_FORMAT_32BPP_PBGRA_UINT_SRGB: XPSRAS_PIXEL_FORMAT = XPSRAS_PIXEL_FORMAT(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPSRAS_PIXEL_FORMAT_64BPP_PRGBA_HALF_SCRGB: XPSRAS_PIXEL_FORMAT = XPSRAS_PIXEL_FORMAT(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPSRAS_PIXEL_FORMAT_128BPP_PRGBA_FLOAT_SCRGB: XPSRAS_PIXEL_FORMAT = XPSRAS_PIXEL_FORMAT(3i32);
 impl ::core::marker::Copy for XPSRAS_PIXEL_FORMAT {}
 impl ::core::clone::Clone for XPSRAS_PIXEL_FORMAT {
     fn clone(&self) -> Self {
@@ -13120,10 +13124,6 @@ impl ::core::fmt::Debug for XPSRAS_PIXEL_FORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPSRAS_RENDERING_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPSRAS_RENDERING_MODE_ANTIALIASED: XPSRAS_RENDERING_MODE = XPSRAS_RENDERING_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
-pub const XPSRAS_RENDERING_MODE_ALIASED: XPSRAS_RENDERING_MODE = XPSRAS_RENDERING_MODE(1i32);
 impl ::core::marker::Copy for XPSRAS_RENDERING_MODE {}
 impl ::core::clone::Clone for XPSRAS_RENDERING_MODE {
     fn clone(&self) -> Self {

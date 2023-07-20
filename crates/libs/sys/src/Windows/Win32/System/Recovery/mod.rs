@@ -14,8 +14,6 @@
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_Recovery\"`*"] fn UnregisterApplicationRecoveryCallback() -> ::windows_sys::core::HRESULT);
 ::windows_targets::link!("kernel32.dll" "system" #[doc = "*Required features: `\"Win32_System_Recovery\"`*"] fn UnregisterApplicationRestart() -> ::windows_sys::core::HRESULT);
 #[doc = "*Required features: `\"Win32_System_Recovery\"`*"]
-pub type REGISTER_APPLICATION_RESTART_FLAGS = u32;
-#[doc = "*Required features: `\"Win32_System_Recovery\"`*"]
 pub const RESTART_NO_CRASH: REGISTER_APPLICATION_RESTART_FLAGS = 1u32;
 #[doc = "*Required features: `\"Win32_System_Recovery\"`*"]
 pub const RESTART_NO_HANG: REGISTER_APPLICATION_RESTART_FLAGS = 2u32;
@@ -23,3 +21,5 @@ pub const RESTART_NO_HANG: REGISTER_APPLICATION_RESTART_FLAGS = 2u32;
 pub const RESTART_NO_PATCH: REGISTER_APPLICATION_RESTART_FLAGS = 4u32;
 #[doc = "*Required features: `\"Win32_System_Recovery\"`*"]
 pub const RESTART_NO_REBOOT: REGISTER_APPLICATION_RESTART_FLAGS = 8u32;
+#[doc = "*Required features: `\"Win32_System_Recovery\"`*"]
+pub type REGISTER_APPLICATION_RESTART_FLAGS = u32;

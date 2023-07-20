@@ -355,99 +355,103 @@ pub const RemoteComponentUtil: ::windows_core::GUID = ::windows_core::GUID::from
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const RoleAssociationUtil: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6eb22887_8a19_11d0_81b6_00a0c9231c29);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MTSAdminErrorCodes(pub i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrObjectErrors: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368511i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrObjectInvalid: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368510i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrKeyMissing: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368509i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrAlreadyInstalled: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368508i32);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrDownloadFailed: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368507i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrPDFWriteFail: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368505i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrPDFReadFail: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368504i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrPDFVersion: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368503i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrCoReqCompInstalled: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368496i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrBadPath: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368502i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrPackageExists: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368501i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrRoleExists: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368500i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrCantCopyFile: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368499i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrNoTypeLib: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368498i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrNoUser: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368497i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrInvalidUserids: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368496i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrNoRegistryCLSID: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368495i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrBadRegistryProgID: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368494i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrAuthenticationLevel: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368493i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrUserPasswdNotValid: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368492i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrNoRegistryRead: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368491i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrNoRegistryWrite: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368490i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrNoRegistryRepair: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368489i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrCLSIDOrIIDMismatch: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368488i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrRemoteInterface: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368487i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrDllRegisterServer: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368486i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrNoServerShare: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368485i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrNoAccessToUNC: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368484i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrDllLoadFailed: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368483i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrBadRegistryLibID: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368482i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrPackDirNotFound: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368481i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrTreatAs: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368480i32);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrBadForward: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368479i32);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrBadIID: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368478i32);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrRegistrarFailed: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368477i32);
+pub const mtsErrBadPath: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368502i32);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrCompFileDoesNotExist: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368476i32);
+pub const mtsErrBadRegistryLibID: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368482i32);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrCompFileLoadDLLFail: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368475i32);
+pub const mtsErrBadRegistryProgID: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368494i32);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrCompFileGetClassObj: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368474i32);
+pub const mtsErrCLSIDOrIIDMismatch: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368488i32);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrCompFileClassNotAvail: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368473i32);
+pub const mtsErrCantCopyFile: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368499i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrCoReqCompInstalled: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368496i32);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrCompFileBadTLB: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368472i32);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrCompFileClassNotAvail: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368473i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrCompFileDoesNotExist: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368476i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrCompFileGetClassObj: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368474i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrCompFileLoadDLLFail: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368475i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrCompFileNoRegistrar: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368460i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrCompFileNotInstallable: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368471i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrDllLoadFailed: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368483i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrDllRegisterServer: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368486i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrDownloadFailed: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368507i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrInvalidUserids: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368496i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrKeyMissing: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368509i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrNoAccessToUNC: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368484i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrNoRegistryCLSID: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368495i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrNoRegistryRead: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368491i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrNoRegistryRepair: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368489i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrNoRegistryWrite: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368490i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrNoServerShare: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368485i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrNoTypeLib: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368498i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrNoUser: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368497i32);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrNotChangeable: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368470i32);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrNotDeletable: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368469i32);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrObjectErrors: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368511i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrObjectInvalid: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368510i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrPDFReadFail: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368504i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrPDFVersion: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368503i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrPDFWriteFail: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368505i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrPackDirNotFound: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368481i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrPackageExists: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368501i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrRegistrarFailed: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368477i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrRemoteInterface: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368487i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrRoleExists: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368500i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
 pub const mtsErrSession: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368468i32);
 #[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsErrCompFileNoRegistrar: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368460i32);
+pub const mtsErrTreatAs: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368480i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsErrUserPasswdNotValid: MTSAdminErrorCodes = MTSAdminErrorCodes(-2146368492i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsExportUsers: MTSPackageExportOptions = MTSPackageExportOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+pub const mtsInstallUsers: MTSPackageInstallOptions = MTSPackageInstallOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MTSAdminErrorCodes(pub i32);
 impl ::core::marker::Copy for MTSAdminErrorCodes {}
 impl ::core::clone::Clone for MTSAdminErrorCodes {
     fn clone(&self) -> Self {
@@ -471,8 +475,6 @@ impl ::core::fmt::Debug for MTSAdminErrorCodes {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MTSPackageExportOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsExportUsers: MTSPackageExportOptions = MTSPackageExportOptions(1i32);
 impl ::core::marker::Copy for MTSPackageExportOptions {}
 impl ::core::clone::Clone for MTSPackageExportOptions {
     fn clone(&self) -> Self {
@@ -496,8 +498,6 @@ impl ::core::fmt::Debug for MTSPackageExportOptions {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MTSPackageInstallOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_TransactionServer\"`*"]
-pub const mtsInstallUsers: MTSPackageInstallOptions = MTSPackageInstallOptions(1i32);
 impl ::core::marker::Copy for MTSPackageInstallOptions {}
 impl ::core::clone::Clone for MTSPackageInstallOptions {
     fn clone(&self) -> Self {

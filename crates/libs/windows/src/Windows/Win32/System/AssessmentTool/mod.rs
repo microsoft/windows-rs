@@ -643,23 +643,45 @@ pub const CQueryOEMWinSATCustomization: ::windows_core::GUID = ::windows_core::G
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
 pub const CQueryWinSAT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf3bdfad3_f276_49e9_9b17_c474f48f0764);
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WINSAT_ASSESSMENT_STATE(pub i32);
+pub const WINSAT_ASSESSMENT_CPU: WINSAT_ASSESSMENT_TYPE = WINSAT_ASSESSMENT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
+pub const WINSAT_ASSESSMENT_D3D: WINSAT_ASSESSMENT_TYPE = WINSAT_ASSESSMENT_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
+pub const WINSAT_ASSESSMENT_DISK: WINSAT_ASSESSMENT_TYPE = WINSAT_ASSESSMENT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
+pub const WINSAT_ASSESSMENT_GRAPHICS: WINSAT_ASSESSMENT_TYPE = WINSAT_ASSESSMENT_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
+pub const WINSAT_ASSESSMENT_MEMORY: WINSAT_ASSESSMENT_TYPE = WINSAT_ASSESSMENT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
+pub const WINSAT_ASSESSMENT_STATE_INCOHERENT_WITH_HARDWARE: WINSAT_ASSESSMENT_STATE = WINSAT_ASSESSMENT_STATE(2i32);
+#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
+pub const WINSAT_ASSESSMENT_STATE_INVALID: WINSAT_ASSESSMENT_STATE = WINSAT_ASSESSMENT_STATE(4i32);
+#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
+pub const WINSAT_ASSESSMENT_STATE_MAX: WINSAT_ASSESSMENT_STATE = WINSAT_ASSESSMENT_STATE(4i32);
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
 pub const WINSAT_ASSESSMENT_STATE_MIN: WINSAT_ASSESSMENT_STATE = WINSAT_ASSESSMENT_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
+pub const WINSAT_ASSESSMENT_STATE_NOT_AVAILABLE: WINSAT_ASSESSMENT_STATE = WINSAT_ASSESSMENT_STATE(3i32);
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
 pub const WINSAT_ASSESSMENT_STATE_UNKNOWN: WINSAT_ASSESSMENT_STATE = WINSAT_ASSESSMENT_STATE(0i32);
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
 pub const WINSAT_ASSESSMENT_STATE_VALID: WINSAT_ASSESSMENT_STATE = WINSAT_ASSESSMENT_STATE(1i32);
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-pub const WINSAT_ASSESSMENT_STATE_INCOHERENT_WITH_HARDWARE: WINSAT_ASSESSMENT_STATE = WINSAT_ASSESSMENT_STATE(2i32);
+pub const WINSAT_BITMAP_SIZE_NORMAL: WINSAT_BITMAP_SIZE = WINSAT_BITMAP_SIZE(1i32);
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-pub const WINSAT_ASSESSMENT_STATE_NOT_AVAILABLE: WINSAT_ASSESSMENT_STATE = WINSAT_ASSESSMENT_STATE(3i32);
+pub const WINSAT_BITMAP_SIZE_SMALL: WINSAT_BITMAP_SIZE = WINSAT_BITMAP_SIZE(0i32);
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-pub const WINSAT_ASSESSMENT_STATE_INVALID: WINSAT_ASSESSMENT_STATE = WINSAT_ASSESSMENT_STATE(4i32);
+pub const WINSAT_OEM_DATA_INVALID: WINSAT_OEM_CUSTOMIZATION_STATE = WINSAT_OEM_CUSTOMIZATION_STATE(2i32);
 #[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-pub const WINSAT_ASSESSMENT_STATE_MAX: WINSAT_ASSESSMENT_STATE = WINSAT_ASSESSMENT_STATE(4i32);
+pub const WINSAT_OEM_DATA_NON_SYS_CONFIG_MATCH: WINSAT_OEM_CUSTOMIZATION_STATE = WINSAT_OEM_CUSTOMIZATION_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
+pub const WINSAT_OEM_DATA_VALID: WINSAT_OEM_CUSTOMIZATION_STATE = WINSAT_OEM_CUSTOMIZATION_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
+pub const WINSAT_OEM_NO_DATA_SUPPLIED: WINSAT_OEM_CUSTOMIZATION_STATE = WINSAT_OEM_CUSTOMIZATION_STATE(3i32);
+#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WINSAT_ASSESSMENT_STATE(pub i32);
 impl ::core::marker::Copy for WINSAT_ASSESSMENT_STATE {}
 impl ::core::clone::Clone for WINSAT_ASSESSMENT_STATE {
     fn clone(&self) -> Self {
@@ -683,16 +705,6 @@ impl ::core::fmt::Debug for WINSAT_ASSESSMENT_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINSAT_ASSESSMENT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-pub const WINSAT_ASSESSMENT_MEMORY: WINSAT_ASSESSMENT_TYPE = WINSAT_ASSESSMENT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-pub const WINSAT_ASSESSMENT_CPU: WINSAT_ASSESSMENT_TYPE = WINSAT_ASSESSMENT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-pub const WINSAT_ASSESSMENT_DISK: WINSAT_ASSESSMENT_TYPE = WINSAT_ASSESSMENT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-pub const WINSAT_ASSESSMENT_D3D: WINSAT_ASSESSMENT_TYPE = WINSAT_ASSESSMENT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-pub const WINSAT_ASSESSMENT_GRAPHICS: WINSAT_ASSESSMENT_TYPE = WINSAT_ASSESSMENT_TYPE(4i32);
 impl ::core::marker::Copy for WINSAT_ASSESSMENT_TYPE {}
 impl ::core::clone::Clone for WINSAT_ASSESSMENT_TYPE {
     fn clone(&self) -> Self {
@@ -716,10 +728,6 @@ impl ::core::fmt::Debug for WINSAT_ASSESSMENT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINSAT_BITMAP_SIZE(pub i32);
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-pub const WINSAT_BITMAP_SIZE_SMALL: WINSAT_BITMAP_SIZE = WINSAT_BITMAP_SIZE(0i32);
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-pub const WINSAT_BITMAP_SIZE_NORMAL: WINSAT_BITMAP_SIZE = WINSAT_BITMAP_SIZE(1i32);
 impl ::core::marker::Copy for WINSAT_BITMAP_SIZE {}
 impl ::core::clone::Clone for WINSAT_BITMAP_SIZE {
     fn clone(&self) -> Self {
@@ -743,14 +751,6 @@ impl ::core::fmt::Debug for WINSAT_BITMAP_SIZE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINSAT_OEM_CUSTOMIZATION_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-pub const WINSAT_OEM_DATA_VALID: WINSAT_OEM_CUSTOMIZATION_STATE = WINSAT_OEM_CUSTOMIZATION_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-pub const WINSAT_OEM_DATA_NON_SYS_CONFIG_MATCH: WINSAT_OEM_CUSTOMIZATION_STATE = WINSAT_OEM_CUSTOMIZATION_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-pub const WINSAT_OEM_DATA_INVALID: WINSAT_OEM_CUSTOMIZATION_STATE = WINSAT_OEM_CUSTOMIZATION_STATE(2i32);
-#[doc = "*Required features: `\"Win32_System_AssessmentTool\"`*"]
-pub const WINSAT_OEM_NO_DATA_SUPPLIED: WINSAT_OEM_CUSTOMIZATION_STATE = WINSAT_OEM_CUSTOMIZATION_STATE(3i32);
 impl ::core::marker::Copy for WINSAT_OEM_CUSTOMIZATION_STATE {}
 impl ::core::clone::Clone for WINSAT_OEM_CUSTOMIZATION_STATE {
     fn clone(&self) -> Self {

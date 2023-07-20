@@ -1109,6 +1109,24 @@ pub struct IViewHelper_Vtbl {
     pub GetProceedOnNewConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows_core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const AR_DISABLED: AR_STATE = AR_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const AR_DOCKED: AR_STATE = AR_STATE(64i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const AR_ENABLED: AR_STATE = AR_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const AR_LAPTOP: AR_STATE = AR_STATE(128i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const AR_MULTIMON: AR_STATE = AR_STATE(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const AR_NOSENSOR: AR_STATE = AR_STATE(16i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const AR_NOT_SUPPORTED: AR_STATE = AR_STATE(32i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const AR_REMOTESESSION: AR_STATE = AR_STATE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const AR_SUPPRESSED: AR_STATE = AR_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const BITMAP_ARRAY_BYTE: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const BITMAP_BITS_BYTE_ALIGN: u32 = 8u32;
@@ -1163,6 +1181,12 @@ pub const BMF_USERMEM: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const BMF_WINDOW_BLT: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const BRIGHTNESS_INTERFACE_VERSION_1: BRIGHTNESS_INTERFACE_VERSION = BRIGHTNESS_INTERFACE_VERSION(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const BRIGHTNESS_INTERFACE_VERSION_2: BRIGHTNESS_INTERFACE_VERSION = BRIGHTNESS_INTERFACE_VERSION(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const BRIGHTNESS_INTERFACE_VERSION_3: BRIGHTNESS_INTERFACE_VERSION = BRIGHTNESS_INTERFACE_VERSION(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const BRIGHTNESS_MAX_LEVEL_COUNT: u32 = 103u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const BRIGHTNESS_MAX_NIT_RANGE_COUNT: u32 = 16u32;
@@ -1174,6 +1198,20 @@ pub const BR_DEVICE_ICM: u32 = 1u32;
 pub const BR_HOST_ICM: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const BR_ORIGCOLOR: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const BacklightOptimizationDesktop: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const BacklightOptimizationDimmed: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const BacklightOptimizationDisable: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const BacklightOptimizationDynamic: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const BacklightOptimizationEDR: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const BlackScreenDiagnosticsData: BlackScreenDiagnosticsCalloutParam = BlackScreenDiagnosticsCalloutParam(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const BlackScreenDisplayRecovery: BlackScreenDiagnosticsCalloutParam = BlackScreenDiagnosticsCalloutParam(2i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const CDBEX_CROSSADAPTER: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -1205,13 +1243,47 @@ pub const CHAR_TYPE_SBCS: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const CHAR_TYPE_TRAILING: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const COLORSPACE_TRANSFORM_DATA_TYPE_FIXED_POINT: COLORSPACE_TRANSFORM_DATA_TYPE = COLORSPACE_TRANSFORM_DATA_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const COLORSPACE_TRANSFORM_DATA_TYPE_FLOAT: COLORSPACE_TRANSFORM_DATA_TYPE = COLORSPACE_TRANSFORM_DATA_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const COLORSPACE_TRANSFORM_TYPE_DEFAULT: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const COLORSPACE_TRANSFORM_TYPE_DXGI_1: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const COLORSPACE_TRANSFORM_TYPE_MATRIX_3x4: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const COLORSPACE_TRANSFORM_TYPE_MATRIX_V2: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const COLORSPACE_TRANSFORM_TYPE_RGB256x3x16: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const COLORSPACE_TRANSFORM_TYPE_UNINITIALIZED: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const COLORSPACE_TRANSFORM_VERSION_1: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const COLORSPACE_TRANSFORM_VERSION_DEFAULT: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const COLORSPACE_TRANSFORM_VERSION_NOT_SUPPORTED: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const CT_RECTANGLES: i32 = 0i32;
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const ColorSpaceTransformStageControl_Bypass: COLORSPACE_TRANSFORM_STAGE_CONTROL = COLORSPACE_TRANSFORM_STAGE_CONTROL(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const ColorSpaceTransformStageControl_Enable: COLORSPACE_TRANSFORM_STAGE_CONTROL = COLORSPACE_TRANSFORM_STAGE_CONTROL(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const ColorSpaceTransformStageControl_No_Change: COLORSPACE_TRANSFORM_STAGE_CONTROL = COLORSPACE_TRANSFORM_STAGE_CONTROL(0i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const DCR_DRIVER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const DCR_HALFTONE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const DCR_SOLID: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DCT_DEFAULT: DSI_CONTROL_TRANSMISSION_MODE = DSI_CONTROL_TRANSMISSION_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DCT_FORCE_HIGH_PERFORMANCE: DSI_CONTROL_TRANSMISSION_MODE = DSI_CONTROL_TRANSMISSION_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DCT_FORCE_LOW_POWER: DSI_CONTROL_TRANSMISSION_MODE = DSI_CONTROL_TRANSMISSION_MODE(1i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const DC_COMPLEX: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -1248,6 +1320,126 @@ pub const DEVPKEY_Device_TerminalLuid: super::Properties::DEVPROPKEY = super::Pr
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const DEVPKEY_IndirectDisplay: super::Properties::DEVPROPKEY = super::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 1 };
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADAPTER_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADVANCED_COLOR_INFO: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_SDR_WHITE_LEVEL: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_SOURCE_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_SUPPORT_VIRTUAL_RESOLUTION: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_BASE_TYPE: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_PREFERRED_MODE: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_DEVICE_INFO_SET_ADVANCED_COLOR_STATE: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_DEVICE_INFO_SET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_DEVICE_INFO_SET_SUPPORT_VIRTUAL_RESOLUTION: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_DEVICE_INFO_SET_TARGET_PERSISTENCE: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_MODE_INFO_TYPE_DESKTOP_IMAGE: DISPLAYCONFIG_MODE_INFO_TYPE = DISPLAYCONFIG_MODE_INFO_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_MODE_INFO_TYPE_SOURCE: DISPLAYCONFIG_MODE_INFO_TYPE = DISPLAYCONFIG_MODE_INFO_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_MODE_INFO_TYPE_TARGET: DISPLAYCONFIG_MODE_INFO_TYPE = DISPLAYCONFIG_MODE_INFO_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPONENT_VIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPOSITE_VIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EMBEDDED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(11i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EXTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(10i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_USB_TUNNEL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(18i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DVI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_D_JPN: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HD15: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HDMI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_VIRTUAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(17i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_WIRED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(16i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(-2147483648i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_LVDS: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_MIRACAST: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(15i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_OTHER: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(-1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(9i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDTVDONGLE: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(14i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SVIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EMBEDDED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(13i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EXTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(12i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_PIXELFORMAT_16BPP: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_PIXELFORMAT_24BPP: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_PIXELFORMAT_32BPP: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_PIXELFORMAT_8BPP: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_PIXELFORMAT_NONGDI: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_ROTATION_IDENTITY: DISPLAYCONFIG_ROTATION = DISPLAYCONFIG_ROTATION(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_ROTATION_ROTATE180: DISPLAYCONFIG_ROTATION = DISPLAYCONFIG_ROTATION(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_ROTATION_ROTATE270: DISPLAYCONFIG_ROTATION = DISPLAYCONFIG_ROTATION(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_ROTATION_ROTATE90: DISPLAYCONFIG_ROTATION = DISPLAYCONFIG_ROTATION(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_SCALING_ASPECTRATIOCENTEREDMAX: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_SCALING_CENTERED: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_SCALING_CUSTOM: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_SCALING_IDENTITY: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_SCALING_PREFERRED: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(128i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_SCALING_STRETCHED: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_LOWERFIELDFIRST: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_UPPERFIELDFIRST: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_PROGRESSIVE: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_UNSPECIFIED: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_TOPOLOGY_CLONE: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_TOPOLOGY_EXTEND: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_TOPOLOGY_EXTERNAL: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const DISPLAYCONFIG_TOPOLOGY_INTERNAL: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(1i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const DISPLAYPOLICY_AC: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -1350,6 +1542,14 @@ pub const ENDCAP_SQUARE: i32 = 1i32;
 pub const ENG_FNT_CACHE_READ_FAULT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const ENG_FNT_CACHE_WRITE_FAULT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const EngNumberOfProcessors: ENG_SYSTEM_ATTRIBUTE = ENG_SYSTEM_ATTRIBUTE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const EngOptimumAvailableSystemMemory: ENG_SYSTEM_ATTRIBUTE = ENG_SYSTEM_ATTRIBUTE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const EngOptimumAvailableUserMemory: ENG_SYSTEM_ATTRIBUTE = ENG_SYSTEM_ATTRIBUTE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const EngProcessorFeature: ENG_SYSTEM_ATTRIBUTE = ENG_SYSTEM_ATTRIBUTE(1i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const FC_COMPLEX: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -2175,6 +2375,12 @@ pub const MAXCHARSETS: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const MAX_PACKET_COUNT: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_APERTURE_GRILL_CATHODE_RAY_TUBE: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_BLUE_DRIVE: MC_DRIVE_TYPE = MC_DRIVE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_BLUE_GAIN: MC_GAIN_TYPE = MC_GAIN_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const MC_CAPS_BRIGHTNESS: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const MC_CAPS_COLOR_TEMPERATURE: u32 = 8u32;
@@ -2199,7 +2405,55 @@ pub const MC_CAPS_RESTORE_FACTORY_COLOR_DEFAULTS: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const MC_CAPS_RESTORE_FACTORY_DEFAULTS: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_COLOR_TEMPERATURE_10000K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_COLOR_TEMPERATURE_11500K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_COLOR_TEMPERATURE_4000K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_COLOR_TEMPERATURE_5000K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_COLOR_TEMPERATURE_6500K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_COLOR_TEMPERATURE_7500K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_COLOR_TEMPERATURE_8200K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_COLOR_TEMPERATURE_9300K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_COLOR_TEMPERATURE_UNKNOWN: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_ELECTROLUMINESCENT: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_FIELD_EMISSION_DEVICE: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_GREEN_DRIVE: MC_DRIVE_TYPE = MC_DRIVE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_GREEN_GAIN: MC_GAIN_TYPE = MC_GAIN_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_HEIGHT: MC_SIZE_TYPE = MC_SIZE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_HORIZONTAL_POSITION: MC_POSITION_TYPE = MC_POSITION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_LIQUID_CRYSTAL_ON_SILICON: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_MICROELECTROMECHANICAL: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_MOMENTARY: MC_VCP_CODE_TYPE = MC_VCP_CODE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_ORGANIC_LIGHT_EMITTING_DIODE: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_PLASMA: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_RED_DRIVE: MC_DRIVE_TYPE = MC_DRIVE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_RED_GAIN: MC_GAIN_TYPE = MC_GAIN_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const MC_RESTORE_FACTORY_DEFAULTS_ENABLES_MONITOR_SETTINGS: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_SET_PARAMETER: MC_VCP_CODE_TYPE = MC_VCP_CODE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_SHADOW_MASK_CATHODE_RAY_TUBE: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(0i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_10000K: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -2219,6 +2473,12 @@ pub const MC_SUPPORTED_COLOR_TEMPERATURE_9300K: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_NONE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_THIN_FILM_TRANSISTOR: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_VERTICAL_POSITION: MC_POSITION_TYPE = MC_POSITION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const MC_WIDTH: MC_SIZE_TYPE = MC_SIZE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const MS_CDDDEVICEBITMAP: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const MS_NOTSYSTEMMEMORY: u32 = 1u32;
@@ -2227,11 +2487,47 @@ pub const MS_REUSEDDEVICEBITMAP: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const MS_SHAREDACCESS: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const NumVideoBankTypes: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const OC_BANK_CLIP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const OPENGL_CMD: u32 = 4352u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const OPENGL_GETINFO: u32 = 4353u32;
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const ORIENTATION_PREFERENCE_LANDSCAPE: ORIENTATION_PREFERENCE = ORIENTATION_PREFERENCE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const ORIENTATION_PREFERENCE_LANDSCAPE_FLIPPED: ORIENTATION_PREFERENCE = ORIENTATION_PREFERENCE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const ORIENTATION_PREFERENCE_NONE: ORIENTATION_PREFERENCE = ORIENTATION_PREFERENCE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const ORIENTATION_PREFERENCE_PORTRAIT: ORIENTATION_PREFERENCE = ORIENTATION_PREFERENCE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const ORIENTATION_PREFERENCE_PORTRAIT_FLIPPED: ORIENTATION_PREFERENCE = ORIENTATION_PREFERENCE(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const OUTPUT_COLOR_ENCODING_INTENSITY: OUTPUT_COLOR_ENCODING = OUTPUT_COLOR_ENCODING(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const OUTPUT_COLOR_ENCODING_RGB: OUTPUT_COLOR_ENCODING = OUTPUT_COLOR_ENCODING(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const OUTPUT_COLOR_ENCODING_YCBCR420: OUTPUT_COLOR_ENCODING = OUTPUT_COLOR_ENCODING(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const OUTPUT_COLOR_ENCODING_YCBCR422: OUTPUT_COLOR_ENCODING = OUTPUT_COLOR_ENCODING(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const OUTPUT_COLOR_ENCODING_YCBCR444: OUTPUT_COLOR_ENCODING = OUTPUT_COLOR_ENCODING(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_DVLL: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(33i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_HDR10PLUS: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(32i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const OUTPUT_WIRE_COLOR_SPACE_G22_P2020: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(31i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const OUTPUT_WIRE_COLOR_SPACE_G22_P709: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const OUTPUT_WIRE_COLOR_SPACE_G22_P709_WCG: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(30i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const OUTPUT_WIRE_COLOR_SPACE_RESERVED: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(4i32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const PAL_BGR: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -2305,6 +2601,22 @@ pub const QC_4BIT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const QC_OUTLINES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const QDA_ACCELERATION_LEVEL: ENG_DEVICE_ATTRIBUTE = ENG_DEVICE_ATTRIBUTE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const QDA_RESERVED: ENG_DEVICE_ATTRIBUTE = ENG_DEVICE_ATTRIBUTE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const QDC_ALL_PATHS: QUERY_DISPLAY_CONFIG_FLAGS = QUERY_DISPLAY_CONFIG_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const QDC_DATABASE_CURRENT: QUERY_DISPLAY_CONFIG_FLAGS = QUERY_DISPLAY_CONFIG_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const QDC_INCLUDE_HMD: QUERY_DISPLAY_CONFIG_FLAGS = QUERY_DISPLAY_CONFIG_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const QDC_ONLY_ACTIVE_PATHS: QUERY_DISPLAY_CONFIG_FLAGS = QUERY_DISPLAY_CONFIG_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const QDC_VIRTUAL_MODE_AWARE: QUERY_DISPLAY_CONFIG_FLAGS = QUERY_DISPLAY_CONFIG_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const QDC_VIRTUAL_REFRESH_RATE_AWARE: QUERY_DISPLAY_CONFIG_FLAGS = QUERY_DISPLAY_CONFIG_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const QDS_CHECKJPEGFORMAT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const QDS_CHECKPNGFORMAT: u32 = 1u32;
@@ -2350,6 +2662,40 @@ pub const QSA_SSE2: u32 = 65536u32;
 pub const QSA_SSE3: u32 = 524288u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const RB_DITHERCOLOR: i32 = -2147483648i32;
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_ALLOW_CHANGES: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_ALLOW_PATH_ORDER_CHANGES: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_APPLY: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_FORCE_MODE_ENUMERATION: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_NO_OPTIMIZATION: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_PATH_PERSIST_IF_REQUIRED: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_SAVE_TO_DATABASE: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_TOPOLOGY_CLONE: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_TOPOLOGY_EXTEND: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_TOPOLOGY_EXTERNAL: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_TOPOLOGY_INTERNAL: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_TOPOLOGY_SUPPLIED: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_USE_DATABASE_CURRENT: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(15u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_USE_SUPPLIED_DISPLAY_CONFIG: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_VALIDATE: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_VIRTUAL_MODE_AWARE: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(32768u32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const SDC_VIRTUAL_REFRESH_RATE_AWARE: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(131072u32);
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const SETCONFIGURATION_STATUS_ADDITIONAL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
@@ -2515,6 +2861,54 @@ pub const VIDEO_STATE_PACKED_CHAIN4_MODE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const VIDEO_STATE_UNEMULATED_VGA_STATE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoBanked1R1W: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoBanked1RW: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoBanked2RW: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoBlackScreenDiagnostics: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoDesktopDuplicationChange: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(15i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoDisableMultiPlaneOverlay: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(14i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoDxgkDisplaySwitchCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoDxgkFindAdapterTdrCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoDxgkHardwareProtectionTeardown: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoEnumChildPdoNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoFindAdapterCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoNotBanked: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoPnpNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoPowerHibernate: VIDEO_POWER_STATE = VIDEO_POWER_STATE(5i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoPowerMaximum: VIDEO_POWER_STATE = VIDEO_POWER_STATE(7i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoPowerNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoPowerOff: VIDEO_POWER_STATE = VIDEO_POWER_STATE(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoPowerOn: VIDEO_POWER_STATE = VIDEO_POWER_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoPowerShutdown: VIDEO_POWER_STATE = VIDEO_POWER_STATE(6i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoPowerStandBy: VIDEO_POWER_STATE = VIDEO_POWER_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoPowerSuspend: VIDEO_POWER_STATE = VIDEO_POWER_STATE(3i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoPowerUnspecified: VIDEO_POWER_STATE = VIDEO_POWER_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoRepaintDesktop: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
+pub const VideoUpdateCursor: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const WINDDI_MAXSETPALETTECOLORINDEX: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 pub const WINDDI_MAXSETPALETTECOLORS: u32 = 256u32;
@@ -2598,24 +2992,6 @@ pub const XO_TRIVIAL: u32 = 1u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AR_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const AR_ENABLED: AR_STATE = AR_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const AR_DISABLED: AR_STATE = AR_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const AR_SUPPRESSED: AR_STATE = AR_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const AR_REMOTESESSION: AR_STATE = AR_STATE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const AR_MULTIMON: AR_STATE = AR_STATE(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const AR_NOSENSOR: AR_STATE = AR_STATE(16i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const AR_NOT_SUPPORTED: AR_STATE = AR_STATE(32i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const AR_DOCKED: AR_STATE = AR_STATE(64i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const AR_LAPTOP: AR_STATE = AR_STATE(128i32);
 impl ::core::marker::Copy for AR_STATE {}
 impl ::core::clone::Clone for AR_STATE {
     fn clone(&self) -> Self {
@@ -2672,16 +3048,6 @@ impl ::core::ops::Not for AR_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BACKLIGHT_OPTIMIZATION_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const BacklightOptimizationDisable: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const BacklightOptimizationDesktop: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const BacklightOptimizationDynamic: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const BacklightOptimizationDimmed: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const BacklightOptimizationEDR: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(4i32);
 impl ::core::marker::Copy for BACKLIGHT_OPTIMIZATION_LEVEL {}
 impl ::core::clone::Clone for BACKLIGHT_OPTIMIZATION_LEVEL {
     fn clone(&self) -> Self {
@@ -2705,12 +3071,6 @@ impl ::core::fmt::Debug for BACKLIGHT_OPTIMIZATION_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BRIGHTNESS_INTERFACE_VERSION(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const BRIGHTNESS_INTERFACE_VERSION_1: BRIGHTNESS_INTERFACE_VERSION = BRIGHTNESS_INTERFACE_VERSION(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const BRIGHTNESS_INTERFACE_VERSION_2: BRIGHTNESS_INTERFACE_VERSION = BRIGHTNESS_INTERFACE_VERSION(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const BRIGHTNESS_INTERFACE_VERSION_3: BRIGHTNESS_INTERFACE_VERSION = BRIGHTNESS_INTERFACE_VERSION(3i32);
 impl ::core::marker::Copy for BRIGHTNESS_INTERFACE_VERSION {}
 impl ::core::clone::Clone for BRIGHTNESS_INTERFACE_VERSION {
     fn clone(&self) -> Self {
@@ -2734,10 +3094,6 @@ impl ::core::fmt::Debug for BRIGHTNESS_INTERFACE_VERSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BlackScreenDiagnosticsCalloutParam(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const BlackScreenDiagnosticsData: BlackScreenDiagnosticsCalloutParam = BlackScreenDiagnosticsCalloutParam(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const BlackScreenDisplayRecovery: BlackScreenDiagnosticsCalloutParam = BlackScreenDiagnosticsCalloutParam(2i32);
 impl ::core::marker::Copy for BlackScreenDiagnosticsCalloutParam {}
 impl ::core::clone::Clone for BlackScreenDiagnosticsCalloutParam {
     fn clone(&self) -> Self {
@@ -2761,10 +3117,6 @@ impl ::core::fmt::Debug for BlackScreenDiagnosticsCalloutParam {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLORSPACE_TRANSFORM_DATA_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const COLORSPACE_TRANSFORM_DATA_TYPE_FIXED_POINT: COLORSPACE_TRANSFORM_DATA_TYPE = COLORSPACE_TRANSFORM_DATA_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const COLORSPACE_TRANSFORM_DATA_TYPE_FLOAT: COLORSPACE_TRANSFORM_DATA_TYPE = COLORSPACE_TRANSFORM_DATA_TYPE(1i32);
 impl ::core::marker::Copy for COLORSPACE_TRANSFORM_DATA_TYPE {}
 impl ::core::clone::Clone for COLORSPACE_TRANSFORM_DATA_TYPE {
     fn clone(&self) -> Self {
@@ -2788,12 +3140,6 @@ impl ::core::fmt::Debug for COLORSPACE_TRANSFORM_DATA_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLORSPACE_TRANSFORM_STAGE_CONTROL(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const ColorSpaceTransformStageControl_No_Change: COLORSPACE_TRANSFORM_STAGE_CONTROL = COLORSPACE_TRANSFORM_STAGE_CONTROL(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const ColorSpaceTransformStageControl_Enable: COLORSPACE_TRANSFORM_STAGE_CONTROL = COLORSPACE_TRANSFORM_STAGE_CONTROL(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const ColorSpaceTransformStageControl_Bypass: COLORSPACE_TRANSFORM_STAGE_CONTROL = COLORSPACE_TRANSFORM_STAGE_CONTROL(2i32);
 impl ::core::marker::Copy for COLORSPACE_TRANSFORM_STAGE_CONTROL {}
 impl ::core::clone::Clone for COLORSPACE_TRANSFORM_STAGE_CONTROL {
     fn clone(&self) -> Self {
@@ -2817,12 +3163,6 @@ impl ::core::fmt::Debug for COLORSPACE_TRANSFORM_STAGE_CONTROL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const COLORSPACE_TRANSFORM_VERSION_DEFAULT: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const COLORSPACE_TRANSFORM_VERSION_1: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const COLORSPACE_TRANSFORM_VERSION_NOT_SUPPORTED: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(0i32);
 impl ::core::marker::Copy for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {}
 impl ::core::clone::Clone for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {
     fn clone(&self) -> Self {
@@ -2846,18 +3186,6 @@ impl ::core::fmt::Debug for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLORSPACE_TRANSFORM_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const COLORSPACE_TRANSFORM_TYPE_UNINITIALIZED: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const COLORSPACE_TRANSFORM_TYPE_DEFAULT: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const COLORSPACE_TRANSFORM_TYPE_RGB256x3x16: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const COLORSPACE_TRANSFORM_TYPE_DXGI_1: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const COLORSPACE_TRANSFORM_TYPE_MATRIX_3x4: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const COLORSPACE_TRANSFORM_TYPE_MATRIX_V2: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(5i32);
 impl ::core::marker::Copy for COLORSPACE_TRANSFORM_TYPE {}
 impl ::core::clone::Clone for COLORSPACE_TRANSFORM_TYPE {
     fn clone(&self) -> Self {
@@ -2881,32 +3209,6 @@ impl ::core::fmt::Debug for COLORSPACE_TRANSFORM_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYCONFIG_DEVICE_INFO_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_SOURCE_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_PREFERRED_MODE: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADAPTER_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_SET_TARGET_PERSISTENCE: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_BASE_TYPE: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_SUPPORT_VIRTUAL_RESOLUTION: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_SET_SUPPORT_VIRTUAL_RESOLUTION: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADVANCED_COLOR_INFO: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_SET_ADVANCED_COLOR_STATE: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_SDR_WHITE_LEVEL: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_SET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(13i32);
 impl ::core::marker::Copy for DISPLAYCONFIG_DEVICE_INFO_TYPE {}
 impl ::core::clone::Clone for DISPLAYCONFIG_DEVICE_INFO_TYPE {
     fn clone(&self) -> Self {
@@ -2930,12 +3232,6 @@ impl ::core::fmt::Debug for DISPLAYCONFIG_DEVICE_INFO_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYCONFIG_MODE_INFO_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_MODE_INFO_TYPE_SOURCE: DISPLAYCONFIG_MODE_INFO_TYPE = DISPLAYCONFIG_MODE_INFO_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_MODE_INFO_TYPE_TARGET: DISPLAYCONFIG_MODE_INFO_TYPE = DISPLAYCONFIG_MODE_INFO_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_MODE_INFO_TYPE_DESKTOP_IMAGE: DISPLAYCONFIG_MODE_INFO_TYPE = DISPLAYCONFIG_MODE_INFO_TYPE(3i32);
 impl ::core::marker::Copy for DISPLAYCONFIG_MODE_INFO_TYPE {}
 impl ::core::clone::Clone for DISPLAYCONFIG_MODE_INFO_TYPE {
     fn clone(&self) -> Self {
@@ -2959,16 +3255,6 @@ impl ::core::fmt::Debug for DISPLAYCONFIG_MODE_INFO_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYCONFIG_PIXELFORMAT(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_PIXELFORMAT_8BPP: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_PIXELFORMAT_16BPP: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_PIXELFORMAT_24BPP: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_PIXELFORMAT_32BPP: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_PIXELFORMAT_NONGDI: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(5i32);
 impl ::core::marker::Copy for DISPLAYCONFIG_PIXELFORMAT {}
 impl ::core::clone::Clone for DISPLAYCONFIG_PIXELFORMAT {
     fn clone(&self) -> Self {
@@ -2992,14 +3278,6 @@ impl ::core::fmt::Debug for DISPLAYCONFIG_PIXELFORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYCONFIG_ROTATION(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_ROTATION_IDENTITY: DISPLAYCONFIG_ROTATION = DISPLAYCONFIG_ROTATION(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_ROTATION_ROTATE90: DISPLAYCONFIG_ROTATION = DISPLAYCONFIG_ROTATION(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_ROTATION_ROTATE180: DISPLAYCONFIG_ROTATION = DISPLAYCONFIG_ROTATION(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_ROTATION_ROTATE270: DISPLAYCONFIG_ROTATION = DISPLAYCONFIG_ROTATION(4i32);
 impl ::core::marker::Copy for DISPLAYCONFIG_ROTATION {}
 impl ::core::clone::Clone for DISPLAYCONFIG_ROTATION {
     fn clone(&self) -> Self {
@@ -3023,18 +3301,6 @@ impl ::core::fmt::Debug for DISPLAYCONFIG_ROTATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYCONFIG_SCALING(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_SCALING_IDENTITY: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_SCALING_CENTERED: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_SCALING_STRETCHED: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_SCALING_ASPECTRATIOCENTEREDMAX: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_SCALING_CUSTOM: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_SCALING_PREFERRED: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(128i32);
 impl ::core::marker::Copy for DISPLAYCONFIG_SCALING {}
 impl ::core::clone::Clone for DISPLAYCONFIG_SCALING {
     fn clone(&self) -> Self {
@@ -3058,16 +3324,6 @@ impl ::core::fmt::Debug for DISPLAYCONFIG_SCALING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYCONFIG_SCANLINE_ORDERING(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_UNSPECIFIED: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_PROGRESSIVE: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_UPPERFIELDFIRST: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_LOWERFIELDFIRST: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(3i32);
 impl ::core::marker::Copy for DISPLAYCONFIG_SCANLINE_ORDERING {}
 impl ::core::clone::Clone for DISPLAYCONFIG_SCANLINE_ORDERING {
     fn clone(&self) -> Self {
@@ -3091,14 +3347,6 @@ impl ::core::fmt::Debug for DISPLAYCONFIG_SCANLINE_ORDERING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYCONFIG_TOPOLOGY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_TOPOLOGY_INTERNAL: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_TOPOLOGY_CLONE: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_TOPOLOGY_EXTEND: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_TOPOLOGY_EXTERNAL: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(8i32);
 impl ::core::marker::Copy for DISPLAYCONFIG_TOPOLOGY_ID {}
 impl ::core::clone::Clone for DISPLAYCONFIG_TOPOLOGY_ID {
     fn clone(&self) -> Self {
@@ -3122,46 +3370,6 @@ impl ::core::fmt::Debug for DISPLAYCONFIG_TOPOLOGY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_OTHER: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(-1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HD15: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SVIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPOSITE_VIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPONENT_VIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DVI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HDMI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_LVDS: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_D_JPN: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(9i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EXTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(10i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EMBEDDED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(11i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EXTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(12i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EMBEDDED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(13i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDTVDONGLE: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(14i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_MIRACAST: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(15i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_WIRED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(16i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_VIRTUAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(17i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_USB_TUNNEL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(18i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(-2147483648i32);
 impl ::core::marker::Copy for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {}
 impl ::core::clone::Clone for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {
     fn clone(&self) -> Self {
@@ -3185,12 +3393,6 @@ impl ::core::fmt::Debug for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DSI_CONTROL_TRANSMISSION_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DCT_DEFAULT: DSI_CONTROL_TRANSMISSION_MODE = DSI_CONTROL_TRANSMISSION_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DCT_FORCE_LOW_POWER: DSI_CONTROL_TRANSMISSION_MODE = DSI_CONTROL_TRANSMISSION_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const DCT_FORCE_HIGH_PERFORMANCE: DSI_CONTROL_TRANSMISSION_MODE = DSI_CONTROL_TRANSMISSION_MODE(2i32);
 impl ::core::marker::Copy for DSI_CONTROL_TRANSMISSION_MODE {}
 impl ::core::clone::Clone for DSI_CONTROL_TRANSMISSION_MODE {
     fn clone(&self) -> Self {
@@ -3214,10 +3416,6 @@ impl ::core::fmt::Debug for DSI_CONTROL_TRANSMISSION_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENG_DEVICE_ATTRIBUTE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const QDA_RESERVED: ENG_DEVICE_ATTRIBUTE = ENG_DEVICE_ATTRIBUTE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const QDA_ACCELERATION_LEVEL: ENG_DEVICE_ATTRIBUTE = ENG_DEVICE_ATTRIBUTE(1i32);
 impl ::core::marker::Copy for ENG_DEVICE_ATTRIBUTE {}
 impl ::core::clone::Clone for ENG_DEVICE_ATTRIBUTE {
     fn clone(&self) -> Self {
@@ -3241,14 +3439,6 @@ impl ::core::fmt::Debug for ENG_DEVICE_ATTRIBUTE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENG_SYSTEM_ATTRIBUTE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const EngProcessorFeature: ENG_SYSTEM_ATTRIBUTE = ENG_SYSTEM_ATTRIBUTE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const EngNumberOfProcessors: ENG_SYSTEM_ATTRIBUTE = ENG_SYSTEM_ATTRIBUTE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const EngOptimumAvailableUserMemory: ENG_SYSTEM_ATTRIBUTE = ENG_SYSTEM_ATTRIBUTE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const EngOptimumAvailableSystemMemory: ENG_SYSTEM_ATTRIBUTE = ENG_SYSTEM_ATTRIBUTE(4i32);
 impl ::core::marker::Copy for ENG_SYSTEM_ATTRIBUTE {}
 impl ::core::clone::Clone for ENG_SYSTEM_ATTRIBUTE {
     fn clone(&self) -> Self {
@@ -3272,24 +3462,6 @@ impl ::core::fmt::Debug for ENG_SYSTEM_ATTRIBUTE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MC_COLOR_TEMPERATURE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_COLOR_TEMPERATURE_UNKNOWN: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_COLOR_TEMPERATURE_4000K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_COLOR_TEMPERATURE_5000K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_COLOR_TEMPERATURE_6500K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_COLOR_TEMPERATURE_7500K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_COLOR_TEMPERATURE_8200K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_COLOR_TEMPERATURE_9300K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_COLOR_TEMPERATURE_10000K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(7i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_COLOR_TEMPERATURE_11500K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(8i32);
 impl ::core::marker::Copy for MC_COLOR_TEMPERATURE {}
 impl ::core::clone::Clone for MC_COLOR_TEMPERATURE {
     fn clone(&self) -> Self {
@@ -3313,24 +3485,6 @@ impl ::core::fmt::Debug for MC_COLOR_TEMPERATURE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MC_DISPLAY_TECHNOLOGY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_SHADOW_MASK_CATHODE_RAY_TUBE: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_APERTURE_GRILL_CATHODE_RAY_TUBE: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_THIN_FILM_TRANSISTOR: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_LIQUID_CRYSTAL_ON_SILICON: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_PLASMA: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_ORGANIC_LIGHT_EMITTING_DIODE: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_ELECTROLUMINESCENT: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_MICROELECTROMECHANICAL: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_FIELD_EMISSION_DEVICE: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(8i32);
 impl ::core::marker::Copy for MC_DISPLAY_TECHNOLOGY_TYPE {}
 impl ::core::clone::Clone for MC_DISPLAY_TECHNOLOGY_TYPE {
     fn clone(&self) -> Self {
@@ -3354,12 +3508,6 @@ impl ::core::fmt::Debug for MC_DISPLAY_TECHNOLOGY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MC_DRIVE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_RED_DRIVE: MC_DRIVE_TYPE = MC_DRIVE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_GREEN_DRIVE: MC_DRIVE_TYPE = MC_DRIVE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_BLUE_DRIVE: MC_DRIVE_TYPE = MC_DRIVE_TYPE(2i32);
 impl ::core::marker::Copy for MC_DRIVE_TYPE {}
 impl ::core::clone::Clone for MC_DRIVE_TYPE {
     fn clone(&self) -> Self {
@@ -3383,12 +3531,6 @@ impl ::core::fmt::Debug for MC_DRIVE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MC_GAIN_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_RED_GAIN: MC_GAIN_TYPE = MC_GAIN_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_GREEN_GAIN: MC_GAIN_TYPE = MC_GAIN_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_BLUE_GAIN: MC_GAIN_TYPE = MC_GAIN_TYPE(2i32);
 impl ::core::marker::Copy for MC_GAIN_TYPE {}
 impl ::core::clone::Clone for MC_GAIN_TYPE {
     fn clone(&self) -> Self {
@@ -3412,10 +3554,6 @@ impl ::core::fmt::Debug for MC_GAIN_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MC_POSITION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_HORIZONTAL_POSITION: MC_POSITION_TYPE = MC_POSITION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_VERTICAL_POSITION: MC_POSITION_TYPE = MC_POSITION_TYPE(1i32);
 impl ::core::marker::Copy for MC_POSITION_TYPE {}
 impl ::core::clone::Clone for MC_POSITION_TYPE {
     fn clone(&self) -> Self {
@@ -3439,10 +3577,6 @@ impl ::core::fmt::Debug for MC_POSITION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MC_SIZE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_WIDTH: MC_SIZE_TYPE = MC_SIZE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_HEIGHT: MC_SIZE_TYPE = MC_SIZE_TYPE(1i32);
 impl ::core::marker::Copy for MC_SIZE_TYPE {}
 impl ::core::clone::Clone for MC_SIZE_TYPE {
     fn clone(&self) -> Self {
@@ -3466,10 +3600,6 @@ impl ::core::fmt::Debug for MC_SIZE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MC_VCP_CODE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_MOMENTARY: MC_VCP_CODE_TYPE = MC_VCP_CODE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const MC_SET_PARAMETER: MC_VCP_CODE_TYPE = MC_VCP_CODE_TYPE(1i32);
 impl ::core::marker::Copy for MC_VCP_CODE_TYPE {}
 impl ::core::clone::Clone for MC_VCP_CODE_TYPE {
     fn clone(&self) -> Self {
@@ -3493,16 +3623,6 @@ impl ::core::fmt::Debug for MC_VCP_CODE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ORIENTATION_PREFERENCE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const ORIENTATION_PREFERENCE_NONE: ORIENTATION_PREFERENCE = ORIENTATION_PREFERENCE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const ORIENTATION_PREFERENCE_LANDSCAPE: ORIENTATION_PREFERENCE = ORIENTATION_PREFERENCE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const ORIENTATION_PREFERENCE_PORTRAIT: ORIENTATION_PREFERENCE = ORIENTATION_PREFERENCE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const ORIENTATION_PREFERENCE_LANDSCAPE_FLIPPED: ORIENTATION_PREFERENCE = ORIENTATION_PREFERENCE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const ORIENTATION_PREFERENCE_PORTRAIT_FLIPPED: ORIENTATION_PREFERENCE = ORIENTATION_PREFERENCE(8i32);
 impl ::core::marker::Copy for ORIENTATION_PREFERENCE {}
 impl ::core::clone::Clone for ORIENTATION_PREFERENCE {
     fn clone(&self) -> Self {
@@ -3559,16 +3679,6 @@ impl ::core::ops::Not for ORIENTATION_PREFERENCE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OUTPUT_COLOR_ENCODING(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const OUTPUT_COLOR_ENCODING_RGB: OUTPUT_COLOR_ENCODING = OUTPUT_COLOR_ENCODING(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const OUTPUT_COLOR_ENCODING_YCBCR444: OUTPUT_COLOR_ENCODING = OUTPUT_COLOR_ENCODING(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const OUTPUT_COLOR_ENCODING_YCBCR422: OUTPUT_COLOR_ENCODING = OUTPUT_COLOR_ENCODING(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const OUTPUT_COLOR_ENCODING_YCBCR420: OUTPUT_COLOR_ENCODING = OUTPUT_COLOR_ENCODING(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const OUTPUT_COLOR_ENCODING_INTENSITY: OUTPUT_COLOR_ENCODING = OUTPUT_COLOR_ENCODING(4i32);
 impl ::core::marker::Copy for OUTPUT_COLOR_ENCODING {}
 impl ::core::clone::Clone for OUTPUT_COLOR_ENCODING {
     fn clone(&self) -> Self {
@@ -3592,20 +3702,6 @@ impl ::core::fmt::Debug for OUTPUT_COLOR_ENCODING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OUTPUT_WIRE_COLOR_SPACE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const OUTPUT_WIRE_COLOR_SPACE_G22_P709: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const OUTPUT_WIRE_COLOR_SPACE_RESERVED: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const OUTPUT_WIRE_COLOR_SPACE_G22_P709_WCG: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(30i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const OUTPUT_WIRE_COLOR_SPACE_G22_P2020: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(31i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_HDR10PLUS: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(32i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_DVLL: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(33i32);
 impl ::core::marker::Copy for OUTPUT_WIRE_COLOR_SPACE_TYPE {}
 impl ::core::clone::Clone for OUTPUT_WIRE_COLOR_SPACE_TYPE {
     fn clone(&self) -> Self {
@@ -3629,18 +3725,6 @@ impl ::core::fmt::Debug for OUTPUT_WIRE_COLOR_SPACE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QUERY_DISPLAY_CONFIG_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const QDC_ALL_PATHS: QUERY_DISPLAY_CONFIG_FLAGS = QUERY_DISPLAY_CONFIG_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const QDC_ONLY_ACTIVE_PATHS: QUERY_DISPLAY_CONFIG_FLAGS = QUERY_DISPLAY_CONFIG_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const QDC_DATABASE_CURRENT: QUERY_DISPLAY_CONFIG_FLAGS = QUERY_DISPLAY_CONFIG_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const QDC_VIRTUAL_MODE_AWARE: QUERY_DISPLAY_CONFIG_FLAGS = QUERY_DISPLAY_CONFIG_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const QDC_INCLUDE_HMD: QUERY_DISPLAY_CONFIG_FLAGS = QUERY_DISPLAY_CONFIG_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const QDC_VIRTUAL_REFRESH_RATE_AWARE: QUERY_DISPLAY_CONFIG_FLAGS = QUERY_DISPLAY_CONFIG_FLAGS(64u32);
 impl ::core::marker::Copy for QUERY_DISPLAY_CONFIG_FLAGS {}
 impl ::core::clone::Clone for QUERY_DISPLAY_CONFIG_FLAGS {
     fn clone(&self) -> Self {
@@ -3697,40 +3781,6 @@ impl ::core::ops::Not for QUERY_DISPLAY_CONFIG_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SET_DISPLAY_CONFIG_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const SDC_USE_DATABASE_CURRENT: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(15u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const SDC_TOPOLOGY_INTERNAL: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const SDC_TOPOLOGY_CLONE: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const SDC_TOPOLOGY_EXTEND: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const SDC_TOPOLOGY_EXTERNAL: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const SDC_TOPOLOGY_SUPPLIED: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const SDC_USE_SUPPLIED_DISPLAY_CONFIG: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const SDC_VALIDATE: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const SDC_APPLY: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const SDC_NO_OPTIMIZATION: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const SDC_SAVE_TO_DATABASE: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const SDC_ALLOW_CHANGES: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const SDC_PATH_PERSIST_IF_REQUIRED: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const SDC_FORCE_MODE_ENUMERATION: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const SDC_ALLOW_PATH_ORDER_CHANGES: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const SDC_VIRTUAL_MODE_AWARE: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(32768u32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const SDC_VIRTUAL_REFRESH_RATE_AWARE: SET_DISPLAY_CONFIG_FLAGS = SET_DISPLAY_CONFIG_FLAGS(131072u32);
 impl ::core::marker::Copy for SET_DISPLAY_CONFIG_FLAGS {}
 impl ::core::clone::Clone for SET_DISPLAY_CONFIG_FLAGS {
     fn clone(&self) -> Self {
@@ -3787,16 +3837,6 @@ impl ::core::ops::Not for SET_DISPLAY_CONFIG_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VIDEO_BANK_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoNotBanked: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoBanked1RW: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoBanked1R1W: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoBanked2RW: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const NumVideoBankTypes: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(4i32);
 impl ::core::marker::Copy for VIDEO_BANK_TYPE {}
 impl ::core::clone::Clone for VIDEO_BANK_TYPE {
     fn clone(&self) -> Self {
@@ -3820,22 +3860,6 @@ impl ::core::fmt::Debug for VIDEO_BANK_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VIDEO_POWER_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoPowerUnspecified: VIDEO_POWER_STATE = VIDEO_POWER_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoPowerOn: VIDEO_POWER_STATE = VIDEO_POWER_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoPowerStandBy: VIDEO_POWER_STATE = VIDEO_POWER_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoPowerSuspend: VIDEO_POWER_STATE = VIDEO_POWER_STATE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoPowerOff: VIDEO_POWER_STATE = VIDEO_POWER_STATE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoPowerHibernate: VIDEO_POWER_STATE = VIDEO_POWER_STATE(5i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoPowerShutdown: VIDEO_POWER_STATE = VIDEO_POWER_STATE(6i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoPowerMaximum: VIDEO_POWER_STATE = VIDEO_POWER_STATE(7i32);
 impl ::core::marker::Copy for VIDEO_POWER_STATE {}
 impl ::core::clone::Clone for VIDEO_POWER_STATE {
     fn clone(&self) -> Self {
@@ -3859,30 +3883,6 @@ impl ::core::fmt::Debug for VIDEO_POWER_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoPowerNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoEnumChildPdoNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoFindAdapterCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoPnpNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoDxgkDisplaySwitchCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoDxgkFindAdapterTdrCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoDxgkHardwareProtectionTeardown: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoRepaintDesktop: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoUpdateCursor: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoDisableMultiPlaneOverlay: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoDesktopDuplicationChange: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
-pub const VideoBlackScreenDiagnostics: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(16i32);
 impl ::core::marker::Copy for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {}
 impl ::core::clone::Clone for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {
     fn clone(&self) -> Self {

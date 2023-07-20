@@ -20598,6 +20598,30 @@ pub struct IWMCodecVideoAccelerator_Vtbl {
     SetPlayerNotify: usize,
 }
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ADVISE_CLIPPING: ADVISE_TYPE = ADVISE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ADVISE_COLORKEY: ADVISE_TYPE = ADVISE_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ADVISE_DISPLAY_CHANGE: ADVISE_TYPE = ADVISE_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ADVISE_NONE: ADVISE_TYPE = ADVISE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ADVISE_PALETTE: ADVISE_TYPE = ADVISE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ADVISE_POSITION: ADVISE_TYPE = ADVISE_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMAP_3D_TARGET: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMAP_ALLOW_SYSMEM: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMAP_DIRECTED_FLIP: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMAP_DXVA_TARGET: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(32i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMAP_FORCE_SYSMEM: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMAP_PIXELFORMAT_VALID: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMCONTROL_COLORINFO_PRESENT: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMCONTROL_PAD_TO_16x9: u32 = 4u32;
@@ -20658,9 +20682,131 @@ pub const AMINTERLACE_IsInterlaced: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMINTERLACE_UNUSED: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMMSF_ADDDEFAULTRENDERER: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMMSF_CREATEPEER: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMMSF_NOCLOCK: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMMSF_NOGRAPHTHREAD: AMMSF_MMS_INIT_FLAGS = AMMSF_MMS_INIT_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMMSF_NORENDER: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMMSF_NOSTALL: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMMSF_RENDERALLSTREAMS: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMMSF_RENDERTOEXISTING: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMMSF_RENDERTYPEMASK: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMMSF_RUN: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMMSF_STOPIFNOSAMPLES: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMOVERFX_DEINTERLACE: AMOVERLAYFX = AMOVERLAYFX(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMOVERFX_MIRRORLEFTRIGHT: AMOVERLAYFX = AMOVERLAYFX(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMOVERFX_MIRRORUPDOWN: AMOVERLAYFX = AMOVERLAYFX(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMOVERFX_NOFX: AMOVERLAYFX = AMOVERLAYFX(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMPLAYLISTEVENT_BREAK: AMPlayListEventFlags = AMPlayListEventFlags(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMPLAYLISTEVENT_MASK: AMPlayListEventFlags = AMPlayListEventFlags(15i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMPLAYLISTEVENT_NEXT: AMPlayListEventFlags = AMPlayListEventFlags(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMPLAYLISTEVENT_REFRESH: AMPlayListEventFlags = AMPlayListEventFlags(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMPLAYLISTEVENT_RESUME: AMPlayListEventFlags = AMPlayListEventFlags(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMPLAYLISTITEM_CANBIND: AMPlayListItemFlags = AMPlayListItemFlags(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMPLAYLISTITEM_CANSKIP: AMPlayListItemFlags = AMPlayListItemFlags(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMPLAYLIST_FORCEBANNER: AMPlayListFlags = AMPlayListFlags(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMPLAYLIST_STARTINSCANMODE: AMPlayListFlags = AMPlayListFlags(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMPROPERTY_PIN_CATEGORY: AMPROPERTY_PIN = AMPROPERTY_PIN(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMPROPERTY_PIN_MEDIUM: AMPROPERTY_PIN = AMPROPERTY_PIN(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMRESCTL_RESERVEFLAGS_RESERVE: _AMRESCTL_RESERVEFLAGS = _AMRESCTL_RESERVEFLAGS(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMRESCTL_RESERVEFLAGS_UNRESERVE: _AMRESCTL_RESERVEFLAGS = _AMRESCTL_RESERVEFLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMSTREAMSELECTENABLE_ENABLE: _AMSTREAMSELECTENABLEFLAGS = _AMSTREAMSELECTENABLEFLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMSTREAMSELECTENABLE_ENABLEALL: _AMSTREAMSELECTENABLEFLAGS = _AMSTREAMSELECTENABLEFLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMSTREAMSELECTINFO_ENABLED: _AMSTREAMSELECTINFOFLAGS = _AMSTREAMSELECTINFOFLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMSTREAMSELECTINFO_EXCLUSIVE: _AMSTREAMSELECTINFOFLAGS = _AMSTREAMSELECTINFOFLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMTUNER_EVENT_CHANGED: AMTunerEventType = AMTunerEventType(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMTUNER_HASNOSIGNALSTRENGTH: AMTunerSignalStrength = AMTunerSignalStrength(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMTUNER_MODE_AM_RADIO: AMTunerModeType = AMTunerModeType(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMTUNER_MODE_DEFAULT: AMTunerModeType = AMTunerModeType(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMTUNER_MODE_DSS: AMTunerModeType = AMTunerModeType(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMTUNER_MODE_FM_RADIO: AMTunerModeType = AMTunerModeType(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMTUNER_MODE_TV: AMTunerModeType = AMTunerModeType(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMTUNER_NOSIGNAL: AMTunerSignalStrength = AMTunerSignalStrength(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMTUNER_SIGNALPRESENT: AMTunerSignalStrength = AMTunerSignalStrength(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMTUNER_SUBCHAN_DEFAULT: AMTunerSubChannel = AMTunerSubChannel(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMTUNER_SUBCHAN_NO_TUNE: AMTunerSubChannel = AMTunerSubChannel(-2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMTVAUDIO_EVENT_CHANGED: AMTVAudioEventType = AMTVAudioEventType(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMTVAUDIO_MODE_LANG_A: TVAudioMode = TVAudioMode(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMTVAUDIO_MODE_LANG_B: TVAudioMode = TVAudioMode(32i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMTVAUDIO_MODE_LANG_C: TVAudioMode = TVAudioMode(64i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMTVAUDIO_MODE_MONO: TVAudioMode = TVAudioMode(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMTVAUDIO_MODE_STEREO: TVAudioMode = TVAudioMode(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMTVAUDIO_PRESET_LANG_A: TVAudioMode = TVAudioMode(4096i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMTVAUDIO_PRESET_LANG_B: TVAudioMode = TVAudioMode(8192i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMTVAUDIO_PRESET_LANG_C: TVAudioMode = TVAudioMode(16384i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMTVAUDIO_PRESET_STEREO: TVAudioMode = TVAudioMode(512i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMVA_QUERYRENDERSTATUSF_READ: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AMVA_TYPEINDEX_OUTPUTFRAME: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMVP_BEST_BANDWIDTH: AMVP_SELECT_FORMAT_BY = AMVP_SELECT_FORMAT_BY(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMVP_DO_NOT_CARE: AMVP_SELECT_FORMAT_BY = AMVP_SELECT_FORMAT_BY(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMVP_INPUT_SAME_AS_OUTPUT: AMVP_SELECT_FORMAT_BY = AMVP_SELECT_FORMAT_BY(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMVP_MODE_BOBINTERLEAVED: AMVP_MODE = AMVP_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMVP_MODE_BOBNONINTERLEAVED: AMVP_MODE = AMVP_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMVP_MODE_SKIPEVEN: AMVP_MODE = AMVP_MODE(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMVP_MODE_SKIPODD: AMVP_MODE = AMVP_MODE(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AMVP_MODE_WEAVE: AMVP_MODE = AMVP_MODE(0i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AC3_ALTERNATE_AUDIO_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -20684,6 +20830,38 @@ pub const AM_AC3_SERVICE_VISUALLY_IMPAIRED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_AC3_SERVICE_VOICE_OVER: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_ARMODE_CROP: AM_ASPECT_RATIO_MODE = AM_ASPECT_RATIO_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_ARMODE_LETTER_BOX: AM_ASPECT_RATIO_MODE = AM_ASPECT_RATIO_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_ARMODE_STRETCHED: AM_ASPECT_RATIO_MODE = AM_ASPECT_RATIO_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_ARMODE_STRETCHED_AS_PRIMARY: AM_ASPECT_RATIO_MODE = AM_ASPECT_RATIO_MODE(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_AUDREND_STAT_PARAM_BREAK_COUNT: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_AUDREND_STAT_PARAM_BUFFERFULLNESS: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(11i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_AUDREND_STAT_PARAM_DISCONTINUITIES: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_AUDREND_STAT_PARAM_JITTER: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(12i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_AUDREND_STAT_PARAM_LAST_BUFFER_DUR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_AUDREND_STAT_PARAM_SILENCE_DUR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_AUDREND_STAT_PARAM_SLAVE_ACCUMERROR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(10i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_AUDREND_STAT_PARAM_SLAVE_DROPWRITE_DUR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_AUDREND_STAT_PARAM_SLAVE_HIGHLOWERROR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_AUDREND_STAT_PARAM_SLAVE_LASTHIGHLOWERROR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(9i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_AUDREND_STAT_PARAM_SLAVE_MODE: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_AUDREND_STAT_PARAM_SLAVE_RATE: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_CONTENTPROPERTY_AUTHOR: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_CONTENTPROPERTY_COPYRIGHT: u32 = 4u32;
@@ -20691,6 +20869,24 @@ pub const AM_CONTENTPROPERTY_COPYRIGHT: u32 = 4u32;
 pub const AM_CONTENTPROPERTY_DESCRIPTION: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_CONTENTPROPERTY_TITLE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DIGITAL_CP_DVD_COMPLIANT: AM_DIGITAL_CP = AM_DIGITAL_CP(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DIGITAL_CP_OFF: AM_DIGITAL_CP = AM_DIGITAL_CP(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DIGITAL_CP_ON: AM_DIGITAL_CP = AM_DIGITAL_CP(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DVDCOPYSTATE_AUTHENTICATION_NOT_REQUIRED: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DVDCOPYSTATE_AUTHENTICATION_REQUIRED: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DVDCOPYSTATE_DONE: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DVDCOPYSTATE_INITIALIZE: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DVDCOPYSTATE_INITIALIZE_TITLE: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DVD_ADAPT_GRAPH: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(16384i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_CGMS_COPY_ONCE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -20706,13 +20902,61 @@ pub const AM_DVD_COPYRIGHTED: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_COPYRIGHT_MASK: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DVD_DO_NOT_CLEAR: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(512i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DVD_EVR_ONLY: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(4096i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DVD_EVR_QOS: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(8192i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DVD_HWDEC_ONLY: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DVD_HWDEC_PREFER: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DVD_MASK: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(65535i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_NOT_COPYRIGHTED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DVD_NOVPE: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(256i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_SECTOR_NOT_PROTECTED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_SECTOR_PROTECTED: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_DVD_SECTOR_PROTECT_MASK: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DVD_STREAM_AUDIO: AM_DVD_STREAM_FLAGS = AM_DVD_STREAM_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DVD_STREAM_SUBPIC: AM_DVD_STREAM_FLAGS = AM_DVD_STREAM_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DVD_STREAM_VIDEO: AM_DVD_STREAM_FLAGS = AM_DVD_STREAM_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DVD_SWDEC_ONLY: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DVD_SWDEC_PREFER: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_DVD_VMR9_ONLY: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(2048i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_EXSEEK_BUFFERING: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(32i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_EXSEEK_CANSCAN: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_EXSEEK_CANSEEK: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_EXSEEK_MARKERSEEK: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_EXSEEK_NOSTANDARDREPAINT: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_EXSEEK_SCANWITHOUTCLOCK: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_EXSEEK_SENDS_VIDEOFRAMEREADY: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(64i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_FILE_OVERWRITE: AM_FILESINK_FLAGS = AM_FILESINK_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_FILTER_FLAGS_REMOVABLE: AM_FILTER_FLAGS = AM_FILTER_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_FILTER_MISC_FLAGS_IS_RENDERER: _AM_FILTER_MISC_FLAGS = _AM_FILTER_MISC_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_FILTER_MISC_FLAGS_IS_SOURCE: _AM_FILTER_MISC_FLAGS = _AM_FILTER_MISC_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_GBF_NODDSURFACELOCK: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -20728,7 +20972,19 @@ pub const AM_GETDECODERCAP_QUERY_VMR9_SUPPORT: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_GETDECODERCAP_QUERY_VMR_SUPPORT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_GRAPH_CONFIG_RECONNECT_CACHE_REMOVED_FILTERS: AM_GRAPH_CONFIG_RECONNECT_FLAGS = AM_GRAPH_CONFIG_RECONNECT_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_GRAPH_CONFIG_RECONNECT_DIRECTCONNECT: AM_GRAPH_CONFIG_RECONNECT_FLAGS = AM_GRAPH_CONFIG_RECONNECT_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_GRAPH_CONFIG_RECONNECT_USE_ONLY_CACHED_FILTERS: AM_GRAPH_CONFIG_RECONNECT_FLAGS = AM_GRAPH_CONFIG_RECONNECT_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_INTERFACESETID_Standard: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1a8766a0_62ce_11cf_a5d6_28db04c10000);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_INTF_SEARCH_FILTER: _AM_INTF_SEARCH_FLAGS = _AM_INTF_SEARCH_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_INTF_SEARCH_INPUT_PIN: _AM_INTF_SEARCH_FLAGS = _AM_INTF_SEARCH_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_INTF_SEARCH_OUTPUT_PIN: _AM_INTF_SEARCH_FLAGS = _AM_INTF_SEARCH_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_KSCATEGORY_AUDIO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6994ad04_93ef_11d0_a3cc_00a0c9223196);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -20768,6 +21024,40 @@ pub const AM_KSPROPSETID_MPEG4_MediaType_Attributes: ::windows_core::GUID = ::wi
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_KSPROPSETID_TSRateChange: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa503c5c0_1d1d_11d1_ad80_444553540000);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_L21_CCLEVEL_TC2: AM_LINE21_CCLEVEL = AM_LINE21_CCLEVEL(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_L21_CCSERVICE_Caption1: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_L21_CCSERVICE_Caption2: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_L21_CCSERVICE_DefChannel: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(10i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_L21_CCSERVICE_Invalid: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(11i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_L21_CCSERVICE_None: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_L21_CCSERVICE_Text1: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_L21_CCSERVICE_Text2: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_L21_CCSERVICE_XDS: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_L21_CCSTATE_Off: AM_LINE21_CCSTATE = AM_LINE21_CCSTATE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_L21_CCSTATE_On: AM_LINE21_CCSTATE = AM_LINE21_CCSTATE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_L21_CCSTYLE_None: AM_LINE21_CCSTYLE = AM_LINE21_CCSTYLE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_L21_CCSTYLE_PaintOn: AM_LINE21_CCSTYLE = AM_LINE21_CCSTYLE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_L21_CCSTYLE_PopOn: AM_LINE21_CCSTYLE = AM_LINE21_CCSTYLE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_L21_CCSTYLE_RollUp: AM_LINE21_CCSTYLE = AM_LINE21_CCSTYLE(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_L21_DRAWBGMODE_Opaque: AM_LINE21_DRAWBGMODE = AM_LINE21_DRAWBGMODE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_L21_DRAWBGMODE_Transparent: AM_LINE21_DRAWBGMODE = AM_LINE21_DRAWBGMODE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_LOADSTATUS_CLOSED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_LOADSTATUS_CONNECTING: u32 = 4u32;
@@ -20782,11 +21072,113 @@ pub const AM_LOADSTATUS_OPEN: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_LOADSTATUS_OPENING: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_MACROVISION_DISABLED: AM_COPY_MACROVISION_LEVEL = AM_COPY_MACROVISION_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_MACROVISION_LEVEL1: AM_COPY_MACROVISION_LEVEL = AM_COPY_MACROVISION_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_MACROVISION_LEVEL2: AM_COPY_MACROVISION_LEVEL = AM_COPY_MACROVISION_LEVEL(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_MACROVISION_LEVEL3: AM_COPY_MACROVISION_LEVEL = AM_COPY_MACROVISION_LEVEL(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_MEDIAEVENT_NONOTIFY: AM_MEDIAEVENT_FLAGS = AM_MEDIAEVENT_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_MPEG2Level_High: AM_MPEG2Level = AM_MPEG2Level(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_MPEG2Level_High1440: AM_MPEG2Level = AM_MPEG2Level(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_MPEG2Level_Low: AM_MPEG2Level = AM_MPEG2Level(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_MPEG2Level_Main: AM_MPEG2Level = AM_MPEG2Level(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_MPEG2Profile_High: AM_MPEG2Profile = AM_MPEG2Profile(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_MPEG2Profile_Main: AM_MPEG2Profile = AM_MPEG2Profile(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_MPEG2Profile_SNRScalable: AM_MPEG2Profile = AM_MPEG2Profile(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_MPEG2Profile_Simple: AM_MPEG2Profile = AM_MPEG2Profile(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_MPEG2Profile_SpatiallyScalable: AM_MPEG2Profile = AM_MPEG2Profile(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MPEG_AUDIO_DUAL_LEFT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MPEG_AUDIO_DUAL_MERGE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MPEG_AUDIO_DUAL_RIGHT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_OVERLAY_NOTIFY_DEST_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = _AM_OVERLAY_NOTIFY_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_OVERLAY_NOTIFY_SOURCE_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = _AM_OVERLAY_NOTIFY_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_OVERLAY_NOTIFY_VISIBLE_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = _AM_OVERLAY_NOTIFY_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PIN_FLOW_CONTROL_BLOCK: _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS = _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_AC3_ALTERNATE_AUDIO: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_AC3_BIT_STREAM_MODE: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_AC3_DIALOGUE_LEVEL: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_AC3_DOWNMIX: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_AC3_ERROR_CONCEALMENT: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_AC3_LANGUAGE_CODE: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_AC3_ROOM_TYPE: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_COPY_ANALOG_COMPONENT: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_COPY_DIGITAL_CP: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(9i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_COPY_DVD_SRM: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(10i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_COPY_MACROVISION: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_DVDCOPY_CHLG_KEY: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_DVDCOPY_DEC_KEY2: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_DVDCOPY_DISC_KEY: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(128i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_DVDCOPY_DVD_KEY1: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_DVDCOPY_REGION: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_DVDCOPY_SET_COPY_STATE: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_DVDCOPY_SUPPORTS_NEW_KEYCOUNT: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(11i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_DVDCOPY_TITLE_KEY: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_DVDKARAOKE_DATA: AM_PROPERTY_DVDKARAOKE = AM_PROPERTY_DVDKARAOKE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_DVDKARAOKE_ENABLE: AM_PROPERTY_DVDKARAOKE = AM_PROPERTY_DVDKARAOKE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_DVDSUBPIC_COMPOSIT_ON: AM_PROPERTY_DVDSUBPIC = AM_PROPERTY_DVDSUBPIC(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_DVDSUBPIC_HLI: AM_PROPERTY_DVDSUBPIC = AM_PROPERTY_DVDSUBPIC(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_DVDSUBPIC_PALETTE: AM_PROPERTY_DVDSUBPIC = AM_PROPERTY_DVDSUBPIC(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_FRAMESTEP_CANCEL: AM_PROPERTY_FRAMESTEP = AM_PROPERTY_FRAMESTEP(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_FRAMESTEP_CANSTEP: AM_PROPERTY_FRAMESTEP = AM_PROPERTY_FRAMESTEP(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_FRAMESTEP_CANSTEPMULTIPLE: AM_PROPERTY_FRAMESTEP = AM_PROPERTY_FRAMESTEP(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PROPERTY_FRAMESTEP_STEP: AM_PROPERTY_FRAMESTEP = AM_PROPERTY_FRAMESTEP(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PUSHSOURCECAPS_INTERNAL_RM: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PUSHSOURCECAPS_NOT_LIVE: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PUSHSOURCECAPS_PRIVATE_CLOCK: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PUSHSOURCEREQS_USE_CLOCK_CHAIN: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(131072i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_PUSHSOURCEREQS_USE_STREAM_CLOCK: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(65536i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_QUERY_DECODER_ATSC_HD_SUPPORT: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -20798,9 +21190,109 @@ pub const AM_QUERY_DECODER_DXVA_1_SUPPORT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_QUERY_DECODER_VMR_SUPPORT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_RATE_ChangeRate: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_RATE_CorrectTS: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_RATE_DecoderPosition: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_RATE_DecoderVersion: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_RATE_ExactRateChange: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_RATE_FullDataRateMax: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_RATE_MaxFullDataRate: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_RATE_QueryFullFrameRate: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_RATE_QueryLastRateSegPTS: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_RATE_QueryMapping: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(11i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_RATE_ResetOnTimeDisc: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(10i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_RATE_ReverseDecode: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_RATE_ReverseMaxFullDataRate: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(9i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_RATE_SimpleRateChange: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_RATE_Step: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_RATE_UseRateVersion: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_RENDEREX_RENDERTOEXISTINGRENDERERS: _AM_RENSDEREXFLAGS = _AM_RENSDEREXFLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_ReverseBlockEnd: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_ReverseBlockStart: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SAMPLE_DATADISCONTINUITY: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SAMPLE_ENDOFSTREAM: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(512i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SAMPLE_FLUSH_ON_PAUSE: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(128i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SAMPLE_PREROLL: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SAMPLE_SPLICEPOINT: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SAMPLE_STOPVALID: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(256i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SAMPLE_TIMEDISCONTINUITY: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(64i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SAMPLE_TIMEVALID: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SAMPLE_TYPECHANGED: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SEEKING_AbsolutePositioning: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SEEKING_CanDoSegments: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(128i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SEEKING_CanGetCurrentPos: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SEEKING_CanGetDuration: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(32i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SEEKING_CanGetStopPos: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SEEKING_CanPlayBackwards: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(64i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SEEKING_CanSeekAbsolute: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SEEKING_CanSeekBackwards: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SEEKING_CanSeekForwards: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SEEKING_IncrementalPositioning: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SEEKING_NoFlush: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(32i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SEEKING_NoPositioning: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SEEKING_PositioningBitsMask: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SEEKING_RelativePositioning: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SEEKING_ReturnTime: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SEEKING_SeekToKeyFrame: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SEEKING_Segment: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_SEEKING_Source: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(256i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_STREAM_CONTROL: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_STREAM_INFO_DISCARDING: AM_STREAM_INFO_FLAGS = AM_STREAM_INFO_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_STREAM_INFO_START_DEFINED: AM_STREAM_INFO_FLAGS = AM_STREAM_INFO_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_STREAM_INFO_STOP_DEFINED: AM_STREAM_INFO_FLAGS = AM_STREAM_INFO_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_STREAM_INFO_STOP_SEND_EXTRA: AM_STREAM_INFO_FLAGS = AM_STREAM_INFO_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_STREAM_MEDIA: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_UseNewCSSKey: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -20825,6 +21317,32 @@ pub const AM_VIDEO_FLAG_P_SAMPLE: i32 = 16i32;
 pub const AM_VIDEO_FLAG_REPEAT_FIELD: i32 = 64i32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_VIDEO_FLAG_WEAVE: i32 = 8i32;
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_WST_DRAWBGMODE_Opaque: AM_WST_DRAWBGMODE = AM_WST_DRAWBGMODE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_WST_DRAWBGMODE_Transparent: AM_WST_DRAWBGMODE = AM_WST_DRAWBGMODE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_WST_LEVEL_1_5: AM_WST_LEVEL = AM_WST_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_WST_SERVICE_IDS: AM_WST_SERVICE = AM_WST_SERVICE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_WST_SERVICE_Invalid: AM_WST_SERVICE = AM_WST_SERVICE(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_WST_SERVICE_None: AM_WST_SERVICE = AM_WST_SERVICE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_WST_SERVICE_Text: AM_WST_SERVICE = AM_WST_SERVICE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_WST_STATE_Off: AM_WST_STATE = AM_WST_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_WST_STATE_On: AM_WST_STATE = AM_WST_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_WST_STYLE_Invers: AM_WST_STYLE = AM_WST_STYLE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AM_WST_STYLE_None: AM_WST_STYLE = AM_WST_STYLE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ANNEX_A_DSM_CC: MPEG2StreamType = MPEG2StreamType(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ATSCCT_AC3: ATSCComponentTypeFlags = ATSCComponentTypeFlags(1i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVIF_COPYRIGHTED: u32 = 131072u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -20876,11 +21394,179 @@ pub const AVI_INDEX_SUB_2FIELD: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AVI_INDEX_SUB_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideoMask_MCE_NTSC: AnalogVideoStandard = AnalogVideoStandard(1052167i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideoMask_MCE_PAL: AnalogVideoStandard = AnalogVideoStandard(496i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideoMask_MCE_SECAM: AnalogVideoStandard = AnalogVideoStandard(1044480i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideo_NTSC_433: AnalogVideoStandard = AnalogVideoStandard(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideo_NTSC_M: AnalogVideoStandard = AnalogVideoStandard(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideo_NTSC_M_J: AnalogVideoStandard = AnalogVideoStandard(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_NTSC_Mask: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideo_None: AnalogVideoStandard = AnalogVideoStandard(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideo_PAL_60: AnalogVideoStandard = AnalogVideoStandard(2048i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideo_PAL_B: AnalogVideoStandard = AnalogVideoStandard(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideo_PAL_D: AnalogVideoStandard = AnalogVideoStandard(32i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideo_PAL_G: AnalogVideoStandard = AnalogVideoStandard(64i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideo_PAL_H: AnalogVideoStandard = AnalogVideoStandard(128i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideo_PAL_I: AnalogVideoStandard = AnalogVideoStandard(256i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideo_PAL_M: AnalogVideoStandard = AnalogVideoStandard(512i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_PAL_Mask: u32 = 1052656u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideo_PAL_N: AnalogVideoStandard = AnalogVideoStandard(1024i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideo_PAL_N_COMBO: AnalogVideoStandard = AnalogVideoStandard(1048576i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideo_SECAM_B: AnalogVideoStandard = AnalogVideoStandard(4096i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideo_SECAM_D: AnalogVideoStandard = AnalogVideoStandard(8192i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideo_SECAM_G: AnalogVideoStandard = AnalogVideoStandard(16384i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideo_SECAM_H: AnalogVideoStandard = AnalogVideoStandard(32768i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideo_SECAM_K: AnalogVideoStandard = AnalogVideoStandard(65536i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideo_SECAM_K1: AnalogVideoStandard = AnalogVideoStandard(131072i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideo_SECAM_L: AnalogVideoStandard = AnalogVideoStandard(262144i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AnalogVideo_SECAM_L1: AnalogVideoStandard = AnalogVideoStandard(524288i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AnalogVideo_SECAM_Mask: u32 = 1044480u32;
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const Associated: SmartCardAssociationType = SmartCardAssociationType(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const AssociationUnknown: SmartCardAssociationType = SmartCardAssociationType(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDACOMP_EXCLUDE_TS_FROM_TR: BDA_Comp_Flags = BDA_Comp_Flags(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDACOMP_INCLUDE_COMPONENTS_IN_TR: BDA_Comp_Flags = BDA_Comp_Flags(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDACOMP_INCLUDE_LOCATOR_IN_TR: BDA_Comp_Flags = BDA_Comp_Flags(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDACOMP_NOT_DEFINED: BDA_Comp_Flags = BDA_Comp_Flags(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_BCC_RATE_1_2: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_BCC_RATE_1_3: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(10i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_BCC_RATE_1_4: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(9i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_BCC_RATE_2_3: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_BCC_RATE_2_5: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(11i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_BCC_RATE_3_4: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_BCC_RATE_3_5: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_BCC_RATE_4_5: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_BCC_RATE_5_11: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_BCC_RATE_5_6: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_BCC_RATE_6_7: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(12i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_BCC_RATE_7_8: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_BCC_RATE_8_9: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(13i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_BCC_RATE_9_10: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(14i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_BCC_RATE_MAX: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(15i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_BCC_RATE_NOT_DEFINED: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_BCC_RATE_NOT_SET: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_CHANGES_COMPLETE: BDA_CHANGE_STATE = BDA_CHANGE_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_CHANGES_PENDING: BDA_CHANGE_STATE = BDA_CHANGE_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_CHAN_BANDWITH_NOT_DEFINED: BDA_Channel_Bandwidth = BDA_Channel_Bandwidth(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_CHAN_BANDWITH_NOT_SET: BDA_Channel_Bandwidth = BDA_Channel_Bandwidth(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_DISCOVERY_COMPLETE: BDA_DISCOVERY_STATE = BDA_DISCOVERY_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_DISCOVERY_REQUIRED: BDA_DISCOVERY_STATE = BDA_DISCOVERY_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_DISCOVERY_UNSPECIFIED: BDA_DISCOVERY_STATE = BDA_DISCOVERY_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_DrmPairing_Aborted: BDA_DrmPairingError = BDA_DrmPairingError(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_DrmPairing_DrmInitFailed: BDA_DrmPairingError = BDA_DrmPairingError(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_DrmPairing_DrmNotPaired: BDA_DrmPairingError = BDA_DrmPairingError(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_DrmPairing_DrmRePairSoon: BDA_DrmPairingError = BDA_DrmPairingError(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_DrmPairing_HardwareFailure: BDA_DrmPairingError = BDA_DrmPairingError(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_DrmPairing_NeedIndiv: BDA_DrmPairingError = BDA_DrmPairingError(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_DrmPairing_NeedRevocationData: BDA_DrmPairingError = BDA_DrmPairingError(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_DrmPairing_NeedSDKUpdate: BDA_DrmPairingError = BDA_DrmPairingError(9i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_DrmPairing_Other: BDA_DrmPairingError = BDA_DrmPairingError(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_DrmPairing_Succeeded: BDA_DrmPairingError = BDA_DrmPairingError(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_EVENT_ACCESS_DENIED: BDA_EVENT_ID = BDA_EVENT_ID(15i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_EVENT_ACCESS_GRANTED: BDA_EVENT_ID = BDA_EVENT_ID(14i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_EVENT_CHANNEL_ACQUIRED: BDA_EVENT_ID = BDA_EVENT_ID(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_EVENT_CHANNEL_ACTIVATED: BDA_EVENT_ID = BDA_EVENT_ID(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_EVENT_CHANNEL_DEACTIVATED: BDA_EVENT_ID = BDA_EVENT_ID(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_EVENT_CHANNEL_LOST: BDA_EVENT_ID = BDA_EVENT_ID(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_EVENT_CHANNEL_SOURCE_CHANGED: BDA_EVENT_ID = BDA_EVENT_ID(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_EVENT_DATA_START: BDA_EVENT_ID = BDA_EVENT_ID(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_EVENT_DATA_STOP: BDA_EVENT_ID = BDA_EVENT_ID(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_EVENT_OFFER_EXTENDED: BDA_EVENT_ID = BDA_EVENT_ID(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_EVENT_PURCHASE_COMPLETED: BDA_EVENT_ID = BDA_EVENT_ID(17i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_EVENT_SIGNAL_LOCK: BDA_EVENT_ID = BDA_EVENT_ID(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_EVENT_SIGNAL_LOSS: BDA_EVENT_ID = BDA_EVENT_ID(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_EVENT_SMART_CARD_INSERTED: BDA_EVENT_ID = BDA_EVENT_ID(18i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_EVENT_SMART_CARD_REMOVED: BDA_EVENT_ID = BDA_EVENT_ID(19i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_EVENT_SUBCHANNEL_ACQUIRED: BDA_EVENT_ID = BDA_EVENT_ID(9i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_EVENT_SUBCHANNEL_ACTIVATED: BDA_EVENT_ID = BDA_EVENT_ID(12i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_EVENT_SUBCHANNEL_DEACTIVATED: BDA_EVENT_ID = BDA_EVENT_ID(13i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_EVENT_SUBCHANNEL_LOST: BDA_EVENT_ID = BDA_EVENT_ID(10i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_EVENT_SUBCHANNEL_SOURCE_CHANGED: BDA_EVENT_ID = BDA_EVENT_ID(11i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_ACCESS_DENIED: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073479671i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -20974,7 +21660,305 @@ pub const BDA_E_WMDRM_KEY_ID_NOT_FOUND: ::windows_core::HRESULT = ::windows_core
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_E_WOULD_DISRUPT_STREAMING: ::windows_core::HRESULT = ::windows_core::HRESULT(-1073463293i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_FEC_BCH: FECMethod = FECMethod(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_FEC_LDPC: FECMethod = FECMethod(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_FEC_MAX: FECMethod = FECMethod(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_FEC_METHOD_NOT_DEFINED: FECMethod = FECMethod(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_FEC_METHOD_NOT_SET: FECMethod = FECMethod(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_FEC_RS_147_130: FECMethod = FECMethod(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_FEC_RS_204_188: FECMethod = FECMethod(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_FEC_VITERBI: FECMethod = FECMethod(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_FILTERED_MULTICAST: BDA_MULTICAST_MODE = BDA_MULTICAST_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_FREQUENCY_MULTIPLIER_NOT_DEFINED: BDA_Frequency_Multiplier = BDA_Frequency_Multiplier(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_FREQUENCY_MULTIPLIER_NOT_SET: BDA_Frequency_Multiplier = BDA_Frequency_Multiplier(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_FREQUENCY_NOT_DEFINED: BDA_Frequency = BDA_Frequency(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_FREQUENCY_NOT_SET: BDA_Frequency = BDA_Frequency(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_GUARD_19_128: GuardInterval = GuardInterval(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_GUARD_19_256: GuardInterval = GuardInterval(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_GUARD_1_128: GuardInterval = GuardInterval(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_GUARD_1_16: GuardInterval = GuardInterval(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_GUARD_1_32: GuardInterval = GuardInterval(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_GUARD_1_4: GuardInterval = GuardInterval(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_GUARD_1_8: GuardInterval = GuardInterval(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_GUARD_MAX: GuardInterval = GuardInterval(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_GUARD_NOT_DEFINED: GuardInterval = GuardInterval(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_GUARD_NOT_SET: GuardInterval = GuardInterval(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_HALPHA_1: HierarchyAlpha = HierarchyAlpha(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_HALPHA_2: HierarchyAlpha = HierarchyAlpha(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_HALPHA_4: HierarchyAlpha = HierarchyAlpha(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_HALPHA_MAX: HierarchyAlpha = HierarchyAlpha(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_HALPHA_NOT_DEFINED: HierarchyAlpha = HierarchyAlpha(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_HALPHA_NOT_SET: HierarchyAlpha = HierarchyAlpha(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_LNB_SOURCE_A: LNB_Source = LNB_Source(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_LNB_SOURCE_B: LNB_Source = LNB_Source(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_LNB_SOURCE_C: LNB_Source = LNB_Source(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_LNB_SOURCE_D: LNB_Source = LNB_Source(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_LNB_SOURCE_MAX: LNB_Source = LNB_Source(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_LNB_SOURCE_NOT_DEFINED: LNB_Source = LNB_Source(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_LNB_SOURCE_NOT_SET: LNB_Source = LNB_Source(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_1024QAM: ModulationType = ModulationType(19i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_112QAM: ModulationType = ModulationType(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_128QAM: ModulationType = ModulationType(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_160QAM: ModulationType = ModulationType(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_16APSK: ModulationType = ModulationType(29i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_16QAM: ModulationType = ModulationType(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_16VSB: ModulationType = ModulationType(24i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_192QAM: ModulationType = ModulationType(9i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_224QAM: ModulationType = ModulationType(10i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_256QAM: ModulationType = ModulationType(11i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_320QAM: ModulationType = ModulationType(12i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_32APSK: ModulationType = ModulationType(30i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_32QAM: ModulationType = ModulationType(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_384QAM: ModulationType = ModulationType(13i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_448QAM: ModulationType = ModulationType(14i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_512QAM: ModulationType = ModulationType(15i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_640QAM: ModulationType = ModulationType(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_64QAM: ModulationType = ModulationType(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_768QAM: ModulationType = ModulationType(17i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_80QAM: ModulationType = ModulationType(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_896QAM: ModulationType = ModulationType(18i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_8PSK: ModulationType = ModulationType(27i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_8VSB: ModulationType = ModulationType(23i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_96QAM: ModulationType = ModulationType(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_ANALOG_AMPLITUDE: ModulationType = ModulationType(25i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_ANALOG_FREQUENCY: ModulationType = ModulationType(26i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_BPSK: ModulationType = ModulationType(21i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_DIRECTV: ModulationType = ModulationType(33i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_ISDB_S_TMCC: ModulationType = ModulationType(35i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_ISDB_T_TMCC: ModulationType = ModulationType(34i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_MAX: ModulationType = ModulationType(36i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_NBC_8PSK: ModulationType = ModulationType(32i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_NBC_QPSK: ModulationType = ModulationType(31i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_NOT_DEFINED: ModulationType = ModulationType(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_NOT_SET: ModulationType = ModulationType(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_OQPSK: ModulationType = ModulationType(22i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_QPSK: ModulationType = ModulationType(20i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_MOD_RF: ModulationType = ModulationType(28i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_NO_MULTICAST: BDA_MULTICAST_MODE = BDA_MULTICAST_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_PILOT_MAX: Pilot = Pilot(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_PILOT_NOT_DEFINED: Pilot = Pilot(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_PILOT_NOT_SET: Pilot = Pilot(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_PILOT_OFF: Pilot = Pilot(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_PILOT_ON: Pilot = Pilot(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const BDA_PLP_ID_NOT_SET: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_POLARISATION_CIRCULAR_L: Polarisation = Polarisation(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_POLARISATION_CIRCULAR_R: Polarisation = Polarisation(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_POLARISATION_LINEAR_H: Polarisation = Polarisation(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_POLARISATION_LINEAR_V: Polarisation = Polarisation(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_POLARISATION_MAX: Polarisation = Polarisation(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_POLARISATION_NOT_DEFINED: Polarisation = Polarisation(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_POLARISATION_NOT_SET: Polarisation = Polarisation(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_PROMISCUOUS_MULTICAST: BDA_MULTICAST_MODE = BDA_MULTICAST_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_RANGE_NOT_DEFINED: BDA_Range = BDA_Range(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_RANGE_NOT_SET: BDA_Range = BDA_Range(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_ROLL_OFF_20: RollOff = RollOff(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_ROLL_OFF_25: RollOff = RollOff(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_ROLL_OFF_35: RollOff = RollOff(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_ROLL_OFF_MAX: RollOff = RollOff(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_ROLL_OFF_NOT_DEFINED: RollOff = RollOff(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_ROLL_OFF_NOT_SET: RollOff = RollOff(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_1024QAM: ScanModulationTypes = ScanModulationTypes(262144i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_112QAM: ScanModulationTypes = ScanModulationTypes(32i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_128QAM: ScanModulationTypes = ScanModulationTypes(64i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_160QAM: ScanModulationTypes = ScanModulationTypes(128i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_16APSK: ScanModulationTypes = ScanModulationTypes(268435456i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_16QAM: ScanModulationTypes = ScanModulationTypes(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_16VSB: ScanModulationTypes = ScanModulationTypes(8388608i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_192QAM: ScanModulationTypes = ScanModulationTypes(256i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_224QAM: ScanModulationTypes = ScanModulationTypes(512i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_256QAM: ScanModulationTypes = ScanModulationTypes(1024i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_320QAM: ScanModulationTypes = ScanModulationTypes(2048i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_32APSK: ScanModulationTypes = ScanModulationTypes(536870912i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_32QAM: ScanModulationTypes = ScanModulationTypes(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_384QAM: ScanModulationTypes = ScanModulationTypes(4096i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_448QAM: ScanModulationTypes = ScanModulationTypes(8192i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_512QAM: ScanModulationTypes = ScanModulationTypes(16384i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_640QAM: ScanModulationTypes = ScanModulationTypes(32768i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_64QAM: ScanModulationTypes = ScanModulationTypes(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_768QAM: ScanModulationTypes = ScanModulationTypes(65536i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_80QAM: ScanModulationTypes = ScanModulationTypes(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_896QAM: ScanModulationTypes = ScanModulationTypes(131072i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_8PSK: ScanModulationTypes = ScanModulationTypes(67108864i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_8VSB: ScanModulationTypes = ScanModulationTypes(4194304i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_96QAM: ScanModulationTypes = ScanModulationTypes(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_AM_RADIO: ScanModulationTypes = ScanModulationTypes(16777216i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_BPSK: ScanModulationTypes = ScanModulationTypes(1048576i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_FM_RADIO: ScanModulationTypes = ScanModulationTypes(33554432i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_OQPSK: ScanModulationTypes = ScanModulationTypes(2097152i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_QPSK: ScanModulationTypes = ScanModulationTypes(524288i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SCAN_MOD_RF: ScanModulationTypes = ScanModulationTypes(134217728i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SIGNAL_ACTIVE: BDA_SIGNAL_STATE = BDA_SIGNAL_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SIGNAL_INACTIVE: BDA_SIGNAL_STATE = BDA_SIGNAL_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SIGNAL_UNAVAILABLE: BDA_SIGNAL_STATE = BDA_SIGNAL_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SPECTRAL_INVERSION_AUTOMATIC: SpectralInversion = SpectralInversion(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SPECTRAL_INVERSION_INVERTED: SpectralInversion = SpectralInversion(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SPECTRAL_INVERSION_MAX: SpectralInversion = SpectralInversion(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SPECTRAL_INVERSION_NORMAL: SpectralInversion = SpectralInversion(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SPECTRAL_INVERSION_NOT_DEFINED: SpectralInversion = SpectralInversion(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_SPECTRAL_INVERSION_NOT_SET: SpectralInversion = SpectralInversion(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_UNDEFINED_CHANNEL: BDA_Channel = BDA_Channel(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_UNITIALIZED_MPEG2STREAMTYPE: MPEG2StreamType = MPEG2StreamType(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_XMIT_MODE_16K: TransmissionMode = TransmissionMode(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_XMIT_MODE_1K: TransmissionMode = TransmissionMode(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_XMIT_MODE_2K: TransmissionMode = TransmissionMode(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_XMIT_MODE_2K_INTERLEAVED: TransmissionMode = TransmissionMode(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_XMIT_MODE_32K: TransmissionMode = TransmissionMode(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_XMIT_MODE_4K: TransmissionMode = TransmissionMode(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_XMIT_MODE_4K_INTERLEAVED: TransmissionMode = TransmissionMode(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_XMIT_MODE_8K: TransmissionMode = TransmissionMode(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_XMIT_MODE_MAX: TransmissionMode = TransmissionMode(9i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_XMIT_MODE_NOT_DEFINED: TransmissionMode = TransmissionMode(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const BDA_XMIT_MODE_NOT_SET: TransmissionMode = TransmissionMode(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CATEGORY_COUNT: ComponentCategory = ComponentCategory(8i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CDEF_BYPASS_CLASS_MANAGER: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -20995,6 +21979,12 @@ pub const CDEF_MERIT_ABOVE_DO_NOT_USE: u32 = 8u32;
 pub const CFSTR_VFW_FILTERLIST: ::windows_core::PCSTR = ::windows_core::s!("Video for Windows 4 Filters");
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CHARS_IN_GUID: u32 = 39u32;
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CK_INDEX: COLORKEY_TYPE = COLORKEY_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CK_NOCOLORKEY: COLORKEY_TYPE = COLORKEY_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CK_RGB: COLORKEY_TYPE = COLORKEY_TYPE(2i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CLSID_AMAudioData: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2468580_af8a_11d0_8212_00c04fc32c45);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -21018,15 +22008,293 @@ pub const CLSID_PBDA_FDC_DATA_TYPE: ::windows_core::GUID = ::windows_core::GUID:
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const CLSID_PBDA_GDDS_DATA_TYPE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc80c0df3_6052_4c16_9f56_c44c21f73c45);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COMPSTAT_ABORT: COMPLETION_STATUS_FLAGS = COMPLETION_STATUS_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COMPSTAT_NOUPDATEOK: COMPLETION_STATUS_FLAGS = COMPLETION_STATUS_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COMPSTAT_WAIT: COMPLETION_STATUS_FLAGS = COMPLETION_STATUS_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CONDITIONALACCESS_ABORTED: BDA_CONDITIONALACCESS_SESSION_RESULT = BDA_CONDITIONALACCESS_SESSION_RESULT(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CONDITIONALACCESS_ACCESS_NOT_POSSIBLE: BDA_CONDITIONALACCESS_REQUESTTYPE = BDA_CONDITIONALACCESS_REQUESTTYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CONDITIONALACCESS_ACCESS_POSSIBLE: BDA_CONDITIONALACCESS_REQUESTTYPE = BDA_CONDITIONALACCESS_REQUESTTYPE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CONDITIONALACCESS_ACCESS_POSSIBLE_NO_STREAMING_DISRUPTION: BDA_CONDITIONALACCESS_REQUESTTYPE = BDA_CONDITIONALACCESS_REQUESTTYPE(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CONDITIONALACCESS_ACCESS_UNSPECIFIED: BDA_CONDITIONALACCESS_REQUESTTYPE = BDA_CONDITIONALACCESS_REQUESTTYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CONDITIONALACCESS_CLOSED_ITSELF: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CONDITIONALACCESS_DIALOG_FOCUS_CHANGE: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CONDITIONALACCESS_DIALOG_TIMEOUT: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CONDITIONALACCESS_DIALOG_USER_DISMISSED: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CONDITIONALACCESS_DIALOG_USER_NOT_AVAILABLE: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CONDITIONALACCESS_ENDED_NOCHANGE: BDA_CONDITIONALACCESS_SESSION_RESULT = BDA_CONDITIONALACCESS_SESSION_RESULT(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CONDITIONALACCESS_SUCCESSFULL: BDA_CONDITIONALACCESS_SESSION_RESULT = BDA_CONDITIONALACCESS_SESSION_RESULT(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CONDITIONALACCESS_TUNER_REQUESTED_CLOSE: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CONDITIONALACCESS_UNSPECIFIED: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ACP_ForceDWORD: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(2147483647i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ACP_Level0: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ACP_Level1: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ACP_Level2: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ACP_Level3: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ACP_LevelMax: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ACP_LevelMin: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_AspectRatio_EN300294_Box14by9Center: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_AspectRatio_EN300294_Box14by9Top: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_AspectRatio_EN300294_Box16by9Center: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_AspectRatio_EN300294_Box16by9Top: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_AspectRatio_EN300294_BoxGT16by9Center: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_AspectRatio_EN300294_FullFormat16by9Anamorphic: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_AspectRatio_EN300294_FullFormat4by3: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_AspectRatio_EN300294_FullFormat4by3ProtectedCenter: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_AspectRatio_ForceDWORD: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(2147483647i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_BusType_AGP: COPP_BusType = COPP_BusType(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_BusType_ForceDWORD: COPP_BusType = COPP_BusType(2147483647i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_BusType_Integrated: COPP_BusType = COPP_BusType(-2147483648i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_BusType_PCI: COPP_BusType = COPP_BusType(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_BusType_PCIExpress: COPP_BusType = COPP_BusType(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_BusType_PCIX: COPP_BusType = COPP_BusType(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_BusType_Unknown: COPP_BusType = COPP_BusType(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_CGMSA_CopyFreely: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_CGMSA_CopyNever: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_CGMSA_CopyNoMore: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_CGMSA_CopyOneGeneration: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_CGMSA_Disabled: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_CGMSA_ForceDWORD: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(2147483647i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_CGMSA_LevelMax: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(12i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_CGMSA_LevelMin: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_CGMSA_RedistributionControlRequired: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ConnectorType_ComponentVideo: COPP_ConnectorType = COPP_ConnectorType(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ConnectorType_CompositeVideo: COPP_ConnectorType = COPP_ConnectorType(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ConnectorType_DVI: COPP_ConnectorType = COPP_ConnectorType(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ConnectorType_D_JPN: COPP_ConnectorType = COPP_ConnectorType(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ConnectorType_ForceDWORD: COPP_ConnectorType = COPP_ConnectorType(2147483647i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ConnectorType_HDMI: COPP_ConnectorType = COPP_ConnectorType(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ConnectorType_Internal: COPP_ConnectorType = COPP_ConnectorType(-2147483648i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ConnectorType_LVDS: COPP_ConnectorType = COPP_ConnectorType(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ConnectorType_SVideo: COPP_ConnectorType = COPP_ConnectorType(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ConnectorType_TMDS: COPP_ConnectorType = COPP_ConnectorType(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ConnectorType_Unknown: COPP_ConnectorType = COPP_ConnectorType(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ConnectorType_VGA: COPP_ConnectorType = COPP_ConnectorType(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_DefaultProtectionLevel: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_HDCPFlagsReserved: COPP_StatusHDCPFlags = COPP_StatusHDCPFlags(-2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_HDCPRepeater: COPP_StatusHDCPFlags = COPP_StatusHDCPFlags(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_HDCP_ForceDWORD: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(2147483647i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_HDCP_Level0: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_HDCP_Level1: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_HDCP_LevelMax: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_HDCP_LevelMin: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(0i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_ImageAspectRatio_EN300294_Mask: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_LinkLost: COPP_StatusFlags = COPP_StatusFlags(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const COPP_NoProtectionLevelAvailable: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ProtectionStandard_ARIBTRB15_1125i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(16384i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ProtectionStandard_ARIBTRB15_525i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(2048i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ProtectionStandard_ARIBTRB15_525p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(4096i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ProtectionStandard_ARIBTRB15_750p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(8192i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ProtectionStandard_CEA805A_TypeA_1125i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(128i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ProtectionStandard_CEA805A_TypeA_525p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(32i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ProtectionStandard_CEA805A_TypeA_750p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(64i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ProtectionStandard_CEA805A_TypeB_1125i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(1024i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ProtectionStandard_CEA805A_TypeB_525p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(256i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ProtectionStandard_CEA805A_TypeB_750p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(512i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ProtectionStandard_EIA608B_525: COPP_TVProtectionStandard = COPP_TVProtectionStandard(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ProtectionStandard_EN300294_625i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ProtectionStandard_IEC61880_2_525i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ProtectionStandard_IEC61880_525i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ProtectionStandard_IEC62375_625p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ProtectionStandard_Mask: COPP_TVProtectionStandard = COPP_TVProtectionStandard(-2147450881i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ProtectionStandard_None: COPP_TVProtectionStandard = COPP_TVProtectionStandard(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ProtectionStandard_Reserved: COPP_TVProtectionStandard = COPP_TVProtectionStandard(2147450880i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_ProtectionStandard_Unknown: COPP_TVProtectionStandard = COPP_TVProtectionStandard(-2147483648i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_RenegotiationRequired: COPP_StatusFlags = COPP_StatusFlags(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_StatusFlagsReserved: COPP_StatusFlags = COPP_StatusFlags(-4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const COPP_StatusNormal: COPP_StatusFlags = COPP_StatusFlags(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CameraControl_Exposure: CameraControlProperty = CameraControlProperty(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CameraControl_Flags_Auto: CameraControlFlags = CameraControlFlags(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CameraControl_Flags_Manual: CameraControlFlags = CameraControlFlags(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CameraControl_Focus: CameraControlProperty = CameraControlProperty(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CameraControl_Iris: CameraControlProperty = CameraControlProperty(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CameraControl_Pan: CameraControlProperty = CameraControlProperty(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CameraControl_Roll: CameraControlProperty = CameraControlProperty(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CameraControl_Tilt: CameraControlProperty = CameraControlProperty(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CameraControl_Zoom: CameraControlProperty = CameraControlProperty(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CardDataChanged: SmartCardStatusType = SmartCardStatusType(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CardError: SmartCardStatusType = SmartCardStatusType(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CardFirmwareUpgrade: SmartCardStatusType = SmartCardStatusType(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CardInserted: SmartCardStatusType = SmartCardStatusType(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CardRemoved: SmartCardStatusType = SmartCardStatusType(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CategoryAudio: ComponentCategory = ComponentCategory(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CategoryCaptions: ComponentCategory = ComponentCategory(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CategoryData: ComponentCategory = ComponentCategory(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CategoryNotSet: ComponentCategory = ComponentCategory(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CategoryOther: ComponentCategory = ComponentCategory(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CategorySubtitles: ComponentCategory = ComponentCategory(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CategorySuperimpose: ComponentCategory = ComponentCategory(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CategoryText: ComponentCategory = ComponentCategory(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CategoryVideo: ComponentCategory = ComponentCategory(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CompressionCaps_CanBFrame: CompressionCaps = CompressionCaps(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CompressionCaps_CanCrunch: CompressionCaps = CompressionCaps(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CompressionCaps_CanKeyFrame: CompressionCaps = CompressionCaps(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CompressionCaps_CanQuality: CompressionCaps = CompressionCaps(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const CompressionCaps_CanWindow: CompressionCaps = CompressionCaps(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ConstantBitRate: VIDEOENCODER_BITRATE_MODE = VIDEOENCODER_BITRATE_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DDSFF_PROGRESSIVERENDER: DDSFF_FLAGS = DDSFF_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DECIMATION_DEFAULT: DECIMATION_USAGE = DECIMATION_USAGE(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DECIMATION_LEGACY: DECIMATION_USAGE = DECIMATION_USAGE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DECIMATION_USE_DECODER_ONLY: DECIMATION_USAGE = DECIMATION_USAGE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DECIMATION_USE_OVERLAY_ONLY: DECIMATION_USAGE = DECIMATION_USAGE(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DECIMATION_USE_VIDEOPORT_ONLY: DECIMATION_USAGE = DECIMATION_USAGE(2i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DECODER_CAP_NOTSUPPORTED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DECODER_CAP_SUPPORTED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DISPLAY_16x9: DVD_PREFERRED_DISPLAY_MODE = DVD_PREFERRED_DISPLAY_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DISPLAY_4x3_LETTERBOX_PREFERRED: DVD_PREFERRED_DISPLAY_MODE = DVD_PREFERRED_DISPLAY_MODE(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DISPLAY_4x3_PANSCAN_PREFERRED: DVD_PREFERRED_DISPLAY_MODE = DVD_PREFERRED_DISPLAY_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DISPLAY_CONTENT_DEFAULT: DVD_PREFERRED_DISPLAY_MODE = DVD_PREFERRED_DISPLAY_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DOLBY_AC3_AUDIO: MPEG2StreamType = MPEG2StreamType(129i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DOLBY_DIGITAL_PLUS_AUDIO_ATSC: MPEG2StreamType = MPEG2StreamType(135i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVB_Cable: DVBSystemType = DVBSystemType(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVB_Satellite: DVBSystemType = DVBSystemType(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVB_Terrestrial: DVBSystemType = DVBSystemType(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVDECODERRESOLUTION_180x120: _DVDECODERRESOLUTION = _DVDECODERRESOLUTION(1002i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVDECODERRESOLUTION_360x240: _DVDECODERRESOLUTION = _DVDECODERRESOLUTION(1001i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVDECODERRESOLUTION_720x480: _DVDECODERRESOLUTION = _DVDECODERRESOLUTION(1000i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVDECODERRESOLUTION_88x60: _DVDECODERRESOLUTION = _DVDECODERRESOLUTION(1003i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AUDIO_CAPS_AC3: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -21038,7 +22306,333 @@ pub const DVD_AUDIO_CAPS_MPEG2: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_AUDIO_CAPS_SDDS: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AUD_EXT_Captions: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AUD_EXT_DirectorComments1: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AUD_EXT_DirectorComments2: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AUD_EXT_NotSpecified: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AUD_EXT_VisuallyImpaired: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AppMode_Karaoke: DVD_TITLE_APPMODE = DVD_TITLE_APPMODE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AppMode_Not_Specified: DVD_TITLE_APPMODE = DVD_TITLE_APPMODE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AppMode_Other: DVD_TITLE_APPMODE = DVD_TITLE_APPMODE(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Assignment_LR: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Assignment_LR1: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Assignment_LR12: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Assignment_LRM: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Assignment_LRM1: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Assignment_LRM12: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Assignment_reserved0: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Assignment_reserved1: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AudioDuringFFwdRew: DVD_OPTION_FLAG = DVD_OPTION_FLAG(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AudioFormat_AC3: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AudioFormat_DTS: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AudioFormat_LPCM: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AudioFormat_MPEG1: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AudioFormat_MPEG1_DRC: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AudioFormat_MPEG2: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AudioFormat_MPEG2_DRC: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AudioFormat_Other: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AudioFormat_SDDS: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AudioMode_Karaoke: DVD_AUDIO_APPMODE = DVD_AUDIO_APPMODE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AudioMode_None: DVD_AUDIO_APPMODE = DVD_AUDIO_APPMODE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AudioMode_Other: DVD_AUDIO_APPMODE = DVD_AUDIO_APPMODE(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_AudioMode_Surround: DVD_AUDIO_APPMODE = DVD_AUDIO_APPMODE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_CMD_FLAG_Block: DVD_CMD_FLAGS = DVD_CMD_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_CMD_FLAG_EndAfterRendered: DVD_CMD_FLAGS = DVD_CMD_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_CMD_FLAG_Flush: DVD_CMD_FLAGS = DVD_CMD_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_CMD_FLAG_None: DVD_CMD_FLAGS = DVD_CMD_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_CMD_FLAG_SendEvents: DVD_CMD_FLAGS = DVD_CMD_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_CMD_FLAG_StartWhenRendered: DVD_CMD_FLAGS = DVD_CMD_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_CacheSizeInMB: DVD_OPTION_FLAG = DVD_OPTION_FLAG(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Channel_Audio: DVD_TextStringType = DVD_TextStringType(32i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_CharSet_ISO646: DVD_TextCharSet = DVD_TextCharSet(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_CharSet_ISO8859_1: DVD_TextCharSet = DVD_TextCharSet(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_CharSet_JIS_Roman_Kanji: DVD_TextCharSet = DVD_TextCharSet(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_CharSet_ShiftJIS_Kanji_Roman_Katakana: DVD_TextCharSet = DVD_TextCharSet(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_CharSet_Unicode: DVD_TextCharSet = DVD_TextCharSet(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_DEFAULT_AUDIO_STREAM: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_DIR_BACKWARD: DVD_PLAY_DIRECTION = DVD_PLAY_DIRECTION(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_DIR_FORWARD: DVD_PLAY_DIRECTION = DVD_PLAY_DIRECTION(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_DOMAIN_FirstPlay: DVD_DOMAIN = DVD_DOMAIN(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_DOMAIN_Stop: DVD_DOMAIN = DVD_DOMAIN(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_DOMAIN_Title: DVD_DOMAIN = DVD_DOMAIN(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_DOMAIN_VideoManagerMenu: DVD_DOMAIN = DVD_DOMAIN(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_DOMAIN_VideoTitleSetMenu: DVD_DOMAIN = DVD_DOMAIN(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_DisableStillThrottle: DVD_OPTION_FLAG = DVD_OPTION_FLAG(14i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_ERROR_CopyProtectFail: DVD_ERROR = DVD_ERROR(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_ERROR_CopyProtectOutputFail: DVD_ERROR = DVD_ERROR(9i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_ERROR_CopyProtectOutputNotSupported: DVD_ERROR = DVD_ERROR(10i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_ERROR_IncompatibleDiscAndDecoderRegions: DVD_ERROR = DVD_ERROR(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_ERROR_IncompatibleSystemAndDecoderRegions: DVD_ERROR = DVD_ERROR(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_ERROR_InvalidDVD1_0Disc: DVD_ERROR = DVD_ERROR(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_ERROR_InvalidDiscRegion: DVD_ERROR = DVD_ERROR(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_ERROR_LowParentalLevel: DVD_ERROR = DVD_ERROR(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_ERROR_MacrovisionFail: DVD_ERROR = DVD_ERROR(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_ERROR_Unexpected: DVD_ERROR = DVD_ERROR(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_EnableCC: DVD_OPTION_FLAG = DVD_OPTION_FLAG(19i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_EnableESOutput: DVD_OPTION_FLAG = DVD_OPTION_FLAG(12i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_EnableExtendedCopyProtectErrors: DVD_OPTION_FLAG = DVD_OPTION_FLAG(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_EnableLoggingEvents: DVD_OPTION_FLAG = DVD_OPTION_FLAG(15i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_EnableNonblockingAPIs: DVD_OPTION_FLAG = DVD_OPTION_FLAG(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_EnablePortableBookmarks: DVD_OPTION_FLAG = DVD_OPTION_FLAG(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_EnableStreaming: DVD_OPTION_FLAG = DVD_OPTION_FLAG(11i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_EnableTitleLength: DVD_OPTION_FLAG = DVD_OPTION_FLAG(13i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_FPS_25: DVD_FRAMERATE = DVD_FRAMERATE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_FPS_30NonDrop: DVD_FRAMERATE = DVD_FRAMERATE(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_General_Comments: DVD_TextStringType = DVD_TextStringType(49i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_General_Name: DVD_TextStringType = DVD_TextStringType(48i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_HMSF_TimeCodeEvents: DVD_OPTION_FLAG = DVD_OPTION_FLAG(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_IncreaseOutputControl: DVD_OPTION_FLAG = DVD_OPTION_FLAG(10i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Karaoke_GuideMelody1: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Karaoke_GuideMelody2: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Karaoke_GuideMelodyA: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Karaoke_GuideMelodyB: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(32i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Karaoke_GuideVocal1: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Karaoke_GuideVocal2: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Karaoke_SoundEffectA: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(64i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Karaoke_SoundEffectB: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(128i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_MENU_Angle: DVD_MENU_ID = DVD_MENU_ID(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_MENU_Audio: DVD_MENU_ID = DVD_MENU_ID(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_MENU_Chapter: DVD_MENU_ID = DVD_MENU_ID(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_MENU_Root: DVD_MENU_ID = DVD_MENU_ID(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_MENU_Subpicture: DVD_MENU_ID = DVD_MENU_ID(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_MENU_Title: DVD_MENU_ID = DVD_MENU_ID(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_MaxReadBurstInKB: DVD_OPTION_FLAG = DVD_OPTION_FLAG(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Mix_0to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Mix_0to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(256i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Mix_1to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Mix_1to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(512i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Mix_2to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Mix_2to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(1024i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Mix_3to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Mix_3to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(2048i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Mix_4to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Mix_4to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(4096i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Mix_Lto0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(32i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Mix_Lto1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(8192i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Mix_Rto0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(64i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Mix_Rto1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(16384i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_NavCmdType_Button: DVD_NavCmdType = DVD_NavCmdType(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_NavCmdType_Cell: DVD_NavCmdType = DVD_NavCmdType(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_NavCmdType_Post: DVD_NavCmdType = DVD_NavCmdType(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_NavCmdType_Pre: DVD_NavCmdType = DVD_NavCmdType(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_NotifyParentalLevelChange: DVD_OPTION_FLAG = DVD_OPTION_FLAG(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_NotifyPositionChange: DVD_OPTION_FLAG = DVD_OPTION_FLAG(9i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Other_Cut: DVD_TextStringType = DVD_TextStringType(81i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Other_Scene: DVD_TextStringType = DVD_TextStringType(80i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Other_Take: DVD_TextStringType = DVD_TextStringType(82i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PARENTAL_LEVEL_1: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(256i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PARENTAL_LEVEL_2: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(512i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PARENTAL_LEVEL_3: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(1024i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PARENTAL_LEVEL_4: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(2048i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PARENTAL_LEVEL_5: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(4096i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PARENTAL_LEVEL_6: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(8192i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PARENTAL_LEVEL_7: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(16384i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PARENTAL_LEVEL_8: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(32768i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PB_STOPPED_CopyProtectFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(13i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PB_STOPPED_CopyProtectOutputFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(14i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PB_STOPPED_CopyProtectOutputNotSupported: DVD_PB_STOPPED = DVD_PB_STOPPED(15i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PB_STOPPED_DiscEjected: DVD_PB_STOPPED = DVD_PB_STOPPED(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PB_STOPPED_DiscReadError: DVD_PB_STOPPED = DVD_PB_STOPPED(12i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PB_STOPPED_IllegalNavCommand: DVD_PB_STOPPED = DVD_PB_STOPPED(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PB_STOPPED_MacrovisionFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(11i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PB_STOPPED_NoBranch: DVD_PB_STOPPED = DVD_PB_STOPPED(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PB_STOPPED_NoFirstPlayDomain: DVD_PB_STOPPED = DVD_PB_STOPPED(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PB_STOPPED_Other: DVD_PB_STOPPED = DVD_PB_STOPPED(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PB_STOPPED_ParentalFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(9i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PB_STOPPED_PlayChapterAutoStop: DVD_PB_STOPPED = DVD_PB_STOPPED(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PB_STOPPED_PlayPeriodAutoStop: DVD_PB_STOPPED = DVD_PB_STOPPED(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PB_STOPPED_RegionFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(10i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PB_STOPPED_Reset: DVD_PB_STOPPED = DVD_PB_STOPPED(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_PB_STOPPED_StopCommand: DVD_PB_STOPPED = DVD_PB_STOPPED(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_ReadBurstPeriodInMS: DVD_OPTION_FLAG = DVD_OPTION_FLAG(17i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Relative_Left: DVD_RELATIVE_BUTTON = DVD_RELATIVE_BUTTON(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Relative_Lower: DVD_RELATIVE_BUTTON = DVD_RELATIVE_BUTTON(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Relative_Right: DVD_RELATIVE_BUTTON = DVD_RELATIVE_BUTTON(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Relative_Upper: DVD_RELATIVE_BUTTON = DVD_RELATIVE_BUTTON(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_ResetOnStop: DVD_OPTION_FLAG = DVD_OPTION_FLAG(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_RestartDisc: DVD_OPTION_FLAG = DVD_OPTION_FLAG(18i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_SIDE_A: DVD_DISC_SIDE = DVD_DISC_SIDE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_SIDE_B: DVD_DISC_SIDE = DVD_DISC_SIDE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_SPCoding_Extended: DVD_SUBPICTURE_CODING = DVD_SUBPICTURE_CODING(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_SPCoding_Other: DVD_SUBPICTURE_CODING = DVD_SUBPICTURE_CODING(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_SPCoding_RunLength: DVD_SUBPICTURE_CODING = DVD_SUBPICTURE_CODING(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_SPType_Language: DVD_SUBPICTURE_TYPE = DVD_SUBPICTURE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_SPType_NotSpecified: DVD_SUBPICTURE_TYPE = DVD_SUBPICTURE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_SPType_Other: DVD_SUBPICTURE_TYPE = DVD_SUBPICTURE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_SP_EXT_CC_Big: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_SP_EXT_CC_Children: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_SP_EXT_CC_Normal: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_SP_EXT_Caption_Big: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_SP_EXT_Caption_Children: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_SP_EXT_Caption_Normal: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_SP_EXT_DirectorComments_Big: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(14i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_SP_EXT_DirectorComments_Children: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(15i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_SP_EXT_DirectorComments_Normal: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(13i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_SP_EXT_Forced: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(9i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_SP_EXT_NotSpecified: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(0i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_STREAM_DATA_CURRENT: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -21046,7 +22640,111 @@ pub const DVD_STREAM_DATA_VMGM: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_STREAM_DATA_VTSM: u32 = 1025u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Stream_Angle: DVD_TextStringType = DVD_TextStringType(18i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Stream_Audio: DVD_TextStringType = DVD_TextStringType(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Stream_Subpicture: DVD_TextStringType = DVD_TextStringType(17i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Struct_Cell: DVD_TextStringType = DVD_TextStringType(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Struct_ParentalID: DVD_TextStringType = DVD_TextStringType(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Struct_PartOfTitle: DVD_TextStringType = DVD_TextStringType(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Struct_Title: DVD_TextStringType = DVD_TextStringType(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Struct_Volume: DVD_TextStringType = DVD_TextStringType(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_TC_FLAG_25fps: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_TC_FLAG_30fps: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_TC_FLAG_DropFrame: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_TC_FLAG_Interpolated: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DVD_TITLE_MENU: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Title_Album: DVD_TextStringType = DVD_TextStringType(59i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Title_Movie: DVD_TextStringType = DVD_TextStringType(57i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Title_Orig_Album: DVD_TextStringType = DVD_TextStringType(75i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Title_Orig_Movie: DVD_TextStringType = DVD_TextStringType(73i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Title_Orig_Other: DVD_TextStringType = DVD_TextStringType(79i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Title_Orig_Series: DVD_TextStringType = DVD_TextStringType(72i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Title_Orig_Song: DVD_TextStringType = DVD_TextStringType(76i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Title_Orig_Video: DVD_TextStringType = DVD_TextStringType(74i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Title_Other: DVD_TextStringType = DVD_TextStringType(63i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Title_Series: DVD_TextStringType = DVD_TextStringType(56i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Title_Song: DVD_TextStringType = DVD_TextStringType(60i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Title_Sub_Album: DVD_TextStringType = DVD_TextStringType(67i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Title_Sub_Movie: DVD_TextStringType = DVD_TextStringType(65i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Title_Sub_Other: DVD_TextStringType = DVD_TextStringType(71i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Title_Sub_Series: DVD_TextStringType = DVD_TextStringType(64i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Title_Sub_Song: DVD_TextStringType = DVD_TextStringType(68i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Title_Sub_Video: DVD_TextStringType = DVD_TextStringType(66i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_Title_Video: DVD_TextStringType = DVD_TextStringType(58i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_VideoCompression_MPEG1: DVD_VIDEO_COMPRESSION = DVD_VIDEO_COMPRESSION(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_VideoCompression_MPEG2: DVD_VIDEO_COMPRESSION = DVD_VIDEO_COMPRESSION(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_VideoCompression_Other: DVD_VIDEO_COMPRESSION = DVD_VIDEO_COMPRESSION(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_WARNING_FormatNotSupported: DVD_WARNING = DVD_WARNING(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_WARNING_IllegalNavCommand: DVD_WARNING = DVD_WARNING(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_WARNING_InvalidDVD1_0Disc: DVD_WARNING = DVD_WARNING(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_WARNING_Open: DVD_WARNING = DVD_WARNING(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_WARNING_Read: DVD_WARNING = DVD_WARNING(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVD_WARNING_Seek: DVD_WARNING = DVD_WARNING(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVENCODERFORMAT_DVHD: _DVENCODERFORMAT = _DVENCODERFORMAT(2008i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVENCODERFORMAT_DVSD: _DVENCODERFORMAT = _DVENCODERFORMAT(2007i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVENCODERFORMAT_DVSL: _DVENCODERFORMAT = _DVENCODERFORMAT(2009i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVENCODERRESOLUTION_180x120: _DVENCODERRESOLUTION = _DVENCODERRESOLUTION(2014i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVENCODERRESOLUTION_360x240: _DVENCODERRESOLUTION = _DVENCODERRESOLUTION(2013i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVENCODERRESOLUTION_720x480: _DVENCODERRESOLUTION = _DVENCODERRESOLUTION(2012i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVENCODERRESOLUTION_88x60: _DVENCODERRESOLUTION = _DVENCODERRESOLUTION(2015i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVENCODERVIDEOFORMAT_NTSC: _DVENCODERVIDEOFORMAT = _DVENCODERVIDEOFORMAT(2000i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVENCODERVIDEOFORMAT_PAL: _DVENCODERVIDEOFORMAT = _DVENCODERVIDEOFORMAT(2001i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVRESOLUTION_DC: _DVRESOLUTION = _DVRESOLUTION(1003i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVRESOLUTION_FULL: _DVRESOLUTION = _DVRESOLUTION(1000i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVRESOLUTION_HALF: _DVRESOLUTION = _DVRESOLUTION(1001i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DVRESOLUTION_QUARTER: _DVRESOLUTION = _DVRESOLUTION(1002i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DWORD_ALLPARAMS: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -21069,6 +22767,40 @@ pub const DXVA2Trace_VideoProcessBlt: ::windows_core::GUID = ::windows_core::GUI
 pub const DXVA2Trace_VideoProcessDevCreated: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x895508c6_540d_4c87_98f8_8dcbf2dabb2a);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA2Trace_VideoProcessDevDestroyed: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf97f30b1_fb49_42c7_8ee8_88bdfa92d4e2);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DXVA2_DestinationFlagMask: DXVA2_DestinationFlags = DXVA2_DestinationFlags(-65521i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DXVA2_DestinationFlag_Alpha_Changed: DXVA2_DestinationFlags = DXVA2_DestinationFlags(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DXVA2_DestinationFlag_Background_Changed: DXVA2_DestinationFlags = DXVA2_DestinationFlags(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DXVA2_DestinationFlag_ColorData_Changed: DXVA2_DestinationFlags = DXVA2_DestinationFlags(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DXVA2_DestinationFlag_RFF: DXVA2_DestinationFlags = DXVA2_DestinationFlags(65536i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DXVA2_DestinationFlag_RFF_TFF_Present: DXVA2_DestinationFlags = DXVA2_DestinationFlags(262144i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DXVA2_DestinationFlag_TFF: DXVA2_DestinationFlags = DXVA2_DestinationFlags(131072i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DXVA2_DestinationFlag_TargetRect_Changed: DXVA2_DestinationFlags = DXVA2_DestinationFlags(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DXVA2_SampleFlag_ColorData_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DXVA2_SampleFlag_DstRect_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DXVA2_SampleFlag_Palette_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DXVA2_SampleFlag_PlanarAlpha_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DXVA2_SampleFlag_RFF: DXVA2_SampleFlags = DXVA2_SampleFlags(65536i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DXVA2_SampleFlag_RFF_TFF_Present: DXVA2_SampleFlags = DXVA2_SampleFlags(262144i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DXVA2_SampleFlag_SrcRect_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DXVA2_SampleFlag_TFF: DXVA2_SampleFlags = DXVA2_SampleFlags(131072i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DXVA2_SampleFlagsMask: DXVA2_SampleFlags = DXVA2_SampleFlags(-65505i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_ALPHA_BLEND_COMBINATION_BUFFER: u32 = 13u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -21482,6 +23214,58 @@ pub const DXVA_USUAL_BLOCK_HEIGHT: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const DXVA_USUAL_BLOCK_WIDTH: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlacePref9_BOB: VMR9DeinterlacePrefs = VMR9DeinterlacePrefs(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlacePref9_Mask: VMR9DeinterlacePrefs = VMR9DeinterlacePrefs(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlacePref9_NextBest: VMR9DeinterlacePrefs = VMR9DeinterlacePrefs(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlacePref9_Weave: VMR9DeinterlacePrefs = VMR9DeinterlacePrefs(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlacePref_BOB: VMRDeinterlacePrefs = VMRDeinterlacePrefs(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlacePref_Mask: VMRDeinterlacePrefs = VMRDeinterlacePrefs(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlacePref_NextBest: VMRDeinterlacePrefs = VMRDeinterlacePrefs(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlacePref_Weave: VMRDeinterlacePrefs = VMRDeinterlacePrefs(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlaceTech9_BOBLineReplicate: VMR9DeinterlaceTech = VMR9DeinterlaceTech(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlaceTech9_BOBVerticalStretch: VMR9DeinterlaceTech = VMR9DeinterlaceTech(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlaceTech9_EdgeFiltering: VMR9DeinterlaceTech = VMR9DeinterlaceTech(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlaceTech9_FieldAdaptive: VMR9DeinterlaceTech = VMR9DeinterlaceTech(32i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlaceTech9_MedianFiltering: VMR9DeinterlaceTech = VMR9DeinterlaceTech(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlaceTech9_MotionVectorSteered: VMR9DeinterlaceTech = VMR9DeinterlaceTech(128i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlaceTech9_PixelAdaptive: VMR9DeinterlaceTech = VMR9DeinterlaceTech(64i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlaceTech9_Unknown: VMR9DeinterlaceTech = VMR9DeinterlaceTech(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlaceTech_BOBLineReplicate: VMRDeinterlaceTech = VMRDeinterlaceTech(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlaceTech_BOBVerticalStretch: VMRDeinterlaceTech = VMRDeinterlaceTech(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlaceTech_EdgeFiltering: VMRDeinterlaceTech = VMRDeinterlaceTech(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlaceTech_FieldAdaptive: VMRDeinterlaceTech = VMRDeinterlaceTech(32i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlaceTech_MedianFiltering: VMRDeinterlaceTech = VMRDeinterlaceTech(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlaceTech_MotionVectorSteered: VMRDeinterlaceTech = VMRDeinterlaceTech(128i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlaceTech_PixelAdaptive: VMRDeinterlaceTech = VMRDeinterlaceTech(64i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeinterlaceTech_Unknown: VMRDeinterlaceTech = VMRDeinterlaceTech(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const DeviceClosed: UICloseReasonType = UICloseReasonType(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const Disabled: OUTPUT_STATE = OUTPUT_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_ACTIVATE: u32 = 19u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const EC_BANDWIDTHCHANGE: u32 = 72u32;
@@ -21696,6 +23480,10 @@ pub const E_PROP_ID_UNSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESU
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const E_PROP_SET_UNSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147023726i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const Entitled: EntitlementType = EntitlementType(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ErrorClosed: UICloseReasonType = UICloseReasonType(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const FORMAT_DVD_LPCMAudio: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d80e6_db46_11cf_b4d1_00805f6cbbea);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const FORMAT_DolbyAC3: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06d80e4_db46_11cf_b4d1_00805f6cbbea);
@@ -21712,13 +23500,89 @@ pub const FORMAT_MPEG2_VIDEO: ::windows_core::GUID = ::windows_core::GUID::from_
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const FORMAT_UVCH264Video: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2017be05_6629_4248_aaed_7e1a47bc9b9c);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const Famine: QualityMessageType = QualityMessageType(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const FilgraphManager: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe436ebb3_524f_11ce_9f53_0020af0ba770);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const Flood: QualityMessageType = QualityMessageType(1i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const GUID_TIME_MUSIC: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0574c49d_5b04_4b15_a542_ae282030117b);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const GUID_TIME_REFERENCE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x93ad712b_daa0_4ffe_bc81_b0ce500fcdd9);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const GUID_TIME_SAMPLES: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8593d05_0c43_4984_9a63_97af9e02c4c0);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const HEVC_TEMPORAL_VIDEO_SUBSET: MPEG2StreamType = MPEG2StreamType(37i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const HEVC_VIDEO_OR_TEMPORAL_VIDEO: MPEG2StreamType = MPEG2StreamType(36i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const INTERLEAVE_CAPTURE: InterleavingMode = InterleavingMode(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const INTERLEAVE_FULL: InterleavingMode = InterleavingMode(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const INTERLEAVE_NONE: InterleavingMode = InterleavingMode(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const INTERLEAVE_NONE_BUFFERED: InterleavingMode = InterleavingMode(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const IRPM_STREAMM: MPEG2StreamType = MPEG2StreamType(26i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISDBCAS_REQUEST_ID_EMD: ISDBCAS_REQUEST_ID = ISDBCAS_REQUEST_ID(58i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISDBCAS_REQUEST_ID_EMG: ISDBCAS_REQUEST_ID = ISDBCAS_REQUEST_ID(56i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISDB_Satellite: DVBSystemType = DVBSystemType(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISDB_Terrestrial: DVBSystemType = DVBSystemType(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISO_IEC_11172_2_VIDEO: MPEG2StreamType = MPEG2StreamType(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISO_IEC_11172_3_AUDIO: MPEG2StreamType = MPEG2StreamType(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISO_IEC_13522_MHEG: MPEG2StreamType = MPEG2StreamType(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISO_IEC_13818_1_AUXILIARY: MPEG2StreamType = MPEG2StreamType(14i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISO_IEC_13818_1_PES: MPEG2StreamType = MPEG2StreamType(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISO_IEC_13818_1_PRIVATE_SECTION: MPEG2StreamType = MPEG2StreamType(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISO_IEC_13818_1_RESERVED: MPEG2StreamType = MPEG2StreamType(28i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISO_IEC_13818_2_VIDEO: MPEG2StreamType = MPEG2StreamType(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISO_IEC_13818_3_AUDIO: MPEG2StreamType = MPEG2StreamType(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISO_IEC_13818_6_DOWNLOAD: MPEG2StreamType = MPEG2StreamType(20i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISO_IEC_13818_6_TYPE_A: MPEG2StreamType = MPEG2StreamType(10i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISO_IEC_13818_6_TYPE_B: MPEG2StreamType = MPEG2StreamType(11i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISO_IEC_13818_6_TYPE_C: MPEG2StreamType = MPEG2StreamType(12i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISO_IEC_13818_6_TYPE_D: MPEG2StreamType = MPEG2StreamType(13i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISO_IEC_13818_7_AUDIO: MPEG2StreamType = MPEG2StreamType(15i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISO_IEC_14496_1_IN_PES: MPEG2StreamType = MPEG2StreamType(18i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISO_IEC_14496_1_IN_SECTION: MPEG2StreamType = MPEG2StreamType(19i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISO_IEC_14496_2_VISUAL: MPEG2StreamType = MPEG2StreamType(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISO_IEC_14496_3_AUDIO: MPEG2StreamType = MPEG2StreamType(17i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ISO_IEC_USER_PRIVATE: MPEG2StreamType = MPEG2StreamType(128i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ITU_T_H264: MPEG2StreamType = MPEG2StreamType(27i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ITU_T_REC_H_222_1: MPEG2StreamType = MPEG2StreamType(9i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const KSPROPERTY_IPSINK_ADAPTER_ADDRESS: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const KSPROPERTY_IPSINK_ADAPTER_DESCRIPTION: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const KSPROPERTY_IPSINK_MULTICASTLIST: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(0i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const LIBID_QuartzNetTypeLib: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x56a868b1_0ad4_11ce_b03a_0020af0ba770);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -21731,6 +23595,8 @@ pub const MAX_DEINTERLACE_SURFACES: u32 = 32u32;
 pub const MAX_ERROR_TEXT_LEN: u32 = 160u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MAX_FILTER_NAME: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MAX_NUMBER_OF_STREAMS: STREAMIF_CONSTANTS = STREAMIF_CONSTANTS(16i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MAX_PIN_NAME: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -21794,7 +23660,43 @@ pub const MEDIATYPE_MPEG2_PES: ::windows_core::GUID = ::windows_core::GUID::from
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MEDIATYPE_MPEG2_SECTIONS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x455f176c_4b06_47ce_9aef_8caef73df7b5);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MEDIA_ELEMENTARY_STREAM: MEDIA_SAMPLE_CONTENT = MEDIA_SAMPLE_CONTENT(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MEDIA_MPEG2_PSI: MEDIA_SAMPLE_CONTENT = MEDIA_SAMPLE_CONTENT(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MEDIA_TRANSPORT_PACKET: MEDIA_SAMPLE_CONTENT = MEDIA_SAMPLE_CONTENT(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MEDIA_TRANSPORT_PAYLOAD: MEDIA_SAMPLE_CONTENT = MEDIA_SAMPLE_CONTENT(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MERIT_DO_NOT_USE: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(2097152i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MERIT_HW_COMPRESSOR: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(1048656i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MERIT_NORMAL: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(6291456i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MERIT_PREFERRED: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(8388608i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MERIT_SW_COMPRESSOR: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(1048576i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MERIT_UNLIKELY: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(4194304i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const METADATA_IN_DATA_CAROUSEL: MPEG2StreamType = MPEG2StreamType(23i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const METADATA_IN_DOWNLOAD_PROTOCOL: MPEG2StreamType = MPEG2StreamType(25i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const METADATA_IN_OBJECT_CAROUSEL: MPEG2StreamType = MPEG2StreamType(24i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const METADATA_IN_PES: MPEG2StreamType = MPEG2StreamType(21i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const METADATA_IN_SECTION: MPEG2StreamType = MPEG2StreamType(22i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MIN_DIMENSION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MMSSF_ASYNCHRONOUS: MMSSF_GET_INFORMATION_FLAGS = MMSSF_GET_INFORMATION_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MMSSF_HASCLOCK: MMSSF_GET_INFORMATION_FLAGS = MMSSF_GET_INFORMATION_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MMSSF_SUPPORTSEEK: MMSSF_GET_INFORMATION_FLAGS = MMSSF_GET_INFORMATION_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPBOOL_FALSE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -21888,6 +23790,12 @@ pub const MPEG2_S_SG_INFO_FOUND: ::windows_core::HRESULT = ::windows_core::HRESU
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_S_SG_INFO_NOT_FOUND: ::windows_core::HRESULT = ::windows_core::HRESULT(262659i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MPEGLAYER3_FLAG_PADDING_ISO: MPEGLAYER3WAVEFORMAT_FLAGS = MPEGLAYER3WAVEFORMAT_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MPEGLAYER3_FLAG_PADDING_OFF: MPEGLAYER3WAVEFORMAT_FLAGS = MPEGLAYER3WAVEFORMAT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MPEGLAYER3_FLAG_PADDING_ON: MPEGLAYER3WAVEFORMAT_FLAGS = MPEGLAYER3WAVEFORMAT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPF_ENVLP_BEGIN_CURRENTVAL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPF_ENVLP_BEGIN_NEUTRALVAL: u32 = 2u32;
@@ -21900,6 +23808,26 @@ pub const MPF_PUNCHIN_REFTIME: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPF_PUNCHIN_STOPPED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MPT_BOOL: MP_TYPE = MP_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MPT_ENUM: MP_TYPE = MP_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MPT_FLOAT: MP_TYPE = MP_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MPT_INT: MP_TYPE = MP_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MPT_MAX: MP_TYPE = MP_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MP_CURVE_INVSQUARE: MP_CURVE_TYPE = MP_CURVE_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MP_CURVE_JUMP: MP_CURVE_TYPE = MP_CURVE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MP_CURVE_LINEAR: MP_CURVE_TYPE = MP_CURVE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MP_CURVE_SINE: MP_CURVE_TYPE = MP_CURVE_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MP_CURVE_SQUARE: MP_CURVE_TYPE = MP_CURVE_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MSDRI_S_MMI_PENDING: ::windows_core::HRESULT = ::windows_core::HRESULT(2i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MSDRI_S_PENDING: ::windows_core::HRESULT = ::windows_core::HRESULT(1i32);
@@ -21909,6 +23837,94 @@ pub const MSPID_PrimaryAudio: ::windows_core::GUID = ::windows_core::GUID::from_
 pub const MSPID_PrimaryVideo: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa35ff56a_9fda_11d0_8fdf_00c04fd9189d);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MSTapeDeviceGUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c0f6af2_0edb_44c1_8aeb_59040bd830ed);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref9_ARAdjustXorY: VMR9MixerPrefs = VMR9MixerPrefs(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref9_AnisotropicFiltering: VMR9MixerPrefs = VMR9MixerPrefs(64i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref9_BiLinearFiltering: VMR9MixerPrefs = VMR9MixerPrefs(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref9_DecimateMask: VMR9MixerPrefs = VMR9MixerPrefs(15i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref9_DecimateOutput: VMR9MixerPrefs = VMR9MixerPrefs(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref9_DynamicDecimateBy2: VMR9MixerPrefs = VMR9MixerPrefs(2097152i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref9_DynamicMask: VMR9MixerPrefs = VMR9MixerPrefs(15728640i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref9_DynamicReserved: VMR9MixerPrefs = VMR9MixerPrefs(12582912i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref9_DynamicSwitchToBOB: VMR9MixerPrefs = VMR9MixerPrefs(1048576i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref9_FilteringMask: VMR9MixerPrefs = VMR9MixerPrefs(4080i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref9_FilteringReserved: VMR9MixerPrefs = VMR9MixerPrefs(3584i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref9_GaussianQuadFiltering: VMR9MixerPrefs = VMR9MixerPrefs(256i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref9_NoDecimation: VMR9MixerPrefs = VMR9MixerPrefs(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref9_NonSquareMixing: VMR9MixerPrefs = VMR9MixerPrefs(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref9_PointFiltering: VMR9MixerPrefs = VMR9MixerPrefs(32i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref9_PyramidalQuadFiltering: VMR9MixerPrefs = VMR9MixerPrefs(128i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref9_RenderTargetMask: VMR9MixerPrefs = VMR9MixerPrefs(1044480i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref9_RenderTargetRGB: VMR9MixerPrefs = VMR9MixerPrefs(4096i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref9_RenderTargetReserved: VMR9MixerPrefs = VMR9MixerPrefs(1032192i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref9_RenderTargetYUV: VMR9MixerPrefs = VMR9MixerPrefs(8192i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref_ARAdjustXorY: VMRMixerPrefs = VMRMixerPrefs(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref_BiLinearFiltering: VMRMixerPrefs = VMRMixerPrefs(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref_DecimateMask: VMRMixerPrefs = VMRMixerPrefs(15i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref_DecimateOutput: VMRMixerPrefs = VMRMixerPrefs(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref_DecimationReserved: VMRMixerPrefs = VMRMixerPrefs(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref_DynamicDecimateBy2: VMRMixerPrefs = VMRMixerPrefs(131072i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref_DynamicMask: VMRMixerPrefs = VMRMixerPrefs(983040i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref_DynamicReserved: VMRMixerPrefs = VMRMixerPrefs(786432i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref_DynamicSwitchToBOB: VMRMixerPrefs = VMRMixerPrefs(65536i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref_FilteringMask: VMRMixerPrefs = VMRMixerPrefs(240i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref_NoDecimation: VMRMixerPrefs = VMRMixerPrefs(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref_PointFiltering: VMRMixerPrefs = VMRMixerPrefs(32i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref_RenderTargetMask: VMRMixerPrefs = VMRMixerPrefs(65280i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref_RenderTargetRGB: VMRMixerPrefs = VMRMixerPrefs(256i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref_RenderTargetReserved: VMRMixerPrefs = VMRMixerPrefs(57344i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref_RenderTargetYUV: VMRMixerPrefs = VMRMixerPrefs(4096i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref_RenderTargetYUV420: VMRMixerPrefs = VMRMixerPrefs(512i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref_RenderTargetYUV422: VMRMixerPrefs = VMRMixerPrefs(1024i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const MixerPref_RenderTargetYUV444: VMRMixerPrefs = VMRMixerPrefs(2048i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const NotAssociated: SmartCardAssociationType = SmartCardAssociationType(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const NotEntitled: EntitlementType = EntitlementType(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const NotReady: UICloseReasonType = UICloseReasonType(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const OAFALSE: OA_BOOL = OA_BOOL(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const OATRUE: OA_BOOL = OA_BOOL(-1i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PBDA_AUX_CONNECTOR_TYPE_Composite: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6298b4c_c725_4d42_849b_410bbb14ea62);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -21932,17 +23948,271 @@ pub const PBDA_Encoder_Video_MPEG2PartII: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const PBDA_Encoder_Video_MPEG4Part10: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PID_ELEMENTARY_STREAM: MUX_PID_TYPE = MUX_PID_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PID_MPEG2_SECTION_PSI_SI: MUX_PID_TYPE = MUX_PID_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PID_OTHER: MUX_PID_TYPE = MUX_PID_TYPE(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PINDIR_INPUT: PIN_DIRECTION = PIN_DIRECTION(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PINDIR_OUTPUT: PIN_DIRECTION = PIN_DIRECTION(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Audio_1394: PhysicalConnectorType = PhysicalConnectorType(4103i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Audio_AESDigital: PhysicalConnectorType = PhysicalConnectorType(4099i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Audio_AUX: PhysicalConnectorType = PhysicalConnectorType(4102i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Audio_AudioDecoder: PhysicalConnectorType = PhysicalConnectorType(4105i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Audio_Line: PhysicalConnectorType = PhysicalConnectorType(4097i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Audio_Mic: PhysicalConnectorType = PhysicalConnectorType(4098i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Audio_SCSI: PhysicalConnectorType = PhysicalConnectorType(4101i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Audio_SPDIFDigital: PhysicalConnectorType = PhysicalConnectorType(4100i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Audio_Tuner: PhysicalConnectorType = PhysicalConnectorType(4096i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Audio_USB: PhysicalConnectorType = PhysicalConnectorType(4104i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Video_1394: PhysicalConnectorType = PhysicalConnectorType(10i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Video_AUX: PhysicalConnectorType = PhysicalConnectorType(9i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Video_Black: PhysicalConnectorType = PhysicalConnectorType(15i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Video_Composite: PhysicalConnectorType = PhysicalConnectorType(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Video_ParallelDigital: PhysicalConnectorType = PhysicalConnectorType(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Video_RGB: PhysicalConnectorType = PhysicalConnectorType(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Video_SCART: PhysicalConnectorType = PhysicalConnectorType(14i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Video_SCSI: PhysicalConnectorType = PhysicalConnectorType(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Video_SVideo: PhysicalConnectorType = PhysicalConnectorType(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Video_SerialDigital: PhysicalConnectorType = PhysicalConnectorType(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Video_Tuner: PhysicalConnectorType = PhysicalConnectorType(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Video_USB: PhysicalConnectorType = PhysicalConnectorType(11i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Video_VideoDecoder: PhysicalConnectorType = PhysicalConnectorType(12i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Video_VideoEncoder: PhysicalConnectorType = PhysicalConnectorType(13i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const PhysConn_Video_YRYBY: PhysicalConnectorType = PhysicalConnectorType(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ProcAmpControl9_Brightness: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ProcAmpControl9_Contrast: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ProcAmpControl9_Hue: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ProcAmpControl9_Mask: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(15i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ProcAmpControl9_Saturation: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const REG_PINFLAG_B_MANY: REG_PINFLAG = REG_PINFLAG(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const REG_PINFLAG_B_OUTPUT: REG_PINFLAG = REG_PINFLAG(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const REG_PINFLAG_B_RENDERER: REG_PINFLAG = REG_PINFLAG(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const REG_PINFLAG_B_ZERO: REG_PINFLAG = REG_PINFLAG(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const REMFILTERF_LEAVECONNECTED: _REM_FILTER_FLAGS = _REM_FILTER_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ReadData: OUTPUT_STATE = OUTPUT_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const RenderData: OUTPUT_STATE = OUTPUT_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const RenderPrefs9_DoNotRenderBorder: VMR9RenderPrefs = VMR9RenderPrefs(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const RenderPrefs9_Mask: VMR9RenderPrefs = VMR9RenderPrefs(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const RenderPrefs_AllowOffscreen: VMRRenderPrefs = VMRRenderPrefs(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const RenderPrefs_AllowOverlays: VMRRenderPrefs = VMRRenderPrefs(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const RenderPrefs_DoNotRenderColorKeyAndBorder: VMRRenderPrefs = VMRRenderPrefs(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const RenderPrefs_ForceOffscreen: VMRRenderPrefs = VMRRenderPrefs(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const RenderPrefs_ForceOverlays: VMRRenderPrefs = VMRRenderPrefs(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const RenderPrefs_Mask: VMRRenderPrefs = VMRRenderPrefs(63i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const RenderPrefs_PreferAGPMemWhenMixing: VMRRenderPrefs = VMRRenderPrefs(32i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const RenderPrefs_Reserved: VMRRenderPrefs = VMRRenderPrefs(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const RenderPrefs_RestrictToInitialMonitor: VMRRenderPrefs = VMRRenderPrefs(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const Reserved1: MPEG2StreamType = MPEG2StreamType(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SCTE28_ConditionalAccess: ApplicationTypeType = ApplicationTypeType(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SCTE28_CopyProtection: ApplicationTypeType = ApplicationTypeType(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SCTE28_Diagnostic: ApplicationTypeType = ApplicationTypeType(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SCTE28_IPService: ApplicationTypeType = ApplicationTypeType(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SCTE28_NetworkInterface_SCTE55_1: ApplicationTypeType = ApplicationTypeType(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SCTE28_NetworkInterface_SCTE55_2: ApplicationTypeType = ApplicationTypeType(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SCTE28_POD_Host_Binding_Information: ApplicationTypeType = ApplicationTypeType(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SCTE28_Reserved: ApplicationTypeType = ApplicationTypeType(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SCTE28_Undesignated: ApplicationTypeType = ApplicationTypeType(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SCTE_18: LocationCodeSchemeType = LocationCodeSchemeType(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SNDDEV_ERROR_AddBuffer: SNDDEV_ERR = SNDDEV_ERR(13i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SNDDEV_ERROR_Close: SNDDEV_ERR = SNDDEV_ERR(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SNDDEV_ERROR_GetCaps: SNDDEV_ERR = SNDDEV_ERR(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SNDDEV_ERROR_GetPosition: SNDDEV_ERR = SNDDEV_ERR(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SNDDEV_ERROR_Open: SNDDEV_ERR = SNDDEV_ERR(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SNDDEV_ERROR_Pause: SNDDEV_ERR = SNDDEV_ERR(10i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SNDDEV_ERROR_PrepareHeader: SNDDEV_ERR = SNDDEV_ERR(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SNDDEV_ERROR_Query: SNDDEV_ERR = SNDDEV_ERR(14i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SNDDEV_ERROR_Reset: SNDDEV_ERR = SNDDEV_ERR(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SNDDEV_ERROR_Restart: SNDDEV_ERR = SNDDEV_ERR(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SNDDEV_ERROR_Start: SNDDEV_ERR = SNDDEV_ERR(12i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SNDDEV_ERROR_Stop: SNDDEV_ERR = SNDDEV_ERR(11i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SNDDEV_ERROR_UnprepareHeader: SNDDEV_ERR = SNDDEV_ERR(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SNDDEV_ERROR_Write: SNDDEV_ERR = SNDDEV_ERR(9i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SPECIFYPAGES_STATISTICS: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c437b92_6e9e_11d1_a704_006097c4e476);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SSUPDATE_ASYNC: SSUPDATE_TYPE = SSUPDATE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SSUPDATE_CONTINUOUS: SSUPDATE_TYPE = SSUPDATE_TYPE(2i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const STDINDEXSIZE: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const STREAMSTATE_RUN: STREAM_STATE = STREAM_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const STREAMSTATE_STOP: STREAM_STATE = STREAM_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const STREAMTYPE_READ: STREAM_TYPE = STREAM_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const STREAMTYPE_TRANSFORM: STREAM_TYPE = STREAM_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const STREAMTYPE_WRITE: STREAM_TYPE = STREAM_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const SUBSTREAM_FILTER_VAL_NONE: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ScanModulationTypesMask_DVBC: ScanModulationTypes = ScanModulationTypes(75i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ScanModulationTypesMask_MCE_All_TV: ScanModulationTypes = ScanModulationTypes(-1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ScanModulationTypesMask_MCE_AnalogTv: ScanModulationTypes = ScanModulationTypes(28i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ScanModulationTypesMask_MCE_DigitalCable: ScanModulationTypes = ScanModulationTypes(11i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const ScanModulationTypesMask_MCE_TerrestrialATSC: ScanModulationTypes = ScanModulationTypes(23i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const State_Paused: FILTER_STATE = FILTER_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const State_Running: FILTER_STATE = FILTER_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const State_Stopped: FILTER_STATE = FILTER_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const StatusActive: ComponentStatus = ComponentStatus(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const StatusInactive: ComponentStatus = ComponentStatus(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const StatusUnavailable: ComponentStatus = ComponentStatus(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const SystemClosed: UICloseReasonType = UICloseReasonType(2i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const TIMECODE_RATE_30DROP: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const TIMECODE_SMPTE_BINARY_GROUP: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const TIMECODE_SMPTE_COLOR_FRAME: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const TechnicalFailure: EntitlementType = EntitlementType(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const TunerInputAntenna: TunerInputType = TunerInputType(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const TunerInputCable: TunerInputType = TunerInputType(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_Pause_On: VALID_UOP_FLAG = VALID_UOP_FLAG(524288i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_PlayNext_Chapter: VALID_UOP_FLAG = VALID_UOP_FLAG(128i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_PlayPrev_Or_Replay_Chapter: VALID_UOP_FLAG = VALID_UOP_FLAG(64i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_Play_Backwards: VALID_UOP_FLAG = VALID_UOP_FLAG(512i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_Play_Chapter: VALID_UOP_FLAG = VALID_UOP_FLAG(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_Play_Chapter_Or_AtTime: VALID_UOP_FLAG = VALID_UOP_FLAG(32i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_Play_Forwards: VALID_UOP_FLAG = VALID_UOP_FLAG(256i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_Play_Title: VALID_UOP_FLAG = VALID_UOP_FLAG(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_Play_Title_Or_AtTime: VALID_UOP_FLAG = VALID_UOP_FLAG(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_Resume: VALID_UOP_FLAG = VALID_UOP_FLAG(65536i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_ReturnFromSubMenu: VALID_UOP_FLAG = VALID_UOP_FLAG(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_Select_Angle: VALID_UOP_FLAG = VALID_UOP_FLAG(4194304i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_Select_Audio_Stream: VALID_UOP_FLAG = VALID_UOP_FLAG(1048576i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_Select_Karaoke_Audio_Presentation_Mode: VALID_UOP_FLAG = VALID_UOP_FLAG(8388608i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_Select_Or_Activate_Button: VALID_UOP_FLAG = VALID_UOP_FLAG(131072i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_Select_SubPic_Stream: VALID_UOP_FLAG = VALID_UOP_FLAG(2097152i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_Select_Video_Mode_Preference: VALID_UOP_FLAG = VALID_UOP_FLAG(16777216i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_ShowMenu_Angle: VALID_UOP_FLAG = VALID_UOP_FLAG(16384i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_ShowMenu_Audio: VALID_UOP_FLAG = VALID_UOP_FLAG(8192i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_ShowMenu_Chapter: VALID_UOP_FLAG = VALID_UOP_FLAG(32768i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_ShowMenu_Root: VALID_UOP_FLAG = VALID_UOP_FLAG(2048i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_ShowMenu_SubPic: VALID_UOP_FLAG = VALID_UOP_FLAG(4096i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_ShowMenu_Title: VALID_UOP_FLAG = VALID_UOP_FLAG(1024i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_Still_Off: VALID_UOP_FLAG = VALID_UOP_FLAG(262144i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UOP_FLAG_Stop: VALID_UOP_FLAG = VALID_UOP_FLAG(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const USER_PRIVATE: MPEG2StreamType = MPEG2StreamType(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const UserClosed: UICloseReasonType = UICloseReasonType(1i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_E_ADVISE_ALREADY_SET: ::windows_core::HRESULT = ::windows_core::HRESULT(-2147220938i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -22252,6 +24522,66 @@ pub const VFW_S_STREAM_OFF: ::windows_core::HRESULT = ::windows_core::HRESULT(26
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VFW_S_VIDEO_NOT_RENDERED: ::windows_core::HRESULT = ::windows_core::HRESULT(262743i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9ARMode_LetterBox: VMR9AspectRatioMode = VMR9AspectRatioMode(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9ARMode_None: VMR9AspectRatioMode = VMR9AspectRatioMode(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9AllocFlag_3DRenderTarget: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9AllocFlag_DXVATarget: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9AllocFlag_OffscreenSurface: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9AllocFlag_RGBDynamicSwitch: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9AllocFlag_TextureSurface: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9AllocFlag_UsageMask: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(255i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9AllocFlag_UsageReserved: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(224i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9AlphaBitmap_Disable: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9AlphaBitmap_EntireDDS: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9AlphaBitmap_FilterMode: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(32i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9AlphaBitmap_SrcColorKey: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9AlphaBitmap_SrcRect: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9AlphaBitmap_hDC: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9Mode_Mask: VMR9Mode = VMR9Mode(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9Mode_Renderless: VMR9Mode = VMR9Mode(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9Mode_Windowed: VMR9Mode = VMR9Mode(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9Mode_Windowless: VMR9Mode = VMR9Mode(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9Sample_Discontinuity: VMR9PresentationFlags = VMR9PresentationFlags(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9Sample_Preroll: VMR9PresentationFlags = VMR9PresentationFlags(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9Sample_SrcDstRectsValid: VMR9PresentationFlags = VMR9PresentationFlags(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9Sample_SyncPoint: VMR9PresentationFlags = VMR9PresentationFlags(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9Sample_TimeValid: VMR9PresentationFlags = VMR9PresentationFlags(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9_SampleFieldInterleavedEvenFirst: VMR9_SampleFormat = VMR9_SampleFormat(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9_SampleFieldInterleavedOddFirst: VMR9_SampleFormat = VMR9_SampleFormat(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9_SampleFieldSingleEven: VMR9_SampleFormat = VMR9_SampleFormat(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9_SampleFieldSingleOdd: VMR9_SampleFormat = VMR9_SampleFormat(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9_SampleProgressiveFrame: VMR9_SampleFormat = VMR9_SampleFormat(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR9_SampleReserved: VMR9_SampleFormat = VMR9_SampleFormat(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMRBITMAP_DISABLE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMRBITMAP_ENTIREDDS: u32 = 4u32;
@@ -22262,6 +24592,28 @@ pub const VMRBITMAP_SRCCOLORKEY: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMRBITMAP_SRCRECT: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMRMode_Mask: VMRMode = VMRMode(7i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMRMode_Renderless: VMRMode = VMRMode(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMRMode_Windowed: VMRMode = VMRMode(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMRMode_Windowless: VMRMode = VMRMode(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMRSample_Discontinuity: VMRPresentationFlags = VMRPresentationFlags(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMRSample_Preroll: VMRPresentationFlags = VMRPresentationFlags(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMRSample_SrcDstRectsValid: VMRPresentationFlags = VMRPresentationFlags(16i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMRSample_SyncPoint: VMRPresentationFlags = VMRPresentationFlags(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMRSample_TimeValid: VMRPresentationFlags = VMRPresentationFlags(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR_ARMODE_LETTER_BOX: VMR_ASPECT_RATIO_MODE = VMR_ASPECT_RATIO_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VMR_ARMODE_NONE: VMR_ASPECT_RATIO_MODE = VMR_ASPECT_RATIO_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR_NOTSUPPORTED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR_RENDER_DEVICE_OVERLAY: u32 = 1u32;
@@ -22271,6 +24623,60 @@ pub const VMR_RENDER_DEVICE_SYSMEM: u32 = 4u32;
 pub const VMR_RENDER_DEVICE_VIDMEM: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const VMR_SUPPORTED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VariableBitRateAverage: VIDEOENCODER_BITRATE_MODE = VIDEOENCODER_BITRATE_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VariableBitRatePeak: VIDEOENCODER_BITRATE_MODE = VIDEOENCODER_BITRATE_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VfwCaptureDialog_Display: VfwCaptureDialogs = VfwCaptureDialogs(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VfwCaptureDialog_Format: VfwCaptureDialogs = VfwCaptureDialogs(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VfwCaptureDialog_Source: VfwCaptureDialogs = VfwCaptureDialogs(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VfwCompressDialog_About: VfwCompressDialogs = VfwCompressDialogs(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VfwCompressDialog_Config: VfwCompressDialogs = VfwCompressDialogs(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VfwCompressDialog_QueryAbout: VfwCompressDialogs = VfwCompressDialogs(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VfwCompressDialog_QueryConfig: VfwCompressDialogs = VfwCompressDialogs(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VideoControlFlag_ExternalTriggerEnable: VideoControlFlags = VideoControlFlags(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VideoControlFlag_FlipHorizontal: VideoControlFlags = VideoControlFlags(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VideoControlFlag_FlipVertical: VideoControlFlags = VideoControlFlags(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VideoControlFlag_Trigger: VideoControlFlags = VideoControlFlags(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VideoCopyProtectionMacrovisionBasic: VideoCopyProtectionType = VideoCopyProtectionType(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VideoCopyProtectionMacrovisionCBI: VideoCopyProtectionType = VideoCopyProtectionType(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VideoProcAmp_BacklightCompensation: VideoProcAmpProperty = VideoProcAmpProperty(8i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VideoProcAmp_Brightness: VideoProcAmpProperty = VideoProcAmpProperty(0i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VideoProcAmp_ColorEnable: VideoProcAmpProperty = VideoProcAmpProperty(6i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VideoProcAmp_Contrast: VideoProcAmpProperty = VideoProcAmpProperty(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VideoProcAmp_Flags_Auto: VideoProcAmpFlags = VideoProcAmpFlags(1i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VideoProcAmp_Flags_Manual: VideoProcAmpFlags = VideoProcAmpFlags(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VideoProcAmp_Gain: VideoProcAmpProperty = VideoProcAmpProperty(9i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VideoProcAmp_Gamma: VideoProcAmpProperty = VideoProcAmpProperty(5i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VideoProcAmp_Hue: VideoProcAmpProperty = VideoProcAmpProperty(2i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VideoProcAmp_Saturation: VideoProcAmpProperty = VideoProcAmpProperty(3i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VideoProcAmp_Sharpness: VideoProcAmpProperty = VideoProcAmpProperty(4i32);
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
+pub const VideoProcAmp_WhiteBalance: VideoProcAmpProperty = VideoProcAmpProperty(7i32);
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const g_wszExcludeScriptStreamDeliverySynchronization: ::windows_core::PCWSTR = ::windows_core::w!("ExcludeScriptStreamDeliverySynchronization");
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -22295,18 +24701,6 @@ pub const iTRUECOLOR: u32 = 16u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ADVISE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ADVISE_NONE: ADVISE_TYPE = ADVISE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ADVISE_CLIPPING: ADVISE_TYPE = ADVISE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ADVISE_PALETTE: ADVISE_TYPE = ADVISE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ADVISE_COLORKEY: ADVISE_TYPE = ADVISE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ADVISE_POSITION: ADVISE_TYPE = ADVISE_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ADVISE_DISPLAY_CHANGE: ADVISE_TYPE = ADVISE_TYPE(16i32);
 impl ::core::marker::Copy for ADVISE_TYPE {}
 impl ::core::clone::Clone for ADVISE_TYPE {
     fn clone(&self) -> Self {
@@ -22363,20 +24757,6 @@ impl ::core::ops::Not for ADVISE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMExtendedSeekingCapabilities(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_EXSEEK_CANSEEK: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_EXSEEK_CANSCAN: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_EXSEEK_MARKERSEEK: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_EXSEEK_SCANWITHOUTCLOCK: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_EXSEEK_NOSTANDARDREPAINT: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_EXSEEK_BUFFERING: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_EXSEEK_SENDS_VIDEOFRAMEREADY: AMExtendedSeekingCapabilities = AMExtendedSeekingCapabilities(64i32);
 impl ::core::marker::Copy for AMExtendedSeekingCapabilities {}
 impl ::core::clone::Clone for AMExtendedSeekingCapabilities {
     fn clone(&self) -> Self {
@@ -22400,8 +24780,6 @@ impl ::core::fmt::Debug for AMExtendedSeekingCapabilities {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMMSF_MMS_INIT_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_NOGRAPHTHREAD: AMMSF_MMS_INIT_FLAGS = AMMSF_MMS_INIT_FLAGS(1i32);
 impl ::core::marker::Copy for AMMSF_MMS_INIT_FLAGS {}
 impl ::core::clone::Clone for AMMSF_MMS_INIT_FLAGS {
     fn clone(&self) -> Self {
@@ -22458,14 +24836,6 @@ impl ::core::ops::Not for AMMSF_MMS_INIT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMMSF_MS_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_ADDDEFAULTRENDERER: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_CREATEPEER: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_STOPIFNOSAMPLES: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_NOSTALL: AMMSF_MS_FLAGS = AMMSF_MS_FLAGS(8i32);
 impl ::core::marker::Copy for AMMSF_MS_FLAGS {}
 impl ::core::clone::Clone for AMMSF_MS_FLAGS {
     fn clone(&self) -> Self {
@@ -22522,18 +24892,6 @@ impl ::core::ops::Not for AMMSF_MS_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMMSF_RENDER_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_RENDERTYPEMASK: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_RENDERTOEXISTING: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_RENDERALLSTREAMS: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_NORENDER: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_NOCLOCK: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMSF_RUN: AMMSF_RENDER_FLAGS = AMMSF_RENDER_FLAGS(8i32);
 impl ::core::marker::Copy for AMMSF_RENDER_FLAGS {}
 impl ::core::clone::Clone for AMMSF_RENDER_FLAGS {
     fn clone(&self) -> Self {
@@ -22590,14 +24948,6 @@ impl ::core::ops::Not for AMMSF_RENDER_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMOVERLAYFX(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMOVERFX_NOFX: AMOVERLAYFX = AMOVERLAYFX(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMOVERFX_MIRRORLEFTRIGHT: AMOVERLAYFX = AMOVERLAYFX(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMOVERFX_MIRRORUPDOWN: AMOVERLAYFX = AMOVERLAYFX(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMOVERFX_DEINTERLACE: AMOVERLAYFX = AMOVERLAYFX(8i32);
 impl ::core::marker::Copy for AMOVERLAYFX {}
 impl ::core::clone::Clone for AMOVERLAYFX {
     fn clone(&self) -> Self {
@@ -22621,10 +24971,6 @@ impl ::core::fmt::Debug for AMOVERLAYFX {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMPROPERTY_PIN(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMPROPERTY_PIN_CATEGORY: AMPROPERTY_PIN = AMPROPERTY_PIN(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMPROPERTY_PIN_MEDIUM: AMPROPERTY_PIN = AMPROPERTY_PIN(1i32);
 impl ::core::marker::Copy for AMPROPERTY_PIN {}
 impl ::core::clone::Clone for AMPROPERTY_PIN {
     fn clone(&self) -> Self {
@@ -22648,16 +24994,6 @@ impl ::core::fmt::Debug for AMPROPERTY_PIN {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMPlayListEventFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMPLAYLISTEVENT_RESUME: AMPlayListEventFlags = AMPlayListEventFlags(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMPLAYLISTEVENT_BREAK: AMPlayListEventFlags = AMPlayListEventFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMPLAYLISTEVENT_NEXT: AMPlayListEventFlags = AMPlayListEventFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMPLAYLISTEVENT_MASK: AMPlayListEventFlags = AMPlayListEventFlags(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMPLAYLISTEVENT_REFRESH: AMPlayListEventFlags = AMPlayListEventFlags(16i32);
 impl ::core::marker::Copy for AMPlayListEventFlags {}
 impl ::core::clone::Clone for AMPlayListEventFlags {
     fn clone(&self) -> Self {
@@ -22681,10 +25017,6 @@ impl ::core::fmt::Debug for AMPlayListEventFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMPlayListFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMPLAYLIST_STARTINSCANMODE: AMPlayListFlags = AMPlayListFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMPLAYLIST_FORCEBANNER: AMPlayListFlags = AMPlayListFlags(2i32);
 impl ::core::marker::Copy for AMPlayListFlags {}
 impl ::core::clone::Clone for AMPlayListFlags {
     fn clone(&self) -> Self {
@@ -22708,10 +25040,6 @@ impl ::core::fmt::Debug for AMPlayListFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMPlayListItemFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMPLAYLISTITEM_CANSKIP: AMPlayListItemFlags = AMPlayListItemFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMPLAYLISTITEM_CANBIND: AMPlayListItemFlags = AMPlayListItemFlags(2i32);
 impl ::core::marker::Copy for AMPlayListItemFlags {}
 impl ::core::clone::Clone for AMPlayListItemFlags {
     fn clone(&self) -> Self {
@@ -22735,8 +25063,6 @@ impl ::core::fmt::Debug for AMPlayListItemFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMTVAudioEventType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMTVAUDIO_EVENT_CHANGED: AMTVAudioEventType = AMTVAudioEventType(1i32);
 impl ::core::marker::Copy for AMTVAudioEventType {}
 impl ::core::clone::Clone for AMTVAudioEventType {
     fn clone(&self) -> Self {
@@ -22760,8 +25086,6 @@ impl ::core::fmt::Debug for AMTVAudioEventType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMTunerEventType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMTUNER_EVENT_CHANGED: AMTunerEventType = AMTunerEventType(1i32);
 impl ::core::marker::Copy for AMTunerEventType {}
 impl ::core::clone::Clone for AMTunerEventType {
     fn clone(&self) -> Self {
@@ -22785,16 +25109,6 @@ impl ::core::fmt::Debug for AMTunerEventType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMTunerModeType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMTUNER_MODE_DEFAULT: AMTunerModeType = AMTunerModeType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMTUNER_MODE_TV: AMTunerModeType = AMTunerModeType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMTUNER_MODE_FM_RADIO: AMTunerModeType = AMTunerModeType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMTUNER_MODE_AM_RADIO: AMTunerModeType = AMTunerModeType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMTUNER_MODE_DSS: AMTunerModeType = AMTunerModeType(8i32);
 impl ::core::marker::Copy for AMTunerModeType {}
 impl ::core::clone::Clone for AMTunerModeType {
     fn clone(&self) -> Self {
@@ -22818,12 +25132,6 @@ impl ::core::fmt::Debug for AMTunerModeType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMTunerSignalStrength(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMTUNER_HASNOSIGNALSTRENGTH: AMTunerSignalStrength = AMTunerSignalStrength(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMTUNER_NOSIGNAL: AMTunerSignalStrength = AMTunerSignalStrength(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMTUNER_SIGNALPRESENT: AMTunerSignalStrength = AMTunerSignalStrength(1i32);
 impl ::core::marker::Copy for AMTunerSignalStrength {}
 impl ::core::clone::Clone for AMTunerSignalStrength {
     fn clone(&self) -> Self {
@@ -22847,10 +25155,6 @@ impl ::core::fmt::Debug for AMTunerSignalStrength {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMTunerSubChannel(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMTUNER_SUBCHAN_NO_TUNE: AMTunerSubChannel = AMTunerSubChannel(-2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMTUNER_SUBCHAN_DEFAULT: AMTunerSubChannel = AMTunerSubChannel(-1i32);
 impl ::core::marker::Copy for AMTunerSubChannel {}
 impl ::core::clone::Clone for AMTunerSubChannel {
     fn clone(&self) -> Self {
@@ -22874,16 +25178,6 @@ impl ::core::fmt::Debug for AMTunerSubChannel {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMVP_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMVP_MODE_WEAVE: AMVP_MODE = AMVP_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMVP_MODE_BOBINTERLEAVED: AMVP_MODE = AMVP_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMVP_MODE_BOBNONINTERLEAVED: AMVP_MODE = AMVP_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMVP_MODE_SKIPEVEN: AMVP_MODE = AMVP_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMVP_MODE_SKIPODD: AMVP_MODE = AMVP_MODE(4i32);
 impl ::core::marker::Copy for AMVP_MODE {}
 impl ::core::clone::Clone for AMVP_MODE {
     fn clone(&self) -> Self {
@@ -22907,12 +25201,6 @@ impl ::core::fmt::Debug for AMVP_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AMVP_SELECT_FORMAT_BY(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMVP_DO_NOT_CARE: AMVP_SELECT_FORMAT_BY = AMVP_SELECT_FORMAT_BY(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMVP_BEST_BANDWIDTH: AMVP_SELECT_FORMAT_BY = AMVP_SELECT_FORMAT_BY(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMVP_INPUT_SAME_AS_OUTPUT: AMVP_SELECT_FORMAT_BY = AMVP_SELECT_FORMAT_BY(2i32);
 impl ::core::marker::Copy for AMVP_SELECT_FORMAT_BY {}
 impl ::core::clone::Clone for AMVP_SELECT_FORMAT_BY {
     fn clone(&self) -> Self {
@@ -22936,14 +25224,6 @@ impl ::core::fmt::Debug for AMVP_SELECT_FORMAT_BY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_ASPECT_RATIO_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_ARMODE_STRETCHED: AM_ASPECT_RATIO_MODE = AM_ASPECT_RATIO_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_ARMODE_LETTER_BOX: AM_ASPECT_RATIO_MODE = AM_ASPECT_RATIO_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_ARMODE_CROP: AM_ASPECT_RATIO_MODE = AM_ASPECT_RATIO_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_ARMODE_STRETCHED_AS_PRIMARY: AM_ASPECT_RATIO_MODE = AM_ASPECT_RATIO_MODE(3i32);
 impl ::core::marker::Copy for AM_ASPECT_RATIO_MODE {}
 impl ::core::clone::Clone for AM_ASPECT_RATIO_MODE {
     fn clone(&self) -> Self {
@@ -22967,14 +25247,6 @@ impl ::core::fmt::Debug for AM_ASPECT_RATIO_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_COPY_MACROVISION_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_MACROVISION_DISABLED: AM_COPY_MACROVISION_LEVEL = AM_COPY_MACROVISION_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_MACROVISION_LEVEL1: AM_COPY_MACROVISION_LEVEL = AM_COPY_MACROVISION_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_MACROVISION_LEVEL2: AM_COPY_MACROVISION_LEVEL = AM_COPY_MACROVISION_LEVEL(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_MACROVISION_LEVEL3: AM_COPY_MACROVISION_LEVEL = AM_COPY_MACROVISION_LEVEL(3i32);
 impl ::core::marker::Copy for AM_COPY_MACROVISION_LEVEL {}
 impl ::core::clone::Clone for AM_COPY_MACROVISION_LEVEL {
     fn clone(&self) -> Self {
@@ -22998,12 +25270,6 @@ impl ::core::fmt::Debug for AM_COPY_MACROVISION_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_DIGITAL_CP(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DIGITAL_CP_OFF: AM_DIGITAL_CP = AM_DIGITAL_CP(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DIGITAL_CP_ON: AM_DIGITAL_CP = AM_DIGITAL_CP(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DIGITAL_CP_DVD_COMPLIANT: AM_DIGITAL_CP = AM_DIGITAL_CP(2i32);
 impl ::core::marker::Copy for AM_DIGITAL_CP {}
 impl ::core::clone::Clone for AM_DIGITAL_CP {
     fn clone(&self) -> Self {
@@ -23027,16 +25293,6 @@ impl ::core::fmt::Debug for AM_DIGITAL_CP {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_DVDCOPYSTATE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DVDCOPYSTATE_INITIALIZE: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DVDCOPYSTATE_INITIALIZE_TITLE: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DVDCOPYSTATE_AUTHENTICATION_NOT_REQUIRED: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DVDCOPYSTATE_AUTHENTICATION_REQUIRED: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DVDCOPYSTATE_DONE: AM_DVDCOPYSTATE = AM_DVDCOPYSTATE(4i32);
 impl ::core::marker::Copy for AM_DVDCOPYSTATE {}
 impl ::core::clone::Clone for AM_DVDCOPYSTATE {
     fn clone(&self) -> Self {
@@ -23060,28 +25316,6 @@ impl ::core::fmt::Debug for AM_DVDCOPYSTATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_DVD_GRAPH_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DVD_HWDEC_PREFER: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DVD_HWDEC_ONLY: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DVD_SWDEC_PREFER: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DVD_SWDEC_ONLY: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DVD_NOVPE: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(256i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DVD_DO_NOT_CLEAR: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(512i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DVD_VMR9_ONLY: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(2048i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DVD_EVR_ONLY: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DVD_EVR_QOS: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(8192i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DVD_ADAPT_GRAPH: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(16384i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DVD_MASK: AM_DVD_GRAPH_FLAGS = AM_DVD_GRAPH_FLAGS(65535i32);
 impl ::core::marker::Copy for AM_DVD_GRAPH_FLAGS {}
 impl ::core::clone::Clone for AM_DVD_GRAPH_FLAGS {
     fn clone(&self) -> Self {
@@ -23105,12 +25339,6 @@ impl ::core::fmt::Debug for AM_DVD_GRAPH_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_DVD_STREAM_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DVD_STREAM_VIDEO: AM_DVD_STREAM_FLAGS = AM_DVD_STREAM_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DVD_STREAM_AUDIO: AM_DVD_STREAM_FLAGS = AM_DVD_STREAM_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_DVD_STREAM_SUBPIC: AM_DVD_STREAM_FLAGS = AM_DVD_STREAM_FLAGS(4i32);
 impl ::core::marker::Copy for AM_DVD_STREAM_FLAGS {}
 impl ::core::clone::Clone for AM_DVD_STREAM_FLAGS {
     fn clone(&self) -> Self {
@@ -23134,8 +25362,6 @@ impl ::core::fmt::Debug for AM_DVD_STREAM_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_FILESINK_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_FILE_OVERWRITE: AM_FILESINK_FLAGS = AM_FILESINK_FLAGS(1i32);
 impl ::core::marker::Copy for AM_FILESINK_FLAGS {}
 impl ::core::clone::Clone for AM_FILESINK_FLAGS {
     fn clone(&self) -> Self {
@@ -23159,8 +25385,6 @@ impl ::core::fmt::Debug for AM_FILESINK_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_FILTER_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_FILTER_FLAGS_REMOVABLE: AM_FILTER_FLAGS = AM_FILTER_FLAGS(1i32);
 impl ::core::marker::Copy for AM_FILTER_FLAGS {}
 impl ::core::clone::Clone for AM_FILTER_FLAGS {
     fn clone(&self) -> Self {
@@ -23184,12 +25408,6 @@ impl ::core::fmt::Debug for AM_FILTER_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_GRAPH_CONFIG_RECONNECT_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_GRAPH_CONFIG_RECONNECT_DIRECTCONNECT: AM_GRAPH_CONFIG_RECONNECT_FLAGS = AM_GRAPH_CONFIG_RECONNECT_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_GRAPH_CONFIG_RECONNECT_CACHE_REMOVED_FILTERS: AM_GRAPH_CONFIG_RECONNECT_FLAGS = AM_GRAPH_CONFIG_RECONNECT_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_GRAPH_CONFIG_RECONNECT_USE_ONLY_CACHED_FILTERS: AM_GRAPH_CONFIG_RECONNECT_FLAGS = AM_GRAPH_CONFIG_RECONNECT_FLAGS(4i32);
 impl ::core::marker::Copy for AM_GRAPH_CONFIG_RECONNECT_FLAGS {}
 impl ::core::clone::Clone for AM_GRAPH_CONFIG_RECONNECT_FLAGS {
     fn clone(&self) -> Self {
@@ -23213,8 +25431,6 @@ impl ::core::fmt::Debug for AM_GRAPH_CONFIG_RECONNECT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_LINE21_CCLEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_L21_CCLEVEL_TC2: AM_LINE21_CCLEVEL = AM_LINE21_CCLEVEL(0i32);
 impl ::core::marker::Copy for AM_LINE21_CCLEVEL {}
 impl ::core::clone::Clone for AM_LINE21_CCLEVEL {
     fn clone(&self) -> Self {
@@ -23238,22 +25454,6 @@ impl ::core::fmt::Debug for AM_LINE21_CCLEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_LINE21_CCSERVICE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_L21_CCSERVICE_None: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_L21_CCSERVICE_Caption1: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_L21_CCSERVICE_Caption2: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_L21_CCSERVICE_Text1: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_L21_CCSERVICE_Text2: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_L21_CCSERVICE_XDS: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_L21_CCSERVICE_DefChannel: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_L21_CCSERVICE_Invalid: AM_LINE21_CCSERVICE = AM_LINE21_CCSERVICE(11i32);
 impl ::core::marker::Copy for AM_LINE21_CCSERVICE {}
 impl ::core::clone::Clone for AM_LINE21_CCSERVICE {
     fn clone(&self) -> Self {
@@ -23277,10 +25477,6 @@ impl ::core::fmt::Debug for AM_LINE21_CCSERVICE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_LINE21_CCSTATE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_L21_CCSTATE_Off: AM_LINE21_CCSTATE = AM_LINE21_CCSTATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_L21_CCSTATE_On: AM_LINE21_CCSTATE = AM_LINE21_CCSTATE(1i32);
 impl ::core::marker::Copy for AM_LINE21_CCSTATE {}
 impl ::core::clone::Clone for AM_LINE21_CCSTATE {
     fn clone(&self) -> Self {
@@ -23304,14 +25500,6 @@ impl ::core::fmt::Debug for AM_LINE21_CCSTATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_LINE21_CCSTYLE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_L21_CCSTYLE_None: AM_LINE21_CCSTYLE = AM_LINE21_CCSTYLE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_L21_CCSTYLE_PopOn: AM_LINE21_CCSTYLE = AM_LINE21_CCSTYLE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_L21_CCSTYLE_PaintOn: AM_LINE21_CCSTYLE = AM_LINE21_CCSTYLE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_L21_CCSTYLE_RollUp: AM_LINE21_CCSTYLE = AM_LINE21_CCSTYLE(3i32);
 impl ::core::marker::Copy for AM_LINE21_CCSTYLE {}
 impl ::core::clone::Clone for AM_LINE21_CCSTYLE {
     fn clone(&self) -> Self {
@@ -23335,10 +25523,6 @@ impl ::core::fmt::Debug for AM_LINE21_CCSTYLE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_LINE21_DRAWBGMODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_L21_DRAWBGMODE_Opaque: AM_LINE21_DRAWBGMODE = AM_LINE21_DRAWBGMODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_L21_DRAWBGMODE_Transparent: AM_LINE21_DRAWBGMODE = AM_LINE21_DRAWBGMODE(1i32);
 impl ::core::marker::Copy for AM_LINE21_DRAWBGMODE {}
 impl ::core::clone::Clone for AM_LINE21_DRAWBGMODE {
     fn clone(&self) -> Self {
@@ -23362,8 +25546,6 @@ impl ::core::fmt::Debug for AM_LINE21_DRAWBGMODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_MEDIAEVENT_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_MEDIAEVENT_NONOTIFY: AM_MEDIAEVENT_FLAGS = AM_MEDIAEVENT_FLAGS(1i32);
 impl ::core::marker::Copy for AM_MEDIAEVENT_FLAGS {}
 impl ::core::clone::Clone for AM_MEDIAEVENT_FLAGS {
     fn clone(&self) -> Self {
@@ -23387,14 +25569,6 @@ impl ::core::fmt::Debug for AM_MEDIAEVENT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_MPEG2Level(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_MPEG2Level_Low: AM_MPEG2Level = AM_MPEG2Level(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_MPEG2Level_Main: AM_MPEG2Level = AM_MPEG2Level(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_MPEG2Level_High1440: AM_MPEG2Level = AM_MPEG2Level(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_MPEG2Level_High: AM_MPEG2Level = AM_MPEG2Level(4i32);
 impl ::core::marker::Copy for AM_MPEG2Level {}
 impl ::core::clone::Clone for AM_MPEG2Level {
     fn clone(&self) -> Self {
@@ -23418,16 +25592,6 @@ impl ::core::fmt::Debug for AM_MPEG2Level {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_MPEG2Profile(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_MPEG2Profile_Simple: AM_MPEG2Profile = AM_MPEG2Profile(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_MPEG2Profile_Main: AM_MPEG2Profile = AM_MPEG2Profile(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_MPEG2Profile_SNRScalable: AM_MPEG2Profile = AM_MPEG2Profile(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_MPEG2Profile_SpatiallyScalable: AM_MPEG2Profile = AM_MPEG2Profile(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_MPEG2Profile_High: AM_MPEG2Profile = AM_MPEG2Profile(5i32);
 impl ::core::marker::Copy for AM_MPEG2Profile {}
 impl ::core::clone::Clone for AM_MPEG2Profile {
     fn clone(&self) -> Self {
@@ -23451,20 +25615,6 @@ impl ::core::fmt::Debug for AM_MPEG2Profile {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_PROPERTY_AC3(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_AC3_ERROR_CONCEALMENT: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_AC3_ALTERNATE_AUDIO: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_AC3_DOWNMIX: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_AC3_BIT_STREAM_MODE: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_AC3_DIALOGUE_LEVEL: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_AC3_LANGUAGE_CODE: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_AC3_ROOM_TYPE: AM_PROPERTY_AC3 = AM_PROPERTY_AC3(7i32);
 impl ::core::marker::Copy for AM_PROPERTY_AC3 {}
 impl ::core::clone::Clone for AM_PROPERTY_AC3 {
     fn clone(&self) -> Self {
@@ -23488,30 +25638,6 @@ impl ::core::fmt::Debug for AM_PROPERTY_AC3 {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_PROPERTY_DVDCOPYPROT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_DVDCOPY_CHLG_KEY: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_DVDCOPY_DVD_KEY1: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_DVDCOPY_DEC_KEY2: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_DVDCOPY_TITLE_KEY: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_COPY_MACROVISION: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_DVDCOPY_REGION: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_DVDCOPY_SET_COPY_STATE: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_COPY_ANALOG_COMPONENT: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_COPY_DIGITAL_CP: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_COPY_DVD_SRM: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_DVDCOPY_SUPPORTS_NEW_KEYCOUNT: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_DVDCOPY_DISC_KEY: AM_PROPERTY_DVDCOPYPROT = AM_PROPERTY_DVDCOPYPROT(128i32);
 impl ::core::marker::Copy for AM_PROPERTY_DVDCOPYPROT {}
 impl ::core::clone::Clone for AM_PROPERTY_DVDCOPYPROT {
     fn clone(&self) -> Self {
@@ -23535,10 +25661,6 @@ impl ::core::fmt::Debug for AM_PROPERTY_DVDCOPYPROT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_PROPERTY_DVDKARAOKE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_DVDKARAOKE_ENABLE: AM_PROPERTY_DVDKARAOKE = AM_PROPERTY_DVDKARAOKE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_DVDKARAOKE_DATA: AM_PROPERTY_DVDKARAOKE = AM_PROPERTY_DVDKARAOKE(1i32);
 impl ::core::marker::Copy for AM_PROPERTY_DVDKARAOKE {}
 impl ::core::clone::Clone for AM_PROPERTY_DVDKARAOKE {
     fn clone(&self) -> Self {
@@ -23562,12 +25684,6 @@ impl ::core::fmt::Debug for AM_PROPERTY_DVDKARAOKE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_PROPERTY_DVDSUBPIC(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_DVDSUBPIC_PALETTE: AM_PROPERTY_DVDSUBPIC = AM_PROPERTY_DVDSUBPIC(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_DVDSUBPIC_HLI: AM_PROPERTY_DVDSUBPIC = AM_PROPERTY_DVDSUBPIC(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_DVDSUBPIC_COMPOSIT_ON: AM_PROPERTY_DVDSUBPIC = AM_PROPERTY_DVDSUBPIC(2i32);
 impl ::core::marker::Copy for AM_PROPERTY_DVDSUBPIC {}
 impl ::core::clone::Clone for AM_PROPERTY_DVDSUBPIC {
     fn clone(&self) -> Self {
@@ -23591,16 +25707,6 @@ impl ::core::fmt::Debug for AM_PROPERTY_DVDSUBPIC {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_PROPERTY_DVD_RATE_CHANGE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_RATE_ChangeRate: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_RATE_FullDataRateMax: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_RATE_ReverseDecode: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_RATE_DecoderPosition: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_RATE_DecoderVersion: AM_PROPERTY_DVD_RATE_CHANGE = AM_PROPERTY_DVD_RATE_CHANGE(5i32);
 impl ::core::marker::Copy for AM_PROPERTY_DVD_RATE_CHANGE {}
 impl ::core::clone::Clone for AM_PROPERTY_DVD_RATE_CHANGE {
     fn clone(&self) -> Self {
@@ -23624,14 +25730,6 @@ impl ::core::fmt::Debug for AM_PROPERTY_DVD_RATE_CHANGE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_PROPERTY_FRAMESTEP(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_FRAMESTEP_STEP: AM_PROPERTY_FRAMESTEP = AM_PROPERTY_FRAMESTEP(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_FRAMESTEP_CANCEL: AM_PROPERTY_FRAMESTEP = AM_PROPERTY_FRAMESTEP(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_FRAMESTEP_CANSTEP: AM_PROPERTY_FRAMESTEP = AM_PROPERTY_FRAMESTEP(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PROPERTY_FRAMESTEP_CANSTEPMULTIPLE: AM_PROPERTY_FRAMESTEP = AM_PROPERTY_FRAMESTEP(4i32);
 impl ::core::marker::Copy for AM_PROPERTY_FRAMESTEP {}
 impl ::core::clone::Clone for AM_PROPERTY_FRAMESTEP {
     fn clone(&self) -> Self {
@@ -23655,28 +25753,6 @@ impl ::core::fmt::Debug for AM_PROPERTY_FRAMESTEP {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_PROPERTY_TS_RATE_CHANGE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_RATE_SimpleRateChange: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_RATE_ExactRateChange: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_RATE_MaxFullDataRate: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_RATE_Step: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_RATE_UseRateVersion: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_RATE_QueryFullFrameRate: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_RATE_QueryLastRateSegPTS: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_RATE_CorrectTS: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_RATE_ReverseMaxFullDataRate: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_RATE_ResetOnTimeDisc: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_RATE_QueryMapping: AM_PROPERTY_TS_RATE_CHANGE = AM_PROPERTY_TS_RATE_CHANGE(11i32);
 impl ::core::marker::Copy for AM_PROPERTY_TS_RATE_CHANGE {}
 impl ::core::clone::Clone for AM_PROPERTY_TS_RATE_CHANGE {
     fn clone(&self) -> Self {
@@ -23700,28 +25776,6 @@ impl ::core::fmt::Debug for AM_PROPERTY_TS_RATE_CHANGE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_SAMPLE_PROPERTY_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SAMPLE_SPLICEPOINT: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SAMPLE_PREROLL: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SAMPLE_DATADISCONTINUITY: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SAMPLE_TYPECHANGED: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SAMPLE_TIMEVALID: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SAMPLE_TIMEDISCONTINUITY: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SAMPLE_FLUSH_ON_PAUSE: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SAMPLE_STOPVALID: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(256i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SAMPLE_ENDOFSTREAM: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(512i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_STREAM_MEDIA: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_STREAM_CONTROL: AM_SAMPLE_PROPERTY_FLAGS = AM_SAMPLE_PROPERTY_FLAGS(1i32);
 impl ::core::marker::Copy for AM_SAMPLE_PROPERTY_FLAGS {}
 impl ::core::clone::Clone for AM_SAMPLE_PROPERTY_FLAGS {
     fn clone(&self) -> Self {
@@ -23745,24 +25799,6 @@ impl ::core::fmt::Debug for AM_SAMPLE_PROPERTY_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_SEEKING_SEEKING_CAPABILITIES(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_CanSeekAbsolute: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_CanSeekForwards: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_CanSeekBackwards: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_CanGetCurrentPos: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_CanGetStopPos: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_CanGetDuration: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_CanPlayBackwards: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_CanDoSegments: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_Source: AM_SEEKING_SEEKING_CAPABILITIES = AM_SEEKING_SEEKING_CAPABILITIES(256i32);
 impl ::core::marker::Copy for AM_SEEKING_SEEKING_CAPABILITIES {}
 impl ::core::clone::Clone for AM_SEEKING_SEEKING_CAPABILITIES {
     fn clone(&self) -> Self {
@@ -23786,24 +25822,6 @@ impl ::core::fmt::Debug for AM_SEEKING_SEEKING_CAPABILITIES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_SEEKING_SEEKING_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_NoPositioning: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_AbsolutePositioning: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_RelativePositioning: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_IncrementalPositioning: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_PositioningBitsMask: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_SeekToKeyFrame: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_ReturnTime: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_Segment: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_SEEKING_NoFlush: AM_SEEKING_SEEKING_FLAGS = AM_SEEKING_SEEKING_FLAGS(32i32);
 impl ::core::marker::Copy for AM_SEEKING_SEEKING_FLAGS {}
 impl ::core::clone::Clone for AM_SEEKING_SEEKING_FLAGS {
     fn clone(&self) -> Self {
@@ -23827,14 +25845,6 @@ impl ::core::fmt::Debug for AM_SEEKING_SEEKING_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_STREAM_INFO_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_STREAM_INFO_START_DEFINED: AM_STREAM_INFO_FLAGS = AM_STREAM_INFO_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_STREAM_INFO_STOP_DEFINED: AM_STREAM_INFO_FLAGS = AM_STREAM_INFO_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_STREAM_INFO_DISCARDING: AM_STREAM_INFO_FLAGS = AM_STREAM_INFO_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_STREAM_INFO_STOP_SEND_EXTRA: AM_STREAM_INFO_FLAGS = AM_STREAM_INFO_FLAGS(16i32);
 impl ::core::marker::Copy for AM_STREAM_INFO_FLAGS {}
 impl ::core::clone::Clone for AM_STREAM_INFO_FLAGS {
     fn clone(&self) -> Self {
@@ -23858,10 +25868,6 @@ impl ::core::fmt::Debug for AM_STREAM_INFO_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_WST_DRAWBGMODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_WST_DRAWBGMODE_Opaque: AM_WST_DRAWBGMODE = AM_WST_DRAWBGMODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_WST_DRAWBGMODE_Transparent: AM_WST_DRAWBGMODE = AM_WST_DRAWBGMODE(1i32);
 impl ::core::marker::Copy for AM_WST_DRAWBGMODE {}
 impl ::core::clone::Clone for AM_WST_DRAWBGMODE {
     fn clone(&self) -> Self {
@@ -23885,8 +25891,6 @@ impl ::core::fmt::Debug for AM_WST_DRAWBGMODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_WST_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_WST_LEVEL_1_5: AM_WST_LEVEL = AM_WST_LEVEL(0i32);
 impl ::core::marker::Copy for AM_WST_LEVEL {}
 impl ::core::clone::Clone for AM_WST_LEVEL {
     fn clone(&self) -> Self {
@@ -23910,14 +25914,6 @@ impl ::core::fmt::Debug for AM_WST_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_WST_SERVICE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_WST_SERVICE_None: AM_WST_SERVICE = AM_WST_SERVICE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_WST_SERVICE_Text: AM_WST_SERVICE = AM_WST_SERVICE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_WST_SERVICE_IDS: AM_WST_SERVICE = AM_WST_SERVICE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_WST_SERVICE_Invalid: AM_WST_SERVICE = AM_WST_SERVICE(3i32);
 impl ::core::marker::Copy for AM_WST_SERVICE {}
 impl ::core::clone::Clone for AM_WST_SERVICE {
     fn clone(&self) -> Self {
@@ -23941,10 +25937,6 @@ impl ::core::fmt::Debug for AM_WST_SERVICE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_WST_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_WST_STATE_Off: AM_WST_STATE = AM_WST_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_WST_STATE_On: AM_WST_STATE = AM_WST_STATE(1i32);
 impl ::core::marker::Copy for AM_WST_STATE {}
 impl ::core::clone::Clone for AM_WST_STATE {
     fn clone(&self) -> Self {
@@ -23968,10 +25960,6 @@ impl ::core::fmt::Debug for AM_WST_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AM_WST_STYLE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_WST_STYLE_None: AM_WST_STYLE = AM_WST_STYLE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_WST_STYLE_Invers: AM_WST_STYLE = AM_WST_STYLE(1i32);
 impl ::core::marker::Copy for AM_WST_STYLE {}
 impl ::core::clone::Clone for AM_WST_STYLE {
     fn clone(&self) -> Self {
@@ -23995,8 +25983,6 @@ impl ::core::fmt::Debug for AM_WST_STYLE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ATSCComponentTypeFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ATSCCT_AC3: ATSCComponentTypeFlags = ATSCComponentTypeFlags(1i32);
 impl ::core::marker::Copy for ATSCComponentTypeFlags {}
 impl ::core::clone::Clone for ATSCComponentTypeFlags {
     fn clone(&self) -> Self {
@@ -24020,54 +26006,6 @@ impl ::core::fmt::Debug for ATSCComponentTypeFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AnalogVideoStandard(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideo_None: AnalogVideoStandard = AnalogVideoStandard(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideo_NTSC_M: AnalogVideoStandard = AnalogVideoStandard(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideo_NTSC_M_J: AnalogVideoStandard = AnalogVideoStandard(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideo_NTSC_433: AnalogVideoStandard = AnalogVideoStandard(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideo_PAL_B: AnalogVideoStandard = AnalogVideoStandard(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideo_PAL_D: AnalogVideoStandard = AnalogVideoStandard(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideo_PAL_G: AnalogVideoStandard = AnalogVideoStandard(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideo_PAL_H: AnalogVideoStandard = AnalogVideoStandard(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideo_PAL_I: AnalogVideoStandard = AnalogVideoStandard(256i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideo_PAL_M: AnalogVideoStandard = AnalogVideoStandard(512i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideo_PAL_N: AnalogVideoStandard = AnalogVideoStandard(1024i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideo_PAL_60: AnalogVideoStandard = AnalogVideoStandard(2048i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideo_SECAM_B: AnalogVideoStandard = AnalogVideoStandard(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideo_SECAM_D: AnalogVideoStandard = AnalogVideoStandard(8192i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideo_SECAM_G: AnalogVideoStandard = AnalogVideoStandard(16384i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideo_SECAM_H: AnalogVideoStandard = AnalogVideoStandard(32768i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideo_SECAM_K: AnalogVideoStandard = AnalogVideoStandard(65536i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideo_SECAM_K1: AnalogVideoStandard = AnalogVideoStandard(131072i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideo_SECAM_L: AnalogVideoStandard = AnalogVideoStandard(262144i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideo_SECAM_L1: AnalogVideoStandard = AnalogVideoStandard(524288i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideo_PAL_N_COMBO: AnalogVideoStandard = AnalogVideoStandard(1048576i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideoMask_MCE_NTSC: AnalogVideoStandard = AnalogVideoStandard(1052167i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideoMask_MCE_PAL: AnalogVideoStandard = AnalogVideoStandard(496i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AnalogVideoMask_MCE_SECAM: AnalogVideoStandard = AnalogVideoStandard(1044480i32);
 impl ::core::marker::Copy for AnalogVideoStandard {}
 impl ::core::clone::Clone for AnalogVideoStandard {
     fn clone(&self) -> Self {
@@ -24091,24 +26029,6 @@ impl ::core::fmt::Debug for AnalogVideoStandard {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ApplicationTypeType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SCTE28_ConditionalAccess: ApplicationTypeType = ApplicationTypeType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SCTE28_POD_Host_Binding_Information: ApplicationTypeType = ApplicationTypeType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SCTE28_IPService: ApplicationTypeType = ApplicationTypeType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SCTE28_NetworkInterface_SCTE55_2: ApplicationTypeType = ApplicationTypeType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SCTE28_NetworkInterface_SCTE55_1: ApplicationTypeType = ApplicationTypeType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SCTE28_CopyProtection: ApplicationTypeType = ApplicationTypeType(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SCTE28_Diagnostic: ApplicationTypeType = ApplicationTypeType(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SCTE28_Undesignated: ApplicationTypeType = ApplicationTypeType(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SCTE28_Reserved: ApplicationTypeType = ApplicationTypeType(8i32);
 impl ::core::marker::Copy for ApplicationTypeType {}
 impl ::core::clone::Clone for ApplicationTypeType {
     fn clone(&self) -> Self {
@@ -24132,10 +26052,6 @@ impl ::core::fmt::Debug for ApplicationTypeType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_CHANGE_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_CHANGES_COMPLETE: BDA_CHANGE_STATE = BDA_CHANGE_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_CHANGES_PENDING: BDA_CHANGE_STATE = BDA_CHANGE_STATE(1i32);
 impl ::core::marker::Copy for BDA_CHANGE_STATE {}
 impl ::core::clone::Clone for BDA_CHANGE_STATE {
     fn clone(&self) -> Self {
@@ -24159,20 +26075,6 @@ impl ::core::fmt::Debug for BDA_CHANGE_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_CONDITIONALACCESS_MMICLOSEREASON(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CONDITIONALACCESS_UNSPECIFIED: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CONDITIONALACCESS_CLOSED_ITSELF: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CONDITIONALACCESS_TUNER_REQUESTED_CLOSE: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CONDITIONALACCESS_DIALOG_TIMEOUT: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CONDITIONALACCESS_DIALOG_FOCUS_CHANGE: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CONDITIONALACCESS_DIALOG_USER_DISMISSED: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CONDITIONALACCESS_DIALOG_USER_NOT_AVAILABLE: BDA_CONDITIONALACCESS_MMICLOSEREASON = BDA_CONDITIONALACCESS_MMICLOSEREASON(6i32);
 impl ::core::marker::Copy for BDA_CONDITIONALACCESS_MMICLOSEREASON {}
 impl ::core::clone::Clone for BDA_CONDITIONALACCESS_MMICLOSEREASON {
     fn clone(&self) -> Self {
@@ -24196,14 +26098,6 @@ impl ::core::fmt::Debug for BDA_CONDITIONALACCESS_MMICLOSEREASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_CONDITIONALACCESS_REQUESTTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CONDITIONALACCESS_ACCESS_UNSPECIFIED: BDA_CONDITIONALACCESS_REQUESTTYPE = BDA_CONDITIONALACCESS_REQUESTTYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CONDITIONALACCESS_ACCESS_NOT_POSSIBLE: BDA_CONDITIONALACCESS_REQUESTTYPE = BDA_CONDITIONALACCESS_REQUESTTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CONDITIONALACCESS_ACCESS_POSSIBLE: BDA_CONDITIONALACCESS_REQUESTTYPE = BDA_CONDITIONALACCESS_REQUESTTYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CONDITIONALACCESS_ACCESS_POSSIBLE_NO_STREAMING_DISRUPTION: BDA_CONDITIONALACCESS_REQUESTTYPE = BDA_CONDITIONALACCESS_REQUESTTYPE(3i32);
 impl ::core::marker::Copy for BDA_CONDITIONALACCESS_REQUESTTYPE {}
 impl ::core::clone::Clone for BDA_CONDITIONALACCESS_REQUESTTYPE {
     fn clone(&self) -> Self {
@@ -24227,12 +26121,6 @@ impl ::core::fmt::Debug for BDA_CONDITIONALACCESS_REQUESTTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_CONDITIONALACCESS_SESSION_RESULT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CONDITIONALACCESS_SUCCESSFULL: BDA_CONDITIONALACCESS_SESSION_RESULT = BDA_CONDITIONALACCESS_SESSION_RESULT(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CONDITIONALACCESS_ENDED_NOCHANGE: BDA_CONDITIONALACCESS_SESSION_RESULT = BDA_CONDITIONALACCESS_SESSION_RESULT(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CONDITIONALACCESS_ABORTED: BDA_CONDITIONALACCESS_SESSION_RESULT = BDA_CONDITIONALACCESS_SESSION_RESULT(2i32);
 impl ::core::marker::Copy for BDA_CONDITIONALACCESS_SESSION_RESULT {}
 impl ::core::clone::Clone for BDA_CONDITIONALACCESS_SESSION_RESULT {
     fn clone(&self) -> Self {
@@ -24256,8 +26144,6 @@ impl ::core::fmt::Debug for BDA_CONDITIONALACCESS_SESSION_RESULT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_Channel(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_UNDEFINED_CHANNEL: BDA_Channel = BDA_Channel(-1i32);
 impl ::core::marker::Copy for BDA_Channel {}
 impl ::core::clone::Clone for BDA_Channel {
     fn clone(&self) -> Self {
@@ -24281,10 +26167,6 @@ impl ::core::fmt::Debug for BDA_Channel {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_Channel_Bandwidth(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_CHAN_BANDWITH_NOT_SET: BDA_Channel_Bandwidth = BDA_Channel_Bandwidth(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_CHAN_BANDWITH_NOT_DEFINED: BDA_Channel_Bandwidth = BDA_Channel_Bandwidth(0i32);
 impl ::core::marker::Copy for BDA_Channel_Bandwidth {}
 impl ::core::clone::Clone for BDA_Channel_Bandwidth {
     fn clone(&self) -> Self {
@@ -24308,14 +26190,6 @@ impl ::core::fmt::Debug for BDA_Channel_Bandwidth {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_Comp_Flags(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDACOMP_NOT_DEFINED: BDA_Comp_Flags = BDA_Comp_Flags(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDACOMP_EXCLUDE_TS_FROM_TR: BDA_Comp_Flags = BDA_Comp_Flags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDACOMP_INCLUDE_LOCATOR_IN_TR: BDA_Comp_Flags = BDA_Comp_Flags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDACOMP_INCLUDE_COMPONENTS_IN_TR: BDA_Comp_Flags = BDA_Comp_Flags(4i32);
 impl ::core::marker::Copy for BDA_Comp_Flags {}
 impl ::core::clone::Clone for BDA_Comp_Flags {
     fn clone(&self) -> Self {
@@ -24339,12 +26213,6 @@ impl ::core::fmt::Debug for BDA_Comp_Flags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_DISCOVERY_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_DISCOVERY_UNSPECIFIED: BDA_DISCOVERY_STATE = BDA_DISCOVERY_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_DISCOVERY_REQUIRED: BDA_DISCOVERY_STATE = BDA_DISCOVERY_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_DISCOVERY_COMPLETE: BDA_DISCOVERY_STATE = BDA_DISCOVERY_STATE(2i32);
 impl ::core::marker::Copy for BDA_DISCOVERY_STATE {}
 impl ::core::clone::Clone for BDA_DISCOVERY_STATE {
     fn clone(&self) -> Self {
@@ -24368,26 +26236,6 @@ impl ::core::fmt::Debug for BDA_DISCOVERY_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_DrmPairingError(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_DrmPairing_Succeeded: BDA_DrmPairingError = BDA_DrmPairingError(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_DrmPairing_HardwareFailure: BDA_DrmPairingError = BDA_DrmPairingError(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_DrmPairing_NeedRevocationData: BDA_DrmPairingError = BDA_DrmPairingError(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_DrmPairing_NeedIndiv: BDA_DrmPairingError = BDA_DrmPairingError(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_DrmPairing_Other: BDA_DrmPairingError = BDA_DrmPairingError(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_DrmPairing_DrmInitFailed: BDA_DrmPairingError = BDA_DrmPairingError(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_DrmPairing_DrmNotPaired: BDA_DrmPairingError = BDA_DrmPairingError(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_DrmPairing_DrmRePairSoon: BDA_DrmPairingError = BDA_DrmPairingError(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_DrmPairing_Aborted: BDA_DrmPairingError = BDA_DrmPairingError(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_DrmPairing_NeedSDKUpdate: BDA_DrmPairingError = BDA_DrmPairingError(9i32);
 impl ::core::marker::Copy for BDA_DrmPairingError {}
 impl ::core::clone::Clone for BDA_DrmPairingError {
     fn clone(&self) -> Self {
@@ -24411,46 +26259,6 @@ impl ::core::fmt::Debug for BDA_DrmPairingError {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_EVENT_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_EVENT_SIGNAL_LOSS: BDA_EVENT_ID = BDA_EVENT_ID(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_EVENT_SIGNAL_LOCK: BDA_EVENT_ID = BDA_EVENT_ID(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_EVENT_DATA_START: BDA_EVENT_ID = BDA_EVENT_ID(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_EVENT_DATA_STOP: BDA_EVENT_ID = BDA_EVENT_ID(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_EVENT_CHANNEL_ACQUIRED: BDA_EVENT_ID = BDA_EVENT_ID(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_EVENT_CHANNEL_LOST: BDA_EVENT_ID = BDA_EVENT_ID(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_EVENT_CHANNEL_SOURCE_CHANGED: BDA_EVENT_ID = BDA_EVENT_ID(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_EVENT_CHANNEL_ACTIVATED: BDA_EVENT_ID = BDA_EVENT_ID(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_EVENT_CHANNEL_DEACTIVATED: BDA_EVENT_ID = BDA_EVENT_ID(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_EVENT_SUBCHANNEL_ACQUIRED: BDA_EVENT_ID = BDA_EVENT_ID(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_EVENT_SUBCHANNEL_LOST: BDA_EVENT_ID = BDA_EVENT_ID(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_EVENT_SUBCHANNEL_SOURCE_CHANGED: BDA_EVENT_ID = BDA_EVENT_ID(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_EVENT_SUBCHANNEL_ACTIVATED: BDA_EVENT_ID = BDA_EVENT_ID(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_EVENT_SUBCHANNEL_DEACTIVATED: BDA_EVENT_ID = BDA_EVENT_ID(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_EVENT_ACCESS_GRANTED: BDA_EVENT_ID = BDA_EVENT_ID(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_EVENT_ACCESS_DENIED: BDA_EVENT_ID = BDA_EVENT_ID(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_EVENT_OFFER_EXTENDED: BDA_EVENT_ID = BDA_EVENT_ID(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_EVENT_PURCHASE_COMPLETED: BDA_EVENT_ID = BDA_EVENT_ID(17i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_EVENT_SMART_CARD_INSERTED: BDA_EVENT_ID = BDA_EVENT_ID(18i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_EVENT_SMART_CARD_REMOVED: BDA_EVENT_ID = BDA_EVENT_ID(19i32);
 impl ::core::marker::Copy for BDA_EVENT_ID {}
 impl ::core::clone::Clone for BDA_EVENT_ID {
     fn clone(&self) -> Self {
@@ -24474,10 +26282,6 @@ impl ::core::fmt::Debug for BDA_EVENT_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_Frequency(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_FREQUENCY_NOT_SET: BDA_Frequency = BDA_Frequency(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_FREQUENCY_NOT_DEFINED: BDA_Frequency = BDA_Frequency(0i32);
 impl ::core::marker::Copy for BDA_Frequency {}
 impl ::core::clone::Clone for BDA_Frequency {
     fn clone(&self) -> Self {
@@ -24501,10 +26305,6 @@ impl ::core::fmt::Debug for BDA_Frequency {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_Frequency_Multiplier(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_FREQUENCY_MULTIPLIER_NOT_SET: BDA_Frequency_Multiplier = BDA_Frequency_Multiplier(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_FREQUENCY_MULTIPLIER_NOT_DEFINED: BDA_Frequency_Multiplier = BDA_Frequency_Multiplier(0i32);
 impl ::core::marker::Copy for BDA_Frequency_Multiplier {}
 impl ::core::clone::Clone for BDA_Frequency_Multiplier {
     fn clone(&self) -> Self {
@@ -24528,12 +26328,6 @@ impl ::core::fmt::Debug for BDA_Frequency_Multiplier {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_MULTICAST_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_PROMISCUOUS_MULTICAST: BDA_MULTICAST_MODE = BDA_MULTICAST_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_FILTERED_MULTICAST: BDA_MULTICAST_MODE = BDA_MULTICAST_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_NO_MULTICAST: BDA_MULTICAST_MODE = BDA_MULTICAST_MODE(2i32);
 impl ::core::marker::Copy for BDA_MULTICAST_MODE {}
 impl ::core::clone::Clone for BDA_MULTICAST_MODE {
     fn clone(&self) -> Self {
@@ -24557,10 +26351,6 @@ impl ::core::fmt::Debug for BDA_MULTICAST_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_Range(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_RANGE_NOT_SET: BDA_Range = BDA_Range(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_RANGE_NOT_DEFINED: BDA_Range = BDA_Range(0i32);
 impl ::core::marker::Copy for BDA_Range {}
 impl ::core::clone::Clone for BDA_Range {
     fn clone(&self) -> Self {
@@ -24584,12 +26374,6 @@ impl ::core::fmt::Debug for BDA_Range {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BDA_SIGNAL_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SIGNAL_UNAVAILABLE: BDA_SIGNAL_STATE = BDA_SIGNAL_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SIGNAL_INACTIVE: BDA_SIGNAL_STATE = BDA_SIGNAL_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SIGNAL_ACTIVE: BDA_SIGNAL_STATE = BDA_SIGNAL_STATE(2i32);
 impl ::core::marker::Copy for BDA_SIGNAL_STATE {}
 impl ::core::clone::Clone for BDA_SIGNAL_STATE {
     fn clone(&self) -> Self {
@@ -24613,40 +26397,6 @@ impl ::core::fmt::Debug for BDA_SIGNAL_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BinaryConvolutionCodeRate(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_BCC_RATE_NOT_SET: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_BCC_RATE_NOT_DEFINED: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_BCC_RATE_1_2: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_BCC_RATE_2_3: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_BCC_RATE_3_4: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_BCC_RATE_3_5: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_BCC_RATE_4_5: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_BCC_RATE_5_6: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_BCC_RATE_5_11: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_BCC_RATE_7_8: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_BCC_RATE_1_4: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_BCC_RATE_1_3: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_BCC_RATE_2_5: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_BCC_RATE_6_7: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_BCC_RATE_8_9: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_BCC_RATE_9_10: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_BCC_RATE_MAX: BinaryConvolutionCodeRate = BinaryConvolutionCodeRate(15i32);
 impl ::core::marker::Copy for BinaryConvolutionCodeRate {}
 impl ::core::clone::Clone for BinaryConvolutionCodeRate {
     fn clone(&self) -> Self {
@@ -24670,12 +26420,6 @@ impl ::core::fmt::Debug for BinaryConvolutionCodeRate {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COLORKEY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CK_NOCOLORKEY: COLORKEY_TYPE = COLORKEY_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CK_INDEX: COLORKEY_TYPE = COLORKEY_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CK_RGB: COLORKEY_TYPE = COLORKEY_TYPE(2i32);
 impl ::core::marker::Copy for COLORKEY_TYPE {}
 impl ::core::clone::Clone for COLORKEY_TYPE {
     fn clone(&self) -> Self {
@@ -24699,12 +26443,6 @@ impl ::core::fmt::Debug for COLORKEY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMPLETION_STATUS_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COMPSTAT_NOUPDATEOK: COMPLETION_STATUS_FLAGS = COMPLETION_STATUS_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COMPSTAT_WAIT: COMPLETION_STATUS_FLAGS = COMPLETION_STATUS_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COMPSTAT_ABORT: COMPLETION_STATUS_FLAGS = COMPLETION_STATUS_FLAGS(4i32);
 impl ::core::marker::Copy for COMPLETION_STATUS_FLAGS {}
 impl ::core::clone::Clone for COMPLETION_STATUS_FLAGS {
     fn clone(&self) -> Self {
@@ -24728,20 +26466,6 @@ impl ::core::fmt::Debug for COMPLETION_STATUS_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPP_ACP_Protection_Level(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ACP_Level0: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ACP_LevelMin: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ACP_Level1: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ACP_Level2: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ACP_Level3: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ACP_LevelMax: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ACP_ForceDWORD: COPP_ACP_Protection_Level = COPP_ACP_Protection_Level(2147483647i32);
 impl ::core::marker::Copy for COPP_ACP_Protection_Level {}
 impl ::core::clone::Clone for COPP_ACP_Protection_Level {
     fn clone(&self) -> Self {
@@ -24765,20 +26489,6 @@ impl ::core::fmt::Debug for COPP_ACP_Protection_Level {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPP_BusType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_BusType_Unknown: COPP_BusType = COPP_BusType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_BusType_PCI: COPP_BusType = COPP_BusType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_BusType_PCIX: COPP_BusType = COPP_BusType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_BusType_PCIExpress: COPP_BusType = COPP_BusType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_BusType_AGP: COPP_BusType = COPP_BusType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_BusType_Integrated: COPP_BusType = COPP_BusType(-2147483648i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_BusType_ForceDWORD: COPP_BusType = COPP_BusType(2147483647i32);
 impl ::core::marker::Copy for COPP_BusType {}
 impl ::core::clone::Clone for COPP_BusType {
     fn clone(&self) -> Self {
@@ -24802,24 +26512,6 @@ impl ::core::fmt::Debug for COPP_BusType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPP_CGMSA_Protection_Level(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_CGMSA_Disabled: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_CGMSA_LevelMin: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_CGMSA_CopyFreely: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_CGMSA_CopyNoMore: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_CGMSA_CopyOneGeneration: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_CGMSA_CopyNever: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_CGMSA_RedistributionControlRequired: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_CGMSA_LevelMax: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_CGMSA_ForceDWORD: COPP_CGMSA_Protection_Level = COPP_CGMSA_Protection_Level(2147483647i32);
 impl ::core::marker::Copy for COPP_CGMSA_Protection_Level {}
 impl ::core::clone::Clone for COPP_CGMSA_Protection_Level {
     fn clone(&self) -> Self {
@@ -24843,30 +26535,6 @@ impl ::core::fmt::Debug for COPP_CGMSA_Protection_Level {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPP_ConnectorType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ConnectorType_Unknown: COPP_ConnectorType = COPP_ConnectorType(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ConnectorType_VGA: COPP_ConnectorType = COPP_ConnectorType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ConnectorType_SVideo: COPP_ConnectorType = COPP_ConnectorType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ConnectorType_CompositeVideo: COPP_ConnectorType = COPP_ConnectorType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ConnectorType_ComponentVideo: COPP_ConnectorType = COPP_ConnectorType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ConnectorType_DVI: COPP_ConnectorType = COPP_ConnectorType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ConnectorType_HDMI: COPP_ConnectorType = COPP_ConnectorType(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ConnectorType_LVDS: COPP_ConnectorType = COPP_ConnectorType(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ConnectorType_TMDS: COPP_ConnectorType = COPP_ConnectorType(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ConnectorType_D_JPN: COPP_ConnectorType = COPP_ConnectorType(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ConnectorType_Internal: COPP_ConnectorType = COPP_ConnectorType(-2147483648i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ConnectorType_ForceDWORD: COPP_ConnectorType = COPP_ConnectorType(2147483647i32);
 impl ::core::marker::Copy for COPP_ConnectorType {}
 impl ::core::clone::Clone for COPP_ConnectorType {
     fn clone(&self) -> Self {
@@ -24890,16 +26558,6 @@ impl ::core::fmt::Debug for COPP_ConnectorType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPP_HDCP_Protection_Level(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_HDCP_Level0: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_HDCP_LevelMin: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_HDCP_Level1: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_HDCP_LevelMax: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_HDCP_ForceDWORD: COPP_HDCP_Protection_Level = COPP_HDCP_Protection_Level(2147483647i32);
 impl ::core::marker::Copy for COPP_HDCP_Protection_Level {}
 impl ::core::clone::Clone for COPP_HDCP_Protection_Level {
     fn clone(&self) -> Self {
@@ -24923,24 +26581,6 @@ impl ::core::fmt::Debug for COPP_HDCP_Protection_Level {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPP_ImageAspectRatio_EN300294(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_AspectRatio_EN300294_FullFormat4by3: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_AspectRatio_EN300294_Box14by9Center: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_AspectRatio_EN300294_Box14by9Top: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_AspectRatio_EN300294_Box16by9Center: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_AspectRatio_EN300294_Box16by9Top: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_AspectRatio_EN300294_BoxGT16by9Center: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_AspectRatio_EN300294_FullFormat4by3ProtectedCenter: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_AspectRatio_EN300294_FullFormat16by9Anamorphic: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_AspectRatio_ForceDWORD: COPP_ImageAspectRatio_EN300294 = COPP_ImageAspectRatio_EN300294(2147483647i32);
 impl ::core::marker::Copy for COPP_ImageAspectRatio_EN300294 {}
 impl ::core::clone::Clone for COPP_ImageAspectRatio_EN300294 {
     fn clone(&self) -> Self {
@@ -24964,14 +26604,6 @@ impl ::core::fmt::Debug for COPP_ImageAspectRatio_EN300294 {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPP_StatusFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_StatusNormal: COPP_StatusFlags = COPP_StatusFlags(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_LinkLost: COPP_StatusFlags = COPP_StatusFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_RenegotiationRequired: COPP_StatusFlags = COPP_StatusFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_StatusFlagsReserved: COPP_StatusFlags = COPP_StatusFlags(-4i32);
 impl ::core::marker::Copy for COPP_StatusFlags {}
 impl ::core::clone::Clone for COPP_StatusFlags {
     fn clone(&self) -> Self {
@@ -24995,10 +26627,6 @@ impl ::core::fmt::Debug for COPP_StatusFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPP_StatusHDCPFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_HDCPRepeater: COPP_StatusHDCPFlags = COPP_StatusHDCPFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_HDCPFlagsReserved: COPP_StatusHDCPFlags = COPP_StatusHDCPFlags(-2i32);
 impl ::core::marker::Copy for COPP_StatusHDCPFlags {}
 impl ::core::clone::Clone for COPP_StatusHDCPFlags {
     fn clone(&self) -> Self {
@@ -25022,44 +26650,6 @@ impl ::core::fmt::Debug for COPP_StatusHDCPFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPP_TVProtectionStandard(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ProtectionStandard_Unknown: COPP_TVProtectionStandard = COPP_TVProtectionStandard(-2147483648i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ProtectionStandard_None: COPP_TVProtectionStandard = COPP_TVProtectionStandard(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ProtectionStandard_IEC61880_525i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ProtectionStandard_IEC61880_2_525i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ProtectionStandard_IEC62375_625p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ProtectionStandard_EIA608B_525: COPP_TVProtectionStandard = COPP_TVProtectionStandard(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ProtectionStandard_EN300294_625i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ProtectionStandard_CEA805A_TypeA_525p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ProtectionStandard_CEA805A_TypeA_750p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ProtectionStandard_CEA805A_TypeA_1125i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ProtectionStandard_CEA805A_TypeB_525p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(256i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ProtectionStandard_CEA805A_TypeB_750p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(512i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ProtectionStandard_CEA805A_TypeB_1125i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(1024i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ProtectionStandard_ARIBTRB15_525i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(2048i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ProtectionStandard_ARIBTRB15_525p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ProtectionStandard_ARIBTRB15_750p: COPP_TVProtectionStandard = COPP_TVProtectionStandard(8192i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ProtectionStandard_ARIBTRB15_1125i: COPP_TVProtectionStandard = COPP_TVProtectionStandard(16384i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ProtectionStandard_Mask: COPP_TVProtectionStandard = COPP_TVProtectionStandard(-2147450881i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const COPP_ProtectionStandard_Reserved: COPP_TVProtectionStandard = COPP_TVProtectionStandard(2147450880i32);
 impl ::core::marker::Copy for COPP_TVProtectionStandard {}
 impl ::core::clone::Clone for COPP_TVProtectionStandard {
     fn clone(&self) -> Self {
@@ -25083,10 +26673,6 @@ impl ::core::fmt::Debug for COPP_TVProtectionStandard {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CameraControlFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CameraControl_Flags_Auto: CameraControlFlags = CameraControlFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CameraControl_Flags_Manual: CameraControlFlags = CameraControlFlags(2i32);
 impl ::core::marker::Copy for CameraControlFlags {}
 impl ::core::clone::Clone for CameraControlFlags {
     fn clone(&self) -> Self {
@@ -25110,20 +26696,6 @@ impl ::core::fmt::Debug for CameraControlFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CameraControlProperty(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CameraControl_Pan: CameraControlProperty = CameraControlProperty(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CameraControl_Tilt: CameraControlProperty = CameraControlProperty(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CameraControl_Roll: CameraControlProperty = CameraControlProperty(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CameraControl_Zoom: CameraControlProperty = CameraControlProperty(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CameraControl_Exposure: CameraControlProperty = CameraControlProperty(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CameraControl_Iris: CameraControlProperty = CameraControlProperty(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CameraControl_Focus: CameraControlProperty = CameraControlProperty(6i32);
 impl ::core::marker::Copy for CameraControlProperty {}
 impl ::core::clone::Clone for CameraControlProperty {
     fn clone(&self) -> Self {
@@ -25147,26 +26719,6 @@ impl ::core::fmt::Debug for CameraControlProperty {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ComponentCategory(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CategoryNotSet: ComponentCategory = ComponentCategory(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CategoryOther: ComponentCategory = ComponentCategory(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CategoryVideo: ComponentCategory = ComponentCategory(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CategoryAudio: ComponentCategory = ComponentCategory(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CategoryText: ComponentCategory = ComponentCategory(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CategorySubtitles: ComponentCategory = ComponentCategory(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CategoryCaptions: ComponentCategory = ComponentCategory(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CategorySuperimpose: ComponentCategory = ComponentCategory(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CategoryData: ComponentCategory = ComponentCategory(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CATEGORY_COUNT: ComponentCategory = ComponentCategory(8i32);
 impl ::core::marker::Copy for ComponentCategory {}
 impl ::core::clone::Clone for ComponentCategory {
     fn clone(&self) -> Self {
@@ -25190,12 +26742,6 @@ impl ::core::fmt::Debug for ComponentCategory {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ComponentStatus(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const StatusActive: ComponentStatus = ComponentStatus(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const StatusInactive: ComponentStatus = ComponentStatus(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const StatusUnavailable: ComponentStatus = ComponentStatus(2i32);
 impl ::core::marker::Copy for ComponentStatus {}
 impl ::core::clone::Clone for ComponentStatus {
     fn clone(&self) -> Self {
@@ -25219,16 +26765,6 @@ impl ::core::fmt::Debug for ComponentStatus {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompressionCaps(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CompressionCaps_CanQuality: CompressionCaps = CompressionCaps(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CompressionCaps_CanCrunch: CompressionCaps = CompressionCaps(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CompressionCaps_CanKeyFrame: CompressionCaps = CompressionCaps(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CompressionCaps_CanBFrame: CompressionCaps = CompressionCaps(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CompressionCaps_CanWindow: CompressionCaps = CompressionCaps(16i32);
 impl ::core::marker::Copy for CompressionCaps {}
 impl ::core::clone::Clone for CompressionCaps {
     fn clone(&self) -> Self {
@@ -25252,8 +26788,6 @@ impl ::core::fmt::Debug for CompressionCaps {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DDSFF_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DDSFF_PROGRESSIVERENDER: DDSFF_FLAGS = DDSFF_FLAGS(1i32);
 impl ::core::marker::Copy for DDSFF_FLAGS {}
 impl ::core::clone::Clone for DDSFF_FLAGS {
     fn clone(&self) -> Self {
@@ -25310,16 +26844,6 @@ impl ::core::ops::Not for DDSFF_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DECIMATION_USAGE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DECIMATION_LEGACY: DECIMATION_USAGE = DECIMATION_USAGE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DECIMATION_USE_DECODER_ONLY: DECIMATION_USAGE = DECIMATION_USAGE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DECIMATION_USE_VIDEOPORT_ONLY: DECIMATION_USAGE = DECIMATION_USAGE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DECIMATION_USE_OVERLAY_ONLY: DECIMATION_USAGE = DECIMATION_USAGE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DECIMATION_DEFAULT: DECIMATION_USAGE = DECIMATION_USAGE(4i32);
 impl ::core::marker::Copy for DECIMATION_USAGE {}
 impl ::core::clone::Clone for DECIMATION_USAGE {
     fn clone(&self) -> Self {
@@ -25343,16 +26867,6 @@ impl ::core::fmt::Debug for DECIMATION_USAGE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVBSystemType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVB_Cable: DVBSystemType = DVBSystemType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVB_Terrestrial: DVBSystemType = DVBSystemType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVB_Satellite: DVBSystemType = DVBSystemType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISDB_Terrestrial: DVBSystemType = DVBSystemType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISDB_Satellite: DVBSystemType = DVBSystemType(4i32);
 impl ::core::marker::Copy for DVBSystemType {}
 impl ::core::clone::Clone for DVBSystemType {
     fn clone(&self) -> Self {
@@ -25376,14 +26890,6 @@ impl ::core::fmt::Debug for DVBSystemType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_AUDIO_APPMODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AudioMode_None: DVD_AUDIO_APPMODE = DVD_AUDIO_APPMODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AudioMode_Karaoke: DVD_AUDIO_APPMODE = DVD_AUDIO_APPMODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AudioMode_Surround: DVD_AUDIO_APPMODE = DVD_AUDIO_APPMODE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AudioMode_Other: DVD_AUDIO_APPMODE = DVD_AUDIO_APPMODE(3i32);
 impl ::core::marker::Copy for DVD_AUDIO_APPMODE {}
 impl ::core::clone::Clone for DVD_AUDIO_APPMODE {
     fn clone(&self) -> Self {
@@ -25407,24 +26913,6 @@ impl ::core::fmt::Debug for DVD_AUDIO_APPMODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_AUDIO_FORMAT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AudioFormat_AC3: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AudioFormat_MPEG1: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AudioFormat_MPEG1_DRC: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AudioFormat_MPEG2: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AudioFormat_MPEG2_DRC: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AudioFormat_LPCM: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AudioFormat_DTS: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AudioFormat_SDDS: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AudioFormat_Other: DVD_AUDIO_FORMAT = DVD_AUDIO_FORMAT(8i32);
 impl ::core::marker::Copy for DVD_AUDIO_FORMAT {}
 impl ::core::clone::Clone for DVD_AUDIO_FORMAT {
     fn clone(&self) -> Self {
@@ -25448,16 +26936,6 @@ impl ::core::fmt::Debug for DVD_AUDIO_FORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_AUDIO_LANG_EXT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AUD_EXT_NotSpecified: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AUD_EXT_Captions: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AUD_EXT_VisuallyImpaired: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AUD_EXT_DirectorComments1: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AUD_EXT_DirectorComments2: DVD_AUDIO_LANG_EXT = DVD_AUDIO_LANG_EXT(4i32);
 impl ::core::marker::Copy for DVD_AUDIO_LANG_EXT {}
 impl ::core::clone::Clone for DVD_AUDIO_LANG_EXT {
     fn clone(&self) -> Self {
@@ -25481,18 +26959,6 @@ impl ::core::fmt::Debug for DVD_AUDIO_LANG_EXT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_CMD_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_CMD_FLAG_None: DVD_CMD_FLAGS = DVD_CMD_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_CMD_FLAG_Flush: DVD_CMD_FLAGS = DVD_CMD_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_CMD_FLAG_SendEvents: DVD_CMD_FLAGS = DVD_CMD_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_CMD_FLAG_Block: DVD_CMD_FLAGS = DVD_CMD_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_CMD_FLAG_StartWhenRendered: DVD_CMD_FLAGS = DVD_CMD_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_CMD_FLAG_EndAfterRendered: DVD_CMD_FLAGS = DVD_CMD_FLAGS(16i32);
 impl ::core::marker::Copy for DVD_CMD_FLAGS {}
 impl ::core::clone::Clone for DVD_CMD_FLAGS {
     fn clone(&self) -> Self {
@@ -25516,10 +26982,6 @@ impl ::core::fmt::Debug for DVD_CMD_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_DISC_SIDE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_SIDE_A: DVD_DISC_SIDE = DVD_DISC_SIDE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_SIDE_B: DVD_DISC_SIDE = DVD_DISC_SIDE(2i32);
 impl ::core::marker::Copy for DVD_DISC_SIDE {}
 impl ::core::clone::Clone for DVD_DISC_SIDE {
     fn clone(&self) -> Self {
@@ -25543,16 +27005,6 @@ impl ::core::fmt::Debug for DVD_DISC_SIDE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_DOMAIN(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_DOMAIN_FirstPlay: DVD_DOMAIN = DVD_DOMAIN(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_DOMAIN_VideoManagerMenu: DVD_DOMAIN = DVD_DOMAIN(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_DOMAIN_VideoTitleSetMenu: DVD_DOMAIN = DVD_DOMAIN(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_DOMAIN_Title: DVD_DOMAIN = DVD_DOMAIN(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_DOMAIN_Stop: DVD_DOMAIN = DVD_DOMAIN(5i32);
 impl ::core::marker::Copy for DVD_DOMAIN {}
 impl ::core::clone::Clone for DVD_DOMAIN {
     fn clone(&self) -> Self {
@@ -25576,26 +27028,6 @@ impl ::core::fmt::Debug for DVD_DOMAIN {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_ERROR(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_ERROR_Unexpected: DVD_ERROR = DVD_ERROR(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_ERROR_CopyProtectFail: DVD_ERROR = DVD_ERROR(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_ERROR_InvalidDVD1_0Disc: DVD_ERROR = DVD_ERROR(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_ERROR_InvalidDiscRegion: DVD_ERROR = DVD_ERROR(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_ERROR_LowParentalLevel: DVD_ERROR = DVD_ERROR(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_ERROR_MacrovisionFail: DVD_ERROR = DVD_ERROR(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_ERROR_IncompatibleSystemAndDecoderRegions: DVD_ERROR = DVD_ERROR(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_ERROR_IncompatibleDiscAndDecoderRegions: DVD_ERROR = DVD_ERROR(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_ERROR_CopyProtectOutputFail: DVD_ERROR = DVD_ERROR(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_ERROR_CopyProtectOutputNotSupported: DVD_ERROR = DVD_ERROR(10i32);
 impl ::core::marker::Copy for DVD_ERROR {}
 impl ::core::clone::Clone for DVD_ERROR {
     fn clone(&self) -> Self {
@@ -25619,10 +27051,6 @@ impl ::core::fmt::Debug for DVD_ERROR {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_FRAMERATE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_FPS_25: DVD_FRAMERATE = DVD_FRAMERATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_FPS_30NonDrop: DVD_FRAMERATE = DVD_FRAMERATE(3i32);
 impl ::core::marker::Copy for DVD_FRAMERATE {}
 impl ::core::clone::Clone for DVD_FRAMERATE {
     fn clone(&self) -> Self {
@@ -25646,22 +27074,6 @@ impl ::core::fmt::Debug for DVD_FRAMERATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_KARAOKE_ASSIGNMENT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Assignment_reserved0: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Assignment_reserved1: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Assignment_LR: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Assignment_LRM: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Assignment_LR1: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Assignment_LRM1: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Assignment_LR12: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Assignment_LRM12: DVD_KARAOKE_ASSIGNMENT = DVD_KARAOKE_ASSIGNMENT(7i32);
 impl ::core::marker::Copy for DVD_KARAOKE_ASSIGNMENT {}
 impl ::core::clone::Clone for DVD_KARAOKE_ASSIGNMENT {
     fn clone(&self) -> Self {
@@ -25685,22 +27097,6 @@ impl ::core::fmt::Debug for DVD_KARAOKE_ASSIGNMENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_KARAOKE_CONTENTS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Karaoke_GuideVocal1: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Karaoke_GuideVocal2: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Karaoke_GuideMelody1: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Karaoke_GuideMelody2: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Karaoke_GuideMelodyA: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Karaoke_GuideMelodyB: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Karaoke_SoundEffectA: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Karaoke_SoundEffectB: DVD_KARAOKE_CONTENTS = DVD_KARAOKE_CONTENTS(128i32);
 impl ::core::marker::Copy for DVD_KARAOKE_CONTENTS {}
 impl ::core::clone::Clone for DVD_KARAOKE_CONTENTS {
     fn clone(&self) -> Self {
@@ -25724,34 +27120,6 @@ impl ::core::fmt::Debug for DVD_KARAOKE_CONTENTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_KARAOKE_DOWNMIX(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Mix_0to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Mix_1to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Mix_2to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Mix_3to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Mix_4to0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Mix_Lto0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Mix_Rto0: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Mix_0to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(256i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Mix_1to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(512i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Mix_2to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(1024i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Mix_3to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(2048i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Mix_4to1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Mix_Lto1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(8192i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Mix_Rto1: DVD_KARAOKE_DOWNMIX = DVD_KARAOKE_DOWNMIX(16384i32);
 impl ::core::marker::Copy for DVD_KARAOKE_DOWNMIX {}
 impl ::core::clone::Clone for DVD_KARAOKE_DOWNMIX {
     fn clone(&self) -> Self {
@@ -25775,18 +27143,6 @@ impl ::core::fmt::Debug for DVD_KARAOKE_DOWNMIX {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_MENU_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_MENU_Title: DVD_MENU_ID = DVD_MENU_ID(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_MENU_Root: DVD_MENU_ID = DVD_MENU_ID(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_MENU_Subpicture: DVD_MENU_ID = DVD_MENU_ID(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_MENU_Audio: DVD_MENU_ID = DVD_MENU_ID(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_MENU_Angle: DVD_MENU_ID = DVD_MENU_ID(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_MENU_Chapter: DVD_MENU_ID = DVD_MENU_ID(7i32);
 impl ::core::marker::Copy for DVD_MENU_ID {}
 impl ::core::clone::Clone for DVD_MENU_ID {
     fn clone(&self) -> Self {
@@ -25810,14 +27166,6 @@ impl ::core::fmt::Debug for DVD_MENU_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_NavCmdType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_NavCmdType_Pre: DVD_NavCmdType = DVD_NavCmdType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_NavCmdType_Post: DVD_NavCmdType = DVD_NavCmdType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_NavCmdType_Cell: DVD_NavCmdType = DVD_NavCmdType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_NavCmdType_Button: DVD_NavCmdType = DVD_NavCmdType(4i32);
 impl ::core::marker::Copy for DVD_NavCmdType {}
 impl ::core::clone::Clone for DVD_NavCmdType {
     fn clone(&self) -> Self {
@@ -25841,44 +27189,6 @@ impl ::core::fmt::Debug for DVD_NavCmdType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_OPTION_FLAG(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_ResetOnStop: DVD_OPTION_FLAG = DVD_OPTION_FLAG(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_NotifyParentalLevelChange: DVD_OPTION_FLAG = DVD_OPTION_FLAG(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_HMSF_TimeCodeEvents: DVD_OPTION_FLAG = DVD_OPTION_FLAG(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AudioDuringFFwdRew: DVD_OPTION_FLAG = DVD_OPTION_FLAG(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_EnableNonblockingAPIs: DVD_OPTION_FLAG = DVD_OPTION_FLAG(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_CacheSizeInMB: DVD_OPTION_FLAG = DVD_OPTION_FLAG(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_EnablePortableBookmarks: DVD_OPTION_FLAG = DVD_OPTION_FLAG(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_EnableExtendedCopyProtectErrors: DVD_OPTION_FLAG = DVD_OPTION_FLAG(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_NotifyPositionChange: DVD_OPTION_FLAG = DVD_OPTION_FLAG(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_IncreaseOutputControl: DVD_OPTION_FLAG = DVD_OPTION_FLAG(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_EnableStreaming: DVD_OPTION_FLAG = DVD_OPTION_FLAG(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_EnableESOutput: DVD_OPTION_FLAG = DVD_OPTION_FLAG(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_EnableTitleLength: DVD_OPTION_FLAG = DVD_OPTION_FLAG(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_DisableStillThrottle: DVD_OPTION_FLAG = DVD_OPTION_FLAG(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_EnableLoggingEvents: DVD_OPTION_FLAG = DVD_OPTION_FLAG(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_MaxReadBurstInKB: DVD_OPTION_FLAG = DVD_OPTION_FLAG(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_ReadBurstPeriodInMS: DVD_OPTION_FLAG = DVD_OPTION_FLAG(17i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_RestartDisc: DVD_OPTION_FLAG = DVD_OPTION_FLAG(18i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_EnableCC: DVD_OPTION_FLAG = DVD_OPTION_FLAG(19i32);
 impl ::core::marker::Copy for DVD_OPTION_FLAG {}
 impl ::core::clone::Clone for DVD_OPTION_FLAG {
     fn clone(&self) -> Self {
@@ -25902,22 +27212,6 @@ impl ::core::fmt::Debug for DVD_OPTION_FLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_PARENTAL_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PARENTAL_LEVEL_8: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(32768i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PARENTAL_LEVEL_7: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(16384i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PARENTAL_LEVEL_6: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(8192i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PARENTAL_LEVEL_5: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PARENTAL_LEVEL_4: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(2048i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PARENTAL_LEVEL_3: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(1024i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PARENTAL_LEVEL_2: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(512i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PARENTAL_LEVEL_1: DVD_PARENTAL_LEVEL = DVD_PARENTAL_LEVEL(256i32);
 impl ::core::marker::Copy for DVD_PARENTAL_LEVEL {}
 impl ::core::clone::Clone for DVD_PARENTAL_LEVEL {
     fn clone(&self) -> Self {
@@ -25941,38 +27235,6 @@ impl ::core::fmt::Debug for DVD_PARENTAL_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_PB_STOPPED(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PB_STOPPED_Other: DVD_PB_STOPPED = DVD_PB_STOPPED(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PB_STOPPED_NoBranch: DVD_PB_STOPPED = DVD_PB_STOPPED(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PB_STOPPED_NoFirstPlayDomain: DVD_PB_STOPPED = DVD_PB_STOPPED(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PB_STOPPED_StopCommand: DVD_PB_STOPPED = DVD_PB_STOPPED(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PB_STOPPED_Reset: DVD_PB_STOPPED = DVD_PB_STOPPED(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PB_STOPPED_DiscEjected: DVD_PB_STOPPED = DVD_PB_STOPPED(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PB_STOPPED_IllegalNavCommand: DVD_PB_STOPPED = DVD_PB_STOPPED(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PB_STOPPED_PlayPeriodAutoStop: DVD_PB_STOPPED = DVD_PB_STOPPED(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PB_STOPPED_PlayChapterAutoStop: DVD_PB_STOPPED = DVD_PB_STOPPED(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PB_STOPPED_ParentalFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PB_STOPPED_RegionFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PB_STOPPED_MacrovisionFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PB_STOPPED_DiscReadError: DVD_PB_STOPPED = DVD_PB_STOPPED(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PB_STOPPED_CopyProtectFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PB_STOPPED_CopyProtectOutputFailure: DVD_PB_STOPPED = DVD_PB_STOPPED(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_PB_STOPPED_CopyProtectOutputNotSupported: DVD_PB_STOPPED = DVD_PB_STOPPED(15i32);
 impl ::core::marker::Copy for DVD_PB_STOPPED {}
 impl ::core::clone::Clone for DVD_PB_STOPPED {
     fn clone(&self) -> Self {
@@ -25996,10 +27258,6 @@ impl ::core::fmt::Debug for DVD_PB_STOPPED {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_PLAY_DIRECTION(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_DIR_FORWARD: DVD_PLAY_DIRECTION = DVD_PLAY_DIRECTION(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_DIR_BACKWARD: DVD_PLAY_DIRECTION = DVD_PLAY_DIRECTION(1i32);
 impl ::core::marker::Copy for DVD_PLAY_DIRECTION {}
 impl ::core::clone::Clone for DVD_PLAY_DIRECTION {
     fn clone(&self) -> Self {
@@ -26023,14 +27281,6 @@ impl ::core::fmt::Debug for DVD_PLAY_DIRECTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_PREFERRED_DISPLAY_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DISPLAY_CONTENT_DEFAULT: DVD_PREFERRED_DISPLAY_MODE = DVD_PREFERRED_DISPLAY_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DISPLAY_16x9: DVD_PREFERRED_DISPLAY_MODE = DVD_PREFERRED_DISPLAY_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DISPLAY_4x3_PANSCAN_PREFERRED: DVD_PREFERRED_DISPLAY_MODE = DVD_PREFERRED_DISPLAY_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DISPLAY_4x3_LETTERBOX_PREFERRED: DVD_PREFERRED_DISPLAY_MODE = DVD_PREFERRED_DISPLAY_MODE(3i32);
 impl ::core::marker::Copy for DVD_PREFERRED_DISPLAY_MODE {}
 impl ::core::clone::Clone for DVD_PREFERRED_DISPLAY_MODE {
     fn clone(&self) -> Self {
@@ -26054,14 +27304,6 @@ impl ::core::fmt::Debug for DVD_PREFERRED_DISPLAY_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_RELATIVE_BUTTON(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Relative_Upper: DVD_RELATIVE_BUTTON = DVD_RELATIVE_BUTTON(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Relative_Lower: DVD_RELATIVE_BUTTON = DVD_RELATIVE_BUTTON(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Relative_Left: DVD_RELATIVE_BUTTON = DVD_RELATIVE_BUTTON(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Relative_Right: DVD_RELATIVE_BUTTON = DVD_RELATIVE_BUTTON(4i32);
 impl ::core::marker::Copy for DVD_RELATIVE_BUTTON {}
 impl ::core::clone::Clone for DVD_RELATIVE_BUTTON {
     fn clone(&self) -> Self {
@@ -26085,12 +27327,6 @@ impl ::core::fmt::Debug for DVD_RELATIVE_BUTTON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_SUBPICTURE_CODING(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_SPCoding_RunLength: DVD_SUBPICTURE_CODING = DVD_SUBPICTURE_CODING(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_SPCoding_Extended: DVD_SUBPICTURE_CODING = DVD_SUBPICTURE_CODING(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_SPCoding_Other: DVD_SUBPICTURE_CODING = DVD_SUBPICTURE_CODING(2i32);
 impl ::core::marker::Copy for DVD_SUBPICTURE_CODING {}
 impl ::core::clone::Clone for DVD_SUBPICTURE_CODING {
     fn clone(&self) -> Self {
@@ -26114,28 +27350,6 @@ impl ::core::fmt::Debug for DVD_SUBPICTURE_CODING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_SUBPICTURE_LANG_EXT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_SP_EXT_NotSpecified: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_SP_EXT_Caption_Normal: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_SP_EXT_Caption_Big: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_SP_EXT_Caption_Children: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_SP_EXT_CC_Normal: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_SP_EXT_CC_Big: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_SP_EXT_CC_Children: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_SP_EXT_Forced: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_SP_EXT_DirectorComments_Normal: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_SP_EXT_DirectorComments_Big: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_SP_EXT_DirectorComments_Children: DVD_SUBPICTURE_LANG_EXT = DVD_SUBPICTURE_LANG_EXT(15i32);
 impl ::core::marker::Copy for DVD_SUBPICTURE_LANG_EXT {}
 impl ::core::clone::Clone for DVD_SUBPICTURE_LANG_EXT {
     fn clone(&self) -> Self {
@@ -26159,12 +27373,6 @@ impl ::core::fmt::Debug for DVD_SUBPICTURE_LANG_EXT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_SUBPICTURE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_SPType_NotSpecified: DVD_SUBPICTURE_TYPE = DVD_SUBPICTURE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_SPType_Language: DVD_SUBPICTURE_TYPE = DVD_SUBPICTURE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_SPType_Other: DVD_SUBPICTURE_TYPE = DVD_SUBPICTURE_TYPE(2i32);
 impl ::core::marker::Copy for DVD_SUBPICTURE_TYPE {}
 impl ::core::clone::Clone for DVD_SUBPICTURE_TYPE {
     fn clone(&self) -> Self {
@@ -26188,14 +27396,6 @@ impl ::core::fmt::Debug for DVD_SUBPICTURE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_TIMECODE_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_TC_FLAG_25fps: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_TC_FLAG_30fps: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_TC_FLAG_DropFrame: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_TC_FLAG_Interpolated: DVD_TIMECODE_FLAGS = DVD_TIMECODE_FLAGS(8i32);
 impl ::core::marker::Copy for DVD_TIMECODE_FLAGS {}
 impl ::core::clone::Clone for DVD_TIMECODE_FLAGS {
     fn clone(&self) -> Self {
@@ -26219,12 +27419,6 @@ impl ::core::fmt::Debug for DVD_TIMECODE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_TITLE_APPMODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AppMode_Not_Specified: DVD_TITLE_APPMODE = DVD_TITLE_APPMODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AppMode_Karaoke: DVD_TITLE_APPMODE = DVD_TITLE_APPMODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_AppMode_Other: DVD_TITLE_APPMODE = DVD_TITLE_APPMODE(3i32);
 impl ::core::marker::Copy for DVD_TITLE_APPMODE {}
 impl ::core::clone::Clone for DVD_TITLE_APPMODE {
     fn clone(&self) -> Self {
@@ -26248,16 +27442,6 @@ impl ::core::fmt::Debug for DVD_TITLE_APPMODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_TextCharSet(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_CharSet_Unicode: DVD_TextCharSet = DVD_TextCharSet(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_CharSet_ISO646: DVD_TextCharSet = DVD_TextCharSet(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_CharSet_JIS_Roman_Kanji: DVD_TextCharSet = DVD_TextCharSet(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_CharSet_ISO8859_1: DVD_TextCharSet = DVD_TextCharSet(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_CharSet_ShiftJIS_Kanji_Roman_Katakana: DVD_TextCharSet = DVD_TextCharSet(4i32);
 impl ::core::marker::Copy for DVD_TextCharSet {}
 impl ::core::clone::Clone for DVD_TextCharSet {
     fn clone(&self) -> Self {
@@ -26281,70 +27465,6 @@ impl ::core::fmt::Debug for DVD_TextCharSet {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_TextStringType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Struct_Volume: DVD_TextStringType = DVD_TextStringType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Struct_Title: DVD_TextStringType = DVD_TextStringType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Struct_ParentalID: DVD_TextStringType = DVD_TextStringType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Struct_PartOfTitle: DVD_TextStringType = DVD_TextStringType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Struct_Cell: DVD_TextStringType = DVD_TextStringType(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Stream_Audio: DVD_TextStringType = DVD_TextStringType(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Stream_Subpicture: DVD_TextStringType = DVD_TextStringType(17i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Stream_Angle: DVD_TextStringType = DVD_TextStringType(18i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Channel_Audio: DVD_TextStringType = DVD_TextStringType(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_General_Name: DVD_TextStringType = DVD_TextStringType(48i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_General_Comments: DVD_TextStringType = DVD_TextStringType(49i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Title_Series: DVD_TextStringType = DVD_TextStringType(56i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Title_Movie: DVD_TextStringType = DVD_TextStringType(57i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Title_Video: DVD_TextStringType = DVD_TextStringType(58i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Title_Album: DVD_TextStringType = DVD_TextStringType(59i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Title_Song: DVD_TextStringType = DVD_TextStringType(60i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Title_Other: DVD_TextStringType = DVD_TextStringType(63i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Title_Sub_Series: DVD_TextStringType = DVD_TextStringType(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Title_Sub_Movie: DVD_TextStringType = DVD_TextStringType(65i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Title_Sub_Video: DVD_TextStringType = DVD_TextStringType(66i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Title_Sub_Album: DVD_TextStringType = DVD_TextStringType(67i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Title_Sub_Song: DVD_TextStringType = DVD_TextStringType(68i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Title_Sub_Other: DVD_TextStringType = DVD_TextStringType(71i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Title_Orig_Series: DVD_TextStringType = DVD_TextStringType(72i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Title_Orig_Movie: DVD_TextStringType = DVD_TextStringType(73i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Title_Orig_Video: DVD_TextStringType = DVD_TextStringType(74i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Title_Orig_Album: DVD_TextStringType = DVD_TextStringType(75i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Title_Orig_Song: DVD_TextStringType = DVD_TextStringType(76i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Title_Orig_Other: DVD_TextStringType = DVD_TextStringType(79i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Other_Scene: DVD_TextStringType = DVD_TextStringType(80i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Other_Cut: DVD_TextStringType = DVD_TextStringType(81i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_Other_Take: DVD_TextStringType = DVD_TextStringType(82i32);
 impl ::core::marker::Copy for DVD_TextStringType {}
 impl ::core::clone::Clone for DVD_TextStringType {
     fn clone(&self) -> Self {
@@ -26368,12 +27488,6 @@ impl ::core::fmt::Debug for DVD_TextStringType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_VIDEO_COMPRESSION(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_VideoCompression_Other: DVD_VIDEO_COMPRESSION = DVD_VIDEO_COMPRESSION(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_VideoCompression_MPEG1: DVD_VIDEO_COMPRESSION = DVD_VIDEO_COMPRESSION(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_VideoCompression_MPEG2: DVD_VIDEO_COMPRESSION = DVD_VIDEO_COMPRESSION(2i32);
 impl ::core::marker::Copy for DVD_VIDEO_COMPRESSION {}
 impl ::core::clone::Clone for DVD_VIDEO_COMPRESSION {
     fn clone(&self) -> Self {
@@ -26397,18 +27511,6 @@ impl ::core::fmt::Debug for DVD_VIDEO_COMPRESSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DVD_WARNING(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_WARNING_InvalidDVD1_0Disc: DVD_WARNING = DVD_WARNING(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_WARNING_FormatNotSupported: DVD_WARNING = DVD_WARNING(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_WARNING_IllegalNavCommand: DVD_WARNING = DVD_WARNING(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_WARNING_Open: DVD_WARNING = DVD_WARNING(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_WARNING_Seek: DVD_WARNING = DVD_WARNING(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVD_WARNING_Read: DVD_WARNING = DVD_WARNING(6i32);
 impl ::core::marker::Copy for DVD_WARNING {}
 impl ::core::clone::Clone for DVD_WARNING {
     fn clone(&self) -> Self {
@@ -26432,22 +27534,6 @@ impl ::core::fmt::Debug for DVD_WARNING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_DestinationFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DXVA2_DestinationFlag_Background_Changed: DXVA2_DestinationFlags = DXVA2_DestinationFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DXVA2_DestinationFlag_TargetRect_Changed: DXVA2_DestinationFlags = DXVA2_DestinationFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DXVA2_DestinationFlag_ColorData_Changed: DXVA2_DestinationFlags = DXVA2_DestinationFlags(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DXVA2_DestinationFlag_Alpha_Changed: DXVA2_DestinationFlags = DXVA2_DestinationFlags(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DXVA2_DestinationFlag_RFF: DXVA2_DestinationFlags = DXVA2_DestinationFlags(65536i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DXVA2_DestinationFlag_TFF: DXVA2_DestinationFlags = DXVA2_DestinationFlags(131072i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DXVA2_DestinationFlag_RFF_TFF_Present: DXVA2_DestinationFlags = DXVA2_DestinationFlags(262144i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DXVA2_DestinationFlagMask: DXVA2_DestinationFlags = DXVA2_DestinationFlags(-65521i32);
 impl ::core::marker::Copy for DXVA2_DestinationFlags {}
 impl ::core::clone::Clone for DXVA2_DestinationFlags {
     fn clone(&self) -> Self {
@@ -26471,24 +27557,6 @@ impl ::core::fmt::Debug for DXVA2_DestinationFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXVA2_SampleFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DXVA2_SampleFlag_Palette_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DXVA2_SampleFlag_SrcRect_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DXVA2_SampleFlag_DstRect_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DXVA2_SampleFlag_ColorData_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DXVA2_SampleFlag_PlanarAlpha_Changed: DXVA2_SampleFlags = DXVA2_SampleFlags(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DXVA2_SampleFlag_RFF: DXVA2_SampleFlags = DXVA2_SampleFlags(65536i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DXVA2_SampleFlag_TFF: DXVA2_SampleFlags = DXVA2_SampleFlags(131072i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DXVA2_SampleFlag_RFF_TFF_Present: DXVA2_SampleFlags = DXVA2_SampleFlags(262144i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DXVA2_SampleFlagsMask: DXVA2_SampleFlags = DXVA2_SampleFlags(-65505i32);
 impl ::core::marker::Copy for DXVA2_SampleFlags {}
 impl ::core::clone::Clone for DXVA2_SampleFlags {
     fn clone(&self) -> Self {
@@ -26512,12 +27580,6 @@ impl ::core::fmt::Debug for DXVA2_SampleFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EntitlementType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const Entitled: EntitlementType = EntitlementType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const NotEntitled: EntitlementType = EntitlementType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const TechnicalFailure: EntitlementType = EntitlementType(2i32);
 impl ::core::marker::Copy for EntitlementType {}
 impl ::core::clone::Clone for EntitlementType {
     fn clone(&self) -> Self {
@@ -26541,22 +27603,6 @@ impl ::core::fmt::Debug for EntitlementType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FECMethod(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_FEC_METHOD_NOT_SET: FECMethod = FECMethod(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_FEC_METHOD_NOT_DEFINED: FECMethod = FECMethod(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_FEC_VITERBI: FECMethod = FECMethod(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_FEC_RS_204_188: FECMethod = FECMethod(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_FEC_LDPC: FECMethod = FECMethod(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_FEC_BCH: FECMethod = FECMethod(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_FEC_RS_147_130: FECMethod = FECMethod(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_FEC_MAX: FECMethod = FECMethod(6i32);
 impl ::core::marker::Copy for FECMethod {}
 impl ::core::clone::Clone for FECMethod {
     fn clone(&self) -> Self {
@@ -26580,12 +27626,6 @@ impl ::core::fmt::Debug for FECMethod {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILTER_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const State_Stopped: FILTER_STATE = FILTER_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const State_Paused: FILTER_STATE = FILTER_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const State_Running: FILTER_STATE = FILTER_STATE(2i32);
 impl ::core::marker::Copy for FILTER_STATE {}
 impl ::core::clone::Clone for FILTER_STATE {
     fn clone(&self) -> Self {
@@ -26609,26 +27649,6 @@ impl ::core::fmt::Debug for FILTER_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GuardInterval(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_GUARD_NOT_SET: GuardInterval = GuardInterval(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_GUARD_NOT_DEFINED: GuardInterval = GuardInterval(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_GUARD_1_32: GuardInterval = GuardInterval(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_GUARD_1_16: GuardInterval = GuardInterval(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_GUARD_1_8: GuardInterval = GuardInterval(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_GUARD_1_4: GuardInterval = GuardInterval(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_GUARD_1_128: GuardInterval = GuardInterval(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_GUARD_19_128: GuardInterval = GuardInterval(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_GUARD_19_256: GuardInterval = GuardInterval(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_GUARD_MAX: GuardInterval = GuardInterval(8i32);
 impl ::core::marker::Copy for GuardInterval {}
 impl ::core::clone::Clone for GuardInterval {
     fn clone(&self) -> Self {
@@ -26652,18 +27672,6 @@ impl ::core::fmt::Debug for GuardInterval {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HierarchyAlpha(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_HALPHA_NOT_SET: HierarchyAlpha = HierarchyAlpha(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_HALPHA_NOT_DEFINED: HierarchyAlpha = HierarchyAlpha(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_HALPHA_1: HierarchyAlpha = HierarchyAlpha(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_HALPHA_2: HierarchyAlpha = HierarchyAlpha(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_HALPHA_4: HierarchyAlpha = HierarchyAlpha(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_HALPHA_MAX: HierarchyAlpha = HierarchyAlpha(4i32);
 impl ::core::marker::Copy for HierarchyAlpha {}
 impl ::core::clone::Clone for HierarchyAlpha {
     fn clone(&self) -> Self {
@@ -26687,18 +27695,6 @@ impl ::core::fmt::Debug for HierarchyAlpha {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IFILTERMAPPER_MERIT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MERIT_PREFERRED: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(8388608i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MERIT_NORMAL: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(6291456i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MERIT_UNLIKELY: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(4194304i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MERIT_DO_NOT_USE: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(2097152i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MERIT_SW_COMPRESSOR: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(1048576i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MERIT_HW_COMPRESSOR: IFILTERMAPPER_MERIT = IFILTERMAPPER_MERIT(1048656i32);
 impl ::core::marker::Copy for IFILTERMAPPER_MERIT {}
 impl ::core::clone::Clone for IFILTERMAPPER_MERIT {
     fn clone(&self) -> Self {
@@ -26722,10 +27718,6 @@ impl ::core::fmt::Debug for IFILTERMAPPER_MERIT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ISDBCAS_REQUEST_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISDBCAS_REQUEST_ID_EMG: ISDBCAS_REQUEST_ID = ISDBCAS_REQUEST_ID(56i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISDBCAS_REQUEST_ID_EMD: ISDBCAS_REQUEST_ID = ISDBCAS_REQUEST_ID(58i32);
 impl ::core::marker::Copy for ISDBCAS_REQUEST_ID {}
 impl ::core::clone::Clone for ISDBCAS_REQUEST_ID {
     fn clone(&self) -> Self {
@@ -26749,14 +27741,6 @@ impl ::core::fmt::Debug for ISDBCAS_REQUEST_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InterleavingMode(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const INTERLEAVE_NONE: InterleavingMode = InterleavingMode(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const INTERLEAVE_CAPTURE: InterleavingMode = InterleavingMode(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const INTERLEAVE_FULL: InterleavingMode = InterleavingMode(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const INTERLEAVE_NONE_BUFFERED: InterleavingMode = InterleavingMode(3i32);
 impl ::core::marker::Copy for InterleavingMode {}
 impl ::core::clone::Clone for InterleavingMode {
     fn clone(&self) -> Self {
@@ -26780,12 +27764,6 @@ impl ::core::fmt::Debug for InterleavingMode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPROPERTY_IPSINK(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const KSPROPERTY_IPSINK_MULTICASTLIST: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const KSPROPERTY_IPSINK_ADAPTER_DESCRIPTION: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const KSPROPERTY_IPSINK_ADAPTER_ADDRESS: KSPROPERTY_IPSINK = KSPROPERTY_IPSINK(2i32);
 impl ::core::marker::Copy for KSPROPERTY_IPSINK {}
 impl ::core::clone::Clone for KSPROPERTY_IPSINK {
     fn clone(&self) -> Self {
@@ -26842,20 +27820,6 @@ impl ::core::ops::Not for KSPROPERTY_IPSINK {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LNB_Source(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_LNB_SOURCE_NOT_SET: LNB_Source = LNB_Source(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_LNB_SOURCE_NOT_DEFINED: LNB_Source = LNB_Source(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_LNB_SOURCE_A: LNB_Source = LNB_Source(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_LNB_SOURCE_B: LNB_Source = LNB_Source(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_LNB_SOURCE_C: LNB_Source = LNB_Source(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_LNB_SOURCE_D: LNB_Source = LNB_Source(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_LNB_SOURCE_MAX: LNB_Source = LNB_Source(5i32);
 impl ::core::marker::Copy for LNB_Source {}
 impl ::core::clone::Clone for LNB_Source {
     fn clone(&self) -> Self {
@@ -26879,8 +27843,6 @@ impl ::core::fmt::Debug for LNB_Source {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LocationCodeSchemeType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SCTE_18: LocationCodeSchemeType = LocationCodeSchemeType(0i32);
 impl ::core::marker::Copy for LocationCodeSchemeType {}
 impl ::core::clone::Clone for LocationCodeSchemeType {
     fn clone(&self) -> Self {
@@ -26904,14 +27866,6 @@ impl ::core::fmt::Debug for LocationCodeSchemeType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MEDIA_SAMPLE_CONTENT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MEDIA_TRANSPORT_PACKET: MEDIA_SAMPLE_CONTENT = MEDIA_SAMPLE_CONTENT(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MEDIA_ELEMENTARY_STREAM: MEDIA_SAMPLE_CONTENT = MEDIA_SAMPLE_CONTENT(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MEDIA_MPEG2_PSI: MEDIA_SAMPLE_CONTENT = MEDIA_SAMPLE_CONTENT(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MEDIA_TRANSPORT_PAYLOAD: MEDIA_SAMPLE_CONTENT = MEDIA_SAMPLE_CONTENT(3i32);
 impl ::core::marker::Copy for MEDIA_SAMPLE_CONTENT {}
 impl ::core::clone::Clone for MEDIA_SAMPLE_CONTENT {
     fn clone(&self) -> Self {
@@ -26935,12 +27889,6 @@ impl ::core::fmt::Debug for MEDIA_SAMPLE_CONTENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MMSSF_GET_INFORMATION_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MMSSF_HASCLOCK: MMSSF_GET_INFORMATION_FLAGS = MMSSF_GET_INFORMATION_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MMSSF_SUPPORTSEEK: MMSSF_GET_INFORMATION_FLAGS = MMSSF_GET_INFORMATION_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MMSSF_ASYNCHRONOUS: MMSSF_GET_INFORMATION_FLAGS = MMSSF_GET_INFORMATION_FLAGS(4i32);
 impl ::core::marker::Copy for MMSSF_GET_INFORMATION_FLAGS {}
 impl ::core::clone::Clone for MMSSF_GET_INFORMATION_FLAGS {
     fn clone(&self) -> Self {
@@ -26997,78 +27945,6 @@ impl ::core::ops::Not for MMSSF_GET_INFORMATION_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MPEG2StreamType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_UNITIALIZED_MPEG2STREAMTYPE: MPEG2StreamType = MPEG2StreamType(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const Reserved1: MPEG2StreamType = MPEG2StreamType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISO_IEC_11172_2_VIDEO: MPEG2StreamType = MPEG2StreamType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISO_IEC_13818_2_VIDEO: MPEG2StreamType = MPEG2StreamType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISO_IEC_11172_3_AUDIO: MPEG2StreamType = MPEG2StreamType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISO_IEC_13818_3_AUDIO: MPEG2StreamType = MPEG2StreamType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISO_IEC_13818_1_PRIVATE_SECTION: MPEG2StreamType = MPEG2StreamType(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISO_IEC_13818_1_PES: MPEG2StreamType = MPEG2StreamType(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISO_IEC_13522_MHEG: MPEG2StreamType = MPEG2StreamType(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ANNEX_A_DSM_CC: MPEG2StreamType = MPEG2StreamType(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ITU_T_REC_H_222_1: MPEG2StreamType = MPEG2StreamType(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISO_IEC_13818_6_TYPE_A: MPEG2StreamType = MPEG2StreamType(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISO_IEC_13818_6_TYPE_B: MPEG2StreamType = MPEG2StreamType(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISO_IEC_13818_6_TYPE_C: MPEG2StreamType = MPEG2StreamType(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISO_IEC_13818_6_TYPE_D: MPEG2StreamType = MPEG2StreamType(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISO_IEC_13818_1_AUXILIARY: MPEG2StreamType = MPEG2StreamType(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISO_IEC_13818_7_AUDIO: MPEG2StreamType = MPEG2StreamType(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISO_IEC_14496_2_VISUAL: MPEG2StreamType = MPEG2StreamType(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISO_IEC_14496_3_AUDIO: MPEG2StreamType = MPEG2StreamType(17i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISO_IEC_14496_1_IN_PES: MPEG2StreamType = MPEG2StreamType(18i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISO_IEC_14496_1_IN_SECTION: MPEG2StreamType = MPEG2StreamType(19i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISO_IEC_13818_6_DOWNLOAD: MPEG2StreamType = MPEG2StreamType(20i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const METADATA_IN_PES: MPEG2StreamType = MPEG2StreamType(21i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const METADATA_IN_SECTION: MPEG2StreamType = MPEG2StreamType(22i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const METADATA_IN_DATA_CAROUSEL: MPEG2StreamType = MPEG2StreamType(23i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const METADATA_IN_OBJECT_CAROUSEL: MPEG2StreamType = MPEG2StreamType(24i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const METADATA_IN_DOWNLOAD_PROTOCOL: MPEG2StreamType = MPEG2StreamType(25i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const IRPM_STREAMM: MPEG2StreamType = MPEG2StreamType(26i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ITU_T_H264: MPEG2StreamType = MPEG2StreamType(27i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISO_IEC_13818_1_RESERVED: MPEG2StreamType = MPEG2StreamType(28i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const USER_PRIVATE: MPEG2StreamType = MPEG2StreamType(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const HEVC_VIDEO_OR_TEMPORAL_VIDEO: MPEG2StreamType = MPEG2StreamType(36i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const HEVC_TEMPORAL_VIDEO_SUBSET: MPEG2StreamType = MPEG2StreamType(37i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ISO_IEC_USER_PRIVATE: MPEG2StreamType = MPEG2StreamType(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DOLBY_AC3_AUDIO: MPEG2StreamType = MPEG2StreamType(129i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DOLBY_DIGITAL_PLUS_AUDIO_ATSC: MPEG2StreamType = MPEG2StreamType(135i32);
 impl ::core::marker::Copy for MPEG2StreamType {}
 impl ::core::clone::Clone for MPEG2StreamType {
     fn clone(&self) -> Self {
@@ -27092,12 +27968,6 @@ impl ::core::fmt::Debug for MPEG2StreamType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MPEGLAYER3WAVEFORMAT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MPEGLAYER3_FLAG_PADDING_ISO: MPEGLAYER3WAVEFORMAT_FLAGS = MPEGLAYER3WAVEFORMAT_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MPEGLAYER3_FLAG_PADDING_ON: MPEGLAYER3WAVEFORMAT_FLAGS = MPEGLAYER3WAVEFORMAT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MPEGLAYER3_FLAG_PADDING_OFF: MPEGLAYER3WAVEFORMAT_FLAGS = MPEGLAYER3WAVEFORMAT_FLAGS(2u32);
 impl ::core::marker::Copy for MPEGLAYER3WAVEFORMAT_FLAGS {}
 impl ::core::clone::Clone for MPEGLAYER3WAVEFORMAT_FLAGS {
     fn clone(&self) -> Self {
@@ -27121,16 +27991,6 @@ impl ::core::fmt::Debug for MPEGLAYER3WAVEFORMAT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MP_CURVE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MP_CURVE_JUMP: MP_CURVE_TYPE = MP_CURVE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MP_CURVE_LINEAR: MP_CURVE_TYPE = MP_CURVE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MP_CURVE_SQUARE: MP_CURVE_TYPE = MP_CURVE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MP_CURVE_INVSQUARE: MP_CURVE_TYPE = MP_CURVE_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MP_CURVE_SINE: MP_CURVE_TYPE = MP_CURVE_TYPE(16i32);
 impl ::core::marker::Copy for MP_CURVE_TYPE {}
 impl ::core::clone::Clone for MP_CURVE_TYPE {
     fn clone(&self) -> Self {
@@ -27154,16 +28014,6 @@ impl ::core::fmt::Debug for MP_CURVE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MP_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MPT_INT: MP_TYPE = MP_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MPT_FLOAT: MP_TYPE = MP_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MPT_BOOL: MP_TYPE = MP_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MPT_ENUM: MP_TYPE = MP_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MPT_MAX: MP_TYPE = MP_TYPE(4i32);
 impl ::core::marker::Copy for MP_TYPE {}
 impl ::core::clone::Clone for MP_TYPE {
     fn clone(&self) -> Self {
@@ -27187,12 +28037,6 @@ impl ::core::fmt::Debug for MP_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MUX_PID_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PID_OTHER: MUX_PID_TYPE = MUX_PID_TYPE(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PID_ELEMENTARY_STREAM: MUX_PID_TYPE = MUX_PID_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PID_MPEG2_SECTION_PSI_SI: MUX_PID_TYPE = MUX_PID_TYPE(1i32);
 impl ::core::marker::Copy for MUX_PID_TYPE {}
 impl ::core::clone::Clone for MUX_PID_TYPE {
     fn clone(&self) -> Self {
@@ -27216,82 +28060,6 @@ impl ::core::fmt::Debug for MUX_PID_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ModulationType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_NOT_SET: ModulationType = ModulationType(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_NOT_DEFINED: ModulationType = ModulationType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_16QAM: ModulationType = ModulationType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_32QAM: ModulationType = ModulationType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_64QAM: ModulationType = ModulationType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_80QAM: ModulationType = ModulationType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_96QAM: ModulationType = ModulationType(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_112QAM: ModulationType = ModulationType(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_128QAM: ModulationType = ModulationType(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_160QAM: ModulationType = ModulationType(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_192QAM: ModulationType = ModulationType(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_224QAM: ModulationType = ModulationType(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_256QAM: ModulationType = ModulationType(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_320QAM: ModulationType = ModulationType(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_384QAM: ModulationType = ModulationType(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_448QAM: ModulationType = ModulationType(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_512QAM: ModulationType = ModulationType(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_640QAM: ModulationType = ModulationType(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_768QAM: ModulationType = ModulationType(17i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_896QAM: ModulationType = ModulationType(18i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_1024QAM: ModulationType = ModulationType(19i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_QPSK: ModulationType = ModulationType(20i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_BPSK: ModulationType = ModulationType(21i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_OQPSK: ModulationType = ModulationType(22i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_8VSB: ModulationType = ModulationType(23i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_16VSB: ModulationType = ModulationType(24i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_ANALOG_AMPLITUDE: ModulationType = ModulationType(25i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_ANALOG_FREQUENCY: ModulationType = ModulationType(26i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_8PSK: ModulationType = ModulationType(27i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_RF: ModulationType = ModulationType(28i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_16APSK: ModulationType = ModulationType(29i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_32APSK: ModulationType = ModulationType(30i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_NBC_QPSK: ModulationType = ModulationType(31i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_NBC_8PSK: ModulationType = ModulationType(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_DIRECTV: ModulationType = ModulationType(33i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_ISDB_T_TMCC: ModulationType = ModulationType(34i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_ISDB_S_TMCC: ModulationType = ModulationType(35i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_MOD_MAX: ModulationType = ModulationType(36i32);
 impl ::core::marker::Copy for ModulationType {}
 impl ::core::clone::Clone for ModulationType {
     fn clone(&self) -> Self {
@@ -27315,10 +28083,6 @@ impl ::core::fmt::Debug for ModulationType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OA_BOOL(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const OATRUE: OA_BOOL = OA_BOOL(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const OAFALSE: OA_BOOL = OA_BOOL(0i32);
 impl ::core::marker::Copy for OA_BOOL {}
 impl ::core::clone::Clone for OA_BOOL {
     fn clone(&self) -> Self {
@@ -27342,12 +28106,6 @@ impl ::core::fmt::Debug for OA_BOOL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OUTPUT_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const Disabled: OUTPUT_STATE = OUTPUT_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ReadData: OUTPUT_STATE = OUTPUT_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const RenderData: OUTPUT_STATE = OUTPUT_STATE(2i32);
 impl ::core::marker::Copy for OUTPUT_STATE {}
 impl ::core::clone::Clone for OUTPUT_STATE {
     fn clone(&self) -> Self {
@@ -27404,10 +28162,6 @@ impl ::core::ops::Not for OUTPUT_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PIN_DIRECTION(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PINDIR_INPUT: PIN_DIRECTION = PIN_DIRECTION(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PINDIR_OUTPUT: PIN_DIRECTION = PIN_DIRECTION(1i32);
 impl ::core::marker::Copy for PIN_DIRECTION {}
 impl ::core::clone::Clone for PIN_DIRECTION {
     fn clone(&self) -> Self {
@@ -27431,56 +28185,6 @@ impl ::core::fmt::Debug for PIN_DIRECTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhysicalConnectorType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Video_Tuner: PhysicalConnectorType = PhysicalConnectorType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Video_Composite: PhysicalConnectorType = PhysicalConnectorType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Video_SVideo: PhysicalConnectorType = PhysicalConnectorType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Video_RGB: PhysicalConnectorType = PhysicalConnectorType(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Video_YRYBY: PhysicalConnectorType = PhysicalConnectorType(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Video_SerialDigital: PhysicalConnectorType = PhysicalConnectorType(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Video_ParallelDigital: PhysicalConnectorType = PhysicalConnectorType(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Video_SCSI: PhysicalConnectorType = PhysicalConnectorType(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Video_AUX: PhysicalConnectorType = PhysicalConnectorType(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Video_1394: PhysicalConnectorType = PhysicalConnectorType(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Video_USB: PhysicalConnectorType = PhysicalConnectorType(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Video_VideoDecoder: PhysicalConnectorType = PhysicalConnectorType(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Video_VideoEncoder: PhysicalConnectorType = PhysicalConnectorType(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Video_SCART: PhysicalConnectorType = PhysicalConnectorType(14i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Video_Black: PhysicalConnectorType = PhysicalConnectorType(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Audio_Tuner: PhysicalConnectorType = PhysicalConnectorType(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Audio_Line: PhysicalConnectorType = PhysicalConnectorType(4097i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Audio_Mic: PhysicalConnectorType = PhysicalConnectorType(4098i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Audio_AESDigital: PhysicalConnectorType = PhysicalConnectorType(4099i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Audio_SPDIFDigital: PhysicalConnectorType = PhysicalConnectorType(4100i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Audio_SCSI: PhysicalConnectorType = PhysicalConnectorType(4101i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Audio_AUX: PhysicalConnectorType = PhysicalConnectorType(4102i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Audio_1394: PhysicalConnectorType = PhysicalConnectorType(4103i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Audio_USB: PhysicalConnectorType = PhysicalConnectorType(4104i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const PhysConn_Audio_AudioDecoder: PhysicalConnectorType = PhysicalConnectorType(4105i32);
 impl ::core::marker::Copy for PhysicalConnectorType {}
 impl ::core::clone::Clone for PhysicalConnectorType {
     fn clone(&self) -> Self {
@@ -27504,16 +28208,6 @@ impl ::core::fmt::Debug for PhysicalConnectorType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Pilot(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_PILOT_NOT_SET: Pilot = Pilot(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_PILOT_NOT_DEFINED: Pilot = Pilot(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_PILOT_OFF: Pilot = Pilot(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_PILOT_ON: Pilot = Pilot(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_PILOT_MAX: Pilot = Pilot(3i32);
 impl ::core::marker::Copy for Pilot {}
 impl ::core::clone::Clone for Pilot {
     fn clone(&self) -> Self {
@@ -27537,20 +28231,6 @@ impl ::core::fmt::Debug for Pilot {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Polarisation(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_POLARISATION_NOT_SET: Polarisation = Polarisation(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_POLARISATION_NOT_DEFINED: Polarisation = Polarisation(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_POLARISATION_LINEAR_H: Polarisation = Polarisation(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_POLARISATION_LINEAR_V: Polarisation = Polarisation(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_POLARISATION_CIRCULAR_L: Polarisation = Polarisation(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_POLARISATION_CIRCULAR_R: Polarisation = Polarisation(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_POLARISATION_MAX: Polarisation = Polarisation(5i32);
 impl ::core::marker::Copy for Polarisation {}
 impl ::core::clone::Clone for Polarisation {
     fn clone(&self) -> Self {
@@ -27574,10 +28254,6 @@ impl ::core::fmt::Debug for Polarisation {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QualityMessageType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const Famine: QualityMessageType = QualityMessageType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const Flood: QualityMessageType = QualityMessageType(1i32);
 impl ::core::marker::Copy for QualityMessageType {}
 impl ::core::clone::Clone for QualityMessageType {
     fn clone(&self) -> Self {
@@ -27601,14 +28277,6 @@ impl ::core::fmt::Debug for QualityMessageType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REG_PINFLAG(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const REG_PINFLAG_B_ZERO: REG_PINFLAG = REG_PINFLAG(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const REG_PINFLAG_B_RENDERER: REG_PINFLAG = REG_PINFLAG(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const REG_PINFLAG_B_MANY: REG_PINFLAG = REG_PINFLAG(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const REG_PINFLAG_B_OUTPUT: REG_PINFLAG = REG_PINFLAG(8i32);
 impl ::core::marker::Copy for REG_PINFLAG {}
 impl ::core::clone::Clone for REG_PINFLAG {
     fn clone(&self) -> Self {
@@ -27665,18 +28333,6 @@ impl ::core::ops::Not for REG_PINFLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RollOff(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_ROLL_OFF_NOT_SET: RollOff = RollOff(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_ROLL_OFF_NOT_DEFINED: RollOff = RollOff(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_ROLL_OFF_20: RollOff = RollOff(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_ROLL_OFF_25: RollOff = RollOff(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_ROLL_OFF_35: RollOff = RollOff(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_ROLL_OFF_MAX: RollOff = RollOff(4i32);
 impl ::core::marker::Copy for RollOff {}
 impl ::core::clone::Clone for RollOff {
     fn clone(&self) -> Self {
@@ -27700,34 +28356,6 @@ impl ::core::fmt::Debug for RollOff {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SNDDEV_ERR(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SNDDEV_ERROR_Open: SNDDEV_ERR = SNDDEV_ERR(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SNDDEV_ERROR_Close: SNDDEV_ERR = SNDDEV_ERR(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SNDDEV_ERROR_GetCaps: SNDDEV_ERR = SNDDEV_ERR(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SNDDEV_ERROR_PrepareHeader: SNDDEV_ERR = SNDDEV_ERR(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SNDDEV_ERROR_UnprepareHeader: SNDDEV_ERR = SNDDEV_ERR(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SNDDEV_ERROR_Reset: SNDDEV_ERR = SNDDEV_ERR(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SNDDEV_ERROR_Restart: SNDDEV_ERR = SNDDEV_ERR(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SNDDEV_ERROR_GetPosition: SNDDEV_ERR = SNDDEV_ERR(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SNDDEV_ERROR_Write: SNDDEV_ERR = SNDDEV_ERR(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SNDDEV_ERROR_Pause: SNDDEV_ERR = SNDDEV_ERR(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SNDDEV_ERROR_Stop: SNDDEV_ERR = SNDDEV_ERR(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SNDDEV_ERROR_Start: SNDDEV_ERR = SNDDEV_ERR(12i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SNDDEV_ERROR_AddBuffer: SNDDEV_ERR = SNDDEV_ERR(13i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SNDDEV_ERROR_Query: SNDDEV_ERR = SNDDEV_ERR(14i32);
 impl ::core::marker::Copy for SNDDEV_ERR {}
 impl ::core::clone::Clone for SNDDEV_ERR {
     fn clone(&self) -> Self {
@@ -27751,10 +28379,6 @@ impl ::core::fmt::Debug for SNDDEV_ERR {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SSUPDATE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SSUPDATE_ASYNC: SSUPDATE_TYPE = SSUPDATE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SSUPDATE_CONTINUOUS: SSUPDATE_TYPE = SSUPDATE_TYPE(2i32);
 impl ::core::marker::Copy for SSUPDATE_TYPE {}
 impl ::core::clone::Clone for SSUPDATE_TYPE {
     fn clone(&self) -> Self {
@@ -27778,8 +28402,6 @@ impl ::core::fmt::Debug for SSUPDATE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STREAMIF_CONSTANTS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MAX_NUMBER_OF_STREAMS: STREAMIF_CONSTANTS = STREAMIF_CONSTANTS(16i32);
 impl ::core::marker::Copy for STREAMIF_CONSTANTS {}
 impl ::core::clone::Clone for STREAMIF_CONSTANTS {
     fn clone(&self) -> Self {
@@ -27803,10 +28425,6 @@ impl ::core::fmt::Debug for STREAMIF_CONSTANTS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STREAM_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const STREAMSTATE_STOP: STREAM_STATE = STREAM_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const STREAMSTATE_RUN: STREAM_STATE = STREAM_STATE(1i32);
 impl ::core::marker::Copy for STREAM_STATE {}
 impl ::core::clone::Clone for STREAM_STATE {
     fn clone(&self) -> Self {
@@ -27830,12 +28448,6 @@ impl ::core::fmt::Debug for STREAM_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STREAM_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const STREAMTYPE_READ: STREAM_TYPE = STREAM_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const STREAMTYPE_WRITE: STREAM_TYPE = STREAM_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const STREAMTYPE_TRANSFORM: STREAM_TYPE = STREAM_TYPE(2i32);
 impl ::core::marker::Copy for STREAM_TYPE {}
 impl ::core::clone::Clone for STREAM_TYPE {
     fn clone(&self) -> Self {
@@ -27859,76 +28471,6 @@ impl ::core::fmt::Debug for STREAM_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ScanModulationTypes(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_16QAM: ScanModulationTypes = ScanModulationTypes(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_32QAM: ScanModulationTypes = ScanModulationTypes(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_64QAM: ScanModulationTypes = ScanModulationTypes(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_80QAM: ScanModulationTypes = ScanModulationTypes(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_96QAM: ScanModulationTypes = ScanModulationTypes(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_112QAM: ScanModulationTypes = ScanModulationTypes(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_128QAM: ScanModulationTypes = ScanModulationTypes(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_160QAM: ScanModulationTypes = ScanModulationTypes(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_192QAM: ScanModulationTypes = ScanModulationTypes(256i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_224QAM: ScanModulationTypes = ScanModulationTypes(512i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_256QAM: ScanModulationTypes = ScanModulationTypes(1024i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_320QAM: ScanModulationTypes = ScanModulationTypes(2048i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_384QAM: ScanModulationTypes = ScanModulationTypes(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_448QAM: ScanModulationTypes = ScanModulationTypes(8192i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_512QAM: ScanModulationTypes = ScanModulationTypes(16384i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_640QAM: ScanModulationTypes = ScanModulationTypes(32768i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_768QAM: ScanModulationTypes = ScanModulationTypes(65536i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_896QAM: ScanModulationTypes = ScanModulationTypes(131072i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_1024QAM: ScanModulationTypes = ScanModulationTypes(262144i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_QPSK: ScanModulationTypes = ScanModulationTypes(524288i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_BPSK: ScanModulationTypes = ScanModulationTypes(1048576i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_OQPSK: ScanModulationTypes = ScanModulationTypes(2097152i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_8VSB: ScanModulationTypes = ScanModulationTypes(4194304i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_16VSB: ScanModulationTypes = ScanModulationTypes(8388608i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_AM_RADIO: ScanModulationTypes = ScanModulationTypes(16777216i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_FM_RADIO: ScanModulationTypes = ScanModulationTypes(33554432i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_8PSK: ScanModulationTypes = ScanModulationTypes(67108864i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_RF: ScanModulationTypes = ScanModulationTypes(134217728i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ScanModulationTypesMask_MCE_DigitalCable: ScanModulationTypes = ScanModulationTypes(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ScanModulationTypesMask_MCE_TerrestrialATSC: ScanModulationTypes = ScanModulationTypes(23i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ScanModulationTypesMask_MCE_AnalogTv: ScanModulationTypes = ScanModulationTypes(28i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ScanModulationTypesMask_MCE_All_TV: ScanModulationTypes = ScanModulationTypes(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ScanModulationTypesMask_DVBC: ScanModulationTypes = ScanModulationTypes(75i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_16APSK: ScanModulationTypes = ScanModulationTypes(268435456i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SCAN_MOD_32APSK: ScanModulationTypes = ScanModulationTypes(536870912i32);
 impl ::core::marker::Copy for ScanModulationTypes {}
 impl ::core::clone::Clone for ScanModulationTypes {
     fn clone(&self) -> Self {
@@ -27952,12 +28494,6 @@ impl ::core::fmt::Debug for ScanModulationTypes {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardAssociationType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const NotAssociated: SmartCardAssociationType = SmartCardAssociationType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const Associated: SmartCardAssociationType = SmartCardAssociationType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AssociationUnknown: SmartCardAssociationType = SmartCardAssociationType(2i32);
 impl ::core::marker::Copy for SmartCardAssociationType {}
 impl ::core::clone::Clone for SmartCardAssociationType {
     fn clone(&self) -> Self {
@@ -27981,16 +28517,6 @@ impl ::core::fmt::Debug for SmartCardAssociationType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardStatusType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CardInserted: SmartCardStatusType = SmartCardStatusType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CardRemoved: SmartCardStatusType = SmartCardStatusType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CardError: SmartCardStatusType = SmartCardStatusType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CardDataChanged: SmartCardStatusType = SmartCardStatusType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const CardFirmwareUpgrade: SmartCardStatusType = SmartCardStatusType(4i32);
 impl ::core::marker::Copy for SmartCardStatusType {}
 impl ::core::clone::Clone for SmartCardStatusType {
     fn clone(&self) -> Self {
@@ -28014,18 +28540,6 @@ impl ::core::fmt::Debug for SmartCardStatusType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpectralInversion(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SPECTRAL_INVERSION_NOT_SET: SpectralInversion = SpectralInversion(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SPECTRAL_INVERSION_NOT_DEFINED: SpectralInversion = SpectralInversion(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SPECTRAL_INVERSION_AUTOMATIC: SpectralInversion = SpectralInversion(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SPECTRAL_INVERSION_NORMAL: SpectralInversion = SpectralInversion(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SPECTRAL_INVERSION_INVERTED: SpectralInversion = SpectralInversion(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_SPECTRAL_INVERSION_MAX: SpectralInversion = SpectralInversion(4i32);
 impl ::core::marker::Copy for SpectralInversion {}
 impl ::core::clone::Clone for SpectralInversion {
     fn clone(&self) -> Self {
@@ -28049,24 +28563,6 @@ impl ::core::fmt::Debug for SpectralInversion {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TVAudioMode(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMTVAUDIO_MODE_MONO: TVAudioMode = TVAudioMode(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMTVAUDIO_MODE_STEREO: TVAudioMode = TVAudioMode(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMTVAUDIO_MODE_LANG_A: TVAudioMode = TVAudioMode(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMTVAUDIO_MODE_LANG_B: TVAudioMode = TVAudioMode(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMTVAUDIO_MODE_LANG_C: TVAudioMode = TVAudioMode(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMTVAUDIO_PRESET_STEREO: TVAudioMode = TVAudioMode(512i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMTVAUDIO_PRESET_LANG_A: TVAudioMode = TVAudioMode(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMTVAUDIO_PRESET_LANG_B: TVAudioMode = TVAudioMode(8192i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMTVAUDIO_PRESET_LANG_C: TVAudioMode = TVAudioMode(16384i32);
 impl ::core::marker::Copy for TVAudioMode {}
 impl ::core::clone::Clone for TVAudioMode {
     fn clone(&self) -> Self {
@@ -28090,28 +28586,6 @@ impl ::core::fmt::Debug for TVAudioMode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TransmissionMode(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_XMIT_MODE_NOT_SET: TransmissionMode = TransmissionMode(-1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_XMIT_MODE_NOT_DEFINED: TransmissionMode = TransmissionMode(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_XMIT_MODE_2K: TransmissionMode = TransmissionMode(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_XMIT_MODE_8K: TransmissionMode = TransmissionMode(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_XMIT_MODE_4K: TransmissionMode = TransmissionMode(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_XMIT_MODE_2K_INTERLEAVED: TransmissionMode = TransmissionMode(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_XMIT_MODE_4K_INTERLEAVED: TransmissionMode = TransmissionMode(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_XMIT_MODE_1K: TransmissionMode = TransmissionMode(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_XMIT_MODE_16K: TransmissionMode = TransmissionMode(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_XMIT_MODE_32K: TransmissionMode = TransmissionMode(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const BDA_XMIT_MODE_MAX: TransmissionMode = TransmissionMode(9i32);
 impl ::core::marker::Copy for TransmissionMode {}
 impl ::core::clone::Clone for TransmissionMode {
     fn clone(&self) -> Self {
@@ -28135,10 +28609,6 @@ impl ::core::fmt::Debug for TransmissionMode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TunerInputType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const TunerInputCable: TunerInputType = TunerInputType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const TunerInputAntenna: TunerInputType = TunerInputType(1i32);
 impl ::core::marker::Copy for TunerInputType {}
 impl ::core::clone::Clone for TunerInputType {
     fn clone(&self) -> Self {
@@ -28162,16 +28632,6 @@ impl ::core::fmt::Debug for TunerInputType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UICloseReasonType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const NotReady: UICloseReasonType = UICloseReasonType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UserClosed: UICloseReasonType = UICloseReasonType(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const SystemClosed: UICloseReasonType = UICloseReasonType(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeviceClosed: UICloseReasonType = UICloseReasonType(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ErrorClosed: UICloseReasonType = UICloseReasonType(4i32);
 impl ::core::marker::Copy for UICloseReasonType {}
 impl ::core::clone::Clone for UICloseReasonType {
     fn clone(&self) -> Self {
@@ -28195,56 +28655,6 @@ impl ::core::fmt::Debug for UICloseReasonType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VALID_UOP_FLAG(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_Play_Title_Or_AtTime: VALID_UOP_FLAG = VALID_UOP_FLAG(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_Play_Chapter: VALID_UOP_FLAG = VALID_UOP_FLAG(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_Play_Title: VALID_UOP_FLAG = VALID_UOP_FLAG(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_Stop: VALID_UOP_FLAG = VALID_UOP_FLAG(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_ReturnFromSubMenu: VALID_UOP_FLAG = VALID_UOP_FLAG(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_Play_Chapter_Or_AtTime: VALID_UOP_FLAG = VALID_UOP_FLAG(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_PlayPrev_Or_Replay_Chapter: VALID_UOP_FLAG = VALID_UOP_FLAG(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_PlayNext_Chapter: VALID_UOP_FLAG = VALID_UOP_FLAG(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_Play_Forwards: VALID_UOP_FLAG = VALID_UOP_FLAG(256i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_Play_Backwards: VALID_UOP_FLAG = VALID_UOP_FLAG(512i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_ShowMenu_Title: VALID_UOP_FLAG = VALID_UOP_FLAG(1024i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_ShowMenu_Root: VALID_UOP_FLAG = VALID_UOP_FLAG(2048i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_ShowMenu_SubPic: VALID_UOP_FLAG = VALID_UOP_FLAG(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_ShowMenu_Audio: VALID_UOP_FLAG = VALID_UOP_FLAG(8192i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_ShowMenu_Angle: VALID_UOP_FLAG = VALID_UOP_FLAG(16384i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_ShowMenu_Chapter: VALID_UOP_FLAG = VALID_UOP_FLAG(32768i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_Resume: VALID_UOP_FLAG = VALID_UOP_FLAG(65536i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_Select_Or_Activate_Button: VALID_UOP_FLAG = VALID_UOP_FLAG(131072i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_Still_Off: VALID_UOP_FLAG = VALID_UOP_FLAG(262144i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_Pause_On: VALID_UOP_FLAG = VALID_UOP_FLAG(524288i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_Select_Audio_Stream: VALID_UOP_FLAG = VALID_UOP_FLAG(1048576i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_Select_SubPic_Stream: VALID_UOP_FLAG = VALID_UOP_FLAG(2097152i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_Select_Angle: VALID_UOP_FLAG = VALID_UOP_FLAG(4194304i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_Select_Karaoke_Audio_Presentation_Mode: VALID_UOP_FLAG = VALID_UOP_FLAG(8388608i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const UOP_FLAG_Select_Video_Mode_Preference: VALID_UOP_FLAG = VALID_UOP_FLAG(16777216i32);
 impl ::core::marker::Copy for VALID_UOP_FLAG {}
 impl ::core::clone::Clone for VALID_UOP_FLAG {
     fn clone(&self) -> Self {
@@ -28268,12 +28678,6 @@ impl ::core::fmt::Debug for VALID_UOP_FLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VIDEOENCODER_BITRATE_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ConstantBitRate: VIDEOENCODER_BITRATE_MODE = VIDEOENCODER_BITRATE_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VariableBitRateAverage: VIDEOENCODER_BITRATE_MODE = VIDEOENCODER_BITRATE_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VariableBitRatePeak: VIDEOENCODER_BITRATE_MODE = VIDEOENCODER_BITRATE_MODE(2i32);
 impl ::core::marker::Copy for VIDEOENCODER_BITRATE_MODE {}
 impl ::core::clone::Clone for VIDEOENCODER_BITRATE_MODE {
     fn clone(&self) -> Self {
@@ -28297,18 +28701,6 @@ impl ::core::fmt::Debug for VIDEOENCODER_BITRATE_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9AlphaBitmapFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9AlphaBitmap_Disable: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9AlphaBitmap_hDC: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9AlphaBitmap_EntireDDS: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9AlphaBitmap_SrcColorKey: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9AlphaBitmap_SrcRect: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9AlphaBitmap_FilterMode: VMR9AlphaBitmapFlags = VMR9AlphaBitmapFlags(32i32);
 impl ::core::marker::Copy for VMR9AlphaBitmapFlags {}
 impl ::core::clone::Clone for VMR9AlphaBitmapFlags {
     fn clone(&self) -> Self {
@@ -28332,10 +28724,6 @@ impl ::core::fmt::Debug for VMR9AlphaBitmapFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9AspectRatioMode(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9ARMode_None: VMR9AspectRatioMode = VMR9AspectRatioMode(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9ARMode_LetterBox: VMR9AspectRatioMode = VMR9AspectRatioMode(1i32);
 impl ::core::marker::Copy for VMR9AspectRatioMode {}
 impl ::core::clone::Clone for VMR9AspectRatioMode {
     fn clone(&self) -> Self {
@@ -28359,14 +28747,6 @@ impl ::core::fmt::Debug for VMR9AspectRatioMode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9DeinterlacePrefs(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlacePref9_NextBest: VMR9DeinterlacePrefs = VMR9DeinterlacePrefs(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlacePref9_BOB: VMR9DeinterlacePrefs = VMR9DeinterlacePrefs(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlacePref9_Weave: VMR9DeinterlacePrefs = VMR9DeinterlacePrefs(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlacePref9_Mask: VMR9DeinterlacePrefs = VMR9DeinterlacePrefs(7i32);
 impl ::core::marker::Copy for VMR9DeinterlacePrefs {}
 impl ::core::clone::Clone for VMR9DeinterlacePrefs {
     fn clone(&self) -> Self {
@@ -28390,22 +28770,6 @@ impl ::core::fmt::Debug for VMR9DeinterlacePrefs {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9DeinterlaceTech(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlaceTech9_Unknown: VMR9DeinterlaceTech = VMR9DeinterlaceTech(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlaceTech9_BOBLineReplicate: VMR9DeinterlaceTech = VMR9DeinterlaceTech(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlaceTech9_BOBVerticalStretch: VMR9DeinterlaceTech = VMR9DeinterlaceTech(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlaceTech9_MedianFiltering: VMR9DeinterlaceTech = VMR9DeinterlaceTech(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlaceTech9_EdgeFiltering: VMR9DeinterlaceTech = VMR9DeinterlaceTech(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlaceTech9_FieldAdaptive: VMR9DeinterlaceTech = VMR9DeinterlaceTech(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlaceTech9_PixelAdaptive: VMR9DeinterlaceTech = VMR9DeinterlaceTech(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlaceTech9_MotionVectorSteered: VMR9DeinterlaceTech = VMR9DeinterlaceTech(128i32);
 impl ::core::marker::Copy for VMR9DeinterlaceTech {}
 impl ::core::clone::Clone for VMR9DeinterlaceTech {
     fn clone(&self) -> Self {
@@ -28429,46 +28793,6 @@ impl ::core::fmt::Debug for VMR9DeinterlaceTech {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9MixerPrefs(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref9_NoDecimation: VMR9MixerPrefs = VMR9MixerPrefs(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref9_DecimateOutput: VMR9MixerPrefs = VMR9MixerPrefs(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref9_ARAdjustXorY: VMR9MixerPrefs = VMR9MixerPrefs(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref9_NonSquareMixing: VMR9MixerPrefs = VMR9MixerPrefs(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref9_DecimateMask: VMR9MixerPrefs = VMR9MixerPrefs(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref9_BiLinearFiltering: VMR9MixerPrefs = VMR9MixerPrefs(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref9_PointFiltering: VMR9MixerPrefs = VMR9MixerPrefs(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref9_AnisotropicFiltering: VMR9MixerPrefs = VMR9MixerPrefs(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref9_PyramidalQuadFiltering: VMR9MixerPrefs = VMR9MixerPrefs(128i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref9_GaussianQuadFiltering: VMR9MixerPrefs = VMR9MixerPrefs(256i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref9_FilteringReserved: VMR9MixerPrefs = VMR9MixerPrefs(3584i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref9_FilteringMask: VMR9MixerPrefs = VMR9MixerPrefs(4080i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref9_RenderTargetRGB: VMR9MixerPrefs = VMR9MixerPrefs(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref9_RenderTargetYUV: VMR9MixerPrefs = VMR9MixerPrefs(8192i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref9_RenderTargetReserved: VMR9MixerPrefs = VMR9MixerPrefs(1032192i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref9_RenderTargetMask: VMR9MixerPrefs = VMR9MixerPrefs(1044480i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref9_DynamicSwitchToBOB: VMR9MixerPrefs = VMR9MixerPrefs(1048576i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref9_DynamicDecimateBy2: VMR9MixerPrefs = VMR9MixerPrefs(2097152i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref9_DynamicReserved: VMR9MixerPrefs = VMR9MixerPrefs(12582912i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref9_DynamicMask: VMR9MixerPrefs = VMR9MixerPrefs(15728640i32);
 impl ::core::marker::Copy for VMR9MixerPrefs {}
 impl ::core::clone::Clone for VMR9MixerPrefs {
     fn clone(&self) -> Self {
@@ -28492,14 +28816,6 @@ impl ::core::fmt::Debug for VMR9MixerPrefs {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9Mode(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9Mode_Windowed: VMR9Mode = VMR9Mode(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9Mode_Windowless: VMR9Mode = VMR9Mode(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9Mode_Renderless: VMR9Mode = VMR9Mode(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9Mode_Mask: VMR9Mode = VMR9Mode(7i32);
 impl ::core::marker::Copy for VMR9Mode {}
 impl ::core::clone::Clone for VMR9Mode {
     fn clone(&self) -> Self {
@@ -28523,16 +28839,6 @@ impl ::core::fmt::Debug for VMR9Mode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9PresentationFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9Sample_SyncPoint: VMR9PresentationFlags = VMR9PresentationFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9Sample_Preroll: VMR9PresentationFlags = VMR9PresentationFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9Sample_Discontinuity: VMR9PresentationFlags = VMR9PresentationFlags(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9Sample_TimeValid: VMR9PresentationFlags = VMR9PresentationFlags(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9Sample_SrcDstRectsValid: VMR9PresentationFlags = VMR9PresentationFlags(16i32);
 impl ::core::marker::Copy for VMR9PresentationFlags {}
 impl ::core::clone::Clone for VMR9PresentationFlags {
     fn clone(&self) -> Self {
@@ -28556,16 +28862,6 @@ impl ::core::fmt::Debug for VMR9PresentationFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9ProcAmpControlFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ProcAmpControl9_Brightness: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ProcAmpControl9_Contrast: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ProcAmpControl9_Hue: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ProcAmpControl9_Saturation: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const ProcAmpControl9_Mask: VMR9ProcAmpControlFlags = VMR9ProcAmpControlFlags(15i32);
 impl ::core::marker::Copy for VMR9ProcAmpControlFlags {}
 impl ::core::clone::Clone for VMR9ProcAmpControlFlags {
     fn clone(&self) -> Self {
@@ -28589,10 +28885,6 @@ impl ::core::fmt::Debug for VMR9ProcAmpControlFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9RenderPrefs(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const RenderPrefs9_DoNotRenderBorder: VMR9RenderPrefs = VMR9RenderPrefs(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const RenderPrefs9_Mask: VMR9RenderPrefs = VMR9RenderPrefs(1i32);
 impl ::core::marker::Copy for VMR9RenderPrefs {}
 impl ::core::clone::Clone for VMR9RenderPrefs {
     fn clone(&self) -> Self {
@@ -28616,20 +28908,6 @@ impl ::core::fmt::Debug for VMR9RenderPrefs {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9SurfaceAllocationFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9AllocFlag_3DRenderTarget: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9AllocFlag_DXVATarget: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9AllocFlag_TextureSurface: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9AllocFlag_OffscreenSurface: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9AllocFlag_RGBDynamicSwitch: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9AllocFlag_UsageReserved: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(224i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9AllocFlag_UsageMask: VMR9SurfaceAllocationFlags = VMR9SurfaceAllocationFlags(255i32);
 impl ::core::marker::Copy for VMR9SurfaceAllocationFlags {}
 impl ::core::clone::Clone for VMR9SurfaceAllocationFlags {
     fn clone(&self) -> Self {
@@ -28653,18 +28931,6 @@ impl ::core::fmt::Debug for VMR9SurfaceAllocationFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR9_SampleFormat(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9_SampleReserved: VMR9_SampleFormat = VMR9_SampleFormat(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9_SampleProgressiveFrame: VMR9_SampleFormat = VMR9_SampleFormat(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9_SampleFieldInterleavedEvenFirst: VMR9_SampleFormat = VMR9_SampleFormat(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9_SampleFieldInterleavedOddFirst: VMR9_SampleFormat = VMR9_SampleFormat(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9_SampleFieldSingleEven: VMR9_SampleFormat = VMR9_SampleFormat(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR9_SampleFieldSingleOdd: VMR9_SampleFormat = VMR9_SampleFormat(6i32);
 impl ::core::marker::Copy for VMR9_SampleFormat {}
 impl ::core::clone::Clone for VMR9_SampleFormat {
     fn clone(&self) -> Self {
@@ -28688,14 +28954,6 @@ impl ::core::fmt::Debug for VMR9_SampleFormat {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMRDeinterlacePrefs(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlacePref_NextBest: VMRDeinterlacePrefs = VMRDeinterlacePrefs(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlacePref_BOB: VMRDeinterlacePrefs = VMRDeinterlacePrefs(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlacePref_Weave: VMRDeinterlacePrefs = VMRDeinterlacePrefs(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlacePref_Mask: VMRDeinterlacePrefs = VMRDeinterlacePrefs(7i32);
 impl ::core::marker::Copy for VMRDeinterlacePrefs {}
 impl ::core::clone::Clone for VMRDeinterlacePrefs {
     fn clone(&self) -> Self {
@@ -28719,22 +28977,6 @@ impl ::core::fmt::Debug for VMRDeinterlacePrefs {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMRDeinterlaceTech(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlaceTech_Unknown: VMRDeinterlaceTech = VMRDeinterlaceTech(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlaceTech_BOBLineReplicate: VMRDeinterlaceTech = VMRDeinterlaceTech(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlaceTech_BOBVerticalStretch: VMRDeinterlaceTech = VMRDeinterlaceTech(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlaceTech_MedianFiltering: VMRDeinterlaceTech = VMRDeinterlaceTech(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlaceTech_EdgeFiltering: VMRDeinterlaceTech = VMRDeinterlaceTech(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlaceTech_FieldAdaptive: VMRDeinterlaceTech = VMRDeinterlaceTech(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlaceTech_PixelAdaptive: VMRDeinterlaceTech = VMRDeinterlaceTech(64i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DeinterlaceTech_MotionVectorSteered: VMRDeinterlaceTech = VMRDeinterlaceTech(128i32);
 impl ::core::marker::Copy for VMRDeinterlaceTech {}
 impl ::core::clone::Clone for VMRDeinterlaceTech {
     fn clone(&self) -> Self {
@@ -28758,44 +29000,6 @@ impl ::core::fmt::Debug for VMRDeinterlaceTech {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMRMixerPrefs(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref_NoDecimation: VMRMixerPrefs = VMRMixerPrefs(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref_DecimateOutput: VMRMixerPrefs = VMRMixerPrefs(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref_ARAdjustXorY: VMRMixerPrefs = VMRMixerPrefs(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref_DecimationReserved: VMRMixerPrefs = VMRMixerPrefs(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref_DecimateMask: VMRMixerPrefs = VMRMixerPrefs(15i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref_BiLinearFiltering: VMRMixerPrefs = VMRMixerPrefs(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref_PointFiltering: VMRMixerPrefs = VMRMixerPrefs(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref_FilteringMask: VMRMixerPrefs = VMRMixerPrefs(240i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref_RenderTargetRGB: VMRMixerPrefs = VMRMixerPrefs(256i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref_RenderTargetYUV: VMRMixerPrefs = VMRMixerPrefs(4096i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref_RenderTargetYUV420: VMRMixerPrefs = VMRMixerPrefs(512i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref_RenderTargetYUV422: VMRMixerPrefs = VMRMixerPrefs(1024i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref_RenderTargetYUV444: VMRMixerPrefs = VMRMixerPrefs(2048i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref_RenderTargetReserved: VMRMixerPrefs = VMRMixerPrefs(57344i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref_RenderTargetMask: VMRMixerPrefs = VMRMixerPrefs(65280i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref_DynamicSwitchToBOB: VMRMixerPrefs = VMRMixerPrefs(65536i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref_DynamicDecimateBy2: VMRMixerPrefs = VMRMixerPrefs(131072i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref_DynamicReserved: VMRMixerPrefs = VMRMixerPrefs(786432i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const MixerPref_DynamicMask: VMRMixerPrefs = VMRMixerPrefs(983040i32);
 impl ::core::marker::Copy for VMRMixerPrefs {}
 impl ::core::clone::Clone for VMRMixerPrefs {
     fn clone(&self) -> Self {
@@ -28819,14 +29023,6 @@ impl ::core::fmt::Debug for VMRMixerPrefs {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMRMode(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMRMode_Windowed: VMRMode = VMRMode(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMRMode_Windowless: VMRMode = VMRMode(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMRMode_Renderless: VMRMode = VMRMode(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMRMode_Mask: VMRMode = VMRMode(7i32);
 impl ::core::marker::Copy for VMRMode {}
 impl ::core::clone::Clone for VMRMode {
     fn clone(&self) -> Self {
@@ -28850,16 +29046,6 @@ impl ::core::fmt::Debug for VMRMode {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMRPresentationFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMRSample_SyncPoint: VMRPresentationFlags = VMRPresentationFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMRSample_Preroll: VMRPresentationFlags = VMRPresentationFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMRSample_Discontinuity: VMRPresentationFlags = VMRPresentationFlags(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMRSample_TimeValid: VMRPresentationFlags = VMRPresentationFlags(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMRSample_SrcDstRectsValid: VMRPresentationFlags = VMRPresentationFlags(16i32);
 impl ::core::marker::Copy for VMRPresentationFlags {}
 impl ::core::clone::Clone for VMRPresentationFlags {
     fn clone(&self) -> Self {
@@ -28883,24 +29069,6 @@ impl ::core::fmt::Debug for VMRPresentationFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMRRenderPrefs(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const RenderPrefs_RestrictToInitialMonitor: VMRRenderPrefs = VMRRenderPrefs(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const RenderPrefs_ForceOffscreen: VMRRenderPrefs = VMRRenderPrefs(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const RenderPrefs_ForceOverlays: VMRRenderPrefs = VMRRenderPrefs(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const RenderPrefs_AllowOverlays: VMRRenderPrefs = VMRRenderPrefs(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const RenderPrefs_AllowOffscreen: VMRRenderPrefs = VMRRenderPrefs(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const RenderPrefs_DoNotRenderColorKeyAndBorder: VMRRenderPrefs = VMRRenderPrefs(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const RenderPrefs_Reserved: VMRRenderPrefs = VMRRenderPrefs(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const RenderPrefs_PreferAGPMemWhenMixing: VMRRenderPrefs = VMRRenderPrefs(32i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const RenderPrefs_Mask: VMRRenderPrefs = VMRRenderPrefs(63i32);
 impl ::core::marker::Copy for VMRRenderPrefs {}
 impl ::core::clone::Clone for VMRRenderPrefs {
     fn clone(&self) -> Self {
@@ -28924,18 +29092,6 @@ impl ::core::fmt::Debug for VMRRenderPrefs {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMRSurfaceAllocationFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMAP_PIXELFORMAT_VALID: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMAP_3D_TARGET: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMAP_ALLOW_SYSMEM: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMAP_FORCE_SYSMEM: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMAP_DIRECTED_FLIP: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(16i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMAP_DXVA_TARGET: VMRSurfaceAllocationFlags = VMRSurfaceAllocationFlags(32i32);
 impl ::core::marker::Copy for VMRSurfaceAllocationFlags {}
 impl ::core::clone::Clone for VMRSurfaceAllocationFlags {
     fn clone(&self) -> Self {
@@ -28959,10 +29115,6 @@ impl ::core::fmt::Debug for VMRSurfaceAllocationFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VMR_ASPECT_RATIO_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR_ARMODE_NONE: VMR_ASPECT_RATIO_MODE = VMR_ASPECT_RATIO_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VMR_ARMODE_LETTER_BOX: VMR_ASPECT_RATIO_MODE = VMR_ASPECT_RATIO_MODE(1i32);
 impl ::core::marker::Copy for VMR_ASPECT_RATIO_MODE {}
 impl ::core::clone::Clone for VMR_ASPECT_RATIO_MODE {
     fn clone(&self) -> Self {
@@ -28986,12 +29138,6 @@ impl ::core::fmt::Debug for VMR_ASPECT_RATIO_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VfwCaptureDialogs(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VfwCaptureDialog_Source: VfwCaptureDialogs = VfwCaptureDialogs(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VfwCaptureDialog_Format: VfwCaptureDialogs = VfwCaptureDialogs(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VfwCaptureDialog_Display: VfwCaptureDialogs = VfwCaptureDialogs(4i32);
 impl ::core::marker::Copy for VfwCaptureDialogs {}
 impl ::core::clone::Clone for VfwCaptureDialogs {
     fn clone(&self) -> Self {
@@ -29015,14 +29161,6 @@ impl ::core::fmt::Debug for VfwCaptureDialogs {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VfwCompressDialogs(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VfwCompressDialog_Config: VfwCompressDialogs = VfwCompressDialogs(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VfwCompressDialog_About: VfwCompressDialogs = VfwCompressDialogs(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VfwCompressDialog_QueryConfig: VfwCompressDialogs = VfwCompressDialogs(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VfwCompressDialog_QueryAbout: VfwCompressDialogs = VfwCompressDialogs(8i32);
 impl ::core::marker::Copy for VfwCompressDialogs {}
 impl ::core::clone::Clone for VfwCompressDialogs {
     fn clone(&self) -> Self {
@@ -29046,14 +29184,6 @@ impl ::core::fmt::Debug for VfwCompressDialogs {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VideoControlFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VideoControlFlag_FlipHorizontal: VideoControlFlags = VideoControlFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VideoControlFlag_FlipVertical: VideoControlFlags = VideoControlFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VideoControlFlag_ExternalTriggerEnable: VideoControlFlags = VideoControlFlags(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VideoControlFlag_Trigger: VideoControlFlags = VideoControlFlags(8i32);
 impl ::core::marker::Copy for VideoControlFlags {}
 impl ::core::clone::Clone for VideoControlFlags {
     fn clone(&self) -> Self {
@@ -29077,10 +29207,6 @@ impl ::core::fmt::Debug for VideoControlFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VideoCopyProtectionType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VideoCopyProtectionMacrovisionBasic: VideoCopyProtectionType = VideoCopyProtectionType(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VideoCopyProtectionMacrovisionCBI: VideoCopyProtectionType = VideoCopyProtectionType(1i32);
 impl ::core::marker::Copy for VideoCopyProtectionType {}
 impl ::core::clone::Clone for VideoCopyProtectionType {
     fn clone(&self) -> Self {
@@ -29104,10 +29230,6 @@ impl ::core::fmt::Debug for VideoCopyProtectionType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VideoProcAmpFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VideoProcAmp_Flags_Auto: VideoProcAmpFlags = VideoProcAmpFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VideoProcAmp_Flags_Manual: VideoProcAmpFlags = VideoProcAmpFlags(2i32);
 impl ::core::marker::Copy for VideoProcAmpFlags {}
 impl ::core::clone::Clone for VideoProcAmpFlags {
     fn clone(&self) -> Self {
@@ -29131,26 +29253,6 @@ impl ::core::fmt::Debug for VideoProcAmpFlags {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VideoProcAmpProperty(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VideoProcAmp_Brightness: VideoProcAmpProperty = VideoProcAmpProperty(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VideoProcAmp_Contrast: VideoProcAmpProperty = VideoProcAmpProperty(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VideoProcAmp_Hue: VideoProcAmpProperty = VideoProcAmpProperty(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VideoProcAmp_Saturation: VideoProcAmpProperty = VideoProcAmpProperty(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VideoProcAmp_Sharpness: VideoProcAmpProperty = VideoProcAmpProperty(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VideoProcAmp_Gamma: VideoProcAmpProperty = VideoProcAmpProperty(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VideoProcAmp_ColorEnable: VideoProcAmpProperty = VideoProcAmpProperty(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VideoProcAmp_WhiteBalance: VideoProcAmpProperty = VideoProcAmpProperty(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VideoProcAmp_BacklightCompensation: VideoProcAmpProperty = VideoProcAmpProperty(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const VideoProcAmp_Gain: VideoProcAmpProperty = VideoProcAmpProperty(9i32);
 impl ::core::marker::Copy for VideoProcAmpProperty {}
 impl ::core::clone::Clone for VideoProcAmpProperty {
     fn clone(&self) -> Self {
@@ -29174,10 +29276,6 @@ impl ::core::fmt::Debug for VideoProcAmpProperty {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AMRESCTL_RESERVEFLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMRESCTL_RESERVEFLAGS_RESERVE: _AMRESCTL_RESERVEFLAGS = _AMRESCTL_RESERVEFLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMRESCTL_RESERVEFLAGS_UNRESERVE: _AMRESCTL_RESERVEFLAGS = _AMRESCTL_RESERVEFLAGS(1i32);
 impl ::core::marker::Copy for _AMRESCTL_RESERVEFLAGS {}
 impl ::core::clone::Clone for _AMRESCTL_RESERVEFLAGS {
     fn clone(&self) -> Self {
@@ -29201,10 +29299,6 @@ impl ::core::fmt::Debug for _AMRESCTL_RESERVEFLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AMSTREAMSELECTENABLEFLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMSTREAMSELECTENABLE_ENABLE: _AMSTREAMSELECTENABLEFLAGS = _AMSTREAMSELECTENABLEFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMSTREAMSELECTENABLE_ENABLEALL: _AMSTREAMSELECTENABLEFLAGS = _AMSTREAMSELECTENABLEFLAGS(2i32);
 impl ::core::marker::Copy for _AMSTREAMSELECTENABLEFLAGS {}
 impl ::core::clone::Clone for _AMSTREAMSELECTENABLEFLAGS {
     fn clone(&self) -> Self {
@@ -29228,10 +29322,6 @@ impl ::core::fmt::Debug for _AMSTREAMSELECTENABLEFLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AMSTREAMSELECTINFOFLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMSTREAMSELECTINFO_ENABLED: _AMSTREAMSELECTINFOFLAGS = _AMSTREAMSELECTINFOFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMSTREAMSELECTINFO_EXCLUSIVE: _AMSTREAMSELECTINFOFLAGS = _AMSTREAMSELECTINFOFLAGS(2i32);
 impl ::core::marker::Copy for _AMSTREAMSELECTINFOFLAGS {}
 impl ::core::clone::Clone for _AMSTREAMSELECTINFOFLAGS {
     fn clone(&self) -> Self {
@@ -29255,30 +29345,6 @@ impl ::core::fmt::Debug for _AMSTREAMSELECTINFOFLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AM_AUDIO_RENDERER_STAT_PARAM(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_AUDREND_STAT_PARAM_BREAK_COUNT: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_AUDREND_STAT_PARAM_SLAVE_MODE: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_AUDREND_STAT_PARAM_SILENCE_DUR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(3i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_AUDREND_STAT_PARAM_LAST_BUFFER_DUR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_AUDREND_STAT_PARAM_DISCONTINUITIES: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(5i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_AUDREND_STAT_PARAM_SLAVE_RATE: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(6i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_AUDREND_STAT_PARAM_SLAVE_DROPWRITE_DUR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(7i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_AUDREND_STAT_PARAM_SLAVE_HIGHLOWERROR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(8i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_AUDREND_STAT_PARAM_SLAVE_LASTHIGHLOWERROR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(9i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_AUDREND_STAT_PARAM_SLAVE_ACCUMERROR: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(10i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_AUDREND_STAT_PARAM_BUFFERFULLNESS: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(11i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_AUDREND_STAT_PARAM_JITTER: _AM_AUDIO_RENDERER_STAT_PARAM = _AM_AUDIO_RENDERER_STAT_PARAM(12i32);
 impl ::core::marker::Copy for _AM_AUDIO_RENDERER_STAT_PARAM {}
 impl ::core::clone::Clone for _AM_AUDIO_RENDERER_STAT_PARAM {
     fn clone(&self) -> Self {
@@ -29302,10 +29368,6 @@ impl ::core::fmt::Debug for _AM_AUDIO_RENDERER_STAT_PARAM {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AM_FILTER_MISC_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_FILTER_MISC_FLAGS_IS_RENDERER: _AM_FILTER_MISC_FLAGS = _AM_FILTER_MISC_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_FILTER_MISC_FLAGS_IS_SOURCE: _AM_FILTER_MISC_FLAGS = _AM_FILTER_MISC_FLAGS(2i32);
 impl ::core::marker::Copy for _AM_FILTER_MISC_FLAGS {}
 impl ::core::clone::Clone for _AM_FILTER_MISC_FLAGS {
     fn clone(&self) -> Self {
@@ -29329,12 +29391,6 @@ impl ::core::fmt::Debug for _AM_FILTER_MISC_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AM_INTF_SEARCH_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_INTF_SEARCH_INPUT_PIN: _AM_INTF_SEARCH_FLAGS = _AM_INTF_SEARCH_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_INTF_SEARCH_OUTPUT_PIN: _AM_INTF_SEARCH_FLAGS = _AM_INTF_SEARCH_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_INTF_SEARCH_FILTER: _AM_INTF_SEARCH_FLAGS = _AM_INTF_SEARCH_FLAGS(4i32);
 impl ::core::marker::Copy for _AM_INTF_SEARCH_FLAGS {}
 impl ::core::clone::Clone for _AM_INTF_SEARCH_FLAGS {
     fn clone(&self) -> Self {
@@ -29358,12 +29414,6 @@ impl ::core::fmt::Debug for _AM_INTF_SEARCH_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AM_OVERLAY_NOTIFY_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_OVERLAY_NOTIFY_VISIBLE_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = _AM_OVERLAY_NOTIFY_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_OVERLAY_NOTIFY_SOURCE_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = _AM_OVERLAY_NOTIFY_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_OVERLAY_NOTIFY_DEST_CHANGE: _AM_OVERLAY_NOTIFY_FLAGS = _AM_OVERLAY_NOTIFY_FLAGS(4i32);
 impl ::core::marker::Copy for _AM_OVERLAY_NOTIFY_FLAGS {}
 impl ::core::clone::Clone for _AM_OVERLAY_NOTIFY_FLAGS {
     fn clone(&self) -> Self {
@@ -29387,8 +29437,6 @@ impl ::core::fmt::Debug for _AM_OVERLAY_NOTIFY_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PIN_FLOW_CONTROL_BLOCK: _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS = _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS(1i32);
 impl ::core::marker::Copy for _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS {}
 impl ::core::clone::Clone for _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS {
     fn clone(&self) -> Self {
@@ -29412,16 +29460,6 @@ impl ::core::fmt::Debug for _AM_PIN_FLOW_CONTROL_BLOCK_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AM_PUSHSOURCE_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PUSHSOURCECAPS_INTERNAL_RM: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PUSHSOURCECAPS_NOT_LIVE: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PUSHSOURCECAPS_PRIVATE_CLOCK: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PUSHSOURCEREQS_USE_STREAM_CLOCK: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(65536i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_PUSHSOURCEREQS_USE_CLOCK_CHAIN: _AM_PUSHSOURCE_FLAGS = _AM_PUSHSOURCE_FLAGS(131072i32);
 impl ::core::marker::Copy for _AM_PUSHSOURCE_FLAGS {}
 impl ::core::clone::Clone for _AM_PUSHSOURCE_FLAGS {
     fn clone(&self) -> Self {
@@ -29445,8 +29483,6 @@ impl ::core::fmt::Debug for _AM_PUSHSOURCE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AM_RENSDEREXFLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AM_RENDEREX_RENDERTOEXISTINGRENDERERS: _AM_RENSDEREXFLAGS = _AM_RENSDEREXFLAGS(1i32);
 impl ::core::marker::Copy for _AM_RENSDEREXFLAGS {}
 impl ::core::clone::Clone for _AM_RENSDEREXFLAGS {
     fn clone(&self) -> Self {
@@ -29470,14 +29506,6 @@ impl ::core::fmt::Debug for _AM_RENSDEREXFLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DVDECODERRESOLUTION(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVDECODERRESOLUTION_720x480: _DVDECODERRESOLUTION = _DVDECODERRESOLUTION(1000i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVDECODERRESOLUTION_360x240: _DVDECODERRESOLUTION = _DVDECODERRESOLUTION(1001i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVDECODERRESOLUTION_180x120: _DVDECODERRESOLUTION = _DVDECODERRESOLUTION(1002i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVDECODERRESOLUTION_88x60: _DVDECODERRESOLUTION = _DVDECODERRESOLUTION(1003i32);
 impl ::core::marker::Copy for _DVDECODERRESOLUTION {}
 impl ::core::clone::Clone for _DVDECODERRESOLUTION {
     fn clone(&self) -> Self {
@@ -29501,12 +29529,6 @@ impl ::core::fmt::Debug for _DVDECODERRESOLUTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DVENCODERFORMAT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVENCODERFORMAT_DVSD: _DVENCODERFORMAT = _DVENCODERFORMAT(2007i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVENCODERFORMAT_DVHD: _DVENCODERFORMAT = _DVENCODERFORMAT(2008i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVENCODERFORMAT_DVSL: _DVENCODERFORMAT = _DVENCODERFORMAT(2009i32);
 impl ::core::marker::Copy for _DVENCODERFORMAT {}
 impl ::core::clone::Clone for _DVENCODERFORMAT {
     fn clone(&self) -> Self {
@@ -29530,14 +29552,6 @@ impl ::core::fmt::Debug for _DVENCODERFORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DVENCODERRESOLUTION(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVENCODERRESOLUTION_720x480: _DVENCODERRESOLUTION = _DVENCODERRESOLUTION(2012i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVENCODERRESOLUTION_360x240: _DVENCODERRESOLUTION = _DVENCODERRESOLUTION(2013i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVENCODERRESOLUTION_180x120: _DVENCODERRESOLUTION = _DVENCODERRESOLUTION(2014i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVENCODERRESOLUTION_88x60: _DVENCODERRESOLUTION = _DVENCODERRESOLUTION(2015i32);
 impl ::core::marker::Copy for _DVENCODERRESOLUTION {}
 impl ::core::clone::Clone for _DVENCODERRESOLUTION {
     fn clone(&self) -> Self {
@@ -29561,10 +29575,6 @@ impl ::core::fmt::Debug for _DVENCODERRESOLUTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DVENCODERVIDEOFORMAT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVENCODERVIDEOFORMAT_NTSC: _DVENCODERVIDEOFORMAT = _DVENCODERVIDEOFORMAT(2000i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVENCODERVIDEOFORMAT_PAL: _DVENCODERVIDEOFORMAT = _DVENCODERVIDEOFORMAT(2001i32);
 impl ::core::marker::Copy for _DVENCODERVIDEOFORMAT {}
 impl ::core::clone::Clone for _DVENCODERVIDEOFORMAT {
     fn clone(&self) -> Self {
@@ -29588,14 +29598,6 @@ impl ::core::fmt::Debug for _DVENCODERVIDEOFORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _DVRESOLUTION(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVRESOLUTION_FULL: _DVRESOLUTION = _DVRESOLUTION(1000i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVRESOLUTION_HALF: _DVRESOLUTION = _DVRESOLUTION(1001i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVRESOLUTION_QUARTER: _DVRESOLUTION = _DVRESOLUTION(1002i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const DVRESOLUTION_DC: _DVRESOLUTION = _DVRESOLUTION(1003i32);
 impl ::core::marker::Copy for _DVRESOLUTION {}
 impl ::core::clone::Clone for _DVRESOLUTION {
     fn clone(&self) -> Self {
@@ -29619,8 +29621,6 @@ impl ::core::fmt::Debug for _DVRESOLUTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _REM_FILTER_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const REMFILTERF_LEAVECONNECTED: _REM_FILTER_FLAGS = _REM_FILTER_FLAGS(1i32);
 impl ::core::marker::Copy for _REM_FILTER_FLAGS {}
 impl ::core::clone::Clone for _REM_FILTER_FLAGS {
     fn clone(&self) -> Self {

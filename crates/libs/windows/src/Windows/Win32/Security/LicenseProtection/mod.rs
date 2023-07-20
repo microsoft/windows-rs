@@ -21,19 +21,19 @@ where
     ValidateLicenseKeyProtection(licensekey.into_param().abi(), notvalidbefore, notvalidafter, status).ok()
 }
 #[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LicenseProtectionStatus(pub i32);
+pub const LicenseKeyAlreadyExists: LicenseProtectionStatus = LicenseProtectionStatus(4i32);
 #[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
-pub const Success: LicenseProtectionStatus = LicenseProtectionStatus(0i32);
+pub const LicenseKeyCorrupted: LicenseProtectionStatus = LicenseProtectionStatus(3i32);
 #[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
 pub const LicenseKeyNotFound: LicenseProtectionStatus = LicenseProtectionStatus(1i32);
 #[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
 pub const LicenseKeyUnprotected: LicenseProtectionStatus = LicenseProtectionStatus(2i32);
 #[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
-pub const LicenseKeyCorrupted: LicenseProtectionStatus = LicenseProtectionStatus(3i32);
+pub const Success: LicenseProtectionStatus = LicenseProtectionStatus(0i32);
 #[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
-pub const LicenseKeyAlreadyExists: LicenseProtectionStatus = LicenseProtectionStatus(4i32);
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LicenseProtectionStatus(pub i32);
 impl ::core::marker::Copy for LicenseProtectionStatus {}
 impl ::core::clone::Clone for LicenseProtectionStatus {
     fn clone(&self) -> Self {

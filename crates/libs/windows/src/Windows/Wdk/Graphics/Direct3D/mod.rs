@@ -1237,6 +1237,268 @@ pub unsafe fn D3DKMTWaitForVerticalBlankEvent2(param0: *const D3DKMT_WAITFORVERT
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DCLEAR_COMPUTERECTS: i32 = 8i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_A1: D3DDDIFORMAT = D3DDDIFORMAT(118u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_A16B16G16R16: D3DDDIFORMAT = D3DDDIFORMAT(36u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_A16B16G16R16F: D3DDDIFORMAT = D3DDDIFORMAT(113u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_A1R5G5B5: D3DDDIFORMAT = D3DDDIFORMAT(25u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_A2B10G10R10: D3DDDIFORMAT = D3DDDIFORMAT(31u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_A2B10G10R10_XR_BIAS: D3DDDIFORMAT = D3DDDIFORMAT(119u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_A2R10G10B10: D3DDDIFORMAT = D3DDDIFORMAT(35u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_A2W10V10U10: D3DDDIFORMAT = D3DDDIFORMAT(67u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_A32B32G32R32F: D3DDDIFORMAT = D3DDDIFORMAT(116u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_A4L4: D3DDDIFORMAT = D3DDDIFORMAT(52u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_A4R4G4B4: D3DDDIFORMAT = D3DDDIFORMAT(26u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_A8: D3DDDIFORMAT = D3DDDIFORMAT(28u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_A8B8G8R8: D3DDDIFORMAT = D3DDDIFORMAT(32u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_A8L8: D3DDDIFORMAT = D3DDDIFORMAT(51u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_A8P8: D3DDDIFORMAT = D3DDDIFORMAT(40u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_A8R3G3B2: D3DDDIFORMAT = D3DDDIFORMAT(29u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_A8R8G8B8: D3DDDIFORMAT = D3DDDIFORMAT(21u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_BINARYBUFFER: D3DDDIFORMAT = D3DDDIFORMAT(199u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_BITSTREAMDATA: D3DDDIFORMAT = D3DDDIFORMAT(156u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_CxV8U8: D3DDDIFORMAT = D3DDDIFORMAT(117u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_D15S1: D3DDDIFORMAT = D3DDDIFORMAT(73u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_D16: D3DDDIFORMAT = D3DDDIFORMAT(80u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_D16_LOCKABLE: D3DDDIFORMAT = D3DDDIFORMAT(70u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_D24FS8: D3DDDIFORMAT = D3DDDIFORMAT(83u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_D24S8: D3DDDIFORMAT = D3DDDIFORMAT(75u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_D24X4S4: D3DDDIFORMAT = D3DDDIFORMAT(79u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_D24X8: D3DDDIFORMAT = D3DDDIFORMAT(77u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_D32: D3DDDIFORMAT = D3DDDIFORMAT(71u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_D32F_LOCKABLE: D3DDDIFORMAT = D3DDDIFORMAT(82u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_D32_LOCKABLE: D3DDDIFORMAT = D3DDDIFORMAT(84u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DEBLOCKINGDATA: D3DDDIFORMAT = D3DDDIFORMAT(153u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXT1: D3DDDIFORMAT = D3DDDIFORMAT(827611204u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXT2: D3DDDIFORMAT = D3DDDIFORMAT(844388420u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXT3: D3DDDIFORMAT = D3DDDIFORMAT(861165636u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXT4: D3DDDIFORMAT = D3DDDIFORMAT(877942852u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXT5: D3DDDIFORMAT = D3DDDIFORMAT(894720068u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVACOMPBUFFER_BASE: D3DDDIFORMAT = D3DDDIFORMAT(150u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVACOMPBUFFER_MAX: D3DDDIFORMAT = D3DDDIFORMAT(181u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED10: D3DDDIFORMAT = D3DDDIFORMAT(160u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED11: D3DDDIFORMAT = D3DDDIFORMAT(161u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED12: D3DDDIFORMAT = D3DDDIFORMAT(162u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED13: D3DDDIFORMAT = D3DDDIFORMAT(163u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED14: D3DDDIFORMAT = D3DDDIFORMAT(164u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED15: D3DDDIFORMAT = D3DDDIFORMAT(165u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED16: D3DDDIFORMAT = D3DDDIFORMAT(166u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED17: D3DDDIFORMAT = D3DDDIFORMAT(167u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED18: D3DDDIFORMAT = D3DDDIFORMAT(168u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED19: D3DDDIFORMAT = D3DDDIFORMAT(169u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED20: D3DDDIFORMAT = D3DDDIFORMAT(170u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED21: D3DDDIFORMAT = D3DDDIFORMAT(171u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED22: D3DDDIFORMAT = D3DDDIFORMAT(172u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED23: D3DDDIFORMAT = D3DDDIFORMAT(173u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED24: D3DDDIFORMAT = D3DDDIFORMAT(174u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED25: D3DDDIFORMAT = D3DDDIFORMAT(175u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED26: D3DDDIFORMAT = D3DDDIFORMAT(176u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED27: D3DDDIFORMAT = D3DDDIFORMAT(177u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED28: D3DDDIFORMAT = D3DDDIFORMAT(178u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED29: D3DDDIFORMAT = D3DDDIFORMAT(179u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED30: D3DDDIFORMAT = D3DDDIFORMAT(180u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED31: D3DDDIFORMAT = D3DDDIFORMAT(181u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_DXVA_RESERVED9: D3DDDIFORMAT = D3DDDIFORMAT(159u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_FILMGRAINBUFFER: D3DDDIFORMAT = D3DDDIFORMAT(158u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_G16R16: D3DDDIFORMAT = D3DDDIFORMAT(34u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_G16R16F: D3DDDIFORMAT = D3DDDIFORMAT(112u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_G32R32F: D3DDDIFORMAT = D3DDDIFORMAT(115u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_G8R8: D3DDDIFORMAT = D3DDDIFORMAT(91u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_G8R8_G8B8: D3DDDIFORMAT = D3DDDIFORMAT(1111970375u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_INDEX16: D3DDDIFORMAT = D3DDDIFORMAT(101u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_INDEX32: D3DDDIFORMAT = D3DDDIFORMAT(102u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_INVERSEQUANTIZATIONDATA: D3DDDIFORMAT = D3DDDIFORMAT(154u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_L16: D3DDDIFORMAT = D3DDDIFORMAT(81u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_L6V5U5: D3DDDIFORMAT = D3DDDIFORMAT(61u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_L8: D3DDDIFORMAT = D3DDDIFORMAT(50u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_MACROBLOCKDATA: D3DDDIFORMAT = D3DDDIFORMAT(151u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_MOTIONVECTORBUFFER: D3DDDIFORMAT = D3DDDIFORMAT(157u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_MULTI2_ARGB8: D3DDDIFORMAT = D3DDDIFORMAT(827606349u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_P8: D3DDDIFORMAT = D3DDDIFORMAT(41u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_PICTUREPARAMSDATA: D3DDDIFORMAT = D3DDDIFORMAT(150u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_Q16W16V16U16: D3DDDIFORMAT = D3DDDIFORMAT(110u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_Q8W8V8U8: D3DDDIFORMAT = D3DDDIFORMAT(63u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_R16F: D3DDDIFORMAT = D3DDDIFORMAT(111u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_R32F: D3DDDIFORMAT = D3DDDIFORMAT(114u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_R3G3B2: D3DDDIFORMAT = D3DDDIFORMAT(27u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_R5G6B5: D3DDDIFORMAT = D3DDDIFORMAT(23u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_R8: D3DDDIFORMAT = D3DDDIFORMAT(92u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_R8G8B8: D3DDDIFORMAT = D3DDDIFORMAT(20u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_R8G8_B8G8: D3DDDIFORMAT = D3DDDIFORMAT(1195525970u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_RESIDUALDIFFERENCEDATA: D3DDDIFORMAT = D3DDDIFORMAT(152u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_S1D15: D3DDDIFORMAT = D3DDDIFORMAT(72u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_S8D24: D3DDDIFORMAT = D3DDDIFORMAT(74u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_S8_LOCKABLE: D3DDDIFORMAT = D3DDDIFORMAT(85u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_SLICECONTROLDATA: D3DDDIFORMAT = D3DDDIFORMAT(155u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_UNKNOWN: D3DDDIFORMAT = D3DDDIFORMAT(0u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_UYVY: D3DDDIFORMAT = D3DDDIFORMAT(1498831189u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_V16U16: D3DDDIFORMAT = D3DDDIFORMAT(64u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_V8U8: D3DDDIFORMAT = D3DDDIFORMAT(60u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_VERTEXDATA: D3DDDIFORMAT = D3DDDIFORMAT(100u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_W11V11U10: D3DDDIFORMAT = D3DDDIFORMAT(65u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_X1R5G5B5: D3DDDIFORMAT = D3DDDIFORMAT(24u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_X4R4G4B4: D3DDDIFORMAT = D3DDDIFORMAT(30u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_X4S4D24: D3DDDIFORMAT = D3DDDIFORMAT(78u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_X8B8G8R8: D3DDDIFORMAT = D3DDDIFORMAT(33u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_X8D24: D3DDDIFORMAT = D3DDDIFORMAT(76u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_X8L8V8U8: D3DDDIFORMAT = D3DDDIFORMAT(62u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_X8R8G8B8: D3DDDIFORMAT = D3DDDIFORMAT(22u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIFMT_YUY2: D3DDDIFORMAT = D3DDDIFORMAT(844715353u32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIGPUVIRTUALADDRESS_RESERVE_NO_ACCESS: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE = D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIGPUVIRTUALADDRESS_RESERVE_NO_COMMIT: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE = D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIGPUVIRTUALADDRESS_RESERVE_ZERO: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE = D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIMULTISAMPLE_10_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(10i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIMULTISAMPLE_11_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(11i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIMULTISAMPLE_12_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(12i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIMULTISAMPLE_13_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(13i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIMULTISAMPLE_14_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(14i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIMULTISAMPLE_15_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(15i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIMULTISAMPLE_16_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(16i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIMULTISAMPLE_2_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIMULTISAMPLE_3_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIMULTISAMPLE_4_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIMULTISAMPLE_5_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIMULTISAMPLE_6_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIMULTISAMPLE_7_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIMULTISAMPLE_8_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIMULTISAMPLE_9_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(9i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIMULTISAMPLE_NONE: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIMULTISAMPLE_NONMASKABLE: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIPOOL_LOCALVIDMEM: D3DDDI_POOL = D3DDDI_POOL(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIPOOL_NONLOCALVIDMEM: D3DDDI_POOL = D3DDDI_POOL(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIPOOL_STAGINGMEM: D3DDDI_POOL = D3DDDI_POOL(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIPOOL_SYSTEMMEM: D3DDDI_POOL = D3DDDI_POOL(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDIPOOL_VIDEOMEMORY: D3DDDI_POOL = D3DDDI_POOL(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDDI_ALLOCATIONPRIORITY_HIGH: u32 = 2684354560u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDDI_ALLOCATIONPRIORITY_LOW: u32 = 1342177280u32;
@@ -1247,7 +1509,109 @@ pub const D3DDDI_ALLOCATIONPRIORITY_MINIMUM: u32 = 671088640u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDDI_ALLOCATIONPRIORITY_NORMAL: u32 = 2013265920u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_CUSTOM: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(-1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_RESERVED: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_RGB_FULL_G10_NONE_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_RGB_FULL_G2084_NONE_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(12i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_RGB_FULL_G22_NONE_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(17i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_RGB_FULL_G22_NONE_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_RGB_STUDIO_G2084_NONE_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(14i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_RGB_STUDIO_G22_NONE_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_RGB_STUDIO_G22_NONE_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_RGB_STUDIO_G24_NONE_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(21i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_RGB_STUDIO_G24_NONE_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(20i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_YCBCR_FULL_G22_LEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(11i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_YCBCR_FULL_G22_LEFT_P601: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_YCBCR_FULL_G22_LEFT_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(9i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_YCBCR_FULL_G22_NONE_P709_X601: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_YCBCR_FULL_GHLG_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(19i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G2084_LEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(13i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G2084_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(16i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G22_LEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(10i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G22_LEFT_P601: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G22_LEFT_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G22_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(15i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G24_LEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(23i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G24_LEFT_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(22i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G24_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(24i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_GHLG_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(18i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_CPU_NOTIFICATION: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_DOORBELLSTATUS_CONNECTED: D3DDDI_DOORBELLSTATUS = D3DDDI_DOORBELLSTATUS(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_DOORBELLSTATUS_CONNECTED_NOTIFY_KMD: D3DDDI_DOORBELLSTATUS = D3DDDI_DOORBELLSTATUS(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_DOORBELLSTATUS_DISCONNECTED_ABORT: D3DDDI_DOORBELLSTATUS = D3DDDI_DOORBELLSTATUS(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_DOORBELLSTATUS_DISCONNECTED_RETRY: D3DDDI_DOORBELLSTATUS = D3DDDI_DOORBELLSTATUS(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDDI_DOORBELL_PRIVATEDATA_MAX_BYTES_WDDM3_1: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_DRIVERESCAPETYPE_CPUEVENTUSAGE: D3DDDI_DRIVERESCAPETYPE = D3DDDI_DRIVERESCAPETYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_DRIVERESCAPETYPE_MAX: D3DDDI_DRIVERESCAPETYPE = D3DDDI_DRIVERESCAPETYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_DRIVERESCAPETYPE_TRANSLATEALLOCATIONHANDLE: D3DDDI_DRIVERESCAPETYPE = D3DDDI_DRIVERESCAPETYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_DRIVERESCAPETYPE_TRANSLATERESOURCEHANDLE: D3DDDI_DRIVERESCAPETYPE = D3DDDI_DRIVERESCAPETYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_FENCE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_FLIPINTERVAL_FOUR: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_FLIPINTERVAL_IMMEDIATE: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_FLIPINTERVAL_IMMEDIATE_ALLOW_TEARING: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_FLIPINTERVAL_ONE: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_FLIPINTERVAL_THREE: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_FLIPINTERVAL_TWO: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_GAMMARAMP_DEFAULT: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_GAMMARAMP_DXGI_1: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_GAMMARAMP_MATRIX_3x4: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_GAMMARAMP_MATRIX_V2: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_GAMMARAMP_RGB256x3x16: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_GAMMARAMP_UNINITIALIZED: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_HDR_METADATA_TYPE_HDR10: D3DDDI_HDR_METADATA_TYPE = D3DDDI_HDR_METADATA_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_HDR_METADATA_TYPE_HDR10PLUS: D3DDDI_HDR_METADATA_TYPE = D3DDDI_HDR_METADATA_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_HDR_METADATA_TYPE_NONE: D3DDDI_HDR_METADATA_TYPE = D3DDDI_HDR_METADATA_TYPE(0i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDDI_MAX_BROADCAST_CONTEXT: u32 = 64u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -1259,9 +1623,105 @@ pub const D3DDDI_MAX_OBJECT_WAITED_ON: u32 = 32u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDDI_MAX_WRITTEN_PRIMARIES: u32 = 16u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_MONITORED_FENCE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_OFFER_PRIORITY_AUTO: D3DDDI_OFFER_PRIORITY = D3DDDI_OFFER_PRIORITY(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_OFFER_PRIORITY_HIGH: D3DDDI_OFFER_PRIORITY = D3DDDI_OFFER_PRIORITY(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_OFFER_PRIORITY_LOW: D3DDDI_OFFER_PRIORITY = D3DDDI_OFFER_PRIORITY(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_OFFER_PRIORITY_NONE: D3DDDI_OFFER_PRIORITY = D3DDDI_OFFER_PRIORITY(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_OFFER_PRIORITY_NORMAL: D3DDDI_OFFER_PRIORITY = D3DDDI_OFFER_PRIORITY(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G2084_P2020: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(12i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_DVLL: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(33i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_HDR10PLUS: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(32i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G22_P2020: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(31i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G22_P709: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G22_P709_WCG: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(30i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_RESERVED: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_PAGINGQUEUE_PRIORITY_ABOVE_NORMAL: D3DDDI_PAGINGQUEUE_PRIORITY = D3DDDI_PAGINGQUEUE_PRIORITY(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_PAGINGQUEUE_PRIORITY_BELOW_NORMAL: D3DDDI_PAGINGQUEUE_PRIORITY = D3DDDI_PAGINGQUEUE_PRIORITY(-1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_PAGINGQUEUE_PRIORITY_NORMAL: D3DDDI_PAGINGQUEUE_PRIORITY = D3DDDI_PAGINGQUEUE_PRIORITY(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_PERIODIC_MONITORED_FENCE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_QUERYREGISTRY_ADAPTERKEY: D3DDDI_QUERYREGISTRY_TYPE = D3DDDI_QUERYREGISTRY_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_QUERYREGISTRY_DRIVERIMAGEPATH: D3DDDI_QUERYREGISTRY_TYPE = D3DDDI_QUERYREGISTRY_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_QUERYREGISTRY_DRIVERSTOREPATH: D3DDDI_QUERYREGISTRY_TYPE = D3DDDI_QUERYREGISTRY_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_QUERYREGISTRY_MAX: D3DDDI_QUERYREGISTRY_TYPE = D3DDDI_QUERYREGISTRY_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_QUERYREGISTRY_SERVICEKEY: D3DDDI_QUERYREGISTRY_TYPE = D3DDDI_QUERYREGISTRY_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_QUERYREGISTRY_STATUS_BUFFER_OVERFLOW: D3DDDI_QUERYREGISTRY_STATUS = D3DDDI_QUERYREGISTRY_STATUS(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_QUERYREGISTRY_STATUS_FAIL: D3DDDI_QUERYREGISTRY_STATUS = D3DDDI_QUERYREGISTRY_STATUS(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_QUERYREGISTRY_STATUS_MAX: D3DDDI_QUERYREGISTRY_STATUS = D3DDDI_QUERYREGISTRY_STATUS(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_QUERYREGISTRY_STATUS_SUCCESS: D3DDDI_QUERYREGISTRY_STATUS = D3DDDI_QUERYREGISTRY_STATUS(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_RECLAIM_RESULT_DISCARDED: D3DDDI_RECLAIM_RESULT = D3DDDI_RECLAIM_RESULT(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_RECLAIM_RESULT_NOT_COMMITTED: D3DDDI_RECLAIM_RESULT = D3DDDI_RECLAIM_RESULT(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_RECLAIM_RESULT_OK: D3DDDI_RECLAIM_RESULT = D3DDDI_RECLAIM_RESULT(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_ROTATION_180: D3DDDI_ROTATION = D3DDDI_ROTATION(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_ROTATION_270: D3DDDI_ROTATION = D3DDDI_ROTATION(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_ROTATION_90: D3DDDI_ROTATION = D3DDDI_ROTATION(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_ROTATION_IDENTITY: D3DDDI_ROTATION = D3DDDI_ROTATION(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_SCANLINEORDERING_INTERLACED: D3DDDI_SCANLINEORDERING = D3DDDI_SCANLINEORDERING(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_SCANLINEORDERING_PROGRESSIVE: D3DDDI_SCANLINEORDERING = D3DDDI_SCANLINEORDERING(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_SCANLINEORDERING_UNKNOWN: D3DDDI_SCANLINEORDERING = D3DDDI_SCANLINEORDERING(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_SEMAPHORE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_SYNCHRONIZATION_MUTEX: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_SYNCHRONIZATION_TYPE_LIMIT: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDDI_SYNC_OBJECT_SIGNAL: u32 = 2u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDDI_SYNC_OBJECT_WAIT: u32 = 1u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_COPY: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_MAP: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_MAP_PROTECT: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_UNMAP: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_VSSLO_INTERLACED_LOWERFIELDFIRST: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_VSSLO_INTERLACED_UPPERFIELDFIRST: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_VSSLO_OTHER: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(255i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_VSSLO_PROGRESSIVE: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDDI_VSSLO_UNINITIALIZED: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(0i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDEVCAPS_HWINDEXBUFFER: i32 = 67108864i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -1270,6 +1730,170 @@ pub const D3DDEVCAPS_HWVERTEXBUFFER: i32 = 33554432i32;
 pub const D3DDEVCAPS_SUBVOLUMELOCK: i32 = 134217728i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DDEVINFOID_VCACHE: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_ADDDIRTYBOX: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(67i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_ADDDIRTYRECT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(66i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_BLT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(81i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_BUFFERBLT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(64i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_CLEAR: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(42i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_CLIPPEDTRIANGLEFAN: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(58i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_COLORFILL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(82i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_COMPOSERECTS: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(98i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_CREATELIGHT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(35i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_CREATEPIXELSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(54i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_CREATEQUERY: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(84i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_CREATEVERTEXSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(45i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_CREATEVERTEXSHADERDECL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(71i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_CREATEVERTEXSHADERFUNC: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(74i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DELETEPIXELSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(55i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DELETEQUERY: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(90i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DELETEVERTEXSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(46i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DELETEVERTEXSHADERDECL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(72i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DELETEVERTEXSHADERFUNC: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(75i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DRAWINDEXEDPRIMITIVE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(53i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DRAWINDEXEDPRIMITIVE2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(60i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DRAWPRIMITIVE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(52i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DRAWPRIMITIVE2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(59i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DRAWRECTPATCH: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(61i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_DRAWTRIPATCH: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(62i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_GENERATEMIPSUBLEVELS: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(89i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_INDEXEDLINELIST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_INDEXEDLINELIST2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(27i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_INDEXEDLINESTRIP: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(17i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_INDEXEDTRIANGLEFAN: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(22i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_INDEXEDTRIANGLELIST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_INDEXEDTRIANGLELIST2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(26i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_INDEXEDTRIANGLESTRIP: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(20i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_ISSUEQUERY: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(91i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_LINELIST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(15i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_LINELIST_IMM: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(24i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_LINESTRIP: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(16i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_MULTIPLYTRANSFORM: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(65i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_POINTS: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_RENDERSTATE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_RESPONSECONTINUE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(87i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_RESPONSEQUERY: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(88i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETCLIPPLANE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(44i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETCONVOLUTIONKERNELMONO: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(97i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETDEPTHSTENCIL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(86i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETINDICES: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(51i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETLIGHT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(34i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETMATERIAL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(33i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETPALETTE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(30i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETPIXELSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(56i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETPIXELSHADERCONST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(57i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETPIXELSHADERCONSTB: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(94i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETPIXELSHADERCONSTI: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(93i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETPRIORITY: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(40i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETRENDERTARGET: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(41i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETRENDERTARGET2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(85i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETSCISSORRECT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(79i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETSTREAMSOURCE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(49i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETSTREAMSOURCE2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(80i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETSTREAMSOURCEFREQ: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(95i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETSTREAMSOURCEUM: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(50i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETTEXLOD: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(43i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETTRANSFORM: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(36i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETVERTEXSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(47i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETVERTEXSHADERCONST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(48i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETVERTEXSHADERCONSTB: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(83i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETVERTEXSHADERCONSTI: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(77i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETVERTEXSHADERDECL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(73i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SETVERTEXSHADERFUNC: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(76i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_STATESET: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(39i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_SURFACEBLT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(96i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_TEXBLT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(38i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_TEXTURESTAGESTATE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(25i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_TRIANGLEFAN: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(21i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_TRIANGLEFAN_IMM: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(23i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_TRIANGLELIST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(18i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_TRIANGLESTRIP: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(19i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_UPDATEPALETTE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(31i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_VIEWPORTINFO: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(28i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_VOLUMEBLT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(63i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_WINFO: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(29i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DDP2OP_ZRANGE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(32i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DFVF_FOG: i32 = 8192i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -1425,21 +2049,749 @@ pub const D3DKMDT_BITS_PER_COMPONENT_14: u32 = 16u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMDT_BITS_PER_COMPONENT_16: u32 = 32u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_CB_INTENSITY: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_CB_SCRGB: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_CB_SRGB: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_CB_UNINITIALIZED: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_CB_YCBCR: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_CB_YPBPR: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL_BYPASS: D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL = D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL_ENABLE: D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL = D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL_NO_CHANGE: D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL = D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_COMPUTE_PREEMPTION_DISPATCH_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(200i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_COMPUTE_PREEMPTION_DMA_BUFFER_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(100i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_COMPUTE_PREEMPTION_NONE: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_COMPUTE_PREEMPTION_SHADER_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(500i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_COMPUTE_PREEMPTION_THREAD_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(400i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_COMPUTE_PREEMPTION_THREAD_GROUP_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(300i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_EPT_NOPIVOT: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_EPT_ROTATION: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_EPT_SCALING: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_EPT_UNINITIALIZED: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_EPT_VIDPNSOURCE: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_EPT_VIDPNTARGET: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_GDISURFACE_EXISTINGSYSMEM: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_GDISURFACE_INVALID: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_GDISURFACE_LOOKUPTABLE: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_GDISURFACE_STAGING: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_GDISURFACE_STAGING_CPUVISIBLE: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_GDISURFACE_TEXTURE: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_GDISURFACE_TEXTURE_CPUVISIBLE: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_GDISURFACE_TEXTURE_CPUVISIBLE_CROSSADAPTER: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_GDISURFACE_TEXTURE_CROSSADAPTER: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_GRAPHICS_PREEMPTION_DMA_BUFFER_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(100i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_GRAPHICS_PREEMPTION_NONE: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_GRAPHICS_PREEMPTION_PIXEL_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(400i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_GRAPHICS_PREEMPTION_PRIMITIVE_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(200i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_GRAPHICS_PREEMPTION_SHADER_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(500i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_GRAPHICS_PREEMPTION_TRIANGLE_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(300i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_GTF_COMPLIANT: D3DKMDT_GTFCOMPLIANCE = D3DKMDT_GTFCOMPLIANCE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_GTF_NOTCOMPLIANT: D3DKMDT_GTFCOMPLIANCE = D3DKMDT_GTFCOMPLIANCE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_GTF_UNINITIALIZED: D3DKMDT_GTFCOMPLIANCE = D3DKMDT_GTFCOMPLIANCE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMDT_MACROVISION_OEMCOPYPROTECTION_SIZE: u32 = 256u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMDT_MAX_OVERLAYS_BITCOUNT: u32 = 2u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMDT_MAX_VIDPN_SOURCES_BITCOUNT: u32 = 4u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MCC_ENFORCE: D3DKMDT_MONITOR_CONNECTIVITY_CHECKS = D3DKMDT_MONITOR_CONNECTIVITY_CHECKS(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MCC_IGNORE: D3DKMDT_MONITOR_CONNECTIVITY_CHECKS = D3DKMDT_MONITOR_CONNECTIVITY_CHECKS(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MCC_UNINITIALIZED: D3DKMDT_MONITOR_CONNECTIVITY_CHECKS = D3DKMDT_MONITOR_CONNECTIVITY_CHECKS(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MCO_DEFAULTMONITORPROFILE: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MCO_DRIVER: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MCO_MONITORDESCRIPTOR: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MCO_MONITORDESCRIPTOR_REGISTRYOVERRIDE: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MCO_SPECIFICCAP_REGISTRYOVERRIDE: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MCO_UNINITIALIZED: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MDT_OTHER: D3DKMDT_MONITOR_DESCRIPTOR_TYPE = D3DKMDT_MONITOR_DESCRIPTOR_TYPE(255i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MDT_UNINITIALIZED: D3DKMDT_MONITOR_DESCRIPTOR_TYPE = D3DKMDT_MONITOR_DESCRIPTOR_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MDT_VESA_EDID_V1_BASEBLOCK: D3DKMDT_MONITOR_DESCRIPTOR_TYPE = D3DKMDT_MONITOR_DESCRIPTOR_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MDT_VESA_EDID_V1_BLOCKMAP: D3DKMDT_MONITOR_DESCRIPTOR_TYPE = D3DKMDT_MONITOR_DESCRIPTOR_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MFRC_ACTIVESIZE: D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT = D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MFRC_MAXPIXELRATE: D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT = D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MFRC_UNINITIALIZED: D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT = D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MOA_INTERRUPTIBLE: D3DKMDT_MONITOR_ORIENTATION_AWARENESS = D3DKMDT_MONITOR_ORIENTATION_AWARENESS(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MOA_NONE: D3DKMDT_MONITOR_ORIENTATION_AWARENESS = D3DKMDT_MONITOR_ORIENTATION_AWARENESS(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MOA_POLLED: D3DKMDT_MONITOR_ORIENTATION_AWARENESS = D3DKMDT_MONITOR_ORIENTATION_AWARENESS(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MOA_UNINITIALIZED: D3DKMDT_MONITOR_ORIENTATION_AWARENESS = D3DKMDT_MONITOR_ORIENTATION_AWARENESS(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MO_0DEG: D3DKMDT_MONITOR_ORIENTATION = D3DKMDT_MONITOR_ORIENTATION(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MO_180DEG: D3DKMDT_MONITOR_ORIENTATION = D3DKMDT_MONITOR_ORIENTATION(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MO_270DEG: D3DKMDT_MONITOR_ORIENTATION = D3DKMDT_MONITOR_ORIENTATION(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MO_90DEG: D3DKMDT_MONITOR_ORIENTATION = D3DKMDT_MONITOR_ORIENTATION(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MO_UNINITIALIZED: D3DKMDT_MONITOR_ORIENTATION = D3DKMDT_MONITOR_ORIENTATION(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MPR_ALLCAPS: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MPR_CLONE_PATH_PRUNED: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(9i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MPR_DEFAULT_PROFILE_MONITOR_SOURCE_MODE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MPR_DESCRIPTOR_MONITOR_FREQUENCY_RANGE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MPR_DESCRIPTOR_MONITOR_SOURCE_MODE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MPR_DESCRIPTOR_OVERRIDE_MONITOR_FREQUENCY_RANGE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MPR_DESCRIPTOR_OVERRIDE_MONITOR_SOURCE_MODE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MPR_DRIVER_RECOMMENDED_MONITOR_SOURCE_MODE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MPR_MAXVALID: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(10i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MPR_MONITOR_FREQUENCY_RANGE_OVERRIDE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MPR_UNINITIALIZED: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MP_NOTPREFERRED: D3DKMDT_MODE_PREFERENCE = D3DKMDT_MODE_PREFERENCE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MP_PREFERRED: D3DKMDT_MODE_PREFERENCE = D3DKMDT_MODE_PREFERENCE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MP_UNINITIALIZED: D3DKMDT_MODE_PREFERENCE = D3DKMDT_MODE_PREFERENCE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MTT_DEFAULTMONITORPROFILE: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MTT_DETAILED: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MTT_DRIVER: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MTT_ESTABLISHED: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MTT_EXTRASTANDARD: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MTT_STANDARD: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_MTT_UNINITIALIZED: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_PVAM_DIRECT: D3DKMDT_PIXEL_VALUE_ACCESS_MODE = D3DKMDT_PIXEL_VALUE_ACCESS_MODE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_PVAM_PRESETPALETTE: D3DKMDT_PIXEL_VALUE_ACCESS_MODE = D3DKMDT_PIXEL_VALUE_ACCESS_MODE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_PVAM_SETTABLEPALETTE: D3DKMDT_PIXEL_VALUE_ACCESS_MODE = D3DKMDT_PIXEL_VALUE_ACCESS_MODE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_PVAM_UNINITIALIZED: D3DKMDT_PIXEL_VALUE_ACCESS_MODE = D3DKMDT_PIXEL_VALUE_ACCESS_MODE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_RMT_GRAPHICS: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = D3DKMDT_VIDPN_SOURCE_MODE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_RMT_GRAPHICS_STEREO: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = D3DKMDT_VIDPN_SOURCE_MODE_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_RMT_GRAPHICS_STEREO_ADVANCED_SCAN: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = D3DKMDT_VIDPN_SOURCE_MODE_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_RMT_TEXT: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = D3DKMDT_VIDPN_SOURCE_MODE_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_RMT_UNINITIALIZED: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = D3DKMDT_VIDPN_SOURCE_MODE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_STANDARDALLOCATION_GDISURFACE: D3DKMDT_STANDARDALLOCATION_TYPE = D3DKMDT_STANDARDALLOCATION_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_STANDARDALLOCATION_SHADOWSURFACE: D3DKMDT_STANDARDALLOCATION_TYPE = D3DKMDT_STANDARDALLOCATION_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_STANDARDALLOCATION_SHAREDPRIMARYSURFACE: D3DKMDT_STANDARDALLOCATION_TYPE = D3DKMDT_STANDARDALLOCATION_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_STANDARDALLOCATION_STAGINGSURFACE: D3DKMDT_STANDARDALLOCATION_TYPE = D3DKMDT_STANDARDALLOCATION_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_STANDARDALLOCATION_VGPU: D3DKMDT_STANDARDALLOCATION_TYPE = D3DKMDT_STANDARDALLOCATION_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_TRF_UNINITIALIZED: D3DKMDT_TEXT_RENDERING_FORMAT = D3DKMDT_TEXT_RENDERING_FORMAT(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_BNC: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_COMPONENT_VIDEO: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_COMPOSITE_VIDEO: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_DISPLAYPORT_EMBEDDED: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(11i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_DISPLAYPORT_EXTERNAL: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(10i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_DVI: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_D_JPN: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_HD15: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_HDMI: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_INDIRECT_WIRED: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(16i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_INTERNAL: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(-2147483648i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_LVDS: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_MIRACAST: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(15i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_OTHER: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(-1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_RCA_3COMPONENT: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_RF: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_SDI: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(9i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_SDTVDONGLE: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(14i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_SVIDEO: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_SVIDEO_4PIN: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_SVIDEO_7PIN: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_UDI_EMBEDDED: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(13i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_UDI_EXTERNAL: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(12i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VOT_UNINITIALIZED: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(-2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPC_GRAPHICS: D3DKMDT_VIDPN_PRESENT_PATH_CONTENT = D3DKMDT_VIDPN_PRESENT_PATH_CONTENT(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPC_NOTSPECIFIED: D3DKMDT_VIDPN_PRESENT_PATH_CONTENT = D3DKMDT_VIDPN_PRESENT_PATH_CONTENT(255i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPC_UNINITIALIZED: D3DKMDT_VIDPN_PRESENT_PATH_CONTENT = D3DKMDT_VIDPN_PRESENT_PATH_CONTENT(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPC_VIDEO: D3DKMDT_VIDPN_PRESENT_PATH_CONTENT = D3DKMDT_VIDPN_PRESENT_PATH_CONTENT(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPI_DENARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(10i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPI_NONARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(9i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPI_OCTONARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPI_PRIMARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPI_QUATERNARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPI_QUINARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPI_SECONDARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPI_SENARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPI_SEPTENARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPI_TERTIARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPI_UNINITIALIZED: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPMT_MACROVISION_APSTRIGGER: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE = D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPMT_MACROVISION_FULLSUPPORT: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE = D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPMT_NOPROTECTION: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE = D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPMT_UNINITIALIZED: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE = D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPR_IDENTITY: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPR_IDENTITY_OFFSET180: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(9i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPR_IDENTITY_OFFSET270: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(13i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPR_IDENTITY_OFFSET90: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPR_NOTSPECIFIED: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(255i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPR_ROTATE180: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPR_ROTATE180_OFFSET180: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(11i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPR_ROTATE180_OFFSET270: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(15i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPR_ROTATE180_OFFSET90: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPR_ROTATE270: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPR_ROTATE270_OFFSET180: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(12i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPR_ROTATE270_OFFSET270: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(16i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPR_ROTATE270_OFFSET90: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPR_ROTATE90: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPR_ROTATE90_OFFSET180: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(10i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPR_ROTATE90_OFFSET270: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(14i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPR_ROTATE90_OFFSET90: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPR_UNINITIALIZED: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPR_UNPINNED: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(254i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPS_ASPECTRATIOCENTEREDMAX: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPS_CENTERED: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPS_CUSTOM: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPS_IDENTITY: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPS_NOTSPECIFIED: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(255i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPS_RESERVED1: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(253i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPS_STRETCHED: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPS_UNINITIALIZED: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VPPS_UNPINNED: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(254i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_APPLE: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_EIA_861: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(25i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_EIA_861A: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(26i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_EIA_861B: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(27i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_IBM: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_NTSC_443: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_NTSC_J: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_NTSC_M: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_OTHER: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(255i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_PAL_B: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(9i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_PAL_B1: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(10i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_PAL_D: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(14i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_PAL_G: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(11i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_PAL_H: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(12i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_PAL_I: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(13i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_PAL_K: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(28i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_PAL_K1: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(29i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_PAL_L: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(30i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_PAL_M: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(31i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_PAL_N: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(15i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_PAL_NC: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(16i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_SECAM_B: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(17i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_SECAM_D: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(18i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_SECAM_G: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(19i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_SECAM_H: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(20i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_SECAM_K: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(21i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_SECAM_K1: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(22i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_SECAM_L: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(23i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_SECAM_L1: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(24i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_UNINITIALIZED: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_VESA_CVT: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_VESA_DMT: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMDT_VSS_VESA_GTF: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE_EXTRA_CCD_DATABASE_INFO: D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE = D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE_MODES_PRUNED: D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE = D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE(15i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ADAPTER_VERIFIER_OPTION_VIDMM_FLAGS: D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE = D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE(1000i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ADAPTER_VERIFIER_OPTION_VIDMM_TRIM_INTERVAL: D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE = D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE(1001i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ALLOCATIONRESIDENCYSTATUS_NOTRESIDENT: D3DKMT_ALLOCATIONRESIDENCYSTATUS = D3DKMT_ALLOCATIONRESIDENCYSTATUS(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ALLOCATIONRESIDENCYSTATUS_RESIDENTINGPUMEMORY: D3DKMT_ALLOCATIONRESIDENCYSTATUS = D3DKMT_ALLOCATIONRESIDENCYSTATUS(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ALLOCATIONRESIDENCYSTATUS_RESIDENTINSHAREDMEMORY: D3DKMT_ALLOCATIONRESIDENCYSTATUS = D3DKMT_ALLOCATIONRESIDENCYSTATUS(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_AUXILIARYPRESENTINFO_TYPE_FLIPMANAGER: D3DKMT_AUXILIARYPRESENTINFO_TYPE = D3DKMT_AUXILIARYPRESENTINFO_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_AllocationPriorityClassHigh: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_AllocationPriorityClassLow: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_AllocationPriorityClassMaximum: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_AllocationPriorityClassMinimum: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_AllocationPriorityClassNormal: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_BRIGHTNESS_INFO_BEGIN_MANUAL_MODE: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_BRIGHTNESS_INFO_END_MANUAL_MODE: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(9i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_BRIGHTNESS_INFO_GET: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_BRIGHTNESS_INFO_GET_CAPS: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_BRIGHTNESS_INFO_GET_NIT_RANGES: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(11i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_BRIGHTNESS_INFO_GET_POSSIBLE_LEVELS: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_BRIGHTNESS_INFO_GET_REDUCTION: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_BRIGHTNESS_INFO_SET: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_BRIGHTNESS_INFO_SET_OPTIMIZATION: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_BRIGHTNESS_INFO_SET_STATE: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_BRIGHTNESS_INFO_TOGGLE_LOGGING: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(10i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CANCEL_PRESENTS_OPERATION_CANCEL_FROM: D3DKMT_CANCEL_PRESENTS_OPERATION = D3DKMT_CANCEL_PRESENTS_OPERATION(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CANCEL_PRESENTS_OPERATION_REPROGRAM_INTERRUPT: D3DKMT_CANCEL_PRESENTS_OPERATION = D3DKMT_CANCEL_PRESENTS_OPERATION(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_11ON12: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(14i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_9ON12: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(13i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_CDD: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_CLON12: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(17i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_CUDA: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_DML_PYTORCH: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(20i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_DML_TENSORFLOW: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(18i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_DX10: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(10i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_DX11: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(11i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_DX12: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(12i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_DX7: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_DX8: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_DX9: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(9i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_GLON12: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(16i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_MAX: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(21i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_MFT_ENCODE: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(15i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_ONEAPI_LEVEL0: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(19i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_OPENCL: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_OPENGL: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_RESERVED: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_UNKNOWN: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CLIENTHINT_VULKAN: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_COPY: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER = D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_NONE: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER = D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_SCANOUT: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER = D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_TEXTURE: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER = D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMT_CROSS_ADAPTER_RESOURCE_HEIGHT_ALIGNMENT: u32 = 4u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMT_CROSS_ADAPTER_RESOURCE_PITCH_ALIGNMENT: u32 = 128u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ClientPagingBuffer: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ClientRenderBuffer: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEFRAG_ESCAPE_DEFRAG_DOWNWARD: D3DKMT_DEFRAG_ESCAPE_OPERATION = D3DKMT_DEFRAG_ESCAPE_OPERATION(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEFRAG_ESCAPE_DEFRAG_PASS: D3DKMT_DEFRAG_ESCAPE_OPERATION = D3DKMT_DEFRAG_ESCAPE_OPERATION(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEFRAG_ESCAPE_DEFRAG_UPWARD: D3DKMT_DEFRAG_ESCAPE_OPERATION = D3DKMT_DEFRAG_ESCAPE_OPERATION(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEFRAG_ESCAPE_GET_FRAGMENTATION_STATS: D3DKMT_DEFRAG_ESCAPE_OPERATION = D3DKMT_DEFRAG_ESCAPE_OPERATION(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEFRAG_ESCAPE_VERIFY_TRANSFER: D3DKMT_DEFRAG_ESCAPE_OPERATION = D3DKMT_DEFRAG_ESCAPE_OPERATION(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEVICEESCAPE_RESTOREGAMMA: D3DKMT_DEVICEESCAPE_TYPE = D3DKMT_DEVICEESCAPE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEVICEESCAPE_VIDPNFROMALLOCATION: D3DKMT_DEVICEESCAPE_TYPE = D3DKMT_DEVICEESCAPE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEVICEEXECUTION_ACTIVE: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEVICEEXECUTION_ERROR_DMAFAULT: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEVICEEXECUTION_ERROR_DMAPAGEFAULT: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEVICEEXECUTION_ERROR_OUTOFMEMORY: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEVICEEXECUTION_HUNG: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEVICEEXECUTION_RESET: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEVICEEXECUTION_STOPPED: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEVICESTATE_EXECUTION: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEVICESTATE_PAGE_FAULT: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEVICESTATE_PRESENT: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEVICESTATE_PRESENT_DWM: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEVICESTATE_PRESENT_QUEUE: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEVICESTATE_RESET: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEVICE_ERROR_REASON_DRIVER_ERROR: D3DKMT_DEVICE_ERROR_REASON = D3DKMT_DEVICE_ERROR_REASON(-2147483642i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DEVICE_ERROR_REASON_GENERIC: D3DKMT_DEVICE_ERROR_REASON = D3DKMT_DEVICE_ERROR_REASON(-2147483648i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DMMESCAPETYPE_ACTIVEVIDPN_COFUNCPATHMODALITY_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(11i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DMMESCAPETYPE_ACTIVEVIDPN_SOURCEMODESET_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(10i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DMMESCAPETYPE_GET_ACTIVEVIDPN_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DMMESCAPETYPE_GET_LASTCLIENTCOMMITTEDVIDPN_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(12i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DMMESCAPETYPE_GET_MONITORS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DMMESCAPETYPE_GET_SUMMARY_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DMMESCAPETYPE_GET_VERSION_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(13i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DMMESCAPETYPE_GET_VIDEO_PRESENT_SOURCES_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DMMESCAPETYPE_GET_VIDEO_PRESENT_TARGETS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DMMESCAPETYPE_RECENTLY_COMMITTED_VIDPNS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DMMESCAPETYPE_RECENTLY_RECOMMENDED_VIDPNS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DMMESCAPETYPE_RECENT_MODECHANGE_REQUESTS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DMMESCAPETYPE_RECENT_MONITOR_PRESENCE_EVENTS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(9i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DMMESCAPETYPE_UNINITIALIZED: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DMMESCAPETYPE_VIDPN_MGR_DIAGNOSTICS: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(14i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DeferredCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DeviceCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_DmaPacketTypeMax: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_ACTIVATE_SPECIFIC_DIAG: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(14i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_ADAPTER_VERIFIER_OPTION: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(29i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_BDD_FALLBACK: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(13i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_BDD_PNP: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(12i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_BRIGHTNESS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(17i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_CCD_DATABASE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(38i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_DEBUG_SNAPSHOT: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_DEVICE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_DIAGNOSTICS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(9i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_DMM: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_DOD_SET_DIRTYRECT_MODE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(31i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_DRIVERPRIVATE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_DRT_TEST: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_EDID_CACHE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(18i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_FORCE_BDDFALLBACK_HEADLESS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(24i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_GET_DISPLAY_CONFIGURATIONS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(36i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_GET_EXTERNAL_DIAGNOSTICS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(34i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_HISTORY_BUFFER_STATUS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(21i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_IDD_REQUEST: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(30i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_LOG_CODEPOINT_PACKET: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(32i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_LOG_USERMODE_DAIG_PACKET: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(33i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_MIRACAST_ADAPTER_DIAG_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(23i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_MIRACAST_DISPLAY_REQUEST: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(20i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_MODES_PRUNED_OUT: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(15i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_OUTPUTDUPL_DIAGNOSTICS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(11i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_OUTPUTDUPL_SNAPSHOT: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(10i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_PFN_CONTROL_DEFAULT: D3DKMT_ESCAPE_PFN_CONTROL_COMMAND = D3DKMT_ESCAPE_PFN_CONTROL_COMMAND(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_PFN_CONTROL_FORCE_CPU: D3DKMT_ESCAPE_PFN_CONTROL_COMMAND = D3DKMT_ESCAPE_PFN_CONTROL_COMMAND(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_PFN_CONTROL_FORCE_GPU: D3DKMT_ESCAPE_PFN_CONTROL_COMMAND = D3DKMT_ESCAPE_PFN_CONTROL_COMMAND(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_PROCESS_VERIFIER_OPTION: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(28i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_QUERY_DMA_REMAPPING_STATUS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(39i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_QUERY_IOMMU_STATUS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(37i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_REQUEST_MACHINE_CRASH: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(25i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_SOFTGPU_ENABLE_DISABLE_HMD: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(27i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_TDRDBGCTRL: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_VIDMM: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_VIDSCH: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE_SET_BASE_DESKTOP_DURATION: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE = D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE_SET_PROCESS_BOOST_ELIGIBLE: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE = D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE_SET_VSYNC_MULTIPLIER: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE = D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_WHQL_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(16i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_WIN32K_BDD_FALLBACK: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1029i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_WIN32K_COLOR_PROFILE_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1036i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_WIN32K_DDA_TEST_CTL: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1030i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_WIN32K_DISPBROKER_TEST: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1035i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_WIN32K_DPI_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1026i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_WIN32K_HIP_DEVICE_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1024i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_WIN32K_PRESENTER_VIEW_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1027i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_WIN32K_QUERY_CD_ROTATION_BLOCK: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1025i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_WIN32K_SET_DIMMED_STATE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1037i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_WIN32K_SPECIALIZED_DISPLAY_TEST: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1038i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_WIN32K_START: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1024i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_WIN32K_SYSTEM_DPI: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1028i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_ESCAPE_WIN32K_USER_DETECTED_BLACK_SCREEN: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1031i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE_FLIP_COMPLETE: D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE = D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE_FLIP_SUBMITTED: D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE = D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE(0i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMT_GDI_STYLE_HANDLE_DECORATION: u32 = 2u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMT_GETPRESENTHISTORY_MAXTOKENS: u32 = 2048u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMT_GET_PTE_MAX: u32 = 64u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_GET_QUEUEDLIMIT_PRESENT: D3DKMT_QUEUEDLIMIT_TYPE = D3DKMT_QUEUEDLIMIT_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_GPU_PREFERENCE_STATE_HIGH_PERFORMANCE: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_GPU_PREFERENCE_STATE_MINIMUM_POWER: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_GPU_PREFERENCE_STATE_NOT_FOUND: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_GPU_PREFERENCE_STATE_UNINITIALIZED: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_GPU_PREFERENCE_STATE_UNSPECIFIED: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_GPU_PREFERENCE_STATE_USER_SPECIFIED_GPU: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_GPU_PREFERENCE_TYPE_DX_DATABASE: D3DKMT_GPU_PREFERENCE_QUERY_TYPE = D3DKMT_GPU_PREFERENCE_QUERY_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_GPU_PREFERENCE_TYPE_IHV_DLIST: D3DKMT_GPU_PREFERENCE_QUERY_TYPE = D3DKMT_GPU_PREFERENCE_QUERY_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_GPU_PREFERENCE_TYPE_USER_PREFERENCE: D3DKMT_GPU_PREFERENCE_QUERY_TYPE = D3DKMT_GPU_PREFERENCE_QUERY_TYPE(2i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMT_MAX_BUNDLE_OBJECTS_PER_HANDLE: u32 = 16u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -1459,25 +2811,523 @@ pub const D3DKMT_MAX_SEGMENT_COUNT: u32 = 32u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMT_MAX_WAITFORVERTICALBLANK_OBJECTS: u32 = 8u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MEMORY_SEGMENT_GROUP_LOCAL: D3DKMT_MEMORY_SEGMENT_GROUP = D3DKMT_MEMORY_SEGMENT_GROUP(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MEMORY_SEGMENT_GROUP_NON_LOCAL: D3DKMT_MEMORY_SEGMENT_GROUP = D3DKMT_MEMORY_SEGMENT_GROUP(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_CANCELLED: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483637i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_DEVICE_ERROR: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483645i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_DEVICE_NOT_FOUND: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483642i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_DEVICE_NOT_STARTED: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483641i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_GPU_RESOURCE_IN_USE: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483646i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_INSUFFICIENT_BANDWIDTH: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483639i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_INSUFFICIENT_MEMORY: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483638i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_INVALID_PARAMETER: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483640i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_PENDING: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_REMOTE_SESSION: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483643i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_SUCCESS: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_SUCCESS_NO_MONITOR: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_UNKOWN_ERROR: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483647i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MIRACAST_DEVICE_STATUS_UNKOWN_PAIRING: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483644i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MIRACAST_DRIVER_IHV: D3DKMT_MIRACAST_DRIVER_TYPE = D3DKMT_MIRACAST_DRIVER_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MIRACAST_DRIVER_MS: D3DKMT_MIRACAST_DRIVER_TYPE = D3DKMT_MIRACAST_DRIVER_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MIRACAST_DRIVER_NOT_SUPPORTED: D3DKMT_MIRACAST_DRIVER_TYPE = D3DKMT_MIRACAST_DRIVER_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MULIIPLANE_OVERLAY_VIDEO_FRAME_FORMAT_PROGRESSIVE: D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MULTIPLANE_OVERLAY_BLEND_ALPHABLEND: D3DKMT_MULTIPLANE_OVERLAY_BLEND = D3DKMT_MULTIPLANE_OVERLAY_BLEND(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MULTIPLANE_OVERLAY_BLEND_OPAQUE: D3DKMT_MULTIPLANE_OVERLAY_BLEND = D3DKMT_MULTIPLANE_OVERLAY_BLEND(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MULTIPLANE_OVERLAY_FLAG_HORIZONTAL_FLIP: D3DKMT_MULTIPLANE_OVERLAY_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_FLAGS(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MULTIPLANE_OVERLAY_FLAG_STATIC_CHECK: D3DKMT_MULTIPLANE_OVERLAY_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_FLAGS(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MULTIPLANE_OVERLAY_FLAG_VERTICAL_FLIP: D3DKMT_MULTIPLANE_OVERLAY_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_FLAGS(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_HORIZONTAL: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_VERTICAL: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT_INTERLACED_BOTTOM_FIELD_FIRST: D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT_INTERLACED_TOP_FIELD_FIRST: D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAG_BT709: D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAG_NOMINAL_RANGE: D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAG_xvYCC: D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MaxAllocationPriorityClass: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_MmIoFlipCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_OFFER_PRIORITY_AUTO: D3DKMT_OFFER_PRIORITY = D3DKMT_OFFER_PRIORITY(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_OFFER_PRIORITY_HIGH: D3DKMT_OFFER_PRIORITY = D3DKMT_OFFER_PRIORITY(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_OFFER_PRIORITY_LOW: D3DKMT_OFFER_PRIORITY = D3DKMT_OFFER_PRIORITY(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_OFFER_PRIORITY_NORMAL: D3DKMT_OFFER_PRIORITY = D3DKMT_OFFER_PRIORITY(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE_COLOR: D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE = D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE_MASKED_COLOR: D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE = D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE_MONOCHROME: D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE = D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_OUTPUTDUPL_METADATATYPE_DIRTY_RECTS: D3DKMT_OUTPUTDUPL_METADATATYPE = D3DKMT_OUTPUTDUPL_METADATATYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_OUTPUTDUPL_METADATATYPE_MOVE_RECTS: D3DKMT_OUTPUTDUPL_METADATATYPE = D3DKMT_OUTPUTDUPL_METADATATYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PM_FLIPMANAGER: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(9i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PM_REDIRECTED_BLT: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PM_REDIRECTED_COMPOSITION: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PM_REDIRECTED_FLIP: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PM_REDIRECTED_GDI: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PM_REDIRECTED_GDI_SYSMEM: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PM_REDIRECTED_VISTABLT: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PM_SCREENCAPTUREFENCE: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PM_SURFACECOMPLETE: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PM_UNINITIALIZED: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PNP_KEY_HARDWARE: D3DKMT_PNP_KEY_TYPE = D3DKMT_PNP_KEY_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PNP_KEY_SOFTWARE: D3DKMT_PNP_KEY_TYPE = D3DKMT_PNP_KEY_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PROCESS_VERIFIER_OPTION_VIDMM_FLAGS: D3DKMT_PROCESS_VERIFIER_OPTION_TYPE = D3DKMT_PROCESS_VERIFIER_OPTION_TYPE(1000i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PROCESS_VERIFIER_OPTION_VIDMM_RESTRICT_BUDGET: D3DKMT_PROCESS_VERIFIER_OPTION_TYPE = D3DKMT_PROCESS_VERIFIER_OPTION_TYPE(1001i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PROTECTED_SESSION_STATUS_INVALID: D3DKMT_PROTECTED_SESSION_STATUS = D3DKMT_PROTECTED_SESSION_STATUS(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PROTECTED_SESSION_STATUS_OK: D3DKMT_PROTECTED_SESSION_STATUS = D3DKMT_PROTECTED_SESSION_STATUS(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PreemptionAttempt: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PreemptionAttemptMissAlreadyPreempting: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(13i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PreemptionAttemptMissAlreadyRunning: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(15i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PreemptionAttemptMissFenceCommand: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PreemptionAttemptMissGlobalBlock: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(14i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PreemptionAttemptMissLessPriority: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(10i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PreemptionAttemptMissNextFence: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PreemptionAttemptMissNoCommand: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PreemptionAttemptMissNotEnabled: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PreemptionAttemptMissNotMakingProgress: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(9i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PreemptionAttemptMissPagingCommand: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PreemptionAttemptMissRemainingPreemptionQuantum: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(12i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PreemptionAttemptMissRemainingQuantum: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(11i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PreemptionAttemptMissRenderPendingFlip: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PreemptionAttemptMissSplittedCommand: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PreemptionAttemptStatisticsMax: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(16i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_PreemptionAttemptSuccess: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT_MAX: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_ADAPTER: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_ADAPTER2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(11i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS_MAX: u32 = 5u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE_MAX: u32 = 4u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_NODE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_NODE2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(18i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(10i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_PROCESS: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(13i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMT_QUERYSTATISTICS_PROCESS_INTERFERENCE_BUCKET_COUNT: u32 = 9u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_PROCESS_NODE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_PROCESS_NODE2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(19i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(14i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(9i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(15i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(8i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE_MAX: u32 = 8u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_SEGMENT: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_SEGMENT2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(12i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_SEGMENT_GROUP_USAGE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(17i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMT_QUERYSTATISTICS_SEGMENT_PREFERENCE_MAX: u32 = 5u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_APERTURE: D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE = D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_MEMORY: D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE = D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_SYSMEM: D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE = D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_SEGMENT_USAGE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(16i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QUERYSTATISTICS_VIDPNSOURCE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_QueuePacketTypeMax: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_RenderCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_SCHEDULINGPRIORITYCLASS_ABOVE_NORMAL: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_SCHEDULINGPRIORITYCLASS_BELOW_NORMAL: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_SCHEDULINGPRIORITYCLASS_HIGH: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_SCHEDULINGPRIORITYCLASS_IDLE: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_SCHEDULINGPRIORITYCLASS_NORMAL: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_SCHEDULINGPRIORITYCLASS_REALTIME: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY_ABSOLUTE: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_SET_QUEUEDLIMIT_PRESENT: D3DKMT_QUEUEDLIMIT_TYPE = D3DKMT_QUEUEDLIMIT_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_STANDARDALLOCATIONTYPE_EXISTINGHEAP: D3DKMT_STANDARDALLOCATIONTYPE = D3DKMT_STANDARDALLOCATIONTYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_STANDARDALLOCATIONTYPE_INTERNALBACKINGSTORE: D3DKMT_STANDARDALLOCATIONTYPE = D3DKMT_STANDARDALLOCATIONTYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_STANDARDALLOCATIONTYPE_MAX: D3DKMT_STANDARDALLOCATIONTYPE = D3DKMT_STANDARDALLOCATIONTYPE(3i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMT_SUBKEY_DX9: ::windows_core::PCWSTR = ::windows_core::w!("DX9");
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DKMT_SUBKEY_OPENGL: ::windows_core::PCWSTR = ::windows_core::w!("OpenGL");
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_SignalCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_SoftwareCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_SystemCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_SystemPagingBuffer: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_SystemPreemptionBuffer: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_TDRDBGCTRLTYPE_DISABLEBREAK: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_TDRDBGCTRLTYPE_ENABLEBREAK: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_TDRDBGCTRLTYPE_ENGINETDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_TDRDBGCTRLTYPE_FORCEDODTDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_TDRDBGCTRLTYPE_FORCEDODVSYNCTDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_TDRDBGCTRLTYPE_FORCETDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_TDRDBGCTRLTYPE_GPUTDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_TDRDBGCTRLTYPE_UNCONDITIONAL: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_TDRDBGCTRLTYPE_VSYNCTDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VAD_ESCAPE_GETNUMVADS: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VAD_ESCAPE_GETVAD: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VAD_ESCAPE_GETVADRANGE: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VAD_ESCAPE_GET_GPUMMU_CAPS: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VAD_ESCAPE_GET_PTE: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VAD_ESCAPE_GET_SEGMENT_CAPS: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VERIFIER_OPTION_QUERY: D3DKMT_VERIFIER_OPTION_MODE = D3DKMT_VERIFIER_OPTION_MODE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VERIFIER_OPTION_SET: D3DKMT_VERIFIER_OPTION_MODE = D3DKMT_VERIFIER_OPTION_MODE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDMMESCAPETYPE_APERTURE_CORRUPTION_CHECK: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDMMESCAPETYPE_DEFRAG: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(15i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDMMESCAPETYPE_DELAYEXECUTION: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(16i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDMMESCAPETYPE_EVICT: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDMMESCAPETYPE_EVICT_BY_CRITERIA: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(13i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDMMESCAPETYPE_EVICT_BY_NT_HANDLE: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDMMESCAPETYPE_GET_BUDGET: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(11i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDMMESCAPETYPE_GET_VAD_INFO: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDMMESCAPETYPE_RESUME_PROCESS: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(10i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDMMESCAPETYPE_RUN_COHERENCY_TEST: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDMMESCAPETYPE_RUN_UNMAP_TO_DUMMY_PAGE_TEST: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDMMESCAPETYPE_SETFAULT: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDMMESCAPETYPE_SET_BUDGET: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDMMESCAPETYPE_SET_EVICTION_CONFIG: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(18i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDMMESCAPETYPE_SET_TRIM_INTERVALS: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(12i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDMMESCAPETYPE_SUSPEND_CPU_ACCESS_TEST: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDMMESCAPETYPE_SUSPEND_PROCESS: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(9i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDMMESCAPETYPE_VALIDATE_INTEGRITY: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(17i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDMMESCAPETYPE_WAKE: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(14i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDPNSOURCEOWNER_EMULATED: D3DKMT_VIDPNSOURCEOWNER_TYPE = D3DKMT_VIDPNSOURCEOWNER_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDPNSOURCEOWNER_EXCLUSIVE: D3DKMT_VIDPNSOURCEOWNER_TYPE = D3DKMT_VIDPNSOURCEOWNER_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDPNSOURCEOWNER_EXCLUSIVEGDI: D3DKMT_VIDPNSOURCEOWNER_TYPE = D3DKMT_VIDPNSOURCEOWNER_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDPNSOURCEOWNER_SHARED: D3DKMT_VIDPNSOURCEOWNER_TYPE = D3DKMT_VIDPNSOURCEOWNER_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDPNSOURCEOWNER_UNOWNED: D3DKMT_VIDPNSOURCEOWNER_TYPE = D3DKMT_VIDPNSOURCEOWNER_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDSCHESCAPETYPE_CONFIGURE_TDR_LIMIT: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDSCHESCAPETYPE_ENABLECONTEXTDELAY: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDSCHESCAPETYPE_PFN_CONTROL: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDSCHESCAPETYPE_PREEMPTIONCONTROL: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDSCHESCAPETYPE_SUSPENDRESUME: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDSCHESCAPETYPE_SUSPENDSCHEDULER: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDSCHESCAPETYPE_TDRCONTROL: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDSCHESCAPETYPE_VGPU_RESET: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_VIDSCHESCAPETYPE_VIRTUAL_REFRESH_RATE: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DKMT_WaitCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DNTCLEAR_COMPUTERECTS: i32 = 8i32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_ADDDIRTYBOX: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(67i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_ADDDIRTYRECT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(66i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_BLT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(81i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_BUFFERBLT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(64i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_CLEAR: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(42i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_CLIPPEDTRIANGLEFAN: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(58i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_COLORFILL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(82i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_COMPOSERECTS: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(98i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_CREATELIGHT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(35i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_CREATEPIXELSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(54i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_CREATEQUERY: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(84i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_CREATEVERTEXSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(45i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_CREATEVERTEXSHADERDECL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(71i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_CREATEVERTEXSHADERFUNC: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(74i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DELETEPIXELSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(55i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DELETEQUERY: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(90i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DELETEVERTEXSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(46i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DELETEVERTEXSHADERDECL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(72i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DELETEVERTEXSHADERFUNC: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(75i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DRAWINDEXEDPRIMITIVE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(53i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DRAWINDEXEDPRIMITIVE2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(60i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DRAWPRIMITIVE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(52i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DRAWPRIMITIVE2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(59i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DRAWRECTPATCH: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(61i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_DRAWTRIPATCH: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(62i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_GENERATEMIPSUBLEVELS: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(89i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_INDEXEDLINELIST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_INDEXEDLINELIST2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(27i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_INDEXEDLINESTRIP: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(17i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_INDEXEDTRIANGLEFAN: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(22i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_INDEXEDTRIANGLELIST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_INDEXEDTRIANGLELIST2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(26i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_INDEXEDTRIANGLESTRIP: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(20i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_ISSUEQUERY: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(91i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_LINELIST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(15i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_LINELIST_IMM: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(24i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_LINESTRIP: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(16i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_MULTIPLYTRANSFORM: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(65i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_POINTS: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_RENDERSTATE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_RESPONSECONTINUE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(87i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_RESPONSEQUERY: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(88i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETCLIPPLANE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(44i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETCONVOLUTIONKERNELMONO: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(97i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETDEPTHSTENCIL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(86i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETINDICES: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(51i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETLIGHT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(34i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETMATERIAL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(33i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETPALETTE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(30i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETPIXELSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(56i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETPIXELSHADERCONST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(57i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETPIXELSHADERCONSTB: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(94i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETPIXELSHADERCONSTI: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(93i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETPRIORITY: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(40i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETRENDERTARGET: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(41i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETRENDERTARGET2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(85i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETSCISSORRECT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(79i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETSTREAMSOURCE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(49i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETSTREAMSOURCE2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(80i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETSTREAMSOURCEFREQ: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(95i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETSTREAMSOURCEUM: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(50i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETTEXLOD: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(43i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETTRANSFORM: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(36i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETVERTEXSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(47i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETVERTEXSHADERCONST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(48i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETVERTEXSHADERCONSTB: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(83i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETVERTEXSHADERCONSTI: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(77i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETVERTEXSHADERDECL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(73i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SETVERTEXSHADERFUNC: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(76i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_STATESET: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(39i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_SURFACEBLT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(96i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_TEXBLT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(38i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_TEXTURESTAGESTATE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(25i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_TRIANGLEFAN: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(21i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_TRIANGLEFAN_IMM: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(23i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_TRIANGLELIST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(18i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_TRIANGLESTRIP: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(19i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_UPDATEPALETTE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(31i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_VIEWPORTINFO: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(28i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_VOLUMEBLT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(63i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_WINFO: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(29i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DNTDP2OP_ZRANGE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(32i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DNTHAL2_CB32_SETRENDERTARGET: i32 = 1i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -1733,6 +3583,20 @@ pub const D3DVSD_STREAMTESSSHIFT: u32 = 28u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DVSD_TOKENTYPESHIFT: u32 = 29u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_TOKEN_CONSTMEM: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_TOKEN_END: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_TOKEN_EXT: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_TOKEN_NOP: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_TOKEN_STREAM: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_TOKEN_STREAMDATA: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const D3DVSD_TOKEN_TESSELLATOR: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DVSD_VERTEXREGINSHIFT: u32 = 20u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const D3DVSD_VERTEXREGSHIFT: u32 = 0u32;
@@ -1923,6 +3787,32 @@ pub const D3D_UMD_INTERFACE_VERSION_WIN8_RC: u32 = 12291u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DDBLT_EXTENDED_PRESENTATION_STRETCHFACTOR: i32 = 16i32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DIDDT1_AspectRatio_15x9: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DIDDT1_AspectRatio_16x10: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DIDDT1_AspectRatio_16x9: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DIDDT1_AspectRatio_1x1: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DIDDT1_AspectRatio_4x3: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DIDDT1_AspectRatio_5x4: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DIDDT1_Dependent: DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE = DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DIDDT1_Interlaced: DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE = DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DIDDT1_Monoscopic: DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE = DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DIDDT1_Progressive: DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE = DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DIDDT1_Stereo: DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE = DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DIDDT1_Sync_Negative: DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY = DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DIDDT1_Sync_Positive: DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY = DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DISPLAYID_DETAILED_TIMING_TYPE_I_SIZE: u32 = 20u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DP2BLT_LINEAR: i32 = 2i32;
@@ -1973,13 +3863,123 @@ pub const DXGKDDI_INTERFACE_VERSION_WIN7: u32 = 8197u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKDDI_INTERFACE_VERSION_WIN8: u32 = 12302u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_COPP_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = DXGKMDT_CERTIFICATE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_I2C_DEVICE_TRANSMITS_DATA_LENGTH: u32 = 1u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_I2C_NO_FLAGS: u32 = 0u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_INDIRECT_DISPLAY_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = DXGKMDT_CERTIFICATE_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_128_BIT_RANDOM_NUMBER_SIZE: u32 = 16u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_ACP_LEVEL_ONE: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = DXGKMDT_OPM_ACP_PROTECTION_LEVEL(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_ACP_LEVEL_THREE: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = DXGKMDT_OPM_ACP_PROTECTION_LEVEL(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_ACP_LEVEL_TWO: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = DXGKMDT_OPM_ACP_PROTECTION_LEVEL(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_ACP_OFF: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = DXGKMDT_OPM_ACP_PROTECTION_LEVEL(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_14_BY_9_CENTER: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_14_BY_9_TOP: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_16_BY_9_CENTER: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_16_BY_9_TOP: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_GT_16_BY_9_CENTER: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_16_BY_9_ANAMORPHIC: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_4_BY_3: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_4_BY_3_PROTECTED_CENTER: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_DAUGHTER_BOARD_CONNECTOR: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(262144i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_DAUGHTER_BOARD_CONNECTOR_INSIDE_OF_NUAE: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(327680i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_INSIDE_OF_CHIPSET: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(65536i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_NON_STANDARD: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(-2147483648i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_TRACKS_ON_MOTHER_BOARD_TO_CHIP: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(131072i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_TRACKS_ON_MOTHER_BOARD_TO_SOCKET: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(196608i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_BUS_TYPE_AGP: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_BUS_TYPE_OTHER: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_BUS_TYPE_PCI: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_BUS_TYPE_PCIEXPRESS: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_BUS_TYPE_PCIX: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = DXGKMDT_CERTIFICATE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CGMSA_COPY_FREELY: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CGMSA_COPY_NEVER: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CGMSA_COPY_NO_MORE: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CGMSA_COPY_ONE_GENERATION: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CGMSA_OFF: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_CONFIGURE_SETTING_DATA_SIZE: u32 = 4056u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_COMPONENT_VIDEO: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_COMPOSITE_VIDEO: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_DISPLAYPORT_EMBEDDED: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(11i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_DISPLAYPORT_EXTERNAL: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(10i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_DVI: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_D_JPN: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_HD15: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_HDMI: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_LVDS: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_MIRACAST: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(15i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_OTHER: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(-1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_RESERVED: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(14i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_SDI: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(9i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_SVIDEO: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_A: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(16i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_B: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(17i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_UDI_EMBEDDED: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(13i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_CONNECTOR_TYPE_UDI_EXTERNAL: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(12i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_COPP_COMPATIBLE_BUS_TYPE_INTEGRATED: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(-2147483648i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_COPP_COMPATIBLE_CONNECTOR_TYPE_INTERNAL: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(-2147483648i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_DPCP_OFF: DXGKMDT_OPM_DPCP_PROTECTION_LEVEL = DXGKMDT_OPM_DPCP_PROTECTION_LEVEL(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_DPCP_ON: DXGKMDT_OPM_DPCP_PROTECTION_LEVEL = DXGKMDT_OPM_DPCP_PROTECTION_LEVEL(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_0: DXGKDT_OPM_DVI_CHARACTERISTICS = DXGKDT_OPM_DVI_CHARACTERISTICS(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_1_OR_ABOVE: DXGKDT_OPM_DVI_CHARACTERISTICS = DXGKDT_OPM_DVI_CHARACTERISTICS(2i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_ENCRYPTED_PARAMETERS_SIZE: u32 = 256u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -2011,11 +4011,85 @@ pub const DXGKMDT_OPM_GET_SUPPORTED_PROTECTION_TYPES: ::windows_core::GUID = ::w
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_GET_VIRTUAL_PROTECTION_LEVEL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2075857_3eda_4d5d_88db_748f8c1a0549);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_HDCP_FLAG_NONE: DXGKMDT_OPM_HDCP_FLAG = DXGKMDT_OPM_HDCP_FLAG(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_HDCP_FLAG_REPEATER: DXGKMDT_OPM_HDCP_FLAG = DXGKMDT_OPM_HDCP_FLAG(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR_SIZE: u32 = 5u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_HDCP_OFF: DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_HDCP_PROTECTION_LEVEL(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_HDCP_ON: DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_HDCP_PROTECTION_LEVEL(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_INTERLEAVED_EVEN_FIRST: DXGKMDT_OPM_INTERLEAVE_FORMAT = DXGKMDT_OPM_INTERLEAVE_FORMAT(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_INTERLEAVED_ODD_FIRST: DXGKMDT_OPM_INTERLEAVE_FORMAT = DXGKMDT_OPM_INTERLEAVE_FORMAT(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_OTHER: DXGKMDT_OPM_INTERLEAVE_FORMAT = DXGKMDT_OPM_INTERLEAVE_FORMAT(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_PROGRESSIVE: DXGKMDT_OPM_INTERLEAVE_FORMAT = DXGKMDT_OPM_INTERLEAVE_FORMAT(2i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_OMAC_SIZE: u32 = 16u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION_NOT_SUPPORTED: DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION = DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION_SUPPORTED: DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION = DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_ARIBTRB15_1125I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(16384i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_ARIBTRB15_525I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(2048i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_ARIBTRB15_525P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(4096i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_ARIBTRB15_750P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(8192i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEA_1125I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(128i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEA_525P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(32i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEA_750P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(64i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEB_1125I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(1024i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEB_525P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(256i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEB_750P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(512i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_EIA608B_525: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_EN300294_625I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(16i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_IEC61880_2_525I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_IEC61880_525I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_IEC62375_625P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_NONE: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_STANDARD_OTHER: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(-2147483648i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_TYPE_ACP: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_TYPE_CGMSA: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_TYPE_COPP_COMPATIBLE_HDCP: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_TYPE_DPCP: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(16i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_TYPE_HDCP: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_TYPE_MASK: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(-2147483585i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_TYPE_NONE: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_TYPE_OTHER: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(-2147483648i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_PROTECTION_TYPE_SIZE: u32 = 4u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_PROTECTION_TYPE_TYPE_ENFORCEMENT_HDCP: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(32i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_REDISTRIBUTION_CONTROL_REQUIRED: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(8i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_REQUESTED_INFORMATION_SIZE: u32 = 4076u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -2027,9 +4101,129 @@ pub const DXGKMDT_OPM_SET_PROTECTION_LEVEL: ::windows_core::GUID = ::windows_cor
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGKMDT_OPM_SET_PROTECTION_LEVEL_ACCORDING_TO_CSS_DVD: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x39ce333e_4cc0_44ae_bfcc_da50b5f82e72);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_STATUS_LINK_LOST: DXGKMDT_OPM_STATUS = DXGKMDT_OPM_STATUS(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_STATUS_NORMAL: DXGKMDT_OPM_STATUS = DXGKMDT_OPM_STATUS(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_STATUS_RENEGOTIATION_REQUIRED: DXGKMDT_OPM_STATUS = DXGKMDT_OPM_STATUS(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_STATUS_REVOKED_HDCP_DEVICE_ATTACHED: DXGKMDT_OPM_STATUS = DXGKMDT_OPM_STATUS(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_STATUS_TAMPERING_DETECTED: DXGKMDT_OPM_STATUS = DXGKMDT_OPM_STATUS(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_OFF: DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_NO_TYPE_RESTRICTION: DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_TYPE1_RESTRICTION: DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_VOS_COPP_SEMANTICS: DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS = DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_VOS_OPM_INDIRECT_DISPLAY: DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS = DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_OPM_VOS_OPM_SEMANTICS: DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS = DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMDT_UAB_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = DXGKMDT_CERTIFICATE_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_FRAME0: DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE = DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_FRAME1: DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE = DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_NONE: DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE = DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_CHECKERBOARD: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_COLUMN_INTERLEAVED: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_MONO: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_MONO_OFFSET: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_ROW_INTERLEAVED: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_SEPARATE: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY_BILINEAR: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY = DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY_HIGH: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY = DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKMT_POWER_SHARED_TYPE_AUDIO: DXGKMT_POWER_SHARED_TYPE = DXGKMT_POWER_SHARED_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKVGPU_ESCAPE_TYPE_GET_VGPU_TYPE: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKVGPU_ESCAPE_TYPE_INITIALIZE: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKVGPU_ESCAPE_TYPE_PAUSE: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKVGPU_ESCAPE_TYPE_POWERTRANSITIONCOMPLETE: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKVGPU_ESCAPE_TYPE_READ_PCI_CONFIG: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKVGPU_ESCAPE_TYPE_RELEASE: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKVGPU_ESCAPE_TYPE_RESUME: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGKVGPU_ESCAPE_TYPE_WRITE_PCI_CONFIG: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGK_BRIGHTNESS_MAXIMUM_NIT_RANGE_COUNT: u32 = 16u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_DDT_DISPLAYID: DXGK_DISPLAY_DESCRIPTOR_TYPE = DXGK_DISPLAY_DESCRIPTOR_TYPE(2u8);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_DDT_EDID: DXGK_DISPLAY_DESCRIPTOR_TYPE = DXGK_DISPLAY_DESCRIPTOR_TYPE(1u8);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_DDT_INVALID: DXGK_DISPLAY_DESCRIPTOR_TYPE = DXGK_DISPLAY_DESCRIPTOR_TYPE(0u8);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGK_DIAG_PROCESS_NAME_LENGTH: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_DT_INVALID: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(0u8);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_DT_LCD: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(2u8);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_DT_MAX: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(5u8);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_DT_OLED: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(3u8);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_DT_OTHER: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(1u8);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_DT_PROJECTOR: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(4u8);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_DU_ACCESSORY: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(5u8);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_DU_AR: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(2u8);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_DU_GENERIC: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(1u8);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_DU_INVALID: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(0u8);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_DU_MAX: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(6u8);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_DU_MEDICAL_IMAGING: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(4u8);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_DU_VR: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(3u8);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_ENGINE_TYPE_3D: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_ENGINE_TYPE_COPY: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_ENGINE_TYPE_CRYPTO: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_ENGINE_TYPE_MAX: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(9i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_ENGINE_TYPE_OTHER: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_ENGINE_TYPE_OVERLAY: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_ENGINE_TYPE_SCENE_ASSEMBLY: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_ENGINE_TYPE_VIDEO_DECODE: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_ENGINE_TYPE_VIDEO_ENCODE: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_ENGINE_TYPE_VIDEO_PROCESSING: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_GENERAL_ERROR_INVALID_INSTRUCTION: DXGK_GENERAL_ERROR_CODE = DXGK_GENERAL_ERROR_CODE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_GENERAL_ERROR_PAGE_FAULT: DXGK_GENERAL_ERROR_CODE = DXGK_GENERAL_ERROR_CODE(0i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGK_GRAPHICSPOWER_VERSION: u32 = 4098u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -2047,15 +4241,311 @@ pub const DXGK_MAX_PAGE_TABLE_LEVEL_COUNT: u32 = 6u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const DXGK_MIN_PAGE_TABLE_LEVEL_COUNT: u32 = 2u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_MIRACAST_CHUNK_TYPE_COLOR_CONVERT_COMPLETE: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_MIRACAST_CHUNK_TYPE_ENCODE_COMPLETE: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_MIRACAST_CHUNK_TYPE_ENCODE_DRIVER_DEFINED_1: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(-2147483648i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_MIRACAST_CHUNK_TYPE_ENCODE_DRIVER_DEFINED_2: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(-2147483647i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_MIRACAST_CHUNK_TYPE_FRAME_DROPPED: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_MIRACAST_CHUNK_TYPE_FRAME_START: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_MIRACAST_CHUNK_TYPE_UNKNOWN: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_PAGE_FAULT_ADAPTER_RESET_REQUIRED: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_PAGE_FAULT_ENGINE_RESET_REQUIRED: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_PAGE_FAULT_FATAL_HARDWARE_ERROR: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(16i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_PAGE_FAULT_FENCE_INVALID: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_PAGE_FAULT_HW_CONTEXT_VALID: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(64i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_PAGE_FAULT_IOMMU: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(32i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_PAGE_FAULT_PROCESS_HANDLE_VALID: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(128i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_PAGE_FAULT_WRITE: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_PTE_PAGE_TABLE_PAGE_4KB: DXGK_PTE_PAGE_SIZE = DXGK_PTE_PAGE_SIZE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_PTE_PAGE_TABLE_PAGE_64KB: DXGK_PTE_PAGE_SIZE = DXGK_PTE_PAGE_SIZE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_RENDER_PIPELINE_STAGE_GEOMETRY_SHADER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_RENDER_PIPELINE_STAGE_INPUT_ASSEMBLER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_RENDER_PIPELINE_STAGE_OUTPUT_MERGER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_RENDER_PIPELINE_STAGE_PIXEL_SHADER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_RENDER_PIPELINE_STAGE_RASTERIZER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_RENDER_PIPELINE_STAGE_STREAM_OUTPUT: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_RENDER_PIPELINE_STAGE_UNKNOWN: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DXGK_RENDER_PIPELINE_STAGE_VERTEX_SHADER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DxgkBacklightOptimizationDesktop: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DxgkBacklightOptimizationDimmed: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DxgkBacklightOptimizationDisable: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DxgkBacklightOptimizationDynamic: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const DxgkBacklightOptimizationEDR: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const FLIPEX_TIMEOUT_USER: u32 = 2000u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const GUID_DEVINTERFACE_GRAPHICSPOWER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xea5c6870_e93c_4588_bef1_fec42fc9429a);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const HpdAwarenessAlwaysConnected: DXGK_CHILD_DEVICE_HPD_AWARENESS = DXGK_CHILD_DEVICE_HPD_AWARENESS(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const HpdAwarenessInterruptible: DXGK_CHILD_DEVICE_HPD_AWARENESS = DXGK_CHILD_DEVICE_HPD_AWARENESS(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const HpdAwarenessNone: DXGK_CHILD_DEVICE_HPD_AWARENESS = DXGK_CHILD_DEVICE_HPD_AWARENESS(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const HpdAwarenessPolled: DXGK_CHILD_DEVICE_HPD_AWARENESS = DXGK_CHILD_DEVICE_HPD_AWARENESS(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const HpdAwarenessUninitialized: DXGK_CHILD_DEVICE_HPD_AWARENESS = DXGK_CHILD_DEVICE_HPD_AWARENESS(0i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const IOCTL_GPUP_DRIVER_ESCAPE: u32 = 2253920u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const IOCTL_INTERNAL_GRAPHICSPOWER_REGISTER: u32 = 2304007u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_ADAPTERADDRESS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_ADAPTERADDRESS_RENDER: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(53i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_ADAPTERGUID: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_ADAPTERGUID_RENDER: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(52i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_ADAPTERPERFDATA: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(62i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_ADAPTERPERFDATA_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(63i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_ADAPTERREGISTRYINFO: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(8i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_ADAPTERREGISTRYINFO_RENDER: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(54i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_ADAPTERTYPE: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(15i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_ADAPTERTYPE_RENDER: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(57i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_BLOCKLIST_KERNEL: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(50i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_BLOCKLIST_RUNTIME: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(51i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_CHECKDRIVERUPDATESTATUS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(11i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_CHECKDRIVERUPDATESTATUS_RENDER: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(55i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_CPDRIVERNAME: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(26i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_CROSSADAPTERRESOURCE_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(76i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_CURRENTDISPLAYMODE: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(9i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_DIRECTFLIP_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(19i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_DISPLAY_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(74i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_DISPLAY_UMDRIVERNAME: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(71i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_DLIST_DRIVER_NAME: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(21i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_DRIVERCAPS_EXT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(32i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_DRIVERVERSION: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(13i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_DRIVERVERSION_RENDER: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(56i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_DRIVER_DESCRIPTION: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(65i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_DRIVER_DESCRIPTION_RENDER: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(66i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_FLIPQUEUEINFO: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_GETSEGMENTGROUPSIZE: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(42i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_GETSEGMENTSIZE: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_GET_DEVICE_VIDPN_OWNERSHIP_INFO: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(47i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_HWDRM_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(44i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_HYBRID_DLIST_DLL_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(73i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_INDEPENDENTFLIP_SECONDARY_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(39i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_INDEPENDENTFLIP_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(28i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_KMD_DRIVER_VERSION: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(49i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_MIRACASTCOMPANIONDRIVERNAME: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(29i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_MODELIST: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(10i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_MPO3DDI_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(43i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_MPOKERNELCAPS_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(45i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_MULTIPLANEOVERLAY_HUD_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(23i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_MULTIPLANEOVERLAY_SECONDARY_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(38i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_MULTIPLANEOVERLAY_STRETCH_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(46i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_MULTIPLANEOVERLAY_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(20i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_NODEMETADATA: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(25i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_NODEPERFDATA: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(61i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_OUTPUTDUPLCONTEXTSCOUNT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(16i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_PANELFITTER_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(40i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_PARAVIRTUALIZATION_RENDER: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(68i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_PHYSICALADAPTERCOUNT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(30i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_PHYSICALADAPTERDEVICEIDS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(31i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_PHYSICALADAPTERPNPKEY: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(41i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_QUERYREGISTRY: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(48i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_QUERY_ADAPTER_UNIQUE_GUID: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(60i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_QUERY_GPUMMU_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(34i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_QUERY_HW_PROTECTION_TEARDOWN_COUNT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(36i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_QUERY_ISBADDRIVERFORHWPROTECTIONDISABLED: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(37i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_QUERY_MIRACAST_DRIVER_TYPE: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(33i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_QUERY_MULTIPLANEOVERLAY_DECODE_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(35i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_SCANOUT_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(67i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_SERVICENAME: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(69i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_SETWORKINGSETINFO: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(7i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_TRACKEDWORKLOAD_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(72i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_UMDRIVERNAME: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_UMDRIVERPRIVATE: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_UMD_DRIVER_VERSION: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(18i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_UMOPENGLINFO: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_VGPUINTERFACEID: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(79i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_VIRTUALADDRESSINFO: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(12i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_WDDM_1_2_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(17i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_WDDM_1_2_CAPS_RENDER: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(58i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_WDDM_1_3_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(22i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_WDDM_1_3_CAPS_RENDER: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(59i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_WDDM_2_0_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(24i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_WDDM_2_7_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(70i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_WDDM_2_9_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(75i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_WDDM_3_0_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(77i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_WDDM_3_1_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(80i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_WSAUMDIMAGENAME: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(78i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQAITYPE_XBOX: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(27i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTQUITYPE_GPUVERSION: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(64i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTUMDVERSION_DX10: KMTUMDVERSION = KMTUMDVERSION(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTUMDVERSION_DX11: KMTUMDVERSION = KMTUMDVERSION(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTUMDVERSION_DX12: KMTUMDVERSION = KMTUMDVERSION(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTUMDVERSION_DX12_WSA32: KMTUMDVERSION = KMTUMDVERSION(4i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTUMDVERSION_DX12_WSA64: KMTUMDVERSION = KMTUMDVERSION(5i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMTUMDVERSION_DX9: KMTUMDVERSION = KMTUMDVERSION(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMT_DISPLAY_UMDVERSION_1: KMT_DISPLAY_UMD_VERSION = KMT_DISPLAY_UMD_VERSION(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMT_DRIVERVERSION_WDDM_1_0: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(1000i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMT_DRIVERVERSION_WDDM_1_1: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(1105i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMT_DRIVERVERSION_WDDM_1_1_PRERELEASE: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(1102i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMT_DRIVERVERSION_WDDM_1_2: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(1200i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMT_DRIVERVERSION_WDDM_1_3: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(1300i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMT_DRIVERVERSION_WDDM_2_0: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(2000i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMT_DRIVERVERSION_WDDM_2_1: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(2100i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMT_DRIVERVERSION_WDDM_2_2: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(2200i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMT_DRIVERVERSION_WDDM_2_3: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(2300i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMT_DRIVERVERSION_WDDM_2_4: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(2400i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMT_DRIVERVERSION_WDDM_2_5: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(2500i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMT_DRIVERVERSION_WDDM_2_6: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(2600i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMT_DRIVERVERSION_WDDM_2_7: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(2700i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMT_DRIVERVERSION_WDDM_2_8: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(2800i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMT_DRIVERVERSION_WDDM_2_9: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(2900i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMT_DRIVERVERSION_WDDM_3_0: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(3000i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const KMT_DRIVERVERSION_WDDM_3_1: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(3100i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const MAX_ENUM_ADAPTERS: u32 = 16u32;
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const MiracastStartPending: D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE = D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const MiracastStarted: D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE = D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE(2i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const MiracastStopPending: D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE = D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE(3i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const MiracastStopped: D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE = D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const NUM_KMTUMDVERSIONS: KMTUMDVERSION = KMTUMDVERSION(6i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const NUM_KMT_DISPLAY_UMDVERSIONS: KMT_DISPLAY_UMD_VERSION = KMT_DISPLAY_UMD_VERSION(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_ACTIVE: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = OUTPUTDUPL_CONTEXT_DEBUG_STATUS(1i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_INACTIVE: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = OUTPUTDUPL_CONTEXT_DEBUG_STATUS(0i32);
+#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
+pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_PENDING_DESTROY: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = OUTPUTDUPL_CONTEXT_DEBUG_STATUS(2i32);
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
 pub const OUTPUTDUPL_CREATE_MAX_KEYEDMUTXES: u32 = 3u32;
 #[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
@@ -2306,218 +4796,6 @@ pub const _NT_RTPATCHFLAG_HASSEGS: i32 = 1i32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDDIFORMAT(pub u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_UNKNOWN: D3DDDIFORMAT = D3DDDIFORMAT(0u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_R8G8B8: D3DDDIFORMAT = D3DDDIFORMAT(20u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_A8R8G8B8: D3DDDIFORMAT = D3DDDIFORMAT(21u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_X8R8G8B8: D3DDDIFORMAT = D3DDDIFORMAT(22u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_R5G6B5: D3DDDIFORMAT = D3DDDIFORMAT(23u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_X1R5G5B5: D3DDDIFORMAT = D3DDDIFORMAT(24u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_A1R5G5B5: D3DDDIFORMAT = D3DDDIFORMAT(25u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_A4R4G4B4: D3DDDIFORMAT = D3DDDIFORMAT(26u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_R3G3B2: D3DDDIFORMAT = D3DDDIFORMAT(27u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_A8: D3DDDIFORMAT = D3DDDIFORMAT(28u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_A8R3G3B2: D3DDDIFORMAT = D3DDDIFORMAT(29u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_X4R4G4B4: D3DDDIFORMAT = D3DDDIFORMAT(30u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_A2B10G10R10: D3DDDIFORMAT = D3DDDIFORMAT(31u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_A8B8G8R8: D3DDDIFORMAT = D3DDDIFORMAT(32u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_X8B8G8R8: D3DDDIFORMAT = D3DDDIFORMAT(33u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_G16R16: D3DDDIFORMAT = D3DDDIFORMAT(34u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_A2R10G10B10: D3DDDIFORMAT = D3DDDIFORMAT(35u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_A16B16G16R16: D3DDDIFORMAT = D3DDDIFORMAT(36u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_A8P8: D3DDDIFORMAT = D3DDDIFORMAT(40u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_P8: D3DDDIFORMAT = D3DDDIFORMAT(41u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_L8: D3DDDIFORMAT = D3DDDIFORMAT(50u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_A8L8: D3DDDIFORMAT = D3DDDIFORMAT(51u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_A4L4: D3DDDIFORMAT = D3DDDIFORMAT(52u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_V8U8: D3DDDIFORMAT = D3DDDIFORMAT(60u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_L6V5U5: D3DDDIFORMAT = D3DDDIFORMAT(61u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_X8L8V8U8: D3DDDIFORMAT = D3DDDIFORMAT(62u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_Q8W8V8U8: D3DDDIFORMAT = D3DDDIFORMAT(63u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_V16U16: D3DDDIFORMAT = D3DDDIFORMAT(64u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_W11V11U10: D3DDDIFORMAT = D3DDDIFORMAT(65u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_A2W10V10U10: D3DDDIFORMAT = D3DDDIFORMAT(67u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_UYVY: D3DDDIFORMAT = D3DDDIFORMAT(1498831189u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_R8G8_B8G8: D3DDDIFORMAT = D3DDDIFORMAT(1195525970u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_YUY2: D3DDDIFORMAT = D3DDDIFORMAT(844715353u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_G8R8_G8B8: D3DDDIFORMAT = D3DDDIFORMAT(1111970375u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXT1: D3DDDIFORMAT = D3DDDIFORMAT(827611204u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXT2: D3DDDIFORMAT = D3DDDIFORMAT(844388420u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXT3: D3DDDIFORMAT = D3DDDIFORMAT(861165636u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXT4: D3DDDIFORMAT = D3DDDIFORMAT(877942852u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXT5: D3DDDIFORMAT = D3DDDIFORMAT(894720068u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_D16_LOCKABLE: D3DDDIFORMAT = D3DDDIFORMAT(70u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_D32: D3DDDIFORMAT = D3DDDIFORMAT(71u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_D15S1: D3DDDIFORMAT = D3DDDIFORMAT(73u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_D24S8: D3DDDIFORMAT = D3DDDIFORMAT(75u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_D24X8: D3DDDIFORMAT = D3DDDIFORMAT(77u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_D24X4S4: D3DDDIFORMAT = D3DDDIFORMAT(79u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_D16: D3DDDIFORMAT = D3DDDIFORMAT(80u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_D32F_LOCKABLE: D3DDDIFORMAT = D3DDDIFORMAT(82u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_D24FS8: D3DDDIFORMAT = D3DDDIFORMAT(83u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_D32_LOCKABLE: D3DDDIFORMAT = D3DDDIFORMAT(84u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_S8_LOCKABLE: D3DDDIFORMAT = D3DDDIFORMAT(85u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_S1D15: D3DDDIFORMAT = D3DDDIFORMAT(72u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_S8D24: D3DDDIFORMAT = D3DDDIFORMAT(74u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_X8D24: D3DDDIFORMAT = D3DDDIFORMAT(76u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_X4S4D24: D3DDDIFORMAT = D3DDDIFORMAT(78u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_L16: D3DDDIFORMAT = D3DDDIFORMAT(81u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_G8R8: D3DDDIFORMAT = D3DDDIFORMAT(91u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_R8: D3DDDIFORMAT = D3DDDIFORMAT(92u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_VERTEXDATA: D3DDDIFORMAT = D3DDDIFORMAT(100u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_INDEX16: D3DDDIFORMAT = D3DDDIFORMAT(101u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_INDEX32: D3DDDIFORMAT = D3DDDIFORMAT(102u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_Q16W16V16U16: D3DDDIFORMAT = D3DDDIFORMAT(110u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_MULTI2_ARGB8: D3DDDIFORMAT = D3DDDIFORMAT(827606349u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_R16F: D3DDDIFORMAT = D3DDDIFORMAT(111u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_G16R16F: D3DDDIFORMAT = D3DDDIFORMAT(112u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_A16B16G16R16F: D3DDDIFORMAT = D3DDDIFORMAT(113u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_R32F: D3DDDIFORMAT = D3DDDIFORMAT(114u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_G32R32F: D3DDDIFORMAT = D3DDDIFORMAT(115u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_A32B32G32R32F: D3DDDIFORMAT = D3DDDIFORMAT(116u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_CxV8U8: D3DDDIFORMAT = D3DDDIFORMAT(117u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_A1: D3DDDIFORMAT = D3DDDIFORMAT(118u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_A2B10G10R10_XR_BIAS: D3DDDIFORMAT = D3DDDIFORMAT(119u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVACOMPBUFFER_BASE: D3DDDIFORMAT = D3DDDIFORMAT(150u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_PICTUREPARAMSDATA: D3DDDIFORMAT = D3DDDIFORMAT(150u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_MACROBLOCKDATA: D3DDDIFORMAT = D3DDDIFORMAT(151u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_RESIDUALDIFFERENCEDATA: D3DDDIFORMAT = D3DDDIFORMAT(152u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DEBLOCKINGDATA: D3DDDIFORMAT = D3DDDIFORMAT(153u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_INVERSEQUANTIZATIONDATA: D3DDDIFORMAT = D3DDDIFORMAT(154u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_SLICECONTROLDATA: D3DDDIFORMAT = D3DDDIFORMAT(155u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_BITSTREAMDATA: D3DDDIFORMAT = D3DDDIFORMAT(156u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_MOTIONVECTORBUFFER: D3DDDIFORMAT = D3DDDIFORMAT(157u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_FILMGRAINBUFFER: D3DDDIFORMAT = D3DDDIFORMAT(158u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED9: D3DDDIFORMAT = D3DDDIFORMAT(159u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED10: D3DDDIFORMAT = D3DDDIFORMAT(160u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED11: D3DDDIFORMAT = D3DDDIFORMAT(161u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED12: D3DDDIFORMAT = D3DDDIFORMAT(162u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED13: D3DDDIFORMAT = D3DDDIFORMAT(163u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED14: D3DDDIFORMAT = D3DDDIFORMAT(164u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED15: D3DDDIFORMAT = D3DDDIFORMAT(165u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED16: D3DDDIFORMAT = D3DDDIFORMAT(166u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED17: D3DDDIFORMAT = D3DDDIFORMAT(167u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED18: D3DDDIFORMAT = D3DDDIFORMAT(168u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED19: D3DDDIFORMAT = D3DDDIFORMAT(169u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED20: D3DDDIFORMAT = D3DDDIFORMAT(170u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED21: D3DDDIFORMAT = D3DDDIFORMAT(171u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED22: D3DDDIFORMAT = D3DDDIFORMAT(172u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED23: D3DDDIFORMAT = D3DDDIFORMAT(173u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED24: D3DDDIFORMAT = D3DDDIFORMAT(174u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED25: D3DDDIFORMAT = D3DDDIFORMAT(175u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED26: D3DDDIFORMAT = D3DDDIFORMAT(176u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED27: D3DDDIFORMAT = D3DDDIFORMAT(177u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED28: D3DDDIFORMAT = D3DDDIFORMAT(178u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED29: D3DDDIFORMAT = D3DDDIFORMAT(179u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED30: D3DDDIFORMAT = D3DDDIFORMAT(180u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVA_RESERVED31: D3DDDIFORMAT = D3DDDIFORMAT(181u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_DXVACOMPBUFFER_MAX: D3DDDIFORMAT = D3DDDIFORMAT(181u32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIFMT_BINARYBUFFER: D3DDDIFORMAT = D3DDDIFORMAT(199u32);
 impl ::core::marker::Copy for D3DDDIFORMAT {}
 impl ::core::clone::Clone for D3DDDIFORMAT {
     fn clone(&self) -> Self {
@@ -2541,12 +4819,6 @@ impl ::core::fmt::Debug for D3DDDIFORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIGPUVIRTUALADDRESS_RESERVE_NO_ACCESS: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE = D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIGPUVIRTUALADDRESS_RESERVE_ZERO: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE = D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIGPUVIRTUALADDRESS_RESERVE_NO_COMMIT: D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE = D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE(2i32);
 impl ::core::marker::Copy for D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE {}
 impl ::core::clone::Clone for D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE {
     fn clone(&self) -> Self {
@@ -2570,40 +4842,6 @@ impl ::core::fmt::Debug for D3DDDIGPUVIRTUALADDRESS_RESERVATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDDIMULTISAMPLE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIMULTISAMPLE_NONE: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIMULTISAMPLE_NONMASKABLE: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIMULTISAMPLE_2_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIMULTISAMPLE_3_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIMULTISAMPLE_4_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIMULTISAMPLE_5_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIMULTISAMPLE_6_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIMULTISAMPLE_7_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(7i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIMULTISAMPLE_8_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIMULTISAMPLE_9_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(9i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIMULTISAMPLE_10_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(10i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIMULTISAMPLE_11_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(11i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIMULTISAMPLE_12_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(12i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIMULTISAMPLE_13_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(13i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIMULTISAMPLE_14_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(14i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIMULTISAMPLE_15_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(15i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIMULTISAMPLE_16_SAMPLES: D3DDDIMULTISAMPLE_TYPE = D3DDDIMULTISAMPLE_TYPE(16i32);
 impl ::core::marker::Copy for D3DDDIMULTISAMPLE_TYPE {}
 impl ::core::clone::Clone for D3DDDIMULTISAMPLE_TYPE {
     fn clone(&self) -> Self {
@@ -2627,58 +4865,6 @@ impl ::core::fmt::Debug for D3DDDIMULTISAMPLE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDDI_COLOR_SPACE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_RGB_FULL_G22_NONE_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_RGB_FULL_G10_NONE_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_RGB_STUDIO_G22_NONE_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_RGB_STUDIO_G22_NONE_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_RESERVED: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_YCBCR_FULL_G22_NONE_P709_X601: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G22_LEFT_P601: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_YCBCR_FULL_G22_LEFT_P601: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(7i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G22_LEFT_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_YCBCR_FULL_G22_LEFT_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(9i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G22_LEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(10i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_YCBCR_FULL_G22_LEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(11i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_RGB_FULL_G2084_NONE_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(12i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G2084_LEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(13i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_RGB_STUDIO_G2084_NONE_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(14i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G22_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(15i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G2084_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(16i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_RGB_FULL_G22_NONE_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(17i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_GHLG_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(18i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_YCBCR_FULL_GHLG_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(19i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_RGB_STUDIO_G24_NONE_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(20i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_RGB_STUDIO_G24_NONE_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(21i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G24_LEFT_P709: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(22i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G24_LEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(23i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_YCBCR_STUDIO_G24_TOPLEFT_P2020: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(24i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_COLOR_SPACE_CUSTOM: D3DDDI_COLOR_SPACE_TYPE = D3DDDI_COLOR_SPACE_TYPE(-1i32);
 impl ::core::marker::Copy for D3DDDI_COLOR_SPACE_TYPE {}
 impl ::core::clone::Clone for D3DDDI_COLOR_SPACE_TYPE {
     fn clone(&self) -> Self {
@@ -2702,14 +4888,6 @@ impl ::core::fmt::Debug for D3DDDI_COLOR_SPACE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDDI_DOORBELLSTATUS(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_DOORBELLSTATUS_CONNECTED: D3DDDI_DOORBELLSTATUS = D3DDDI_DOORBELLSTATUS(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_DOORBELLSTATUS_CONNECTED_NOTIFY_KMD: D3DDDI_DOORBELLSTATUS = D3DDDI_DOORBELLSTATUS(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_DOORBELLSTATUS_DISCONNECTED_RETRY: D3DDDI_DOORBELLSTATUS = D3DDDI_DOORBELLSTATUS(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_DOORBELLSTATUS_DISCONNECTED_ABORT: D3DDDI_DOORBELLSTATUS = D3DDDI_DOORBELLSTATUS(3i32);
 impl ::core::marker::Copy for D3DDDI_DOORBELLSTATUS {}
 impl ::core::clone::Clone for D3DDDI_DOORBELLSTATUS {
     fn clone(&self) -> Self {
@@ -2733,14 +4911,6 @@ impl ::core::fmt::Debug for D3DDDI_DOORBELLSTATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDDI_DRIVERESCAPETYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_DRIVERESCAPETYPE_TRANSLATEALLOCATIONHANDLE: D3DDDI_DRIVERESCAPETYPE = D3DDDI_DRIVERESCAPETYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_DRIVERESCAPETYPE_TRANSLATERESOURCEHANDLE: D3DDDI_DRIVERESCAPETYPE = D3DDDI_DRIVERESCAPETYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_DRIVERESCAPETYPE_CPUEVENTUSAGE: D3DDDI_DRIVERESCAPETYPE = D3DDDI_DRIVERESCAPETYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_DRIVERESCAPETYPE_MAX: D3DDDI_DRIVERESCAPETYPE = D3DDDI_DRIVERESCAPETYPE(3i32);
 impl ::core::marker::Copy for D3DDDI_DRIVERESCAPETYPE {}
 impl ::core::clone::Clone for D3DDDI_DRIVERESCAPETYPE {
     fn clone(&self) -> Self {
@@ -2764,18 +4934,6 @@ impl ::core::fmt::Debug for D3DDDI_DRIVERESCAPETYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDDI_FLIPINTERVAL_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_FLIPINTERVAL_IMMEDIATE: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_FLIPINTERVAL_ONE: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_FLIPINTERVAL_TWO: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_FLIPINTERVAL_THREE: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_FLIPINTERVAL_FOUR: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_FLIPINTERVAL_IMMEDIATE_ALLOW_TEARING: D3DDDI_FLIPINTERVAL_TYPE = D3DDDI_FLIPINTERVAL_TYPE(5i32);
 impl ::core::marker::Copy for D3DDDI_FLIPINTERVAL_TYPE {}
 impl ::core::clone::Clone for D3DDDI_FLIPINTERVAL_TYPE {
     fn clone(&self) -> Self {
@@ -2799,18 +4957,6 @@ impl ::core::fmt::Debug for D3DDDI_FLIPINTERVAL_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDDI_GAMMARAMP_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_GAMMARAMP_UNINITIALIZED: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_GAMMARAMP_DEFAULT: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_GAMMARAMP_RGB256x3x16: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_GAMMARAMP_DXGI_1: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_GAMMARAMP_MATRIX_3x4: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_GAMMARAMP_MATRIX_V2: D3DDDI_GAMMARAMP_TYPE = D3DDDI_GAMMARAMP_TYPE(5i32);
 impl ::core::marker::Copy for D3DDDI_GAMMARAMP_TYPE {}
 impl ::core::clone::Clone for D3DDDI_GAMMARAMP_TYPE {
     fn clone(&self) -> Self {
@@ -2834,12 +4980,6 @@ impl ::core::fmt::Debug for D3DDDI_GAMMARAMP_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDDI_HDR_METADATA_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_HDR_METADATA_TYPE_NONE: D3DDDI_HDR_METADATA_TYPE = D3DDDI_HDR_METADATA_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_HDR_METADATA_TYPE_HDR10: D3DDDI_HDR_METADATA_TYPE = D3DDDI_HDR_METADATA_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_HDR_METADATA_TYPE_HDR10PLUS: D3DDDI_HDR_METADATA_TYPE = D3DDDI_HDR_METADATA_TYPE(2i32);
 impl ::core::marker::Copy for D3DDDI_HDR_METADATA_TYPE {}
 impl ::core::clone::Clone for D3DDDI_HDR_METADATA_TYPE {
     fn clone(&self) -> Self {
@@ -2863,16 +5003,6 @@ impl ::core::fmt::Debug for D3DDDI_HDR_METADATA_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDDI_OFFER_PRIORITY(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_OFFER_PRIORITY_NONE: D3DDDI_OFFER_PRIORITY = D3DDDI_OFFER_PRIORITY(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_OFFER_PRIORITY_LOW: D3DDDI_OFFER_PRIORITY = D3DDDI_OFFER_PRIORITY(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_OFFER_PRIORITY_NORMAL: D3DDDI_OFFER_PRIORITY = D3DDDI_OFFER_PRIORITY(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_OFFER_PRIORITY_HIGH: D3DDDI_OFFER_PRIORITY = D3DDDI_OFFER_PRIORITY(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_OFFER_PRIORITY_AUTO: D3DDDI_OFFER_PRIORITY = D3DDDI_OFFER_PRIORITY(4i32);
 impl ::core::marker::Copy for D3DDDI_OFFER_PRIORITY {}
 impl ::core::clone::Clone for D3DDDI_OFFER_PRIORITY {
     fn clone(&self) -> Self {
@@ -2896,20 +5026,6 @@ impl ::core::fmt::Debug for D3DDDI_OFFER_PRIORITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G22_P709: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_RESERVED: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G2084_P2020: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(12i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G22_P709_WCG: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(30i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G22_P2020: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(31i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_HDR10PLUS: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(32i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_DVLL: D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE = D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE(33i32);
 impl ::core::marker::Copy for D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE {}
 impl ::core::clone::Clone for D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE {
     fn clone(&self) -> Self {
@@ -2933,12 +5049,6 @@ impl ::core::fmt::Debug for D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDDI_PAGINGQUEUE_PRIORITY(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_PAGINGQUEUE_PRIORITY_BELOW_NORMAL: D3DDDI_PAGINGQUEUE_PRIORITY = D3DDDI_PAGINGQUEUE_PRIORITY(-1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_PAGINGQUEUE_PRIORITY_NORMAL: D3DDDI_PAGINGQUEUE_PRIORITY = D3DDDI_PAGINGQUEUE_PRIORITY(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_PAGINGQUEUE_PRIORITY_ABOVE_NORMAL: D3DDDI_PAGINGQUEUE_PRIORITY = D3DDDI_PAGINGQUEUE_PRIORITY(1i32);
 impl ::core::marker::Copy for D3DDDI_PAGINGQUEUE_PRIORITY {}
 impl ::core::clone::Clone for D3DDDI_PAGINGQUEUE_PRIORITY {
     fn clone(&self) -> Self {
@@ -2962,16 +5072,6 @@ impl ::core::fmt::Debug for D3DDDI_PAGINGQUEUE_PRIORITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDDI_POOL(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIPOOL_SYSTEMMEM: D3DDDI_POOL = D3DDDI_POOL(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIPOOL_VIDEOMEMORY: D3DDDI_POOL = D3DDDI_POOL(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIPOOL_LOCALVIDMEM: D3DDDI_POOL = D3DDDI_POOL(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIPOOL_NONLOCALVIDMEM: D3DDDI_POOL = D3DDDI_POOL(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDIPOOL_STAGINGMEM: D3DDDI_POOL = D3DDDI_POOL(5i32);
 impl ::core::marker::Copy for D3DDDI_POOL {}
 impl ::core::clone::Clone for D3DDDI_POOL {
     fn clone(&self) -> Self {
@@ -2995,14 +5095,6 @@ impl ::core::fmt::Debug for D3DDDI_POOL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDDI_QUERYREGISTRY_STATUS(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_QUERYREGISTRY_STATUS_SUCCESS: D3DDDI_QUERYREGISTRY_STATUS = D3DDDI_QUERYREGISTRY_STATUS(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_QUERYREGISTRY_STATUS_BUFFER_OVERFLOW: D3DDDI_QUERYREGISTRY_STATUS = D3DDDI_QUERYREGISTRY_STATUS(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_QUERYREGISTRY_STATUS_FAIL: D3DDDI_QUERYREGISTRY_STATUS = D3DDDI_QUERYREGISTRY_STATUS(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_QUERYREGISTRY_STATUS_MAX: D3DDDI_QUERYREGISTRY_STATUS = D3DDDI_QUERYREGISTRY_STATUS(3i32);
 impl ::core::marker::Copy for D3DDDI_QUERYREGISTRY_STATUS {}
 impl ::core::clone::Clone for D3DDDI_QUERYREGISTRY_STATUS {
     fn clone(&self) -> Self {
@@ -3026,16 +5118,6 @@ impl ::core::fmt::Debug for D3DDDI_QUERYREGISTRY_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDDI_QUERYREGISTRY_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_QUERYREGISTRY_SERVICEKEY: D3DDDI_QUERYREGISTRY_TYPE = D3DDDI_QUERYREGISTRY_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_QUERYREGISTRY_ADAPTERKEY: D3DDDI_QUERYREGISTRY_TYPE = D3DDDI_QUERYREGISTRY_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_QUERYREGISTRY_DRIVERSTOREPATH: D3DDDI_QUERYREGISTRY_TYPE = D3DDDI_QUERYREGISTRY_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_QUERYREGISTRY_DRIVERIMAGEPATH: D3DDDI_QUERYREGISTRY_TYPE = D3DDDI_QUERYREGISTRY_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_QUERYREGISTRY_MAX: D3DDDI_QUERYREGISTRY_TYPE = D3DDDI_QUERYREGISTRY_TYPE(4i32);
 impl ::core::marker::Copy for D3DDDI_QUERYREGISTRY_TYPE {}
 impl ::core::clone::Clone for D3DDDI_QUERYREGISTRY_TYPE {
     fn clone(&self) -> Self {
@@ -3059,12 +5141,6 @@ impl ::core::fmt::Debug for D3DDDI_QUERYREGISTRY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDDI_RECLAIM_RESULT(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_RECLAIM_RESULT_OK: D3DDDI_RECLAIM_RESULT = D3DDDI_RECLAIM_RESULT(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_RECLAIM_RESULT_DISCARDED: D3DDDI_RECLAIM_RESULT = D3DDDI_RECLAIM_RESULT(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_RECLAIM_RESULT_NOT_COMMITTED: D3DDDI_RECLAIM_RESULT = D3DDDI_RECLAIM_RESULT(2i32);
 impl ::core::marker::Copy for D3DDDI_RECLAIM_RESULT {}
 impl ::core::clone::Clone for D3DDDI_RECLAIM_RESULT {
     fn clone(&self) -> Self {
@@ -3088,14 +5164,6 @@ impl ::core::fmt::Debug for D3DDDI_RECLAIM_RESULT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDDI_ROTATION(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_ROTATION_IDENTITY: D3DDDI_ROTATION = D3DDDI_ROTATION(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_ROTATION_90: D3DDDI_ROTATION = D3DDDI_ROTATION(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_ROTATION_180: D3DDDI_ROTATION = D3DDDI_ROTATION(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_ROTATION_270: D3DDDI_ROTATION = D3DDDI_ROTATION(4i32);
 impl ::core::marker::Copy for D3DDDI_ROTATION {}
 impl ::core::clone::Clone for D3DDDI_ROTATION {
     fn clone(&self) -> Self {
@@ -3119,12 +5187,6 @@ impl ::core::fmt::Debug for D3DDDI_ROTATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDDI_SCANLINEORDERING(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_SCANLINEORDERING_UNKNOWN: D3DDDI_SCANLINEORDERING = D3DDDI_SCANLINEORDERING(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_SCANLINEORDERING_PROGRESSIVE: D3DDDI_SCANLINEORDERING = D3DDDI_SCANLINEORDERING(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_SCANLINEORDERING_INTERLACED: D3DDDI_SCANLINEORDERING = D3DDDI_SCANLINEORDERING(2i32);
 impl ::core::marker::Copy for D3DDDI_SCANLINEORDERING {}
 impl ::core::clone::Clone for D3DDDI_SCANLINEORDERING {
     fn clone(&self) -> Self {
@@ -3148,20 +5210,6 @@ impl ::core::fmt::Debug for D3DDDI_SCANLINEORDERING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_SYNCHRONIZATION_MUTEX: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_SEMAPHORE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_FENCE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_CPU_NOTIFICATION: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_MONITORED_FENCE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_PERIODIC_MONITORED_FENCE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_SYNCHRONIZATION_TYPE_LIMIT: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = D3DDDI_SYNCHRONIZATIONOBJECT_TYPE(7i32);
 impl ::core::marker::Copy for D3DDDI_SYNCHRONIZATIONOBJECT_TYPE {}
 impl ::core::clone::Clone for D3DDDI_SYNCHRONIZATIONOBJECT_TYPE {
     fn clone(&self) -> Self {
@@ -3185,14 +5233,6 @@ impl ::core::fmt::Debug for D3DDDI_SYNCHRONIZATIONOBJECT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_MAP: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_UNMAP: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_COPY: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_UPDATEGPUVIRTUALADDRESS_MAP_PROTECT: D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE = D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE(3i32);
 impl ::core::marker::Copy for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE {}
 impl ::core::clone::Clone for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE {
     fn clone(&self) -> Self {
@@ -3216,16 +5256,6 @@ impl ::core::fmt::Debug for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_VSSLO_UNINITIALIZED: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_VSSLO_PROGRESSIVE: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_VSSLO_INTERLACED_UPPERFIELDFIRST: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_VSSLO_INTERLACED_LOWERFIELDFIRST: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDDI_VSSLO_OTHER: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING = D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING(255i32);
 impl ::core::marker::Copy for D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING {}
 impl ::core::clone::Clone for D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING {
     fn clone(&self) -> Self {
@@ -3249,170 +5279,6 @@ impl ::core::fmt::Debug for D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DHAL_DP2OPERATION(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_POINTS: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_INDEXEDLINELIST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_INDEXEDTRIANGLELIST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_RENDERSTATE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_LINELIST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(15i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_LINESTRIP: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(16i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_INDEXEDLINESTRIP: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(17i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_TRIANGLELIST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(18i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_TRIANGLESTRIP: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(19i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_INDEXEDTRIANGLESTRIP: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(20i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_TRIANGLEFAN: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(21i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_INDEXEDTRIANGLEFAN: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(22i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_TRIANGLEFAN_IMM: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(23i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_LINELIST_IMM: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(24i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_TEXTURESTAGESTATE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(25i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_INDEXEDTRIANGLELIST2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(26i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_INDEXEDLINELIST2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(27i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_VIEWPORTINFO: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(28i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_WINFO: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(29i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETPALETTE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(30i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_UPDATEPALETTE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(31i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_ZRANGE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(32i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETMATERIAL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(33i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETLIGHT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(34i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_CREATELIGHT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(35i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETTRANSFORM: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(36i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_TEXBLT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(38i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_STATESET: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(39i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETPRIORITY: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(40i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETRENDERTARGET: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(41i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_CLEAR: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(42i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETTEXLOD: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(43i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETCLIPPLANE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(44i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_CREATEVERTEXSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(45i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_DELETEVERTEXSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(46i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETVERTEXSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(47i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETVERTEXSHADERCONST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(48i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETSTREAMSOURCE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(49i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETSTREAMSOURCEUM: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(50i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETINDICES: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(51i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_DRAWPRIMITIVE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(52i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_DRAWINDEXEDPRIMITIVE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(53i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_CREATEPIXELSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(54i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_DELETEPIXELSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(55i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETPIXELSHADER: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(56i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETPIXELSHADERCONST: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(57i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_CLIPPEDTRIANGLEFAN: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(58i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_DRAWPRIMITIVE2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(59i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_DRAWINDEXEDPRIMITIVE2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(60i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_DRAWRECTPATCH: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(61i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_DRAWTRIPATCH: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(62i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_VOLUMEBLT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(63i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_BUFFERBLT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(64i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_MULTIPLYTRANSFORM: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(65i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_ADDDIRTYRECT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(66i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_ADDDIRTYBOX: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(67i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_CREATEVERTEXSHADERDECL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(71i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_DELETEVERTEXSHADERDECL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(72i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETVERTEXSHADERDECL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(73i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_CREATEVERTEXSHADERFUNC: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(74i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_DELETEVERTEXSHADERFUNC: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(75i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETVERTEXSHADERFUNC: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(76i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETVERTEXSHADERCONSTI: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(77i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETSCISSORRECT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(79i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETSTREAMSOURCE2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(80i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_BLT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(81i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_COLORFILL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(82i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETVERTEXSHADERCONSTB: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(83i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_CREATEQUERY: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(84i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETRENDERTARGET2: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(85i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETDEPTHSTENCIL: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(86i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_RESPONSECONTINUE: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(87i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_RESPONSEQUERY: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(88i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_GENERATEMIPSUBLEVELS: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(89i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_DELETEQUERY: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(90i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_ISSUEQUERY: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(91i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETPIXELSHADERCONSTI: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(93i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETPIXELSHADERCONSTB: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(94i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETSTREAMSOURCEFREQ: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(95i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SURFACEBLT: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(96i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_SETCONVOLUTIONKERNELMONO: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(97i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DDP2OP_COMPOSERECTS: D3DHAL_DP2OPERATION = D3DHAL_DP2OPERATION(98i32);
 impl ::core::marker::Copy for D3DHAL_DP2OPERATION {}
 impl ::core::clone::Clone for D3DHAL_DP2OPERATION {
     fn clone(&self) -> Self {
@@ -3436,12 +5302,6 @@ impl ::core::fmt::Debug for D3DHAL_DP2OPERATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL_NO_CHANGE: D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL = D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL_ENABLE: D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL = D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL_BYPASS: D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL = D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL(2i32);
 impl ::core::marker::Copy for D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL {}
 impl ::core::clone::Clone for D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL {
     fn clone(&self) -> Self {
@@ -3465,18 +5325,6 @@ impl ::core::fmt::Debug for D3DKMDT_COLORSPACE_TRANSFORM_STAGE_CONTROL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_COLOR_BASIS(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_CB_UNINITIALIZED: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_CB_INTENSITY: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_CB_SRGB: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_CB_SCRGB: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_CB_YCBCR: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_CB_YPBPR: D3DKMDT_COLOR_BASIS = D3DKMDT_COLOR_BASIS(5i32);
 impl ::core::marker::Copy for D3DKMDT_COLOR_BASIS {}
 impl ::core::clone::Clone for D3DKMDT_COLOR_BASIS {
     fn clone(&self) -> Self {
@@ -3500,18 +5348,6 @@ impl ::core::fmt::Debug for D3DKMDT_COLOR_BASIS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_COMPUTE_PREEMPTION_NONE: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_COMPUTE_PREEMPTION_DMA_BUFFER_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(100i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_COMPUTE_PREEMPTION_DISPATCH_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(200i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_COMPUTE_PREEMPTION_THREAD_GROUP_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(300i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_COMPUTE_PREEMPTION_THREAD_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(400i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_COMPUTE_PREEMPTION_SHADER_BOUNDARY: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY = D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY(500i32);
 impl ::core::marker::Copy for D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY {}
 impl ::core::clone::Clone for D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY {
     fn clone(&self) -> Self {
@@ -3535,18 +5371,6 @@ impl ::core::fmt::Debug for D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_EPT_UNINITIALIZED: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_EPT_VIDPNSOURCE: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_EPT_VIDPNTARGET: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_EPT_SCALING: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_EPT_ROTATION: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_EPT_NOPIVOT: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE(5i32);
 impl ::core::marker::Copy for D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE {}
 impl ::core::clone::Clone for D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE {
     fn clone(&self) -> Self {
@@ -3570,24 +5394,6 @@ impl ::core::fmt::Debug for D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_GDISURFACETYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_GDISURFACE_INVALID: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_GDISURFACE_TEXTURE: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_GDISURFACE_STAGING_CPUVISIBLE: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_GDISURFACE_STAGING: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_GDISURFACE_LOOKUPTABLE: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_GDISURFACE_EXISTINGSYSMEM: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_GDISURFACE_TEXTURE_CPUVISIBLE: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_GDISURFACE_TEXTURE_CROSSADAPTER: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(7i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_GDISURFACE_TEXTURE_CPUVISIBLE_CROSSADAPTER: D3DKMDT_GDISURFACETYPE = D3DKMDT_GDISURFACETYPE(8i32);
 impl ::core::marker::Copy for D3DKMDT_GDISURFACETYPE {}
 impl ::core::clone::Clone for D3DKMDT_GDISURFACETYPE {
     fn clone(&self) -> Self {
@@ -3611,18 +5417,6 @@ impl ::core::fmt::Debug for D3DKMDT_GDISURFACETYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_GRAPHICS_PREEMPTION_NONE: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_GRAPHICS_PREEMPTION_DMA_BUFFER_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(100i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_GRAPHICS_PREEMPTION_PRIMITIVE_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(200i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_GRAPHICS_PREEMPTION_TRIANGLE_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(300i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_GRAPHICS_PREEMPTION_PIXEL_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(400i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_GRAPHICS_PREEMPTION_SHADER_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY(500i32);
 impl ::core::marker::Copy for D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY {}
 impl ::core::clone::Clone for D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY {
     fn clone(&self) -> Self {
@@ -3646,12 +5440,6 @@ impl ::core::fmt::Debug for D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_GTFCOMPLIANCE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_GTF_UNINITIALIZED: D3DKMDT_GTFCOMPLIANCE = D3DKMDT_GTFCOMPLIANCE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_GTF_COMPLIANT: D3DKMDT_GTFCOMPLIANCE = D3DKMDT_GTFCOMPLIANCE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_GTF_NOTCOMPLIANT: D3DKMDT_GTFCOMPLIANCE = D3DKMDT_GTFCOMPLIANCE(2i32);
 impl ::core::marker::Copy for D3DKMDT_GTFCOMPLIANCE {}
 impl ::core::clone::Clone for D3DKMDT_GTFCOMPLIANCE {
     fn clone(&self) -> Self {
@@ -3675,12 +5463,6 @@ impl ::core::fmt::Debug for D3DKMDT_GTFCOMPLIANCE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_MODE_PREFERENCE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MP_UNINITIALIZED: D3DKMDT_MODE_PREFERENCE = D3DKMDT_MODE_PREFERENCE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MP_PREFERRED: D3DKMDT_MODE_PREFERENCE = D3DKMDT_MODE_PREFERENCE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MP_NOTPREFERRED: D3DKMDT_MODE_PREFERENCE = D3DKMDT_MODE_PREFERENCE(2i32);
 impl ::core::marker::Copy for D3DKMDT_MODE_PREFERENCE {}
 impl ::core::clone::Clone for D3DKMDT_MODE_PREFERENCE {
     fn clone(&self) -> Self {
@@ -3704,28 +5486,6 @@ impl ::core::fmt::Debug for D3DKMDT_MODE_PREFERENCE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_MODE_PRUNING_REASON(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MPR_UNINITIALIZED: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MPR_ALLCAPS: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MPR_DESCRIPTOR_MONITOR_SOURCE_MODE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MPR_DESCRIPTOR_MONITOR_FREQUENCY_RANGE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MPR_DESCRIPTOR_OVERRIDE_MONITOR_SOURCE_MODE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MPR_DESCRIPTOR_OVERRIDE_MONITOR_FREQUENCY_RANGE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MPR_DEFAULT_PROFILE_MONITOR_SOURCE_MODE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MPR_DRIVER_RECOMMENDED_MONITOR_SOURCE_MODE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(7i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MPR_MONITOR_FREQUENCY_RANGE_OVERRIDE: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MPR_CLONE_PATH_PRUNED: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(9i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MPR_MAXVALID: D3DKMDT_MODE_PRUNING_REASON = D3DKMDT_MODE_PRUNING_REASON(10i32);
 impl ::core::marker::Copy for D3DKMDT_MODE_PRUNING_REASON {}
 impl ::core::clone::Clone for D3DKMDT_MODE_PRUNING_REASON {
     fn clone(&self) -> Self {
@@ -3749,18 +5509,6 @@ impl ::core::fmt::Debug for D3DKMDT_MODE_PRUNING_REASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MCO_UNINITIALIZED: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MCO_DEFAULTMONITORPROFILE: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MCO_MONITORDESCRIPTOR: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MCO_MONITORDESCRIPTOR_REGISTRYOVERRIDE: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MCO_SPECIFICCAP_REGISTRYOVERRIDE: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MCO_DRIVER: D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = D3DKMDT_MONITOR_CAPABILITIES_ORIGIN(5i32);
 impl ::core::marker::Copy for D3DKMDT_MONITOR_CAPABILITIES_ORIGIN {}
 impl ::core::clone::Clone for D3DKMDT_MONITOR_CAPABILITIES_ORIGIN {
     fn clone(&self) -> Self {
@@ -3784,12 +5532,6 @@ impl ::core::fmt::Debug for D3DKMDT_MONITOR_CAPABILITIES_ORIGIN {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_MONITOR_CONNECTIVITY_CHECKS(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MCC_UNINITIALIZED: D3DKMDT_MONITOR_CONNECTIVITY_CHECKS = D3DKMDT_MONITOR_CONNECTIVITY_CHECKS(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MCC_IGNORE: D3DKMDT_MONITOR_CONNECTIVITY_CHECKS = D3DKMDT_MONITOR_CONNECTIVITY_CHECKS(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MCC_ENFORCE: D3DKMDT_MONITOR_CONNECTIVITY_CHECKS = D3DKMDT_MONITOR_CONNECTIVITY_CHECKS(2i32);
 impl ::core::marker::Copy for D3DKMDT_MONITOR_CONNECTIVITY_CHECKS {}
 impl ::core::clone::Clone for D3DKMDT_MONITOR_CONNECTIVITY_CHECKS {
     fn clone(&self) -> Self {
@@ -3813,14 +5555,6 @@ impl ::core::fmt::Debug for D3DKMDT_MONITOR_CONNECTIVITY_CHECKS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_MONITOR_DESCRIPTOR_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MDT_UNINITIALIZED: D3DKMDT_MONITOR_DESCRIPTOR_TYPE = D3DKMDT_MONITOR_DESCRIPTOR_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MDT_VESA_EDID_V1_BASEBLOCK: D3DKMDT_MONITOR_DESCRIPTOR_TYPE = D3DKMDT_MONITOR_DESCRIPTOR_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MDT_VESA_EDID_V1_BLOCKMAP: D3DKMDT_MONITOR_DESCRIPTOR_TYPE = D3DKMDT_MONITOR_DESCRIPTOR_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MDT_OTHER: D3DKMDT_MONITOR_DESCRIPTOR_TYPE = D3DKMDT_MONITOR_DESCRIPTOR_TYPE(255i32);
 impl ::core::marker::Copy for D3DKMDT_MONITOR_DESCRIPTOR_TYPE {}
 impl ::core::clone::Clone for D3DKMDT_MONITOR_DESCRIPTOR_TYPE {
     fn clone(&self) -> Self {
@@ -3844,12 +5578,6 @@ impl ::core::fmt::Debug for D3DKMDT_MONITOR_DESCRIPTOR_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MFRC_UNINITIALIZED: D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT = D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MFRC_ACTIVESIZE: D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT = D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MFRC_MAXPIXELRATE: D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT = D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT(2i32);
 impl ::core::marker::Copy for D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT {}
 impl ::core::clone::Clone for D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT {
     fn clone(&self) -> Self {
@@ -3873,16 +5601,6 @@ impl ::core::fmt::Debug for D3DKMDT_MONITOR_FREQUENCY_RANGE_CONSTRAINT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_MONITOR_ORIENTATION(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MO_UNINITIALIZED: D3DKMDT_MONITOR_ORIENTATION = D3DKMDT_MONITOR_ORIENTATION(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MO_0DEG: D3DKMDT_MONITOR_ORIENTATION = D3DKMDT_MONITOR_ORIENTATION(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MO_90DEG: D3DKMDT_MONITOR_ORIENTATION = D3DKMDT_MONITOR_ORIENTATION(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MO_180DEG: D3DKMDT_MONITOR_ORIENTATION = D3DKMDT_MONITOR_ORIENTATION(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MO_270DEG: D3DKMDT_MONITOR_ORIENTATION = D3DKMDT_MONITOR_ORIENTATION(4i32);
 impl ::core::marker::Copy for D3DKMDT_MONITOR_ORIENTATION {}
 impl ::core::clone::Clone for D3DKMDT_MONITOR_ORIENTATION {
     fn clone(&self) -> Self {
@@ -3906,14 +5624,6 @@ impl ::core::fmt::Debug for D3DKMDT_MONITOR_ORIENTATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_MONITOR_ORIENTATION_AWARENESS(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MOA_UNINITIALIZED: D3DKMDT_MONITOR_ORIENTATION_AWARENESS = D3DKMDT_MONITOR_ORIENTATION_AWARENESS(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MOA_NONE: D3DKMDT_MONITOR_ORIENTATION_AWARENESS = D3DKMDT_MONITOR_ORIENTATION_AWARENESS(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MOA_POLLED: D3DKMDT_MONITOR_ORIENTATION_AWARENESS = D3DKMDT_MONITOR_ORIENTATION_AWARENESS(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MOA_INTERRUPTIBLE: D3DKMDT_MONITOR_ORIENTATION_AWARENESS = D3DKMDT_MONITOR_ORIENTATION_AWARENESS(3i32);
 impl ::core::marker::Copy for D3DKMDT_MONITOR_ORIENTATION_AWARENESS {}
 impl ::core::clone::Clone for D3DKMDT_MONITOR_ORIENTATION_AWARENESS {
     fn clone(&self) -> Self {
@@ -3937,20 +5647,6 @@ impl ::core::fmt::Debug for D3DKMDT_MONITOR_ORIENTATION_AWARENESS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_MONITOR_TIMING_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MTT_UNINITIALIZED: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MTT_ESTABLISHED: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MTT_STANDARD: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MTT_EXTRASTANDARD: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MTT_DETAILED: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MTT_DEFAULTMONITORPROFILE: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_MTT_DRIVER: D3DKMDT_MONITOR_TIMING_TYPE = D3DKMDT_MONITOR_TIMING_TYPE(6i32);
 impl ::core::marker::Copy for D3DKMDT_MONITOR_TIMING_TYPE {}
 impl ::core::clone::Clone for D3DKMDT_MONITOR_TIMING_TYPE {
     fn clone(&self) -> Self {
@@ -3974,14 +5670,6 @@ impl ::core::fmt::Debug for D3DKMDT_MONITOR_TIMING_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_PIXEL_VALUE_ACCESS_MODE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_PVAM_UNINITIALIZED: D3DKMDT_PIXEL_VALUE_ACCESS_MODE = D3DKMDT_PIXEL_VALUE_ACCESS_MODE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_PVAM_DIRECT: D3DKMDT_PIXEL_VALUE_ACCESS_MODE = D3DKMDT_PIXEL_VALUE_ACCESS_MODE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_PVAM_PRESETPALETTE: D3DKMDT_PIXEL_VALUE_ACCESS_MODE = D3DKMDT_PIXEL_VALUE_ACCESS_MODE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_PVAM_SETTABLEPALETTE: D3DKMDT_PIXEL_VALUE_ACCESS_MODE = D3DKMDT_PIXEL_VALUE_ACCESS_MODE(3i32);
 impl ::core::marker::Copy for D3DKMDT_PIXEL_VALUE_ACCESS_MODE {}
 impl ::core::clone::Clone for D3DKMDT_PIXEL_VALUE_ACCESS_MODE {
     fn clone(&self) -> Self {
@@ -4005,16 +5693,6 @@ impl ::core::fmt::Debug for D3DKMDT_PIXEL_VALUE_ACCESS_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_STANDARDALLOCATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_STANDARDALLOCATION_SHAREDPRIMARYSURFACE: D3DKMDT_STANDARDALLOCATION_TYPE = D3DKMDT_STANDARDALLOCATION_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_STANDARDALLOCATION_SHADOWSURFACE: D3DKMDT_STANDARDALLOCATION_TYPE = D3DKMDT_STANDARDALLOCATION_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_STANDARDALLOCATION_STAGINGSURFACE: D3DKMDT_STANDARDALLOCATION_TYPE = D3DKMDT_STANDARDALLOCATION_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_STANDARDALLOCATION_GDISURFACE: D3DKMDT_STANDARDALLOCATION_TYPE = D3DKMDT_STANDARDALLOCATION_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_STANDARDALLOCATION_VGPU: D3DKMDT_STANDARDALLOCATION_TYPE = D3DKMDT_STANDARDALLOCATION_TYPE(5i32);
 impl ::core::marker::Copy for D3DKMDT_STANDARDALLOCATION_TYPE {}
 impl ::core::clone::Clone for D3DKMDT_STANDARDALLOCATION_TYPE {
     fn clone(&self) -> Self {
@@ -4038,8 +5716,6 @@ impl ::core::fmt::Debug for D3DKMDT_STANDARDALLOCATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_TEXT_RENDERING_FORMAT(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_TRF_UNINITIALIZED: D3DKMDT_TEXT_RENDERING_FORMAT = D3DKMDT_TEXT_RENDERING_FORMAT(0i32);
 impl ::core::marker::Copy for D3DKMDT_TEXT_RENDERING_FORMAT {}
 impl ::core::clone::Clone for D3DKMDT_TEXT_RENDERING_FORMAT {
     fn clone(&self) -> Self {
@@ -4063,54 +5739,6 @@ impl ::core::fmt::Debug for D3DKMDT_TEXT_RENDERING_FORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_UNINITIALIZED: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(-2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_OTHER: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(-1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_HD15: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_SVIDEO: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_COMPOSITE_VIDEO: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_COMPONENT_VIDEO: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_DVI: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_HDMI: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_LVDS: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_D_JPN: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_SDI: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(9i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_DISPLAYPORT_EXTERNAL: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(10i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_DISPLAYPORT_EMBEDDED: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(11i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_UDI_EXTERNAL: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(12i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_UDI_EMBEDDED: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(13i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_SDTVDONGLE: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(14i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_MIRACAST: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(15i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_INDIRECT_WIRED: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(16i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_INTERNAL: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(-2147483648i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_SVIDEO_4PIN: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_SVIDEO_7PIN: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_RF: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_RCA_3COMPONENT: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VOT_BNC: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY(3i32);
 impl ::core::marker::Copy for D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY {}
 impl ::core::clone::Clone for D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY {
     fn clone(&self) -> Self {
@@ -4134,72 +5762,6 @@ impl ::core::fmt::Debug for D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_VIDEO_SIGNAL_STANDARD(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_UNINITIALIZED: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_VESA_DMT: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_VESA_GTF: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_VESA_CVT: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_IBM: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_APPLE: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_NTSC_M: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_NTSC_J: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(7i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_NTSC_443: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_PAL_B: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(9i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_PAL_B1: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(10i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_PAL_G: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(11i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_PAL_H: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(12i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_PAL_I: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(13i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_PAL_D: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(14i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_PAL_N: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(15i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_PAL_NC: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(16i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_SECAM_B: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(17i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_SECAM_D: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(18i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_SECAM_G: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(19i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_SECAM_H: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(20i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_SECAM_K: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(21i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_SECAM_K1: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(22i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_SECAM_L: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(23i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_SECAM_L1: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(24i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_EIA_861: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(25i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_EIA_861A: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(26i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_EIA_861B: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(27i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_PAL_K: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(28i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_PAL_K1: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(29i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_PAL_L: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(30i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_PAL_M: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(31i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VSS_OTHER: D3DKMDT_VIDEO_SIGNAL_STANDARD = D3DKMDT_VIDEO_SIGNAL_STANDARD(255i32);
 impl ::core::marker::Copy for D3DKMDT_VIDEO_SIGNAL_STANDARD {}
 impl ::core::clone::Clone for D3DKMDT_VIDEO_SIGNAL_STANDARD {
     fn clone(&self) -> Self {
@@ -4223,14 +5785,6 @@ impl ::core::fmt::Debug for D3DKMDT_VIDEO_SIGNAL_STANDARD {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_CONTENT(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPC_UNINITIALIZED: D3DKMDT_VIDPN_PRESENT_PATH_CONTENT = D3DKMDT_VIDPN_PRESENT_PATH_CONTENT(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPC_GRAPHICS: D3DKMDT_VIDPN_PRESENT_PATH_CONTENT = D3DKMDT_VIDPN_PRESENT_PATH_CONTENT(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPC_VIDEO: D3DKMDT_VIDPN_PRESENT_PATH_CONTENT = D3DKMDT_VIDPN_PRESENT_PATH_CONTENT(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPC_NOTSPECIFIED: D3DKMDT_VIDPN_PRESENT_PATH_CONTENT = D3DKMDT_VIDPN_PRESENT_PATH_CONTENT(255i32);
 impl ::core::marker::Copy for D3DKMDT_VIDPN_PRESENT_PATH_CONTENT {}
 impl ::core::clone::Clone for D3DKMDT_VIDPN_PRESENT_PATH_CONTENT {
     fn clone(&self) -> Self {
@@ -4254,14 +5808,6 @@ impl ::core::fmt::Debug for D3DKMDT_VIDPN_PRESENT_PATH_CONTENT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPMT_UNINITIALIZED: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE = D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPMT_NOPROTECTION: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE = D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPMT_MACROVISION_APSTRIGGER: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE = D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPMT_MACROVISION_FULLSUPPORT: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE = D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE(3i32);
 impl ::core::marker::Copy for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE {}
 impl ::core::clone::Clone for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE {
     fn clone(&self) -> Self {
@@ -4285,28 +5831,6 @@ impl ::core::fmt::Debug for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPI_UNINITIALIZED: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPI_PRIMARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPI_SECONDARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPI_TERTIARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPI_QUATERNARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPI_QUINARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPI_SENARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPI_SEPTENARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(7i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPI_OCTONARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPI_NONARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(9i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPI_DENARY: D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE(10i32);
 impl ::core::marker::Copy for D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE {}
 impl ::core::clone::Clone for D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE {
     fn clone(&self) -> Self {
@@ -4330,44 +5854,6 @@ impl ::core::fmt::Debug for D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPR_UNINITIALIZED: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPR_IDENTITY: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPR_ROTATE90: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPR_ROTATE180: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPR_ROTATE270: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPR_IDENTITY_OFFSET90: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPR_ROTATE90_OFFSET90: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPR_ROTATE180_OFFSET90: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(7i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPR_ROTATE270_OFFSET90: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPR_IDENTITY_OFFSET180: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(9i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPR_ROTATE90_OFFSET180: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(10i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPR_ROTATE180_OFFSET180: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(11i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPR_ROTATE270_OFFSET180: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(12i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPR_IDENTITY_OFFSET270: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(13i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPR_ROTATE90_OFFSET270: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(14i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPR_ROTATE180_OFFSET270: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(15i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPR_ROTATE270_OFFSET270: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(16i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPR_UNPINNED: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(254i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPR_NOTSPECIFIED: D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = D3DKMDT_VIDPN_PRESENT_PATH_ROTATION(255i32);
 impl ::core::marker::Copy for D3DKMDT_VIDPN_PRESENT_PATH_ROTATION {}
 impl ::core::clone::Clone for D3DKMDT_VIDPN_PRESENT_PATH_ROTATION {
     fn clone(&self) -> Self {
@@ -4391,24 +5877,6 @@ impl ::core::fmt::Debug for D3DKMDT_VIDPN_PRESENT_PATH_ROTATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_SCALING(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPS_UNINITIALIZED: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPS_IDENTITY: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPS_CENTERED: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPS_STRETCHED: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPS_ASPECTRATIOCENTEREDMAX: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPS_CUSTOM: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPS_RESERVED1: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(253i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPS_UNPINNED: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(254i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_VPPS_NOTSPECIFIED: D3DKMDT_VIDPN_PRESENT_PATH_SCALING = D3DKMDT_VIDPN_PRESENT_PATH_SCALING(255i32);
 impl ::core::marker::Copy for D3DKMDT_VIDPN_PRESENT_PATH_SCALING {}
 impl ::core::clone::Clone for D3DKMDT_VIDPN_PRESENT_PATH_SCALING {
     fn clone(&self) -> Self {
@@ -4432,16 +5900,6 @@ impl ::core::fmt::Debug for D3DKMDT_VIDPN_PRESENT_PATH_SCALING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMDT_VIDPN_SOURCE_MODE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_RMT_UNINITIALIZED: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = D3DKMDT_VIDPN_SOURCE_MODE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_RMT_GRAPHICS: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = D3DKMDT_VIDPN_SOURCE_MODE_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_RMT_TEXT: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = D3DKMDT_VIDPN_SOURCE_MODE_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_RMT_GRAPHICS_STEREO: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = D3DKMDT_VIDPN_SOURCE_MODE_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMDT_RMT_GRAPHICS_STEREO_ADVANCED_SCAN: D3DKMDT_VIDPN_SOURCE_MODE_TYPE = D3DKMDT_VIDPN_SOURCE_MODE_TYPE(4i32);
 impl ::core::marker::Copy for D3DKMDT_VIDPN_SOURCE_MODE_TYPE {}
 impl ::core::clone::Clone for D3DKMDT_VIDPN_SOURCE_MODE_TYPE {
     fn clone(&self) -> Self {
@@ -4465,10 +5923,6 @@ impl ::core::fmt::Debug for D3DKMDT_VIDPN_SOURCE_MODE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE_EXTRA_CCD_DATABASE_INFO: D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE = D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE_MODES_PRUNED: D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE = D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE(15i32);
 impl ::core::marker::Copy for D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE {}
 impl ::core::clone::Clone for D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE {
     fn clone(&self) -> Self {
@@ -4492,10 +5946,6 @@ impl ::core::fmt::Debug for D3DKMT_ACTIVATE_SPECIFIC_DIAG_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ADAPTER_VERIFIER_OPTION_VIDMM_FLAGS: D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE = D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE(1000i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ADAPTER_VERIFIER_OPTION_VIDMM_TRIM_INTERVAL: D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE = D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE(1001i32);
 impl ::core::marker::Copy for D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE {}
 impl ::core::clone::Clone for D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE {
     fn clone(&self) -> Self {
@@ -4519,12 +5969,6 @@ impl ::core::fmt::Debug for D3DKMT_ADAPTER_VERIFIER_OPTION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_ALLOCATIONRESIDENCYSTATUS(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ALLOCATIONRESIDENCYSTATUS_RESIDENTINGPUMEMORY: D3DKMT_ALLOCATIONRESIDENCYSTATUS = D3DKMT_ALLOCATIONRESIDENCYSTATUS(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ALLOCATIONRESIDENCYSTATUS_RESIDENTINSHAREDMEMORY: D3DKMT_ALLOCATIONRESIDENCYSTATUS = D3DKMT_ALLOCATIONRESIDENCYSTATUS(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ALLOCATIONRESIDENCYSTATUS_NOTRESIDENT: D3DKMT_ALLOCATIONRESIDENCYSTATUS = D3DKMT_ALLOCATIONRESIDENCYSTATUS(3i32);
 impl ::core::marker::Copy for D3DKMT_ALLOCATIONRESIDENCYSTATUS {}
 impl ::core::clone::Clone for D3DKMT_ALLOCATIONRESIDENCYSTATUS {
     fn clone(&self) -> Self {
@@ -4548,8 +5992,6 @@ impl ::core::fmt::Debug for D3DKMT_ALLOCATIONRESIDENCYSTATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_AUXILIARYPRESENTINFO_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_AUXILIARYPRESENTINFO_TYPE_FLIPMANAGER: D3DKMT_AUXILIARYPRESENTINFO_TYPE = D3DKMT_AUXILIARYPRESENTINFO_TYPE(0i32);
 impl ::core::marker::Copy for D3DKMT_AUXILIARYPRESENTINFO_TYPE {}
 impl ::core::clone::Clone for D3DKMT_AUXILIARYPRESENTINFO_TYPE {
     fn clone(&self) -> Self {
@@ -4573,28 +6015,6 @@ impl ::core::fmt::Debug for D3DKMT_AUXILIARYPRESENTINFO_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_BRIGHTNESS_INFO_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_BRIGHTNESS_INFO_GET_POSSIBLE_LEVELS: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_BRIGHTNESS_INFO_GET: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_BRIGHTNESS_INFO_SET: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_BRIGHTNESS_INFO_GET_CAPS: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_BRIGHTNESS_INFO_SET_STATE: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_BRIGHTNESS_INFO_SET_OPTIMIZATION: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_BRIGHTNESS_INFO_GET_REDUCTION: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(7i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_BRIGHTNESS_INFO_BEGIN_MANUAL_MODE: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_BRIGHTNESS_INFO_END_MANUAL_MODE: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(9i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_BRIGHTNESS_INFO_TOGGLE_LOGGING: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(10i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_BRIGHTNESS_INFO_GET_NIT_RANGES: D3DKMT_BRIGHTNESS_INFO_TYPE = D3DKMT_BRIGHTNESS_INFO_TYPE(11i32);
 impl ::core::marker::Copy for D3DKMT_BRIGHTNESS_INFO_TYPE {}
 impl ::core::clone::Clone for D3DKMT_BRIGHTNESS_INFO_TYPE {
     fn clone(&self) -> Self {
@@ -4618,10 +6038,6 @@ impl ::core::fmt::Debug for D3DKMT_BRIGHTNESS_INFO_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_CANCEL_PRESENTS_OPERATION(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CANCEL_PRESENTS_OPERATION_CANCEL_FROM: D3DKMT_CANCEL_PRESENTS_OPERATION = D3DKMT_CANCEL_PRESENTS_OPERATION(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CANCEL_PRESENTS_OPERATION_REPROGRAM_INTERRUPT: D3DKMT_CANCEL_PRESENTS_OPERATION = D3DKMT_CANCEL_PRESENTS_OPERATION(1i32);
 impl ::core::marker::Copy for D3DKMT_CANCEL_PRESENTS_OPERATION {}
 impl ::core::clone::Clone for D3DKMT_CANCEL_PRESENTS_OPERATION {
     fn clone(&self) -> Self {
@@ -4645,50 +6061,6 @@ impl ::core::fmt::Debug for D3DKMT_CANCEL_PRESENTS_OPERATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_CLIENTHINT(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_UNKNOWN: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_OPENGL: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_CDD: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_OPENCL: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_VULKAN: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_CUDA: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_RESERVED: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_DX7: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(7i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_DX8: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_DX9: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(9i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_DX10: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(10i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_DX11: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(11i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_DX12: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(12i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_9ON12: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(13i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_11ON12: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(14i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_MFT_ENCODE: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(15i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_GLON12: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(16i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_CLON12: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(17i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_DML_TENSORFLOW: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(18i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_ONEAPI_LEVEL0: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(19i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_DML_PYTORCH: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(20i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CLIENTHINT_MAX: D3DKMT_CLIENTHINT = D3DKMT_CLIENTHINT(21i32);
 impl ::core::marker::Copy for D3DKMT_CLIENTHINT {}
 impl ::core::clone::Clone for D3DKMT_CLIENTHINT {
     fn clone(&self) -> Self {
@@ -4712,14 +6084,6 @@ impl ::core::fmt::Debug for D3DKMT_CLIENTHINT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_NONE: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER = D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_COPY: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER = D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_TEXTURE: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER = D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER_SCANOUT: D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER = D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER(3i32);
 impl ::core::marker::Copy for D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER {}
 impl ::core::clone::Clone for D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER {
     fn clone(&self) -> Self {
@@ -4743,16 +6107,6 @@ impl ::core::fmt::Debug for D3DKMT_CROSSADAPTERRESOURCE_SUPPORT_TIER {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_DEFRAG_ESCAPE_OPERATION(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEFRAG_ESCAPE_GET_FRAGMENTATION_STATS: D3DKMT_DEFRAG_ESCAPE_OPERATION = D3DKMT_DEFRAG_ESCAPE_OPERATION(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEFRAG_ESCAPE_DEFRAG_UPWARD: D3DKMT_DEFRAG_ESCAPE_OPERATION = D3DKMT_DEFRAG_ESCAPE_OPERATION(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEFRAG_ESCAPE_DEFRAG_DOWNWARD: D3DKMT_DEFRAG_ESCAPE_OPERATION = D3DKMT_DEFRAG_ESCAPE_OPERATION(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEFRAG_ESCAPE_DEFRAG_PASS: D3DKMT_DEFRAG_ESCAPE_OPERATION = D3DKMT_DEFRAG_ESCAPE_OPERATION(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEFRAG_ESCAPE_VERIFY_TRANSFER: D3DKMT_DEFRAG_ESCAPE_OPERATION = D3DKMT_DEFRAG_ESCAPE_OPERATION(4i32);
 impl ::core::marker::Copy for D3DKMT_DEFRAG_ESCAPE_OPERATION {}
 impl ::core::clone::Clone for D3DKMT_DEFRAG_ESCAPE_OPERATION {
     fn clone(&self) -> Self {
@@ -4776,10 +6130,6 @@ impl ::core::fmt::Debug for D3DKMT_DEFRAG_ESCAPE_OPERATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_DEVICEESCAPE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEVICEESCAPE_VIDPNFROMALLOCATION: D3DKMT_DEVICEESCAPE_TYPE = D3DKMT_DEVICEESCAPE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEVICEESCAPE_RESTOREGAMMA: D3DKMT_DEVICEESCAPE_TYPE = D3DKMT_DEVICEESCAPE_TYPE(1i32);
 impl ::core::marker::Copy for D3DKMT_DEVICEESCAPE_TYPE {}
 impl ::core::clone::Clone for D3DKMT_DEVICEESCAPE_TYPE {
     fn clone(&self) -> Self {
@@ -4803,20 +6153,6 @@ impl ::core::fmt::Debug for D3DKMT_DEVICEESCAPE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_DEVICEEXECUTION_STATE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEVICEEXECUTION_ACTIVE: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEVICEEXECUTION_RESET: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEVICEEXECUTION_HUNG: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEVICEEXECUTION_STOPPED: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEVICEEXECUTION_ERROR_OUTOFMEMORY: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEVICEEXECUTION_ERROR_DMAFAULT: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEVICEEXECUTION_ERROR_DMAPAGEFAULT: D3DKMT_DEVICEEXECUTION_STATE = D3DKMT_DEVICEEXECUTION_STATE(7i32);
 impl ::core::marker::Copy for D3DKMT_DEVICEEXECUTION_STATE {}
 impl ::core::clone::Clone for D3DKMT_DEVICEEXECUTION_STATE {
     fn clone(&self) -> Self {
@@ -4840,18 +6176,6 @@ impl ::core::fmt::Debug for D3DKMT_DEVICEEXECUTION_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_DEVICESTATE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEVICESTATE_EXECUTION: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEVICESTATE_PRESENT: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEVICESTATE_RESET: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEVICESTATE_PRESENT_DWM: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEVICESTATE_PAGE_FAULT: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEVICESTATE_PRESENT_QUEUE: D3DKMT_DEVICESTATE_TYPE = D3DKMT_DEVICESTATE_TYPE(6i32);
 impl ::core::marker::Copy for D3DKMT_DEVICESTATE_TYPE {}
 impl ::core::clone::Clone for D3DKMT_DEVICESTATE_TYPE {
     fn clone(&self) -> Self {
@@ -4875,10 +6199,6 @@ impl ::core::fmt::Debug for D3DKMT_DEVICESTATE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_DEVICE_ERROR_REASON(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEVICE_ERROR_REASON_GENERIC: D3DKMT_DEVICE_ERROR_REASON = D3DKMT_DEVICE_ERROR_REASON(-2147483648i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DEVICE_ERROR_REASON_DRIVER_ERROR: D3DKMT_DEVICE_ERROR_REASON = D3DKMT_DEVICE_ERROR_REASON(-2147483642i32);
 impl ::core::marker::Copy for D3DKMT_DEVICE_ERROR_REASON {}
 impl ::core::clone::Clone for D3DKMT_DEVICE_ERROR_REASON {
     fn clone(&self) -> Self {
@@ -4902,36 +6222,6 @@ impl ::core::fmt::Debug for D3DKMT_DEVICE_ERROR_REASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_DMMESCAPETYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DMMESCAPETYPE_UNINITIALIZED: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DMMESCAPETYPE_GET_SUMMARY_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DMMESCAPETYPE_GET_VIDEO_PRESENT_SOURCES_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DMMESCAPETYPE_GET_VIDEO_PRESENT_TARGETS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DMMESCAPETYPE_GET_ACTIVEVIDPN_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DMMESCAPETYPE_GET_MONITORS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DMMESCAPETYPE_RECENTLY_COMMITTED_VIDPNS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DMMESCAPETYPE_RECENT_MODECHANGE_REQUESTS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(7i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DMMESCAPETYPE_RECENTLY_RECOMMENDED_VIDPNS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DMMESCAPETYPE_RECENT_MONITOR_PRESENCE_EVENTS_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(9i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DMMESCAPETYPE_ACTIVEVIDPN_SOURCEMODESET_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(10i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DMMESCAPETYPE_ACTIVEVIDPN_COFUNCPATHMODALITY_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(11i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DMMESCAPETYPE_GET_LASTCLIENTCOMMITTEDVIDPN_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(12i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DMMESCAPETYPE_GET_VERSION_INFO: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(13i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DMMESCAPETYPE_VIDPN_MGR_DIAGNOSTICS: D3DKMT_DMMESCAPETYPE = D3DKMT_DMMESCAPETYPE(14i32);
 impl ::core::marker::Copy for D3DKMT_DMMESCAPETYPE {}
 impl ::core::clone::Clone for D3DKMT_DMMESCAPETYPE {
     fn clone(&self) -> Self {
@@ -4955,40 +6245,6 @@ impl ::core::fmt::Debug for D3DKMT_DMMESCAPETYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_DRIVERVERSION(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMT_DRIVERVERSION_WDDM_1_0: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(1000i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMT_DRIVERVERSION_WDDM_1_1_PRERELEASE: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(1102i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMT_DRIVERVERSION_WDDM_1_1: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(1105i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMT_DRIVERVERSION_WDDM_1_2: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(1200i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMT_DRIVERVERSION_WDDM_1_3: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(1300i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMT_DRIVERVERSION_WDDM_2_0: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(2000i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMT_DRIVERVERSION_WDDM_2_1: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(2100i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMT_DRIVERVERSION_WDDM_2_2: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(2200i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMT_DRIVERVERSION_WDDM_2_3: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(2300i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMT_DRIVERVERSION_WDDM_2_4: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(2400i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMT_DRIVERVERSION_WDDM_2_5: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(2500i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMT_DRIVERVERSION_WDDM_2_6: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(2600i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMT_DRIVERVERSION_WDDM_2_7: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(2700i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMT_DRIVERVERSION_WDDM_2_8: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(2800i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMT_DRIVERVERSION_WDDM_2_9: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(2900i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMT_DRIVERVERSION_WDDM_3_0: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(3000i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMT_DRIVERVERSION_WDDM_3_1: D3DKMT_DRIVERVERSION = D3DKMT_DRIVERVERSION(3100i32);
 impl ::core::marker::Copy for D3DKMT_DRIVERVERSION {}
 impl ::core::clone::Clone for D3DKMT_DRIVERVERSION {
     fn clone(&self) -> Self {
@@ -5012,102 +6268,6 @@ impl ::core::fmt::Debug for D3DKMT_DRIVERVERSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_ESCAPETYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_DRIVERPRIVATE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_VIDMM: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_TDRDBGCTRL: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_VIDSCH: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_DEVICE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_DMM: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_DEBUG_SNAPSHOT: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_DRT_TEST: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_DIAGNOSTICS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(9i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_OUTPUTDUPL_SNAPSHOT: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(10i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_OUTPUTDUPL_DIAGNOSTICS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(11i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_BDD_PNP: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(12i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_BDD_FALLBACK: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(13i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_ACTIVATE_SPECIFIC_DIAG: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(14i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_MODES_PRUNED_OUT: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(15i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_WHQL_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(16i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_BRIGHTNESS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(17i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_EDID_CACHE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(18i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_MIRACAST_DISPLAY_REQUEST: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(20i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_HISTORY_BUFFER_STATUS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(21i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_MIRACAST_ADAPTER_DIAG_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(23i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_FORCE_BDDFALLBACK_HEADLESS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(24i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_REQUEST_MACHINE_CRASH: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(25i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_SOFTGPU_ENABLE_DISABLE_HMD: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(27i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_PROCESS_VERIFIER_OPTION: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(28i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_ADAPTER_VERIFIER_OPTION: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(29i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_IDD_REQUEST: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(30i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_DOD_SET_DIRTYRECT_MODE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(31i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_LOG_CODEPOINT_PACKET: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(32i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_LOG_USERMODE_DAIG_PACKET: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(33i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_GET_EXTERNAL_DIAGNOSTICS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(34i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_GET_DISPLAY_CONFIGURATIONS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(36i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_QUERY_IOMMU_STATUS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(37i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_CCD_DATABASE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(38i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_QUERY_DMA_REMAPPING_STATUS: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(39i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_WIN32K_START: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1024i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_WIN32K_HIP_DEVICE_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1024i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_WIN32K_QUERY_CD_ROTATION_BLOCK: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1025i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_WIN32K_DPI_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1026i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_WIN32K_PRESENTER_VIEW_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1027i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_WIN32K_SYSTEM_DPI: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1028i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_WIN32K_BDD_FALLBACK: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1029i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_WIN32K_DDA_TEST_CTL: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1030i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_WIN32K_USER_DETECTED_BLACK_SCREEN: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1031i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_WIN32K_DISPBROKER_TEST: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1035i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_WIN32K_COLOR_PROFILE_INFO: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1036i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_WIN32K_SET_DIMMED_STATE: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1037i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_WIN32K_SPECIALIZED_DISPLAY_TEST: D3DKMT_ESCAPETYPE = D3DKMT_ESCAPETYPE(1038i32);
 impl ::core::marker::Copy for D3DKMT_ESCAPETYPE {}
 impl ::core::clone::Clone for D3DKMT_ESCAPETYPE {
     fn clone(&self) -> Self {
@@ -5131,12 +6291,6 @@ impl ::core::fmt::Debug for D3DKMT_ESCAPETYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_ESCAPE_PFN_CONTROL_COMMAND(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_PFN_CONTROL_DEFAULT: D3DKMT_ESCAPE_PFN_CONTROL_COMMAND = D3DKMT_ESCAPE_PFN_CONTROL_COMMAND(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_PFN_CONTROL_FORCE_CPU: D3DKMT_ESCAPE_PFN_CONTROL_COMMAND = D3DKMT_ESCAPE_PFN_CONTROL_COMMAND(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_PFN_CONTROL_FORCE_GPU: D3DKMT_ESCAPE_PFN_CONTROL_COMMAND = D3DKMT_ESCAPE_PFN_CONTROL_COMMAND(2i32);
 impl ::core::marker::Copy for D3DKMT_ESCAPE_PFN_CONTROL_COMMAND {}
 impl ::core::clone::Clone for D3DKMT_ESCAPE_PFN_CONTROL_COMMAND {
     fn clone(&self) -> Self {
@@ -5160,12 +6314,6 @@ impl ::core::fmt::Debug for D3DKMT_ESCAPE_PFN_CONTROL_COMMAND {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE_SET_BASE_DESKTOP_DURATION: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE = D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE_SET_VSYNC_MULTIPLIER: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE = D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE_SET_PROCESS_BOOST_ELIGIBLE: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE = D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE(2i32);
 impl ::core::marker::Copy for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE {}
 impl ::core::clone::Clone for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE {
     fn clone(&self) -> Self {
@@ -5189,10 +6337,6 @@ impl ::core::fmt::Debug for D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE_FLIP_SUBMITTED: D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE = D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE_FLIP_COMPLETE: D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE = D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE(1i32);
 impl ::core::marker::Copy for D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE {}
 impl ::core::clone::Clone for D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE {
     fn clone(&self) -> Self {
@@ -5216,18 +6360,6 @@ impl ::core::fmt::Debug for D3DKMT_FLIPMODEL_INDEPENDENT_FLIP_STAGE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_GPU_PREFERENCE_QUERY_STATE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_GPU_PREFERENCE_STATE_UNINITIALIZED: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_GPU_PREFERENCE_STATE_HIGH_PERFORMANCE: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_GPU_PREFERENCE_STATE_MINIMUM_POWER: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_GPU_PREFERENCE_STATE_UNSPECIFIED: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_GPU_PREFERENCE_STATE_NOT_FOUND: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_GPU_PREFERENCE_STATE_USER_SPECIFIED_GPU: D3DKMT_GPU_PREFERENCE_QUERY_STATE = D3DKMT_GPU_PREFERENCE_QUERY_STATE(5i32);
 impl ::core::marker::Copy for D3DKMT_GPU_PREFERENCE_QUERY_STATE {}
 impl ::core::clone::Clone for D3DKMT_GPU_PREFERENCE_QUERY_STATE {
     fn clone(&self) -> Self {
@@ -5251,12 +6383,6 @@ impl ::core::fmt::Debug for D3DKMT_GPU_PREFERENCE_QUERY_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_GPU_PREFERENCE_QUERY_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_GPU_PREFERENCE_TYPE_IHV_DLIST: D3DKMT_GPU_PREFERENCE_QUERY_TYPE = D3DKMT_GPU_PREFERENCE_QUERY_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_GPU_PREFERENCE_TYPE_DX_DATABASE: D3DKMT_GPU_PREFERENCE_QUERY_TYPE = D3DKMT_GPU_PREFERENCE_QUERY_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_GPU_PREFERENCE_TYPE_USER_PREFERENCE: D3DKMT_GPU_PREFERENCE_QUERY_TYPE = D3DKMT_GPU_PREFERENCE_QUERY_TYPE(2i32);
 impl ::core::marker::Copy for D3DKMT_GPU_PREFERENCE_QUERY_TYPE {}
 impl ::core::clone::Clone for D3DKMT_GPU_PREFERENCE_QUERY_TYPE {
     fn clone(&self) -> Self {
@@ -5280,10 +6406,6 @@ impl ::core::fmt::Debug for D3DKMT_GPU_PREFERENCE_QUERY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_MEMORY_SEGMENT_GROUP(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MEMORY_SEGMENT_GROUP_LOCAL: D3DKMT_MEMORY_SEGMENT_GROUP = D3DKMT_MEMORY_SEGMENT_GROUP(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MEMORY_SEGMENT_GROUP_NON_LOCAL: D3DKMT_MEMORY_SEGMENT_GROUP = D3DKMT_MEMORY_SEGMENT_GROUP(1i32);
 impl ::core::marker::Copy for D3DKMT_MEMORY_SEGMENT_GROUP {}
 impl ::core::clone::Clone for D3DKMT_MEMORY_SEGMENT_GROUP {
     fn clone(&self) -> Self {
@@ -5307,34 +6429,6 @@ impl ::core::fmt::Debug for D3DKMT_MEMORY_SEGMENT_GROUP {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_MIRACAST_DEVICE_STATUS(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_SUCCESS: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_SUCCESS_NO_MONITOR: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_PENDING: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_UNKOWN_ERROR: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483647i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_GPU_RESOURCE_IN_USE: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483646i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_DEVICE_ERROR: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483645i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_UNKOWN_PAIRING: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483644i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_REMOTE_SESSION: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483643i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_DEVICE_NOT_FOUND: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483642i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_DEVICE_NOT_STARTED: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483641i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_INVALID_PARAMETER: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483640i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_INSUFFICIENT_BANDWIDTH: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483639i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_INSUFFICIENT_MEMORY: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483638i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MIRACAST_DEVICE_STATUS_CANCELLED: D3DKMT_MIRACAST_DEVICE_STATUS = D3DKMT_MIRACAST_DEVICE_STATUS(-2147483637i32);
 impl ::core::marker::Copy for D3DKMT_MIRACAST_DEVICE_STATUS {}
 impl ::core::clone::Clone for D3DKMT_MIRACAST_DEVICE_STATUS {
     fn clone(&self) -> Self {
@@ -5358,14 +6452,6 @@ impl ::core::fmt::Debug for D3DKMT_MIRACAST_DEVICE_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const MiracastStopped: D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE = D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const MiracastStartPending: D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE = D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const MiracastStarted: D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE = D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const MiracastStopPending: D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE = D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE(3i32);
 impl ::core::marker::Copy for D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE {}
 impl ::core::clone::Clone for D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE {
     fn clone(&self) -> Self {
@@ -5389,12 +6475,6 @@ impl ::core::fmt::Debug for D3DKMT_MIRACAST_DISPLAY_DEVICE_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_MIRACAST_DRIVER_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MIRACAST_DRIVER_NOT_SUPPORTED: D3DKMT_MIRACAST_DRIVER_TYPE = D3DKMT_MIRACAST_DRIVER_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MIRACAST_DRIVER_IHV: D3DKMT_MIRACAST_DRIVER_TYPE = D3DKMT_MIRACAST_DRIVER_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MIRACAST_DRIVER_MS: D3DKMT_MIRACAST_DRIVER_TYPE = D3DKMT_MIRACAST_DRIVER_TYPE(2i32);
 impl ::core::marker::Copy for D3DKMT_MIRACAST_DRIVER_TYPE {}
 impl ::core::clone::Clone for D3DKMT_MIRACAST_DRIVER_TYPE {
     fn clone(&self) -> Self {
@@ -5418,10 +6498,6 @@ impl ::core::fmt::Debug for D3DKMT_MIRACAST_DRIVER_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_BLEND(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MULTIPLANE_OVERLAY_BLEND_OPAQUE: D3DKMT_MULTIPLANE_OVERLAY_BLEND = D3DKMT_MULTIPLANE_OVERLAY_BLEND(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MULTIPLANE_OVERLAY_BLEND_ALPHABLEND: D3DKMT_MULTIPLANE_OVERLAY_BLEND = D3DKMT_MULTIPLANE_OVERLAY_BLEND(1i32);
 impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY_BLEND {}
 impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_BLEND {
     fn clone(&self) -> Self {
@@ -5445,12 +6521,6 @@ impl ::core::fmt::Debug for D3DKMT_MULTIPLANE_OVERLAY_BLEND {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_FLAGS(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MULTIPLANE_OVERLAY_FLAG_VERTICAL_FLIP: D3DKMT_MULTIPLANE_OVERLAY_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_FLAGS(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MULTIPLANE_OVERLAY_FLAG_HORIZONTAL_FLIP: D3DKMT_MULTIPLANE_OVERLAY_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_FLAGS(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MULTIPLANE_OVERLAY_FLAG_STATIC_CHECK: D3DKMT_MULTIPLANE_OVERLAY_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_FLAGS(4i32);
 impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY_FLAGS {}
 impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_FLAGS {
     fn clone(&self) -> Self {
@@ -5474,22 +6544,6 @@ impl ::core::fmt::Debug for D3DKMT_MULTIPLANE_OVERLAY_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_MONO: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_HORIZONTAL: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_VERTICAL: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_SEPARATE: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_MONO_OFFSET: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_ROW_INTERLEAVED: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_COLUMN_INTERLEAVED: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT_CHECKERBOARD: D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT(7i32);
 impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT {}
 impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT {
     fn clone(&self) -> Self {
@@ -5513,12 +6567,6 @@ impl ::core::fmt::Debug for D3DKMT_MULTIPLANE_OVERLAY_STEREO_FORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MULIIPLANE_OVERLAY_VIDEO_FRAME_FORMAT_PROGRESSIVE: D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT_INTERLACED_TOP_FIELD_FIRST: D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT_INTERLACED_BOTTOM_FIELD_FIRST: D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT = D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT(2i32);
 impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT {}
 impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT {
     fn clone(&self) -> Self {
@@ -5542,12 +6590,6 @@ impl ::core::fmt::Debug for D3DKMT_MULTIPLANE_OVERLAY_VIDEO_FRAME_FORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAG_NOMINAL_RANGE: D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAG_BT709: D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAG_xvYCC: D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS = D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS(4i32);
 impl ::core::marker::Copy for D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS {}
 impl ::core::clone::Clone for D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
     fn clone(&self) -> Self {
@@ -5571,14 +6613,6 @@ impl ::core::fmt::Debug for D3DKMT_MULTIPLANE_OVERLAY_YCbCr_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_OFFER_PRIORITY(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_OFFER_PRIORITY_LOW: D3DKMT_OFFER_PRIORITY = D3DKMT_OFFER_PRIORITY(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_OFFER_PRIORITY_NORMAL: D3DKMT_OFFER_PRIORITY = D3DKMT_OFFER_PRIORITY(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_OFFER_PRIORITY_HIGH: D3DKMT_OFFER_PRIORITY = D3DKMT_OFFER_PRIORITY(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_OFFER_PRIORITY_AUTO: D3DKMT_OFFER_PRIORITY = D3DKMT_OFFER_PRIORITY(4i32);
 impl ::core::marker::Copy for D3DKMT_OFFER_PRIORITY {}
 impl ::core::clone::Clone for D3DKMT_OFFER_PRIORITY {
     fn clone(&self) -> Self {
@@ -5602,12 +6636,6 @@ impl ::core::fmt::Debug for D3DKMT_OFFER_PRIORITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE_MONOCHROME: D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE = D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE_COLOR: D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE = D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE_MASKED_COLOR: D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE = D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE(4i32);
 impl ::core::marker::Copy for D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE {}
 impl ::core::clone::Clone for D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE {
     fn clone(&self) -> Self {
@@ -5631,10 +6659,6 @@ impl ::core::fmt::Debug for D3DKMT_OUTDUPL_POINTER_SHAPE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_OUTPUTDUPL_METADATATYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_OUTPUTDUPL_METADATATYPE_DIRTY_RECTS: D3DKMT_OUTPUTDUPL_METADATATYPE = D3DKMT_OUTPUTDUPL_METADATATYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_OUTPUTDUPL_METADATATYPE_MOVE_RECTS: D3DKMT_OUTPUTDUPL_METADATATYPE = D3DKMT_OUTPUTDUPL_METADATATYPE(1i32);
 impl ::core::marker::Copy for D3DKMT_OUTPUTDUPL_METADATATYPE {}
 impl ::core::clone::Clone for D3DKMT_OUTPUTDUPL_METADATATYPE {
     fn clone(&self) -> Self {
@@ -5658,10 +6682,6 @@ impl ::core::fmt::Debug for D3DKMT_OUTPUTDUPL_METADATATYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_PNP_KEY_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PNP_KEY_HARDWARE: D3DKMT_PNP_KEY_TYPE = D3DKMT_PNP_KEY_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PNP_KEY_SOFTWARE: D3DKMT_PNP_KEY_TYPE = D3DKMT_PNP_KEY_TYPE(2i32);
 impl ::core::marker::Copy for D3DKMT_PNP_KEY_TYPE {}
 impl ::core::clone::Clone for D3DKMT_PNP_KEY_TYPE {
     fn clone(&self) -> Self {
@@ -5685,26 +6705,6 @@ impl ::core::fmt::Debug for D3DKMT_PNP_KEY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_PRESENT_MODEL(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PM_UNINITIALIZED: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PM_REDIRECTED_GDI: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PM_REDIRECTED_FLIP: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PM_REDIRECTED_BLT: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PM_REDIRECTED_VISTABLT: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PM_SCREENCAPTUREFENCE: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PM_REDIRECTED_GDI_SYSMEM: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PM_REDIRECTED_COMPOSITION: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(7i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PM_SURFACECOMPLETE: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PM_FLIPMANAGER: D3DKMT_PRESENT_MODEL = D3DKMT_PRESENT_MODEL(9i32);
 impl ::core::marker::Copy for D3DKMT_PRESENT_MODEL {}
 impl ::core::clone::Clone for D3DKMT_PRESENT_MODEL {
     fn clone(&self) -> Self {
@@ -5728,10 +6728,6 @@ impl ::core::fmt::Debug for D3DKMT_PRESENT_MODEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_PROCESS_VERIFIER_OPTION_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PROCESS_VERIFIER_OPTION_VIDMM_FLAGS: D3DKMT_PROCESS_VERIFIER_OPTION_TYPE = D3DKMT_PROCESS_VERIFIER_OPTION_TYPE(1000i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PROCESS_VERIFIER_OPTION_VIDMM_RESTRICT_BUDGET: D3DKMT_PROCESS_VERIFIER_OPTION_TYPE = D3DKMT_PROCESS_VERIFIER_OPTION_TYPE(1001i32);
 impl ::core::marker::Copy for D3DKMT_PROCESS_VERIFIER_OPTION_TYPE {}
 impl ::core::clone::Clone for D3DKMT_PROCESS_VERIFIER_OPTION_TYPE {
     fn clone(&self) -> Self {
@@ -5755,10 +6751,6 @@ impl ::core::fmt::Debug for D3DKMT_PROCESS_VERIFIER_OPTION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_PROTECTED_SESSION_STATUS(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PROTECTED_SESSION_STATUS_OK: D3DKMT_PROTECTED_SESSION_STATUS = D3DKMT_PROTECTED_SESSION_STATUS(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PROTECTED_SESSION_STATUS_INVALID: D3DKMT_PROTECTED_SESSION_STATUS = D3DKMT_PROTECTED_SESSION_STATUS(1i32);
 impl ::core::marker::Copy for D3DKMT_PROTECTED_SESSION_STATUS {}
 impl ::core::clone::Clone for D3DKMT_PROTECTED_SESSION_STATUS {
     fn clone(&self) -> Self {
@@ -5782,40 +6774,6 @@ impl ::core::fmt::Debug for D3DKMT_PROTECTED_SESSION_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PreemptionAttempt: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PreemptionAttemptSuccess: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PreemptionAttemptMissNoCommand: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PreemptionAttemptMissNotEnabled: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PreemptionAttemptMissNextFence: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PreemptionAttemptMissPagingCommand: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PreemptionAttemptMissSplittedCommand: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PreemptionAttemptMissFenceCommand: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(7i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PreemptionAttemptMissRenderPendingFlip: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PreemptionAttemptMissNotMakingProgress: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(9i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PreemptionAttemptMissLessPriority: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(10i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PreemptionAttemptMissRemainingQuantum: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(11i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PreemptionAttemptMissRemainingPreemptionQuantum: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(12i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PreemptionAttemptMissAlreadyPreempting: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(13i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PreemptionAttemptMissGlobalBlock: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(14i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PreemptionAttemptMissAlreadyRunning: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(15i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_PreemptionAttemptStatisticsMax: D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT = D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT(16i32);
 impl ::core::marker::Copy for D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT {}
 impl ::core::clone::Clone for D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT {
     fn clone(&self) -> Self {
@@ -5839,18 +6797,6 @@ impl ::core::fmt::Debug for D3DKMT_QUERYRESULT_PREEMPTION_ATTEMPT_RESULT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_AllocationPriorityClassMinimum: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_AllocationPriorityClassLow: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_AllocationPriorityClassNormal: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_AllocationPriorityClassHigh: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_AllocationPriorityClassMaximum: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MaxAllocationPriorityClass: D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS = D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS(5i32);
 impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS {}
 impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS {
     fn clone(&self) -> Self {
@@ -5874,16 +6820,6 @@ impl ::core::fmt::Debug for D3DKMT_QUERYSTATISTICS_ALLOCATION_PRIORITY_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ClientRenderBuffer: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_ClientPagingBuffer: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_SystemPagingBuffer: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_SystemPreemptionBuffer: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DmaPacketTypeMax: D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE(4i32);
 impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE {}
 impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE {
     fn clone(&self) -> Self {
@@ -5907,24 +6843,6 @@ impl ::core::fmt::Debug for D3DKMT_QUERYSTATISTICS_DMA_PACKET_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_RenderCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DeferredCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_SystemCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_MmIoFlipCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_WaitCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_SignalCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_DeviceCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_SoftwareCommandBuffer: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(7i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QueuePacketTypeMax: D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE = D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE(8i32);
 impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE {}
 impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE {
     fn clone(&self) -> Self {
@@ -5948,12 +6866,6 @@ impl ::core::fmt::Debug for D3DKMT_QUERYSTATISTICS_QUEUE_PACKET_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_APERTURE: D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE = D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_MEMORY: D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE = D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE_SYSMEM: D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE = D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE(2i32);
 impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE {}
 impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE {
     fn clone(&self) -> Self {
@@ -5977,46 +6889,6 @@ impl ::core::fmt::Debug for D3DKMT_QUERYSTATISTICS_SEGMENT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_QUERYSTATISTICS_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_ADAPTER: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_PROCESS: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_SEGMENT: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_NODE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_PROCESS_NODE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_VIDPNSOURCE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(7i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_PROCESS_VIDPNSOURCE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(9i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_PHYSICAL_ADAPTER: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(10i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_ADAPTER2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(11i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_SEGMENT2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(12i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_PROCESS_ADAPTER2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(13i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(14i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_PROCESS_SEGMENT_GROUP2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(15i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_SEGMENT_USAGE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(16i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_SEGMENT_GROUP_USAGE: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(17i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_NODE2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(18i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_QUERYSTATISTICS_PROCESS_NODE2: D3DKMT_QUERYSTATISTICS_TYPE = D3DKMT_QUERYSTATISTICS_TYPE(19i32);
 impl ::core::marker::Copy for D3DKMT_QUERYSTATISTICS_TYPE {}
 impl ::core::clone::Clone for D3DKMT_QUERYSTATISTICS_TYPE {
     fn clone(&self) -> Self {
@@ -6040,10 +6912,6 @@ impl ::core::fmt::Debug for D3DKMT_QUERYSTATISTICS_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_QUEUEDLIMIT_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_SET_QUEUEDLIMIT_PRESENT: D3DKMT_QUEUEDLIMIT_TYPE = D3DKMT_QUEUEDLIMIT_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_GET_QUEUEDLIMIT_PRESENT: D3DKMT_QUEUEDLIMIT_TYPE = D3DKMT_QUEUEDLIMIT_TYPE(2i32);
 impl ::core::marker::Copy for D3DKMT_QUEUEDLIMIT_TYPE {}
 impl ::core::clone::Clone for D3DKMT_QUEUEDLIMIT_TYPE {
     fn clone(&self) -> Self {
@@ -6067,18 +6935,6 @@ impl ::core::fmt::Debug for D3DKMT_QUEUEDLIMIT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_SCHEDULINGPRIORITYCLASS(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_SCHEDULINGPRIORITYCLASS_IDLE: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_SCHEDULINGPRIORITYCLASS_BELOW_NORMAL: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_SCHEDULINGPRIORITYCLASS_NORMAL: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_SCHEDULINGPRIORITYCLASS_ABOVE_NORMAL: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_SCHEDULINGPRIORITYCLASS_HIGH: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_SCHEDULINGPRIORITYCLASS_REALTIME: D3DKMT_SCHEDULINGPRIORITYCLASS = D3DKMT_SCHEDULINGPRIORITYCLASS(5i32);
 impl ::core::marker::Copy for D3DKMT_SCHEDULINGPRIORITYCLASS {}
 impl ::core::clone::Clone for D3DKMT_SCHEDULINGPRIORITYCLASS {
     fn clone(&self) -> Self {
@@ -6102,12 +6958,6 @@ impl ::core::fmt::Debug for D3DKMT_SCHEDULINGPRIORITYCLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_STANDARDALLOCATIONTYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_STANDARDALLOCATIONTYPE_EXISTINGHEAP: D3DKMT_STANDARDALLOCATIONTYPE = D3DKMT_STANDARDALLOCATIONTYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_STANDARDALLOCATIONTYPE_INTERNALBACKINGSTORE: D3DKMT_STANDARDALLOCATIONTYPE = D3DKMT_STANDARDALLOCATIONTYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_STANDARDALLOCATIONTYPE_MAX: D3DKMT_STANDARDALLOCATIONTYPE = D3DKMT_STANDARDALLOCATIONTYPE(3i32);
 impl ::core::marker::Copy for D3DKMT_STANDARDALLOCATIONTYPE {}
 impl ::core::clone::Clone for D3DKMT_STANDARDALLOCATIONTYPE {
     fn clone(&self) -> Self {
@@ -6131,24 +6981,6 @@ impl ::core::fmt::Debug for D3DKMT_STANDARDALLOCATIONTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_TDRDBGCTRLTYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_TDRDBGCTRLTYPE_FORCETDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_TDRDBGCTRLTYPE_DISABLEBREAK: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_TDRDBGCTRLTYPE_ENABLEBREAK: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_TDRDBGCTRLTYPE_UNCONDITIONAL: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_TDRDBGCTRLTYPE_VSYNCTDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_TDRDBGCTRLTYPE_GPUTDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_TDRDBGCTRLTYPE_FORCEDODTDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_TDRDBGCTRLTYPE_FORCEDODVSYNCTDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(7i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_TDRDBGCTRLTYPE_ENGINETDR: D3DKMT_TDRDBGCTRLTYPE = D3DKMT_TDRDBGCTRLTYPE(8i32);
 impl ::core::marker::Copy for D3DKMT_TDRDBGCTRLTYPE {}
 impl ::core::clone::Clone for D3DKMT_TDRDBGCTRLTYPE {
     fn clone(&self) -> Self {
@@ -6172,18 +7004,6 @@ impl ::core::fmt::Debug for D3DKMT_TDRDBGCTRLTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_VAD_ESCAPE_COMMAND(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VAD_ESCAPE_GETNUMVADS: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VAD_ESCAPE_GETVAD: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VAD_ESCAPE_GETVADRANGE: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VAD_ESCAPE_GET_PTE: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VAD_ESCAPE_GET_GPUMMU_CAPS: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VAD_ESCAPE_GET_SEGMENT_CAPS: D3DKMT_VAD_ESCAPE_COMMAND = D3DKMT_VAD_ESCAPE_COMMAND(5i32);
 impl ::core::marker::Copy for D3DKMT_VAD_ESCAPE_COMMAND {}
 impl ::core::clone::Clone for D3DKMT_VAD_ESCAPE_COMMAND {
     fn clone(&self) -> Self {
@@ -6207,10 +7027,6 @@ impl ::core::fmt::Debug for D3DKMT_VAD_ESCAPE_COMMAND {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_VERIFIER_OPTION_MODE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VERIFIER_OPTION_QUERY: D3DKMT_VERIFIER_OPTION_MODE = D3DKMT_VERIFIER_OPTION_MODE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VERIFIER_OPTION_SET: D3DKMT_VERIFIER_OPTION_MODE = D3DKMT_VERIFIER_OPTION_MODE(1i32);
 impl ::core::marker::Copy for D3DKMT_VERIFIER_OPTION_MODE {}
 impl ::core::clone::Clone for D3DKMT_VERIFIER_OPTION_MODE {
     fn clone(&self) -> Self {
@@ -6234,44 +7050,6 @@ impl ::core::fmt::Debug for D3DKMT_VERIFIER_OPTION_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_VIDMMESCAPETYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDMMESCAPETYPE_SETFAULT: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDMMESCAPETYPE_RUN_COHERENCY_TEST: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDMMESCAPETYPE_RUN_UNMAP_TO_DUMMY_PAGE_TEST: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDMMESCAPETYPE_APERTURE_CORRUPTION_CHECK: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDMMESCAPETYPE_SUSPEND_CPU_ACCESS_TEST: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDMMESCAPETYPE_EVICT: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDMMESCAPETYPE_EVICT_BY_NT_HANDLE: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDMMESCAPETYPE_GET_VAD_INFO: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(7i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDMMESCAPETYPE_SET_BUDGET: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDMMESCAPETYPE_SUSPEND_PROCESS: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(9i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDMMESCAPETYPE_RESUME_PROCESS: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(10i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDMMESCAPETYPE_GET_BUDGET: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(11i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDMMESCAPETYPE_SET_TRIM_INTERVALS: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(12i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDMMESCAPETYPE_EVICT_BY_CRITERIA: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(13i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDMMESCAPETYPE_WAKE: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(14i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDMMESCAPETYPE_DEFRAG: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(15i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDMMESCAPETYPE_DELAYEXECUTION: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(16i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDMMESCAPETYPE_VALIDATE_INTEGRITY: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(17i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDMMESCAPETYPE_SET_EVICTION_CONFIG: D3DKMT_VIDMMESCAPETYPE = D3DKMT_VIDMMESCAPETYPE(18i32);
 impl ::core::marker::Copy for D3DKMT_VIDMMESCAPETYPE {}
 impl ::core::clone::Clone for D3DKMT_VIDMMESCAPETYPE {
     fn clone(&self) -> Self {
@@ -6295,16 +7073,6 @@ impl ::core::fmt::Debug for D3DKMT_VIDMMESCAPETYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_VIDPNSOURCEOWNER_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDPNSOURCEOWNER_UNOWNED: D3DKMT_VIDPNSOURCEOWNER_TYPE = D3DKMT_VIDPNSOURCEOWNER_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDPNSOURCEOWNER_SHARED: D3DKMT_VIDPNSOURCEOWNER_TYPE = D3DKMT_VIDPNSOURCEOWNER_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDPNSOURCEOWNER_EXCLUSIVE: D3DKMT_VIDPNSOURCEOWNER_TYPE = D3DKMT_VIDPNSOURCEOWNER_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDPNSOURCEOWNER_EXCLUSIVEGDI: D3DKMT_VIDPNSOURCEOWNER_TYPE = D3DKMT_VIDPNSOURCEOWNER_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDPNSOURCEOWNER_EMULATED: D3DKMT_VIDPNSOURCEOWNER_TYPE = D3DKMT_VIDPNSOURCEOWNER_TYPE(4i32);
 impl ::core::marker::Copy for D3DKMT_VIDPNSOURCEOWNER_TYPE {}
 impl ::core::clone::Clone for D3DKMT_VIDPNSOURCEOWNER_TYPE {
     fn clone(&self) -> Self {
@@ -6328,24 +7096,6 @@ impl ::core::fmt::Debug for D3DKMT_VIDPNSOURCEOWNER_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DKMT_VIDSCHESCAPETYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDSCHESCAPETYPE_PREEMPTIONCONTROL: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDSCHESCAPETYPE_SUSPENDSCHEDULER: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDSCHESCAPETYPE_TDRCONTROL: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDSCHESCAPETYPE_SUSPENDRESUME: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDSCHESCAPETYPE_ENABLECONTEXTDELAY: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDSCHESCAPETYPE_CONFIGURE_TDR_LIMIT: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDSCHESCAPETYPE_VGPU_RESET: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDSCHESCAPETYPE_PFN_CONTROL: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(7i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DKMT_VIDSCHESCAPETYPE_VIRTUAL_REFRESH_RATE: D3DKMT_VIDSCHESCAPETYPE = D3DKMT_VIDSCHESCAPETYPE(8i32);
 impl ::core::marker::Copy for D3DKMT_VIDSCHESCAPETYPE {}
 impl ::core::clone::Clone for D3DKMT_VIDSCHESCAPETYPE {
     fn clone(&self) -> Self {
@@ -6369,170 +7119,6 @@ impl ::core::fmt::Debug for D3DKMT_VIDSCHESCAPETYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DNTHAL_DP2OPERATION(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_POINTS: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_INDEXEDLINELIST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_INDEXEDTRIANGLELIST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_RENDERSTATE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_LINELIST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(15i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_LINESTRIP: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(16i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_INDEXEDLINESTRIP: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(17i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_TRIANGLELIST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(18i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_TRIANGLESTRIP: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(19i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_INDEXEDTRIANGLESTRIP: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(20i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_TRIANGLEFAN: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(21i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_INDEXEDTRIANGLEFAN: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(22i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_TRIANGLEFAN_IMM: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(23i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_LINELIST_IMM: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(24i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_TEXTURESTAGESTATE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(25i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_INDEXEDTRIANGLELIST2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(26i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_INDEXEDLINELIST2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(27i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_VIEWPORTINFO: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(28i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_WINFO: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(29i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETPALETTE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(30i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_UPDATEPALETTE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(31i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_ZRANGE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(32i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETMATERIAL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(33i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETLIGHT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(34i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_CREATELIGHT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(35i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETTRANSFORM: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(36i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_TEXBLT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(38i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_STATESET: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(39i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETPRIORITY: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(40i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETRENDERTARGET: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(41i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_CLEAR: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(42i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETTEXLOD: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(43i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETCLIPPLANE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(44i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_CREATEVERTEXSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(45i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_DELETEVERTEXSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(46i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETVERTEXSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(47i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETVERTEXSHADERCONST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(48i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETSTREAMSOURCE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(49i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETSTREAMSOURCEUM: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(50i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETINDICES: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(51i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_DRAWPRIMITIVE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(52i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_DRAWINDEXEDPRIMITIVE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(53i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_CREATEPIXELSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(54i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_DELETEPIXELSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(55i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETPIXELSHADER: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(56i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETPIXELSHADERCONST: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(57i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_CLIPPEDTRIANGLEFAN: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(58i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_DRAWPRIMITIVE2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(59i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_DRAWINDEXEDPRIMITIVE2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(60i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_DRAWRECTPATCH: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(61i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_DRAWTRIPATCH: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(62i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_VOLUMEBLT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(63i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_BUFFERBLT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(64i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_MULTIPLYTRANSFORM: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(65i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_ADDDIRTYRECT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(66i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_ADDDIRTYBOX: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(67i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_CREATEVERTEXSHADERDECL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(71i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_DELETEVERTEXSHADERDECL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(72i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETVERTEXSHADERDECL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(73i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_CREATEVERTEXSHADERFUNC: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(74i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_DELETEVERTEXSHADERFUNC: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(75i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETVERTEXSHADERFUNC: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(76i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETVERTEXSHADERCONSTI: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(77i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETSCISSORRECT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(79i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETSTREAMSOURCE2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(80i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_BLT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(81i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_COLORFILL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(82i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETVERTEXSHADERCONSTB: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(83i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_CREATEQUERY: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(84i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETRENDERTARGET2: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(85i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETDEPTHSTENCIL: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(86i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_RESPONSECONTINUE: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(87i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_RESPONSEQUERY: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(88i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_GENERATEMIPSUBLEVELS: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(89i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_DELETEQUERY: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(90i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_ISSUEQUERY: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(91i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETPIXELSHADERCONSTI: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(93i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETPIXELSHADERCONSTB: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(94i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETSTREAMSOURCEFREQ: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(95i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SURFACEBLT: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(96i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_SETCONVOLUTIONKERNELMONO: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(97i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DNTDP2OP_COMPOSERECTS: D3DNTHAL_DP2OPERATION = D3DNTHAL_DP2OPERATION(98i32);
 impl ::core::marker::Copy for D3DNTHAL_DP2OPERATION {}
 impl ::core::clone::Clone for D3DNTHAL_DP2OPERATION {
     fn clone(&self) -> Self {
@@ -6556,20 +7142,6 @@ impl ::core::fmt::Debug for D3DNTHAL_DP2OPERATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D3DVSD_TOKENTYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DVSD_TOKEN_NOP: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DVSD_TOKEN_STREAM: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DVSD_TOKEN_STREAMDATA: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DVSD_TOKEN_TESSELLATOR: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DVSD_TOKEN_CONSTMEM: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DVSD_TOKEN_EXT: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const D3DVSD_TOKEN_END: D3DVSD_TOKENTYPE = D3DVSD_TOKENTYPE(7i32);
 impl ::core::marker::Copy for D3DVSD_TOKENTYPE {}
 impl ::core::clone::Clone for D3DVSD_TOKENTYPE {
     fn clone(&self) -> Self {
@@ -6593,18 +7165,6 @@ impl ::core::fmt::Debug for D3DVSD_TOKENTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DIDDT1_AspectRatio_1x1: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DIDDT1_AspectRatio_5x4: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DIDDT1_AspectRatio_4x3: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DIDDT1_AspectRatio_15x9: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DIDDT1_AspectRatio_16x9: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DIDDT1_AspectRatio_16x10: DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO(5i32);
 impl ::core::marker::Copy for DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO {}
 impl ::core::clone::Clone for DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO {
     fn clone(&self) -> Self {
@@ -6628,10 +7188,6 @@ impl ::core::fmt::Debug for DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DIDDT1_Progressive: DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE = DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DIDDT1_Interlaced: DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE = DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE(1i32);
 impl ::core::marker::Copy for DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE {}
 impl ::core::clone::Clone for DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE {
     fn clone(&self) -> Self {
@@ -6655,12 +7211,6 @@ impl ::core::fmt::Debug for DISPLAYID_DETAILED_TIMING_TYPE_I_SCANNING_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DIDDT1_Monoscopic: DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE = DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DIDDT1_Stereo: DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE = DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DIDDT1_Dependent: DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE = DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE(2i32);
 impl ::core::marker::Copy for DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE {}
 impl ::core::clone::Clone for DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE {
     fn clone(&self) -> Self {
@@ -6684,10 +7234,6 @@ impl ::core::fmt::Debug for DISPLAYID_DETAILED_TIMING_TYPE_I_STEREO_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DIDDT1_Sync_Positive: DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY = DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DIDDT1_Sync_Negative: DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY = DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY(1i32);
 impl ::core::marker::Copy for DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY {}
 impl ::core::clone::Clone for DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY {
     fn clone(&self) -> Self {
@@ -6711,10 +7257,6 @@ impl ::core::fmt::Debug for DISPLAYID_DETAILED_TIMING_TYPE_I_SYNC_POLARITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGKDT_OPM_DVI_CHARACTERISTICS(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_0: DXGKDT_OPM_DVI_CHARACTERISTICS = DXGKDT_OPM_DVI_CHARACTERISTICS(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_1_OR_ABOVE: DXGKDT_OPM_DVI_CHARACTERISTICS = DXGKDT_OPM_DVI_CHARACTERISTICS(2i32);
 impl ::core::marker::Copy for DXGKDT_OPM_DVI_CHARACTERISTICS {}
 impl ::core::clone::Clone for DXGKDT_OPM_DVI_CHARACTERISTICS {
     fn clone(&self) -> Self {
@@ -6738,14 +7280,6 @@ impl ::core::fmt::Debug for DXGKDT_OPM_DVI_CHARACTERISTICS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGKMDT_CERTIFICATE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = DXGKMDT_CERTIFICATE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_COPP_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = DXGKMDT_CERTIFICATE_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_UAB_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = DXGKMDT_CERTIFICATE_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_INDIRECT_DISPLAY_CERTIFICATE: DXGKMDT_CERTIFICATE_TYPE = DXGKMDT_CERTIFICATE_TYPE(3i32);
 impl ::core::marker::Copy for DXGKMDT_CERTIFICATE_TYPE {}
 impl ::core::clone::Clone for DXGKMDT_CERTIFICATE_TYPE {
     fn clone(&self) -> Self {
@@ -6769,14 +7303,6 @@ impl ::core::fmt::Debug for DXGKMDT_CERTIFICATE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGKMDT_OPM_ACP_PROTECTION_LEVEL(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_ACP_OFF: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = DXGKMDT_OPM_ACP_PROTECTION_LEVEL(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_ACP_LEVEL_ONE: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = DXGKMDT_OPM_ACP_PROTECTION_LEVEL(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_ACP_LEVEL_TWO: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = DXGKMDT_OPM_ACP_PROTECTION_LEVEL(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_ACP_LEVEL_THREE: DXGKMDT_OPM_ACP_PROTECTION_LEVEL = DXGKMDT_OPM_ACP_PROTECTION_LEVEL(3i32);
 impl ::core::marker::Copy for DXGKMDT_OPM_ACP_PROTECTION_LEVEL {}
 impl ::core::clone::Clone for DXGKMDT_OPM_ACP_PROTECTION_LEVEL {
     fn clone(&self) -> Self {
@@ -6800,30 +7326,6 @@ impl ::core::fmt::Debug for DXGKMDT_OPM_ACP_PROTECTION_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_BUS_TYPE_OTHER: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_BUS_TYPE_PCI: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_BUS_TYPE_PCIX: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_BUS_TYPE_PCIEXPRESS: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_BUS_TYPE_AGP: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_INSIDE_OF_CHIPSET: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(65536i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_TRACKS_ON_MOTHER_BOARD_TO_CHIP: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(131072i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_TRACKS_ON_MOTHER_BOARD_TO_SOCKET: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(196608i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_DAUGHTER_BOARD_CONNECTOR: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(262144i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_DAUGHTER_BOARD_CONNECTOR_INSIDE_OF_NUAE: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(327680i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_BUS_IMPLEMENTATION_MODIFIER_NON_STANDARD: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(-2147483648i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_COPP_COMPATIBLE_BUS_TYPE_INTEGRATED: DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION = DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION(-2147483648i32);
 impl ::core::marker::Copy for DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION {}
 impl ::core::clone::Clone for DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION {
     fn clone(&self) -> Self {
@@ -6847,18 +7349,6 @@ impl ::core::fmt::Debug for DXGKMDT_OPM_BUS_TYPE_AND_IMPLEMENTATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGKMDT_OPM_CGMSA(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CGMSA_OFF: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CGMSA_COPY_FREELY: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CGMSA_COPY_NO_MORE: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CGMSA_COPY_ONE_GENERATION: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CGMSA_COPY_NEVER: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_REDISTRIBUTION_CONTROL_REQUIRED: DXGKMDT_OPM_CGMSA = DXGKMDT_OPM_CGMSA(8i32);
 impl ::core::marker::Copy for DXGKMDT_OPM_CGMSA {}
 impl ::core::clone::Clone for DXGKMDT_OPM_CGMSA {
     fn clone(&self) -> Self {
@@ -6882,44 +7372,6 @@ impl ::core::fmt::Debug for DXGKMDT_OPM_CGMSA {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGKMDT_OPM_CONNECTOR_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_OTHER: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(-1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_HD15: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_SVIDEO: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_COMPOSITE_VIDEO: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_COMPONENT_VIDEO: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_DVI: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_HDMI: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_LVDS: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_D_JPN: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_SDI: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(9i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_DISPLAYPORT_EXTERNAL: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(10i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_DISPLAYPORT_EMBEDDED: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(11i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_UDI_EXTERNAL: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(12i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_UDI_EMBEDDED: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(13i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_RESERVED: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(14i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_MIRACAST: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(15i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_A: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(16i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_B: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(17i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_COPP_COMPATIBLE_CONNECTOR_TYPE_INTERNAL: DXGKMDT_OPM_CONNECTOR_TYPE = DXGKMDT_OPM_CONNECTOR_TYPE(-2147483648i32);
 impl ::core::marker::Copy for DXGKMDT_OPM_CONNECTOR_TYPE {}
 impl ::core::clone::Clone for DXGKMDT_OPM_CONNECTOR_TYPE {
     fn clone(&self) -> Self {
@@ -6943,10 +7395,6 @@ impl ::core::fmt::Debug for DXGKMDT_OPM_CONNECTOR_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGKMDT_OPM_DPCP_PROTECTION_LEVEL(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_DPCP_OFF: DXGKMDT_OPM_DPCP_PROTECTION_LEVEL = DXGKMDT_OPM_DPCP_PROTECTION_LEVEL(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_DPCP_ON: DXGKMDT_OPM_DPCP_PROTECTION_LEVEL = DXGKMDT_OPM_DPCP_PROTECTION_LEVEL(1i32);
 impl ::core::marker::Copy for DXGKMDT_OPM_DPCP_PROTECTION_LEVEL {}
 impl ::core::clone::Clone for DXGKMDT_OPM_DPCP_PROTECTION_LEVEL {
     fn clone(&self) -> Self {
@@ -6970,10 +7418,6 @@ impl ::core::fmt::Debug for DXGKMDT_OPM_DPCP_PROTECTION_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGKMDT_OPM_HDCP_FLAG(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_HDCP_FLAG_NONE: DXGKMDT_OPM_HDCP_FLAG = DXGKMDT_OPM_HDCP_FLAG(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_HDCP_FLAG_REPEATER: DXGKMDT_OPM_HDCP_FLAG = DXGKMDT_OPM_HDCP_FLAG(1i32);
 impl ::core::marker::Copy for DXGKMDT_OPM_HDCP_FLAG {}
 impl ::core::clone::Clone for DXGKMDT_OPM_HDCP_FLAG {
     fn clone(&self) -> Self {
@@ -6997,10 +7441,6 @@ impl ::core::fmt::Debug for DXGKMDT_OPM_HDCP_FLAG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGKMDT_OPM_HDCP_PROTECTION_LEVEL(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_HDCP_OFF: DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_HDCP_PROTECTION_LEVEL(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_HDCP_ON: DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_HDCP_PROTECTION_LEVEL(1i32);
 impl ::core::marker::Copy for DXGKMDT_OPM_HDCP_PROTECTION_LEVEL {}
 impl ::core::clone::Clone for DXGKMDT_OPM_HDCP_PROTECTION_LEVEL {
     fn clone(&self) -> Self {
@@ -7024,22 +7464,6 @@ impl ::core::fmt::Debug for DXGKMDT_OPM_HDCP_PROTECTION_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_4_BY_3: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_14_BY_9_CENTER: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_14_BY_9_TOP: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_16_BY_9_CENTER: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_16_BY_9_TOP: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_BOX_GT_16_BY_9_CENTER: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_4_BY_3_PROTECTED_CENTER: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_ASPECT_RATIO_EN300294_FULL_FORMAT_16_BY_9_ANAMORPHIC: DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 = DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294(7i32);
 impl ::core::marker::Copy for DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 {}
 impl ::core::clone::Clone for DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 {
     fn clone(&self) -> Self {
@@ -7063,14 +7487,6 @@ impl ::core::fmt::Debug for DXGKMDT_OPM_IMAGE_ASPECT_RATIO_EN300294 {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGKMDT_OPM_INTERLEAVE_FORMAT(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_OTHER: DXGKMDT_OPM_INTERLEAVE_FORMAT = DXGKMDT_OPM_INTERLEAVE_FORMAT(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_PROGRESSIVE: DXGKMDT_OPM_INTERLEAVE_FORMAT = DXGKMDT_OPM_INTERLEAVE_FORMAT(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_INTERLEAVED_EVEN_FIRST: DXGKMDT_OPM_INTERLEAVE_FORMAT = DXGKMDT_OPM_INTERLEAVE_FORMAT(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_INTERLEAVED_ODD_FIRST: DXGKMDT_OPM_INTERLEAVE_FORMAT = DXGKMDT_OPM_INTERLEAVE_FORMAT(4i32);
 impl ::core::marker::Copy for DXGKMDT_OPM_INTERLEAVE_FORMAT {}
 impl ::core::clone::Clone for DXGKMDT_OPM_INTERLEAVE_FORMAT {
     fn clone(&self) -> Self {
@@ -7094,10 +7510,6 @@ impl ::core::fmt::Debug for DXGKMDT_OPM_INTERLEAVE_FORMAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION_NOT_SUPPORTED: DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION = DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION_SUPPORTED: DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION = DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION(1i32);
 impl ::core::marker::Copy for DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION {}
 impl ::core::clone::Clone for DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION {
     fn clone(&self) -> Self {
@@ -7121,40 +7533,6 @@ impl ::core::fmt::Debug for DXGKMDT_OPM_OUTPUT_HARDWARE_PROTECTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGKMDT_OPM_PROTECTION_STANDARD(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_OTHER: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(-2147483648i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_NONE: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_IEC61880_525I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_IEC61880_2_525I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_IEC62375_625P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_EIA608B_525: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_EN300294_625I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(16i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEA_525P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(32i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEA_750P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(64i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEA_1125I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(128i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEB_525P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(256i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEB_750P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(512i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_CEA805A_TYPEB_1125I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(1024i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_ARIBTRB15_525I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(2048i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_ARIBTRB15_525P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(4096i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_ARIBTRB15_750P: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(8192i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_STANDARD_ARIBTRB15_1125I: DXGKMDT_OPM_PROTECTION_STANDARD = DXGKMDT_OPM_PROTECTION_STANDARD(16384i32);
 impl ::core::marker::Copy for DXGKMDT_OPM_PROTECTION_STANDARD {}
 impl ::core::clone::Clone for DXGKMDT_OPM_PROTECTION_STANDARD {
     fn clone(&self) -> Self {
@@ -7178,24 +7556,6 @@ impl ::core::fmt::Debug for DXGKMDT_OPM_PROTECTION_STANDARD {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGKMDT_OPM_PROTECTION_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_TYPE_OTHER: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(-2147483648i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_TYPE_NONE: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_TYPE_COPP_COMPATIBLE_HDCP: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_TYPE_ACP: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_TYPE_CGMSA: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_TYPE_HDCP: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_TYPE_DPCP: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(16i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_TYPE_TYPE_ENFORCEMENT_HDCP: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(32i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_PROTECTION_TYPE_MASK: DXGKMDT_OPM_PROTECTION_TYPE = DXGKMDT_OPM_PROTECTION_TYPE(-2147483585i32);
 impl ::core::marker::Copy for DXGKMDT_OPM_PROTECTION_TYPE {}
 impl ::core::clone::Clone for DXGKMDT_OPM_PROTECTION_TYPE {
     fn clone(&self) -> Self {
@@ -7219,16 +7579,6 @@ impl ::core::fmt::Debug for DXGKMDT_OPM_PROTECTION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGKMDT_OPM_STATUS(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_STATUS_NORMAL: DXGKMDT_OPM_STATUS = DXGKMDT_OPM_STATUS(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_STATUS_LINK_LOST: DXGKMDT_OPM_STATUS = DXGKMDT_OPM_STATUS(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_STATUS_RENEGOTIATION_REQUIRED: DXGKMDT_OPM_STATUS = DXGKMDT_OPM_STATUS(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_STATUS_TAMPERING_DETECTED: DXGKMDT_OPM_STATUS = DXGKMDT_OPM_STATUS(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_STATUS_REVOKED_HDCP_DEVICE_ATTACHED: DXGKMDT_OPM_STATUS = DXGKMDT_OPM_STATUS(8i32);
 impl ::core::marker::Copy for DXGKMDT_OPM_STATUS {}
 impl ::core::clone::Clone for DXGKMDT_OPM_STATUS {
     fn clone(&self) -> Self {
@@ -7252,12 +7602,6 @@ impl ::core::fmt::Debug for DXGKMDT_OPM_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_OFF: DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_NO_TYPE_RESTRICTION: DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_ON_WITH_TYPE1_RESTRICTION: DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL = DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL(2i32);
 impl ::core::marker::Copy for DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {}
 impl ::core::clone::Clone for DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {
     fn clone(&self) -> Self {
@@ -7281,12 +7625,6 @@ impl ::core::fmt::Debug for DXGKMDT_OPM_TYPE_ENFORCEMENT_HDCP_PROTECTION_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_VOS_COPP_SEMANTICS: DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS = DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_VOS_OPM_SEMANTICS: DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS = DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMDT_OPM_VOS_OPM_INDIRECT_DISPLAY: DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS = DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS(2i32);
 impl ::core::marker::Copy for DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS {}
 impl ::core::clone::Clone for DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS {
     fn clone(&self) -> Self {
@@ -7310,12 +7648,6 @@ impl ::core::fmt::Debug for DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_NONE: DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE = DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_FRAME0: DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE = DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_FRAME1: DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE = DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE(2i32);
 impl ::core::marker::Copy for DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE {}
 impl ::core::clone::Clone for DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE {
     fn clone(&self) -> Self {
@@ -7339,10 +7671,6 @@ impl ::core::fmt::Debug for DXGKMT_MULTIPLANE_OVERLAY_STEREO_FLIP_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY_BILINEAR: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY = DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY_HIGH: DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY = DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY(2i32);
 impl ::core::marker::Copy for DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY {}
 impl ::core::clone::Clone for DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY {
     fn clone(&self) -> Self {
@@ -7366,8 +7694,6 @@ impl ::core::fmt::Debug for DXGKMT_MULTIPLANE_OVERLAY_STRETCH_QUALITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGKMT_POWER_SHARED_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKMT_POWER_SHARED_TYPE_AUDIO: DXGKMT_POWER_SHARED_TYPE = DXGKMT_POWER_SHARED_TYPE(0i32);
 impl ::core::marker::Copy for DXGKMT_POWER_SHARED_TYPE {}
 impl ::core::clone::Clone for DXGKMT_POWER_SHARED_TYPE {
     fn clone(&self) -> Self {
@@ -7391,22 +7717,6 @@ impl ::core::fmt::Debug for DXGKMT_POWER_SHARED_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGKVGPU_ESCAPE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKVGPU_ESCAPE_TYPE_READ_PCI_CONFIG: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKVGPU_ESCAPE_TYPE_WRITE_PCI_CONFIG: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKVGPU_ESCAPE_TYPE_INITIALIZE: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKVGPU_ESCAPE_TYPE_RELEASE: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKVGPU_ESCAPE_TYPE_GET_VGPU_TYPE: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKVGPU_ESCAPE_TYPE_POWERTRANSITIONCOMPLETE: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKVGPU_ESCAPE_TYPE_PAUSE: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGKVGPU_ESCAPE_TYPE_RESUME: DXGKVGPU_ESCAPE_TYPE = DXGKVGPU_ESCAPE_TYPE(7i32);
 impl ::core::marker::Copy for DXGKVGPU_ESCAPE_TYPE {}
 impl ::core::clone::Clone for DXGKVGPU_ESCAPE_TYPE {
     fn clone(&self) -> Self {
@@ -7430,16 +7740,6 @@ impl ::core::fmt::Debug for DXGKVGPU_ESCAPE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DxgkBacklightOptimizationDisable: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DxgkBacklightOptimizationDesktop: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DxgkBacklightOptimizationDynamic: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DxgkBacklightOptimizationDimmed: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DxgkBacklightOptimizationEDR: DXGK_BACKLIGHT_OPTIMIZATION_LEVEL = DXGK_BACKLIGHT_OPTIMIZATION_LEVEL(4i32);
 impl ::core::marker::Copy for DXGK_BACKLIGHT_OPTIMIZATION_LEVEL {}
 impl ::core::clone::Clone for DXGK_BACKLIGHT_OPTIMIZATION_LEVEL {
     fn clone(&self) -> Self {
@@ -7463,16 +7763,6 @@ impl ::core::fmt::Debug for DXGK_BACKLIGHT_OPTIMIZATION_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGK_CHILD_DEVICE_HPD_AWARENESS(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const HpdAwarenessUninitialized: DXGK_CHILD_DEVICE_HPD_AWARENESS = DXGK_CHILD_DEVICE_HPD_AWARENESS(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const HpdAwarenessAlwaysConnected: DXGK_CHILD_DEVICE_HPD_AWARENESS = DXGK_CHILD_DEVICE_HPD_AWARENESS(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const HpdAwarenessNone: DXGK_CHILD_DEVICE_HPD_AWARENESS = DXGK_CHILD_DEVICE_HPD_AWARENESS(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const HpdAwarenessPolled: DXGK_CHILD_DEVICE_HPD_AWARENESS = DXGK_CHILD_DEVICE_HPD_AWARENESS(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const HpdAwarenessInterruptible: DXGK_CHILD_DEVICE_HPD_AWARENESS = DXGK_CHILD_DEVICE_HPD_AWARENESS(4i32);
 impl ::core::marker::Copy for DXGK_CHILD_DEVICE_HPD_AWARENESS {}
 impl ::core::clone::Clone for DXGK_CHILD_DEVICE_HPD_AWARENESS {
     fn clone(&self) -> Self {
@@ -7496,12 +7786,6 @@ impl ::core::fmt::Debug for DXGK_CHILD_DEVICE_HPD_AWARENESS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGK_DISPLAY_DESCRIPTOR_TYPE(pub u8);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_DDT_INVALID: DXGK_DISPLAY_DESCRIPTOR_TYPE = DXGK_DISPLAY_DESCRIPTOR_TYPE(0u8);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_DDT_EDID: DXGK_DISPLAY_DESCRIPTOR_TYPE = DXGK_DISPLAY_DESCRIPTOR_TYPE(1u8);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_DDT_DISPLAYID: DXGK_DISPLAY_DESCRIPTOR_TYPE = DXGK_DISPLAY_DESCRIPTOR_TYPE(2u8);
 impl ::core::marker::Copy for DXGK_DISPLAY_DESCRIPTOR_TYPE {}
 impl ::core::clone::Clone for DXGK_DISPLAY_DESCRIPTOR_TYPE {
     fn clone(&self) -> Self {
@@ -7525,18 +7809,6 @@ impl ::core::fmt::Debug for DXGK_DISPLAY_DESCRIPTOR_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGK_DISPLAY_TECHNOLOGY(pub u8);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_DT_INVALID: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(0u8);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_DT_OTHER: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(1u8);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_DT_LCD: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(2u8);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_DT_OLED: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(3u8);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_DT_PROJECTOR: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(4u8);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_DT_MAX: DXGK_DISPLAY_TECHNOLOGY = DXGK_DISPLAY_TECHNOLOGY(5u8);
 impl ::core::marker::Copy for DXGK_DISPLAY_TECHNOLOGY {}
 impl ::core::clone::Clone for DXGK_DISPLAY_TECHNOLOGY {
     fn clone(&self) -> Self {
@@ -7560,20 +7832,6 @@ impl ::core::fmt::Debug for DXGK_DISPLAY_TECHNOLOGY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGK_DISPLAY_USAGE(pub u8);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_DU_INVALID: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(0u8);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_DU_GENERIC: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(1u8);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_DU_AR: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(2u8);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_DU_VR: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(3u8);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_DU_MEDICAL_IMAGING: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(4u8);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_DU_ACCESSORY: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(5u8);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_DU_MAX: DXGK_DISPLAY_USAGE = DXGK_DISPLAY_USAGE(6u8);
 impl ::core::marker::Copy for DXGK_DISPLAY_USAGE {}
 impl ::core::clone::Clone for DXGK_DISPLAY_USAGE {
     fn clone(&self) -> Self {
@@ -7597,26 +7855,6 @@ impl ::core::fmt::Debug for DXGK_DISPLAY_USAGE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGK_ENGINE_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_ENGINE_TYPE_OTHER: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_ENGINE_TYPE_3D: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_ENGINE_TYPE_VIDEO_DECODE: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_ENGINE_TYPE_VIDEO_ENCODE: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_ENGINE_TYPE_VIDEO_PROCESSING: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_ENGINE_TYPE_SCENE_ASSEMBLY: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_ENGINE_TYPE_COPY: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_ENGINE_TYPE_OVERLAY: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(7i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_ENGINE_TYPE_CRYPTO: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_ENGINE_TYPE_MAX: DXGK_ENGINE_TYPE = DXGK_ENGINE_TYPE(9i32);
 impl ::core::marker::Copy for DXGK_ENGINE_TYPE {}
 impl ::core::clone::Clone for DXGK_ENGINE_TYPE {
     fn clone(&self) -> Self {
@@ -7640,10 +7878,6 @@ impl ::core::fmt::Debug for DXGK_ENGINE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGK_GENERAL_ERROR_CODE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_GENERAL_ERROR_PAGE_FAULT: DXGK_GENERAL_ERROR_CODE = DXGK_GENERAL_ERROR_CODE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_GENERAL_ERROR_INVALID_INSTRUCTION: DXGK_GENERAL_ERROR_CODE = DXGK_GENERAL_ERROR_CODE(1i32);
 impl ::core::marker::Copy for DXGK_GENERAL_ERROR_CODE {}
 impl ::core::clone::Clone for DXGK_GENERAL_ERROR_CODE {
     fn clone(&self) -> Self {
@@ -7667,20 +7901,6 @@ impl ::core::fmt::Debug for DXGK_GENERAL_ERROR_CODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGK_MIRACAST_CHUNK_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_MIRACAST_CHUNK_TYPE_UNKNOWN: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_MIRACAST_CHUNK_TYPE_COLOR_CONVERT_COMPLETE: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_MIRACAST_CHUNK_TYPE_ENCODE_COMPLETE: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_MIRACAST_CHUNK_TYPE_FRAME_START: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_MIRACAST_CHUNK_TYPE_FRAME_DROPPED: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_MIRACAST_CHUNK_TYPE_ENCODE_DRIVER_DEFINED_1: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(-2147483648i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_MIRACAST_CHUNK_TYPE_ENCODE_DRIVER_DEFINED_2: DXGK_MIRACAST_CHUNK_TYPE = DXGK_MIRACAST_CHUNK_TYPE(-2147483647i32);
 impl ::core::marker::Copy for DXGK_MIRACAST_CHUNK_TYPE {}
 impl ::core::clone::Clone for DXGK_MIRACAST_CHUNK_TYPE {
     fn clone(&self) -> Self {
@@ -7704,22 +7924,6 @@ impl ::core::fmt::Debug for DXGK_MIRACAST_CHUNK_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGK_PAGE_FAULT_FLAGS(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_PAGE_FAULT_WRITE: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_PAGE_FAULT_FENCE_INVALID: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_PAGE_FAULT_ADAPTER_RESET_REQUIRED: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_PAGE_FAULT_ENGINE_RESET_REQUIRED: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_PAGE_FAULT_FATAL_HARDWARE_ERROR: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(16i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_PAGE_FAULT_IOMMU: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(32i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_PAGE_FAULT_HW_CONTEXT_VALID: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(64i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_PAGE_FAULT_PROCESS_HANDLE_VALID: DXGK_PAGE_FAULT_FLAGS = DXGK_PAGE_FAULT_FLAGS(128i32);
 impl ::core::marker::Copy for DXGK_PAGE_FAULT_FLAGS {}
 impl ::core::clone::Clone for DXGK_PAGE_FAULT_FLAGS {
     fn clone(&self) -> Self {
@@ -7743,10 +7947,6 @@ impl ::core::fmt::Debug for DXGK_PAGE_FAULT_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGK_PTE_PAGE_SIZE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_PTE_PAGE_TABLE_PAGE_4KB: DXGK_PTE_PAGE_SIZE = DXGK_PTE_PAGE_SIZE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_PTE_PAGE_TABLE_PAGE_64KB: DXGK_PTE_PAGE_SIZE = DXGK_PTE_PAGE_SIZE(1i32);
 impl ::core::marker::Copy for DXGK_PTE_PAGE_SIZE {}
 impl ::core::clone::Clone for DXGK_PTE_PAGE_SIZE {
     fn clone(&self) -> Self {
@@ -7770,22 +7970,6 @@ impl ::core::fmt::Debug for DXGK_PTE_PAGE_SIZE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DXGK_RENDER_PIPELINE_STAGE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_RENDER_PIPELINE_STAGE_UNKNOWN: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_RENDER_PIPELINE_STAGE_INPUT_ASSEMBLER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_RENDER_PIPELINE_STAGE_VERTEX_SHADER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_RENDER_PIPELINE_STAGE_GEOMETRY_SHADER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_RENDER_PIPELINE_STAGE_STREAM_OUTPUT: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_RENDER_PIPELINE_STAGE_RASTERIZER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_RENDER_PIPELINE_STAGE_PIXEL_SHADER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const DXGK_RENDER_PIPELINE_STAGE_OUTPUT_MERGER: DXGK_RENDER_PIPELINE_STAGE = DXGK_RENDER_PIPELINE_STAGE(7i32);
 impl ::core::marker::Copy for DXGK_RENDER_PIPELINE_STAGE {}
 impl ::core::clone::Clone for DXGK_RENDER_PIPELINE_STAGE {
     fn clone(&self) -> Self {
@@ -7809,166 +7993,6 @@ impl ::core::fmt::Debug for DXGK_RENDER_PIPELINE_STAGE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KMTQUERYADAPTERINFOTYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_UMDRIVERPRIVATE: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_UMDRIVERNAME: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_UMOPENGLINFO: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_GETSEGMENTSIZE: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_ADAPTERGUID: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_FLIPQUEUEINFO: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_ADAPTERADDRESS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(6i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_SETWORKINGSETINFO: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(7i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_ADAPTERREGISTRYINFO: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(8i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_CURRENTDISPLAYMODE: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(9i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_MODELIST: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(10i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_CHECKDRIVERUPDATESTATUS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(11i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_VIRTUALADDRESSINFO: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(12i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_DRIVERVERSION: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(13i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_ADAPTERTYPE: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(15i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_OUTPUTDUPLCONTEXTSCOUNT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(16i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_WDDM_1_2_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(17i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_UMD_DRIVER_VERSION: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(18i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_DIRECTFLIP_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(19i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_MULTIPLANEOVERLAY_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(20i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_DLIST_DRIVER_NAME: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(21i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_WDDM_1_3_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(22i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_MULTIPLANEOVERLAY_HUD_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(23i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_WDDM_2_0_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(24i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_NODEMETADATA: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(25i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_CPDRIVERNAME: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(26i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_XBOX: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(27i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_INDEPENDENTFLIP_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(28i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_MIRACASTCOMPANIONDRIVERNAME: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(29i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_PHYSICALADAPTERCOUNT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(30i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_PHYSICALADAPTERDEVICEIDS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(31i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_DRIVERCAPS_EXT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(32i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_QUERY_MIRACAST_DRIVER_TYPE: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(33i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_QUERY_GPUMMU_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(34i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_QUERY_MULTIPLANEOVERLAY_DECODE_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(35i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_QUERY_HW_PROTECTION_TEARDOWN_COUNT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(36i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_QUERY_ISBADDRIVERFORHWPROTECTIONDISABLED: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(37i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_MULTIPLANEOVERLAY_SECONDARY_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(38i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_INDEPENDENTFLIP_SECONDARY_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(39i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_PANELFITTER_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(40i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_PHYSICALADAPTERPNPKEY: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(41i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_GETSEGMENTGROUPSIZE: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(42i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_MPO3DDI_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(43i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_HWDRM_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(44i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_MPOKERNELCAPS_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(45i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_MULTIPLANEOVERLAY_STRETCH_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(46i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_GET_DEVICE_VIDPN_OWNERSHIP_INFO: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(47i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_QUERYREGISTRY: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(48i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_KMD_DRIVER_VERSION: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(49i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_BLOCKLIST_KERNEL: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(50i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_BLOCKLIST_RUNTIME: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(51i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_ADAPTERGUID_RENDER: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(52i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_ADAPTERADDRESS_RENDER: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(53i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_ADAPTERREGISTRYINFO_RENDER: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(54i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_CHECKDRIVERUPDATESTATUS_RENDER: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(55i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_DRIVERVERSION_RENDER: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(56i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_ADAPTERTYPE_RENDER: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(57i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_WDDM_1_2_CAPS_RENDER: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(58i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_WDDM_1_3_CAPS_RENDER: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(59i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_QUERY_ADAPTER_UNIQUE_GUID: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(60i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_NODEPERFDATA: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(61i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_ADAPTERPERFDATA: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(62i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_ADAPTERPERFDATA_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(63i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQUITYPE_GPUVERSION: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(64i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_DRIVER_DESCRIPTION: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(65i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_DRIVER_DESCRIPTION_RENDER: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(66i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_SCANOUT_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(67i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_DISPLAY_UMDRIVERNAME: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(71i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_PARAVIRTUALIZATION_RENDER: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(68i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_SERVICENAME: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(69i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_WDDM_2_7_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(70i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_TRACKEDWORKLOAD_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(72i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_HYBRID_DLIST_DLL_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(73i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_DISPLAY_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(74i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_WDDM_2_9_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(75i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_CROSSADAPTERRESOURCE_SUPPORT: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(76i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_WDDM_3_0_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(77i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_WSAUMDIMAGENAME: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(78i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_VGPUINTERFACEID: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(79i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTQAITYPE_WDDM_3_1_CAPS: KMTQUERYADAPTERINFOTYPE = KMTQUERYADAPTERINFOTYPE(80i32);
 impl ::core::marker::Copy for KMTQUERYADAPTERINFOTYPE {}
 impl ::core::clone::Clone for KMTQUERYADAPTERINFOTYPE {
     fn clone(&self) -> Self {
@@ -7992,20 +8016,6 @@ impl ::core::fmt::Debug for KMTQUERYADAPTERINFOTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KMTUMDVERSION(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTUMDVERSION_DX9: KMTUMDVERSION = KMTUMDVERSION(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTUMDVERSION_DX10: KMTUMDVERSION = KMTUMDVERSION(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTUMDVERSION_DX11: KMTUMDVERSION = KMTUMDVERSION(2i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTUMDVERSION_DX12: KMTUMDVERSION = KMTUMDVERSION(3i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTUMDVERSION_DX12_WSA32: KMTUMDVERSION = KMTUMDVERSION(4i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMTUMDVERSION_DX12_WSA64: KMTUMDVERSION = KMTUMDVERSION(5i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const NUM_KMTUMDVERSIONS: KMTUMDVERSION = KMTUMDVERSION(6i32);
 impl ::core::marker::Copy for KMTUMDVERSION {}
 impl ::core::clone::Clone for KMTUMDVERSION {
     fn clone(&self) -> Self {
@@ -8029,10 +8039,6 @@ impl ::core::fmt::Debug for KMTUMDVERSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KMT_DISPLAY_UMD_VERSION(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const KMT_DISPLAY_UMDVERSION_1: KMT_DISPLAY_UMD_VERSION = KMT_DISPLAY_UMD_VERSION(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const NUM_KMT_DISPLAY_UMDVERSIONS: KMT_DISPLAY_UMD_VERSION = KMT_DISPLAY_UMD_VERSION(1i32);
 impl ::core::marker::Copy for KMT_DISPLAY_UMD_VERSION {}
 impl ::core::clone::Clone for KMT_DISPLAY_UMD_VERSION {
     fn clone(&self) -> Self {
@@ -8056,12 +8062,6 @@ impl ::core::fmt::Debug for KMT_DISPLAY_UMD_VERSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OUTPUTDUPL_CONTEXT_DEBUG_STATUS(pub i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_INACTIVE: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = OUTPUTDUPL_CONTEXT_DEBUG_STATUS(0i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_ACTIVE: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = OUTPUTDUPL_CONTEXT_DEBUG_STATUS(1i32);
-#[doc = "*Required features: `\"Wdk_Graphics_Direct3D\"`*"]
-pub const OUTPUTDUPL_CONTEXT_DEBUG_STATUS_PENDING_DESTROY: OUTPUTDUPL_CONTEXT_DEBUG_STATUS = OUTPUTDUPL_CONTEXT_DEBUG_STATUS(2i32);
 impl ::core::marker::Copy for OUTPUTDUPL_CONTEXT_DEBUG_STATUS {}
 impl ::core::clone::Clone for OUTPUTDUPL_CONTEXT_DEBUG_STATUS {
     fn clone(&self) -> Self {

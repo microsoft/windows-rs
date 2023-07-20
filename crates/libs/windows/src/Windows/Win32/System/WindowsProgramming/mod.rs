@@ -2661,6 +2661,8 @@ pub const ATOM_FLAG_GLOBAL: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const AT_ARP: u32 = 640u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AT_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(640u32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const AT_NULL: u32 = 642u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const BACKUP_GHOSTED_FILE_EXTENTS: u32 = 11u32;
@@ -2773,9 +2775,13 @@ pub const CE_PTO: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const CE_TXFULL: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CL_NL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(769u32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const CL_NL_IP: u32 = 771u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const CL_NL_IPX: u32 = 769u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CL_TL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(1025u32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const CL_TL_NBF: u32 = 1025u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -2862,6 +2868,10 @@ pub const COPY_FILE_RESTARTABLE: u32 = 2u32;
 pub const COPY_FILE_RESUME_FROM_PAUSE: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const COPY_FILE_SKIP_ALTERNATE_STREAMS: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CO_NL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(768u32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CO_TL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(1024u32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const CO_TL_NBF: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -2989,6 +2999,26 @@ pub const DCI_WRITEONLY: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const DEACTIVATE_ACTCTX_FLAG_FORCE_EARLY_DEACTIVATION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DECISION_LOCATION_AUDIT: DECISION_LOCATION = DECISION_LOCATION(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DECISION_LOCATION_ENFORCE_STATE_LIST: DECISION_LOCATION = DECISION_LOCATION(7i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DECISION_LOCATION_ENTERPRISE_DEFINED_CLASS_ID: DECISION_LOCATION = DECISION_LOCATION(4i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DECISION_LOCATION_FAILED_CONVERT_GUID: DECISION_LOCATION = DECISION_LOCATION(3i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DECISION_LOCATION_GLOBAL_BUILT_IN_LIST: DECISION_LOCATION = DECISION_LOCATION(5i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DECISION_LOCATION_NOT_FOUND: DECISION_LOCATION = DECISION_LOCATION(8i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DECISION_LOCATION_PARAMETER_VALIDATION: DECISION_LOCATION = DECISION_LOCATION(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DECISION_LOCATION_PROVIDER_BUILT_IN_LIST: DECISION_LOCATION = DECISION_LOCATION(6i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DECISION_LOCATION_REFRESH_GLOBAL_DATA: DECISION_LOCATION = DECISION_LOCATION(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DECISION_LOCATION_UNKNOWN: DECISION_LOCATION = DECISION_LOCATION(9i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const DELAYLOAD_GPA_FAILURE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const DELETE_BROWSING_HISTORY_COOKIES: u32 = 2u32;
@@ -3043,6 +3073,8 @@ pub const ENTITY_LIST_ID: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const ENTITY_TYPE_ID: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ER_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(896u32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const ER_ICMP: u32 = 896u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const EVENTLOG_FULL_INFO: u32 = 0u32;
@@ -3051,9 +3083,25 @@ pub const EditionUpgradeBroker: ::windows_core::GUID = ::windows_core::GUID::fro
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const EditionUpgradeHelper: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x01776df3_b9af_4e50_9b1c_56e93116d704);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const EndpointIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FAIL_FAST_GENERATE_EXCEPTION_ADDRESS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FAIL_FAST_NO_HARD_ERROR_DLG: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FEATURE_CHANGE_TIME_MODULE_RELOAD: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FEATURE_CHANGE_TIME_READ: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FEATURE_CHANGE_TIME_REBOOT: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(3i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FEATURE_CHANGE_TIME_SESSION: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FEATURE_ENABLED_STATE_DEFAULT: FEATURE_ENABLED_STATE = FEATURE_ENABLED_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FEATURE_ENABLED_STATE_DISABLED: FEATURE_ENABLED_STATE = FEATURE_ENABLED_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FEATURE_ENABLED_STATE_ENABLED: FEATURE_ENABLED_STATE = FEATURE_ENABLED_STATE(2i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FIBER_FLAG_FLOAT_SWITCH: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -3139,6 +3187,10 @@ pub const FS_UNICODE_STORED_ON_DISK: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const FS_VOL_IS_COMPRESSED: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FileDirectoryInformation: FILE_INFORMATION_CLASS = FILE_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GENERIC_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_A: ::windows_core::PCSTR = ::windows_core::s!("GetSystemWow64DirectoryA");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_T: ::windows_core::PCWSTR = ::windows_core::w!("GetSystemWow64DirectoryA");
@@ -3182,6 +3234,8 @@ pub const GMEM_NOT_BANKED: u32 = 4096u32;
 pub const GMEM_SHARE: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const GMEM_VALID_FLAGS: u32 = 32626u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GetSockOptIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(2i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const HANJA_WINDOW: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -3230,6 +3284,8 @@ pub const IE_MEMORY: i32 = -4i32;
 pub const IE_NOPEN: i32 = -3i32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const IE_OPEN: i32 = -2i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IF_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(512u32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const IF_GENERIC: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -3362,6 +3418,12 @@ pub const IR_STRINGEX: u32 = 384u32;
 pub const IR_STRINGSTART: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const IR_UNDETERMINE: u32 = 368u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const KEY_ALL_KEYS: WLDP_KEY = WLDP_KEY(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const KEY_OVERRIDE: WLDP_KEY = WLDP_KEY(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const KEY_UNKNOWN: WLDP_KEY = WLDP_KEY(0i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const LIS_NOGRPCONV: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -3683,6 +3745,10 @@ pub const S_WHITE512: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const S_WHITEVOICE: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SetSockOptIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SocketIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const TC_GP_TRAP: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const TC_HARDERR: u32 = 1u32;
@@ -3694,6 +3760,12 @@ pub const TC_SIGNAL: u32 = 3u32;
 pub const THREAD_PRIORITY_ERROR_RETURN: u32 = 2147483647u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const UMS_VERSION: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const VALUENAME_BUILT_IN_LIST: VALUENAME = VALUENAME(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const VALUENAME_ENTERPRISE_DEFINED_CLASS_ID: VALUENAME = VALUENAME(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const VALUENAME_UNKNOWN: VALUENAME = VALUENAME(0i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WINWATCHNOTIFY_CHANGED: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -3711,6 +3783,16 @@ pub const WLDP_CANEXECUTEFILE_FN: ::windows_core::PCSTR = ::windows_core::s!("Wl
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_DLL: ::windows_core::PCWSTR = ::windows_core::w!("WLDP.DLL");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_EXECUTION_EVALUATION_OPTION_EXECUTE_IN_INTERACTIVE_SESSION: WLDP_EXECUTION_EVALUATION_OPTIONS = WLDP_EXECUTION_EVALUATION_OPTIONS(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_EXECUTION_EVALUATION_OPTION_NONE: WLDP_EXECUTION_EVALUATION_OPTIONS = WLDP_EXECUTION_EVALUATION_OPTIONS(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_EXECUTION_POLICY_ALLOWED: WLDP_EXECUTION_POLICY = WLDP_EXECUTION_POLICY(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_EXECUTION_POLICY_BLOCKED: WLDP_EXECUTION_POLICY = WLDP_EXECUTION_POLICY(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_EXECUTION_POLICY_REQUIRE_SANDBOX: WLDP_EXECUTION_POLICY = WLDP_EXECUTION_POLICY(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_FLAGS_SKIPSIGNATUREVALIDATION: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_GETLOCKDOWNPOLICY_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpGetLockdownPolicy");
@@ -3719,9 +3801,29 @@ pub const WLDP_HOST_CMD: ::windows_core::GUID = ::windows_core::GUID::from_u128(
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_HOST_HTML: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb35a71b6_fe56_48d6_9543_2dff0ecded66);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_ID_ALL: WLDP_HOST_ID = WLDP_HOST_ID(7i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_ID_GLOBAL: WLDP_HOST_ID = WLDP_HOST_ID(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_ID_IE: WLDP_HOST_ID = WLDP_HOST_ID(5i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_ID_MAX: WLDP_HOST_ID = WLDP_HOST_ID(8i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_ID_MSI: WLDP_HOST_ID = WLDP_HOST_ID(6i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_ID_POWERSHELL: WLDP_HOST_ID = WLDP_HOST_ID(4i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_ID_UNKNOWN: WLDP_HOST_ID = WLDP_HOST_ID(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_ID_VBA: WLDP_HOST_ID = WLDP_HOST_ID(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_ID_WSH: WLDP_HOST_ID = WLDP_HOST_ID(3i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_HOST_INFORMATION_REVISION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_HOST_JAVASCRIPT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5629f0d5_1cca_4fed_a1a3_36a8c18d74c0);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_MAX: WLDP_HOST = WLDP_HOST(2i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_HOST_MSI: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x624eb611_6e7e_4eec_9bfe_f0ecdbfcf390);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -3730,6 +3832,10 @@ pub const WLDP_HOST_OTHER: ::windows_core::GUID = ::windows_core::GUID::from_u12
 pub const WLDP_HOST_POWERSHELL: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8e9aaa7c_198b_4879_ae41_a50d47ad6458);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_HOST_PYTHON: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfd557ef_2448_42ec_810b_0d9f09352d4a);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_RUNDLL32: WLDP_HOST = WLDP_HOST(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_SVCHOST: WLDP_HOST = WLDP_HOST(1i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_HOST_WINDOWS_SCRIPT_HOST: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd30b84c5_29ce_4ff3_86ec_a30007a82e49);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
@@ -3761,6 +3867,8 @@ pub const WLDP_LOCKDOWN_UMCIENFORCE_FLAG: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_LOCKDOWN_UNDEFINED: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_POLICY_SETTING_AV_PERF_MODE: WLDP_POLICY_SETTING = WLDP_POLICY_SETTING(1000i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_QUERYDANAMICCODETRUST_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpQueryDynamicCodeTrust");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_QUERYDEVICESECURITYINFORMATION_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpQueryDeviceSecurityInformation");
@@ -3783,6 +3891,22 @@ pub const WLDP_SETDYNAMICCODETRUST_FN: ::windows_core::PCSTR = ::windows_core::s
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WLDP_SETWINDOWSLOCKDOWNRESTRICTION_FN: ::windows_core::PCSTR = ::windows_core::s!("WldpSetWindowsLockdownRestriction");
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_WINDOWS_LOCKDOWN_MODE_LOCKED: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_WINDOWS_LOCKDOWN_MODE_MAX: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(3i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_WINDOWS_LOCKDOWN_MODE_TRIAL: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_WINDOWS_LOCKDOWN_MODE_UNLOCKED: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_MAX: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(3i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NONE: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NOUNLOCK: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NOUNLOCK_PERMANENT: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WM_CONVERTREQUEST: u32 = 266u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WM_CONVERTRESULT: u32 = 267u32;
@@ -3796,6 +3920,8 @@ pub const WM_IME_REPORT: u32 = 640u32;
 pub const WM_INTERIM: u32 = 268u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const WM_WNT_CONVERTREQUESTEX: u32 = 265u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WinStationInformation: WINSTATIONINFOCLASS = WINSTATIONINFOCLASS(8i32);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -3964,26 +4090,6 @@ impl ::core::fmt::Debug for CameraUIControlViewType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DECISION_LOCATION(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DECISION_LOCATION_REFRESH_GLOBAL_DATA: DECISION_LOCATION = DECISION_LOCATION(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DECISION_LOCATION_PARAMETER_VALIDATION: DECISION_LOCATION = DECISION_LOCATION(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DECISION_LOCATION_AUDIT: DECISION_LOCATION = DECISION_LOCATION(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DECISION_LOCATION_FAILED_CONVERT_GUID: DECISION_LOCATION = DECISION_LOCATION(3i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DECISION_LOCATION_ENTERPRISE_DEFINED_CLASS_ID: DECISION_LOCATION = DECISION_LOCATION(4i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DECISION_LOCATION_GLOBAL_BUILT_IN_LIST: DECISION_LOCATION = DECISION_LOCATION(5i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DECISION_LOCATION_PROVIDER_BUILT_IN_LIST: DECISION_LOCATION = DECISION_LOCATION(6i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DECISION_LOCATION_ENFORCE_STATE_LIST: DECISION_LOCATION = DECISION_LOCATION(7i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DECISION_LOCATION_NOT_FOUND: DECISION_LOCATION = DECISION_LOCATION(8i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DECISION_LOCATION_UNKNOWN: DECISION_LOCATION = DECISION_LOCATION(9i32);
 impl ::core::marker::Copy for DECISION_LOCATION {}
 impl ::core::clone::Clone for DECISION_LOCATION {
     fn clone(&self) -> Self {
@@ -4007,14 +4113,6 @@ impl ::core::fmt::Debug for DECISION_LOCATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FEATURE_CHANGE_TIME(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FEATURE_CHANGE_TIME_READ: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FEATURE_CHANGE_TIME_MODULE_RELOAD: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FEATURE_CHANGE_TIME_SESSION: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FEATURE_CHANGE_TIME_REBOOT: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(3i32);
 impl ::core::marker::Copy for FEATURE_CHANGE_TIME {}
 impl ::core::clone::Clone for FEATURE_CHANGE_TIME {
     fn clone(&self) -> Self {
@@ -4038,12 +4136,6 @@ impl ::core::fmt::Debug for FEATURE_CHANGE_TIME {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FEATURE_ENABLED_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FEATURE_ENABLED_STATE_DEFAULT: FEATURE_ENABLED_STATE = FEATURE_ENABLED_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FEATURE_ENABLED_STATE_DISABLED: FEATURE_ENABLED_STATE = FEATURE_ENABLED_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FEATURE_ENABLED_STATE_ENABLED: FEATURE_ENABLED_STATE = FEATURE_ENABLED_STATE(2i32);
 impl ::core::marker::Copy for FEATURE_ENABLED_STATE {}
 impl ::core::clone::Clone for FEATURE_ENABLED_STATE {
     fn clone(&self) -> Self {
@@ -4067,8 +4159,6 @@ impl ::core::fmt::Debug for FEATURE_ENABLED_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FileDirectoryInformation: FILE_INFORMATION_CLASS = FILE_INFORMATION_CLASS(1i32);
 impl ::core::marker::Copy for FILE_INFORMATION_CLASS {}
 impl ::core::clone::Clone for FILE_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -4092,22 +4182,6 @@ impl ::core::fmt::Debug for FILE_INFORMATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TDIENTITY_ENTITY_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GENERIC_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AT_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(640u32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CL_NL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(769u32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CO_NL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(768u32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CL_TL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(1025u32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CO_TL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(1024u32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ER_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(896u32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IF_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(512u32);
 impl ::core::marker::Copy for TDIENTITY_ENTITY_TYPE {}
 impl ::core::clone::Clone for TDIENTITY_ENTITY_TYPE {
     fn clone(&self) -> Self {
@@ -4131,14 +4205,6 @@ impl ::core::fmt::Debug for TDIENTITY_ENTITY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TDI_TL_IO_CONTROL_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const EndpointIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SetSockOptIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GetSockOptIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SocketIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(3i32);
 impl ::core::marker::Copy for TDI_TL_IO_CONTROL_TYPE {}
 impl ::core::clone::Clone for TDI_TL_IO_CONTROL_TYPE {
     fn clone(&self) -> Self {
@@ -4162,12 +4228,6 @@ impl ::core::fmt::Debug for TDI_TL_IO_CONTROL_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VALUENAME(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const VALUENAME_UNKNOWN: VALUENAME = VALUENAME(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const VALUENAME_ENTERPRISE_DEFINED_CLASS_ID: VALUENAME = VALUENAME(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const VALUENAME_BUILT_IN_LIST: VALUENAME = VALUENAME(2i32);
 impl ::core::marker::Copy for VALUENAME {}
 impl ::core::clone::Clone for VALUENAME {
     fn clone(&self) -> Self {
@@ -4191,8 +4251,6 @@ impl ::core::fmt::Debug for VALUENAME {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINSTATIONINFOCLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WinStationInformation: WINSTATIONINFOCLASS = WINSTATIONINFOCLASS(8i32);
 impl ::core::marker::Copy for WINSTATIONINFOCLASS {}
 impl ::core::clone::Clone for WINSTATIONINFOCLASS {
     fn clone(&self) -> Self {
@@ -4216,10 +4274,6 @@ impl ::core::fmt::Debug for WINSTATIONINFOCLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLDP_EXECUTION_EVALUATION_OPTIONS(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_EXECUTION_EVALUATION_OPTION_NONE: WLDP_EXECUTION_EVALUATION_OPTIONS = WLDP_EXECUTION_EVALUATION_OPTIONS(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_EXECUTION_EVALUATION_OPTION_EXECUTE_IN_INTERACTIVE_SESSION: WLDP_EXECUTION_EVALUATION_OPTIONS = WLDP_EXECUTION_EVALUATION_OPTIONS(1i32);
 impl ::core::marker::Copy for WLDP_EXECUTION_EVALUATION_OPTIONS {}
 impl ::core::clone::Clone for WLDP_EXECUTION_EVALUATION_OPTIONS {
     fn clone(&self) -> Self {
@@ -4276,12 +4330,6 @@ impl ::core::ops::Not for WLDP_EXECUTION_EVALUATION_OPTIONS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLDP_EXECUTION_POLICY(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_EXECUTION_POLICY_BLOCKED: WLDP_EXECUTION_POLICY = WLDP_EXECUTION_POLICY(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_EXECUTION_POLICY_ALLOWED: WLDP_EXECUTION_POLICY = WLDP_EXECUTION_POLICY(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_EXECUTION_POLICY_REQUIRE_SANDBOX: WLDP_EXECUTION_POLICY = WLDP_EXECUTION_POLICY(2i32);
 impl ::core::marker::Copy for WLDP_EXECUTION_POLICY {}
 impl ::core::clone::Clone for WLDP_EXECUTION_POLICY {
     fn clone(&self) -> Self {
@@ -4305,12 +4353,6 @@ impl ::core::fmt::Debug for WLDP_EXECUTION_POLICY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLDP_HOST(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_RUNDLL32: WLDP_HOST = WLDP_HOST(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_SVCHOST: WLDP_HOST = WLDP_HOST(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_MAX: WLDP_HOST = WLDP_HOST(2i32);
 impl ::core::marker::Copy for WLDP_HOST {}
 impl ::core::clone::Clone for WLDP_HOST {
     fn clone(&self) -> Self {
@@ -4334,24 +4376,6 @@ impl ::core::fmt::Debug for WLDP_HOST {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLDP_HOST_ID(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_ID_UNKNOWN: WLDP_HOST_ID = WLDP_HOST_ID(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_ID_GLOBAL: WLDP_HOST_ID = WLDP_HOST_ID(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_ID_VBA: WLDP_HOST_ID = WLDP_HOST_ID(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_ID_WSH: WLDP_HOST_ID = WLDP_HOST_ID(3i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_ID_POWERSHELL: WLDP_HOST_ID = WLDP_HOST_ID(4i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_ID_IE: WLDP_HOST_ID = WLDP_HOST_ID(5i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_ID_MSI: WLDP_HOST_ID = WLDP_HOST_ID(6i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_ID_ALL: WLDP_HOST_ID = WLDP_HOST_ID(7i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_ID_MAX: WLDP_HOST_ID = WLDP_HOST_ID(8i32);
 impl ::core::marker::Copy for WLDP_HOST_ID {}
 impl ::core::clone::Clone for WLDP_HOST_ID {
     fn clone(&self) -> Self {
@@ -4375,12 +4399,6 @@ impl ::core::fmt::Debug for WLDP_HOST_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLDP_KEY(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KEY_UNKNOWN: WLDP_KEY = WLDP_KEY(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KEY_OVERRIDE: WLDP_KEY = WLDP_KEY(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KEY_ALL_KEYS: WLDP_KEY = WLDP_KEY(2i32);
 impl ::core::marker::Copy for WLDP_KEY {}
 impl ::core::clone::Clone for WLDP_KEY {
     fn clone(&self) -> Self {
@@ -4404,8 +4422,6 @@ impl ::core::fmt::Debug for WLDP_KEY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLDP_POLICY_SETTING(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_POLICY_SETTING_AV_PERF_MODE: WLDP_POLICY_SETTING = WLDP_POLICY_SETTING(1000i32);
 impl ::core::marker::Copy for WLDP_POLICY_SETTING {}
 impl ::core::clone::Clone for WLDP_POLICY_SETTING {
     fn clone(&self) -> Self {
@@ -4429,14 +4445,6 @@ impl ::core::fmt::Debug for WLDP_POLICY_SETTING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLDP_WINDOWS_LOCKDOWN_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_WINDOWS_LOCKDOWN_MODE_UNLOCKED: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_WINDOWS_LOCKDOWN_MODE_TRIAL: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_WINDOWS_LOCKDOWN_MODE_LOCKED: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_WINDOWS_LOCKDOWN_MODE_MAX: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(3i32);
 impl ::core::marker::Copy for WLDP_WINDOWS_LOCKDOWN_MODE {}
 impl ::core::clone::Clone for WLDP_WINDOWS_LOCKDOWN_MODE {
     fn clone(&self) -> Self {
@@ -4460,14 +4468,6 @@ impl ::core::fmt::Debug for WLDP_WINDOWS_LOCKDOWN_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WLDP_WINDOWS_LOCKDOWN_RESTRICTION(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NONE: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NOUNLOCK: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NOUNLOCK_PERMANENT: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_MAX: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(3i32);
 impl ::core::marker::Copy for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {}
 impl ::core::clone::Clone for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
     fn clone(&self) -> Self {

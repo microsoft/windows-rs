@@ -265,6 +265,20 @@ pub unsafe fn SystemParametersInfoForDpi(uiaction: u32, uiparam: u32, pvparam: :
     SystemParametersInfoForDpi(uiaction, uiparam, ::core::mem::transmute(pvparam.unwrap_or(::std::ptr::null_mut())), fwinini, dpi).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DCDC_DEFAULT: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(0i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DCDC_DISABLE_FONT_UPDATE: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(1i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DCDC_DISABLE_RELAYOUT: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(2i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DDC_DEFAULT: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(0i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DDC_DISABLE_ALL: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(1i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DDC_DISABLE_CONTROL_RELAYOUT: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(4i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DDC_DISABLE_RESIZE: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(2i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-3i32 as _);
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 pub const DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-4i32 as _);
@@ -275,15 +289,37 @@ pub const DPI_AWARENESS_CONTEXT_UNAWARE: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_C
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 pub const DPI_AWARENESS_CONTEXT_UNAWARE_GDISCALED: DPI_AWARENESS_CONTEXT = DPI_AWARENESS_CONTEXT(-5i32 as _);
 #[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DPI_AWARENESS_INVALID: DPI_AWARENESS = DPI_AWARENESS(-1i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DPI_AWARENESS_PER_MONITOR_AWARE: DPI_AWARENESS = DPI_AWARENESS(2i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DPI_AWARENESS_SYSTEM_AWARE: DPI_AWARENESS = DPI_AWARENESS(1i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DPI_AWARENESS_UNAWARE: DPI_AWARENESS = DPI_AWARENESS(0i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DPI_HOSTING_BEHAVIOR_DEFAULT: DPI_HOSTING_BEHAVIOR = DPI_HOSTING_BEHAVIOR(0i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DPI_HOSTING_BEHAVIOR_INVALID: DPI_HOSTING_BEHAVIOR = DPI_HOSTING_BEHAVIOR(-1i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const DPI_HOSTING_BEHAVIOR_MIXED: DPI_HOSTING_BEHAVIOR = DPI_HOSTING_BEHAVIOR(1i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const MDT_ANGULAR_DPI: MONITOR_DPI_TYPE = MONITOR_DPI_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const MDT_DEFAULT: MONITOR_DPI_TYPE = MONITOR_DPI_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const MDT_EFFECTIVE_DPI: MONITOR_DPI_TYPE = MONITOR_DPI_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const MDT_RAW_DPI: MONITOR_DPI_TYPE = MONITOR_DPI_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const PROCESS_DPI_UNAWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENESS(0i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const PROCESS_PER_MONITOR_DPI_AWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENESS(2i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
+pub const PROCESS_SYSTEM_DPI_AWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENESS(1i32);
+#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DCDC_DEFAULT: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(0i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DCDC_DISABLE_FONT_UPDATE: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(1i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DCDC_DISABLE_RELAYOUT: DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS(2i32);
 impl ::core::marker::Copy for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {}
 impl ::core::clone::Clone for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
     fn clone(&self) -> Self {
@@ -340,14 +376,6 @@ impl ::core::ops::Not for DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIALOG_DPI_CHANGE_BEHAVIORS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DDC_DEFAULT: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(0i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DDC_DISABLE_ALL: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(1i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DDC_DISABLE_RESIZE: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(2i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DDC_DISABLE_CONTROL_RELAYOUT: DIALOG_DPI_CHANGE_BEHAVIORS = DIALOG_DPI_CHANGE_BEHAVIORS(4i32);
 impl ::core::marker::Copy for DIALOG_DPI_CHANGE_BEHAVIORS {}
 impl ::core::clone::Clone for DIALOG_DPI_CHANGE_BEHAVIORS {
     fn clone(&self) -> Self {
@@ -404,14 +432,6 @@ impl ::core::ops::Not for DIALOG_DPI_CHANGE_BEHAVIORS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DPI_AWARENESS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DPI_AWARENESS_INVALID: DPI_AWARENESS = DPI_AWARENESS(-1i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DPI_AWARENESS_UNAWARE: DPI_AWARENESS = DPI_AWARENESS(0i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DPI_AWARENESS_SYSTEM_AWARE: DPI_AWARENESS = DPI_AWARENESS(1i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DPI_AWARENESS_PER_MONITOR_AWARE: DPI_AWARENESS = DPI_AWARENESS(2i32);
 impl ::core::marker::Copy for DPI_AWARENESS {}
 impl ::core::clone::Clone for DPI_AWARENESS {
     fn clone(&self) -> Self {
@@ -435,12 +455,6 @@ impl ::core::fmt::Debug for DPI_AWARENESS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DPI_HOSTING_BEHAVIOR(pub i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DPI_HOSTING_BEHAVIOR_INVALID: DPI_HOSTING_BEHAVIOR = DPI_HOSTING_BEHAVIOR(-1i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DPI_HOSTING_BEHAVIOR_DEFAULT: DPI_HOSTING_BEHAVIOR = DPI_HOSTING_BEHAVIOR(0i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const DPI_HOSTING_BEHAVIOR_MIXED: DPI_HOSTING_BEHAVIOR = DPI_HOSTING_BEHAVIOR(1i32);
 impl ::core::marker::Copy for DPI_HOSTING_BEHAVIOR {}
 impl ::core::clone::Clone for DPI_HOSTING_BEHAVIOR {
     fn clone(&self) -> Self {
@@ -464,14 +478,6 @@ impl ::core::fmt::Debug for DPI_HOSTING_BEHAVIOR {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MONITOR_DPI_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const MDT_EFFECTIVE_DPI: MONITOR_DPI_TYPE = MONITOR_DPI_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const MDT_ANGULAR_DPI: MONITOR_DPI_TYPE = MONITOR_DPI_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const MDT_RAW_DPI: MONITOR_DPI_TYPE = MONITOR_DPI_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const MDT_DEFAULT: MONITOR_DPI_TYPE = MONITOR_DPI_TYPE(0i32);
 impl ::core::marker::Copy for MONITOR_DPI_TYPE {}
 impl ::core::clone::Clone for MONITOR_DPI_TYPE {
     fn clone(&self) -> Self {
@@ -495,12 +501,6 @@ impl ::core::fmt::Debug for MONITOR_DPI_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROCESS_DPI_AWARENESS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const PROCESS_DPI_UNAWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENESS(0i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const PROCESS_SYSTEM_DPI_AWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENESS(1i32);
-#[doc = "*Required features: `\"Win32_UI_HiDpi\"`*"]
-pub const PROCESS_PER_MONITOR_DPI_AWARE: PROCESS_DPI_AWARENESS = PROCESS_DPI_AWARENESS(2i32);
 impl ::core::marker::Copy for PROCESS_DPI_AWARENESS {}
 impl ::core::clone::Clone for PROCESS_DPI_AWARENESS {
     fn clone(&self) -> Self {

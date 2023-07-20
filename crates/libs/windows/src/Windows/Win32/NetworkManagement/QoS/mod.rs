@@ -404,6 +404,18 @@ pub const ERR_global_mask: u32 = 4095u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const EXPIRED_CREDENTIAL: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const FILTERSPECV4: FilterType = FilterType(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const FILTERSPECV4_GPI: FilterType = FilterType(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const FILTERSPECV6: FilterType = FilterType(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const FILTERSPECV6_FLOW: FilterType = FilterType(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const FILTERSPECV6_GPI: FilterType = FilterType(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const FILTERSPEC_END: FilterType = FilterType(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const FLOW_DURATION: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const FORCE_IMMEDIATE_REFRESH: u32 = 1u32;
@@ -531,6 +543,18 @@ pub const ISPH_FLG_INV: u32 = 128u32;
 pub const ISSH_BREAK_BIT: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const IS_GUAR_RSPEC: i32 = 130i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const IS_WKP_COMPOSED_MTU: int_serv_wkp = int_serv_wkp(10i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const IS_WKP_HOP_CNT: int_serv_wkp = int_serv_wkp(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const IS_WKP_MIN_LATENCY: int_serv_wkp = int_serv_wkp(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const IS_WKP_PATH_BW: int_serv_wkp = int_serv_wkp(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const IS_WKP_Q_TSPEC: int_serv_wkp = int_serv_wkp(128i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const IS_WKP_TB_TSPEC: int_serv_wkp = int_serv_wkp(127i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const LINE_RATE: u32 = 50003u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -758,9 +782,55 @@ pub const POSITIVE_INFINITY_RATE: u32 = 4294967294u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const PREDICTIVE_SERV: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSFlowRateCongestion: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSFlowRateContentChange: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSFlowRateHigherContentEncoding: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSFlowRateNotApplicable: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSFlowRateUserCaused: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSNotifyAvailable: QOS_NOTIFY_FLOW = QOS_NOTIFY_FLOW(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSNotifyCongested: QOS_NOTIFY_FLOW = QOS_NOTIFY_FLOW(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSNotifyUncongested: QOS_NOTIFY_FLOW = QOS_NOTIFY_FLOW(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSQueryFlowFundamentals: QOS_QUERY_FLOW = QOS_QUERY_FLOW(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSQueryOutgoingRate: QOS_QUERY_FLOW = QOS_QUERY_FLOW(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSQueryPacketPriority: QOS_QUERY_FLOW = QOS_QUERY_FLOW(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const QOSSPBASE: u32 = 50000u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const QOSSP_ERR_BASE: u32 = 56000u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSSetOutgoingDSCPValue: QOS_SET_FLOW = QOS_SET_FLOW(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSSetOutgoingRate: QOS_SET_FLOW = QOS_SET_FLOW(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSSetTrafficType: QOS_SET_FLOW = QOS_SET_FLOW(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSShapeAndMark: QOS_SHAPING = QOS_SHAPING(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSShapeOnly: QOS_SHAPING = QOS_SHAPING(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSTrafficTypeAudioVideo: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSTrafficTypeBackground: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSTrafficTypeBestEffort: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSTrafficTypeControl: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSTrafficTypeExcellentEffort: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSTrafficTypeVoice: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+pub const QOSUseNonConformantMarkings: QOS_SHAPING = QOS_SHAPING(2i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const QOS_GENERAL_ID_BASE: u32 = 2000u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -1371,18 +1441,6 @@ pub const mIOC_VENDOR: u32 = 67108864u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FilterType(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const FILTERSPECV4: FilterType = FilterType(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const FILTERSPECV6: FilterType = FilterType(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const FILTERSPECV6_FLOW: FilterType = FilterType(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const FILTERSPECV4_GPI: FilterType = FilterType(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const FILTERSPECV6_GPI: FilterType = FilterType(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const FILTERSPEC_END: FilterType = FilterType(6i32);
 impl ::core::marker::Copy for FilterType {}
 impl ::core::clone::Clone for FilterType {
     fn clone(&self) -> Self {
@@ -1406,16 +1464,6 @@ impl ::core::fmt::Debug for FilterType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QOS_FLOWRATE_REASON(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSFlowRateNotApplicable: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSFlowRateContentChange: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSFlowRateCongestion: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSFlowRateHigherContentEncoding: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSFlowRateUserCaused: QOS_FLOWRATE_REASON = QOS_FLOWRATE_REASON(4i32);
 impl ::core::marker::Copy for QOS_FLOWRATE_REASON {}
 impl ::core::clone::Clone for QOS_FLOWRATE_REASON {
     fn clone(&self) -> Self {
@@ -1439,12 +1487,6 @@ impl ::core::fmt::Debug for QOS_FLOWRATE_REASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QOS_NOTIFY_FLOW(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSNotifyCongested: QOS_NOTIFY_FLOW = QOS_NOTIFY_FLOW(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSNotifyUncongested: QOS_NOTIFY_FLOW = QOS_NOTIFY_FLOW(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSNotifyAvailable: QOS_NOTIFY_FLOW = QOS_NOTIFY_FLOW(2i32);
 impl ::core::marker::Copy for QOS_NOTIFY_FLOW {}
 impl ::core::clone::Clone for QOS_NOTIFY_FLOW {
     fn clone(&self) -> Self {
@@ -1468,12 +1510,6 @@ impl ::core::fmt::Debug for QOS_NOTIFY_FLOW {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QOS_QUERY_FLOW(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSQueryFlowFundamentals: QOS_QUERY_FLOW = QOS_QUERY_FLOW(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSQueryPacketPriority: QOS_QUERY_FLOW = QOS_QUERY_FLOW(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSQueryOutgoingRate: QOS_QUERY_FLOW = QOS_QUERY_FLOW(2i32);
 impl ::core::marker::Copy for QOS_QUERY_FLOW {}
 impl ::core::clone::Clone for QOS_QUERY_FLOW {
     fn clone(&self) -> Self {
@@ -1497,12 +1533,6 @@ impl ::core::fmt::Debug for QOS_QUERY_FLOW {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QOS_SET_FLOW(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSSetTrafficType: QOS_SET_FLOW = QOS_SET_FLOW(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSSetOutgoingRate: QOS_SET_FLOW = QOS_SET_FLOW(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSSetOutgoingDSCPValue: QOS_SET_FLOW = QOS_SET_FLOW(2i32);
 impl ::core::marker::Copy for QOS_SET_FLOW {}
 impl ::core::clone::Clone for QOS_SET_FLOW {
     fn clone(&self) -> Self {
@@ -1526,12 +1556,6 @@ impl ::core::fmt::Debug for QOS_SET_FLOW {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QOS_SHAPING(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSShapeOnly: QOS_SHAPING = QOS_SHAPING(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSShapeAndMark: QOS_SHAPING = QOS_SHAPING(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSUseNonConformantMarkings: QOS_SHAPING = QOS_SHAPING(2i32);
 impl ::core::marker::Copy for QOS_SHAPING {}
 impl ::core::clone::Clone for QOS_SHAPING {
     fn clone(&self) -> Self {
@@ -1555,18 +1579,6 @@ impl ::core::fmt::Debug for QOS_SHAPING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct QOS_TRAFFIC_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSTrafficTypeBestEffort: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSTrafficTypeBackground: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSTrafficTypeExcellentEffort: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSTrafficTypeAudioVideo: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSTrafficTypeVoice: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const QOSTrafficTypeControl: QOS_TRAFFIC_TYPE = QOS_TRAFFIC_TYPE(5i32);
 impl ::core::marker::Copy for QOS_TRAFFIC_TYPE {}
 impl ::core::clone::Clone for QOS_TRAFFIC_TYPE {
     fn clone(&self) -> Self {
@@ -1590,18 +1602,6 @@ impl ::core::fmt::Debug for QOS_TRAFFIC_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct int_serv_wkp(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const IS_WKP_HOP_CNT: int_serv_wkp = int_serv_wkp(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const IS_WKP_PATH_BW: int_serv_wkp = int_serv_wkp(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const IS_WKP_MIN_LATENCY: int_serv_wkp = int_serv_wkp(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const IS_WKP_COMPOSED_MTU: int_serv_wkp = int_serv_wkp(10i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const IS_WKP_TB_TSPEC: int_serv_wkp = int_serv_wkp(127i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub const IS_WKP_Q_TSPEC: int_serv_wkp = int_serv_wkp(128i32);
 impl ::core::marker::Copy for int_serv_wkp {}
 impl ::core::clone::Clone for int_serv_wkp {
     fn clone(&self) -> Self {

@@ -982,6 +982,14 @@ pub const AudioReverb: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const AudioVolumeMeter: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4fc3b166_972a_40cf_bc37_7db03db2fba3);
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const BandPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const Cardioid: HrtfDirectivityType = HrtfDirectivityType(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const Cone: HrtfDirectivityType = HrtfDirectivityType(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const CustomDecay: HrtfDistanceDecayType = HrtfDistanceDecayType(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const FACILITY_XAPO: u32 = 2199u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const FACILITY_XAUDIO2: u32 = 2198u32;
@@ -1076,6 +1084,26 @@ pub const HRTF_MIN_GAIN_LIMIT: f32 = -96f32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const HRTF_MIN_UNITY_GAIN_DISTANCE: f32 = 0.05f32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const HighPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const HighPassOnePoleFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const Large: HrtfEnvironment = HrtfEnvironment(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const LowPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const LowPassOnePoleFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const Medium: HrtfEnvironment = HrtfEnvironment(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const NaturalDecay: HrtfDistanceDecayType = HrtfDistanceDecayType(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const NotchFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const OmniDirectional: HrtfDirectivityType = HrtfDirectivityType(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const Outdoors: HrtfEnvironment = HrtfEnvironment(3i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const Processor1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const Processor10: u32 = 512u32;
@@ -1142,6 +1170,8 @@ pub const Processor9: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const SPEAKER_MONO: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const Small: HrtfEnvironment = HrtfEnvironment(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const X3DAUDIO_2PI: f32 = 6.2831855f32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const X3DAUDIO_CALCULATE_DELAY: u32 = 2u32;
@@ -1167,6 +1197,10 @@ pub const X3DAUDIO_HANDLE_BYTESIZE: u32 = 20u32;
 pub const X3DAUDIO_PI: f32 = 3.1415927f32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const X3DAUDIO_SPEED_OF_SOUND: f32 = 343.5f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAPO_BUFFER_SILENT: XAPO_BUFFER_FLAGS = XAPO_BUFFER_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAPO_BUFFER_VALID: XAPO_BUFFER_FLAGS = XAPO_BUFFER_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const XAPO_E_FORMAT_UNSUPPORTED: ::windows_core::HRESULT = ::windows_core::HRESULT(-2003369983i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
@@ -1441,12 +1475,6 @@ pub const XAUDIO2_VOICE_USEFILTER: u32 = 8u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HrtfDirectivityType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const OmniDirectional: HrtfDirectivityType = HrtfDirectivityType(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const Cardioid: HrtfDirectivityType = HrtfDirectivityType(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const Cone: HrtfDirectivityType = HrtfDirectivityType(2i32);
 impl ::core::marker::Copy for HrtfDirectivityType {}
 impl ::core::clone::Clone for HrtfDirectivityType {
     fn clone(&self) -> Self {
@@ -1470,10 +1498,6 @@ impl ::core::fmt::Debug for HrtfDirectivityType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HrtfDistanceDecayType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const NaturalDecay: HrtfDistanceDecayType = HrtfDistanceDecayType(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const CustomDecay: HrtfDistanceDecayType = HrtfDistanceDecayType(1i32);
 impl ::core::marker::Copy for HrtfDistanceDecayType {}
 impl ::core::clone::Clone for HrtfDistanceDecayType {
     fn clone(&self) -> Self {
@@ -1497,14 +1521,6 @@ impl ::core::fmt::Debug for HrtfDistanceDecayType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HrtfEnvironment(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const Small: HrtfEnvironment = HrtfEnvironment(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const Medium: HrtfEnvironment = HrtfEnvironment(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const Large: HrtfEnvironment = HrtfEnvironment(2i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const Outdoors: HrtfEnvironment = HrtfEnvironment(3i32);
 impl ::core::marker::Copy for HrtfEnvironment {}
 impl ::core::clone::Clone for HrtfEnvironment {
     fn clone(&self) -> Self {
@@ -1528,10 +1544,6 @@ impl ::core::fmt::Debug for HrtfEnvironment {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XAPO_BUFFER_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAPO_BUFFER_SILENT: XAPO_BUFFER_FLAGS = XAPO_BUFFER_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAPO_BUFFER_VALID: XAPO_BUFFER_FLAGS = XAPO_BUFFER_FLAGS(1i32);
 impl ::core::marker::Copy for XAPO_BUFFER_FLAGS {}
 impl ::core::clone::Clone for XAPO_BUFFER_FLAGS {
     fn clone(&self) -> Self {
@@ -1555,18 +1567,6 @@ impl ::core::fmt::Debug for XAPO_BUFFER_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XAUDIO2_FILTER_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const LowPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const BandPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const HighPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const NotchFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const LowPassOnePoleFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const HighPassOnePoleFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(5i32);
 impl ::core::marker::Copy for XAUDIO2_FILTER_TYPE {}
 impl ::core::clone::Clone for XAUDIO2_FILTER_TYPE {
     fn clone(&self) -> Self {

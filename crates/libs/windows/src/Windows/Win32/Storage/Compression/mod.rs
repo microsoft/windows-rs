@@ -102,23 +102,29 @@ pub unsafe fn SetDecompressorInformation(decompressorhandle: isize, compressinfo
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub const COMPRESS_ALGORITHM_INVALID: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+pub const COMPRESS_ALGORITHM_LZMS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(5u32);
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub const COMPRESS_ALGORITHM_MAX: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+pub const COMPRESS_ALGORITHM_MSZIP: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(2u32);
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub const COMPRESS_ALGORITHM_NULL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+pub const COMPRESS_ALGORITHM_XPRESS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(3u32);
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+pub const COMPRESS_ALGORITHM_XPRESS_HUFF: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(4u32);
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+pub const COMPRESS_INFORMATION_CLASS_BLOCK_SIZE: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+pub const COMPRESS_INFORMATION_CLASS_INVALID: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+pub const COMPRESS_INFORMATION_CLASS_LEVEL: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(2i32);
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub const COMPRESS_RAW: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMPRESS_ALGORITHM(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-pub const COMPRESS_ALGORITHM_MSZIP: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(2u32);
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-pub const COMPRESS_ALGORITHM_XPRESS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(3u32);
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-pub const COMPRESS_ALGORITHM_XPRESS_HUFF: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(4u32);
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-pub const COMPRESS_ALGORITHM_LZMS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(5u32);
 impl ::core::marker::Copy for COMPRESS_ALGORITHM {}
 impl ::core::clone::Clone for COMPRESS_ALGORITHM {
     fn clone(&self) -> Self {
@@ -142,12 +148,6 @@ impl ::core::fmt::Debug for COMPRESS_ALGORITHM {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMPRESS_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-pub const COMPRESS_INFORMATION_CLASS_INVALID: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-pub const COMPRESS_INFORMATION_CLASS_BLOCK_SIZE: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-pub const COMPRESS_INFORMATION_CLASS_LEVEL: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(2i32);
 impl ::core::marker::Copy for COMPRESS_INFORMATION_CLASS {}
 impl ::core::clone::Clone for COMPRESS_INFORMATION_CLASS {
     fn clone(&self) -> Self {

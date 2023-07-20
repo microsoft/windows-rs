@@ -169,6 +169,8 @@ pub const DEVICEREGISTRATIONTYPE_MDM_USERSPECIFIC_WITH_AAD: u32 = 13u32;
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 pub const DEVICE_ENROLLER_FACILITY_CODE: u32 = 24u32;
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
+pub const DeviceRegistrationBasicInfo: REGISTRATION_INFORMATION_CLASS = REGISTRATION_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 pub const MDM_REGISTRATION_FACILITY_CODE: u32 = 25u32;
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 pub const MENROLL_E_CERTAUTH_FAILED_TO_FIND_CERT: ::windows_core::HRESULT = ::windows_core::HRESULT(-2145910744i32);
@@ -289,13 +291,11 @@ pub const MREGISTER_E_DISCOVERY_REDIRECTED: ::windows_core::HRESULT = ::windows_
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 pub const MREGISTER_E_REGISTRATION_IN_PROGRESS: ::windows_core::HRESULT = ::windows_core::HRESULT(-2145845239i32);
 #[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
+pub const MaxDeviceInfoClass: REGISTRATION_INFORMATION_CLASS = REGISTRATION_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REGISTRATION_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
-pub const DeviceRegistrationBasicInfo: REGISTRATION_INFORMATION_CLASS = REGISTRATION_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_Management_MobileDeviceManagementRegistration\"`*"]
-pub const MaxDeviceInfoClass: REGISTRATION_INFORMATION_CLASS = REGISTRATION_INFORMATION_CLASS(2i32);
 impl ::core::marker::Copy for REGISTRATION_INFORMATION_CLASS {}
 impl ::core::clone::Clone for REGISTRATION_INFORMATION_CLASS {
     fn clone(&self) -> Self {

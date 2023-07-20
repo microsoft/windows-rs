@@ -628,6 +628,8 @@ pub const FIREWALL_PORT_OPEN_GUID: ::windows_core::GUID = ::windows_core::GUID::
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const MACHINE_POLICY_PRESENT_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x659fcae6_5bdb_4da9_b1ff_ca2a178d46e0);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const MaxServiceRegistryStateType: SERVICE_REGISTRY_STATE_TYPE = SERVICE_REGISTRY_STATE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const NAMED_PIPE_EVENT_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1f81d131_3fac_4537_9e0c_7e7b0c2f4b55);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const NETWORK_MANAGER_FIRST_IP_ADDRESS_ARRIVAL_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f27f2de_14e2_430b_a549_7cd48cbc8245);
@@ -636,7 +638,25 @@ pub const NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: ::windows_core::GUID = :
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const RPC_INTERFACE_EVENT_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbc90d167_9470_4139_a9ba_be0bbbf5b74d);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SC_ACTION_NONE: SC_ACTION_TYPE = SC_ACTION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SC_ACTION_OWN_RESTART: SC_ACTION_TYPE = SC_ACTION_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SC_ACTION_REBOOT: SC_ACTION_TYPE = SC_ACTION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SC_ACTION_RESTART: SC_ACTION_TYPE = SC_ACTION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SC_ACTION_RUN_COMMAND: SC_ACTION_TYPE = SC_ACTION_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SC_AGGREGATE_STORAGE_KEY: ::windows_core::PCWSTR = ::windows_core::w!("System\\CurrentControlSet\\Control\\ServiceAggregatedEvents");
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SC_ENUM_PROCESS_INFO: SC_ENUM_TYPE = SC_ENUM_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SC_EVENT_DATABASE_CHANGE: SC_EVENT_TYPE = SC_EVENT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SC_EVENT_PROPERTY_CHANGE: SC_EVENT_TYPE = SC_EVENT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SC_EVENT_STATUS_CHANGE: SC_EVENT_TYPE = SC_EVENT_TYPE(2i32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SC_MANAGER_ALL_ACCESS: u32 = 983103u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -651,6 +671,8 @@ pub const SC_MANAGER_LOCK: u32 = 8u32;
 pub const SC_MANAGER_MODIFY_BOOT_CONFIG: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SC_MANAGER_QUERY_LOCK_STATUS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SC_STATUS_PROCESS_INFO: SC_STATUS_TYPE = SC_STATUS_TYPE(0i32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICES_ACTIVE_DATABASE: ::windows_core::PCWSTR = ::windows_core::w!("ServicesActive");
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -692,9 +714,39 @@ pub const SERVICE_ACCEPT_TRIGGEREVENT: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_ACCEPT_USER_LOGOFF: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_ACTIVE: ENUM_SERVICE_STATE = ENUM_SERVICE_STATE(1u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_ADAPTER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_ALL_ACCESS: u32 = 983551u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_AUTO_START: SERVICE_START_TYPE = SERVICE_START_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_BOOT_START: SERVICE_START_TYPE = SERVICE_START_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_CHANGE_CONFIG: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_CONFIG_DELAYED_AUTO_START_INFO: SERVICE_CONFIG = SERVICE_CONFIG(3u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_CONFIG_DESCRIPTION: SERVICE_CONFIG = SERVICE_CONFIG(1u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_CONFIG_FAILURE_ACTIONS: SERVICE_CONFIG = SERVICE_CONFIG(2u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_CONFIG_FAILURE_ACTIONS_FLAG: SERVICE_CONFIG = SERVICE_CONFIG(4u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_CONFIG_LAUNCH_PROTECTED: SERVICE_CONFIG = SERVICE_CONFIG(12u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_CONFIG_PREFERRED_NODE: SERVICE_CONFIG = SERVICE_CONFIG(9u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_CONFIG_PRESHUTDOWN_INFO: SERVICE_CONFIG = SERVICE_CONFIG(7u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_CONFIG_REQUIRED_PRIVILEGES_INFO: SERVICE_CONFIG = SERVICE_CONFIG(6u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_CONFIG_SERVICE_SID_INFO: SERVICE_CONFIG = SERVICE_CONFIG(5u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_CONFIG_TRIGGER_INFO: SERVICE_CONFIG = SERVICE_CONFIG(8u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_CONTINUE_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(5u32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_CONTROL_CONTINUE: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -736,11 +788,31 @@ pub const SERVICE_CONTROL_TIMECHANGE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_CONTROL_TRIGGEREVENT: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_DEMAND_START: SERVICE_START_TYPE = SERVICE_START_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_DISABLED: SERVICE_START_TYPE = SERVICE_START_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(11u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_DYNAMIC_INFORMATION_LEVEL_START_REASON: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_ENUMERATE_DEPENDENTS: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_ERROR_CRITICAL: SERVICE_ERROR = SERVICE_ERROR(3u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_ERROR_IGNORE: SERVICE_ERROR = SERVICE_ERROR(0u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_ERROR_NORMAL: SERVICE_ERROR = SERVICE_ERROR(1u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_ERROR_SEVERE: SERVICE_ERROR = SERVICE_ERROR(2u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_FILE_SYSTEM_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_INACTIVE: ENUM_SERVICE_STATE = ENUM_SERVICE_STATE(2u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_INTERROGATE: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_KERNEL_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(1u32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_LAUNCH_PROTECTED_ANTIMALWARE_LIGHT: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -750,25 +822,59 @@ pub const SERVICE_LAUNCH_PROTECTED_WINDOWS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_LAUNCH_PROTECTED_WINDOWS_LIGHT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_NOTIFY_CONTINUE_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(16u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_NOTIFY_CREATED: SERVICE_NOTIFY = SERVICE_NOTIFY(128u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_NOTIFY_DELETED: SERVICE_NOTIFY = SERVICE_NOTIFY(256u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_NOTIFY_DELETE_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(512u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_NOTIFY_PAUSED: SERVICE_NOTIFY = SERVICE_NOTIFY(64u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_NOTIFY_PAUSE_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(32u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_NOTIFY_RUNNING: SERVICE_NOTIFY = SERVICE_NOTIFY(8u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_NOTIFY_START_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(2u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_NOTIFY_STATUS_CHANGE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_NOTIFY_STATUS_CHANGE_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_NOTIFY_STATUS_CHANGE_2: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_NOTIFY_STOPPED: SERVICE_NOTIFY = SERVICE_NOTIFY(1u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_NOTIFY_STOP_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(4u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_NO_CHANGE: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_PAUSED: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(7u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_PAUSE_CONTINUE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_PAUSE_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(6u32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_QUERY_CONFIG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_QUERY_STATUS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_RECOGNIZER_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(8u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_RUNNING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(4u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_RUNS_IN_NON_SYSTEM_OR_NOT_RUNNING: SERVICE_RUNS_IN_PROCESS = SERVICE_RUNS_IN_PROCESS(0u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_RUNS_IN_SYSTEM_PROCESS: SERVICE_RUNS_IN_PROCESS = SERVICE_RUNS_IN_PROCESS(1u32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_SID_TYPE_NONE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_SID_TYPE_UNRESTRICTED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_START: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_START_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(2u32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_START_REASON_AUTO: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -780,7 +886,13 @@ pub const SERVICE_START_REASON_RESTART_ON_FAILURE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_START_REASON_TRIGGER: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_STATE_ALL: ENUM_SERVICE_STATE = ENUM_SERVICE_STATE(3u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_STOP: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_STOPPED: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(1u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_STOP_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(3u32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_STOP_REASON_FLAG_CUSTOM: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
@@ -868,25 +980,71 @@ pub const SERVICE_STOP_REASON_MINOR_UPGRADE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_STOP_REASON_MINOR_WMI: u32 = 18u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_SYSTEM_START: SERVICE_START_TYPE = SERVICE_START_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_TRIGGER_ACTION_SERVICE_START: SERVICE_TRIGGER_ACTION = SERVICE_TRIGGER_ACTION(1u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_TRIGGER_ACTION_SERVICE_STOP: SERVICE_TRIGGER_ACTION = SERVICE_TRIGGER_ACTION(2u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_TRIGGER_DATA_TYPE_BINARY: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ALL: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(5u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ANY: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_TRIGGER_DATA_TYPE_LEVEL: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_TRIGGER_DATA_TYPE_STRING: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_TRIGGER_STARTED_ARGUMENT: ::windows_core::PCWSTR = ::windows_core::w!("TriggerStarted");
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_TRIGGER_TYPE_AGGREGATE: u32 = 30u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_TRIGGER_TYPE_CUSTOM: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(20u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_TRIGGER_TYPE_CUSTOM_SYSTEM_STATE_CHANGE: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_TRIGGER_TYPE_DEVICE_INTERFACE_ARRIVAL: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(1u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_TRIGGER_TYPE_DOMAIN_JOIN: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(3u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_TRIGGER_TYPE_FIREWALL_PORT_EVENT: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(4u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_TRIGGER_TYPE_GROUP_POLICY: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(5u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_TRIGGER_TYPE_IP_ADDRESS_AVAILABILITY: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(2u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_TRIGGER_TYPE_NETWORK_ENDPOINT: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(6u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const SERVICE_USER_DEFINED_CONTROL: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_USER_OWN_PROCESS: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(80u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_USER_SHARE_PROCESS: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(96u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_WIN32: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(48u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_WIN32_OWN_PROCESS: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(16u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const SERVICE_WIN32_SHARE_PROCESS: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(32u32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const ServiceDirectoryPersistentState: SERVICE_DIRECTORY_TYPE = SERVICE_DIRECTORY_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const ServiceDirectoryTypeMax: SERVICE_DIRECTORY_TYPE = SERVICE_DIRECTORY_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const ServiceRegistryStateParameters: SERVICE_REGISTRY_STATE_TYPE = SERVICE_REGISTRY_STATE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const ServiceRegistryStatePersistent: SERVICE_REGISTRY_STATE_TYPE = SERVICE_REGISTRY_STATE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const ServiceSharedDirectoryPersistentState: SERVICE_SHARED_DIRECTORY_TYPE = SERVICE_SHARED_DIRECTORY_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Services\"`*"]
+pub const ServiceSharedRegistryPersistentState: SERVICE_SHARED_REGISTRY_STATE_TYPE = SERVICE_SHARED_REGISTRY_STATE_TYPE(0i32);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 pub const USER_POLICY_PRESENT_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54fb46c8_f089_464c_b1fd_59d1b62c3b50);
 #[doc = "*Required features: `\"Win32_System_Services\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_SERVICE_STATE(pub u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_ACTIVE: ENUM_SERVICE_STATE = ENUM_SERVICE_STATE(1u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_INACTIVE: ENUM_SERVICE_STATE = ENUM_SERVICE_STATE(2u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_STATE_ALL: ENUM_SERVICE_STATE = ENUM_SERVICE_STATE(3u32);
 impl ::core::marker::Copy for ENUM_SERVICE_STATE {}
 impl ::core::clone::Clone for ENUM_SERVICE_STATE {
     fn clone(&self) -> Self {
@@ -910,26 +1068,6 @@ impl ::core::fmt::Debug for ENUM_SERVICE_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_SERVICE_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(11u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_KERNEL_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_WIN32: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(48u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_WIN32_SHARE_PROCESS: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(32u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_ADAPTER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(4u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_FILE_SYSTEM_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_RECOGNIZER_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(8u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_WIN32_OWN_PROCESS: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(16u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_USER_OWN_PROCESS: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(80u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_USER_SHARE_PROCESS: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(96u32);
 impl ::core::marker::Copy for ENUM_SERVICE_TYPE {}
 impl ::core::clone::Clone for ENUM_SERVICE_TYPE {
     fn clone(&self) -> Self {
@@ -986,16 +1124,6 @@ impl ::core::ops::Not for ENUM_SERVICE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SC_ACTION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SC_ACTION_NONE: SC_ACTION_TYPE = SC_ACTION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SC_ACTION_RESTART: SC_ACTION_TYPE = SC_ACTION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SC_ACTION_REBOOT: SC_ACTION_TYPE = SC_ACTION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SC_ACTION_RUN_COMMAND: SC_ACTION_TYPE = SC_ACTION_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SC_ACTION_OWN_RESTART: SC_ACTION_TYPE = SC_ACTION_TYPE(4i32);
 impl ::core::marker::Copy for SC_ACTION_TYPE {}
 impl ::core::clone::Clone for SC_ACTION_TYPE {
     fn clone(&self) -> Self {
@@ -1019,8 +1147,6 @@ impl ::core::fmt::Debug for SC_ACTION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SC_ENUM_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SC_ENUM_PROCESS_INFO: SC_ENUM_TYPE = SC_ENUM_TYPE(0i32);
 impl ::core::marker::Copy for SC_ENUM_TYPE {}
 impl ::core::clone::Clone for SC_ENUM_TYPE {
     fn clone(&self) -> Self {
@@ -1044,12 +1170,6 @@ impl ::core::fmt::Debug for SC_ENUM_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SC_EVENT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SC_EVENT_DATABASE_CHANGE: SC_EVENT_TYPE = SC_EVENT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SC_EVENT_PROPERTY_CHANGE: SC_EVENT_TYPE = SC_EVENT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SC_EVENT_STATUS_CHANGE: SC_EVENT_TYPE = SC_EVENT_TYPE(2i32);
 impl ::core::marker::Copy for SC_EVENT_TYPE {}
 impl ::core::clone::Clone for SC_EVENT_TYPE {
     fn clone(&self) -> Self {
@@ -1073,8 +1193,6 @@ impl ::core::fmt::Debug for SC_EVENT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SC_STATUS_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SC_STATUS_PROCESS_INFO: SC_STATUS_TYPE = SC_STATUS_TYPE(0i32);
 impl ::core::marker::Copy for SC_STATUS_TYPE {}
 impl ::core::clone::Clone for SC_STATUS_TYPE {
     fn clone(&self) -> Self {
@@ -1098,26 +1216,6 @@ impl ::core::fmt::Debug for SC_STATUS_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_CONFIG(pub u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_CONFIG_DELAYED_AUTO_START_INFO: SERVICE_CONFIG = SERVICE_CONFIG(3u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_CONFIG_DESCRIPTION: SERVICE_CONFIG = SERVICE_CONFIG(1u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_CONFIG_FAILURE_ACTIONS: SERVICE_CONFIG = SERVICE_CONFIG(2u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_CONFIG_FAILURE_ACTIONS_FLAG: SERVICE_CONFIG = SERVICE_CONFIG(4u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_CONFIG_PREFERRED_NODE: SERVICE_CONFIG = SERVICE_CONFIG(9u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_CONFIG_PRESHUTDOWN_INFO: SERVICE_CONFIG = SERVICE_CONFIG(7u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_CONFIG_REQUIRED_PRIVILEGES_INFO: SERVICE_CONFIG = SERVICE_CONFIG(6u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_CONFIG_SERVICE_SID_INFO: SERVICE_CONFIG = SERVICE_CONFIG(5u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_CONFIG_TRIGGER_INFO: SERVICE_CONFIG = SERVICE_CONFIG(8u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_CONFIG_LAUNCH_PROTECTED: SERVICE_CONFIG = SERVICE_CONFIG(12u32);
 impl ::core::marker::Copy for SERVICE_CONFIG {}
 impl ::core::clone::Clone for SERVICE_CONFIG {
     fn clone(&self) -> Self {
@@ -1141,10 +1239,6 @@ impl ::core::fmt::Debug for SERVICE_CONFIG {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_DIRECTORY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const ServiceDirectoryPersistentState: SERVICE_DIRECTORY_TYPE = SERVICE_DIRECTORY_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const ServiceDirectoryTypeMax: SERVICE_DIRECTORY_TYPE = SERVICE_DIRECTORY_TYPE(1i32);
 impl ::core::marker::Copy for SERVICE_DIRECTORY_TYPE {}
 impl ::core::clone::Clone for SERVICE_DIRECTORY_TYPE {
     fn clone(&self) -> Self {
@@ -1168,14 +1262,6 @@ impl ::core::fmt::Debug for SERVICE_DIRECTORY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_ERROR(pub u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_ERROR_CRITICAL: SERVICE_ERROR = SERVICE_ERROR(3u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_ERROR_IGNORE: SERVICE_ERROR = SERVICE_ERROR(0u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_ERROR_NORMAL: SERVICE_ERROR = SERVICE_ERROR(1u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_ERROR_SEVERE: SERVICE_ERROR = SERVICE_ERROR(2u32);
 impl ::core::marker::Copy for SERVICE_ERROR {}
 impl ::core::clone::Clone for SERVICE_ERROR {
     fn clone(&self) -> Self {
@@ -1199,26 +1285,6 @@ impl ::core::fmt::Debug for SERVICE_ERROR {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_NOTIFY(pub u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_NOTIFY_CREATED: SERVICE_NOTIFY = SERVICE_NOTIFY(128u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_NOTIFY_CONTINUE_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(16u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_NOTIFY_DELETE_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(512u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_NOTIFY_DELETED: SERVICE_NOTIFY = SERVICE_NOTIFY(256u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_NOTIFY_PAUSE_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(32u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_NOTIFY_PAUSED: SERVICE_NOTIFY = SERVICE_NOTIFY(64u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_NOTIFY_RUNNING: SERVICE_NOTIFY = SERVICE_NOTIFY(8u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_NOTIFY_START_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(2u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_NOTIFY_STOP_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(4u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_NOTIFY_STOPPED: SERVICE_NOTIFY = SERVICE_NOTIFY(1u32);
 impl ::core::marker::Copy for SERVICE_NOTIFY {}
 impl ::core::clone::Clone for SERVICE_NOTIFY {
     fn clone(&self) -> Self {
@@ -1275,12 +1341,6 @@ impl ::core::ops::Not for SERVICE_NOTIFY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_REGISTRY_STATE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const ServiceRegistryStateParameters: SERVICE_REGISTRY_STATE_TYPE = SERVICE_REGISTRY_STATE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const ServiceRegistryStatePersistent: SERVICE_REGISTRY_STATE_TYPE = SERVICE_REGISTRY_STATE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const MaxServiceRegistryStateType: SERVICE_REGISTRY_STATE_TYPE = SERVICE_REGISTRY_STATE_TYPE(2i32);
 impl ::core::marker::Copy for SERVICE_REGISTRY_STATE_TYPE {}
 impl ::core::clone::Clone for SERVICE_REGISTRY_STATE_TYPE {
     fn clone(&self) -> Self {
@@ -1304,10 +1364,6 @@ impl ::core::fmt::Debug for SERVICE_REGISTRY_STATE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_RUNS_IN_PROCESS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_RUNS_IN_NON_SYSTEM_OR_NOT_RUNNING: SERVICE_RUNS_IN_PROCESS = SERVICE_RUNS_IN_PROCESS(0u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_RUNS_IN_SYSTEM_PROCESS: SERVICE_RUNS_IN_PROCESS = SERVICE_RUNS_IN_PROCESS(1u32);
 impl ::core::marker::Copy for SERVICE_RUNS_IN_PROCESS {}
 impl ::core::clone::Clone for SERVICE_RUNS_IN_PROCESS {
     fn clone(&self) -> Self {
@@ -1331,8 +1387,6 @@ impl ::core::fmt::Debug for SERVICE_RUNS_IN_PROCESS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_SHARED_DIRECTORY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const ServiceSharedDirectoryPersistentState: SERVICE_SHARED_DIRECTORY_TYPE = SERVICE_SHARED_DIRECTORY_TYPE(0i32);
 impl ::core::marker::Copy for SERVICE_SHARED_DIRECTORY_TYPE {}
 impl ::core::clone::Clone for SERVICE_SHARED_DIRECTORY_TYPE {
     fn clone(&self) -> Self {
@@ -1356,8 +1410,6 @@ impl ::core::fmt::Debug for SERVICE_SHARED_DIRECTORY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_SHARED_REGISTRY_STATE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const ServiceSharedRegistryPersistentState: SERVICE_SHARED_REGISTRY_STATE_TYPE = SERVICE_SHARED_REGISTRY_STATE_TYPE(0i32);
 impl ::core::marker::Copy for SERVICE_SHARED_REGISTRY_STATE_TYPE {}
 impl ::core::clone::Clone for SERVICE_SHARED_REGISTRY_STATE_TYPE {
     fn clone(&self) -> Self {
@@ -1381,16 +1433,6 @@ impl ::core::fmt::Debug for SERVICE_SHARED_REGISTRY_STATE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_START_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_AUTO_START: SERVICE_START_TYPE = SERVICE_START_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_BOOT_START: SERVICE_START_TYPE = SERVICE_START_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_DEMAND_START: SERVICE_START_TYPE = SERVICE_START_TYPE(3u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_DISABLED: SERVICE_START_TYPE = SERVICE_START_TYPE(4u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_SYSTEM_START: SERVICE_START_TYPE = SERVICE_START_TYPE(1u32);
 impl ::core::marker::Copy for SERVICE_START_TYPE {}
 impl ::core::clone::Clone for SERVICE_START_TYPE {
     fn clone(&self) -> Self {
@@ -1414,20 +1456,6 @@ impl ::core::fmt::Debug for SERVICE_START_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_STATUS_CURRENT_STATE(pub u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_CONTINUE_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(5u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_PAUSE_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(6u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_PAUSED: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(7u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_RUNNING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(4u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_START_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(2u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_STOP_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(3u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_STOPPED: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(1u32);
 impl ::core::marker::Copy for SERVICE_STATUS_CURRENT_STATE {}
 impl ::core::clone::Clone for SERVICE_STATUS_CURRENT_STATE {
     fn clone(&self) -> Self {
@@ -1451,10 +1479,6 @@ impl ::core::fmt::Debug for SERVICE_STATUS_CURRENT_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_TRIGGER_ACTION(pub u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_TRIGGER_ACTION_SERVICE_START: SERVICE_TRIGGER_ACTION = SERVICE_TRIGGER_ACTION(1u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_TRIGGER_ACTION_SERVICE_STOP: SERVICE_TRIGGER_ACTION = SERVICE_TRIGGER_ACTION(2u32);
 impl ::core::marker::Copy for SERVICE_TRIGGER_ACTION {}
 impl ::core::clone::Clone for SERVICE_TRIGGER_ACTION {
     fn clone(&self) -> Self {
@@ -1478,16 +1502,6 @@ impl ::core::fmt::Debug for SERVICE_TRIGGER_ACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_TRIGGER_DATA_TYPE_BINARY: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_TRIGGER_DATA_TYPE_STRING: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_TRIGGER_DATA_TYPE_LEVEL: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(3u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ANY: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(4u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ALL: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(5u32);
 impl ::core::marker::Copy for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {}
 impl ::core::clone::Clone for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
     fn clone(&self) -> Self {
@@ -1511,20 +1525,6 @@ impl ::core::fmt::Debug for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_TRIGGER_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_TRIGGER_TYPE_CUSTOM: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(20u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_TRIGGER_TYPE_DEVICE_INTERFACE_ARRIVAL: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_TRIGGER_TYPE_DOMAIN_JOIN: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(3u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_TRIGGER_TYPE_FIREWALL_PORT_EVENT: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(4u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_TRIGGER_TYPE_GROUP_POLICY: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(5u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_TRIGGER_TYPE_IP_ADDRESS_AVAILABILITY: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_System_Services\"`*"]
-pub const SERVICE_TRIGGER_TYPE_NETWORK_ENDPOINT: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(6u32);
 impl ::core::marker::Copy for SERVICE_TRIGGER_TYPE {}
 impl ::core::clone::Clone for SERVICE_TRIGGER_TYPE {
     fn clone(&self) -> Self {

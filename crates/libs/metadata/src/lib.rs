@@ -19,35 +19,9 @@ pub use filter::Filter;
 pub use guid::GUID;
 use imp::*;
 pub use r#type::Type;
-use row::Row;
+pub use row::*;
 use std::collections::*;
 pub use type_name::TypeName;
-
-macro_rules! tables {
-    ($($name:ident,)*) => ($(
-        #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
-        pub struct $name(Row);
-    )*)
-}
-
-tables! {
-    Attribute,
-    ClassLayout,
-    Constant,
-    Field,
-    GenericParam,
-    ImplMap,
-    InterfaceImpl,
-    MemberRef,
-    MethodDef,
-    Module,
-    ModuleRef,
-    AssemblyRef,
-    Param,
-    TypeDef,
-    TypeRef,
-    TypeSpec,
-}
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub struct Interface {
@@ -134,7 +108,7 @@ pub enum Value {
     F32(f32),
     F64(f64),
     String(String),
-    TypeDef(TypeDef),
+    TypeName(String),
     TypeRef(TypeDefOrRef),
     EnumDef(TypeDef, Box<Self>),
     EnumRef(TypeDefOrRef, Box<Self>),
@@ -183,35 +157,64 @@ impl<'a> Cfg<'a> {
     }
 }
 
+#[derive(Clone, Debug)]
+pub enum Item {
+    Type(TypeDef),
+    Const(Field),
+    // TODO: get rid of the trailing String - that's just a hack to get around a silly Win32 metadata deficiency where parsing method signatures
+    // requires knowing which namespace the method's surrounding interface was defined in.
+    Fn(MethodDef, String),
+}
+
 pub struct Reader<'a> {
     files: &'a [File],
-    types: BTreeMap<&'a str, BTreeMap<&'a str, Vec<TypeDef>>>,
+    items: BTreeMap<&'a str, BTreeMap<&'a str, Vec<Item>>>,
+
+    // TODO: riddle should just avoid nested structs
     nested: HashMap<TypeDef, BTreeMap<&'a str, TypeDef>>,
 }
 
 impl<'a> Reader<'a> {
     pub fn new(files: &'a [File]) -> Self {
-        let mut types = BTreeMap::<&'a str, BTreeMap<&'a str, Vec<TypeDef>>>::new();
+        let mut items = BTreeMap::<&'a str, BTreeMap<&'a str, Vec<Item>>>::new();
         let mut nested = HashMap::<TypeDef, BTreeMap<&'a str, TypeDef>>::new();
         for (file_index, file) in files.iter().enumerate() {
-            for row in 0..file.tables[TABLE_TYPEDEF].len {
-                let key = Row::new(row, TABLE_TYPEDEF, file_index);
-                let namespace = file.str(key.row as _, key.table as _, 2);
+            for def in file.table::<TypeDef>(file_index) {
+                let namespace = files.type_def_namespace(def);
                 if namespace.is_empty() {
                     continue;
                 }
-                let name = trim_tick(file.str(key.row as _, key.table as _, 1));
-                types.entry(namespace).or_default().entry(name).or_default().push(TypeDef(key));
+                let namespace_items = items.entry(namespace).or_default();
+                let name = files.type_def_name(def);
+                if name == "Apis" {
+                    for method in files.type_def_methods(def) {
+                        let name = files.method_def_name(method);
+                        namespace_items.entry(name).or_default().push(Item::Fn(method, namespace.to_string()));
+                    }
+                    for field in files.type_def_fields(def) {
+                        let name = files.field_name(field);
+                        namespace_items.entry(name).or_default().push(Item::Const(field));
+                    }
+                } else {
+                    namespace_items.entry(trim_tick(name)).or_default().push(Item::Type(def));
+
+                    // TODO: these should all be fields on the Apis class so we don't have to go looking for all of these as well.
+                    if files.type_def_extends(def) == Some(TypeName::Enum) && !files.type_def_is_scoped(def) {
+                        for field in files.type_def_fields(def).filter(|field| files.field_flags(*field).contains(FieldAttributes::Literal)) {
+                            let name = files.field_name(field);
+                            namespace_items.entry(name).or_default().push(Item::Const(field));
+                        }
+                    }
+                }
             }
-            for row in 0..file.tables[TABLE_NESTEDCLASS].len {
-                let key = Row::new(row, TABLE_NESTEDCLASS, file_index);
-                let inner = Row::new(file.usize(key.row as _, key.table as _, 0) - 1, TABLE_TYPEDEF, file_index);
-                let outer = Row::new(file.usize(key.row as _, key.table as _, 1) - 1, TABLE_TYPEDEF, file_index);
-                let name = file.str(inner.row as _, inner.table as _, 1);
-                nested.entry(TypeDef(outer)).or_default().insert(name, TypeDef(inner));
+            for key in file.table::<NestedClass>(file_index) {
+                let inner = files.nested_class_inner(key);
+                let outer = files.nested_class_outer(key);
+                let name = files.type_def_name(inner);
+                nested.entry(outer).or_default().insert(name, inner);
             }
         }
-        Self { files, types, nested }
+        Self { files, items, nested }
     }
 
     //
@@ -219,94 +222,41 @@ impl<'a> Reader<'a> {
     //
 
     pub fn namespaces(&self) -> impl Iterator<Item = &str> + '_ {
-        self.types.keys().copied()
+        self.items.keys().copied()
     }
-    pub fn types(&'a self, filter: &'a Filter) -> impl Iterator<Item = TypeDef> + '_ {
-        self.types.iter().filter(move |(namespace, _)| filter.includes_namespace(namespace)).flat_map(move |(_, types)| types.values().flatten().copied().filter(move |def| filter.includes_type(self, *def)))
+    pub fn items(&'a self, filter: &'a Filter) -> impl Iterator<Item = Item> + '_ {
+        self.items.iter().filter(move |(namespace, _)| filter.includes_namespace(namespace)).flat_map(move |(namespace, items)| items.iter().filter(move |(name, _)| filter.includes_type_name(TypeName::new(namespace, name)))).flat_map(move |(_, items)| items).cloned()
     }
-    pub fn namespace_types(&'a self, namespace: &str, filter: &'a Filter) -> impl Iterator<Item = TypeDef> + '_ {
-        self.types.get(namespace).map(move |types| types.values().flatten().copied().filter(move |ty| filter.includes_type(self, *ty))).into_iter().flatten()
+    pub fn namespace_items(&'a self, namespace: &str, filter: &'a Filter) -> impl Iterator<Item = Item> + '_ {
+        self.items.get_key_value(namespace).into_iter().flat_map(move |(namespace, items)| items.iter().filter(move |(name, _)| filter.includes_type_name(TypeName::new(namespace, name)))).flat_map(move |(_, items)| items).cloned()
     }
-    pub fn nested_types(&self, type_def: TypeDef) -> impl Iterator<Item = TypeDef> + '_ {
-        self.nested.get(&type_def).map(|map| map.values().copied()).into_iter().flatten()
-    }
-    pub fn get(&self, type_name: TypeName) -> impl Iterator<Item = TypeDef> + '_ {
-        if let Some(types) = self.types.get(type_name.namespace) {
-            if let Some(definitions) = types.get(type_name.name) {
-                return Some(definitions.iter().copied()).into_iter().flatten();
+    pub fn get_item(&self, type_name: TypeName) -> impl Iterator<Item = Item> + '_ {
+        if let Some(items) = self.items.get(type_name.namespace) {
+            if let Some(items) = items.get(type_name.name) {
+                return Some(items.iter().cloned()).into_iter().flatten();
             }
         }
         None.into_iter().flatten()
     }
-    pub fn namespace_functions(&self, namespace: &str) -> impl Iterator<Item = MethodDef> + '_ {
-        self.get(TypeName::new(namespace, "Apis")).flat_map(move |apis| self.type_def_methods(apis)).filter(move |method| {
-            // The ImplMap table contains import information, without which the function cannot be linked.
-            let Some(impl_map) = self.method_def_impl_map(*method) else {
-                return false;
-            };
-
-            // Skip functions exported by ordinal.
-            if self.impl_map_import_name(impl_map).starts_with('#') {
-                return false;
-            }
-
-            // Skip "inline" function constants.
-            self.module_ref_name(self.impl_map_scope(impl_map)) != "FORCEINLINE"
-        })
+    pub fn get_type_def(&self, type_name: TypeName) -> impl Iterator<Item = TypeDef> + '_ {
+        self.get_item(type_name).filter_map(|item| if let Item::Type(def) = item { Some(def) } else { None })
     }
-    pub fn namespace_constants(&self, namespace: &str) -> impl Iterator<Item = Field> + '_ {
-        self.get(TypeName::new(namespace, "Apis")).flat_map(move |apis| self.type_def_fields(apis))
+    pub fn get_method_def(&self, type_name: TypeName) -> impl Iterator<Item = (MethodDef, String)> + '_ {
+        self.get_item(type_name).filter_map(|item| if let Item::Fn(def, namespace) = item { Some((def, namespace)) } else { None })
     }
 
-    //
-    // Row functions providing low-level file access
-    //
-
-    fn row_usize(&self, key: Row, column: usize) -> usize {
-        self.files[key.file as usize].usize(key.row as _, key.table as _, column)
-    }
-    fn row_str(&self, key: Row, column: usize) -> &str {
-        self.files[key.file as usize].str(key.row as _, key.table as _, column)
-    }
-    pub fn row_blob(&self, key: Row, column: usize) -> Blob {
-        let file = key.file as usize;
-        Blob::new(file, self.files[file].blob(key.row as _, key.table as _, column))
-    }
-    fn row_equal_range(&self, key: Row, table: usize, column: usize, value: usize) -> impl Iterator<Item = Row> {
-        let (first, last) = self.files[key.file as usize].equal_range(table, column, value);
-        (first..last).map(move |row| Row::new(row, table, key.file as _))
-    }
-    fn row_attributes(&self, key: Row, source: HasAttribute) -> impl Iterator<Item = Attribute> {
-        self.row_equal_range(key, TABLE_CUSTOMATTRIBUTE, 0, source.encode()).map(Attribute)
-    }
-    fn row_list(&self, key: Row, table: usize, column: usize) -> impl Iterator<Item = Row> {
-        let file = key.file as usize;
-        let first = self.row_usize(key, column) - 1;
-        let last = if key.row + 1 < self.files[file].tables[key.table as usize].len as _ { self.row_usize(key.next(), column) - 1 } else { self.files[file].tables[table].len };
-        (first..last).map(move |row| Row::new(row, table, file))
-    }
-    fn row_decode<T: Decode>(&self, key: Row, column: usize) -> T {
-        T::decode(key.file as _, self.row_usize(key, column))
+    pub fn nested_types(&self, type_def: TypeDef) -> impl Iterator<Item = TypeDef> + '_ {
+        self.nested.get(&type_def).map(|map| map.values().copied()).into_iter().flatten()
     }
 
     //
     // Attribute table queries
     //
 
-    pub fn attribute_type_name(&self, row: Attribute) -> TypeName {
-        let AttributeType::MemberRef(row) = self.row_decode(row.0, 1);
-        let MemberRefParent::TypeRef(row) = self.row_decode(row.0, 0);
-        self.type_ref_type_name(row)
-    }
-    pub fn attribute_name(&self, row: Attribute) -> &str {
-        let AttributeType::MemberRef(row) = self.row_decode(row.0, 1);
-        let MemberRefParent::TypeRef(row) = self.row_decode(row.0, 0);
-        self.type_ref_name(row)
-    }
     pub fn attribute_args(&self, row: Attribute) -> Vec<(String, Value)> {
-        let AttributeType::MemberRef(member) = self.row_decode(row.0, 1);
+        let AttributeType::MemberRef(member) = self.row_decode(row, 1);
         let mut sig = self.member_ref_signature(member);
-        let mut values = self.row_blob(row.0, 2);
+        let mut values = self.row_blob(row, 2);
         let _prolog = values.read_u16();
         let _this_and_gen_param_count = sig.read_usize();
         let fixed_arg_count = sig.read_usize();
@@ -325,7 +275,7 @@ impl<'a> Reader<'a> {
                 Type::I64 => Value::I64(values.read_i64()),
                 Type::U64 => Value::U64(values.read_u64()),
                 Type::String => Value::String(values.read_str().to_string()),
-                Type::TypeName => Value::TypeDef(self.get(TypeName::parse(values.read_str())).next().expect("Type not found")),
+                Type::TypeName => Value::TypeName(values.read_str().to_string()),
                 Type::TypeDef(def, _) => Value::EnumDef(def, Box::new(values.read_integer(self.type_def_underlying_type(def)))),
                 // It's impossible to know the type of a TypeRef so we just assume 32-bit integer which covers System.* attribute args
                 // reasonably well but the solution is to follow the WinRT metadata and define replacements for those attribute types.
@@ -349,9 +299,9 @@ impl<'a> Reader<'a> {
                 ELEMENT_TYPE_I4 => Value::I32(values.read_i32()),
                 ELEMENT_TYPE_U4 => Value::U32(values.read_u32()),
                 ELEMENT_TYPE_STRING => Value::String(values.read_str().to_string()),
-                0x50 => Value::TypeDef(self.get(TypeName::parse(values.read_str())).next().expect("Type not found")),
+                0x50 => Value::TypeName(values.read_str().to_string()),
                 0x55 => {
-                    let def = self.get(TypeName::parse(&name)).next().expect("Type not found");
+                    let def = self.get_type_def(TypeName::parse(&name)).next().expect("Type not found");
                     name = values.read_str().into();
                     Value::EnumDef(def, Box::new(values.read_integer(self.type_def_underlying_type(def))))
                 }
@@ -367,61 +317,15 @@ impl<'a> Reader<'a> {
     }
 
     //
-    // ClassLayout table queries
-    //
-
-    pub fn class_layout_packing_size(&self, row: ClassLayout) -> usize {
-        self.row_usize(row.0, 0)
-    }
-
-    //
-    // Constant table queries
-    //
-
-    pub fn constant_type(&self, row: Constant) -> Type {
-        let code = self.row_usize(row.0, 0);
-        Type::from_code(code).expect("Type not found")
-    }
-    pub fn constant_value(&self, row: Constant) -> Value {
-        let mut blob = self.row_blob(row.0, 2);
-        match self.constant_type(row) {
-            Type::I8 => Value::I8(blob.read_i8()),
-            Type::U8 => Value::U8(blob.read_u8()),
-            Type::I16 => Value::I16(blob.read_i16()),
-            Type::U16 => Value::U16(blob.read_u16()),
-            Type::I32 => Value::I32(blob.read_i32()),
-            Type::U32 => Value::U32(blob.read_u32()),
-            Type::I64 => Value::I64(blob.read_i64()),
-            Type::U64 => Value::U64(blob.read_u64()),
-            Type::F32 => Value::F32(blob.read_f32()),
-            Type::F64 => Value::F64(blob.read_f64()),
-            Type::String => Value::String(blob.read_string()),
-            rest => unimplemented!("{rest:?}"),
-        }
-    }
-
-    //
     // Field table queries
     //
 
-    pub fn field_flags(&self, row: Field) -> FieldAttributes {
-        FieldAttributes(self.row_usize(row.0, 0) as _)
-    }
-    pub fn field_name(&self, row: Field) -> &str {
-        self.row_str(row.0, 1)
-    }
-    pub fn field_constant(&self, row: Field) -> Option<Constant> {
-        self.row_equal_range(row.0, TABLE_CONSTANT, 1, HasConstant::Field(row).encode()).map(Constant).next()
-    }
-    pub fn field_attributes(&self, row: Field) -> impl Iterator<Item = Attribute> {
-        self.row_attributes(row.0, HasAttribute::Field(row))
-    }
     pub fn field_is_const(&self, row: Field) -> bool {
         self.field_attributes(row).any(|attribute| self.attribute_name(attribute) == "ConstAttribute")
     }
-    // TODO: enclosing craziness is only needed for nested structs - get rid of those in metadata vnext and this goes away.
+    // TODO: enclosing craziness is only needed for nested structs - get rid of those in riddle and this goes away.
     pub fn field_type(&self, row: Field, enclosing: Option<TypeDef>) -> Type {
-        let mut blob = self.row_blob(row.0, 2);
+        let mut blob = self.row_blob(row, 2);
         blob.read_usize();
         blob.read_modifiers();
         let def = self.type_from_blob(&mut blob, enclosing, &[]);
@@ -468,40 +372,9 @@ impl<'a> Reader<'a> {
     }
 
     //
-    // GenericParam table queries
-    //
-
-    pub fn generic_param_name(&self, row: GenericParam) -> &str {
-        self.row_str(row.0, 3)
-    }
-
-    //
-    // ImplMap table queries
-    //
-
-    pub fn impl_map_flags(&self, row: ImplMap) -> PInvokeAttributes {
-        PInvokeAttributes(self.row_usize(row.0, 0))
-    }
-    pub fn impl_map_scope(&self, row: ImplMap) -> ModuleRef {
-        ModuleRef(Row::new(self.row_usize(row.0, 3) - 1, TABLE_MODULEREF, row.0.file as _))
-    }
-    pub fn impl_map_import_name(&self, row: ImplMap) -> &str {
-        self.row_str(row.0, 2)
-    }
-
-    //
     // InterfaceImpl table queries
     //
 
-    pub fn interface_impl_attributes(&self, row: InterfaceImpl) -> impl Iterator<Item = Attribute> {
-        self.row_attributes(row.0, HasAttribute::InterfaceImpl(row))
-    }
-    pub fn interface_impl_is_default(&self, row: InterfaceImpl) -> bool {
-        self.interface_impl_attributes(row).any(|attribute| self.attribute_name(attribute) == "DefaultAttribute")
-    }
-    pub fn interface_impl_is_overridable(&self, row: InterfaceImpl) -> bool {
-        self.interface_impl_attributes(row).any(|attribute| self.attribute_name(attribute) == "OverridableAttribute")
-    }
     pub fn interface_impl_type(&self, row: InterfaceImpl, generics: &[Type]) -> Interface {
         let mut kind = InterfaceKind::None;
         for attribute in self.interface_impl_attributes(row) {
@@ -511,42 +384,16 @@ impl<'a> Reader<'a> {
                 _ => {}
             }
         }
-        Interface { ty: self.type_from_ref(self.row_decode(row.0, 1), None, generics), kind }
+        Interface { ty: self.type_from_ref(self.row_decode(row, 1), None, generics), kind }
     }
-
-    //
-    // MemberRef table queries
-    //
-
-    pub fn member_ref_parent(&self, row: MemberRef) -> MemberRefParent {
-        self.row_decode(row.0, 0)
-    }
-    pub fn member_ref_signature(&self, row: MemberRef) -> Blob {
-        self.row_blob(row.0, 2)
+    pub fn interface_impl_is_default(&self, row: InterfaceImpl) -> bool {
+        self.interface_impl_attributes(row).any(|attribute| self.attribute_name(attribute) == "DefaultAttribute")
     }
 
     //
     // MethodDef table queries
     //
 
-    pub fn method_def_impl_flags(&self, row: MethodDef) -> MethodImplAttributes {
-        MethodImplAttributes(self.row_usize(row.0, 1))
-    }
-    pub fn method_def_flags(&self, row: MethodDef) -> MethodAttributes {
-        MethodAttributes(self.row_usize(row.0, 2) as _)
-    }
-    pub fn method_def_name(&self, row: MethodDef) -> &str {
-        self.row_str(row.0, 3)
-    }
-    pub fn method_def_params(&self, row: MethodDef) -> impl Iterator<Item = Param> {
-        self.row_list(row.0, TABLE_PARAM, 5).map(Param)
-    }
-    pub fn method_def_attributes(&self, row: MethodDef) -> impl Iterator<Item = Attribute> {
-        self.row_attributes(row.0, HasAttribute::MethodDef(row))
-    }
-    pub fn method_def_is_deprecated(&self, row: MethodDef) -> bool {
-        self.method_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "DeprecatedAttribute")
-    }
     pub fn method_def_does_not_return(&self, row: MethodDef) -> bool {
         self.method_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "DoesNotReturnAttribute")
     }
@@ -591,15 +438,6 @@ impl<'a> Reader<'a> {
         }
         None
     }
-    pub fn method_def_impl_map(&self, row: MethodDef) -> Option<ImplMap> {
-        self.row_equal_range(row.0, TABLE_IMPLMAP, 1, MemberForwarded::MethodDef(row).encode()).map(ImplMap).next()
-    }
-    pub fn method_def_module_name(&self, row: MethodDef) -> String {
-        let Some(impl_map) = self.method_def_impl_map(row) else {
-            return String::new();
-        };
-        self.module_ref_name(self.impl_map_scope(impl_map)).to_lowercase()
-    }
     pub fn method_def_last_error(&self, row: MethodDef) -> bool {
         if let Some(map) = self.method_def_impl_map(row) {
             self.impl_map_flags(map).contains(PInvokeAttributes::SupportsLastError)
@@ -608,7 +446,7 @@ impl<'a> Reader<'a> {
         }
     }
     pub fn method_def_signature(&self, namespace: &str, row: MethodDef, generics: &[Type]) -> Signature {
-        let mut blob = self.row_blob(row.0, 4);
+        let mut blob = self.row_blob(row, 4);
         let call_flags = MethodCallAttributes(blob.read_usize() as _);
         let _param_count = blob.read_usize();
         let mut return_type = self.type_from_blob(&mut blob, None, generics);
@@ -626,8 +464,8 @@ impl<'a> Reader<'a> {
                     let mut ty = self.type_from_blob(&mut blob, None, generics);
 
                     if let Some(name) = self.param_or_enum(param) {
-                        let alt = self.get(TypeName::new(namespace, &name)).next().expect("Enum not found");
-                        ty = Type::PrimitiveOrEnum(Box::new(ty), Box::new(Type::TypeDef(alt, Vec::new())));
+                        let def = self.get_type_def(TypeName::new(namespace, &name)).next().expect("Enum not found");
+                        ty = Type::PrimitiveOrEnum(Box::new(ty), Box::new(Type::TypeDef(def, Vec::new())));
                     }
 
                     if self.param_is_const(param) || !is_output {
@@ -785,29 +623,9 @@ impl<'a> Reader<'a> {
     }
 
     //
-    // ModuleRef table queries
-    //
-
-    fn module_ref_name(&self, row: ModuleRef) -> &str {
-        self.row_str(row.0, 0)
-    }
-
-    //
     // Param table queries
     //
 
-    pub fn param_flags(&self, row: Param) -> ParamAttributes {
-        ParamAttributes(self.row_usize(row.0, 0) as _)
-    }
-    pub fn param_sequence(&self, row: Param) -> usize {
-        self.row_usize(row.0, 1)
-    }
-    pub fn param_name(&self, row: Param) -> &str {
-        self.row_str(row.0, 2)
-    }
-    pub fn param_attributes(&self, row: Param) -> impl Iterator<Item = Attribute> {
-        self.row_attributes(row.0, HasAttribute::Param(row))
-    }
     pub fn param_is_com_out_ptr(&self, row: Param) -> bool {
         self.param_attributes(row).any(|attribute| self.attribute_name(attribute) == "ComOutPtrAttribute")
     }
@@ -873,44 +691,8 @@ impl<'a> Reader<'a> {
     // TypeDef table queries
     //
 
-    pub fn type_def_flags(&self, row: TypeDef) -> TypeAttributes {
-        TypeAttributes(self.row_usize(row.0, 0) as _)
-    }
-    pub fn type_def_name(&self, row: TypeDef) -> &str {
-        self.row_str(row.0, 1)
-    }
-    pub fn type_def_namespace(&self, row: TypeDef) -> &str {
-        self.row_str(row.0, 2)
-    }
     pub fn type_def_type_name(&self, row: TypeDef) -> TypeName {
         TypeName::new(self.type_def_namespace(row), self.type_def_name(row))
-    }
-    pub fn type_def_extends(&self, row: TypeDef) -> Option<TypeName> {
-        match self.row_usize(row.0, 3) {
-            0 => None,
-            code => Some(self.type_def_or_ref(TypeDefOrRef::decode(row.0.file as _, code))),
-        }
-    }
-    pub fn type_def_fields(&self, row: TypeDef) -> impl Iterator<Item = Field> {
-        self.row_list(row.0, TABLE_FIELD, 4).map(Field)
-    }
-    pub fn type_def_methods(&self, row: TypeDef) -> impl Iterator<Item = MethodDef> {
-        self.row_list(row.0, TABLE_METHODDEF, 5).map(MethodDef)
-    }
-    pub fn type_def_attributes(&self, row: TypeDef) -> impl Iterator<Item = Attribute> {
-        self.row_attributes(row.0, HasAttribute::TypeDef(row))
-    }
-    pub fn type_def_generics(&self, row: TypeDef) -> Vec<Type> {
-        self.row_equal_range(row.0, TABLE_GENERICPARAM, 2, TypeOrMethodDef::TypeDef(row).encode()).map(|row| Type::GenericParam(GenericParam(row))).collect()
-    }
-    pub fn type_def_interface_impls(&self, row: TypeDef) -> impl Iterator<Item = InterfaceImpl> {
-        self.row_equal_range(row.0, TABLE_INTERFACEIMPL, 0, (row.0.row + 1) as _).map(InterfaceImpl)
-    }
-    pub fn type_def_enclosing_type(&self, row: TypeDef) -> Option<TypeDef> {
-        self.row_equal_range(row.0, TABLE_NESTEDCLASS, 0, (row.0.row + 1) as _).next().map(|row| TypeDef(Row::new(self.files[row.file as usize].usize(row.row as _, row.table as _, 1) - 1, TABLE_TYPEDEF, row.file as _)))
-    }
-    pub fn type_def_class_layout(&self, row: TypeDef) -> Option<ClassLayout> {
-        self.row_equal_range(row.0, TABLE_CLASSLAYOUT, 2, (row.0.row + 1) as _).map(ClassLayout).next()
     }
     pub fn type_def_underlying_type(&self, row: TypeDef) -> Type {
         let field = self.type_def_fields(row).next().expect("Field not found");
@@ -968,7 +750,7 @@ impl<'a> Reader<'a> {
     pub fn type_def_has_default_constructor(&self, row: TypeDef) -> bool {
         for attribute in self.type_def_attributes(row) {
             if self.attribute_name(attribute) == "ActivatableAttribute" {
-                if self.attribute_args(attribute).iter().any(|arg| matches!(arg.1, Value::TypeDef(_))) {
+                if self.attribute_args(attribute).iter().any(|arg| matches!(arg.1, Value::TypeName(_))) {
                     continue;
                 } else {
                     return true;
@@ -991,17 +773,11 @@ impl<'a> Reader<'a> {
     pub fn type_def_has_default_interface(&self, row: TypeDef) -> bool {
         self.type_def_interface_impls(row).any(|imp| self.interface_impl_is_default(imp))
     }
-    pub fn type_def_is_deprecated(&self, row: TypeDef) -> bool {
-        self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "DeprecatedAttribute")
-    }
     pub fn type_def_is_handle(&self, row: TypeDef) -> bool {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "NativeTypedefAttribute")
     }
     pub fn type_def_is_exclusive(&self, row: TypeDef) -> bool {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ExclusiveToAttribute")
-    }
-    pub fn type_def_is_scoped(&self, row: TypeDef) -> bool {
-        self.type_def_flags(row).contains(TypeAttributes::WindowsRuntime) || self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ScopedEnumAttribute")
     }
     pub fn type_def_is_contract(&self, row: TypeDef) -> bool {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ApiContractAttribute")
@@ -1046,7 +822,7 @@ impl<'a> Reader<'a> {
         if type_name.namespace.is_empty() {
             check(self, row)
         } else {
-            for row in self.get(type_name) {
+            for row in self.get_type_def(type_name) {
                 if check(self, row) {
                     return true;
                 }
@@ -1071,7 +847,7 @@ impl<'a> Reader<'a> {
         if type_name.namespace.is_empty() {
             check(self, row)
         } else {
-            for row in self.get(type_name) {
+            for row in self.get_type_def(type_name) {
                 if check(self, row) {
                     return true;
                 }
@@ -1096,7 +872,7 @@ impl<'a> Reader<'a> {
         if type_name.namespace.is_empty() {
             check(self, row)
         } else {
-            for row in self.get(type_name) {
+            for row in self.get_type_def(type_name) {
                 if check(self, row) {
                     return true;
                 }
@@ -1117,7 +893,7 @@ impl<'a> Reader<'a> {
         loop {
             match self.type_def_extends(row) {
                 Some(base) if base != TypeName::Object => {
-                    row = self.get(base).next().expect("Type not found");
+                    row = self.get_type_def(base).next().expect("Type not found");
                     bases.push(row);
                 }
                 _ => break,
@@ -1161,7 +937,7 @@ impl<'a> Reader<'a> {
         for attribute in self.type_def_attributes(row) {
             if self.attribute_name(attribute) == "AlsoUsableForAttribute" {
                 if let Some((_, Value::String(name))) = self.attribute_args(attribute).get(0) {
-                    return self.get(TypeName::new(self.type_def_namespace(row), name.as_str())).next();
+                    return self.get_type_def(TypeName::new(self.type_def_namespace(row), name.as_str())).next();
                 }
             }
         }
@@ -1180,8 +956,8 @@ impl<'a> Reader<'a> {
         for attribute in self.type_def_attributes(row) {
             if self.attribute_name(attribute) == "ExclusiveToAttribute" {
                 for (_, arg) in self.attribute_args(attribute) {
-                    if let Value::TypeDef(def) = arg {
-                        for child in self.type_def_interfaces(def, &[]) {
+                    if let Value::TypeName(type_name) = arg {
+                        for child in self.get_type_def(TypeName::parse(&type_name)).flat_map(|def| self.type_def_interfaces(def, &[])) {
                             if child.kind == InterfaceKind::Overridable {
                                 if let Type::TypeDef(def, _) = child.ty {
                                     if self.type_def_type_name(def) == self.type_def_type_name(row) {
@@ -1311,7 +1087,7 @@ impl<'a> Reader<'a> {
                 TypeKind::Struct => {
                     self.type_def_fields(row).for_each(|field| self.field_cfg_combine(field, Some(row), cfg));
                     if !type_name.namespace.is_empty() {
-                        for def in self.get(type_name) {
+                        for def in self.get_type_def(type_name) {
                             if def != row {
                                 self.type_def_cfg_combine(def, &[], cfg);
                             }
@@ -1352,31 +1128,6 @@ impl<'a> Reader<'a> {
             }
         }
         result
-    }
-
-    //
-    // TypeRef table queries
-    //
-
-    pub fn type_ref_name(&self, row: TypeRef) -> &str {
-        self.row_str(row.0, 1)
-    }
-    pub fn type_ref_namespace(&self, row: TypeRef) -> &str {
-        self.row_str(row.0, 2)
-    }
-    pub fn type_ref_type_name(&self, row: TypeRef) -> TypeName {
-        TypeName::new(self.type_ref_namespace(row), self.type_ref_name(row))
-    }
-    pub fn type_ref_resolution_scope(&self, row: TypeRef) -> ResolutionScope {
-        self.row_decode(row.0, 0)
-    }
-
-    //
-    // TypeSpec table queries
-    //
-
-    pub fn type_spec_signature(&self, row: TypeSpec) -> Blob {
-        self.row_blob(row.0, 0)
     }
 
     //
@@ -1507,6 +1258,19 @@ impl<'a> Reader<'a> {
             }
         }
     }
+    // TODO: remove or move to riddle
+    pub fn item_collect_standalone(&self, item: Item, set: &mut BTreeSet<Type>) {
+        match item {
+            Item::Type(def) => self.type_collect_standalone(&Type::TypeDef(def, vec![]), set),
+            Item::Const(def) => self.type_collect_standalone(&self.field_type(def, None).to_const_type(), set),
+            Item::Fn(def, namespace) => {
+                let signature = self.method_def_signature(&namespace, def, &[]);
+                self.type_collect_standalone(&signature.return_type, set);
+                signature.params.iter().for_each(|param| self.type_collect_standalone(&param.ty, set));
+            }
+        }
+    }
+    // TODO: remove or move to riddle
     pub fn type_collect_standalone(&self, ty: &Type, set: &mut BTreeSet<Type>) {
         let ty = ty.to_underlying_type();
         if !set.insert(ty.clone()) {
@@ -1528,7 +1292,7 @@ impl<'a> Reader<'a> {
         // by one architecture but not by another
         let type_name = self.type_def_type_name(def);
         if !type_name.namespace.is_empty() {
-            for row in self.get(type_name) {
+            for row in self.get_type_def(type_name) {
                 if def != row {
                     self.type_collect_standalone(&Type::TypeDef(row, Vec::new()), set);
                 }
@@ -1643,8 +1407,9 @@ impl<'a> Reader<'a> {
                     match self.attribute_name(attribute) {
                         "StaticAttribute" | "ActivatableAttribute" => {
                             for (_, arg) in self.attribute_args(attribute) {
-                                if let Value::TypeDef(row) = arg {
-                                    result.push(Interface { ty: Type::TypeDef(row, Vec::new()), kind: InterfaceKind::Static });
+                                if let Value::TypeName(type_name) = arg {
+                                    let def = self.get_type_def(TypeName::parse(&type_name)).next().expect("Type not found");
+                                    result.push(Interface { ty: Type::TypeDef(def, Vec::new()), kind: InterfaceKind::Static });
                                     break;
                                 }
                             }
@@ -1750,8 +1515,8 @@ impl<'a> Reader<'a> {
             }
         }
 
-        if let Some(ty) = self.get(full_name).next() {
-            Type::TypeDef(ty, Vec::new())
+        if let Some(def) = self.get_type_def(full_name).next() {
+            Type::TypeDef(def, Vec::new())
         } else {
             Type::TypeRef(code)
         }
@@ -1812,7 +1577,7 @@ impl<'a> Reader<'a> {
             ELEMENT_TYPE_GENERICINST => {
                 blob.read_usize();
 
-                let def = self.get(self.type_def_or_ref(TypeDefOrRef::decode(blob.file, blob.read_usize()))).next().expect("Type not found");
+                let def = self.get_type_def(self.type_def_or_ref(TypeDefOrRef::decode(blob.file, blob.read_usize()))).next().expect("Type not found");
                 let mut args = Vec::with_capacity(blob.read_usize());
 
                 for _ in 0..args.capacity() {
@@ -1925,6 +1690,12 @@ impl<'a> Reader<'a> {
             Type::TypeDef(row, _) => self.type_def_is_handle(*row) || self.type_def_kind(*row) == TypeKind::Enum,
             _ => false,
         }
+    }
+}
+
+impl<'a> RowReader<'a> for Reader<'a> {
+    fn row_file<R: AsRow>(&self, row: R) -> &'a File {
+        &self.files[row.to_row().file]
     }
 }
 

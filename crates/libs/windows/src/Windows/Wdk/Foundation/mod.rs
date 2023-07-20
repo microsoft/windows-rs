@@ -21,21 +21,107 @@ where
     NtQueryObject(handle.into_param().abi(), objectinformationclass, ::core::mem::transmute(objectinformation.unwrap_or(::std::ptr::null_mut())), objectinformationlength, ::core::mem::transmute(returnlength.unwrap_or(::std::ptr::null_mut()))).ok()
 }
 #[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IO_PRIORITY_HINT(pub i32);
+pub const DontUseThisType: POOL_TYPE = POOL_TYPE(3i32);
 #[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const IoPriorityVeryLow: IO_PRIORITY_HINT = IO_PRIORITY_HINT(0i32);
+pub const DontUseThisTypeSession: POOL_TYPE = POOL_TYPE(35i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const IoPriorityCritical: IO_PRIORITY_HINT = IO_PRIORITY_HINT(4i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const IoPriorityHigh: IO_PRIORITY_HINT = IO_PRIORITY_HINT(3i32);
 #[doc = "*Required features: `\"Wdk_Foundation\"`*"]
 pub const IoPriorityLow: IO_PRIORITY_HINT = IO_PRIORITY_HINT(1i32);
 #[doc = "*Required features: `\"Wdk_Foundation\"`*"]
 pub const IoPriorityNormal: IO_PRIORITY_HINT = IO_PRIORITY_HINT(2i32);
 #[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const IoPriorityHigh: IO_PRIORITY_HINT = IO_PRIORITY_HINT(3i32);
+pub const IoPriorityVeryLow: IO_PRIORITY_HINT = IO_PRIORITY_HINT(0i32);
 #[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const IoPriorityCritical: IO_PRIORITY_HINT = IO_PRIORITY_HINT(4i32);
+pub const LockQueueAfdWorkQueueLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(13i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const LockQueueBcbLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(14i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const LockQueueIoCancelLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(7i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const LockQueueIoCompletionLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(11i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const LockQueueIoDatabaseLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(10i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const LockQueueIoVpbLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(9i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const LockQueueMasterLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(5i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const LockQueueMaximumLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(17i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const LockQueueNonPagedPoolLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(6i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const LockQueueNtfsStructLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(12i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const LockQueueUnusedSpare0: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(0i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const LockQueueUnusedSpare1: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(1i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const LockQueueUnusedSpare15: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(15i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const LockQueueUnusedSpare16: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(16i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const LockQueueUnusedSpare2: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(2i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const LockQueueUnusedSpare3: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(3i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const LockQueueUnusedSpare8: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(8i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const LockQueueVacbLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(4i32);
 #[doc = "*Required features: `\"Wdk_Foundation\"`*"]
 pub const MaxIoPriorityTypes: IO_PRIORITY_HINT = IO_PRIORITY_HINT(5i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const MaxPoolType: POOL_TYPE = POOL_TYPE(7i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const NonPagedPool: POOL_TYPE = POOL_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const NonPagedPoolBase: POOL_TYPE = POOL_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const NonPagedPoolBaseCacheAligned: POOL_TYPE = POOL_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const NonPagedPoolBaseCacheAlignedMustS: POOL_TYPE = POOL_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const NonPagedPoolBaseMustSucceed: POOL_TYPE = POOL_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const NonPagedPoolCacheAligned: POOL_TYPE = POOL_TYPE(4i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const NonPagedPoolCacheAlignedMustS: POOL_TYPE = POOL_TYPE(6i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const NonPagedPoolCacheAlignedMustSSession: POOL_TYPE = POOL_TYPE(38i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const NonPagedPoolCacheAlignedSession: POOL_TYPE = POOL_TYPE(36i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const NonPagedPoolExecute: POOL_TYPE = POOL_TYPE(0i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const NonPagedPoolMustSucceed: POOL_TYPE = POOL_TYPE(2i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const NonPagedPoolMustSucceedSession: POOL_TYPE = POOL_TYPE(34i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const NonPagedPoolNx: POOL_TYPE = POOL_TYPE(512i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const NonPagedPoolNxCacheAligned: POOL_TYPE = POOL_TYPE(516i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const NonPagedPoolSession: POOL_TYPE = POOL_TYPE(32i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const NonPagedPoolSessionNx: POOL_TYPE = POOL_TYPE(544i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const ObjectBasicInformation: OBJECT_INFORMATION_CLASS = OBJECT_INFORMATION_CLASS(0i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const ObjectTypeInformation: OBJECT_INFORMATION_CLASS = OBJECT_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const PagedPool: POOL_TYPE = POOL_TYPE(1i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const PagedPoolCacheAligned: POOL_TYPE = POOL_TYPE(5i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const PagedPoolCacheAlignedSession: POOL_TYPE = POOL_TYPE(37i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+pub const PagedPoolSession: POOL_TYPE = POOL_TYPE(33i32);
+#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IO_PRIORITY_HINT(pub i32);
 impl ::core::marker::Copy for IO_PRIORITY_HINT {}
 impl ::core::clone::Clone for IO_PRIORITY_HINT {
     fn clone(&self) -> Self {
@@ -59,42 +145,6 @@ impl ::core::fmt::Debug for IO_PRIORITY_HINT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KSPIN_LOCK_QUEUE_NUMBER(pub i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const LockQueueUnusedSpare0: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(0i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const LockQueueUnusedSpare1: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(1i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const LockQueueUnusedSpare2: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(2i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const LockQueueUnusedSpare3: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(3i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const LockQueueVacbLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(4i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const LockQueueMasterLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(5i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const LockQueueNonPagedPoolLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(6i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const LockQueueIoCancelLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(7i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const LockQueueUnusedSpare8: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(8i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const LockQueueIoVpbLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(9i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const LockQueueIoDatabaseLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(10i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const LockQueueIoCompletionLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(11i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const LockQueueNtfsStructLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(12i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const LockQueueAfdWorkQueueLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(13i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const LockQueueBcbLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(14i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const LockQueueUnusedSpare15: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(15i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const LockQueueUnusedSpare16: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(16i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const LockQueueMaximumLock: KSPIN_LOCK_QUEUE_NUMBER = KSPIN_LOCK_QUEUE_NUMBER(17i32);
 impl ::core::marker::Copy for KSPIN_LOCK_QUEUE_NUMBER {}
 impl ::core::clone::Clone for KSPIN_LOCK_QUEUE_NUMBER {
     fn clone(&self) -> Self {
@@ -118,10 +168,6 @@ impl ::core::fmt::Debug for KSPIN_LOCK_QUEUE_NUMBER {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OBJECT_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const ObjectBasicInformation: OBJECT_INFORMATION_CLASS = OBJECT_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const ObjectTypeInformation: OBJECT_INFORMATION_CLASS = OBJECT_INFORMATION_CLASS(2i32);
 impl ::core::marker::Copy for OBJECT_INFORMATION_CLASS {}
 impl ::core::clone::Clone for OBJECT_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -145,52 +191,6 @@ impl ::core::fmt::Debug for OBJECT_INFORMATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POOL_TYPE(pub i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const NonPagedPool: POOL_TYPE = POOL_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const NonPagedPoolExecute: POOL_TYPE = POOL_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const PagedPool: POOL_TYPE = POOL_TYPE(1i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const NonPagedPoolMustSucceed: POOL_TYPE = POOL_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const DontUseThisType: POOL_TYPE = POOL_TYPE(3i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const NonPagedPoolCacheAligned: POOL_TYPE = POOL_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const PagedPoolCacheAligned: POOL_TYPE = POOL_TYPE(5i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const NonPagedPoolCacheAlignedMustS: POOL_TYPE = POOL_TYPE(6i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const MaxPoolType: POOL_TYPE = POOL_TYPE(7i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const NonPagedPoolBase: POOL_TYPE = POOL_TYPE(0i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const NonPagedPoolBaseMustSucceed: POOL_TYPE = POOL_TYPE(2i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const NonPagedPoolBaseCacheAligned: POOL_TYPE = POOL_TYPE(4i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const NonPagedPoolBaseCacheAlignedMustS: POOL_TYPE = POOL_TYPE(6i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const NonPagedPoolSession: POOL_TYPE = POOL_TYPE(32i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const PagedPoolSession: POOL_TYPE = POOL_TYPE(33i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const NonPagedPoolMustSucceedSession: POOL_TYPE = POOL_TYPE(34i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const DontUseThisTypeSession: POOL_TYPE = POOL_TYPE(35i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const NonPagedPoolCacheAlignedSession: POOL_TYPE = POOL_TYPE(36i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const PagedPoolCacheAlignedSession: POOL_TYPE = POOL_TYPE(37i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const NonPagedPoolCacheAlignedMustSSession: POOL_TYPE = POOL_TYPE(38i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const NonPagedPoolNx: POOL_TYPE = POOL_TYPE(512i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const NonPagedPoolNxCacheAligned: POOL_TYPE = POOL_TYPE(516i32);
-#[doc = "*Required features: `\"Wdk_Foundation\"`*"]
-pub const NonPagedPoolSessionNx: POOL_TYPE = POOL_TYPE(544i32);
 impl ::core::marker::Copy for POOL_TYPE {}
 impl ::core::clone::Clone for POOL_TYPE {
     fn clone(&self) -> Self {

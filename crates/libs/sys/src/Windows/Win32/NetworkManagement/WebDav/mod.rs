@@ -18,6 +18,8 @@
 ::windows_targets::link!("davclnt.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"] fn DavRegisterAuthCallback(callback : PFNDAVAUTHCALLBACK, version : u32) -> u32);
 ::windows_targets::link!("davclnt.dll" "system" #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"] fn DavUnregisterAuthCallback(hcallback : u32) -> ());
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
+pub const CancelRequest: AUTHNEXTSTEP = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 pub const DAV_AUTHN_SCHEME_BASIC: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 pub const DAV_AUTHN_SCHEME_CERT: u32 = 65536u32;
@@ -32,13 +34,11 @@ pub const DAV_AUTHN_SCHEME_NTLM: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 pub const DAV_AUTHN_SCHEME_PASSPORT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-pub type AUTHNEXTSTEP = i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 pub const DefaultBehavior: AUTHNEXTSTEP = 0i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 pub const RetryRequest: AUTHNEXTSTEP = 1i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
-pub const CancelRequest: AUTHNEXTSTEP = 2i32;
+pub type AUTHNEXTSTEP = i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
 pub struct DAV_CALLBACK_AUTH_BLOB {

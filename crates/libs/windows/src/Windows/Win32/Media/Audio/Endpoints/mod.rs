@@ -718,19 +718,19 @@ pub const DEVPKEY_AudioEndpointPlugin_FactoryCLSID: super::super::super::UI::She
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_AudioEndpointPlugin_PnPInterface: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows_core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 3 };
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct EndpointConnectorType(pub i32);
+pub const eConnectorCount: EndpointConnectorType = EndpointConnectorType(4i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 pub const eHostProcessConnector: EndpointConnectorType = EndpointConnectorType(0i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
-pub const eOffloadConnector: EndpointConnectorType = EndpointConnectorType(1i32);
+pub const eKeywordDetectorConnector: EndpointConnectorType = EndpointConnectorType(3i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 pub const eLoopbackConnector: EndpointConnectorType = EndpointConnectorType(2i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
-pub const eKeywordDetectorConnector: EndpointConnectorType = EndpointConnectorType(3i32);
+pub const eOffloadConnector: EndpointConnectorType = EndpointConnectorType(1i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
-pub const eConnectorCount: EndpointConnectorType = EndpointConnectorType(4i32);
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EndpointConnectorType(pub i32);
 impl ::core::marker::Copy for EndpointConnectorType {}
 impl ::core::clone::Clone for EndpointConnectorType {
     fn clone(&self) -> Self {

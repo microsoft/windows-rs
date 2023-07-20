@@ -2308,6 +2308,14 @@ pub const JET_IOPriorityLow: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_IOPriorityNormal: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_IndexCheckingDeferToOpenTable: JET_INDEXCHECKING = JET_INDEXCHECKING(2i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_IndexCheckingMax: JET_INDEXCHECKING = JET_INDEXCHECKING(3i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_IndexCheckingOff: JET_INDEXCHECKING = JET_INDEXCHECKING(0i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_IndexCheckingOn: JET_INDEXCHECKING = JET_INDEXCHECKING(1i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_MAX_COMPUTERNAME_LENGTH: u32 = 15u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_MoveFirst: u32 = 2147483648u32;
@@ -3696,6 +3704,42 @@ pub const JET_errWriteConflict: i32 = -1102i32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_errWriteConflictPrimaryIndex: i32 = -1105i32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_errcatApi: JET_ERRCAT = JET_ERRCAT(13i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_errcatCorruption: JET_ERRCAT = JET_ERRCAT(10i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_errcatData: JET_ERRCAT = JET_ERRCAT(9i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_errcatDisk: JET_ERRCAT = JET_ERRCAT(8i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_errcatError: JET_ERRCAT = JET_ERRCAT(1i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_errcatFatal: JET_ERRCAT = JET_ERRCAT(3i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_errcatFragmentation: JET_ERRCAT = JET_ERRCAT(12i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_errcatIO: JET_ERRCAT = JET_ERRCAT(4i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_errcatInconsistent: JET_ERRCAT = JET_ERRCAT(11i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_errcatMax: JET_ERRCAT = JET_ERRCAT(17i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_errcatMemory: JET_ERRCAT = JET_ERRCAT(6i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_errcatObsolete: JET_ERRCAT = JET_ERRCAT(16i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_errcatOperation: JET_ERRCAT = JET_ERRCAT(2i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_errcatQuota: JET_ERRCAT = JET_ERRCAT(7i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_errcatResource: JET_ERRCAT = JET_ERRCAT(5i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_errcatState: JET_ERRCAT = JET_ERRCAT(15i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_errcatUnknown: JET_ERRCAT = JET_ERRCAT(0i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_errcatUsage: JET_ERRCAT = JET_ERRCAT(14i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_filetypeCheckpoint: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_filetypeDatabase: u32 = 1u32;
@@ -3986,6 +4030,24 @@ pub const JET_prepReplace: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_prepReplaceNoLock: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_relopBitmaskEqualsZero: JET_RELOP = JET_RELOP(7i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_relopBitmaskNotEqualsZero: JET_RELOP = JET_RELOP(8i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_relopEquals: JET_RELOP = JET_RELOP(0i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_relopGreaterThan: JET_RELOP = JET_RELOP(6i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_relopGreaterThanOrEqual: JET_RELOP = JET_RELOP(5i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_relopLessThan: JET_RELOP = JET_RELOP(4i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_relopLessThanOrEqual: JET_RELOP = JET_RELOP(3i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_relopNotEquals: JET_RELOP = JET_RELOP(2i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
+pub const JET_relopPrefixEquals: JET_RELOP = JET_RELOP(1i32);
+#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_sesparamCommitDefault: u32 = 4097u32;
 #[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
 pub const JET_sesparamCorrelationID: u32 = 4101u32;
@@ -4135,42 +4197,6 @@ pub const wrnBTNotVisibleRejected: u32 = 352u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JET_ERRCAT(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_errcatUnknown: JET_ERRCAT = JET_ERRCAT(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_errcatError: JET_ERRCAT = JET_ERRCAT(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_errcatOperation: JET_ERRCAT = JET_ERRCAT(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_errcatFatal: JET_ERRCAT = JET_ERRCAT(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_errcatIO: JET_ERRCAT = JET_ERRCAT(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_errcatResource: JET_ERRCAT = JET_ERRCAT(5i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_errcatMemory: JET_ERRCAT = JET_ERRCAT(6i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_errcatQuota: JET_ERRCAT = JET_ERRCAT(7i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_errcatDisk: JET_ERRCAT = JET_ERRCAT(8i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_errcatData: JET_ERRCAT = JET_ERRCAT(9i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_errcatCorruption: JET_ERRCAT = JET_ERRCAT(10i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_errcatInconsistent: JET_ERRCAT = JET_ERRCAT(11i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_errcatFragmentation: JET_ERRCAT = JET_ERRCAT(12i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_errcatApi: JET_ERRCAT = JET_ERRCAT(13i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_errcatUsage: JET_ERRCAT = JET_ERRCAT(14i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_errcatState: JET_ERRCAT = JET_ERRCAT(15i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_errcatObsolete: JET_ERRCAT = JET_ERRCAT(16i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_errcatMax: JET_ERRCAT = JET_ERRCAT(17i32);
 impl ::core::marker::Copy for JET_ERRCAT {}
 impl ::core::clone::Clone for JET_ERRCAT {
     fn clone(&self) -> Self {
@@ -4194,14 +4220,6 @@ impl ::core::fmt::Debug for JET_ERRCAT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JET_INDEXCHECKING(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_IndexCheckingOff: JET_INDEXCHECKING = JET_INDEXCHECKING(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_IndexCheckingOn: JET_INDEXCHECKING = JET_INDEXCHECKING(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_IndexCheckingDeferToOpenTable: JET_INDEXCHECKING = JET_INDEXCHECKING(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_IndexCheckingMax: JET_INDEXCHECKING = JET_INDEXCHECKING(3i32);
 impl ::core::marker::Copy for JET_INDEXCHECKING {}
 impl ::core::clone::Clone for JET_INDEXCHECKING {
     fn clone(&self) -> Self {
@@ -4225,24 +4243,6 @@ impl ::core::fmt::Debug for JET_INDEXCHECKING {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JET_RELOP(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_relopEquals: JET_RELOP = JET_RELOP(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_relopPrefixEquals: JET_RELOP = JET_RELOP(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_relopNotEquals: JET_RELOP = JET_RELOP(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_relopLessThanOrEqual: JET_RELOP = JET_RELOP(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_relopLessThan: JET_RELOP = JET_RELOP(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_relopGreaterThanOrEqual: JET_RELOP = JET_RELOP(5i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_relopGreaterThan: JET_RELOP = JET_RELOP(6i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_relopBitmaskEqualsZero: JET_RELOP = JET_RELOP(7i32);
-#[doc = "*Required features: `\"Win32_Storage_Jet\"`*"]
-pub const JET_relopBitmaskNotEqualsZero: JET_RELOP = JET_RELOP(8i32);
 impl ::core::marker::Copy for JET_RELOP {}
 impl ::core::clone::Clone for JET_RELOP {
     fn clone(&self) -> Self {

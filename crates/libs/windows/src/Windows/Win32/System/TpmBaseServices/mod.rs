@@ -88,6 +88,26 @@ pub unsafe fn Tbsip_Submit_Command(hcontext: *const ::core::ffi::c_void, localit
     Tbsip_Submit_Command(hcontext, locality, priority, ::core::mem::transmute(pabcommand.as_ptr()), pabcommand.len() as _, pabresult, pcbresult)
 }
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
+pub const TBS_COMMAND_LOCALITY_FOUR: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(4u32);
+#[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
+pub const TBS_COMMAND_LOCALITY_ONE: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(1u32);
+#[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
+pub const TBS_COMMAND_LOCALITY_THREE: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(3u32);
+#[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
+pub const TBS_COMMAND_LOCALITY_TWO: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(2u32);
+#[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
+pub const TBS_COMMAND_LOCALITY_ZERO: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(0u32);
+#[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
+pub const TBS_COMMAND_PRIORITY_HIGH: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(300u32);
+#[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
+pub const TBS_COMMAND_PRIORITY_LOW: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(100u32);
+#[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
+pub const TBS_COMMAND_PRIORITY_MAX: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(2147483648u32);
+#[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
+pub const TBS_COMMAND_PRIORITY_NORMAL: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(200u32);
+#[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
+pub const TBS_COMMAND_PRIORITY_SYSTEM: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(400u32);
+#[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 pub const TBS_CONTEXT_VERSION_ONE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
 pub const TBS_CONTEXT_VERSION_TWO: u32 = 2u32;
@@ -145,16 +165,6 @@ pub const TPM_WNF_INFO_OWNERSHIP_SUCCESSFUL: u32 = 2u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TBS_COMMAND_LOCALITY(pub u32);
-#[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-pub const TBS_COMMAND_LOCALITY_ZERO: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(0u32);
-#[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-pub const TBS_COMMAND_LOCALITY_ONE: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(1u32);
-#[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-pub const TBS_COMMAND_LOCALITY_TWO: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(2u32);
-#[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-pub const TBS_COMMAND_LOCALITY_THREE: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(3u32);
-#[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-pub const TBS_COMMAND_LOCALITY_FOUR: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(4u32);
 impl ::core::marker::Copy for TBS_COMMAND_LOCALITY {}
 impl ::core::clone::Clone for TBS_COMMAND_LOCALITY {
     fn clone(&self) -> Self {
@@ -178,16 +188,6 @@ impl ::core::fmt::Debug for TBS_COMMAND_LOCALITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TBS_COMMAND_PRIORITY(pub u32);
-#[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-pub const TBS_COMMAND_PRIORITY_LOW: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(100u32);
-#[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-pub const TBS_COMMAND_PRIORITY_NORMAL: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(200u32);
-#[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-pub const TBS_COMMAND_PRIORITY_SYSTEM: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(400u32);
-#[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-pub const TBS_COMMAND_PRIORITY_HIGH: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(300u32);
-#[doc = "*Required features: `\"Win32_System_TpmBaseServices\"`*"]
-pub const TBS_COMMAND_PRIORITY_MAX: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(2147483648u32);
 impl ::core::marker::Copy for TBS_COMMAND_PRIORITY {}
 impl ::core::clone::Clone for TBS_COMMAND_PRIORITY {
     fn clone(&self) -> Self {

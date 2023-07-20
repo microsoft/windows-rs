@@ -1035,7 +1035,89 @@ pub const NA_NameSetByPolicy: ::windows_core::PCWSTR = ::windows_core::w!("NA_Na
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 pub const NA_NetworkClass: ::windows_core::PCWSTR = ::windows_core::w!("NA_NetworkClass");
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_CONNECTION_COST_APPROACHINGDATALIMIT: NLM_CONNECTION_COST = NLM_CONNECTION_COST(524288i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_CONNECTION_COST_CONGESTED: NLM_CONNECTION_COST = NLM_CONNECTION_COST(131072i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_CONNECTION_COST_FIXED: NLM_CONNECTION_COST = NLM_CONNECTION_COST(2i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_CONNECTION_COST_OVERDATALIMIT: NLM_CONNECTION_COST = NLM_CONNECTION_COST(65536i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_CONNECTION_COST_ROAMING: NLM_CONNECTION_COST = NLM_CONNECTION_COST(262144i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_CONNECTION_COST_UNKNOWN: NLM_CONNECTION_COST = NLM_CONNECTION_COST(0i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_CONNECTION_COST_UNRESTRICTED: NLM_CONNECTION_COST = NLM_CONNECTION_COST(1i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_CONNECTION_COST_VARIABLE: NLM_CONNECTION_COST = NLM_CONNECTION_COST(4i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_CONNECTION_PROPERTY_CHANGE_AUTHENTICATION: NLM_CONNECTION_PROPERTY_CHANGE = NLM_CONNECTION_PROPERTY_CHANGE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_CONNECTIVITY_DISCONNECTED: NLM_CONNECTIVITY = NLM_CONNECTIVITY(0i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_CONNECTIVITY_IPV4_INTERNET: NLM_CONNECTIVITY = NLM_CONNECTIVITY(64i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_CONNECTIVITY_IPV4_LOCALNETWORK: NLM_CONNECTIVITY = NLM_CONNECTIVITY(32i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_CONNECTIVITY_IPV4_NOTRAFFIC: NLM_CONNECTIVITY = NLM_CONNECTIVITY(1i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_CONNECTIVITY_IPV4_SUBNET: NLM_CONNECTIVITY = NLM_CONNECTIVITY(16i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_CONNECTIVITY_IPV6_INTERNET: NLM_CONNECTIVITY = NLM_CONNECTIVITY(1024i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_CONNECTIVITY_IPV6_LOCALNETWORK: NLM_CONNECTIVITY = NLM_CONNECTIVITY(512i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_CONNECTIVITY_IPV6_NOTRAFFIC: NLM_CONNECTIVITY = NLM_CONNECTIVITY(2i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_CONNECTIVITY_IPV6_SUBNET: NLM_CONNECTIVITY = NLM_CONNECTIVITY(256i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_DOMAIN_AUTHENTICATION_KIND_LDAP: NLM_DOMAIN_AUTHENTICATION_KIND = NLM_DOMAIN_AUTHENTICATION_KIND(1i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_DOMAIN_AUTHENTICATION_KIND_NONE: NLM_DOMAIN_AUTHENTICATION_KIND = NLM_DOMAIN_AUTHENTICATION_KIND(0i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_DOMAIN_AUTHENTICATION_KIND_TLS: NLM_DOMAIN_AUTHENTICATION_KIND = NLM_DOMAIN_AUTHENTICATION_KIND(2i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_DOMAIN_TYPE_DOMAIN_AUTHENTICATED: NLM_DOMAIN_TYPE = NLM_DOMAIN_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_DOMAIN_TYPE_DOMAIN_NETWORK: NLM_DOMAIN_TYPE = NLM_DOMAIN_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_DOMAIN_TYPE_NON_DOMAIN_NETWORK: NLM_DOMAIN_TYPE = NLM_DOMAIN_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_ENUM_NETWORK_ALL: NLM_ENUM_NETWORK = NLM_ENUM_NETWORK(3i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_ENUM_NETWORK_CONNECTED: NLM_ENUM_NETWORK = NLM_ENUM_NETWORK(1i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_ENUM_NETWORK_DISCONNECTED: NLM_ENUM_NETWORK = NLM_ENUM_NETWORK(2i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_INTERNET_CONNECTIVITY_CORPORATE: NLM_INTERNET_CONNECTIVITY = NLM_INTERNET_CONNECTIVITY(4i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_INTERNET_CONNECTIVITY_PROXIED: NLM_INTERNET_CONNECTIVITY = NLM_INTERNET_CONNECTIVITY(2i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_INTERNET_CONNECTIVITY_WEBHIJACK: NLM_INTERNET_CONNECTIVITY = NLM_INTERNET_CONNECTIVITY(1i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 pub const NLM_MAX_ADDRESS_LIST_SIZE: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_NETWORK_CATEGORY_DOMAIN_AUTHENTICATED: NLM_NETWORK_CATEGORY = NLM_NETWORK_CATEGORY(2i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_NETWORK_CATEGORY_PRIVATE: NLM_NETWORK_CATEGORY = NLM_NETWORK_CATEGORY(1i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_NETWORK_CATEGORY_PUBLIC: NLM_NETWORK_CATEGORY = NLM_NETWORK_CATEGORY(0i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_NETWORK_IDENTIFIED: NLM_NETWORK_CLASS = NLM_NETWORK_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_NETWORK_IDENTIFYING: NLM_NETWORK_CLASS = NLM_NETWORK_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_NETWORK_PROPERTY_CHANGE_CATEGORY_VALUE: NLM_NETWORK_PROPERTY_CHANGE = NLM_NETWORK_PROPERTY_CHANGE(16i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_NETWORK_PROPERTY_CHANGE_CONNECTION: NLM_NETWORK_PROPERTY_CHANGE = NLM_NETWORK_PROPERTY_CHANGE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_NETWORK_PROPERTY_CHANGE_DESCRIPTION: NLM_NETWORK_PROPERTY_CHANGE = NLM_NETWORK_PROPERTY_CHANGE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_NETWORK_PROPERTY_CHANGE_ICON: NLM_NETWORK_PROPERTY_CHANGE = NLM_NETWORK_PROPERTY_CHANGE(8i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_NETWORK_PROPERTY_CHANGE_NAME: NLM_NETWORK_PROPERTY_CHANGE = NLM_NETWORK_PROPERTY_CHANGE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
+pub const NLM_NETWORK_UNIDENTIFIED: NLM_NETWORK_CLASS = NLM_NETWORK_CLASS(3i32);
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
 pub const NLM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
@@ -1044,22 +1126,6 @@ pub const NetworkListManager: ::windows_core::GUID = ::windows_core::GUID::from_
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLM_CONNECTION_COST(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_CONNECTION_COST_UNKNOWN: NLM_CONNECTION_COST = NLM_CONNECTION_COST(0i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_CONNECTION_COST_UNRESTRICTED: NLM_CONNECTION_COST = NLM_CONNECTION_COST(1i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_CONNECTION_COST_FIXED: NLM_CONNECTION_COST = NLM_CONNECTION_COST(2i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_CONNECTION_COST_VARIABLE: NLM_CONNECTION_COST = NLM_CONNECTION_COST(4i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_CONNECTION_COST_OVERDATALIMIT: NLM_CONNECTION_COST = NLM_CONNECTION_COST(65536i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_CONNECTION_COST_CONGESTED: NLM_CONNECTION_COST = NLM_CONNECTION_COST(131072i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_CONNECTION_COST_ROAMING: NLM_CONNECTION_COST = NLM_CONNECTION_COST(262144i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_CONNECTION_COST_APPROACHINGDATALIMIT: NLM_CONNECTION_COST = NLM_CONNECTION_COST(524288i32);
 impl ::core::marker::Copy for NLM_CONNECTION_COST {}
 impl ::core::clone::Clone for NLM_CONNECTION_COST {
     fn clone(&self) -> Self {
@@ -1083,8 +1149,6 @@ impl ::core::fmt::Debug for NLM_CONNECTION_COST {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLM_CONNECTION_PROPERTY_CHANGE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_CONNECTION_PROPERTY_CHANGE_AUTHENTICATION: NLM_CONNECTION_PROPERTY_CHANGE = NLM_CONNECTION_PROPERTY_CHANGE(1i32);
 impl ::core::marker::Copy for NLM_CONNECTION_PROPERTY_CHANGE {}
 impl ::core::clone::Clone for NLM_CONNECTION_PROPERTY_CHANGE {
     fn clone(&self) -> Self {
@@ -1108,24 +1172,6 @@ impl ::core::fmt::Debug for NLM_CONNECTION_PROPERTY_CHANGE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLM_CONNECTIVITY(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_CONNECTIVITY_DISCONNECTED: NLM_CONNECTIVITY = NLM_CONNECTIVITY(0i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_CONNECTIVITY_IPV4_NOTRAFFIC: NLM_CONNECTIVITY = NLM_CONNECTIVITY(1i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_CONNECTIVITY_IPV6_NOTRAFFIC: NLM_CONNECTIVITY = NLM_CONNECTIVITY(2i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_CONNECTIVITY_IPV4_SUBNET: NLM_CONNECTIVITY = NLM_CONNECTIVITY(16i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_CONNECTIVITY_IPV4_LOCALNETWORK: NLM_CONNECTIVITY = NLM_CONNECTIVITY(32i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_CONNECTIVITY_IPV4_INTERNET: NLM_CONNECTIVITY = NLM_CONNECTIVITY(64i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_CONNECTIVITY_IPV6_SUBNET: NLM_CONNECTIVITY = NLM_CONNECTIVITY(256i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_CONNECTIVITY_IPV6_LOCALNETWORK: NLM_CONNECTIVITY = NLM_CONNECTIVITY(512i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_CONNECTIVITY_IPV6_INTERNET: NLM_CONNECTIVITY = NLM_CONNECTIVITY(1024i32);
 impl ::core::marker::Copy for NLM_CONNECTIVITY {}
 impl ::core::clone::Clone for NLM_CONNECTIVITY {
     fn clone(&self) -> Self {
@@ -1149,12 +1195,6 @@ impl ::core::fmt::Debug for NLM_CONNECTIVITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLM_DOMAIN_AUTHENTICATION_KIND(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_DOMAIN_AUTHENTICATION_KIND_NONE: NLM_DOMAIN_AUTHENTICATION_KIND = NLM_DOMAIN_AUTHENTICATION_KIND(0i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_DOMAIN_AUTHENTICATION_KIND_LDAP: NLM_DOMAIN_AUTHENTICATION_KIND = NLM_DOMAIN_AUTHENTICATION_KIND(1i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_DOMAIN_AUTHENTICATION_KIND_TLS: NLM_DOMAIN_AUTHENTICATION_KIND = NLM_DOMAIN_AUTHENTICATION_KIND(2i32);
 impl ::core::marker::Copy for NLM_DOMAIN_AUTHENTICATION_KIND {}
 impl ::core::clone::Clone for NLM_DOMAIN_AUTHENTICATION_KIND {
     fn clone(&self) -> Self {
@@ -1178,12 +1218,6 @@ impl ::core::fmt::Debug for NLM_DOMAIN_AUTHENTICATION_KIND {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLM_DOMAIN_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_DOMAIN_TYPE_NON_DOMAIN_NETWORK: NLM_DOMAIN_TYPE = NLM_DOMAIN_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_DOMAIN_TYPE_DOMAIN_NETWORK: NLM_DOMAIN_TYPE = NLM_DOMAIN_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_DOMAIN_TYPE_DOMAIN_AUTHENTICATED: NLM_DOMAIN_TYPE = NLM_DOMAIN_TYPE(2i32);
 impl ::core::marker::Copy for NLM_DOMAIN_TYPE {}
 impl ::core::clone::Clone for NLM_DOMAIN_TYPE {
     fn clone(&self) -> Self {
@@ -1207,12 +1241,6 @@ impl ::core::fmt::Debug for NLM_DOMAIN_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLM_ENUM_NETWORK(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_ENUM_NETWORK_CONNECTED: NLM_ENUM_NETWORK = NLM_ENUM_NETWORK(1i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_ENUM_NETWORK_DISCONNECTED: NLM_ENUM_NETWORK = NLM_ENUM_NETWORK(2i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_ENUM_NETWORK_ALL: NLM_ENUM_NETWORK = NLM_ENUM_NETWORK(3i32);
 impl ::core::marker::Copy for NLM_ENUM_NETWORK {}
 impl ::core::clone::Clone for NLM_ENUM_NETWORK {
     fn clone(&self) -> Self {
@@ -1236,12 +1264,6 @@ impl ::core::fmt::Debug for NLM_ENUM_NETWORK {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLM_INTERNET_CONNECTIVITY(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_INTERNET_CONNECTIVITY_WEBHIJACK: NLM_INTERNET_CONNECTIVITY = NLM_INTERNET_CONNECTIVITY(1i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_INTERNET_CONNECTIVITY_PROXIED: NLM_INTERNET_CONNECTIVITY = NLM_INTERNET_CONNECTIVITY(2i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_INTERNET_CONNECTIVITY_CORPORATE: NLM_INTERNET_CONNECTIVITY = NLM_INTERNET_CONNECTIVITY(4i32);
 impl ::core::marker::Copy for NLM_INTERNET_CONNECTIVITY {}
 impl ::core::clone::Clone for NLM_INTERNET_CONNECTIVITY {
     fn clone(&self) -> Self {
@@ -1265,12 +1287,6 @@ impl ::core::fmt::Debug for NLM_INTERNET_CONNECTIVITY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLM_NETWORK_CATEGORY(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_NETWORK_CATEGORY_PUBLIC: NLM_NETWORK_CATEGORY = NLM_NETWORK_CATEGORY(0i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_NETWORK_CATEGORY_PRIVATE: NLM_NETWORK_CATEGORY = NLM_NETWORK_CATEGORY(1i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_NETWORK_CATEGORY_DOMAIN_AUTHENTICATED: NLM_NETWORK_CATEGORY = NLM_NETWORK_CATEGORY(2i32);
 impl ::core::marker::Copy for NLM_NETWORK_CATEGORY {}
 impl ::core::clone::Clone for NLM_NETWORK_CATEGORY {
     fn clone(&self) -> Self {
@@ -1294,12 +1310,6 @@ impl ::core::fmt::Debug for NLM_NETWORK_CATEGORY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLM_NETWORK_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_NETWORK_IDENTIFYING: NLM_NETWORK_CLASS = NLM_NETWORK_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_NETWORK_IDENTIFIED: NLM_NETWORK_CLASS = NLM_NETWORK_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_NETWORK_UNIDENTIFIED: NLM_NETWORK_CLASS = NLM_NETWORK_CLASS(3i32);
 impl ::core::marker::Copy for NLM_NETWORK_CLASS {}
 impl ::core::clone::Clone for NLM_NETWORK_CLASS {
     fn clone(&self) -> Self {
@@ -1323,16 +1333,6 @@ impl ::core::fmt::Debug for NLM_NETWORK_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NLM_NETWORK_PROPERTY_CHANGE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_NETWORK_PROPERTY_CHANGE_CONNECTION: NLM_NETWORK_PROPERTY_CHANGE = NLM_NETWORK_PROPERTY_CHANGE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_NETWORK_PROPERTY_CHANGE_DESCRIPTION: NLM_NETWORK_PROPERTY_CHANGE = NLM_NETWORK_PROPERTY_CHANGE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_NETWORK_PROPERTY_CHANGE_NAME: NLM_NETWORK_PROPERTY_CHANGE = NLM_NETWORK_PROPERTY_CHANGE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_NETWORK_PROPERTY_CHANGE_ICON: NLM_NETWORK_PROPERTY_CHANGE = NLM_NETWORK_PROPERTY_CHANGE(8i32);
-#[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-pub const NLM_NETWORK_PROPERTY_CHANGE_CATEGORY_VALUE: NLM_NETWORK_PROPERTY_CHANGE = NLM_NETWORK_PROPERTY_CHANGE(16i32);
 impl ::core::marker::Copy for NLM_NETWORK_PROPERTY_CHANGE {}
 impl ::core::clone::Clone for NLM_NETWORK_PROPERTY_CHANGE {
     fn clone(&self) -> Self {

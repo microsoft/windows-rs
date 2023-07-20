@@ -45,13 +45,53 @@ pub unsafe fn RtlQueryDepthSList(listhead: *const SLIST_HEADER) -> u16 {
     RtlQueryDepthSList(listhead)
 }
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const BackOffice: SUITE_TYPE = SUITE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const Blade: SUITE_TYPE = SUITE_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const CommunicationServer: SUITE_TYPE = SUITE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const ComputeServer: SUITE_TYPE = SUITE_TYPE(14i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const DEFAULT_COMPARTMENT_ID: COMPARTMENT_ID = COMPARTMENT_ID(1i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const DataCenter: SUITE_TYPE = SUITE_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const EmbeddedNT: SUITE_TYPE = SUITE_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const EmbeddedRestricted: SUITE_TYPE = SUITE_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const Enterprise: SUITE_TYPE = SUITE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const ExceptionCollidedUnwind: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(3i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const ExceptionContinueExecution: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(0i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const ExceptionContinueSearch: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(1i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const ExceptionNestedException: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(2i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 pub const MAXUCHAR: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 pub const MAXULONG: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 pub const MAXUSHORT: u32 = 65535u32;
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const MaxSuiteType: SUITE_TYPE = SUITE_TYPE(18i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const MultiUserTS: SUITE_TYPE = SUITE_TYPE(17i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 pub const NULL64: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const NotificationEvent: EVENT_TYPE = EVENT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const NotificationTimer: TIMER_TYPE = TIMER_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const NtProductLanManNt: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const NtProductServer: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const NtProductWinNt: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(1i32);
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 pub const OBJ_CASE_INSENSITIVE: i32 = 64i32;
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
@@ -77,15 +117,45 @@ pub const OBJ_PERMANENT: i32 = 16i32;
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 pub const OBJ_VALID_ATTRIBUTES: i32 = 8178i32;
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const Personal: SUITE_TYPE = SUITE_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const PhoneNT: SUITE_TYPE = SUITE_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 pub const RTL_BALANCED_NODE_RESERVED_PARENT_MASK: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const SecurityAppliance: SUITE_TYPE = SUITE_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const SingleUserTS: SUITE_TYPE = SUITE_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const SmallBusiness: SUITE_TYPE = SUITE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const SmallBusinessRestricted: SUITE_TYPE = SUITE_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const StorageServer: SUITE_TYPE = SUITE_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const SynchronizationEvent: EVENT_TYPE = EVENT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const SynchronizationTimer: TIMER_TYPE = TIMER_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const TerminalServer: SUITE_TYPE = SUITE_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const UNSPECIFIED_COMPARTMENT_ID: COMPARTMENT_ID = COMPARTMENT_ID(0i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const WHServer: SUITE_TYPE = SUITE_TYPE(15i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const WaitAll: WAIT_TYPE = WAIT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const WaitAny: WAIT_TYPE = WAIT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const WaitDequeue: WAIT_TYPE = WAIT_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const WaitDpc: WAIT_TYPE = WAIT_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
+pub const WaitNotification: WAIT_TYPE = WAIT_TYPE(2i32);
 #[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMPARTMENT_ID(pub i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const UNSPECIFIED_COMPARTMENT_ID: COMPARTMENT_ID = COMPARTMENT_ID(0i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const DEFAULT_COMPARTMENT_ID: COMPARTMENT_ID = COMPARTMENT_ID(1i32);
 impl ::core::marker::Copy for COMPARTMENT_ID {}
 impl ::core::clone::Clone for COMPARTMENT_ID {
     fn clone(&self) -> Self {
@@ -109,10 +179,6 @@ impl ::core::fmt::Debug for COMPARTMENT_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EVENT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const NotificationEvent: EVENT_TYPE = EVENT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const SynchronizationEvent: EVENT_TYPE = EVENT_TYPE(1i32);
 impl ::core::marker::Copy for EVENT_TYPE {}
 impl ::core::clone::Clone for EVENT_TYPE {
     fn clone(&self) -> Self {
@@ -136,14 +202,6 @@ impl ::core::fmt::Debug for EVENT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXCEPTION_DISPOSITION(pub i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const ExceptionContinueExecution: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(0i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const ExceptionContinueSearch: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(1i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const ExceptionNestedException: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(2i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const ExceptionCollidedUnwind: EXCEPTION_DISPOSITION = EXCEPTION_DISPOSITION(3i32);
 impl ::core::marker::Copy for EXCEPTION_DISPOSITION {}
 impl ::core::clone::Clone for EXCEPTION_DISPOSITION {
     fn clone(&self) -> Self {
@@ -167,12 +225,6 @@ impl ::core::fmt::Debug for EXCEPTION_DISPOSITION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NT_PRODUCT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const NtProductWinNt: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const NtProductLanManNt: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const NtProductServer: NT_PRODUCT_TYPE = NT_PRODUCT_TYPE(3i32);
 impl ::core::marker::Copy for NT_PRODUCT_TYPE {}
 impl ::core::clone::Clone for NT_PRODUCT_TYPE {
     fn clone(&self) -> Self {
@@ -196,44 +248,6 @@ impl ::core::fmt::Debug for NT_PRODUCT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SUITE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const SmallBusiness: SUITE_TYPE = SUITE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const Enterprise: SUITE_TYPE = SUITE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const BackOffice: SUITE_TYPE = SUITE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const CommunicationServer: SUITE_TYPE = SUITE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const TerminalServer: SUITE_TYPE = SUITE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const SmallBusinessRestricted: SUITE_TYPE = SUITE_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const EmbeddedNT: SUITE_TYPE = SUITE_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const DataCenter: SUITE_TYPE = SUITE_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const SingleUserTS: SUITE_TYPE = SUITE_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const Personal: SUITE_TYPE = SUITE_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const Blade: SUITE_TYPE = SUITE_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const EmbeddedRestricted: SUITE_TYPE = SUITE_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const SecurityAppliance: SUITE_TYPE = SUITE_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const StorageServer: SUITE_TYPE = SUITE_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const ComputeServer: SUITE_TYPE = SUITE_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const WHServer: SUITE_TYPE = SUITE_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const PhoneNT: SUITE_TYPE = SUITE_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const MultiUserTS: SUITE_TYPE = SUITE_TYPE(17i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const MaxSuiteType: SUITE_TYPE = SUITE_TYPE(18i32);
 impl ::core::marker::Copy for SUITE_TYPE {}
 impl ::core::clone::Clone for SUITE_TYPE {
     fn clone(&self) -> Self {
@@ -257,10 +271,6 @@ impl ::core::fmt::Debug for SUITE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TIMER_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const NotificationTimer: TIMER_TYPE = TIMER_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const SynchronizationTimer: TIMER_TYPE = TIMER_TYPE(1i32);
 impl ::core::marker::Copy for TIMER_TYPE {}
 impl ::core::clone::Clone for TIMER_TYPE {
     fn clone(&self) -> Self {
@@ -284,16 +294,6 @@ impl ::core::fmt::Debug for TIMER_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WAIT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const WaitAll: WAIT_TYPE = WAIT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const WaitAny: WAIT_TYPE = WAIT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const WaitNotification: WAIT_TYPE = WAIT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const WaitDequeue: WAIT_TYPE = WAIT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_Kernel\"`*"]
-pub const WaitDpc: WAIT_TYPE = WAIT_TYPE(4i32);
 impl ::core::marker::Copy for WAIT_TYPE {}
 impl ::core::clone::Clone for WAIT_TYPE {
     fn clone(&self) -> Self {

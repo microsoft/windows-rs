@@ -1188,6 +1188,16 @@ pub const DAUD_PERSIST_VOICE_PRIORITY: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DAUD_STANDARD_VOICE_PRIORITY: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DIRECTSOUNDDEVICE_DATAFLOW_CAPTURE: DIRECTSOUNDDEVICE_DATAFLOW = DIRECTSOUNDDEVICE_DATAFLOW(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DIRECTSOUNDDEVICE_DATAFLOW_RENDER: DIRECTSOUNDDEVICE_DATAFLOW = DIRECTSOUNDDEVICE_DATAFLOW(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DIRECTSOUNDDEVICE_TYPE_EMULATED: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DIRECTSOUNDDEVICE_TYPE_VXD: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DIRECTSOUNDDEVICE_TYPE_WDM: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DLSID_GMInHardware: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x178f2f24_c364_11d1_a760_0000f875ac12);
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DLSID_GSInHardware: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x178f2f25_c364_11d1_a760_0000f875ac12);
@@ -1243,6 +1253,10 @@ pub const DLS_CDL_SUBTRACT: u32 = 5u32;
 pub const DLS_CDL_XOR: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_CLOCKF_GLOBAL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_CLOCK_SYSTEM: DMUS_CLOCKTYPE = DMUS_CLOCKTYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DMUS_CLOCK_WAVE: DMUS_CLOCKTYPE = DMUS_CLOCKTYPE(1i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DMUS_DEFAULT_SIZE_OFFSETTABLE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
@@ -1400,6 +1414,22 @@ pub const DSBUSID_TOP_FRONT_LEFT: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSBUSID_TOP_FRONT_RIGHT: u32 = 14u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(5i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(6i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(3i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(7i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(8i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(4i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DSPROPSETID_DirectSoundDevice: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x84624f82_25ec_11d1_a4d8_00c04fc28aca);
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
 pub const DV_AUDIOMODE: u32 = 3840u32;
@@ -1505,10 +1535,6 @@ pub const WLOOP_TYPE_RELEASE: u32 = 2u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTSOUNDDEVICE_DATAFLOW(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DIRECTSOUNDDEVICE_DATAFLOW_RENDER: DIRECTSOUNDDEVICE_DATAFLOW = DIRECTSOUNDDEVICE_DATAFLOW(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DIRECTSOUNDDEVICE_DATAFLOW_CAPTURE: DIRECTSOUNDDEVICE_DATAFLOW = DIRECTSOUNDDEVICE_DATAFLOW(1i32);
 impl ::core::marker::Copy for DIRECTSOUNDDEVICE_DATAFLOW {}
 impl ::core::clone::Clone for DIRECTSOUNDDEVICE_DATAFLOW {
     fn clone(&self) -> Self {
@@ -1532,12 +1558,6 @@ impl ::core::fmt::Debug for DIRECTSOUNDDEVICE_DATAFLOW {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTSOUNDDEVICE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DIRECTSOUNDDEVICE_TYPE_EMULATED: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DIRECTSOUNDDEVICE_TYPE_VXD: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DIRECTSOUNDDEVICE_TYPE_WDM: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(2i32);
 impl ::core::marker::Copy for DIRECTSOUNDDEVICE_TYPE {}
 impl ::core::clone::Clone for DIRECTSOUNDDEVICE_TYPE {
     fn clone(&self) -> Self {
@@ -1561,10 +1581,6 @@ impl ::core::fmt::Debug for DIRECTSOUNDDEVICE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DMUS_CLOCKTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_CLOCK_SYSTEM: DMUS_CLOCKTYPE = DMUS_CLOCKTYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DMUS_CLOCK_WAVE: DMUS_CLOCKTYPE = DMUS_CLOCKTYPE(1i32);
 impl ::core::marker::Copy for DMUS_CLOCKTYPE {}
 impl ::core::clone::Clone for DMUS_CLOCKTYPE {
     fn clone(&self) -> Self {
@@ -1588,22 +1604,6 @@ impl ::core::fmt::Debug for DMUS_CLOCKTYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(2i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(3i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(4i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(5i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(6i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(7i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectMusic\"`*"]
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(8i32);
 impl ::core::marker::Copy for DSPROPERTY_DIRECTSOUNDDEVICE {}
 impl ::core::clone::Clone for DSPROPERTY_DIRECTSOUNDDEVICE {
     fn clone(&self) -> Self {

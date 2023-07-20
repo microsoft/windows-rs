@@ -848,6 +848,62 @@ where
     WritePwrScheme(puiid, lpszschemename.into_param().abi(), lpszdescription.into_param().abi(), lpscheme)
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_ACTIVE_OVERLAY_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(27i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_ACTIVE_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(19i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_AC_POWER_SETTING_INDEX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_AC_POWER_SETTING_MAX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(21i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_AC_POWER_SETTING_MIN: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(23i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_ATTRIBUTES: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(15i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_CREATE_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(20i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_DC_POWER_SETTING_INDEX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_DC_POWER_SETTING_MAX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(22i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_DC_POWER_SETTING_MIN: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(24i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_DEFAULT_AC_POWER_SETTING: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(7i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_DEFAULT_DC_POWER_SETTING: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(8i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_DEFAULT_SECURITY_DESCRIPTOR: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(14i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_DESCRIPTION: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(3i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_FRIENDLY_NAME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(2i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_ICON_RESOURCE: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(13i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_INDIVIDUAL_SETTING: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(18i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_OVERLAY_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(26i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_POSSIBLE_POWER_SETTING: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(4i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_POSSIBLE_POWER_SETTING_DESCRIPTION: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(6i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_POSSIBLE_POWER_SETTING_FRIENDLY_NAME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(5i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_POSSIBLE_VALUE_INCREMENT: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(11i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_POSSIBLE_VALUE_MAX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(10i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_POSSIBLE_VALUE_MIN: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(9i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_POSSIBLE_VALUE_UNITS: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(12i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_PROFILE: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(25i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(16i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ACCESS_SUBGROUP: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(17i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const ACPI_TIME_ADJUST_DAYLIGHT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const ACPI_TIME_IN_DAYLIGHT: u32 = 2u32;
@@ -855,6 +911,28 @@ pub const ACPI_TIME_IN_DAYLIGHT: u32 = 2u32;
 pub const ACPI_TIME_ZONE_UNKNOWN: u32 = 2047u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const ACTIVE_COOLING: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ALTITUDE_GROUP_POLICY: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ALTITUDE_INTERNAL_OVERRIDE: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(5i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ALTITUDE_OEM_CUSTOMIZATION: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(4i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ALTITUDE_OS_DEFAULT: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(6i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ALTITUDE_PROVISIONING: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(3i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ALTITUDE_RUNTIME_OVERRIDE: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(2i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ALTITUDE_USER: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const AcpiTimeResolutionMax: ACPI_TIME_RESOLUTION = ACPI_TIME_RESOLUTION(2i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const AcpiTimeResolutionMilliseconds: ACPI_TIME_RESOLUTION = ACPI_TIME_RESOLUTION(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const AcpiTimeResolutionSeconds: ACPI_TIME_RESOLUTION = ACPI_TIME_RESOLUTION(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const AdministratorPowerPolicy: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(9i32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const BATTERY_CAPACITY_RELATIVE: u32 = 1073741824u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
@@ -922,6 +1000,50 @@ pub const BATTERY_USB_CHARGER_STATUS_FN_DEFAULT_USB: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const BATTERY_USB_CHARGER_STATUS_UCM_PD: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const BatteryCharge: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const BatteryChargerId: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(4i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const BatteryChargerStatus: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(5i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const BatteryChargingSource: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(3i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const BatteryChargingSourceType_AC: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_CHARGING_SOURCE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const BatteryChargingSourceType_Max: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_CHARGING_SOURCE_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const BatteryChargingSourceType_USB: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_CHARGING_SOURCE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const BatteryChargingSourceType_Wireless: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_CHARGING_SOURCE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const BatteryCriticalBias: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const BatteryDeviceName: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(4i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const BatteryDeviceState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(86i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const BatteryDischarge: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(2i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const BatteryEstimatedTime: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(3i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const BatteryGranularityInformation: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const BatteryInformation: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const BatteryManufactureDate: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(5i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const BatteryManufactureName: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(6i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const BatterySerialNumber: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(8i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const BatteryTemperature: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(2i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const BatteryUniqueID: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(7i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const BlackBoxRecorderDirectAccessBuffer: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(97i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const CsDeviceNotification: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(74i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const DEVICEPOWER_AND_OPERATION: u32 = 1073741824u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const DEVICEPOWER_CLEAR_WAKEENABLED: u32 = 2u32;
@@ -940,6 +1062,8 @@ pub const DEVICEPOWER_HARDWAREID: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const DEVICEPOWER_SET_WAKEENABLED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const DisplayBurst: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(77i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const EFFECTIVE_POWER_MODE_V1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const EFFECTIVE_POWER_MODE_V2: u32 = 2u32;
@@ -950,6 +1074,32 @@ pub const EMI_VERSION_V1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const EMI_VERSION_V2: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ES_AWAYMODE_REQUIRED: EXECUTION_STATE = EXECUTION_STATE(64u32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ES_CONTINUOUS: EXECUTION_STATE = EXECUTION_STATE(2147483648u32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ES_DISPLAY_REQUIRED: EXECUTION_STATE = EXECUTION_STATE(2u32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ES_SYSTEM_REQUIRED: EXECUTION_STATE = EXECUTION_STATE(1u32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ES_USER_PRESENT: EXECUTION_STATE = EXECUTION_STATE(4u32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const EffectivePowerModeBalanced: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(2i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const EffectivePowerModeBatterySaver: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const EffectivePowerModeBetterBattery: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const EffectivePowerModeGameMode: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(5i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const EffectivePowerModeHighPerformance: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(3i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const EffectivePowerModeMaxPerformance: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(4i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const EffectivePowerModeMixedReality: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(6i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const EmiMeasurementUnitPicowattHours: EMI_MEASUREMENT_UNIT = EMI_MEASUREMENT_UNIT(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const EnableMultiBatteryDisplay: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const EnablePasswordLogon: u32 = 4u32;
@@ -959,6 +1109,14 @@ pub const EnableSysTrayBatteryMeter: u32 = 1u32;
 pub const EnableVideoDimDisplay: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const EnableWakeOnRing: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const EnergyTrackerCreate: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(92i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const EnergyTrackerQuery: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(93i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ExitLatencySamplingPercentage: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(78i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const FirmwareTableInformationRegistered: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(69i32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const GUID_CLASS_INPUT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4d1e55b2_f16f_11cf_88cb_001111000030);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
@@ -987,6 +1145,12 @@ pub const GUID_DEVICE_THERMAL_ZONE: ::windows_core::GUID = ::windows_core::GUID:
 pub const GUID_DEVINTERFACE_THERMAL_COOLING: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdbe4373d_3c81_40cb_ace4_e0e5d05f0c9f);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const GUID_DEVINTERFACE_THERMAL_MANAGER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x927ec093_69a4_4bc0_bd02_711664714463);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const GetPowerRequestList: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(45i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const GetPowerSettingValue: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(59i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const GroupPark: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(48i32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const IOCTL_ACPI_GET_REAL_TIME: u32 = 2703888u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
@@ -1046,9 +1210,149 @@ pub const IOCTL_THERMAL_SET_COOLING_POLICY: u32 = 2719876u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const IOCTL_THERMAL_SET_PASSIVE_LIMIT: u32 = 2719884u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const IdleResiliency: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(60i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const LT_DONT_CARE: LATENCY_TIME = LATENCY_TIME(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const LT_LOWEST_LATENCY: LATENCY_TIME = LATENCY_TIME(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const LastResumePerformance: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(76i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const LastSleepTime: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(15i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const LastWakeTime: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(14i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const LogicalProcessorIdling: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(56i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const MAX_ACTIVE_COOLING_LEVELS: u32 = 10u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const MAX_BATTERY_STRING_SIZE: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorCapabilities: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(40i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorInvocation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(68i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonAcDcDisplayBurst: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(5i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonAcDcDisplayBurstSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(28i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonBatteryCountChange: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(16i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonBatteryCountChangeSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(49i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonBatteryPreCritical: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(53i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonBuiltinPanel: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(47i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonDP: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(19i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(46i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonDirectedDrips: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(45i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonDisplayRequiredUnDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(48i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonFullWake: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(9i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonGracePeriod: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(17i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonIdleTimeout: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(12i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonLid: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(15i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonMax: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(55i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonNearProximity: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(22i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPdcSignal: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(27i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPdcSignalFingerprint: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(44i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPdcSignalHeyCortana: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(42i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPdcSignalHolographicShell: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(43i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPdcSignalSensorsHumanPresence: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(52i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPdcSignalWindowsMobilePwrNotif: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(40i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPdcSignalWindowsMobileShell: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(41i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPnP: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(18i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPoSetSystemState: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(7i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPolicyChange: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(13i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonPowerButton: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonRemoteConnection: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(2i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonResumeModernStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(50i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonResumePdc: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(24i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonResumeS4: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(25i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonScMonitorpower: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(3i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonScreenOffRequest: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(11i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonSessionUnlock: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(10i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonSetThreadExecutionState: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(8i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonSleepButton: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(14i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonSxTransition: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(20i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonSystemIdle: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(21i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonSystemStateEntered: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(29i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonTerminal: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(26i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonTerminalInit: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(51i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonThermalStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(23i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUnknown: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserDisplayBurst: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(6i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInput: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(4i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInputAccelerometer: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(35i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInputHid: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(36i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInputInitialization: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(39i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInputKeyboard: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(31i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInputMouse: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(32i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInputPen: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(34i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInputPoUserPresent: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(37i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInputSessionSwitch: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(38i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInputTouch: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(54i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonUserInputTouchpad: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(33i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestReasonWinrt: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(30i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestTypeOff: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestTypeOnAndPresent: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const MonitorRequestTypeToggleOn: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const NotifyUserModeLegacyPowerEvent: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(47i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const NotifyUserPowerSetting: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(26i32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const PASSIVE_COOLING: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
@@ -1075,6 +1379,28 @@ pub const PDCAP_WAKE_FROM_S3_SUPPORTED: u32 = 8388608u32;
 pub const POWER_ATTRIBUTE_HIDE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const POWER_FORCE_TRIGGER_RESET: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(2147483648u32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const POWER_LEVEL_USER_NOTIFY_EXEC: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(4u32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const POWER_LEVEL_USER_NOTIFY_SOUND: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(2u32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const POWER_LEVEL_USER_NOTIFY_TEXT: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(1u32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const POWER_PLATFORM_ROLE_V1: POWER_PLATFORM_ROLE_VERSION = POWER_PLATFORM_ROLE_VERSION(1u32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const POWER_PLATFORM_ROLE_V2: POWER_PLATFORM_ROLE_VERSION = POWER_PLATFORM_ROLE_VERSION(2u32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const POWER_USER_NOTIFY_BUTTON: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(8u32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const POWER_USER_NOTIFY_SHUTDOWN: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(16u32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PO_TZ_ACTIVE: POWER_COOLING_MODE = POWER_COOLING_MODE(0u16);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PO_TZ_INVALID_MODE: POWER_COOLING_MODE = POWER_COOLING_MODE(2u16);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PO_TZ_PASSIVE: POWER_COOLING_MODE = POWER_COOLING_MODE(1u16);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const PPM_FIRMWARE_ACPI1C2: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
@@ -1159,6 +1485,166 @@ pub const PPM_THERMAL_POLICY_CHANGE_GUID: ::windows_core::GUID = ::windows_core:
 #[cfg(feature = "Win32_Devices_Properties")]
 pub const PROCESSOR_NUMBER_PKEY: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows_core::GUID::from_u128(0x5724c81d_d5af_4c1f_a103_a06e28f204c6), pid: 1 };
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PdcInvocation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(67i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PhysicalPowerButtonPress: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(90i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PlatformIdleStates: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(80i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PlatformIdleVeto: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(82i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PlatformInformation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(66i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PlatformRole: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(75i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PlatformRoleAppliancePC: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(6i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PlatformRoleDesktop: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PlatformRoleEnterpriseServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(4i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PlatformRoleMaximum: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(9i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PlatformRoleMobile: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(2i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PlatformRolePerformanceServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(7i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PlatformRoleSOHOServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(5i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PlatformRoleSlate: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(8i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PlatformRoleUnspecified: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PlatformRoleWorkstation: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(3i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PlmPowerRequestCreate: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(72i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PoAc: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PoConditionMaximum: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(3i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PoDc: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PoHot: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(2i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerActionDisplayOff: POWER_ACTION = POWER_ACTION(8i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerActionHibernate: POWER_ACTION = POWER_ACTION(3i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerActionNone: POWER_ACTION = POWER_ACTION(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerActionReserved: POWER_ACTION = POWER_ACTION(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerActionShutdown: POWER_ACTION = POWER_ACTION(4i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerActionShutdownOff: POWER_ACTION = POWER_ACTION(6i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerActionShutdownReset: POWER_ACTION = POWER_ACTION(5i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerActionSleep: POWER_ACTION = POWER_ACTION(2i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerActionWarmEject: POWER_ACTION = POWER_ACTION(7i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerDeviceD0: DEVICE_POWER_STATE = DEVICE_POWER_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerDeviceD1: DEVICE_POWER_STATE = DEVICE_POWER_STATE(2i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerDeviceD2: DEVICE_POWER_STATE = DEVICE_POWER_STATE(3i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerDeviceD3: DEVICE_POWER_STATE = DEVICE_POWER_STATE(4i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerDeviceMaximum: DEVICE_POWER_STATE = DEVICE_POWER_STATE(5i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerDeviceUnspecified: DEVICE_POWER_STATE = DEVICE_POWER_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerInformationInternal: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(87i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerInformationLevelMaximum: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(98i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerInformationLevelUnused0: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(27i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerRequestAction: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(44i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerRequestActionInternal: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(85i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerRequestAwayModeRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerRequestCreate: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(43i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerRequestDisplayRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerRequestExecutionRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerRequestSystemRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerSettingNotificationName: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(58i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerShutdownNotification: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(39i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerSystemHibernate: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(5i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerSystemMaximum: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(7i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerSystemShutdown: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(6i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerSystemSleeping1: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(2i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerSystemSleeping2: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(3i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerSystemSleeping3: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(4i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerSystemUnspecified: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerSystemWorking: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerUserInactive: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(2i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerUserInvalid: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(3i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerUserMaximum: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(3i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerUserNotPresent: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PowerUserPresent: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ProcessorCap: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(34i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ProcessorIdleDomains: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(49i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ProcessorIdleStates: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(33i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ProcessorIdleStatesHv: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(52i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ProcessorIdleVeto: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(81i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ProcessorInformation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(11i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ProcessorInformationEx: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(46i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ProcessorLoad: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(38i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ProcessorPerfCapHv: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(54i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ProcessorPerfStates: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(32i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ProcessorPerfStatesHv: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(53i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ProcessorPowerPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(18i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ProcessorPowerPolicyCurrent: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(22i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ProcessorPowerPolicyDc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(19i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ProcessorSetIdle: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(55i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ProcessorStateHandler: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(7i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ProcessorStateHandler2: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(13i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const QueryPotentialDripsConstraint: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(91i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const RegisterSpmPowerSettings: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(79i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const SYS_BUTTON_LID: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const SYS_BUTTON_LID_CHANGED: u32 = 524288u32;
@@ -1177,6 +1663,70 @@ pub const SYS_BUTTON_SLEEP: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const SYS_BUTTON_WAKE: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ScreenOff: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(73i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SendSuspendResumeNotification: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(96i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SessionAllowExternalDmaDevices: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(95i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SessionConnectNotification: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(62i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SessionDisplayState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(42i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SessionLockState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(64i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SessionPowerCleanup: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(63i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SessionPowerInit: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(41i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SessionRITState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(61i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SetPowerSettingValue: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(25i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SetShutdownSelectedTime: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(70i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SuspendResumeInvocation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(71i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SystemBatteryState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(5i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SystemBatteryStatePrecise: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(83i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SystemExecutionState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(16i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SystemHiberFileInformation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(36i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SystemHiberFileSize: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(51i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SystemHiberFileType: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(89i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SystemHiberbootState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(65i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SystemMonitorHiberBootPowerOff: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(28i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SystemPowerCapabilities: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(4i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SystemPowerInformation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(12i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SystemPowerLoggingEntry: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(24i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SystemPowerPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SystemPowerPolicyCurrent: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(8i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SystemPowerPolicyDc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SystemPowerStateHandler: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(6i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SystemPowerStateLogging: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(23i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SystemPowerStateNotifyHandler: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(17i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SystemReserveHiberFile: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(10i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SystemVideoState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(29i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const SystemWakeSource: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(35i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const THERMAL_COOLING_INTERFACE_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const THERMAL_DEVICE_INTERFACE_VERSION: u32 = 1u32;
@@ -1191,6 +1741,16 @@ pub const TZ_ACTIVATION_REASON_CURRENT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const TZ_ACTIVATION_REASON_THERMAL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ThermalEvent: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(84i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const ThermalStandby: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(88i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const TraceApplicationPowerMessage: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(30i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const TraceApplicationPowerMessageEnd: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(31i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const TraceServicePowerMessage: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(37i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const UNKNOWN_CAPACITY: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const UNKNOWN_CURRENT: u32 = 4294967295u32;
@@ -1199,15 +1759,35 @@ pub const UNKNOWN_RATE: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const UNKNOWN_VOLTAGE: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const UpdateBlackBoxRecorder: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(94i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const UsbChargerPort_Legacy: USB_CHARGER_PORT = USB_CHARGER_PORT(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const UsbChargerPort_Max: USB_CHARGER_PORT = USB_CHARGER_PORT(2i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const UsbChargerPort_TypeC: USB_CHARGER_PORT = USB_CHARGER_PORT(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const UserNotPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const UserPresence: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(57i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const UserPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const UserUnknown: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(255i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const VerifyProcessorPowerPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(20i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const VerifyProcessorPowerPolicyDc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(21i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const VerifySystemPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(2i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const VerifySystemPolicyDc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(3i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const WakeTimerList: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(50i32);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACPI_TIME_RESOLUTION(pub i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const AcpiTimeResolutionMilliseconds: ACPI_TIME_RESOLUTION = ACPI_TIME_RESOLUTION(0i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const AcpiTimeResolutionSeconds: ACPI_TIME_RESOLUTION = ACPI_TIME_RESOLUTION(1i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const AcpiTimeResolutionMax: ACPI_TIME_RESOLUTION = ACPI_TIME_RESOLUTION(2i32);
 impl ::core::marker::Copy for ACPI_TIME_RESOLUTION {}
 impl ::core::clone::Clone for ACPI_TIME_RESOLUTION {
     fn clone(&self) -> Self {
@@ -1231,14 +1811,6 @@ impl ::core::fmt::Debug for ACPI_TIME_RESOLUTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BATTERY_CHARGING_SOURCE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const BatteryChargingSourceType_AC: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_CHARGING_SOURCE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const BatteryChargingSourceType_USB: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_CHARGING_SOURCE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const BatteryChargingSourceType_Wireless: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_CHARGING_SOURCE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const BatteryChargingSourceType_Max: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_CHARGING_SOURCE_TYPE(4i32);
 impl ::core::marker::Copy for BATTERY_CHARGING_SOURCE_TYPE {}
 impl ::core::clone::Clone for BATTERY_CHARGING_SOURCE_TYPE {
     fn clone(&self) -> Self {
@@ -1262,24 +1834,6 @@ impl ::core::fmt::Debug for BATTERY_CHARGING_SOURCE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BATTERY_QUERY_INFORMATION_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const BatteryInformation: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const BatteryGranularityInformation: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const BatteryTemperature: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(2i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const BatteryEstimatedTime: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(3i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const BatteryDeviceName: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(4i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const BatteryManufactureDate: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(5i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const BatteryManufactureName: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(6i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const BatteryUniqueID: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(7i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const BatterySerialNumber: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(8i32);
 impl ::core::marker::Copy for BATTERY_QUERY_INFORMATION_LEVEL {}
 impl ::core::clone::Clone for BATTERY_QUERY_INFORMATION_LEVEL {
     fn clone(&self) -> Self {
@@ -1303,18 +1857,6 @@ impl ::core::fmt::Debug for BATTERY_QUERY_INFORMATION_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BATTERY_SET_INFORMATION_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const BatteryCriticalBias: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const BatteryCharge: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const BatteryDischarge: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(2i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const BatteryChargingSource: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(3i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const BatteryChargerId: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(4i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const BatteryChargerStatus: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(5i32);
 impl ::core::marker::Copy for BATTERY_SET_INFORMATION_LEVEL {}
 impl ::core::clone::Clone for BATTERY_SET_INFORMATION_LEVEL {
     fn clone(&self) -> Self {
@@ -1338,18 +1880,6 @@ impl ::core::fmt::Debug for BATTERY_SET_INFORMATION_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICE_POWER_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerDeviceUnspecified: DEVICE_POWER_STATE = DEVICE_POWER_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerDeviceD0: DEVICE_POWER_STATE = DEVICE_POWER_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerDeviceD1: DEVICE_POWER_STATE = DEVICE_POWER_STATE(2i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerDeviceD2: DEVICE_POWER_STATE = DEVICE_POWER_STATE(3i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerDeviceD3: DEVICE_POWER_STATE = DEVICE_POWER_STATE(4i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerDeviceMaximum: DEVICE_POWER_STATE = DEVICE_POWER_STATE(5i32);
 impl ::core::marker::Copy for DEVICE_POWER_STATE {}
 impl ::core::clone::Clone for DEVICE_POWER_STATE {
     fn clone(&self) -> Self {
@@ -1373,20 +1903,6 @@ impl ::core::fmt::Debug for DEVICE_POWER_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EFFECTIVE_POWER_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const EffectivePowerModeBatterySaver: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(0i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const EffectivePowerModeBetterBattery: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(1i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const EffectivePowerModeBalanced: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(2i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const EffectivePowerModeHighPerformance: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(3i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const EffectivePowerModeMaxPerformance: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(4i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const EffectivePowerModeGameMode: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(5i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const EffectivePowerModeMixedReality: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(6i32);
 impl ::core::marker::Copy for EFFECTIVE_POWER_MODE {}
 impl ::core::clone::Clone for EFFECTIVE_POWER_MODE {
     fn clone(&self) -> Self {
@@ -1410,8 +1926,6 @@ impl ::core::fmt::Debug for EFFECTIVE_POWER_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EMI_MEASUREMENT_UNIT(pub i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const EmiMeasurementUnitPicowattHours: EMI_MEASUREMENT_UNIT = EMI_MEASUREMENT_UNIT(0i32);
 impl ::core::marker::Copy for EMI_MEASUREMENT_UNIT {}
 impl ::core::clone::Clone for EMI_MEASUREMENT_UNIT {
     fn clone(&self) -> Self {
@@ -1435,16 +1949,6 @@ impl ::core::fmt::Debug for EMI_MEASUREMENT_UNIT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EXECUTION_STATE(pub u32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ES_AWAYMODE_REQUIRED: EXECUTION_STATE = EXECUTION_STATE(64u32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ES_CONTINUOUS: EXECUTION_STATE = EXECUTION_STATE(2147483648u32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ES_DISPLAY_REQUIRED: EXECUTION_STATE = EXECUTION_STATE(2u32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ES_SYSTEM_REQUIRED: EXECUTION_STATE = EXECUTION_STATE(1u32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ES_USER_PRESENT: EXECUTION_STATE = EXECUTION_STATE(4u32);
 impl ::core::marker::Copy for EXECUTION_STATE {}
 impl ::core::clone::Clone for EXECUTION_STATE {
     fn clone(&self) -> Self {
@@ -1501,10 +2005,6 @@ impl ::core::ops::Not for EXECUTION_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LATENCY_TIME(pub i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const LT_DONT_CARE: LATENCY_TIME = LATENCY_TIME(0i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const LT_LOWEST_LATENCY: LATENCY_TIME = LATENCY_TIME(1i32);
 impl ::core::marker::Copy for LATENCY_TIME {}
 impl ::core::clone::Clone for LATENCY_TIME {
     fn clone(&self) -> Self {
@@ -1528,24 +2028,6 @@ impl ::core::fmt::Debug for LATENCY_TIME {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_ACTION(pub i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerActionNone: POWER_ACTION = POWER_ACTION(0i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerActionReserved: POWER_ACTION = POWER_ACTION(1i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerActionSleep: POWER_ACTION = POWER_ACTION(2i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerActionHibernate: POWER_ACTION = POWER_ACTION(3i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerActionShutdown: POWER_ACTION = POWER_ACTION(4i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerActionShutdownReset: POWER_ACTION = POWER_ACTION(5i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerActionShutdownOff: POWER_ACTION = POWER_ACTION(6i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerActionWarmEject: POWER_ACTION = POWER_ACTION(7i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerActionDisplayOff: POWER_ACTION = POWER_ACTION(8i32);
 impl ::core::marker::Copy for POWER_ACTION {}
 impl ::core::clone::Clone for POWER_ACTION {
     fn clone(&self) -> Self {
@@ -1569,18 +2051,6 @@ impl ::core::fmt::Debug for POWER_ACTION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_ACTION_POLICY_EVENT_CODE(pub u32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const POWER_FORCE_TRIGGER_RESET: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(2147483648u32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const POWER_LEVEL_USER_NOTIFY_EXEC: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(4u32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const POWER_LEVEL_USER_NOTIFY_SOUND: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(2u32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const POWER_LEVEL_USER_NOTIFY_TEXT: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(1u32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const POWER_USER_NOTIFY_BUTTON: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(8u32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const POWER_USER_NOTIFY_SHUTDOWN: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(16u32);
 impl ::core::marker::Copy for POWER_ACTION_POLICY_EVENT_CODE {}
 impl ::core::clone::Clone for POWER_ACTION_POLICY_EVENT_CODE {
     fn clone(&self) -> Self {
@@ -1637,12 +2107,6 @@ impl ::core::ops::Not for POWER_ACTION_POLICY_EVENT_CODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_COOLING_MODE(pub u16);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PO_TZ_ACTIVE: POWER_COOLING_MODE = POWER_COOLING_MODE(0u16);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PO_TZ_PASSIVE: POWER_COOLING_MODE = POWER_COOLING_MODE(1u16);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PO_TZ_INVALID_MODE: POWER_COOLING_MODE = POWER_COOLING_MODE(2u16);
 impl ::core::marker::Copy for POWER_COOLING_MODE {}
 impl ::core::clone::Clone for POWER_COOLING_MODE {
     fn clone(&self) -> Self {
@@ -1666,62 +2130,6 @@ impl ::core::fmt::Debug for POWER_COOLING_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_DATA_ACCESSOR(pub i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_AC_POWER_SETTING_INDEX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(0i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_DC_POWER_SETTING_INDEX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(1i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_FRIENDLY_NAME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(2i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_DESCRIPTION: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(3i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_POSSIBLE_POWER_SETTING: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(4i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_POSSIBLE_POWER_SETTING_FRIENDLY_NAME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(5i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_POSSIBLE_POWER_SETTING_DESCRIPTION: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(6i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_DEFAULT_AC_POWER_SETTING: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(7i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_DEFAULT_DC_POWER_SETTING: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(8i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_POSSIBLE_VALUE_MIN: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(9i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_POSSIBLE_VALUE_MAX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(10i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_POSSIBLE_VALUE_INCREMENT: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(11i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_POSSIBLE_VALUE_UNITS: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(12i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_ICON_RESOURCE: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(13i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_DEFAULT_SECURITY_DESCRIPTOR: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(14i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_ATTRIBUTES: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(15i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(16i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_SUBGROUP: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(17i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_INDIVIDUAL_SETTING: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(18i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_ACTIVE_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(19i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_CREATE_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(20i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_AC_POWER_SETTING_MAX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(21i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_DC_POWER_SETTING_MAX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(22i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_AC_POWER_SETTING_MIN: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(23i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_DC_POWER_SETTING_MIN: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(24i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_PROFILE: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(25i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_OVERLAY_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(26i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ACCESS_ACTIVE_OVERLAY_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(27i32);
 impl ::core::marker::Copy for POWER_DATA_ACCESSOR {}
 impl ::core::clone::Clone for POWER_DATA_ACCESSOR {
     fn clone(&self) -> Self {
@@ -1745,204 +2153,6 @@ impl ::core::fmt::Debug for POWER_DATA_ACCESSOR {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_INFORMATION_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SystemPowerPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SystemPowerPolicyDc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const VerifySystemPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(2i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const VerifySystemPolicyDc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(3i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SystemPowerCapabilities: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(4i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SystemBatteryState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(5i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SystemPowerStateHandler: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(6i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ProcessorStateHandler: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(7i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SystemPowerPolicyCurrent: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(8i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const AdministratorPowerPolicy: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(9i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SystemReserveHiberFile: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(10i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ProcessorInformation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(11i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SystemPowerInformation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(12i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ProcessorStateHandler2: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(13i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const LastWakeTime: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(14i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const LastSleepTime: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(15i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SystemExecutionState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(16i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SystemPowerStateNotifyHandler: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(17i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ProcessorPowerPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(18i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ProcessorPowerPolicyDc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(19i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const VerifyProcessorPowerPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(20i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const VerifyProcessorPowerPolicyDc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(21i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ProcessorPowerPolicyCurrent: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(22i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SystemPowerStateLogging: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(23i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SystemPowerLoggingEntry: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(24i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SetPowerSettingValue: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(25i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const NotifyUserPowerSetting: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(26i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerInformationLevelUnused0: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(27i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SystemMonitorHiberBootPowerOff: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(28i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SystemVideoState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(29i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const TraceApplicationPowerMessage: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(30i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const TraceApplicationPowerMessageEnd: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(31i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ProcessorPerfStates: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(32i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ProcessorIdleStates: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(33i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ProcessorCap: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(34i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SystemWakeSource: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(35i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SystemHiberFileInformation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(36i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const TraceServicePowerMessage: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(37i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ProcessorLoad: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(38i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerShutdownNotification: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(39i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorCapabilities: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(40i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SessionPowerInit: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(41i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SessionDisplayState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(42i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerRequestCreate: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(43i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerRequestAction: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(44i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const GetPowerRequestList: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(45i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ProcessorInformationEx: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(46i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const NotifyUserModeLegacyPowerEvent: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(47i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const GroupPark: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(48i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ProcessorIdleDomains: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(49i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const WakeTimerList: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(50i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SystemHiberFileSize: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(51i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ProcessorIdleStatesHv: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(52i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ProcessorPerfStatesHv: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(53i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ProcessorPerfCapHv: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(54i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ProcessorSetIdle: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(55i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const LogicalProcessorIdling: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(56i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const UserPresence: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(57i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerSettingNotificationName: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(58i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const GetPowerSettingValue: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(59i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const IdleResiliency: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(60i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SessionRITState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(61i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SessionConnectNotification: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(62i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SessionPowerCleanup: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(63i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SessionLockState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(64i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SystemHiberbootState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(65i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PlatformInformation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(66i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PdcInvocation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(67i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorInvocation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(68i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const FirmwareTableInformationRegistered: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(69i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SetShutdownSelectedTime: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(70i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SuspendResumeInvocation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(71i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PlmPowerRequestCreate: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(72i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ScreenOff: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(73i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const CsDeviceNotification: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(74i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PlatformRole: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(75i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const LastResumePerformance: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(76i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const DisplayBurst: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(77i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ExitLatencySamplingPercentage: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(78i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const RegisterSpmPowerSettings: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(79i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PlatformIdleStates: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(80i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ProcessorIdleVeto: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(81i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PlatformIdleVeto: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(82i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SystemBatteryStatePrecise: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(83i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ThermalEvent: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(84i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerRequestActionInternal: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(85i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const BatteryDeviceState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(86i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerInformationInternal: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(87i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ThermalStandby: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(88i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SystemHiberFileType: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(89i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PhysicalPowerButtonPress: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(90i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const QueryPotentialDripsConstraint: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(91i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const EnergyTrackerCreate: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(92i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const EnergyTrackerQuery: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(93i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const UpdateBlackBoxRecorder: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(94i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SessionAllowExternalDmaDevices: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(95i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const SendSuspendResumeNotification: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(96i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const BlackBoxRecorderDirectAccessBuffer: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(97i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerInformationLevelMaximum: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(98i32);
 impl ::core::marker::Copy for POWER_INFORMATION_LEVEL {}
 impl ::core::clone::Clone for POWER_INFORMATION_LEVEL {
     fn clone(&self) -> Self {
@@ -1966,118 +2176,6 @@ impl ::core::fmt::Debug for POWER_INFORMATION_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_MONITOR_REQUEST_REASON(pub i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonUnknown: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(0i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonPowerButton: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(1i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonRemoteConnection: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(2i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonScMonitorpower: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(3i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonUserInput: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(4i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonAcDcDisplayBurst: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(5i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonUserDisplayBurst: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(6i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonPoSetSystemState: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(7i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonSetThreadExecutionState: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(8i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonFullWake: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(9i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonSessionUnlock: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(10i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonScreenOffRequest: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(11i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonIdleTimeout: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(12i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonPolicyChange: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(13i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonSleepButton: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(14i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonLid: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(15i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonBatteryCountChange: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(16i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonGracePeriod: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(17i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonPnP: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(18i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonDP: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(19i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonSxTransition: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(20i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonSystemIdle: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(21i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonNearProximity: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(22i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonThermalStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(23i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonResumePdc: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(24i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonResumeS4: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(25i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonTerminal: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(26i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonPdcSignal: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(27i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonAcDcDisplayBurstSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(28i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonSystemStateEntered: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(29i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonWinrt: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(30i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonUserInputKeyboard: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(31i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonUserInputMouse: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(32i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonUserInputTouchpad: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(33i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonUserInputPen: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(34i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonUserInputAccelerometer: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(35i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonUserInputHid: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(36i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonUserInputPoUserPresent: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(37i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonUserInputSessionSwitch: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(38i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonUserInputInitialization: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(39i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonPdcSignalWindowsMobilePwrNotif: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(40i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonPdcSignalWindowsMobileShell: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(41i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonPdcSignalHeyCortana: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(42i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonPdcSignalHolographicShell: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(43i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonPdcSignalFingerprint: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(44i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonDirectedDrips: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(45i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(46i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonBuiltinPanel: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(47i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonDisplayRequiredUnDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(48i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonBatteryCountChangeSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(49i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonResumeModernStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(50i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonTerminalInit: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(51i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonPdcSignalSensorsHumanPresence: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(52i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonBatteryPreCritical: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(53i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonUserInputTouch: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(54i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestReasonMax: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(55i32);
 impl ::core::marker::Copy for POWER_MONITOR_REQUEST_REASON {}
 impl ::core::clone::Clone for POWER_MONITOR_REQUEST_REASON {
     fn clone(&self) -> Self {
@@ -2101,12 +2199,6 @@ impl ::core::fmt::Debug for POWER_MONITOR_REQUEST_REASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_MONITOR_REQUEST_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestTypeOff: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestTypeOnAndPresent: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const MonitorRequestTypeToggleOn: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(2i32);
 impl ::core::marker::Copy for POWER_MONITOR_REQUEST_TYPE {}
 impl ::core::clone::Clone for POWER_MONITOR_REQUEST_TYPE {
     fn clone(&self) -> Self {
@@ -2130,26 +2222,6 @@ impl ::core::fmt::Debug for POWER_MONITOR_REQUEST_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_PLATFORM_ROLE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PlatformRoleUnspecified: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(0i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PlatformRoleDesktop: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(1i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PlatformRoleMobile: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(2i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PlatformRoleWorkstation: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(3i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PlatformRoleEnterpriseServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(4i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PlatformRoleSOHOServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(5i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PlatformRoleAppliancePC: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(6i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PlatformRolePerformanceServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(7i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PlatformRoleSlate: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(8i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PlatformRoleMaximum: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(9i32);
 impl ::core::marker::Copy for POWER_PLATFORM_ROLE {}
 impl ::core::clone::Clone for POWER_PLATFORM_ROLE {
     fn clone(&self) -> Self {
@@ -2173,10 +2245,6 @@ impl ::core::fmt::Debug for POWER_PLATFORM_ROLE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_PLATFORM_ROLE_VERSION(pub u32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const POWER_PLATFORM_ROLE_V1: POWER_PLATFORM_ROLE_VERSION = POWER_PLATFORM_ROLE_VERSION(1u32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const POWER_PLATFORM_ROLE_V2: POWER_PLATFORM_ROLE_VERSION = POWER_PLATFORM_ROLE_VERSION(2u32);
 impl ::core::marker::Copy for POWER_PLATFORM_ROLE_VERSION {}
 impl ::core::clone::Clone for POWER_PLATFORM_ROLE_VERSION {
     fn clone(&self) -> Self {
@@ -2200,14 +2268,6 @@ impl ::core::fmt::Debug for POWER_PLATFORM_ROLE_VERSION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_REQUEST_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerRequestDisplayRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerRequestSystemRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerRequestAwayModeRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerRequestExecutionRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(3i32);
 impl ::core::marker::Copy for POWER_REQUEST_TYPE {}
 impl ::core::clone::Clone for POWER_REQUEST_TYPE {
     fn clone(&self) -> Self {
@@ -2231,20 +2291,6 @@ impl ::core::fmt::Debug for POWER_REQUEST_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_SETTING_ALTITUDE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ALTITUDE_GROUP_POLICY: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(0i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ALTITUDE_USER: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(1i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ALTITUDE_RUNTIME_OVERRIDE: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(2i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ALTITUDE_PROVISIONING: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(3i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ALTITUDE_OEM_CUSTOMIZATION: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(4i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ALTITUDE_INTERNAL_OVERRIDE: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(5i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const ALTITUDE_OS_DEFAULT: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(6i32);
 impl ::core::marker::Copy for POWER_SETTING_ALTITUDE {}
 impl ::core::clone::Clone for POWER_SETTING_ALTITUDE {
     fn clone(&self) -> Self {
@@ -2268,12 +2314,6 @@ impl ::core::fmt::Debug for POWER_SETTING_ALTITUDE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_USER_PRESENCE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const UserNotPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const UserPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const UserUnknown: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(255i32);
 impl ::core::marker::Copy for POWER_USER_PRESENCE_TYPE {}
 impl ::core::clone::Clone for POWER_USER_PRESENCE_TYPE {
     fn clone(&self) -> Self {
@@ -2297,14 +2337,6 @@ impl ::core::fmt::Debug for POWER_USER_PRESENCE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEM_POWER_CONDITION(pub i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PoAc: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(0i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PoDc: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(1i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PoHot: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(2i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PoConditionMaximum: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(3i32);
 impl ::core::marker::Copy for SYSTEM_POWER_CONDITION {}
 impl ::core::clone::Clone for SYSTEM_POWER_CONDITION {
     fn clone(&self) -> Self {
@@ -2328,22 +2360,6 @@ impl ::core::fmt::Debug for SYSTEM_POWER_CONDITION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYSTEM_POWER_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerSystemUnspecified: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerSystemWorking: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerSystemSleeping1: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(2i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerSystemSleeping2: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(3i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerSystemSleeping3: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(4i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerSystemHibernate: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(5i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerSystemShutdown: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(6i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerSystemMaximum: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(7i32);
 impl ::core::marker::Copy for SYSTEM_POWER_STATE {}
 impl ::core::clone::Clone for SYSTEM_POWER_STATE {
     fn clone(&self) -> Self {
@@ -2367,12 +2383,6 @@ impl ::core::fmt::Debug for SYSTEM_POWER_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USB_CHARGER_PORT(pub i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const UsbChargerPort_Legacy: USB_CHARGER_PORT = USB_CHARGER_PORT(0i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const UsbChargerPort_TypeC: USB_CHARGER_PORT = USB_CHARGER_PORT(1i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const UsbChargerPort_Max: USB_CHARGER_PORT = USB_CHARGER_PORT(2i32);
 impl ::core::marker::Copy for USB_CHARGER_PORT {}
 impl ::core::clone::Clone for USB_CHARGER_PORT {
     fn clone(&self) -> Self {
@@ -2396,16 +2406,6 @@ impl ::core::fmt::Debug for USB_CHARGER_PORT {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USER_ACTIVITY_PRESENCE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerUserPresent: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(0i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerUserNotPresent: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(1i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerUserInactive: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(2i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerUserMaximum: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(3i32);
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
-pub const PowerUserInvalid: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(3i32);
 impl ::core::marker::Copy for USER_ACTIVITY_PRESENCE {}
 impl ::core::clone::Clone for USER_ACTIVITY_PRESENCE {
     fn clone(&self) -> Self {

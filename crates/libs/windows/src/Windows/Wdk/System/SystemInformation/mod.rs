@@ -22,31 +22,31 @@ pub unsafe fn NtQueryTimerResolution(maximumtime: *mut u32, minimumtime: *mut u3
     NtQueryTimerResolution(maximumtime, minimumtime, currenttime).ok()
 }
 #[doc = "*Required features: `\"Wdk_System_SystemInformation\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SYSTEM_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Wdk_System_SystemInformation\"`*"]
 pub const SystemBasicInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(0i32);
+#[doc = "*Required features: `\"Wdk_System_SystemInformation\"`*"]
+pub const SystemCodeIntegrityInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(103i32);
+#[doc = "*Required features: `\"Wdk_System_SystemInformation\"`*"]
+pub const SystemExceptionInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(33i32);
+#[doc = "*Required features: `\"Wdk_System_SystemInformation\"`*"]
+pub const SystemInterruptInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(23i32);
+#[doc = "*Required features: `\"Wdk_System_SystemInformation\"`*"]
+pub const SystemLookasideInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(45i32);
 #[doc = "*Required features: `\"Wdk_System_SystemInformation\"`*"]
 pub const SystemPerformanceInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(2i32);
 #[doc = "*Required features: `\"Wdk_System_SystemInformation\"`*"]
-pub const SystemTimeOfDayInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(3i32);
+pub const SystemPolicyInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(134i32);
 #[doc = "*Required features: `\"Wdk_System_SystemInformation\"`*"]
 pub const SystemProcessInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(5i32);
 #[doc = "*Required features: `\"Wdk_System_SystemInformation\"`*"]
 pub const SystemProcessorPerformanceInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(8i32);
 #[doc = "*Required features: `\"Wdk_System_SystemInformation\"`*"]
-pub const SystemInterruptInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(23i32);
-#[doc = "*Required features: `\"Wdk_System_SystemInformation\"`*"]
-pub const SystemExceptionInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(33i32);
-#[doc = "*Required features: `\"Wdk_System_SystemInformation\"`*"]
 pub const SystemRegistryQuotaInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(37i32);
 #[doc = "*Required features: `\"Wdk_System_SystemInformation\"`*"]
-pub const SystemLookasideInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(45i32);
+pub const SystemTimeOfDayInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(3i32);
 #[doc = "*Required features: `\"Wdk_System_SystemInformation\"`*"]
-pub const SystemCodeIntegrityInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(103i32);
-#[doc = "*Required features: `\"Wdk_System_SystemInformation\"`*"]
-pub const SystemPolicyInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(134i32);
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SYSTEM_INFORMATION_CLASS(pub i32);
 impl ::core::marker::Copy for SYSTEM_INFORMATION_CLASS {}
 impl ::core::clone::Clone for SYSTEM_INFORMATION_CLASS {
     fn clone(&self) -> Self {

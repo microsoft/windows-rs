@@ -1,6 +1,6 @@
 mod args;
 mod error;
-mod idl;
+mod rd;
 mod rust;
 mod tokens;
 mod tree;
@@ -33,11 +33,11 @@ fn run() -> Result<()> {
             r#"Usage: riddle.exe [options...]
 
 Options:
-  --in  <path>          Path to files and directories containing .winmd and .idl files
-  --out <path>          Path to .winmd, .idl, or .rs file to generate
+  --in  <path>          Path to files and directories containing .winmd and .rd files
+  --out <path>          Path to .winmd, .rd, or .rs file to generate
   --filter <namespace>  Namespaces to include or !exclude in output
   --config <key=value>  Override a configuration value
-  --format              Format .idl files only
+  --format              Format .rd files only
   --etc <path>          File containing command line options
 "#
         );
@@ -98,17 +98,17 @@ Options:
             ));
         }
 
-        let input = filter_input(&input, &["idl"])?;
+        let input = filter_input(&input, &["rd"])?;
 
         if input.is_empty() {
-            return Err(Error::new("no .idl inputs"));
+            return Err(Error::new("no .rd inputs"));
         }
 
         for path in &input {
             read_file_text(path)
-                .and_then(|source| idl::File::parse_str(&source))
+                .and_then(|source| rd::File::parse_str(&source))
                 .and_then(|file| write_to_file(path, file.fmt()))
-                .map_err(|_| Error::new("failed to format .idl file").with_path(path))?;
+                .map_err(|err| err.with_path(path))?;
         }
 
         return Ok(());
@@ -133,10 +133,10 @@ Options:
     winmd::verify(&reader, &filter)?;
 
     match extension(&output) {
-        "idl" => idl::from_reader(&reader, &filter, config, &output)?,
+        "rd" => rd::from_reader(&reader, &filter, config, &output)?,
         "winmd" => winmd::from_reader(&reader, &filter, config, &output)?,
         "rs" => rust::from_reader(&reader, &filter, config, &output)?,
-        _ => return Err(Error::new("output extension must be one of winmd/idl/rs")),
+        _ => return Err(Error::new("output extension must be one of winmd/rd/rs")),
     }
 
     let elapsed = time.elapsed().as_secs_f32();
@@ -195,7 +195,7 @@ fn filter_input(input: &[&str], extensions: &[&str]) -> Result<Vec<String>> {
 }
 
 fn read_input(input: &[&str]) -> Result<Vec<metadata::File>> {
-    let input = filter_input(input, &["winmd", "idl"])?;
+    let input = filter_input(input, &["winmd", "rd"])?;
 
     if input.is_empty() {
         return Err(Error::new("no inputs"));
@@ -239,7 +239,7 @@ fn read_file_lines(path: &str) -> Result<Vec<String>> {
 
 fn read_idl_file(path: &str) -> Result<metadata::File> {
     read_file_text(path)
-        .and_then(|source| idl::File::parse_str(&source))
+        .and_then(|source| rd::File::parse_str(&source))
         .and_then(|file| file.into_winmd())
         .map(|bytes| {
             // TODO: Write bytes to file if you need to debug the intermediate .winmd file like so:

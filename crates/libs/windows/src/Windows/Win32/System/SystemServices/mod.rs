@@ -109,11 +109,129 @@ pub const ACTIVATION_CONTEXT_SECTION_WINDOW_CLASS_REDIRECTION: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const ACTIVATION_CONTEXT_SECTION_WINRT_ACTIVATABLE_CLASSES: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ALERT_SYSTEM_CRITICAL: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(5u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ALERT_SYSTEM_ERROR: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(3u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ALERT_SYSTEM_INFORMATIONAL: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(1u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ALERT_SYSTEM_QUERY: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(4u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ALERT_SYSTEM_WARNING: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(2u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const ALL_POWERSCHEMES_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x68a1e95e_13ea_41e1_8011_0c496ca490b0);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const ALL_PROCESSOR_GROUPS: u32 = 65535u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const ANYSIZE_ARRAY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_BASS_BOOST: APPCOMMAND_ID = APPCOMMAND_ID(20u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_BASS_DOWN: APPCOMMAND_ID = APPCOMMAND_ID(19u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_BASS_UP: APPCOMMAND_ID = APPCOMMAND_ID(21u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_BROWSER_BACKWARD: APPCOMMAND_ID = APPCOMMAND_ID(1u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_BROWSER_FAVORITES: APPCOMMAND_ID = APPCOMMAND_ID(6u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_BROWSER_FORWARD: APPCOMMAND_ID = APPCOMMAND_ID(2u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_BROWSER_HOME: APPCOMMAND_ID = APPCOMMAND_ID(7u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_BROWSER_REFRESH: APPCOMMAND_ID = APPCOMMAND_ID(3u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_BROWSER_SEARCH: APPCOMMAND_ID = APPCOMMAND_ID(5u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_BROWSER_STOP: APPCOMMAND_ID = APPCOMMAND_ID(4u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_CLOSE: APPCOMMAND_ID = APPCOMMAND_ID(31u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_COPY: APPCOMMAND_ID = APPCOMMAND_ID(36u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_CORRECTION_LIST: APPCOMMAND_ID = APPCOMMAND_ID(45u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_CUT: APPCOMMAND_ID = APPCOMMAND_ID(37u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_DELETE: APPCOMMAND_ID = APPCOMMAND_ID(53u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_DICTATE_OR_COMMAND_CONTROL_TOGGLE: APPCOMMAND_ID = APPCOMMAND_ID(43u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_DWM_FLIP3D: APPCOMMAND_ID = APPCOMMAND_ID(54u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_FIND: APPCOMMAND_ID = APPCOMMAND_ID(28u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_FORWARD_MAIL: APPCOMMAND_ID = APPCOMMAND_ID(40u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_HELP: APPCOMMAND_ID = APPCOMMAND_ID(27u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_LAUNCH_APP1: APPCOMMAND_ID = APPCOMMAND_ID(17u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_LAUNCH_APP2: APPCOMMAND_ID = APPCOMMAND_ID(18u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_LAUNCH_MAIL: APPCOMMAND_ID = APPCOMMAND_ID(15u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_LAUNCH_MEDIA_SELECT: APPCOMMAND_ID = APPCOMMAND_ID(16u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_MEDIA_CHANNEL_DOWN: APPCOMMAND_ID = APPCOMMAND_ID(52u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_MEDIA_CHANNEL_UP: APPCOMMAND_ID = APPCOMMAND_ID(51u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_MEDIA_FAST_FORWARD: APPCOMMAND_ID = APPCOMMAND_ID(49u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_MEDIA_NEXTTRACK: APPCOMMAND_ID = APPCOMMAND_ID(11u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_MEDIA_PAUSE: APPCOMMAND_ID = APPCOMMAND_ID(47u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_MEDIA_PLAY: APPCOMMAND_ID = APPCOMMAND_ID(46u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_MEDIA_PLAY_PAUSE: APPCOMMAND_ID = APPCOMMAND_ID(14u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_MEDIA_PREVIOUSTRACK: APPCOMMAND_ID = APPCOMMAND_ID(12u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_MEDIA_RECORD: APPCOMMAND_ID = APPCOMMAND_ID(48u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_MEDIA_REWIND: APPCOMMAND_ID = APPCOMMAND_ID(50u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_MEDIA_STOP: APPCOMMAND_ID = APPCOMMAND_ID(13u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_MICROPHONE_VOLUME_DOWN: APPCOMMAND_ID = APPCOMMAND_ID(25u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_MICROPHONE_VOLUME_MUTE: APPCOMMAND_ID = APPCOMMAND_ID(24u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_MICROPHONE_VOLUME_UP: APPCOMMAND_ID = APPCOMMAND_ID(26u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_MIC_ON_OFF_TOGGLE: APPCOMMAND_ID = APPCOMMAND_ID(44u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_NEW: APPCOMMAND_ID = APPCOMMAND_ID(29u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_OPEN: APPCOMMAND_ID = APPCOMMAND_ID(30u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_PASTE: APPCOMMAND_ID = APPCOMMAND_ID(38u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_PRINT: APPCOMMAND_ID = APPCOMMAND_ID(33u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_REDO: APPCOMMAND_ID = APPCOMMAND_ID(35u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_REPLY_TO_MAIL: APPCOMMAND_ID = APPCOMMAND_ID(39u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_SAVE: APPCOMMAND_ID = APPCOMMAND_ID(32u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_SEND_MAIL: APPCOMMAND_ID = APPCOMMAND_ID(41u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_SPELL_CHECK: APPCOMMAND_ID = APPCOMMAND_ID(42u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_TREBLE_DOWN: APPCOMMAND_ID = APPCOMMAND_ID(22u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_TREBLE_UP: APPCOMMAND_ID = APPCOMMAND_ID(23u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_UNDO: APPCOMMAND_ID = APPCOMMAND_ID(34u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_VOLUME_DOWN: APPCOMMAND_ID = APPCOMMAND_ID(9u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_VOLUME_MUTE: APPCOMMAND_ID = APPCOMMAND_ID(8u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const APPCOMMAND_VOLUME_UP: APPCOMMAND_ID = APPCOMMAND_ID(10u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const APPLICATION_ERROR_MASK: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -147,13 +265,69 @@ pub const ARM_MAX_WATCHPOINTS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const ASSERT_BREAKPOINT: u32 = 524291u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ATF_ONOFFFEEDBACK: ATF_FLAGS = ATF_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ATF_TIMEOUTON: ATF_FLAGS = ATF_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const AUDIT_ALLOW_NO_PRIVILEGE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AccessReasonAllowedAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(65536i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AccessReasonAllowedParentAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(196608i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AccessReasonDeniedAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(131072i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AccessReasonDeniedParentAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(262144i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AccessReasonEmptyDacl: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(6291456i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AccessReasonFilterAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(10485760i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AccessReasonFromPrivilege: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(2097152i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AccessReasonIntegrityLevel: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(3145728i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AccessReasonMissingPrivilege: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(1048576i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AccessReasonNoGrant: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(8388608i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AccessReasonNoSD: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(7340032i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AccessReasonNone: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AccessReasonNotGrantedByCape: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(327680i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AccessReasonNotGrantedByParentCape: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(393216i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AccessReasonNotGrantedToAppContainer: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(458752i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AccessReasonNullDacl: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(5242880i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AccessReasonOwnership: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(4194304i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AccessReasonTrustLabel: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(9437184i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ActivationContextBasicInformation: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ActivationContextDetailedInformation: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ActivationContextManifestResourceName: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(7i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AdapterType: SERVICE_NODE_TYPE = SERVICE_NODE_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AssemblyDetailedInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AssemblyDetailedInformationInActivationContxt: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const AutoLoad: SERVICE_LOAD_TYPE = SERVICE_LOAD_TYPE(2i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const BATTERY_DISCHARGE_FLAGS_ENABLE: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const BATTERY_DISCHARGE_FLAGS_EVENTCODE_MASK: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const BREAK_DEBUG_BASE: u32 = 524288u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const BootLoad: SERVICE_LOAD_TYPE = SERVICE_LOAD_TYPE(0i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const CACHE_FULLY_ASSOCIATIVE: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -166,6 +340,48 @@ pub const CFG_CALL_TARGET_PROCESSED: u32 = 2u32;
 pub const CFG_CALL_TARGET_VALID: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const CFG_CALL_TARGET_VALID_XFG: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CFU_CF1UNDERLINE: CFE_UNDERLINE = CFE_UNDERLINE(255u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CFU_INVERT: CFE_UNDERLINE = CFE_UNDERLINE(254u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CFU_UNDERLINE: CFE_UNDERLINE = CFE_UNDERLINE(1u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CFU_UNDERLINEDASH: CFE_UNDERLINE = CFE_UNDERLINE(5u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CFU_UNDERLINEDASHDOT: CFE_UNDERLINE = CFE_UNDERLINE(6u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CFU_UNDERLINEDASHDOTDOT: CFE_UNDERLINE = CFE_UNDERLINE(7u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CFU_UNDERLINEDOTTED: CFE_UNDERLINE = CFE_UNDERLINE(4u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CFU_UNDERLINEDOUBLE: CFE_UNDERLINE = CFE_UNDERLINE(3u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CFU_UNDERLINEDOUBLEWAVE: CFE_UNDERLINE = CFE_UNDERLINE(11u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CFU_UNDERLINEHAIRLINE: CFE_UNDERLINE = CFE_UNDERLINE(10u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CFU_UNDERLINEHEAVYWAVE: CFE_UNDERLINE = CFE_UNDERLINE(12u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CFU_UNDERLINELONGDASH: CFE_UNDERLINE = CFE_UNDERLINE(13u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CFU_UNDERLINENONE: CFE_UNDERLINE = CFE_UNDERLINE(0u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CFU_UNDERLINETHICK: CFE_UNDERLINE = CFE_UNDERLINE(9u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CFU_UNDERLINETHICKDASH: CFE_UNDERLINE = CFE_UNDERLINE(14u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CFU_UNDERLINETHICKDASHDOT: CFE_UNDERLINE = CFE_UNDERLINE(15u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CFU_UNDERLINETHICKDASHDOTDOT: CFE_UNDERLINE = CFE_UNDERLINE(16u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CFU_UNDERLINETHICKDOTTED: CFE_UNDERLINE = CFE_UNDERLINE(17u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CFU_UNDERLINETHICKLONGDASH: CFE_UNDERLINE = CFE_UNDERLINE(18u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CFU_UNDERLINEWAVE: CFE_UNDERLINE = CFE_UNDERLINE(8u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CFU_UNDERLINEWORD: CFE_UNDERLINE = CFE_UNDERLINE(2u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -193,6 +409,20 @@ pub const CM_SERVICE_VIRTUAL_DISK_BOOT_LOAD: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const CM_SERVICE_WINPE_BOOT_LOAD: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const COMIMAGE_FLAGS_32BITPREFERRED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(131072i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const COMIMAGE_FLAGS_32BITREQUIRED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const COMIMAGE_FLAGS_ILONLY: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const COMIMAGE_FLAGS_IL_LIBRARY: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(4i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const COMIMAGE_FLAGS_NATIVE_ENTRYPOINT: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(16i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const COMIMAGE_FLAGS_STRONGNAMESIGNED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const COMIMAGE_FLAGS_TRACKDEBUGDATA: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(65536i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const COMPONENT_KTM: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const COMPONENT_VALID_FLAGS: u32 = 1u32;
@@ -213,6 +443,28 @@ pub const CORE_PARKING_POLICY_CHANGE_ROCKET: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const CORE_PARKING_POLICY_CHANGE_SINGLE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const COR_DELETED_NAME_LENGTH: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const COR_ILMETHOD_SECT_SMALL_MAX_DATASIZE: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(255i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const COR_VERSION_MAJOR: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const COR_VERSION_MAJOR_V2: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const COR_VERSION_MINOR: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(5i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const COR_VTABLEGAP_NAME_LENGTH: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const COR_VTABLE_32BIT: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const COR_VTABLE_64BIT: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const COR_VTABLE_CALL_MOST_DERIVED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(16i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const COR_VTABLE_FROM_UNMANAGED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(4i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const COR_VTABLE_FROM_UNMANAGED_RETAIN_APPDOMAIN: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const CREATE_BOUNDARY_DESCRIPTOR_ADD_APPCONTAINER_SID: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const CRITICAL_ACE_FLAG: u32 = 32u32;
@@ -220,6 +472,10 @@ pub const CRITICAL_ACE_FLAG: u32 = 32u32;
 pub const CTMF_INCLUDE_APPCONTAINER: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const CTMF_INCLUDE_LPAC: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CompatibilityInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(6i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const CriticalError: SERVICE_ERROR_TYPE = SERVICE_ERROR_TYPE(3i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const DEDICATED_MEMORY_CACHE_ELIGIBLE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -371,6 +627,12 @@ pub const DYNAMIC_ENFORCED_ADDRESS_RANGE_ADD: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const DYNAMIC_ENFORCED_ADDRESS_RANGE_PROCESSED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const DemandLoad: SERVICE_LOAD_TYPE = SERVICE_LOAD_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const DisableLoad: SERVICE_LOAD_TYPE = SERVICE_LOAD_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const DriverType: SERVICE_NODE_TYPE = SERVICE_NODE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const EMARCH_ENC_I17_IC_INST_WORD_POS_X: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const EMARCH_ENC_I17_IC_INST_WORD_X: u32 = 3u32;
@@ -504,6 +766,12 @@ pub const EXCEPTION_TARGET_UNWIND: u32 = 32u32;
 pub const EXCEPTION_UNWINDING: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const EXCEPTION_WRITE_FAULT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const EnlistmentBasicInformation: ENLISTMENT_INFORMATION_CLASS = ENLISTMENT_INFORMATION_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const EnlistmentCrmInformation: ENLISTMENT_INFORMATION_CLASS = ENLISTMENT_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const EnlistmentRecoveryInformation: ENLISTMENT_INFORMATION_CLASS = ENLISTMENT_INFORMATION_CLASS(1i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const FAST_FAIL_ADMINLESS_ACCESS_DENIED: u32 = 55u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -742,6 +1010,34 @@ pub const FRAME_NONFPO: u32 = 3u32;
 pub const FRAME_TRAP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const FRAME_TSS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const FileInformationInAssemblyOfAssemblyInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const FileInformationInAssemblyOfAssemblyInActivationContxt: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const FileSystemType: SERVICE_NODE_TYPE = SERVICE_NODE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const GC_ALLGESTURES: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const GC_PAN: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const GC_PAN_WITH_GUTTER: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const GC_PAN_WITH_INERTIA: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const GC_PAN_WITH_SINGLE_FINGER_HORIZONTALLY: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const GC_PAN_WITH_SINGLE_FINGER_VERTICALLY: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const GC_PRESSANDTAP: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const GC_ROLLOVER: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const GC_ROTATE: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const GC_TWOFINGERTAP: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const GC_ZOOM: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const GUID_ACDC_POWER_SOURCE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d3e9a59_e9d5_4b00_a6bd_ff34ff516548);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -1181,6 +1477,36 @@ pub const HIBERFILE_TYPE_NONE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const HIBERFILE_TYPE_REDUCED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const HiberFileBucket16GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(4i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const HiberFileBucket1GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const HiberFileBucket2GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const HiberFileBucket32GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(5i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const HiberFileBucket4GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const HiberFileBucket8GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(3i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const HiberFileBucketMax: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(7i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const HiberFileBucketUnlimited: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(6i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IGP_CONVERSION: IGP_ID = IGP_ID(8u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IGP_GETIMEVERSION: IGP_ID = IGP_ID(4294967292u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IGP_PROPERTY: IGP_ID = IGP_ID(4u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IGP_SELECT: IGP_ID = IGP_ID(24u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IGP_SENTENCE: IGP_ID = IGP_ID(12u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IGP_SETCOMPSTR: IGP_ID = IGP_ID(20u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IGP_UI: IGP_ID = IGP_ID(16u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_ARCHIVE_END: ::windows_core::PCSTR = ::windows_core::s!("`\n");
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_ARCHIVE_HYBRIDMAP_MEMBER: ::windows_core::PCSTR = ::windows_core::s!("/<HYBRIDMAP>/   ");
@@ -1195,6 +1521,8 @@ pub const IMAGE_ARCHIVE_START: ::windows_core::PCSTR = ::windows_core::s!("!<arc
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_ARCHIVE_START_SIZE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMAGE_AUX_SYMBOL_TYPE_TOKEN_DEF: IMAGE_AUX_SYMBOL_TYPE = IMAGE_AUX_SYMBOL_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_COMDAT_SELECT_ANY: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_COMDAT_SELECT_ASSOCIATIVE: u32 = 5u32;
@@ -1208,6 +1536,14 @@ pub const IMAGE_COMDAT_SELECT_NEWEST: u32 = 7u32;
 pub const IMAGE_COMDAT_SELECT_NODUPLICATES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_COMDAT_SELECT_SAME_SIZE: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMAGE_COR_EATJ_THUNK_SIZE: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(32i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMAGE_COR_MIH_BASICBLOCK: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMAGE_COR_MIH_EHRVA: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMAGE_COR_MIH_METHODRVA: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_DEBUG_MISC_EXENAME: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -2021,7 +2357,23 @@ pub const IMAGE_WEAK_EXTERN_SEARCH_LIBRARY: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMAGE_WEAK_EXTERN_SEARCH_NOLIBRARY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMPORT_OBJECT_CODE: IMPORT_OBJECT_TYPE = IMPORT_OBJECT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMPORT_OBJECT_CONST: IMPORT_OBJECT_TYPE = IMPORT_OBJECT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMPORT_OBJECT_DATA: IMPORT_OBJECT_TYPE = IMPORT_OBJECT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IMPORT_OBJECT_HDR_SIG2: u32 = 65535u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMPORT_OBJECT_NAME: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMPORT_OBJECT_NAME_EXPORTAS: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMPORT_OBJECT_NAME_NO_PREFIX: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMPORT_OBJECT_NAME_UNDECORATE: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IMPORT_OBJECT_ORDINAL: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(0i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const INITIAL_CPSR: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -2133,6 +2485,64 @@ pub const IS_TEXT_UNICODE_DBCS_LEADBYTE: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const IS_TEXT_UNICODE_UTF8: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ITWW_OPEN_CONNECT: WORD_WHEEL_OPEN_FLAGS = WORD_WHEEL_OPEN_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const IgnoreError: SERVICE_ERROR_TYPE = SERVICE_ERROR_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyEntryTypeAnsiString: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyEntryTypeBool: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyEntryTypeInt16: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyEntryTypeInt32: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyEntryTypeInt64: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyEntryTypeInt8: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyEntryTypeMaximum: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyEntryTypeNone: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyEntryTypeOverride: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyEntryTypeUInt16: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyEntryTypeUInt32: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyEntryTypeUInt64: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyEntryTypeUInt8: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyEntryTypeUnicodeString: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyIdCapability: IMAGE_POLICY_ID = IMAGE_POLICY_ID(10i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyIdCrashDump: IMAGE_POLICY_ID = IMAGE_POLICY_ID(3i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyIdCrashDumpKey: IMAGE_POLICY_ID = IMAGE_POLICY_ID(4i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyIdCrashDumpKeyGuid: IMAGE_POLICY_ID = IMAGE_POLICY_ID(5i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyIdDebug: IMAGE_POLICY_ID = IMAGE_POLICY_ID(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyIdDeviceId: IMAGE_POLICY_ID = IMAGE_POLICY_ID(9i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyIdEtw: IMAGE_POLICY_ID = IMAGE_POLICY_ID(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyIdMaximum: IMAGE_POLICY_ID = IMAGE_POLICY_ID(12i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyIdNone: IMAGE_POLICY_ID = IMAGE_POLICY_ID(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyIdParentSd: IMAGE_POLICY_ID = IMAGE_POLICY_ID(6i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyIdParentSdRev: IMAGE_POLICY_ID = IMAGE_POLICY_ID(7i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyIdScenarioId: IMAGE_POLICY_ID = IMAGE_POLICY_ID(11i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ImagePolicyIdSvn: IMAGE_POLICY_ID = IMAGE_POLICY_ID(8i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const JOB_OBJECT_ASSIGN_PROCESS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const JOB_OBJECT_IMPERSONATE: u32 = 32u32;
@@ -2180,6 +2590,16 @@ pub const JOB_OBJECT_UILIMIT_ALL: u32 = 511u32;
 pub const JOB_OBJECT_UILIMIT_IME: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const JOB_OBJECT_UI_VALID_FLAGS: u32 = 511u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const KTMOBJECT_ENLISTMENT: KTMOBJECT_TYPE = KTMOBJECT_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const KTMOBJECT_INVALID: KTMOBJECT_TYPE = KTMOBJECT_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const KTMOBJECT_RESOURCE_MANAGER: KTMOBJECT_TYPE = KTMOBJECT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const KTMOBJECT_TRANSACTION: KTMOBJECT_TYPE = KTMOBJECT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const KTMOBJECT_TRANSACTION_MANAGER: KTMOBJECT_TYPE = KTMOBJECT_TYPE(1i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const LANG_AFRIKAANS: u32 = 54u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -2525,7 +2945,11 @@ pub const MAXWORD: u32 = 65535u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const MAX_ACL_REVISION: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const MAX_CLASS_NAME: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1024i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const MAX_HW_COUNTERS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const MAX_PACKAGE_NAME: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1024i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const MAX_UCSCHAR: u32 = 1114111u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -2581,9 +3005,27 @@ pub const MINSHORT: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const MIN_UCSCHAR: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const MK_CONTROL: MODIFIERKEYS_FLAGS = MODIFIERKEYS_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const MK_LBUTTON: MODIFIERKEYS_FLAGS = MODIFIERKEYS_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const MK_MBUTTON: MODIFIERKEYS_FLAGS = MODIFIERKEYS_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const MK_RBUTTON: MODIFIERKEYS_FLAGS = MODIFIERKEYS_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const MK_SHIFT: MODIFIERKEYS_FLAGS = MODIFIERKEYS_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const MK_XBUTTON1: MODIFIERKEYS_FLAGS = MODIFIERKEYS_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const MK_XBUTTON2: MODIFIERKEYS_FLAGS = MODIFIERKEYS_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const MS_PPM_SOFTWARE_ALL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const MUTANT_QUERY_STATE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const MaxActivationContextInfoClass: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(8i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const NATIVE_TYPE_MAX_CB: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const NETWORK_APP_INSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -2612,6 +3054,8 @@ pub const N_TMASK1: u32 = 192u32;
 pub const N_TMASK2: u32 = 240u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const N_TSHIFT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const NormalError: SERVICE_ERROR_TYPE = SERVICE_ERROR_TYPE(1i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const OUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK_EXPORT_NAME: ::windows_core::PCSTR = ::windows_core::s!("OutOfProcessFunctionTableCallback");
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -3047,6 +3491,26 @@ pub const PRODUCT_XBOX_SYSTEMOS: u32 = 192u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const PcTeb: u32 = 24u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const PdataCrChained: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(3i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const PdataCrChainedWithPac: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const PdataCrUnchained: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const PdataCrUnchainedSavedLr: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const PdataPackedUnwindFragment: ARM64_FNPDATA_FLAGS = ARM64_FNPDATA_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const PdataPackedUnwindFunction: ARM64_FNPDATA_FLAGS = ARM64_FNPDATA_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const PdataRefToFullXdata: ARM64_FNPDATA_FLAGS = ARM64_FNPDATA_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const PowerMonitorDim: MONITOR_DISPLAY_STATE = MONITOR_DISPLAY_STATE(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const PowerMonitorOff: MONITOR_DISPLAY_STATE = MONITOR_DISPLAY_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const PowerMonitorOn: MONITOR_DISPLAY_STATE = MONITOR_DISPLAY_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const QUOTA_LIMITS_HARDWS_MAX_DISABLE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const QUOTA_LIMITS_HARDWS_MAX_ENABLE: u32 = 4u32;
@@ -3060,6 +3524,16 @@ pub const QUOTA_LIMITS_USE_DEFAULT_LIMITS: u32 = 16u32;
 pub const READ_THREAD_PROFILING_FLAG_DISPATCHING: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const READ_THREAD_PROFILING_FLAG_HARDWARE_COUNTERS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const RECO_COPY: RECO_FLAGS = RECO_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const RECO_CUT: RECO_FLAGS = RECO_FLAGS(3u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const RECO_DRAG: RECO_FLAGS = RECO_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const RECO_DROP: RECO_FLAGS = RECO_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const RECO_PASTE: RECO_FLAGS = RECO_FLAGS(0u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -3142,6 +3616,14 @@ pub const RTL_UMS_VERSION: u32 = 256u32;
 pub const RTL_VIRTUAL_UNWIND2_VALIDATE_PAC: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const RUNTIME_FUNCTION_INDIRECT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const RecognizerType: SERVICE_NODE_TYPE = SERVICE_NODE_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ResourceManagerBasicInformation: RESOURCEMANAGER_INFORMATION_CLASS = RESOURCEMANAGER_INFORMATION_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const ResourceManagerCompletionInformation: RESOURCEMANAGER_INFORMATION_CLASS = RESOURCEMANAGER_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const RunlevelInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(5i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SCRUB_DATA_INPUT_FLAG_IGNORE_REDUNDANCY: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -3449,6 +3931,16 @@ pub const SEF_FORCE_USER_MODE: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SEF_NORMALIZE_OUTPUT_DESCRIPTOR: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SERVERSILO_INITING: SERVERSILO_STATE = SERVERSILO_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SERVERSILO_SHUTTING_DOWN: SERVERSILO_STATE = SERVERSILO_STATE(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SERVERSILO_STARTED: SERVERSILO_STATE = SERVERSILO_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SERVERSILO_TERMINATED: SERVERSILO_STATE = SERVERSILO_STATE(4i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SERVERSILO_TERMINATING: SERVERSILO_STATE = SERVERSILO_STATE(3i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SERVICE_INTERACTIVE_PROCESS: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SERVICE_PKG_SERVICE: u32 = 512u32;
@@ -3549,6 +4041,78 @@ pub const SE_SIGNING_LEVEL_WINDOWS: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SE_SIGNING_LEVEL_WINDOWS_TCB: u32 = 14u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_BROWSABLE: SFGAO_FLAGS = SFGAO_FLAGS(134217728u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_CANCOPY: SFGAO_FLAGS = SFGAO_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_CANDELETE: SFGAO_FLAGS = SFGAO_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_CANLINK: SFGAO_FLAGS = SFGAO_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_CANMONIKER: SFGAO_FLAGS = SFGAO_FLAGS(4194304u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_CANMOVE: SFGAO_FLAGS = SFGAO_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_CANRENAME: SFGAO_FLAGS = SFGAO_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_CAPABILITYMASK: SFGAO_FLAGS = SFGAO_FLAGS(375u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_COMPRESSED: SFGAO_FLAGS = SFGAO_FLAGS(67108864u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_CONTENTSMASK: SFGAO_FLAGS = SFGAO_FLAGS(2147483648u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_DISPLAYATTRMASK: SFGAO_FLAGS = SFGAO_FLAGS(1032192u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_DROPTARGET: SFGAO_FLAGS = SFGAO_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_ENCRYPTED: SFGAO_FLAGS = SFGAO_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_FILESYSANCESTOR: SFGAO_FLAGS = SFGAO_FLAGS(268435456u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_FILESYSTEM: SFGAO_FLAGS = SFGAO_FLAGS(1073741824u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_FOLDER: SFGAO_FLAGS = SFGAO_FLAGS(536870912u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_GHOSTED: SFGAO_FLAGS = SFGAO_FLAGS(32768u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_HASPROPSHEET: SFGAO_FLAGS = SFGAO_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_HASSTORAGE: SFGAO_FLAGS = SFGAO_FLAGS(4194304u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_HASSUBFOLDER: SFGAO_FLAGS = SFGAO_FLAGS(2147483648u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_HIDDEN: SFGAO_FLAGS = SFGAO_FLAGS(524288u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_ISSLOW: SFGAO_FLAGS = SFGAO_FLAGS(16384u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_LINK: SFGAO_FLAGS = SFGAO_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_NEWCONTENT: SFGAO_FLAGS = SFGAO_FLAGS(2097152u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_NONENUMERATED: SFGAO_FLAGS = SFGAO_FLAGS(1048576u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_PKEYSFGAOMASK: SFGAO_FLAGS = SFGAO_FLAGS(2164539392u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_PLACEHOLDER: SFGAO_FLAGS = SFGAO_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_READONLY: SFGAO_FLAGS = SFGAO_FLAGS(262144u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_REMOVABLE: SFGAO_FLAGS = SFGAO_FLAGS(33554432u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_SHARE: SFGAO_FLAGS = SFGAO_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_STORAGE: SFGAO_FLAGS = SFGAO_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_STORAGEANCESTOR: SFGAO_FLAGS = SFGAO_FLAGS(8388608u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_STORAGECAPMASK: SFGAO_FLAGS = SFGAO_FLAGS(1891958792u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_STREAM: SFGAO_FLAGS = SFGAO_FLAGS(4194304u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_SYSTEM: SFGAO_FLAGS = SFGAO_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SFGAO_VALIDATE: SFGAO_FLAGS = SFGAO_FLAGS(16777216u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SHUFFLE_FILE_FLAG_SKIP_INITIALIZING_NEW_CLUSTERS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SID_HASH_SIZE: u32 = 32u32;
@@ -3608,6 +4172,70 @@ pub const SORT_JAPANESE_XJIS: u32 = 0u32;
 pub const SORT_KOREAN_KSC: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SORT_KOREAN_UNICODE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_BITMAP: STATIC_STYLES = STATIC_STYLES(14u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_BLACKFRAME: STATIC_STYLES = STATIC_STYLES(7u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_BLACKRECT: STATIC_STYLES = STATIC_STYLES(4u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_CENTER: STATIC_STYLES = STATIC_STYLES(1u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_CENTERIMAGE: STATIC_STYLES = STATIC_STYLES(512u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_EDITCONTROL: STATIC_STYLES = STATIC_STYLES(8192u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_ELLIPSISMASK: STATIC_STYLES = STATIC_STYLES(49152u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_ENDELLIPSIS: STATIC_STYLES = STATIC_STYLES(16384u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_ENHMETAFILE: STATIC_STYLES = STATIC_STYLES(15u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_ETCHEDFRAME: STATIC_STYLES = STATIC_STYLES(18u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_ETCHEDHORZ: STATIC_STYLES = STATIC_STYLES(16u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_ETCHEDVERT: STATIC_STYLES = STATIC_STYLES(17u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_GRAYFRAME: STATIC_STYLES = STATIC_STYLES(8u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_GRAYRECT: STATIC_STYLES = STATIC_STYLES(5u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_ICON: STATIC_STYLES = STATIC_STYLES(3u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_LEFT: STATIC_STYLES = STATIC_STYLES(0u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_LEFTNOWORDWRAP: STATIC_STYLES = STATIC_STYLES(12u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_NOPREFIX: STATIC_STYLES = STATIC_STYLES(128u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_NOTIFY: STATIC_STYLES = STATIC_STYLES(256u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_OWNERDRAW: STATIC_STYLES = STATIC_STYLES(13u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_PATHELLIPSIS: STATIC_STYLES = STATIC_STYLES(32768u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_REALSIZECONTROL: STATIC_STYLES = STATIC_STYLES(64u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_REALSIZEIMAGE: STATIC_STYLES = STATIC_STYLES(2048u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_RIGHT: STATIC_STYLES = STATIC_STYLES(2u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_RIGHTJUST: STATIC_STYLES = STATIC_STYLES(1024u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_SIMPLE: STATIC_STYLES = STATIC_STYLES(11u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_SUNKEN: STATIC_STYLES = STATIC_STYLES(4096u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_TYPEMASK: STATIC_STYLES = STATIC_STYLES(31u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_USERITEM: STATIC_STYLES = STATIC_STYLES(10u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_WHITEFRAME: STATIC_STYLES = STATIC_STYLES(9u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_WHITERECT: STATIC_STYLES = STATIC_STYLES(6u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SS_WORDELLIPSIS: STATIC_STYLES = STATIC_STYLES(49152u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SUBLANG_AFRIKAANS_SOUTH_AFRICA: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -4139,7 +4767,45 @@ pub const SYSTEM_RESOURCE_ATTRIBUTE_ACE_TYPE: u32 = 18u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SYSTEM_SCOPED_POLICY_ID_ACE_TYPE: u32 = 19u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SeImageSignatureCache: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SeImageSignatureCatalogCached: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SeImageSignatureCatalogHint: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SeImageSignatureCatalogNotCached: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SeImageSignatureEmbedded: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SeImageSignatureNone: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SeImageSignaturePackageCatalog: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SeImageSignaturePplMitigated: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SevereError: SERVICE_ERROR_TYPE = SERVICE_ERROR_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SharedVirtualDiskCDPSnapshotsSupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(7i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SharedVirtualDiskHandleStateFileShared: SharedVirtualDiskHandleState = SharedVirtualDiskHandleState(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SharedVirtualDiskHandleStateHandleShared: SharedVirtualDiskHandleState = SharedVirtualDiskHandleState(3i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SharedVirtualDiskHandleStateNone: SharedVirtualDiskHandleState = SharedVirtualDiskHandleState(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SharedVirtualDiskSnapshotsSupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(3i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SharedVirtualDisksSupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SharedVirtualDisksUnsupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const SystemLoad: SERVICE_LOAD_TYPE = SERVICE_LOAD_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TAPE_CHECK_FOR_DRIVE_PROBLEM: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_ABSOLUTE_BLK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147487744u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_ABS_BLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147491840u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TAPE_DRIVE_CLEAN_REQUESTS: u32 = 33554432u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -4148,6 +4814,8 @@ pub const TAPE_DRIVE_COMPRESSION: u32 = 131072u32;
 pub const TAPE_DRIVE_ECC: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TAPE_DRIVE_EJECT_MEDIA: u32 = 16777216u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_END_OF_DATA: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147549184u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TAPE_DRIVE_EOT_WZ_SIZE: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -4158,6 +4826,8 @@ pub const TAPE_DRIVE_ERASE_IMMEDIATE: u32 = 128u32;
 pub const TAPE_DRIVE_ERASE_LONG: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TAPE_DRIVE_ERASE_SHORT: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_FILEMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147745792u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TAPE_DRIVE_FIXED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -4175,25 +4845,75 @@ pub const TAPE_DRIVE_HIGH_FEATURES: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TAPE_DRIVE_INITIATOR: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_LOAD_UNLD_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483680u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_LOAD_UNLOAD: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483649u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_LOCK_UNLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483776u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_LOCK_UNLOCK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483652u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_LOGICAL_BLK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147500032u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_LOG_BLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147516416u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TAPE_DRIVE_PADDING: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_RELATIVE_BLKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147614720u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TAPE_DRIVE_REPORT_SMKS: u32 = 524288u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TAPE_DRIVE_RESERVED_BIT: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_REVERSE_POSITION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2151677952u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_REWIND_IMMEDIATE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483656u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TAPE_DRIVE_SELECT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_SEQUENTIAL_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2148007936u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_SEQUENTIAL_SMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2149580800u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_SETMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2148532224u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_SET_BLOCK_SIZE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483664u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TAPE_DRIVE_SET_CMP_BOP_ONLY: u32 = 67108864u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_SET_COMPRESSION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147484160u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_SET_ECC: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483904u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TAPE_DRIVE_SET_EOT_WZ_SIZE: u32 = 4194304u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_SET_PADDING: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147484672u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_SET_REPORT_SMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147485696u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_SPACE_IMMEDIATE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2155872256u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TAPE_DRIVE_TAPE_CAPACITY: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TAPE_DRIVE_TAPE_REMAINING: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_TENSION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483650u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_TENSION_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483712u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TAPE_DRIVE_VARIABLE_BLOCK: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_WRITE_FILEMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2181038080u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_WRITE_LONG_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2281701376u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_WRITE_MARK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2415919104u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TAPE_DRIVE_WRITE_PROTECT: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_WRITE_SETMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2164260864u32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TAPE_DRIVE_WRITE_SHORT_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2214592512u32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TAPE_PSEUDO_LOGICAL_BLOCK: i32 = 3i32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -4265,6 +4985,64 @@ pub const TREE_CONNECT_ATTRIBUTE_PRIVACY: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TRUST_PROTECTED_FILTER_ACE_FLAG: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TapeDriveCleanDriveNow: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TapeDriveHardwareError: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TapeDriveMediaLifeExpired: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TapeDriveProblemNone: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TapeDriveReadError: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TapeDriveReadWarning: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TapeDriveReadWriteError: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TapeDriveReadWriteWarning: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TapeDriveScsiConnectionError: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TapeDriveSnappedTape: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TapeDriveTimetoClean: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TapeDriveUnsupportedMedia: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TapeDriveWriteError: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TapeDriveWriteWarning: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TransactionBasicInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TransactionBindInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TransactionDTCPrivateInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(5i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TransactionEnlistmentInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TransactionManagerBasicInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TransactionManagerLogInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TransactionManagerLogPathInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TransactionManagerOldestTransactionInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(5i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TransactionManagerOnlineProbeInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TransactionManagerRecoveryInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TransactionPropertiesInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TransactionStateCommittedNotify: TRANSACTION_STATE = TRANSACTION_STATE(3i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TransactionStateIndoubt: TRANSACTION_STATE = TRANSACTION_STATE(2i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TransactionStateNormal: TRANSACTION_STATE = TRANSACTION_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const TransactionSuperiorEnlistmentInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const UCSCHAR_INVALID_CHARACTER: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const UNICODE_STRING_MAX_CHARS: u32 = 32767u32;
@@ -4280,6 +5058,12 @@ pub const UNWIND_CHAIN_LIMIT: u32 = 32u32;
 pub const UNWIND_HISTORY_TABLE_SIZE: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const UNW_FLAG_NO_EPILOGUE: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const UmsSchedulerStartup: RTL_UMS_SCHEDULER_REASON = RTL_UMS_SCHEDULER_REASON(0i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const UmsSchedulerThreadBlocked: RTL_UMS_SCHEDULER_REASON = RTL_UMS_SCHEDULER_REASON(1i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const UmsSchedulerThreadYield: RTL_UMS_SCHEDULER_REASON = RTL_UMS_SCHEDULER_REASON(2i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const VALID_INHERIT_FLAGS: u32 = 31u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -4382,6 +5166,10 @@ pub const WT_EXECUTEINLONGTHREAD: u32 = 16u32;
 pub const WT_EXECUTEINPERSISTENTIOTHREAD: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const WT_EXECUTEINUITHREAD: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const Win32ServiceOwnProcess: SERVICE_NODE_TYPE = SERVICE_NODE_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
+pub const Win32ServiceShareProcess: SERVICE_NODE_TYPE = SERVICE_NODE_TYPE(32i32);
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const X3_BTYPE_QP_INST_VAL_POS_X: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -4520,42 +5308,6 @@ pub const _MM_HINT_T2: u32 = 3u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACCESS_REASON_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AccessReasonNone: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AccessReasonAllowedAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(65536i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AccessReasonDeniedAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(131072i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AccessReasonAllowedParentAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(196608i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AccessReasonDeniedParentAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(262144i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AccessReasonNotGrantedByCape: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(327680i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AccessReasonNotGrantedByParentCape: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(393216i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AccessReasonNotGrantedToAppContainer: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(458752i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AccessReasonMissingPrivilege: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(1048576i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AccessReasonFromPrivilege: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(2097152i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AccessReasonIntegrityLevel: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(3145728i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AccessReasonOwnership: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(4194304i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AccessReasonNullDacl: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(5242880i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AccessReasonEmptyDacl: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(6291456i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AccessReasonNoSD: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(7340032i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AccessReasonNoGrant: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(8388608i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AccessReasonTrustLabel: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(9437184i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AccessReasonFilterAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(10485760i32);
 impl ::core::marker::Copy for ACCESS_REASON_TYPE {}
 impl ::core::clone::Clone for ACCESS_REASON_TYPE {
     fn clone(&self) -> Self {
@@ -4579,26 +5331,6 @@ impl ::core::fmt::Debug for ACCESS_REASON_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACTIVATION_CONTEXT_INFO_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ActivationContextBasicInformation: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ActivationContextDetailedInformation: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AssemblyDetailedInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const FileInformationInAssemblyOfAssemblyInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const RunlevelInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CompatibilityInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(6i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ActivationContextManifestResourceName: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(7i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const MaxActivationContextInfoClass: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(8i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AssemblyDetailedInformationInActivationContxt: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const FileInformationInAssemblyOfAssemblyInActivationContxt: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(4i32);
 impl ::core::marker::Copy for ACTIVATION_CONTEXT_INFO_CLASS {}
 impl ::core::clone::Clone for ACTIVATION_CONTEXT_INFO_CLASS {
     fn clone(&self) -> Self {
@@ -4622,16 +5354,6 @@ impl ::core::fmt::Debug for ACTIVATION_CONTEXT_INFO_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ALERT_SYSTEM_SEV(pub u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ALERT_SYSTEM_INFORMATIONAL: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(1u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ALERT_SYSTEM_WARNING: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(2u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ALERT_SYSTEM_ERROR: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(3u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ALERT_SYSTEM_QUERY: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(4u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ALERT_SYSTEM_CRITICAL: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(5u32);
 impl ::core::marker::Copy for ALERT_SYSTEM_SEV {}
 impl ::core::clone::Clone for ALERT_SYSTEM_SEV {
     fn clone(&self) -> Self {
@@ -4655,114 +5377,6 @@ impl ::core::fmt::Debug for ALERT_SYSTEM_SEV {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct APPCOMMAND_ID(pub u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_BROWSER_BACKWARD: APPCOMMAND_ID = APPCOMMAND_ID(1u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_BROWSER_FORWARD: APPCOMMAND_ID = APPCOMMAND_ID(2u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_BROWSER_REFRESH: APPCOMMAND_ID = APPCOMMAND_ID(3u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_BROWSER_STOP: APPCOMMAND_ID = APPCOMMAND_ID(4u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_BROWSER_SEARCH: APPCOMMAND_ID = APPCOMMAND_ID(5u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_BROWSER_FAVORITES: APPCOMMAND_ID = APPCOMMAND_ID(6u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_BROWSER_HOME: APPCOMMAND_ID = APPCOMMAND_ID(7u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_VOLUME_MUTE: APPCOMMAND_ID = APPCOMMAND_ID(8u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_VOLUME_DOWN: APPCOMMAND_ID = APPCOMMAND_ID(9u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_VOLUME_UP: APPCOMMAND_ID = APPCOMMAND_ID(10u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_MEDIA_NEXTTRACK: APPCOMMAND_ID = APPCOMMAND_ID(11u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_MEDIA_PREVIOUSTRACK: APPCOMMAND_ID = APPCOMMAND_ID(12u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_MEDIA_STOP: APPCOMMAND_ID = APPCOMMAND_ID(13u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_MEDIA_PLAY_PAUSE: APPCOMMAND_ID = APPCOMMAND_ID(14u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_LAUNCH_MAIL: APPCOMMAND_ID = APPCOMMAND_ID(15u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_LAUNCH_MEDIA_SELECT: APPCOMMAND_ID = APPCOMMAND_ID(16u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_LAUNCH_APP1: APPCOMMAND_ID = APPCOMMAND_ID(17u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_LAUNCH_APP2: APPCOMMAND_ID = APPCOMMAND_ID(18u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_BASS_DOWN: APPCOMMAND_ID = APPCOMMAND_ID(19u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_BASS_BOOST: APPCOMMAND_ID = APPCOMMAND_ID(20u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_BASS_UP: APPCOMMAND_ID = APPCOMMAND_ID(21u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_TREBLE_DOWN: APPCOMMAND_ID = APPCOMMAND_ID(22u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_TREBLE_UP: APPCOMMAND_ID = APPCOMMAND_ID(23u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_MICROPHONE_VOLUME_MUTE: APPCOMMAND_ID = APPCOMMAND_ID(24u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_MICROPHONE_VOLUME_DOWN: APPCOMMAND_ID = APPCOMMAND_ID(25u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_MICROPHONE_VOLUME_UP: APPCOMMAND_ID = APPCOMMAND_ID(26u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_HELP: APPCOMMAND_ID = APPCOMMAND_ID(27u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_FIND: APPCOMMAND_ID = APPCOMMAND_ID(28u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_NEW: APPCOMMAND_ID = APPCOMMAND_ID(29u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_OPEN: APPCOMMAND_ID = APPCOMMAND_ID(30u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_CLOSE: APPCOMMAND_ID = APPCOMMAND_ID(31u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_SAVE: APPCOMMAND_ID = APPCOMMAND_ID(32u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_PRINT: APPCOMMAND_ID = APPCOMMAND_ID(33u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_UNDO: APPCOMMAND_ID = APPCOMMAND_ID(34u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_REDO: APPCOMMAND_ID = APPCOMMAND_ID(35u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_COPY: APPCOMMAND_ID = APPCOMMAND_ID(36u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_CUT: APPCOMMAND_ID = APPCOMMAND_ID(37u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_PASTE: APPCOMMAND_ID = APPCOMMAND_ID(38u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_REPLY_TO_MAIL: APPCOMMAND_ID = APPCOMMAND_ID(39u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_FORWARD_MAIL: APPCOMMAND_ID = APPCOMMAND_ID(40u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_SEND_MAIL: APPCOMMAND_ID = APPCOMMAND_ID(41u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_SPELL_CHECK: APPCOMMAND_ID = APPCOMMAND_ID(42u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_DICTATE_OR_COMMAND_CONTROL_TOGGLE: APPCOMMAND_ID = APPCOMMAND_ID(43u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_MIC_ON_OFF_TOGGLE: APPCOMMAND_ID = APPCOMMAND_ID(44u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_CORRECTION_LIST: APPCOMMAND_ID = APPCOMMAND_ID(45u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_MEDIA_PLAY: APPCOMMAND_ID = APPCOMMAND_ID(46u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_MEDIA_PAUSE: APPCOMMAND_ID = APPCOMMAND_ID(47u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_MEDIA_RECORD: APPCOMMAND_ID = APPCOMMAND_ID(48u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_MEDIA_FAST_FORWARD: APPCOMMAND_ID = APPCOMMAND_ID(49u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_MEDIA_REWIND: APPCOMMAND_ID = APPCOMMAND_ID(50u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_MEDIA_CHANNEL_UP: APPCOMMAND_ID = APPCOMMAND_ID(51u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_MEDIA_CHANNEL_DOWN: APPCOMMAND_ID = APPCOMMAND_ID(52u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_DELETE: APPCOMMAND_ID = APPCOMMAND_ID(53u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const APPCOMMAND_DWM_FLIP3D: APPCOMMAND_ID = APPCOMMAND_ID(54u32);
 impl ::core::marker::Copy for APPCOMMAND_ID {}
 impl ::core::clone::Clone for APPCOMMAND_ID {
     fn clone(&self) -> Self {
@@ -4786,14 +5400,6 @@ impl ::core::fmt::Debug for APPCOMMAND_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ARM64_FNPDATA_CR(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const PdataCrUnchained: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const PdataCrUnchainedSavedLr: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const PdataCrChainedWithPac: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const PdataCrChained: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(3i32);
 impl ::core::marker::Copy for ARM64_FNPDATA_CR {}
 impl ::core::clone::Clone for ARM64_FNPDATA_CR {
     fn clone(&self) -> Self {
@@ -4817,12 +5423,6 @@ impl ::core::fmt::Debug for ARM64_FNPDATA_CR {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ARM64_FNPDATA_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const PdataRefToFullXdata: ARM64_FNPDATA_FLAGS = ARM64_FNPDATA_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const PdataPackedUnwindFunction: ARM64_FNPDATA_FLAGS = ARM64_FNPDATA_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const PdataPackedUnwindFragment: ARM64_FNPDATA_FLAGS = ARM64_FNPDATA_FLAGS(2i32);
 impl ::core::marker::Copy for ARM64_FNPDATA_FLAGS {}
 impl ::core::clone::Clone for ARM64_FNPDATA_FLAGS {
     fn clone(&self) -> Self {
@@ -4846,10 +5446,6 @@ impl ::core::fmt::Debug for ARM64_FNPDATA_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ATF_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ATF_TIMEOUTON: ATF_FLAGS = ATF_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ATF_ONOFFFEEDBACK: ATF_FLAGS = ATF_FLAGS(2u32);
 impl ::core::marker::Copy for ATF_FLAGS {}
 impl ::core::clone::Clone for ATF_FLAGS {
     fn clone(&self) -> Self {
@@ -4906,48 +5502,6 @@ impl ::core::ops::Not for ATF_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CFE_UNDERLINE(pub u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CFU_CF1UNDERLINE: CFE_UNDERLINE = CFE_UNDERLINE(255u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CFU_INVERT: CFE_UNDERLINE = CFE_UNDERLINE(254u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CFU_UNDERLINETHICKLONGDASH: CFE_UNDERLINE = CFE_UNDERLINE(18u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CFU_UNDERLINETHICKDOTTED: CFE_UNDERLINE = CFE_UNDERLINE(17u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CFU_UNDERLINETHICKDASHDOTDOT: CFE_UNDERLINE = CFE_UNDERLINE(16u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CFU_UNDERLINETHICKDASHDOT: CFE_UNDERLINE = CFE_UNDERLINE(15u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CFU_UNDERLINETHICKDASH: CFE_UNDERLINE = CFE_UNDERLINE(14u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CFU_UNDERLINELONGDASH: CFE_UNDERLINE = CFE_UNDERLINE(13u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CFU_UNDERLINEHEAVYWAVE: CFE_UNDERLINE = CFE_UNDERLINE(12u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CFU_UNDERLINEDOUBLEWAVE: CFE_UNDERLINE = CFE_UNDERLINE(11u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CFU_UNDERLINEHAIRLINE: CFE_UNDERLINE = CFE_UNDERLINE(10u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CFU_UNDERLINETHICK: CFE_UNDERLINE = CFE_UNDERLINE(9u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CFU_UNDERLINEWAVE: CFE_UNDERLINE = CFE_UNDERLINE(8u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CFU_UNDERLINEDASHDOTDOT: CFE_UNDERLINE = CFE_UNDERLINE(7u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CFU_UNDERLINEDASHDOT: CFE_UNDERLINE = CFE_UNDERLINE(6u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CFU_UNDERLINEDASH: CFE_UNDERLINE = CFE_UNDERLINE(5u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CFU_UNDERLINEDOTTED: CFE_UNDERLINE = CFE_UNDERLINE(4u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CFU_UNDERLINEDOUBLE: CFE_UNDERLINE = CFE_UNDERLINE(3u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CFU_UNDERLINEWORD: CFE_UNDERLINE = CFE_UNDERLINE(2u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CFU_UNDERLINE: CFE_UNDERLINE = CFE_UNDERLINE(1u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CFU_UNDERLINENONE: CFE_UNDERLINE = CFE_UNDERLINE(0u32);
 impl ::core::marker::Copy for CFE_UNDERLINE {}
 impl ::core::clone::Clone for CFE_UNDERLINE {
     fn clone(&self) -> Self {
@@ -5004,12 +5558,6 @@ impl ::core::ops::Not for CFE_UNDERLINE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENLISTMENT_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const EnlistmentBasicInformation: ENLISTMENT_INFORMATION_CLASS = ENLISTMENT_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const EnlistmentRecoveryInformation: ENLISTMENT_INFORMATION_CLASS = ENLISTMENT_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const EnlistmentCrmInformation: ENLISTMENT_INFORMATION_CLASS = ENLISTMENT_INFORMATION_CLASS(2i32);
 impl ::core::marker::Copy for ENLISTMENT_INFORMATION_CLASS {}
 impl ::core::clone::Clone for ENLISTMENT_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -5033,28 +5581,6 @@ impl ::core::fmt::Debug for ENLISTMENT_INFORMATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GESTURECONFIG_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const GC_ALLGESTURES: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const GC_ZOOM: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const GC_PAN: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const GC_PAN_WITH_SINGLE_FINGER_VERTICALLY: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const GC_PAN_WITH_SINGLE_FINGER_HORIZONTALLY: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const GC_PAN_WITH_GUTTER: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const GC_PAN_WITH_INERTIA: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const GC_ROTATE: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const GC_TWOFINGERTAP: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const GC_PRESSANDTAP: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const GC_ROLLOVER: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
 impl ::core::marker::Copy for GESTURECONFIG_FLAGS {}
 impl ::core::clone::Clone for GESTURECONFIG_FLAGS {
     fn clone(&self) -> Self {
@@ -5111,22 +5637,6 @@ impl ::core::ops::Not for GESTURECONFIG_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HIBERFILE_BUCKET_SIZE(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const HiberFileBucket1GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const HiberFileBucket2GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const HiberFileBucket4GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const HiberFileBucket8GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(3i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const HiberFileBucket16GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(4i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const HiberFileBucket32GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(5i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const HiberFileBucketUnlimited: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(6i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const HiberFileBucketMax: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(7i32);
 impl ::core::marker::Copy for HIBERFILE_BUCKET_SIZE {}
 impl ::core::clone::Clone for HIBERFILE_BUCKET_SIZE {
     fn clone(&self) -> Self {
@@ -5150,20 +5660,6 @@ impl ::core::fmt::Debug for HIBERFILE_BUCKET_SIZE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IGP_ID(pub u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IGP_GETIMEVERSION: IGP_ID = IGP_ID(4294967292u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IGP_PROPERTY: IGP_ID = IGP_ID(4u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IGP_CONVERSION: IGP_ID = IGP_ID(8u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IGP_SENTENCE: IGP_ID = IGP_ID(12u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IGP_UI: IGP_ID = IGP_ID(16u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IGP_SETCOMPSTR: IGP_ID = IGP_ID(20u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IGP_SELECT: IGP_ID = IGP_ID(24u32);
 impl ::core::marker::Copy for IGP_ID {}
 impl ::core::clone::Clone for IGP_ID {
     fn clone(&self) -> Self {
@@ -5187,8 +5683,6 @@ impl ::core::fmt::Debug for IGP_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAGE_AUX_SYMBOL_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMAGE_AUX_SYMBOL_TYPE_TOKEN_DEF: IMAGE_AUX_SYMBOL_TYPE = IMAGE_AUX_SYMBOL_TYPE(1i32);
 impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_TYPE {}
 impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_TYPE {
     fn clone(&self) -> Self {
@@ -5212,34 +5706,6 @@ impl ::core::fmt::Debug for IMAGE_AUX_SYMBOL_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAGE_POLICY_ENTRY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyEntryTypeNone: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyEntryTypeBool: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyEntryTypeInt8: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyEntryTypeUInt8: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyEntryTypeInt16: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyEntryTypeUInt16: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyEntryTypeInt32: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyEntryTypeUInt32: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyEntryTypeInt64: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyEntryTypeUInt64: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyEntryTypeAnsiString: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyEntryTypeUnicodeString: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyEntryTypeOverride: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyEntryTypeMaximum: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(13i32);
 impl ::core::marker::Copy for IMAGE_POLICY_ENTRY_TYPE {}
 impl ::core::clone::Clone for IMAGE_POLICY_ENTRY_TYPE {
     fn clone(&self) -> Self {
@@ -5263,32 +5729,6 @@ impl ::core::fmt::Debug for IMAGE_POLICY_ENTRY_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMAGE_POLICY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyIdNone: IMAGE_POLICY_ID = IMAGE_POLICY_ID(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyIdEtw: IMAGE_POLICY_ID = IMAGE_POLICY_ID(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyIdDebug: IMAGE_POLICY_ID = IMAGE_POLICY_ID(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyIdCrashDump: IMAGE_POLICY_ID = IMAGE_POLICY_ID(3i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyIdCrashDumpKey: IMAGE_POLICY_ID = IMAGE_POLICY_ID(4i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyIdCrashDumpKeyGuid: IMAGE_POLICY_ID = IMAGE_POLICY_ID(5i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyIdParentSd: IMAGE_POLICY_ID = IMAGE_POLICY_ID(6i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyIdParentSdRev: IMAGE_POLICY_ID = IMAGE_POLICY_ID(7i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyIdSvn: IMAGE_POLICY_ID = IMAGE_POLICY_ID(8i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyIdDeviceId: IMAGE_POLICY_ID = IMAGE_POLICY_ID(9i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyIdCapability: IMAGE_POLICY_ID = IMAGE_POLICY_ID(10i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyIdScenarioId: IMAGE_POLICY_ID = IMAGE_POLICY_ID(11i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ImagePolicyIdMaximum: IMAGE_POLICY_ID = IMAGE_POLICY_ID(12i32);
 impl ::core::marker::Copy for IMAGE_POLICY_ID {}
 impl ::core::clone::Clone for IMAGE_POLICY_ID {
     fn clone(&self) -> Self {
@@ -5312,16 +5752,6 @@ impl ::core::fmt::Debug for IMAGE_POLICY_ID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMPORT_OBJECT_NAME_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMPORT_OBJECT_ORDINAL: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMPORT_OBJECT_NAME: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMPORT_OBJECT_NAME_NO_PREFIX: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMPORT_OBJECT_NAME_UNDECORATE: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMPORT_OBJECT_NAME_EXPORTAS: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(4i32);
 impl ::core::marker::Copy for IMPORT_OBJECT_NAME_TYPE {}
 impl ::core::clone::Clone for IMPORT_OBJECT_NAME_TYPE {
     fn clone(&self) -> Self {
@@ -5345,12 +5775,6 @@ impl ::core::fmt::Debug for IMPORT_OBJECT_NAME_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMPORT_OBJECT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMPORT_OBJECT_CODE: IMPORT_OBJECT_TYPE = IMPORT_OBJECT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMPORT_OBJECT_DATA: IMPORT_OBJECT_TYPE = IMPORT_OBJECT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMPORT_OBJECT_CONST: IMPORT_OBJECT_TYPE = IMPORT_OBJECT_TYPE(2i32);
 impl ::core::marker::Copy for IMPORT_OBJECT_TYPE {}
 impl ::core::clone::Clone for IMPORT_OBJECT_TYPE {
     fn clone(&self) -> Self {
@@ -5374,16 +5798,6 @@ impl ::core::fmt::Debug for IMPORT_OBJECT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KTMOBJECT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const KTMOBJECT_TRANSACTION: KTMOBJECT_TYPE = KTMOBJECT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const KTMOBJECT_TRANSACTION_MANAGER: KTMOBJECT_TYPE = KTMOBJECT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const KTMOBJECT_RESOURCE_MANAGER: KTMOBJECT_TYPE = KTMOBJECT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const KTMOBJECT_ENLISTMENT: KTMOBJECT_TYPE = KTMOBJECT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const KTMOBJECT_INVALID: KTMOBJECT_TYPE = KTMOBJECT_TYPE(4i32);
 impl ::core::marker::Copy for KTMOBJECT_TYPE {}
 impl ::core::clone::Clone for KTMOBJECT_TYPE {
     fn clone(&self) -> Self {
@@ -5407,20 +5821,6 @@ impl ::core::fmt::Debug for KTMOBJECT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MODIFIERKEYS_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const MK_LBUTTON: MODIFIERKEYS_FLAGS = MODIFIERKEYS_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const MK_RBUTTON: MODIFIERKEYS_FLAGS = MODIFIERKEYS_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const MK_SHIFT: MODIFIERKEYS_FLAGS = MODIFIERKEYS_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const MK_CONTROL: MODIFIERKEYS_FLAGS = MODIFIERKEYS_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const MK_MBUTTON: MODIFIERKEYS_FLAGS = MODIFIERKEYS_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const MK_XBUTTON1: MODIFIERKEYS_FLAGS = MODIFIERKEYS_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const MK_XBUTTON2: MODIFIERKEYS_FLAGS = MODIFIERKEYS_FLAGS(64u32);
 impl ::core::marker::Copy for MODIFIERKEYS_FLAGS {}
 impl ::core::clone::Clone for MODIFIERKEYS_FLAGS {
     fn clone(&self) -> Self {
@@ -5477,12 +5877,6 @@ impl ::core::ops::Not for MODIFIERKEYS_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MONITOR_DISPLAY_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const PowerMonitorOff: MONITOR_DISPLAY_STATE = MONITOR_DISPLAY_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const PowerMonitorOn: MONITOR_DISPLAY_STATE = MONITOR_DISPLAY_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const PowerMonitorDim: MONITOR_DISPLAY_STATE = MONITOR_DISPLAY_STATE(2i32);
 impl ::core::marker::Copy for MONITOR_DISPLAY_STATE {}
 impl ::core::clone::Clone for MONITOR_DISPLAY_STATE {
     fn clone(&self) -> Self {
@@ -5506,16 +5900,6 @@ impl ::core::fmt::Debug for MONITOR_DISPLAY_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RECO_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const RECO_PASTE: RECO_FLAGS = RECO_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const RECO_DROP: RECO_FLAGS = RECO_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const RECO_COPY: RECO_FLAGS = RECO_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const RECO_CUT: RECO_FLAGS = RECO_FLAGS(3u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const RECO_DRAG: RECO_FLAGS = RECO_FLAGS(4u32);
 impl ::core::marker::Copy for RECO_FLAGS {}
 impl ::core::clone::Clone for RECO_FLAGS {
     fn clone(&self) -> Self {
@@ -5572,10 +5956,6 @@ impl ::core::ops::Not for RECO_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RESOURCEMANAGER_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ResourceManagerBasicInformation: RESOURCEMANAGER_INFORMATION_CLASS = RESOURCEMANAGER_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ResourceManagerCompletionInformation: RESOURCEMANAGER_INFORMATION_CLASS = RESOURCEMANAGER_INFORMATION_CLASS(1i32);
 impl ::core::marker::Copy for RESOURCEMANAGER_INFORMATION_CLASS {}
 impl ::core::clone::Clone for RESOURCEMANAGER_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -5599,12 +5979,6 @@ impl ::core::fmt::Debug for RESOURCEMANAGER_INFORMATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RTL_UMS_SCHEDULER_REASON(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const UmsSchedulerStartup: RTL_UMS_SCHEDULER_REASON = RTL_UMS_SCHEDULER_REASON(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const UmsSchedulerThreadBlocked: RTL_UMS_SCHEDULER_REASON = RTL_UMS_SCHEDULER_REASON(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const UmsSchedulerThreadYield: RTL_UMS_SCHEDULER_REASON = RTL_UMS_SCHEDULER_REASON(2i32);
 impl ::core::marker::Copy for RTL_UMS_SCHEDULER_REASON {}
 impl ::core::clone::Clone for RTL_UMS_SCHEDULER_REASON {
     fn clone(&self) -> Self {
@@ -5628,56 +6002,6 @@ impl ::core::fmt::Debug for RTL_UMS_SCHEDULER_REASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ReplacesCorHdrNumericDefines(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COMIMAGE_FLAGS_ILONLY: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COMIMAGE_FLAGS_32BITREQUIRED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COMIMAGE_FLAGS_IL_LIBRARY: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(4i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COMIMAGE_FLAGS_STRONGNAMESIGNED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COMIMAGE_FLAGS_NATIVE_ENTRYPOINT: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(16i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COMIMAGE_FLAGS_TRACKDEBUGDATA: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(65536i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COMIMAGE_FLAGS_32BITPREFERRED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(131072i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COR_VERSION_MAJOR_V2: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COR_VERSION_MAJOR: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COR_VERSION_MINOR: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(5i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COR_DELETED_NAME_LENGTH: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COR_VTABLEGAP_NAME_LENGTH: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const NATIVE_TYPE_MAX_CB: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COR_ILMETHOD_SECT_SMALL_MAX_DATASIZE: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(255i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMAGE_COR_MIH_METHODRVA: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMAGE_COR_MIH_EHRVA: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMAGE_COR_MIH_BASICBLOCK: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COR_VTABLE_32BIT: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COR_VTABLE_64BIT: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COR_VTABLE_FROM_UNMANAGED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(4i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COR_VTABLE_FROM_UNMANAGED_RETAIN_APPDOMAIN: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const COR_VTABLE_CALL_MOST_DERIVED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(16i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IMAGE_COR_EATJ_THUNK_SIZE: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(32i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const MAX_CLASS_NAME: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1024i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const MAX_PACKAGE_NAME: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1024i32);
 impl ::core::marker::Copy for ReplacesCorHdrNumericDefines {}
 impl ::core::clone::Clone for ReplacesCorHdrNumericDefines {
     fn clone(&self) -> Self {
@@ -5701,16 +6025,6 @@ impl ::core::fmt::Debug for ReplacesCorHdrNumericDefines {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVERSILO_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SERVERSILO_INITING: SERVERSILO_STATE = SERVERSILO_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SERVERSILO_STARTED: SERVERSILO_STATE = SERVERSILO_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SERVERSILO_SHUTTING_DOWN: SERVERSILO_STATE = SERVERSILO_STATE(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SERVERSILO_TERMINATING: SERVERSILO_STATE = SERVERSILO_STATE(3i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SERVERSILO_TERMINATED: SERVERSILO_STATE = SERVERSILO_STATE(4i32);
 impl ::core::marker::Copy for SERVERSILO_STATE {}
 impl ::core::clone::Clone for SERVERSILO_STATE {
     fn clone(&self) -> Self {
@@ -5734,14 +6048,6 @@ impl ::core::fmt::Debug for SERVERSILO_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_ERROR_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const IgnoreError: SERVICE_ERROR_TYPE = SERVICE_ERROR_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const NormalError: SERVICE_ERROR_TYPE = SERVICE_ERROR_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SevereError: SERVICE_ERROR_TYPE = SERVICE_ERROR_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CriticalError: SERVICE_ERROR_TYPE = SERVICE_ERROR_TYPE(3i32);
 impl ::core::marker::Copy for SERVICE_ERROR_TYPE {}
 impl ::core::clone::Clone for SERVICE_ERROR_TYPE {
     fn clone(&self) -> Self {
@@ -5765,16 +6071,6 @@ impl ::core::fmt::Debug for SERVICE_ERROR_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_LOAD_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const BootLoad: SERVICE_LOAD_TYPE = SERVICE_LOAD_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SystemLoad: SERVICE_LOAD_TYPE = SERVICE_LOAD_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AutoLoad: SERVICE_LOAD_TYPE = SERVICE_LOAD_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DemandLoad: SERVICE_LOAD_TYPE = SERVICE_LOAD_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DisableLoad: SERVICE_LOAD_TYPE = SERVICE_LOAD_TYPE(4i32);
 impl ::core::marker::Copy for SERVICE_LOAD_TYPE {}
 impl ::core::clone::Clone for SERVICE_LOAD_TYPE {
     fn clone(&self) -> Self {
@@ -5798,18 +6094,6 @@ impl ::core::fmt::Debug for SERVICE_LOAD_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVICE_NODE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DriverType: SERVICE_NODE_TYPE = SERVICE_NODE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const FileSystemType: SERVICE_NODE_TYPE = SERVICE_NODE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const Win32ServiceOwnProcess: SERVICE_NODE_TYPE = SERVICE_NODE_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const Win32ServiceShareProcess: SERVICE_NODE_TYPE = SERVICE_NODE_TYPE(32i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const AdapterType: SERVICE_NODE_TYPE = SERVICE_NODE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const RecognizerType: SERVICE_NODE_TYPE = SERVICE_NODE_TYPE(8i32);
 impl ::core::marker::Copy for SERVICE_NODE_TYPE {}
 impl ::core::clone::Clone for SERVICE_NODE_TYPE {
     fn clone(&self) -> Self {
@@ -5833,22 +6117,6 @@ impl ::core::fmt::Debug for SERVICE_NODE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SE_IMAGE_SIGNATURE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SeImageSignatureNone: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SeImageSignatureEmbedded: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SeImageSignatureCache: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SeImageSignatureCatalogCached: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SeImageSignatureCatalogNotCached: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SeImageSignatureCatalogHint: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SeImageSignaturePackageCatalog: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SeImageSignaturePplMitigated: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(7i32);
 impl ::core::marker::Copy for SE_IMAGE_SIGNATURE_TYPE {}
 impl ::core::clone::Clone for SE_IMAGE_SIGNATURE_TYPE {
     fn clone(&self) -> Self {
@@ -5872,78 +6140,6 @@ impl ::core::fmt::Debug for SE_IMAGE_SIGNATURE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SFGAO_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_CANCOPY: SFGAO_FLAGS = SFGAO_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_CANMOVE: SFGAO_FLAGS = SFGAO_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_CANLINK: SFGAO_FLAGS = SFGAO_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_STORAGE: SFGAO_FLAGS = SFGAO_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_CANRENAME: SFGAO_FLAGS = SFGAO_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_CANDELETE: SFGAO_FLAGS = SFGAO_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_HASPROPSHEET: SFGAO_FLAGS = SFGAO_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_DROPTARGET: SFGAO_FLAGS = SFGAO_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_CAPABILITYMASK: SFGAO_FLAGS = SFGAO_FLAGS(375u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_PLACEHOLDER: SFGAO_FLAGS = SFGAO_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_SYSTEM: SFGAO_FLAGS = SFGAO_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_ENCRYPTED: SFGAO_FLAGS = SFGAO_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_ISSLOW: SFGAO_FLAGS = SFGAO_FLAGS(16384u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_GHOSTED: SFGAO_FLAGS = SFGAO_FLAGS(32768u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_LINK: SFGAO_FLAGS = SFGAO_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_SHARE: SFGAO_FLAGS = SFGAO_FLAGS(131072u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_READONLY: SFGAO_FLAGS = SFGAO_FLAGS(262144u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_HIDDEN: SFGAO_FLAGS = SFGAO_FLAGS(524288u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_DISPLAYATTRMASK: SFGAO_FLAGS = SFGAO_FLAGS(1032192u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_FILESYSANCESTOR: SFGAO_FLAGS = SFGAO_FLAGS(268435456u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_FOLDER: SFGAO_FLAGS = SFGAO_FLAGS(536870912u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_FILESYSTEM: SFGAO_FLAGS = SFGAO_FLAGS(1073741824u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_HASSUBFOLDER: SFGAO_FLAGS = SFGAO_FLAGS(2147483648u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_CONTENTSMASK: SFGAO_FLAGS = SFGAO_FLAGS(2147483648u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_VALIDATE: SFGAO_FLAGS = SFGAO_FLAGS(16777216u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_REMOVABLE: SFGAO_FLAGS = SFGAO_FLAGS(33554432u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_COMPRESSED: SFGAO_FLAGS = SFGAO_FLAGS(67108864u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_BROWSABLE: SFGAO_FLAGS = SFGAO_FLAGS(134217728u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_NONENUMERATED: SFGAO_FLAGS = SFGAO_FLAGS(1048576u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_NEWCONTENT: SFGAO_FLAGS = SFGAO_FLAGS(2097152u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_CANMONIKER: SFGAO_FLAGS = SFGAO_FLAGS(4194304u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_HASSTORAGE: SFGAO_FLAGS = SFGAO_FLAGS(4194304u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_STREAM: SFGAO_FLAGS = SFGAO_FLAGS(4194304u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_STORAGEANCESTOR: SFGAO_FLAGS = SFGAO_FLAGS(8388608u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_STORAGECAPMASK: SFGAO_FLAGS = SFGAO_FLAGS(1891958792u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SFGAO_PKEYSFGAOMASK: SFGAO_FLAGS = SFGAO_FLAGS(2164539392u32);
 impl ::core::marker::Copy for SFGAO_FLAGS {}
 impl ::core::clone::Clone for SFGAO_FLAGS {
     fn clone(&self) -> Self {
@@ -6000,70 +6196,6 @@ impl ::core::ops::Not for SFGAO_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STATIC_STYLES(pub u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_LEFT: STATIC_STYLES = STATIC_STYLES(0u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_CENTER: STATIC_STYLES = STATIC_STYLES(1u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_RIGHT: STATIC_STYLES = STATIC_STYLES(2u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_ICON: STATIC_STYLES = STATIC_STYLES(3u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_BLACKRECT: STATIC_STYLES = STATIC_STYLES(4u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_GRAYRECT: STATIC_STYLES = STATIC_STYLES(5u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_WHITERECT: STATIC_STYLES = STATIC_STYLES(6u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_BLACKFRAME: STATIC_STYLES = STATIC_STYLES(7u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_GRAYFRAME: STATIC_STYLES = STATIC_STYLES(8u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_WHITEFRAME: STATIC_STYLES = STATIC_STYLES(9u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_USERITEM: STATIC_STYLES = STATIC_STYLES(10u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_SIMPLE: STATIC_STYLES = STATIC_STYLES(11u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_LEFTNOWORDWRAP: STATIC_STYLES = STATIC_STYLES(12u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_OWNERDRAW: STATIC_STYLES = STATIC_STYLES(13u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_BITMAP: STATIC_STYLES = STATIC_STYLES(14u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_ENHMETAFILE: STATIC_STYLES = STATIC_STYLES(15u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_ETCHEDHORZ: STATIC_STYLES = STATIC_STYLES(16u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_ETCHEDVERT: STATIC_STYLES = STATIC_STYLES(17u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_ETCHEDFRAME: STATIC_STYLES = STATIC_STYLES(18u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_TYPEMASK: STATIC_STYLES = STATIC_STYLES(31u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_REALSIZECONTROL: STATIC_STYLES = STATIC_STYLES(64u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_NOPREFIX: STATIC_STYLES = STATIC_STYLES(128u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_NOTIFY: STATIC_STYLES = STATIC_STYLES(256u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_CENTERIMAGE: STATIC_STYLES = STATIC_STYLES(512u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_RIGHTJUST: STATIC_STYLES = STATIC_STYLES(1024u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_REALSIZEIMAGE: STATIC_STYLES = STATIC_STYLES(2048u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_SUNKEN: STATIC_STYLES = STATIC_STYLES(4096u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_EDITCONTROL: STATIC_STYLES = STATIC_STYLES(8192u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_ENDELLIPSIS: STATIC_STYLES = STATIC_STYLES(16384u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_PATHELLIPSIS: STATIC_STYLES = STATIC_STYLES(32768u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_WORDELLIPSIS: STATIC_STYLES = STATIC_STYLES(49152u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SS_ELLIPSISMASK: STATIC_STYLES = STATIC_STYLES(49152u32);
 impl ::core::marker::Copy for STATIC_STYLES {}
 impl ::core::clone::Clone for STATIC_STYLES {
     fn clone(&self) -> Self {
@@ -6087,12 +6219,6 @@ impl ::core::fmt::Debug for STATIC_STYLES {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SharedVirtualDiskHandleState(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SharedVirtualDiskHandleStateNone: SharedVirtualDiskHandleState = SharedVirtualDiskHandleState(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SharedVirtualDiskHandleStateFileShared: SharedVirtualDiskHandleState = SharedVirtualDiskHandleState(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SharedVirtualDiskHandleStateHandleShared: SharedVirtualDiskHandleState = SharedVirtualDiskHandleState(3i32);
 impl ::core::marker::Copy for SharedVirtualDiskHandleState {}
 impl ::core::clone::Clone for SharedVirtualDiskHandleState {
     fn clone(&self) -> Self {
@@ -6116,14 +6242,6 @@ impl ::core::fmt::Debug for SharedVirtualDiskHandleState {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SharedVirtualDiskSupportType(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SharedVirtualDisksUnsupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SharedVirtualDisksSupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SharedVirtualDiskSnapshotsSupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(3i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SharedVirtualDiskCDPSnapshotsSupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(7i32);
 impl ::core::marker::Copy for SharedVirtualDiskSupportType {}
 impl ::core::clone::Clone for SharedVirtualDiskSupportType {
     fn clone(&self) -> Self {
@@ -6147,34 +6265,6 @@ impl ::core::fmt::Debug for SharedVirtualDiskSupportType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPE_DRIVE_PROBLEM_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TapeDriveProblemNone: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TapeDriveReadWriteWarning: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TapeDriveReadWriteError: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TapeDriveReadWarning: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TapeDriveWriteWarning: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TapeDriveReadError: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TapeDriveWriteError: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TapeDriveHardwareError: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TapeDriveUnsupportedMedia: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TapeDriveScsiConnectionError: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TapeDriveTimetoClean: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TapeDriveCleanDriveNow: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TapeDriveMediaLifeExpired: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TapeDriveSnappedTape: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(13i32);
 impl ::core::marker::Copy for TAPE_DRIVE_PROBLEM_TYPE {}
 impl ::core::clone::Clone for TAPE_DRIVE_PROBLEM_TYPE {
     fn clone(&self) -> Self {
@@ -6198,64 +6288,6 @@ impl ::core::fmt::Debug for TAPE_DRIVE_PROBLEM_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(pub u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_ABS_BLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147491840u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_ABSOLUTE_BLK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147487744u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_END_OF_DATA: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147549184u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_FILEMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147745792u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_LOAD_UNLOAD: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483649u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_LOAD_UNLD_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483680u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_LOCK_UNLOCK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483652u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_LOCK_UNLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483776u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_LOG_BLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147516416u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_LOGICAL_BLK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147500032u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_RELATIVE_BLKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147614720u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_REVERSE_POSITION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2151677952u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_REWIND_IMMEDIATE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483656u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_SEQUENTIAL_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2148007936u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_SEQUENTIAL_SMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2149580800u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_SET_BLOCK_SIZE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483664u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_SET_COMPRESSION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147484160u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_SET_ECC: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483904u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_SET_PADDING: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147484672u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_SET_REPORT_SMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147485696u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_SETMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2148532224u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_SPACE_IMMEDIATE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2155872256u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_TENSION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483650u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_TENSION_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483712u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_WRITE_FILEMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2181038080u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_WRITE_LONG_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2281701376u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_WRITE_MARK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2415919104u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_WRITE_SETMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2164260864u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TAPE_DRIVE_WRITE_SHORT_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2214592512u32);
 impl ::core::marker::Copy for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {}
 impl ::core::clone::Clone for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
     fn clone(&self) -> Self {
@@ -6312,18 +6344,6 @@ impl ::core::ops::Not for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRANSACTIONMANAGER_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TransactionManagerBasicInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TransactionManagerLogInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TransactionManagerLogPathInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TransactionManagerRecoveryInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TransactionManagerOnlineProbeInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TransactionManagerOldestTransactionInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(5i32);
 impl ::core::marker::Copy for TRANSACTIONMANAGER_INFORMATION_CLASS {}
 impl ::core::clone::Clone for TRANSACTIONMANAGER_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -6347,18 +6367,6 @@ impl ::core::fmt::Debug for TRANSACTIONMANAGER_INFORMATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRANSACTION_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TransactionBasicInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TransactionPropertiesInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TransactionEnlistmentInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TransactionSuperiorEnlistmentInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TransactionBindInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TransactionDTCPrivateInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(5i32);
 impl ::core::marker::Copy for TRANSACTION_INFORMATION_CLASS {}
 impl ::core::clone::Clone for TRANSACTION_INFORMATION_CLASS {
     fn clone(&self) -> Self {
@@ -6382,12 +6390,6 @@ impl ::core::fmt::Debug for TRANSACTION_INFORMATION_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRANSACTION_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TransactionStateNormal: TRANSACTION_STATE = TRANSACTION_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TransactionStateIndoubt: TRANSACTION_STATE = TRANSACTION_STATE(2i32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TransactionStateCommittedNotify: TRANSACTION_STATE = TRANSACTION_STATE(3i32);
 impl ::core::marker::Copy for TRANSACTION_STATE {}
 impl ::core::clone::Clone for TRANSACTION_STATE {
     fn clone(&self) -> Self {
@@ -6411,8 +6413,6 @@ impl ::core::fmt::Debug for TRANSACTION_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WORD_WHEEL_OPEN_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const ITWW_OPEN_CONNECT: WORD_WHEEL_OPEN_FLAGS = WORD_WHEEL_OPEN_FLAGS(0u32);
 impl ::core::marker::Copy for WORD_WHEEL_OPEN_FLAGS {}
 impl ::core::clone::Clone for WORD_WHEEL_OPEN_FLAGS {
     fn clone(&self) -> Self {

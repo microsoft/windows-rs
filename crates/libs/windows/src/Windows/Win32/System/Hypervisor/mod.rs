@@ -1042,7 +1042,253 @@ where
     WHvWriteVpciDeviceRegister(partition.into_param().abi(), logicaldeviceid, register, data).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterActlrEl1: REGISTER_ID = REGISTER_ID(145i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterAmairEl1: REGISTER_ID = REGISTER_ID(148i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterCntkctlEl1: REGISTER_ID = REGISTER_ID(155i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterCntvCtlEl0: REGISTER_ID = REGISTER_ID(157i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterCntvCvalEl0: REGISTER_ID = REGISTER_ID(156i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterContextIdrEl1: REGISTER_ID = REGISTER_ID(152i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterCpacrEl1: REGISTER_ID = REGISTER_ID(153i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterCpsr: REGISTER_ID = REGISTER_ID(101i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterCsselrEl1: REGISTER_ID = REGISTER_ID(154i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterElrEl1: REGISTER_ID = REGISTER_ID(140i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterEsrEl1: REGISTER_ID = REGISTER_ID(136i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterFarEl1: REGISTER_ID = REGISTER_ID(138i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterFpControl: REGISTER_ID = REGISTER_ID(135i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterFpStatus: REGISTER_ID = REGISTER_ID(134i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterMairEl1: REGISTER_ID = REGISTER_ID(147i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterMax: REGISTER_ID = REGISTER_ID(158i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterParEl1: REGISTER_ID = REGISTER_ID(139i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterPc: REGISTER_ID = REGISTER_ID(98i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ0: REGISTER_ID = REGISTER_ID(102i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ1: REGISTER_ID = REGISTER_ID(103i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ10: REGISTER_ID = REGISTER_ID(112i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ11: REGISTER_ID = REGISTER_ID(113i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ12: REGISTER_ID = REGISTER_ID(114i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ13: REGISTER_ID = REGISTER_ID(115i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ14: REGISTER_ID = REGISTER_ID(116i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ15: REGISTER_ID = REGISTER_ID(117i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ16: REGISTER_ID = REGISTER_ID(118i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ17: REGISTER_ID = REGISTER_ID(119i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ18: REGISTER_ID = REGISTER_ID(120i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ19: REGISTER_ID = REGISTER_ID(121i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ2: REGISTER_ID = REGISTER_ID(104i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ20: REGISTER_ID = REGISTER_ID(122i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ21: REGISTER_ID = REGISTER_ID(123i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ22: REGISTER_ID = REGISTER_ID(124i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ23: REGISTER_ID = REGISTER_ID(125i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ24: REGISTER_ID = REGISTER_ID(126i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ25: REGISTER_ID = REGISTER_ID(127i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ26: REGISTER_ID = REGISTER_ID(128i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ27: REGISTER_ID = REGISTER_ID(129i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ28: REGISTER_ID = REGISTER_ID(130i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ29: REGISTER_ID = REGISTER_ID(131i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ3: REGISTER_ID = REGISTER_ID(105i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ30: REGISTER_ID = REGISTER_ID(132i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ31: REGISTER_ID = REGISTER_ID(133i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ4: REGISTER_ID = REGISTER_ID(106i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ5: REGISTER_ID = REGISTER_ID(107i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ6: REGISTER_ID = REGISTER_ID(108i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ7: REGISTER_ID = REGISTER_ID(109i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ8: REGISTER_ID = REGISTER_ID(110i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterQ9: REGISTER_ID = REGISTER_ID(111i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterSctlrEl1: REGISTER_ID = REGISTER_ID(144i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterSpEl0: REGISTER_ID = REGISTER_ID(99i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterSpEl1: REGISTER_ID = REGISTER_ID(100i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterSpsrEl1: REGISTER_ID = REGISTER_ID(137i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterTcrEl1: REGISTER_ID = REGISTER_ID(146i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterTpidrEl0: REGISTER_ID = REGISTER_ID(149i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterTpidrEl1: REGISTER_ID = REGISTER_ID(151i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterTpidrroEl0: REGISTER_ID = REGISTER_ID(150i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterTtbr0El1: REGISTER_ID = REGISTER_ID(141i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterTtbr1El1: REGISTER_ID = REGISTER_ID(142i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterVbarEl1: REGISTER_ID = REGISTER_ID(143i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX0: REGISTER_ID = REGISTER_ID(67i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX1: REGISTER_ID = REGISTER_ID(68i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX10: REGISTER_ID = REGISTER_ID(77i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX11: REGISTER_ID = REGISTER_ID(78i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX12: REGISTER_ID = REGISTER_ID(79i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX13: REGISTER_ID = REGISTER_ID(80i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX14: REGISTER_ID = REGISTER_ID(81i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX15: REGISTER_ID = REGISTER_ID(82i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX16: REGISTER_ID = REGISTER_ID(83i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX17: REGISTER_ID = REGISTER_ID(84i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX18: REGISTER_ID = REGISTER_ID(85i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX19: REGISTER_ID = REGISTER_ID(86i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX2: REGISTER_ID = REGISTER_ID(69i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX20: REGISTER_ID = REGISTER_ID(87i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX21: REGISTER_ID = REGISTER_ID(88i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX22: REGISTER_ID = REGISTER_ID(89i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX23: REGISTER_ID = REGISTER_ID(90i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX24: REGISTER_ID = REGISTER_ID(91i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX25: REGISTER_ID = REGISTER_ID(92i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX26: REGISTER_ID = REGISTER_ID(93i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX27: REGISTER_ID = REGISTER_ID(94i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX28: REGISTER_ID = REGISTER_ID(95i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX3: REGISTER_ID = REGISTER_ID(70i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX4: REGISTER_ID = REGISTER_ID(71i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX5: REGISTER_ID = REGISTER_ID(72i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX6: REGISTER_ID = REGISTER_ID(73i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX7: REGISTER_ID = REGISTER_ID(74i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX8: REGISTER_ID = REGISTER_ID(75i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterX9: REGISTER_ID = REGISTER_ID(76i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterXFp: REGISTER_ID = REGISTER_ID(96i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ARM64_RegisterXLr: REGISTER_ID = REGISTER_ID(97i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const Arch_Armv8: VIRTUAL_PROCESSOR_ARCH = VIRTUAL_PROCESSOR_ARCH(3i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const Arch_Unknown: VIRTUAL_PROCESSOR_ARCH = VIRTUAL_PROCESSOR_ARCH(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const Arch_x64: VIRTUAL_PROCESSOR_ARCH = VIRTUAL_PROCESSOR_ARCH(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const Arch_x86: VIRTUAL_PROCESSOR_ARCH = VIRTUAL_PROCESSOR_ARCH(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ff2c92b_6598_4e60_8e1c_0ccf4927e319);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const GuestOsMicrosoftMSDOS: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const GuestOsMicrosoftUndefined: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const GuestOsMicrosoftWindows3x: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const GuestOsMicrosoftWindows9x: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(3i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const GuestOsMicrosoftWindowsCE: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(5i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const GuestOsMicrosoftWindowsNT: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(4i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const GuestOsOpenSourceFreeBSD: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const GuestOsOpenSourceIllumos: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(4i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const GuestOsOpenSourceLinux: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const GuestOsOpenSourceUndefined: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const GuestOsOpenSourceXen: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(3i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const GuestOsVendorHPE: GUEST_OS_VENDOR = GUEST_OS_VENDOR(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const GuestOsVendorLANCOM: GUEST_OS_VENDOR = GUEST_OS_VENDOR(512i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const GuestOsVendorMicrosoft: GUEST_OS_VENDOR = GUEST_OS_VENDOR(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const GuestOsVendorUndefined: GUEST_OS_VENDOR = GUEST_OS_VENDOR(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HDV_DOORBELL_FLAG_TRIGGER_ANY_VALUE: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(-2147483648i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_ANY: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_BYTE: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_DWORD: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(3i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_QWORD: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_WORD: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HDV_PCI_BAR0: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HDV_PCI_BAR1: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HDV_PCI_BAR2: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HDV_PCI_BAR3: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(3i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HDV_PCI_BAR4: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(4i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HDV_PCI_BAR5: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(5i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HDV_PCI_BAR_COUNT: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
@@ -1072,7 +1318,47 @@ pub const HV_GUID_ZERO: ::windows_core::GUID = ::windows_core::GUID::from_u128(0
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const HV_PROTOCOL_RAW: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HdvDeviceHostFlagInitializeComSecurity: HDV_DEVICE_HOST_FLAGS = HDV_DEVICE_HOST_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HdvDeviceHostFlagNone: HDV_DEVICE_HOST_FLAGS = HDV_DEVICE_HOST_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HdvDeviceTypePCI: HDV_DEVICE_TYPE = HDV_DEVICE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HdvDeviceTypeUndefined: HDV_DEVICE_TYPE = HDV_DEVICE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HdvMmioMappingFlagExecutable: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HdvMmioMappingFlagNone: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HdvMmioMappingFlagWriteable: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HdvPciDeviceInterfaceVersion1: HDV_PCI_INTERFACE_VERSION = HDV_PCI_INTERFACE_VERSION(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const HdvPciDeviceInterfaceVersionInvalid: HDV_PCI_INTERFACE_VERSION = HDV_PCI_INTERFACE_VERSION(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const IOCTL_VMGENCOUNTER_READ: u32 = 3325956u32;
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const Paging_32Bit: PAGING_MODE = PAGING_MODE(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const Paging_Armv8: PAGING_MODE = PAGING_MODE(5i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const Paging_Invalid: PAGING_MODE = PAGING_MODE(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const Paging_Long: PAGING_MODE = PAGING_MODE(4i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const Paging_NonPaged: PAGING_MODE = PAGING_MODE(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const Paging_Pae: PAGING_MODE = PAGING_MODE(3i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ProcessorVendor_Amd: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ProcessorVendor_Arm: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(4i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ProcessorVendor_Hygon: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(3i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ProcessorVendor_Intel: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const ProcessorVendor_Unknown: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(0i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const VM_GENCOUNTER_SYMBOLIC_LINK_NAME: ::windows_core::PCWSTR = ::windows_core::w!("\\VmGenerationCounter");
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
@@ -1092,1583 +1378,537 @@ pub const WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHV_VPCI_TYPE0_BAR_COUNT: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GUEST_OS_MICROSOFT_IDS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const GuestOsMicrosoftUndefined: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const GuestOsMicrosoftMSDOS: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const GuestOsMicrosoftWindows3x: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(2i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const GuestOsMicrosoftWindows9x: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(3i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const GuestOsMicrosoftWindowsNT: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(4i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const GuestOsMicrosoftWindowsCE: GUEST_OS_MICROSOFT_IDS = GUEST_OS_MICROSOFT_IDS(5i32);
-impl ::core::marker::Copy for GUEST_OS_MICROSOFT_IDS {}
-impl ::core::clone::Clone for GUEST_OS_MICROSOFT_IDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GUEST_OS_MICROSOFT_IDS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for GUEST_OS_MICROSOFT_IDS {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for GUEST_OS_MICROSOFT_IDS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GUEST_OS_MICROSOFT_IDS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GUEST_OS_OPENSOURCE_IDS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const GuestOsOpenSourceUndefined: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const GuestOsOpenSourceLinux: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const GuestOsOpenSourceFreeBSD: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(2i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const GuestOsOpenSourceXen: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(3i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const GuestOsOpenSourceIllumos: GUEST_OS_OPENSOURCE_IDS = GUEST_OS_OPENSOURCE_IDS(4i32);
-impl ::core::marker::Copy for GUEST_OS_OPENSOURCE_IDS {}
-impl ::core::clone::Clone for GUEST_OS_OPENSOURCE_IDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GUEST_OS_OPENSOURCE_IDS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for GUEST_OS_OPENSOURCE_IDS {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for GUEST_OS_OPENSOURCE_IDS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GUEST_OS_OPENSOURCE_IDS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GUEST_OS_VENDOR(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const GuestOsVendorUndefined: GUEST_OS_VENDOR = GUEST_OS_VENDOR(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const GuestOsVendorMicrosoft: GUEST_OS_VENDOR = GUEST_OS_VENDOR(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const GuestOsVendorHPE: GUEST_OS_VENDOR = GUEST_OS_VENDOR(2i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const GuestOsVendorLANCOM: GUEST_OS_VENDOR = GUEST_OS_VENDOR(512i32);
-impl ::core::marker::Copy for GUEST_OS_VENDOR {}
-impl ::core::clone::Clone for GUEST_OS_VENDOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GUEST_OS_VENDOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for GUEST_OS_VENDOR {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for GUEST_OS_VENDOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GUEST_OS_VENDOR").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HDV_DEVICE_HOST_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HdvDeviceHostFlagNone: HDV_DEVICE_HOST_FLAGS = HDV_DEVICE_HOST_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HdvDeviceHostFlagInitializeComSecurity: HDV_DEVICE_HOST_FLAGS = HDV_DEVICE_HOST_FLAGS(1i32);
-impl ::core::marker::Copy for HDV_DEVICE_HOST_FLAGS {}
-impl ::core::clone::Clone for HDV_DEVICE_HOST_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HDV_DEVICE_HOST_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for HDV_DEVICE_HOST_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for HDV_DEVICE_HOST_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HDV_DEVICE_HOST_FLAGS").field(&self.0).finish()
-    }
-}
-impl HDV_DEVICE_HOST_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl ::core::ops::BitOr for HDV_DEVICE_HOST_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for HDV_DEVICE_HOST_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for HDV_DEVICE_HOST_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for HDV_DEVICE_HOST_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for HDV_DEVICE_HOST_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HDV_DEVICE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HdvDeviceTypeUndefined: HDV_DEVICE_TYPE = HDV_DEVICE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HdvDeviceTypePCI: HDV_DEVICE_TYPE = HDV_DEVICE_TYPE(1i32);
-impl ::core::marker::Copy for HDV_DEVICE_TYPE {}
-impl ::core::clone::Clone for HDV_DEVICE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HDV_DEVICE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for HDV_DEVICE_TYPE {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for HDV_DEVICE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HDV_DEVICE_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HDV_DOORBELL_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_ANY: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_BYTE: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_WORD: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_DWORD: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(3i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HDV_DOORBELL_FLAG_TRIGGER_SIZE_QWORD: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HDV_DOORBELL_FLAG_TRIGGER_ANY_VALUE: HDV_DOORBELL_FLAGS = HDV_DOORBELL_FLAGS(-2147483648i32);
-impl ::core::marker::Copy for HDV_DOORBELL_FLAGS {}
-impl ::core::clone::Clone for HDV_DOORBELL_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HDV_DOORBELL_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for HDV_DOORBELL_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for HDV_DOORBELL_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HDV_DOORBELL_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HDV_MMIO_MAPPING_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HdvMmioMappingFlagNone: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HdvMmioMappingFlagWriteable: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HdvMmioMappingFlagExecutable: HDV_MMIO_MAPPING_FLAGS = HDV_MMIO_MAPPING_FLAGS(2i32);
-impl ::core::marker::Copy for HDV_MMIO_MAPPING_FLAGS {}
-impl ::core::clone::Clone for HDV_MMIO_MAPPING_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HDV_MMIO_MAPPING_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for HDV_MMIO_MAPPING_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for HDV_MMIO_MAPPING_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HDV_MMIO_MAPPING_FLAGS").field(&self.0).finish()
-    }
-}
-impl HDV_MMIO_MAPPING_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl ::core::ops::BitOr for HDV_MMIO_MAPPING_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for HDV_MMIO_MAPPING_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for HDV_MMIO_MAPPING_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for HDV_MMIO_MAPPING_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for HDV_MMIO_MAPPING_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HDV_PCI_BAR_SELECTOR(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HDV_PCI_BAR0: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HDV_PCI_BAR1: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HDV_PCI_BAR2: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(2i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HDV_PCI_BAR3: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(3i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HDV_PCI_BAR4: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(4i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HDV_PCI_BAR5: HDV_PCI_BAR_SELECTOR = HDV_PCI_BAR_SELECTOR(5i32);
-impl ::core::marker::Copy for HDV_PCI_BAR_SELECTOR {}
-impl ::core::clone::Clone for HDV_PCI_BAR_SELECTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HDV_PCI_BAR_SELECTOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for HDV_PCI_BAR_SELECTOR {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for HDV_PCI_BAR_SELECTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HDV_PCI_BAR_SELECTOR").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HDV_PCI_INTERFACE_VERSION(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HdvPciDeviceInterfaceVersionInvalid: HDV_PCI_INTERFACE_VERSION = HDV_PCI_INTERFACE_VERSION(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const HdvPciDeviceInterfaceVersion1: HDV_PCI_INTERFACE_VERSION = HDV_PCI_INTERFACE_VERSION(1i32);
-impl ::core::marker::Copy for HDV_PCI_INTERFACE_VERSION {}
-impl ::core::clone::Clone for HDV_PCI_INTERFACE_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HDV_PCI_INTERFACE_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for HDV_PCI_INTERFACE_VERSION {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for HDV_PCI_INTERFACE_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HDV_PCI_INTERFACE_VERSION").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PAGING_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const Paging_Invalid: PAGING_MODE = PAGING_MODE(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const Paging_NonPaged: PAGING_MODE = PAGING_MODE(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const Paging_32Bit: PAGING_MODE = PAGING_MODE(2i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const Paging_Pae: PAGING_MODE = PAGING_MODE(3i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const Paging_Long: PAGING_MODE = PAGING_MODE(4i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const Paging_Armv8: PAGING_MODE = PAGING_MODE(5i32);
-impl ::core::marker::Copy for PAGING_MODE {}
-impl ::core::clone::Clone for PAGING_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PAGING_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for PAGING_MODE {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for PAGING_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PAGING_MODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct REGISTER_ID(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterRax: REGISTER_ID = REGISTER_ID(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterRcx: REGISTER_ID = REGISTER_ID(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterRdx: REGISTER_ID = REGISTER_ID(2i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterRbx: REGISTER_ID = REGISTER_ID(3i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterRsp: REGISTER_ID = REGISTER_ID(4i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterRbp: REGISTER_ID = REGISTER_ID(5i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterRsi: REGISTER_ID = REGISTER_ID(6i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterRdi: REGISTER_ID = REGISTER_ID(7i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterR8: REGISTER_ID = REGISTER_ID(8i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterR9: REGISTER_ID = REGISTER_ID(9i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterR10: REGISTER_ID = REGISTER_ID(10i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterR11: REGISTER_ID = REGISTER_ID(11i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterR12: REGISTER_ID = REGISTER_ID(12i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterR13: REGISTER_ID = REGISTER_ID(13i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterR14: REGISTER_ID = REGISTER_ID(14i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterR15: REGISTER_ID = REGISTER_ID(15i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterRip: REGISTER_ID = REGISTER_ID(16i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterRFlags: REGISTER_ID = REGISTER_ID(17i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterXmm0: REGISTER_ID = REGISTER_ID(18i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterXmm1: REGISTER_ID = REGISTER_ID(19i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterXmm2: REGISTER_ID = REGISTER_ID(20i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterXmm3: REGISTER_ID = REGISTER_ID(21i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterXmm4: REGISTER_ID = REGISTER_ID(22i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterXmm5: REGISTER_ID = REGISTER_ID(23i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterXmm6: REGISTER_ID = REGISTER_ID(24i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterXmm7: REGISTER_ID = REGISTER_ID(25i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterXmm8: REGISTER_ID = REGISTER_ID(26i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterXmm9: REGISTER_ID = REGISTER_ID(27i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterXmm10: REGISTER_ID = REGISTER_ID(28i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterXmm11: REGISTER_ID = REGISTER_ID(29i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterXmm12: REGISTER_ID = REGISTER_ID(30i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterXmm13: REGISTER_ID = REGISTER_ID(31i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterXmm14: REGISTER_ID = REGISTER_ID(32i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterXmm15: REGISTER_ID = REGISTER_ID(33i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterFpMmx0: REGISTER_ID = REGISTER_ID(34i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterFpMmx1: REGISTER_ID = REGISTER_ID(35i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterFpMmx2: REGISTER_ID = REGISTER_ID(36i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterFpMmx3: REGISTER_ID = REGISTER_ID(37i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterFpMmx4: REGISTER_ID = REGISTER_ID(38i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterFpMmx5: REGISTER_ID = REGISTER_ID(39i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterFpMmx6: REGISTER_ID = REGISTER_ID(40i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterFpMmx7: REGISTER_ID = REGISTER_ID(41i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterFpControlStatus: REGISTER_ID = REGISTER_ID(42i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterXmmControlStatus: REGISTER_ID = REGISTER_ID(43i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterCr0: REGISTER_ID = REGISTER_ID(44i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterCr2: REGISTER_ID = REGISTER_ID(45i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterCr3: REGISTER_ID = REGISTER_ID(46i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterCr4: REGISTER_ID = REGISTER_ID(47i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterCr8: REGISTER_ID = REGISTER_ID(48i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterEfer: REGISTER_ID = REGISTER_ID(49i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterDr0: REGISTER_ID = REGISTER_ID(50i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterDr1: REGISTER_ID = REGISTER_ID(51i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterDr2: REGISTER_ID = REGISTER_ID(52i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterDr3: REGISTER_ID = REGISTER_ID(53i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterDr6: REGISTER_ID = REGISTER_ID(54i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterDr7: REGISTER_ID = REGISTER_ID(55i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterEs: REGISTER_ID = REGISTER_ID(56i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterCs: REGISTER_ID = REGISTER_ID(57i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterSs: REGISTER_ID = REGISTER_ID(58i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterDs: REGISTER_ID = REGISTER_ID(59i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterFs: REGISTER_ID = REGISTER_ID(60i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterGs: REGISTER_ID = REGISTER_ID(61i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterLdtr: REGISTER_ID = REGISTER_ID(62i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterTr: REGISTER_ID = REGISTER_ID(63i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterIdtr: REGISTER_ID = REGISTER_ID(64i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterGdtr: REGISTER_ID = REGISTER_ID(65i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const X64_RegisterMax: REGISTER_ID = REGISTER_ID(66i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX0: REGISTER_ID = REGISTER_ID(67i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX1: REGISTER_ID = REGISTER_ID(68i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX2: REGISTER_ID = REGISTER_ID(69i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX3: REGISTER_ID = REGISTER_ID(70i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX4: REGISTER_ID = REGISTER_ID(71i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX5: REGISTER_ID = REGISTER_ID(72i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX6: REGISTER_ID = REGISTER_ID(73i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX7: REGISTER_ID = REGISTER_ID(74i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX8: REGISTER_ID = REGISTER_ID(75i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX9: REGISTER_ID = REGISTER_ID(76i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX10: REGISTER_ID = REGISTER_ID(77i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX11: REGISTER_ID = REGISTER_ID(78i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX12: REGISTER_ID = REGISTER_ID(79i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX13: REGISTER_ID = REGISTER_ID(80i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX14: REGISTER_ID = REGISTER_ID(81i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX15: REGISTER_ID = REGISTER_ID(82i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX16: REGISTER_ID = REGISTER_ID(83i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX17: REGISTER_ID = REGISTER_ID(84i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX18: REGISTER_ID = REGISTER_ID(85i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX19: REGISTER_ID = REGISTER_ID(86i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX20: REGISTER_ID = REGISTER_ID(87i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX21: REGISTER_ID = REGISTER_ID(88i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX22: REGISTER_ID = REGISTER_ID(89i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX23: REGISTER_ID = REGISTER_ID(90i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX24: REGISTER_ID = REGISTER_ID(91i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX25: REGISTER_ID = REGISTER_ID(92i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX26: REGISTER_ID = REGISTER_ID(93i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX27: REGISTER_ID = REGISTER_ID(94i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterX28: REGISTER_ID = REGISTER_ID(95i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterXFp: REGISTER_ID = REGISTER_ID(96i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterXLr: REGISTER_ID = REGISTER_ID(97i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterPc: REGISTER_ID = REGISTER_ID(98i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterSpEl0: REGISTER_ID = REGISTER_ID(99i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterSpEl1: REGISTER_ID = REGISTER_ID(100i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterCpsr: REGISTER_ID = REGISTER_ID(101i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ0: REGISTER_ID = REGISTER_ID(102i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ1: REGISTER_ID = REGISTER_ID(103i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ2: REGISTER_ID = REGISTER_ID(104i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ3: REGISTER_ID = REGISTER_ID(105i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ4: REGISTER_ID = REGISTER_ID(106i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ5: REGISTER_ID = REGISTER_ID(107i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ6: REGISTER_ID = REGISTER_ID(108i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ7: REGISTER_ID = REGISTER_ID(109i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ8: REGISTER_ID = REGISTER_ID(110i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ9: REGISTER_ID = REGISTER_ID(111i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ10: REGISTER_ID = REGISTER_ID(112i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ11: REGISTER_ID = REGISTER_ID(113i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ12: REGISTER_ID = REGISTER_ID(114i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ13: REGISTER_ID = REGISTER_ID(115i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ14: REGISTER_ID = REGISTER_ID(116i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ15: REGISTER_ID = REGISTER_ID(117i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ16: REGISTER_ID = REGISTER_ID(118i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ17: REGISTER_ID = REGISTER_ID(119i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ18: REGISTER_ID = REGISTER_ID(120i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ19: REGISTER_ID = REGISTER_ID(121i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ20: REGISTER_ID = REGISTER_ID(122i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ21: REGISTER_ID = REGISTER_ID(123i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ22: REGISTER_ID = REGISTER_ID(124i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ23: REGISTER_ID = REGISTER_ID(125i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ24: REGISTER_ID = REGISTER_ID(126i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ25: REGISTER_ID = REGISTER_ID(127i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ26: REGISTER_ID = REGISTER_ID(128i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ27: REGISTER_ID = REGISTER_ID(129i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ28: REGISTER_ID = REGISTER_ID(130i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ29: REGISTER_ID = REGISTER_ID(131i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ30: REGISTER_ID = REGISTER_ID(132i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterQ31: REGISTER_ID = REGISTER_ID(133i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterFpStatus: REGISTER_ID = REGISTER_ID(134i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterFpControl: REGISTER_ID = REGISTER_ID(135i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterEsrEl1: REGISTER_ID = REGISTER_ID(136i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterSpsrEl1: REGISTER_ID = REGISTER_ID(137i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterFarEl1: REGISTER_ID = REGISTER_ID(138i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterParEl1: REGISTER_ID = REGISTER_ID(139i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterElrEl1: REGISTER_ID = REGISTER_ID(140i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterTtbr0El1: REGISTER_ID = REGISTER_ID(141i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterTtbr1El1: REGISTER_ID = REGISTER_ID(142i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterVbarEl1: REGISTER_ID = REGISTER_ID(143i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterSctlrEl1: REGISTER_ID = REGISTER_ID(144i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterActlrEl1: REGISTER_ID = REGISTER_ID(145i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterTcrEl1: REGISTER_ID = REGISTER_ID(146i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterMairEl1: REGISTER_ID = REGISTER_ID(147i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterAmairEl1: REGISTER_ID = REGISTER_ID(148i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterTpidrEl0: REGISTER_ID = REGISTER_ID(149i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterTpidrroEl0: REGISTER_ID = REGISTER_ID(150i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterTpidrEl1: REGISTER_ID = REGISTER_ID(151i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterContextIdrEl1: REGISTER_ID = REGISTER_ID(152i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterCpacrEl1: REGISTER_ID = REGISTER_ID(153i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterCsselrEl1: REGISTER_ID = REGISTER_ID(154i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterCntkctlEl1: REGISTER_ID = REGISTER_ID(155i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterCntvCvalEl0: REGISTER_ID = REGISTER_ID(156i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterCntvCtlEl0: REGISTER_ID = REGISTER_ID(157i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ARM64_RegisterMax: REGISTER_ID = REGISTER_ID(158i32);
-impl ::core::marker::Copy for REGISTER_ID {}
-impl ::core::clone::Clone for REGISTER_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for REGISTER_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for REGISTER_ID {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for REGISTER_ID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("REGISTER_ID").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VIRTUAL_PROCESSOR_ARCH(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const Arch_Unknown: VIRTUAL_PROCESSOR_ARCH = VIRTUAL_PROCESSOR_ARCH(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const Arch_x86: VIRTUAL_PROCESSOR_ARCH = VIRTUAL_PROCESSOR_ARCH(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const Arch_x64: VIRTUAL_PROCESSOR_ARCH = VIRTUAL_PROCESSOR_ARCH(2i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const Arch_Armv8: VIRTUAL_PROCESSOR_ARCH = VIRTUAL_PROCESSOR_ARCH(3i32);
-impl ::core::marker::Copy for VIRTUAL_PROCESSOR_ARCH {}
-impl ::core::clone::Clone for VIRTUAL_PROCESSOR_ARCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VIRTUAL_PROCESSOR_ARCH {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for VIRTUAL_PROCESSOR_ARCH {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_ARCH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VIRTUAL_PROCESSOR_ARCH").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VIRTUAL_PROCESSOR_VENDOR(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ProcessorVendor_Unknown: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ProcessorVendor_Amd: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ProcessorVendor_Intel: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(2i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ProcessorVendor_Hygon: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(3i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const ProcessorVendor_Arm: VIRTUAL_PROCESSOR_VENDOR = VIRTUAL_PROCESSOR_VENDOR(4i32);
-impl ::core::marker::Copy for VIRTUAL_PROCESSOR_VENDOR {}
-impl ::core::clone::Clone for VIRTUAL_PROCESSOR_VENDOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VIRTUAL_PROCESSOR_VENDOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for VIRTUAL_PROCESSOR_VENDOR {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_VENDOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VIRTUAL_PROCESSOR_VENDOR").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_ADVISE_GPA_RANGE_CODE(pub i32);
+pub const WHvAdviseGpaRangeCodePin: WHV_ADVISE_GPA_RANGE_CODE = WHV_ADVISE_GPA_RANGE_CODE(1i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvAdviseGpaRangeCodePopulate: WHV_ADVISE_GPA_RANGE_CODE = WHV_ADVISE_GPA_RANGE_CODE(0i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvAdviseGpaRangeCodePin: WHV_ADVISE_GPA_RANGE_CODE = WHV_ADVISE_GPA_RANGE_CODE(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvAdviseGpaRangeCodeUnpin: WHV_ADVISE_GPA_RANGE_CODE = WHV_ADVISE_GPA_RANGE_CODE(2i32);
-impl ::core::marker::Copy for WHV_ADVISE_GPA_RANGE_CODE {}
-impl ::core::clone::Clone for WHV_ADVISE_GPA_RANGE_CODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WHV_ADVISE_GPA_RANGE_CODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for WHV_ADVISE_GPA_RANGE_CODE {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for WHV_ADVISE_GPA_RANGE_CODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WHV_ADVISE_GPA_RANGE_CODE").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(pub i32);
+pub const WHvAllocateVpciResourceFlagAllowDirectP2P: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvAllocateVpciResourceFlagNone: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvAllocateVpciResourceFlagAllowDirectP2P: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(1i32);
-impl ::core::marker::Copy for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {}
-impl ::core::clone::Clone for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WHV_ALLOCATE_VPCI_RESOURCE_FLAGS").field(&self.0).finish()
-    }
-}
-impl WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl ::core::ops::BitOr for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_CACHE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvCacheTypeUncached: WHV_CACHE_TYPE = WHV_CACHE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvCacheTypeWriteBack: WHV_CACHE_TYPE = WHV_CACHE_TYPE(6i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvCacheTypeWriteCombining: WHV_CACHE_TYPE = WHV_CACHE_TYPE(1i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvCacheTypeWriteThrough: WHV_CACHE_TYPE = WHV_CACHE_TYPE(4i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvCacheTypeWriteBack: WHV_CACHE_TYPE = WHV_CACHE_TYPE(6i32);
-impl ::core::marker::Copy for WHV_CACHE_TYPE {}
-impl ::core::clone::Clone for WHV_CACHE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WHV_CACHE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for WHV_CACHE_TYPE {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for WHV_CACHE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WHV_CACHE_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_CAPABILITY_CODE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvCapabilityCodeHypervisorPresent: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvCapabilityCodeFeatures: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(1i32);
+pub const WHvCapabilityCodeExceptionExitBitmap: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(3i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvCapabilityCodeExtendedVmExits: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(2i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvCapabilityCodeExceptionExitBitmap: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(3i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvCapabilityCodeX64MsrExitBitmap: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(4i32);
+pub const WHvCapabilityCodeFeatures: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(1i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvCapabilityCodeGpaRangePopulateFlags: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(5i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvCapabilityCodeSchedulerFeatures: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(6i32);
+pub const WHvCapabilityCodeHypervisorPresent: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(0i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvCapabilityCodeProcessorVendor: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(4096i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvCapabilityCodeProcessorFeatures: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(4097i32);
+pub const WHvCapabilityCodeInterruptClockFrequency: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(4101i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvCapabilityCodeProcessorClFlushSize: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(4098i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvCapabilityCodeProcessorXsaveFeatures: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(4099i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvCapabilityCodeProcessorClockFrequency: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(4100i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvCapabilityCodeInterruptClockFrequency: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(4101i32);
+pub const WHvCapabilityCodeProcessorFeatures: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(4097i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvCapabilityCodeProcessorFeaturesBanks: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(4102i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvCapabilityCodeProcessorFrequencyCap: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(4103i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvCapabilityCodeProcessorPerfmonFeatures: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(4105i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvCapabilityCodeProcessorVendor: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(4096i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvCapabilityCodeProcessorXsaveFeatures: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(4099i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvCapabilityCodeSchedulerFeatures: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(6i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvCapabilityCodeSyntheticProcessorFeaturesBanks: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(4104i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvCapabilityCodeProcessorPerfmonFeatures: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(4105i32);
-impl ::core::marker::Copy for WHV_CAPABILITY_CODE {}
-impl ::core::clone::Clone for WHV_CAPABILITY_CODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WHV_CAPABILITY_CODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for WHV_CAPABILITY_CODE {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for WHV_CAPABILITY_CODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WHV_CAPABILITY_CODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_CREATE_VPCI_DEVICE_FLAGS(pub i32);
+pub const WHvCapabilityCodeX64MsrExitBitmap: WHV_CAPABILITY_CODE = WHV_CAPABILITY_CODE(4i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvCreateVpciDeviceFlagNone: WHV_CREATE_VPCI_DEVICE_FLAGS = WHV_CREATE_VPCI_DEVICE_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvCreateVpciDeviceFlagPhysicallyBacked: WHV_CREATE_VPCI_DEVICE_FLAGS = WHV_CREATE_VPCI_DEVICE_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvCreateVpciDeviceFlagUseLogicalInterrupts: WHV_CREATE_VPCI_DEVICE_FLAGS = WHV_CREATE_VPCI_DEVICE_FLAGS(2i32);
-impl ::core::marker::Copy for WHV_CREATE_VPCI_DEVICE_FLAGS {}
-impl ::core::clone::Clone for WHV_CREATE_VPCI_DEVICE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WHV_CREATE_VPCI_DEVICE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for WHV_CREATE_VPCI_DEVICE_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for WHV_CREATE_VPCI_DEVICE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WHV_CREATE_VPCI_DEVICE_FLAGS").field(&self.0).finish()
-    }
-}
-impl WHV_CREATE_VPCI_DEVICE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl ::core::ops::BitOr for WHV_CREATE_VPCI_DEVICE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WHV_CREATE_VPCI_DEVICE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WHV_CREATE_VPCI_DEVICE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WHV_CREATE_VPCI_DEVICE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WHV_CREATE_VPCI_DEVICE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_EXCEPTION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ExceptionTypeDivideErrorFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ExceptionTypeDebugTrapOrFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ExceptionTypeBreakpointTrap: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ExceptionTypeOverflowTrap: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ExceptionTypeBoundRangeFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ExceptionTypeInvalidOpcodeFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ExceptionTypeDeviceNotAvailableFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ExceptionTypeDoubleFaultAbort: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ExceptionTypeInvalidTaskStateSegmentFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ExceptionTypeSegmentNotPresentFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ExceptionTypeStackFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ExceptionTypeGeneralProtectionFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ExceptionTypePageFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ExceptionTypeFloatingPointErrorFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ExceptionTypeAlignmentCheckFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(17i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ExceptionTypeMachineCheckAbort: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(18i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ExceptionTypeSimdFloatingPointFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(19i32);
-impl ::core::marker::Copy for WHV_EXCEPTION_TYPE {}
-impl ::core::clone::Clone for WHV_EXCEPTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WHV_EXCEPTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for WHV_EXCEPTION_TYPE {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for WHV_EXCEPTION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WHV_EXCEPTION_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_INTERRUPT_DESTINATION_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64InterruptDestinationModePhysical: WHV_INTERRUPT_DESTINATION_MODE = WHV_INTERRUPT_DESTINATION_MODE(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64InterruptDestinationModeLogical: WHV_INTERRUPT_DESTINATION_MODE = WHV_INTERRUPT_DESTINATION_MODE(1i32);
-impl ::core::marker::Copy for WHV_INTERRUPT_DESTINATION_MODE {}
-impl ::core::clone::Clone for WHV_INTERRUPT_DESTINATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WHV_INTERRUPT_DESTINATION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for WHV_INTERRUPT_DESTINATION_MODE {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for WHV_INTERRUPT_DESTINATION_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WHV_INTERRUPT_DESTINATION_MODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_INTERRUPT_TRIGGER_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64InterruptTriggerModeEdge: WHV_INTERRUPT_TRIGGER_MODE = WHV_INTERRUPT_TRIGGER_MODE(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64InterruptTriggerModeLevel: WHV_INTERRUPT_TRIGGER_MODE = WHV_INTERRUPT_TRIGGER_MODE(1i32);
-impl ::core::marker::Copy for WHV_INTERRUPT_TRIGGER_MODE {}
-impl ::core::clone::Clone for WHV_INTERRUPT_TRIGGER_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WHV_INTERRUPT_TRIGGER_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for WHV_INTERRUPT_TRIGGER_MODE {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for WHV_INTERRUPT_TRIGGER_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WHV_INTERRUPT_TRIGGER_MODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_INTERRUPT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64InterruptTypeFixed: WHV_INTERRUPT_TYPE = WHV_INTERRUPT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64InterruptTypeLowestPriority: WHV_INTERRUPT_TYPE = WHV_INTERRUPT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64InterruptTypeNmi: WHV_INTERRUPT_TYPE = WHV_INTERRUPT_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64InterruptTypeInit: WHV_INTERRUPT_TYPE = WHV_INTERRUPT_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64InterruptTypeSipi: WHV_INTERRUPT_TYPE = WHV_INTERRUPT_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64InterruptTypeLocalInt1: WHV_INTERRUPT_TYPE = WHV_INTERRUPT_TYPE(9i32);
-impl ::core::marker::Copy for WHV_INTERRUPT_TYPE {}
-impl ::core::clone::Clone for WHV_INTERRUPT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WHV_INTERRUPT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for WHV_INTERRUPT_TYPE {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for WHV_INTERRUPT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WHV_INTERRUPT_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_MAP_GPA_RANGE_FLAGS(pub i32);
+pub const WHvMapGpaRangeFlagExecute: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(4i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvMapGpaRangeFlagNone: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(0i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvMapGpaRangeFlagRead: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(1i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvMapGpaRangeFlagTrackDirtyPages: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvMapGpaRangeFlagWrite: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(2i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvMapGpaRangeFlagExecute: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvMapGpaRangeFlagTrackDirtyPages: WHV_MAP_GPA_RANGE_FLAGS = WHV_MAP_GPA_RANGE_FLAGS(8i32);
-impl ::core::marker::Copy for WHV_MAP_GPA_RANGE_FLAGS {}
-impl ::core::clone::Clone for WHV_MAP_GPA_RANGE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WHV_MAP_GPA_RANGE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for WHV_MAP_GPA_RANGE_FLAGS {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for WHV_MAP_GPA_RANGE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WHV_MAP_GPA_RANGE_FLAGS").field(&self.0).finish()
-    }
-}
-impl WHV_MAP_GPA_RANGE_FLAGS {
-    pub const fn contains(&self, other: Self) -> bool {
-        self.0 & other.0 == other.0
-    }
-}
-impl ::core::ops::BitOr for WHV_MAP_GPA_RANGE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WHV_MAP_GPA_RANGE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WHV_MAP_GPA_RANGE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WHV_MAP_GPA_RANGE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WHV_MAP_GPA_RANGE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_MEMORY_ACCESS_TYPE(pub i32);
+pub const WHvMemoryAccessExecute: WHV_MEMORY_ACCESS_TYPE = WHV_MEMORY_ACCESS_TYPE(2i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvMemoryAccessRead: WHV_MEMORY_ACCESS_TYPE = WHV_MEMORY_ACCESS_TYPE(0i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvMemoryAccessWrite: WHV_MEMORY_ACCESS_TYPE = WHV_MEMORY_ACCESS_TYPE(1i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvMemoryAccessExecute: WHV_MEMORY_ACCESS_TYPE = WHV_MEMORY_ACCESS_TYPE(2i32);
-impl ::core::marker::Copy for WHV_MEMORY_ACCESS_TYPE {}
-impl ::core::clone::Clone for WHV_MEMORY_ACCESS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WHV_MEMORY_ACCESS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for WHV_MEMORY_ACCESS_TYPE {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for WHV_MEMORY_ACCESS_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WHV_MEMORY_ACCESS_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_MSR_ACTION(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvMsrActionArchitectureDefault: WHV_MSR_ACTION = WHV_MSR_ACTION(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvMsrActionExit: WHV_MSR_ACTION = WHV_MSR_ACTION(2i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvMsrActionIgnoreWriteReadZero: WHV_MSR_ACTION = WHV_MSR_ACTION(1i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvMsrActionExit: WHV_MSR_ACTION = WHV_MSR_ACTION(2i32);
-impl ::core::marker::Copy for WHV_MSR_ACTION {}
-impl ::core::clone::Clone for WHV_MSR_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WHV_MSR_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for WHV_MSR_ACTION {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for WHV_MSR_ACTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WHV_MSR_ACTION").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_NOTIFICATION_PORT_PROPERTY_CODE(pub i32);
+pub const WHvNotificationPortPropertyPreferredTargetDuration: WHV_NOTIFICATION_PORT_PROPERTY_CODE = WHV_NOTIFICATION_PORT_PROPERTY_CODE(5i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvNotificationPortPropertyPreferredTargetVp: WHV_NOTIFICATION_PORT_PROPERTY_CODE = WHV_NOTIFICATION_PORT_PROPERTY_CODE(1i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvNotificationPortPropertyPreferredTargetDuration: WHV_NOTIFICATION_PORT_PROPERTY_CODE = WHV_NOTIFICATION_PORT_PROPERTY_CODE(5i32);
-impl ::core::marker::Copy for WHV_NOTIFICATION_PORT_PROPERTY_CODE {}
-impl ::core::clone::Clone for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WHV_NOTIFICATION_PORT_PROPERTY_CODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_NOTIFICATION_PORT_TYPE(pub i32);
+pub const WHvNotificationPortTypeDoorbell: WHV_NOTIFICATION_PORT_TYPE = WHV_NOTIFICATION_PORT_TYPE(4i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvNotificationPortTypeEvent: WHV_NOTIFICATION_PORT_TYPE = WHV_NOTIFICATION_PORT_TYPE(2i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvNotificationPortTypeDoorbell: WHV_NOTIFICATION_PORT_TYPE = WHV_NOTIFICATION_PORT_TYPE(4i32);
-impl ::core::marker::Copy for WHV_NOTIFICATION_PORT_TYPE {}
-impl ::core::clone::Clone for WHV_NOTIFICATION_PORT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WHV_NOTIFICATION_PORT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for WHV_NOTIFICATION_PORT_TYPE {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for WHV_NOTIFICATION_PORT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WHV_NOTIFICATION_PORT_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_PARTITION_COUNTER_SET(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvPartitionCounterSetMemory: WHV_PARTITION_COUNTER_SET = WHV_PARTITION_COUNTER_SET(0i32);
-impl ::core::marker::Copy for WHV_PARTITION_COUNTER_SET {}
-impl ::core::clone::Clone for WHV_PARTITION_COUNTER_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WHV_PARTITION_COUNTER_SET {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for WHV_PARTITION_COUNTER_SET {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for WHV_PARTITION_COUNTER_SET {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WHV_PARTITION_COUNTER_SET").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_PARTITION_PROPERTY_CODE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeExtendedVmExits: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeExceptionExitBitmap: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(2i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeSeparateSecurityDomain: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(3i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeNestedVirtualization: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeX64MsrExitBitmap: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(5i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodePrimaryNumaNode: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(6i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeCpuReserve: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(7i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeCpuCap: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(8i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeCpuWeight: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(9i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeCpuGroupId: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(10i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeProcessorFrequencyCap: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(11i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvPartitionPropertyCodeAllowDeviceAssignment: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(12i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeDisableSmt: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(13i32);
+pub const WHvPartitionPropertyCodeApicRemoteReadSupport: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4105i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeProcessorFeatures: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4097i32);
+pub const WHvPartitionPropertyCodeCpuCap: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(8i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeProcessorClFlushSize: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4098i32);
+pub const WHvPartitionPropertyCodeCpuGroupId: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(10i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvPartitionPropertyCodeCpuReserve: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(7i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvPartitionPropertyCodeCpuWeight: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(9i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvPartitionPropertyCodeCpuidExitList: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4099i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvPartitionPropertyCodeCpuidResultList: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4100i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeLocalApicEmulationMode: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4101i32);
+pub const WHvPartitionPropertyCodeCpuidResultList2: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4109i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeProcessorXsaveFeatures: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4102i32);
+pub const WHvPartitionPropertyCodeDisableSmt: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(13i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeProcessorClockFrequency: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4103i32);
+pub const WHvPartitionPropertyCodeExceptionExitBitmap: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvPartitionPropertyCodeExtendedVmExits: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(1i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvPartitionPropertyCodeInterruptClockFrequency: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4104i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeApicRemoteReadSupport: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4105i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeProcessorFeaturesBanks: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4106i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeReferenceTime: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4107i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeSyntheticProcessorFeaturesBanks: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4108i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeCpuidResultList2: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4109i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeProcessorPerfmonFeatures: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4110i32);
+pub const WHvPartitionPropertyCodeLocalApicEmulationMode: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4101i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvPartitionPropertyCodeMsrActionList: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4111i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvPartitionPropertyCodeUnimplementedMsrAction: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4112i32);
+pub const WHvPartitionPropertyCodeNestedVirtualization: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvPartitionPropertyCodePrimaryNumaNode: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(6i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvPartitionPropertyCodeProcessorClFlushSize: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4098i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvPartitionPropertyCodeProcessorClockFrequency: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4103i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvPartitionPropertyCodeProcessorCount: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(8191i32);
-impl ::core::marker::Copy for WHV_PARTITION_PROPERTY_CODE {}
-impl ::core::clone::Clone for WHV_PARTITION_PROPERTY_CODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WHV_PARTITION_PROPERTY_CODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for WHV_PARTITION_PROPERTY_CODE {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for WHV_PARTITION_PROPERTY_CODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WHV_PARTITION_PROPERTY_CODE").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_PROCESSOR_COUNTER_SET(pub i32);
+pub const WHvPartitionPropertyCodeProcessorFeatures: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4097i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvProcessorCounterSetRuntime: WHV_PROCESSOR_COUNTER_SET = WHV_PROCESSOR_COUNTER_SET(0i32);
+pub const WHvPartitionPropertyCodeProcessorFeaturesBanks: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4106i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvProcessorCounterSetIntercepts: WHV_PROCESSOR_COUNTER_SET = WHV_PROCESSOR_COUNTER_SET(1i32);
+pub const WHvPartitionPropertyCodeProcessorFrequencyCap: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(11i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvProcessorCounterSetEvents: WHV_PROCESSOR_COUNTER_SET = WHV_PROCESSOR_COUNTER_SET(2i32);
+pub const WHvPartitionPropertyCodeProcessorPerfmonFeatures: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4110i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvPartitionPropertyCodeProcessorXsaveFeatures: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4102i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvPartitionPropertyCodeReferenceTime: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4107i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvPartitionPropertyCodeSeparateSecurityDomain: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(3i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvPartitionPropertyCodeSyntheticProcessorFeaturesBanks: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4108i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvPartitionPropertyCodeUnimplementedMsrAction: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(4112i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvPartitionPropertyCodeX64MsrExitBitmap: WHV_PARTITION_PROPERTY_CODE = WHV_PARTITION_PROPERTY_CODE(5i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvProcessorCounterSetApic: WHV_PROCESSOR_COUNTER_SET = WHV_PROCESSOR_COUNTER_SET(3i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvProcessorCounterSetSyntheticFeatures: WHV_PROCESSOR_COUNTER_SET = WHV_PROCESSOR_COUNTER_SET(4i32);
-impl ::core::marker::Copy for WHV_PROCESSOR_COUNTER_SET {}
-impl ::core::clone::Clone for WHV_PROCESSOR_COUNTER_SET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WHV_PROCESSOR_COUNTER_SET {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for WHV_PROCESSOR_COUNTER_SET {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for WHV_PROCESSOR_COUNTER_SET {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WHV_PROCESSOR_COUNTER_SET").field(&self.0).finish()
-    }
-}
+pub const WHvProcessorCounterSetEvents: WHV_PROCESSOR_COUNTER_SET = WHV_PROCESSOR_COUNTER_SET(2i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_PROCESSOR_VENDOR(pub i32);
+pub const WHvProcessorCounterSetIntercepts: WHV_PROCESSOR_COUNTER_SET = WHV_PROCESSOR_COUNTER_SET(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvProcessorCounterSetRuntime: WHV_PROCESSOR_COUNTER_SET = WHV_PROCESSOR_COUNTER_SET(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvProcessorCounterSetSyntheticFeatures: WHV_PROCESSOR_COUNTER_SET = WHV_PROCESSOR_COUNTER_SET(4i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvProcessorVendorAmd: WHV_PROCESSOR_VENDOR = WHV_PROCESSOR_VENDOR(0i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvProcessorVendorHygon: WHV_PROCESSOR_VENDOR = WHV_PROCESSOR_VENDOR(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvProcessorVendorIntel: WHV_PROCESSOR_VENDOR = WHV_PROCESSOR_VENDOR(1i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvProcessorVendorHygon: WHV_PROCESSOR_VENDOR = WHV_PROCESSOR_VENDOR(2i32);
-impl ::core::marker::Copy for WHV_PROCESSOR_VENDOR {}
-impl ::core::clone::Clone for WHV_PROCESSOR_VENDOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WHV_PROCESSOR_VENDOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::windows_core::TypeKind for WHV_PROCESSOR_VENDOR {
-    type TypeKind = ::windows_core::CopyType;
-}
-impl ::core::fmt::Debug for WHV_PROCESSOR_VENDOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WHV_PROCESSOR_VENDOR").field(&self.0).finish()
-    }
-}
+pub const WHvRegisterEom: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16404i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WHV_REGISTER_NAME(pub i32);
+pub const WHvRegisterGuestOsId: WHV_REGISTER_NAME = WHV_REGISTER_NAME(20482i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterRax: WHV_REGISTER_NAME = WHV_REGISTER_NAME(0i32);
+pub const WHvRegisterInternalActivityState: WHV_REGISTER_NAME = WHV_REGISTER_NAME(-2147483643i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterRcx: WHV_REGISTER_NAME = WHV_REGISTER_NAME(1i32);
+pub const WHvRegisterInterruptState: WHV_REGISTER_NAME = WHV_REGISTER_NAME(-2147483647i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterRdx: WHV_REGISTER_NAME = WHV_REGISTER_NAME(2i32);
+pub const WHvRegisterPendingEvent: WHV_REGISTER_NAME = WHV_REGISTER_NAME(-2147483646i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterRbx: WHV_REGISTER_NAME = WHV_REGISTER_NAME(3i32);
+pub const WHvRegisterPendingInterruption: WHV_REGISTER_NAME = WHV_REGISTER_NAME(-2147483648i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterRsp: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4i32);
+pub const WHvRegisterReferenceTsc: WHV_REGISTER_NAME = WHV_REGISTER_NAME(20503i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterRbp: WHV_REGISTER_NAME = WHV_REGISTER_NAME(5i32);
+pub const WHvRegisterReferenceTscSequence: WHV_REGISTER_NAME = WHV_REGISTER_NAME(20506i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterRsi: WHV_REGISTER_NAME = WHV_REGISTER_NAME(6i32);
+pub const WHvRegisterScontrol: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16400i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterRdi: WHV_REGISTER_NAME = WHV_REGISTER_NAME(7i32);
+pub const WHvRegisterSiefp: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16402i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterR8: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8i32);
+pub const WHvRegisterSimp: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16403i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterR9: WHV_REGISTER_NAME = WHV_REGISTER_NAME(9i32);
+pub const WHvRegisterSint0: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16384i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterR10: WHV_REGISTER_NAME = WHV_REGISTER_NAME(10i32);
+pub const WHvRegisterSint1: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16385i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterR11: WHV_REGISTER_NAME = WHV_REGISTER_NAME(11i32);
+pub const WHvRegisterSint10: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16394i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterR12: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12i32);
+pub const WHvRegisterSint11: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16395i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterR13: WHV_REGISTER_NAME = WHV_REGISTER_NAME(13i32);
+pub const WHvRegisterSint12: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16396i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterR14: WHV_REGISTER_NAME = WHV_REGISTER_NAME(14i32);
+pub const WHvRegisterSint13: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16397i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterR15: WHV_REGISTER_NAME = WHV_REGISTER_NAME(15i32);
+pub const WHvRegisterSint14: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16398i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterRip: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16i32);
+pub const WHvRegisterSint15: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16399i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterRflags: WHV_REGISTER_NAME = WHV_REGISTER_NAME(17i32);
+pub const WHvRegisterSint2: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16386i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterEs: WHV_REGISTER_NAME = WHV_REGISTER_NAME(18i32);
+pub const WHvRegisterSint3: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16387i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterCs: WHV_REGISTER_NAME = WHV_REGISTER_NAME(19i32);
+pub const WHvRegisterSint4: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16388i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterSs: WHV_REGISTER_NAME = WHV_REGISTER_NAME(20i32);
+pub const WHvRegisterSint5: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16389i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterDs: WHV_REGISTER_NAME = WHV_REGISTER_NAME(21i32);
+pub const WHvRegisterSint6: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16390i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterFs: WHV_REGISTER_NAME = WHV_REGISTER_NAME(22i32);
+pub const WHvRegisterSint7: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16391i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterGs: WHV_REGISTER_NAME = WHV_REGISTER_NAME(23i32);
+pub const WHvRegisterSint8: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16392i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterLdtr: WHV_REGISTER_NAME = WHV_REGISTER_NAME(24i32);
+pub const WHvRegisterSint9: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16393i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterTr: WHV_REGISTER_NAME = WHV_REGISTER_NAME(25i32);
+pub const WHvRegisterSversion: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16401i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterIdtr: WHV_REGISTER_NAME = WHV_REGISTER_NAME(26i32);
+pub const WHvRegisterVpAssistPage: WHV_REGISTER_NAME = WHV_REGISTER_NAME(20499i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterGdtr: WHV_REGISTER_NAME = WHV_REGISTER_NAME(27i32);
+pub const WHvRegisterVpRuntime: WHV_REGISTER_NAME = WHV_REGISTER_NAME(20480i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvRunVpCancelReasonUser: WHV_RUN_VP_CANCEL_REASON = WHV_RUN_VP_CANCEL_REASON(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvRunVpExitReasonCanceled: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(8193i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvRunVpExitReasonException: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(4098i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvRunVpExitReasonHypercall: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(4101i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvRunVpExitReasonInvalidVpRegisterValue: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(5i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvRunVpExitReasonMemoryAccess: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvRunVpExitReasonNone: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvRunVpExitReasonSynicSintDeliverable: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(10i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvRunVpExitReasonUnrecoverableException: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(4i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvRunVpExitReasonUnsupportedFeature: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(6i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvRunVpExitReasonX64ApicEoi: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(9i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvRunVpExitReasonX64ApicInitSipiTrap: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(4102i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvRunVpExitReasonX64ApicSmiTrap: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(4100i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvRunVpExitReasonX64ApicWriteTrap: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(4103i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvRunVpExitReasonX64Cpuid: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(4097i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvRunVpExitReasonX64Halt: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(8i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvRunVpExitReasonX64InterruptWindow: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(7i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvRunVpExitReasonX64IoPortAccess: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvRunVpExitReasonX64MsrAccess: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(4096i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvRunVpExitReasonX64Rdtsc: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(4099i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvTranslateGvaFlagEnforceSmap: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(256i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvTranslateGvaFlagNone: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvTranslateGvaFlagOverrideSmap: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(512i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvTranslateGvaFlagPrivilegeExempt: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvTranslateGvaFlagSetPageTableBits: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvTranslateGvaFlagValidateExecute: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvTranslateGvaFlagValidateRead: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvTranslateGvaFlagValidateWrite: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvTranslateGvaResultGpaIllegalOverlayAccess: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(7i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvTranslateGvaResultGpaNoReadAccess: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(5i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvTranslateGvaResultGpaNoWriteAccess: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(6i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvTranslateGvaResultGpaUnmapped: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(4i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvTranslateGvaResultIntercept: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(8i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvTranslateGvaResultInvalidPageTableFlags: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(3i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvTranslateGvaResultPageNotPresent: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvTranslateGvaResultPrivilegeViolation: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvTranslateGvaResultSuccess: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvTriggerTypeDeviceInterrupt: WHV_TRIGGER_TYPE = WHV_TRIGGER_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvTriggerTypeInterrupt: WHV_TRIGGER_TYPE = WHV_TRIGGER_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvTriggerTypeSynicEvent: WHV_TRIGGER_TYPE = WHV_TRIGGER_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvUnsupportedFeatureIntercept: WHV_X64_UNSUPPORTED_FEATURE_CODE = WHV_X64_UNSUPPORTED_FEATURE_CODE(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvUnsupportedFeatureTaskSwitchTss: WHV_X64_UNSUPPORTED_FEATURE_CODE = WHV_X64_UNSUPPORTED_FEATURE_CODE(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVirtualProcessorPropertyCodeNumaNode: WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE = WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVirtualProcessorStateTypeInterruptControllerState2: WHV_VIRTUAL_PROCESSOR_STATE_TYPE = WHV_VIRTUAL_PROCESSOR_STATE_TYPE(4096i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVirtualProcessorStateTypeSynicEventFlagPage: WHV_VIRTUAL_PROCESSOR_STATE_TYPE = WHV_VIRTUAL_PROCESSOR_STATE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVirtualProcessorStateTypeSynicMessagePage: WHV_VIRTUAL_PROCESSOR_STATE_TYPE = WHV_VIRTUAL_PROCESSOR_STATE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVirtualProcessorStateTypeSynicTimerState: WHV_VIRTUAL_PROCESSOR_STATE_TYPE = WHV_VIRTUAL_PROCESSOR_STATE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVirtualProcessorStateTypeXsaveState: WHV_VIRTUAL_PROCESSOR_STATE_TYPE = WHV_VIRTUAL_PROCESSOR_STATE_TYPE(4097i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVpciBar0: WHV_VPCI_DEVICE_REGISTER_SPACE = WHV_VPCI_DEVICE_REGISTER_SPACE(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVpciBar1: WHV_VPCI_DEVICE_REGISTER_SPACE = WHV_VPCI_DEVICE_REGISTER_SPACE(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVpciBar2: WHV_VPCI_DEVICE_REGISTER_SPACE = WHV_VPCI_DEVICE_REGISTER_SPACE(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVpciBar3: WHV_VPCI_DEVICE_REGISTER_SPACE = WHV_VPCI_DEVICE_REGISTER_SPACE(3i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVpciBar4: WHV_VPCI_DEVICE_REGISTER_SPACE = WHV_VPCI_DEVICE_REGISTER_SPACE(4i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVpciBar5: WHV_VPCI_DEVICE_REGISTER_SPACE = WHV_VPCI_DEVICE_REGISTER_SPACE(5i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVpciConfigSpace: WHV_VPCI_DEVICE_REGISTER_SPACE = WHV_VPCI_DEVICE_REGISTER_SPACE(-1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVpciDeviceNotificationMmioRemapping: WHV_VPCI_DEVICE_NOTIFICATION_TYPE = WHV_VPCI_DEVICE_NOTIFICATION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVpciDeviceNotificationSurpriseRemoval: WHV_VPCI_DEVICE_NOTIFICATION_TYPE = WHV_VPCI_DEVICE_NOTIFICATION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVpciDeviceNotificationUndefined: WHV_VPCI_DEVICE_NOTIFICATION_TYPE = WHV_VPCI_DEVICE_NOTIFICATION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVpciDevicePropertyCodeHardwareIDs: WHV_VPCI_DEVICE_PROPERTY_CODE = WHV_VPCI_DEVICE_PROPERTY_CODE(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVpciDevicePropertyCodeProbedBARs: WHV_VPCI_DEVICE_PROPERTY_CODE = WHV_VPCI_DEVICE_PROPERTY_CODE(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVpciDevicePropertyCodeUndefined: WHV_VPCI_DEVICE_PROPERTY_CODE = WHV_VPCI_DEVICE_PROPERTY_CODE(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVpciInterruptTargetFlagMulticast: WHV_VPCI_INTERRUPT_TARGET_FLAGS = WHV_VPCI_INTERRUPT_TARGET_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVpciInterruptTargetFlagNone: WHV_VPCI_INTERRUPT_TARGET_FLAGS = WHV_VPCI_INTERRUPT_TARGET_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVpciMmioRangeFlagReadAccess: WHV_VPCI_MMIO_RANGE_FLAGS = WHV_VPCI_MMIO_RANGE_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvVpciMmioRangeFlagWriteAccess: WHV_VPCI_MMIO_RANGE_FLAGS = WHV_VPCI_MMIO_RANGE_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ApicWriteTypeDfr: WHV_X64_APIC_WRITE_TYPE = WHV_X64_APIC_WRITE_TYPE(224i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ApicWriteTypeLdr: WHV_X64_APIC_WRITE_TYPE = WHV_X64_APIC_WRITE_TYPE(208i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ApicWriteTypeLint0: WHV_X64_APIC_WRITE_TYPE = WHV_X64_APIC_WRITE_TYPE(848i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ApicWriteTypeLint1: WHV_X64_APIC_WRITE_TYPE = WHV_X64_APIC_WRITE_TYPE(864i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ApicWriteTypeSvr: WHV_X64_APIC_WRITE_TYPE = WHV_X64_APIC_WRITE_TYPE(240i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64CpuidResult2FlagSubleafSpecific: WHV_X64_CPUID_RESULT2_FLAGS = WHV_X64_CPUID_RESULT2_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64CpuidResult2FlagVpSpecific: WHV_X64_CPUID_RESULT2_FLAGS = WHV_X64_CPUID_RESULT2_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ExceptionTypeAlignmentCheckFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(17i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ExceptionTypeBoundRangeFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ExceptionTypeBreakpointTrap: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ExceptionTypeDebugTrapOrFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ExceptionTypeDeviceNotAvailableFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ExceptionTypeDivideErrorFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ExceptionTypeDoubleFaultAbort: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ExceptionTypeFloatingPointErrorFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ExceptionTypeGeneralProtectionFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ExceptionTypeInvalidOpcodeFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ExceptionTypeInvalidTaskStateSegmentFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ExceptionTypeMachineCheckAbort: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(18i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ExceptionTypeOverflowTrap: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ExceptionTypePageFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(14i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ExceptionTypeSegmentNotPresentFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ExceptionTypeSimdFloatingPointFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(19i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64ExceptionTypeStackFault: WHV_EXCEPTION_TYPE = WHV_EXCEPTION_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64InterruptDestinationModeLogical: WHV_INTERRUPT_DESTINATION_MODE = WHV_INTERRUPT_DESTINATION_MODE(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64InterruptDestinationModePhysical: WHV_INTERRUPT_DESTINATION_MODE = WHV_INTERRUPT_DESTINATION_MODE(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64InterruptTriggerModeEdge: WHV_INTERRUPT_TRIGGER_MODE = WHV_INTERRUPT_TRIGGER_MODE(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64InterruptTriggerModeLevel: WHV_INTERRUPT_TRIGGER_MODE = WHV_INTERRUPT_TRIGGER_MODE(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64InterruptTypeFixed: WHV_INTERRUPT_TYPE = WHV_INTERRUPT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64InterruptTypeInit: WHV_INTERRUPT_TYPE = WHV_INTERRUPT_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64InterruptTypeLocalInt1: WHV_INTERRUPT_TYPE = WHV_INTERRUPT_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64InterruptTypeLowestPriority: WHV_INTERRUPT_TYPE = WHV_INTERRUPT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64InterruptTypeNmi: WHV_INTERRUPT_TYPE = WHV_INTERRUPT_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64InterruptTypeSipi: WHV_INTERRUPT_TYPE = WHV_INTERRUPT_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64LocalApicEmulationModeNone: WHV_X64_LOCAL_APIC_EMULATION_MODE = WHV_X64_LOCAL_APIC_EMULATION_MODE(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64LocalApicEmulationModeX2Apic: WHV_X64_LOCAL_APIC_EMULATION_MODE = WHV_X64_LOCAL_APIC_EMULATION_MODE(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64LocalApicEmulationModeXApic: WHV_X64_LOCAL_APIC_EMULATION_MODE = WHV_X64_LOCAL_APIC_EMULATION_MODE(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64PendingEventException: WHV_X64_PENDING_EVENT_TYPE = WHV_X64_PENDING_EVENT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64PendingEventExtInt: WHV_X64_PENDING_EVENT_TYPE = WHV_X64_PENDING_EVENT_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64PendingException: WHV_X64_PENDING_INTERRUPTION_TYPE = WHV_X64_PENDING_INTERRUPTION_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64PendingInterrupt: WHV_X64_PENDING_INTERRUPTION_TYPE = WHV_X64_PENDING_INTERRUPTION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64PendingNmi: WHV_X64_PENDING_INTERRUPTION_TYPE = WHV_X64_PENDING_INTERRUPTION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterACount: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8319i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicBase: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8195i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicCurrentCount: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12345i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicDivide: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12350i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicEoi: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12299i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicEse: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12328i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicIcr: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12336i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicId: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12290i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicInitCount: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12344i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicIrr0: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12320i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicIrr1: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12321i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicIrr2: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12322i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicIrr3: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12323i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicIrr4: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12324i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicIrr5: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12325i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicIrr6: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12326i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicIrr7: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12327i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicIsr0: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12304i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicIsr1: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12305i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicIsr2: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12306i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicIsr3: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12307i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicIsr4: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12308i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicIsr5: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12309i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicIsr6: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12310i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicIsr7: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12311i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicLdr: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12301i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicLvtError: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12343i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicLvtLint0: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12341i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicLvtLint1: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12342i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicLvtPerfmon: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12340i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicLvtThermal: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12339i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicLvtTimer: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12338i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicPpr: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12298i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicSelfIpi: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12351i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicSpurious: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12303i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicTmr0: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12312i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicTmr1: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12313i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicTmr2: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12314i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicTmr3: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12315i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicTmr4: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12316i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicTmr5: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12317i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicTmr6: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12318i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicTmr7: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12319i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicTpr: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12296i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterApicVersion: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12291i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterBndcfgs: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8316i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64RegisterCr0: WHV_REGISTER_NAME = WHV_REGISTER_NAME(28i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
@@ -2679,6 +1919,12 @@ pub const WHvX64RegisterCr3: WHV_REGISTER_NAME = WHV_REGISTER_NAME(30i32);
 pub const WHvX64RegisterCr4: WHV_REGISTER_NAME = WHV_REGISTER_NAME(31i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64RegisterCr8: WHV_REGISTER_NAME = WHV_REGISTER_NAME(32i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterCs: WHV_REGISTER_NAME = WHV_REGISTER_NAME(19i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterCstar: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8202i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterDeliverabilityNotifications: WHV_REGISTER_NAME = WHV_REGISTER_NAME(-2147483644i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64RegisterDr0: WHV_REGISTER_NAME = WHV_REGISTER_NAME(33i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
@@ -2692,47 +1938,13 @@ pub const WHvX64RegisterDr6: WHV_REGISTER_NAME = WHV_REGISTER_NAME(37i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64RegisterDr7: WHV_REGISTER_NAME = WHV_REGISTER_NAME(38i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterXCr0: WHV_REGISTER_NAME = WHV_REGISTER_NAME(39i32);
+pub const WHvX64RegisterDs: WHV_REGISTER_NAME = WHV_REGISTER_NAME(21i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterVirtualCr0: WHV_REGISTER_NAME = WHV_REGISTER_NAME(40i32);
+pub const WHvX64RegisterEfer: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8193i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterVirtualCr3: WHV_REGISTER_NAME = WHV_REGISTER_NAME(41i32);
+pub const WHvX64RegisterEs: WHV_REGISTER_NAME = WHV_REGISTER_NAME(18i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterVirtualCr4: WHV_REGISTER_NAME = WHV_REGISTER_NAME(42i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterVirtualCr8: WHV_REGISTER_NAME = WHV_REGISTER_NAME(43i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterXmm0: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4096i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterXmm1: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4097i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterXmm2: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4098i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterXmm3: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4099i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterXmm4: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4100i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterXmm5: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4101i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterXmm6: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4102i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterXmm7: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4103i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterXmm8: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4104i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterXmm9: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4105i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterXmm10: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4106i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterXmm11: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4107i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterXmm12: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4108i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterXmm13: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4109i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterXmm14: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4110i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterXmm15: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4111i32);
+pub const WHvX64RegisterFpControlStatus: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4120i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64RegisterFpMmx0: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4112i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
@@ -2750,39 +1962,53 @@ pub const WHvX64RegisterFpMmx6: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4118i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64RegisterFpMmx7: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4119i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterFpControlStatus: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4120i32);
+pub const WHvX64RegisterFs: WHV_REGISTER_NAME = WHV_REGISTER_NAME(22i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterXmmControlStatus: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4121i32);
+pub const WHvX64RegisterGdtr: WHV_REGISTER_NAME = WHV_REGISTER_NAME(27i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterTsc: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8192i32);
+pub const WHvX64RegisterGs: WHV_REGISTER_NAME = WHV_REGISTER_NAME(23i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterEfer: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8193i32);
+pub const WHvX64RegisterHypercall: WHV_REGISTER_NAME = WHV_REGISTER_NAME(20481i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterIdtr: WHV_REGISTER_NAME = WHV_REGISTER_NAME(26i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterInitialApicId: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8204i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterInterruptSspTableAddr: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8339i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64RegisterKernelGsBase: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8194i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicBase: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8195i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterPat: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8196i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterSysenterCs: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8197i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterSysenterEip: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8198i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterSysenterEsp: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8199i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterStar: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8200i32);
+pub const WHvX64RegisterLdtr: WHV_REGISTER_NAME = WHV_REGISTER_NAME(24i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64RegisterLstar: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8201i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterCstar: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8202i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterSfmask: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8203i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterInitialApicId: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8204i32);
+pub const WHvX64RegisterMCount: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8318i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64RegisterMsrMtrrCap: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8205i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64RegisterMsrMtrrDefType: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8206i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterMsrMtrrFix16k80000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8305i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterMsrMtrrFix16kA0000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8306i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterMsrMtrrFix4kC0000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8307i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterMsrMtrrFix4kC8000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8308i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterMsrMtrrFix4kD0000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8309i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterMsrMtrrFix4kD8000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8310i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterMsrMtrrFix4kE0000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8311i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterMsrMtrrFix4kE8000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8312i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterMsrMtrrFix4kF0000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8313i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterMsrMtrrFix4kF8000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8314i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterMsrMtrrFix64k00000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8304i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64RegisterMsrMtrrPhysBase0: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8208i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
@@ -2848,51 +2074,9 @@ pub const WHvX64RegisterMsrMtrrPhysMaskE: WHV_REGISTER_NAME = WHV_REGISTER_NAME(
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64RegisterMsrMtrrPhysMaskF: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8271i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterMsrMtrrFix64k00000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8304i32);
+pub const WHvX64RegisterPat: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8196i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterMsrMtrrFix16k80000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8305i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterMsrMtrrFix16kA0000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8306i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterMsrMtrrFix4kC0000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8307i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterMsrMtrrFix4kC8000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8308i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterMsrMtrrFix4kD0000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8309i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterMsrMtrrFix4kD8000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8310i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterMsrMtrrFix4kE0000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8311i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterMsrMtrrFix4kE8000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8312i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterMsrMtrrFix4kF0000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8313i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterMsrMtrrFix4kF8000: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8314i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterTscAux: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8315i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterBndcfgs: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8316i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterMCount: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8318i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterACount: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8319i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterSpecCtrl: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8324i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterPredCmd: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8325i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterTscVirtualOffset: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8327i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterTsxCtrl: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8328i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterXss: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8331i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterUCet: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8332i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterSCet: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8333i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterSsp: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8334i32);
+pub const WHvX64RegisterPendingDebugException: WHV_REGISTER_NAME = WHV_REGISTER_NAME(-2147483642i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64RegisterPl0Ssp: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8335i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
@@ -2902,169 +2086,1145 @@ pub const WHvX64RegisterPl2Ssp: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8337i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64RegisterPl3Ssp: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8338i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterInterruptSspTableAddr: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8339i32);
+pub const WHvX64RegisterPredCmd: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8325i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterTscDeadline: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8341i32);
+pub const WHvX64RegisterR10: WHV_REGISTER_NAME = WHV_REGISTER_NAME(10i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterR11: WHV_REGISTER_NAME = WHV_REGISTER_NAME(11i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterR12: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterR13: WHV_REGISTER_NAME = WHV_REGISTER_NAME(13i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterR14: WHV_REGISTER_NAME = WHV_REGISTER_NAME(14i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterR15: WHV_REGISTER_NAME = WHV_REGISTER_NAME(15i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterR8: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterR9: WHV_REGISTER_NAME = WHV_REGISTER_NAME(9i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterRax: WHV_REGISTER_NAME = WHV_REGISTER_NAME(0i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterRbp: WHV_REGISTER_NAME = WHV_REGISTER_NAME(5i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterRbx: WHV_REGISTER_NAME = WHV_REGISTER_NAME(3i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterRcx: WHV_REGISTER_NAME = WHV_REGISTER_NAME(1i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterRdi: WHV_REGISTER_NAME = WHV_REGISTER_NAME(7i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterRdx: WHV_REGISTER_NAME = WHV_REGISTER_NAME(2i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterRflags: WHV_REGISTER_NAME = WHV_REGISTER_NAME(17i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterRip: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterRsi: WHV_REGISTER_NAME = WHV_REGISTER_NAME(6i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterRsp: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterSCet: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8333i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterSfmask: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8203i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterSpecCtrl: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8324i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterSs: WHV_REGISTER_NAME = WHV_REGISTER_NAME(20i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterSsp: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8334i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterStar: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8200i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterSysenterCs: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8197i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterSysenterEip: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8198i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterSysenterEsp: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8199i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterTr: WHV_REGISTER_NAME = WHV_REGISTER_NAME(25i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterTsc: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8192i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64RegisterTscAdjust: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8342i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterTscAux: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8315i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterTscDeadline: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8341i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterTscVirtualOffset: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8327i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterTsxCtrl: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8328i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterUCet: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8332i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64RegisterUmwaitControl: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8344i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterVirtualCr0: WHV_REGISTER_NAME = WHV_REGISTER_NAME(40i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterVirtualCr3: WHV_REGISTER_NAME = WHV_REGISTER_NAME(41i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterVirtualCr4: WHV_REGISTER_NAME = WHV_REGISTER_NAME(42i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterVirtualCr8: WHV_REGISTER_NAME = WHV_REGISTER_NAME(43i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const WHvX64RegisterXCr0: WHV_REGISTER_NAME = WHV_REGISTER_NAME(39i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64RegisterXfd: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8345i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
 pub const WHvX64RegisterXfdErr: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8346i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicId: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12290i32);
+pub const WHvX64RegisterXmm0: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4096i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicVersion: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12291i32);
+pub const WHvX64RegisterXmm1: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4097i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicTpr: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12296i32);
+pub const WHvX64RegisterXmm10: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4106i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicPpr: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12298i32);
+pub const WHvX64RegisterXmm11: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4107i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicEoi: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12299i32);
+pub const WHvX64RegisterXmm12: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4108i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicLdr: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12301i32);
+pub const WHvX64RegisterXmm13: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4109i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicSpurious: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12303i32);
+pub const WHvX64RegisterXmm14: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4110i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicIsr0: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12304i32);
+pub const WHvX64RegisterXmm15: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4111i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicIsr1: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12305i32);
+pub const WHvX64RegisterXmm2: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4098i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicIsr2: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12306i32);
+pub const WHvX64RegisterXmm3: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4099i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicIsr3: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12307i32);
+pub const WHvX64RegisterXmm4: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4100i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicIsr4: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12308i32);
+pub const WHvX64RegisterXmm5: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4101i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicIsr5: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12309i32);
+pub const WHvX64RegisterXmm6: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4102i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicIsr6: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12310i32);
+pub const WHvX64RegisterXmm7: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4103i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicIsr7: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12311i32);
+pub const WHvX64RegisterXmm8: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4104i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicTmr0: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12312i32);
+pub const WHvX64RegisterXmm9: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4105i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicTmr1: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12313i32);
+pub const WHvX64RegisterXmmControlStatus: WHV_REGISTER_NAME = WHV_REGISTER_NAME(4121i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicTmr2: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12314i32);
+pub const WHvX64RegisterXss: WHV_REGISTER_NAME = WHV_REGISTER_NAME(8331i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicTmr3: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12315i32);
+pub const X64_RegisterCr0: REGISTER_ID = REGISTER_ID(44i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicTmr4: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12316i32);
+pub const X64_RegisterCr2: REGISTER_ID = REGISTER_ID(45i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicTmr5: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12317i32);
+pub const X64_RegisterCr3: REGISTER_ID = REGISTER_ID(46i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicTmr6: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12318i32);
+pub const X64_RegisterCr4: REGISTER_ID = REGISTER_ID(47i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicTmr7: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12319i32);
+pub const X64_RegisterCr8: REGISTER_ID = REGISTER_ID(48i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicIrr0: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12320i32);
+pub const X64_RegisterCs: REGISTER_ID = REGISTER_ID(57i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicIrr1: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12321i32);
+pub const X64_RegisterDr0: REGISTER_ID = REGISTER_ID(50i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicIrr2: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12322i32);
+pub const X64_RegisterDr1: REGISTER_ID = REGISTER_ID(51i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicIrr3: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12323i32);
+pub const X64_RegisterDr2: REGISTER_ID = REGISTER_ID(52i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicIrr4: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12324i32);
+pub const X64_RegisterDr3: REGISTER_ID = REGISTER_ID(53i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicIrr5: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12325i32);
+pub const X64_RegisterDr6: REGISTER_ID = REGISTER_ID(54i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicIrr6: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12326i32);
+pub const X64_RegisterDr7: REGISTER_ID = REGISTER_ID(55i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicIrr7: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12327i32);
+pub const X64_RegisterDs: REGISTER_ID = REGISTER_ID(59i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicEse: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12328i32);
+pub const X64_RegisterEfer: REGISTER_ID = REGISTER_ID(49i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicIcr: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12336i32);
+pub const X64_RegisterEs: REGISTER_ID = REGISTER_ID(56i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicLvtTimer: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12338i32);
+pub const X64_RegisterFpControlStatus: REGISTER_ID = REGISTER_ID(42i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicLvtThermal: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12339i32);
+pub const X64_RegisterFpMmx0: REGISTER_ID = REGISTER_ID(34i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicLvtPerfmon: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12340i32);
+pub const X64_RegisterFpMmx1: REGISTER_ID = REGISTER_ID(35i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicLvtLint0: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12341i32);
+pub const X64_RegisterFpMmx2: REGISTER_ID = REGISTER_ID(36i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicLvtLint1: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12342i32);
+pub const X64_RegisterFpMmx3: REGISTER_ID = REGISTER_ID(37i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicLvtError: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12343i32);
+pub const X64_RegisterFpMmx4: REGISTER_ID = REGISTER_ID(38i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicInitCount: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12344i32);
+pub const X64_RegisterFpMmx5: REGISTER_ID = REGISTER_ID(39i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicCurrentCount: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12345i32);
+pub const X64_RegisterFpMmx6: REGISTER_ID = REGISTER_ID(40i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicDivide: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12350i32);
+pub const X64_RegisterFpMmx7: REGISTER_ID = REGISTER_ID(41i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterApicSelfIpi: WHV_REGISTER_NAME = WHV_REGISTER_NAME(12351i32);
+pub const X64_RegisterFs: REGISTER_ID = REGISTER_ID(60i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterSint0: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16384i32);
+pub const X64_RegisterGdtr: REGISTER_ID = REGISTER_ID(65i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterSint1: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16385i32);
+pub const X64_RegisterGs: REGISTER_ID = REGISTER_ID(61i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterSint2: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16386i32);
+pub const X64_RegisterIdtr: REGISTER_ID = REGISTER_ID(64i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterSint3: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16387i32);
+pub const X64_RegisterLdtr: REGISTER_ID = REGISTER_ID(62i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterSint4: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16388i32);
+pub const X64_RegisterMax: REGISTER_ID = REGISTER_ID(66i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterSint5: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16389i32);
+pub const X64_RegisterR10: REGISTER_ID = REGISTER_ID(10i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterSint6: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16390i32);
+pub const X64_RegisterR11: REGISTER_ID = REGISTER_ID(11i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterSint7: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16391i32);
+pub const X64_RegisterR12: REGISTER_ID = REGISTER_ID(12i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterSint8: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16392i32);
+pub const X64_RegisterR13: REGISTER_ID = REGISTER_ID(13i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterSint9: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16393i32);
+pub const X64_RegisterR14: REGISTER_ID = REGISTER_ID(14i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterSint10: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16394i32);
+pub const X64_RegisterR15: REGISTER_ID = REGISTER_ID(15i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterSint11: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16395i32);
+pub const X64_RegisterR8: REGISTER_ID = REGISTER_ID(8i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterSint12: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16396i32);
+pub const X64_RegisterR9: REGISTER_ID = REGISTER_ID(9i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterSint13: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16397i32);
+pub const X64_RegisterRFlags: REGISTER_ID = REGISTER_ID(17i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterSint14: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16398i32);
+pub const X64_RegisterRax: REGISTER_ID = REGISTER_ID(0i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterSint15: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16399i32);
+pub const X64_RegisterRbp: REGISTER_ID = REGISTER_ID(5i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterScontrol: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16400i32);
+pub const X64_RegisterRbx: REGISTER_ID = REGISTER_ID(3i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterSversion: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16401i32);
+pub const X64_RegisterRcx: REGISTER_ID = REGISTER_ID(1i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterSiefp: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16402i32);
+pub const X64_RegisterRdi: REGISTER_ID = REGISTER_ID(7i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterSimp: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16403i32);
+pub const X64_RegisterRdx: REGISTER_ID = REGISTER_ID(2i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterEom: WHV_REGISTER_NAME = WHV_REGISTER_NAME(16404i32);
+pub const X64_RegisterRip: REGISTER_ID = REGISTER_ID(16i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterVpRuntime: WHV_REGISTER_NAME = WHV_REGISTER_NAME(20480i32);
+pub const X64_RegisterRsi: REGISTER_ID = REGISTER_ID(6i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterHypercall: WHV_REGISTER_NAME = WHV_REGISTER_NAME(20481i32);
+pub const X64_RegisterRsp: REGISTER_ID = REGISTER_ID(4i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterGuestOsId: WHV_REGISTER_NAME = WHV_REGISTER_NAME(20482i32);
+pub const X64_RegisterSs: REGISTER_ID = REGISTER_ID(58i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterVpAssistPage: WHV_REGISTER_NAME = WHV_REGISTER_NAME(20499i32);
+pub const X64_RegisterTr: REGISTER_ID = REGISTER_ID(63i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterReferenceTsc: WHV_REGISTER_NAME = WHV_REGISTER_NAME(20503i32);
+pub const X64_RegisterXmm0: REGISTER_ID = REGISTER_ID(18i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterReferenceTscSequence: WHV_REGISTER_NAME = WHV_REGISTER_NAME(20506i32);
+pub const X64_RegisterXmm1: REGISTER_ID = REGISTER_ID(19i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterPendingInterruption: WHV_REGISTER_NAME = WHV_REGISTER_NAME(-2147483648i32);
+pub const X64_RegisterXmm10: REGISTER_ID = REGISTER_ID(28i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterInterruptState: WHV_REGISTER_NAME = WHV_REGISTER_NAME(-2147483647i32);
+pub const X64_RegisterXmm11: REGISTER_ID = REGISTER_ID(29i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterPendingEvent: WHV_REGISTER_NAME = WHV_REGISTER_NAME(-2147483646i32);
+pub const X64_RegisterXmm12: REGISTER_ID = REGISTER_ID(30i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterDeliverabilityNotifications: WHV_REGISTER_NAME = WHV_REGISTER_NAME(-2147483644i32);
+pub const X64_RegisterXmm13: REGISTER_ID = REGISTER_ID(31i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRegisterInternalActivityState: WHV_REGISTER_NAME = WHV_REGISTER_NAME(-2147483643i32);
+pub const X64_RegisterXmm14: REGISTER_ID = REGISTER_ID(32i32);
 #[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64RegisterPendingDebugException: WHV_REGISTER_NAME = WHV_REGISTER_NAME(-2147483642i32);
+pub const X64_RegisterXmm15: REGISTER_ID = REGISTER_ID(33i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const X64_RegisterXmm2: REGISTER_ID = REGISTER_ID(20i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const X64_RegisterXmm3: REGISTER_ID = REGISTER_ID(21i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const X64_RegisterXmm4: REGISTER_ID = REGISTER_ID(22i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const X64_RegisterXmm5: REGISTER_ID = REGISTER_ID(23i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const X64_RegisterXmm6: REGISTER_ID = REGISTER_ID(24i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const X64_RegisterXmm7: REGISTER_ID = REGISTER_ID(25i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const X64_RegisterXmm8: REGISTER_ID = REGISTER_ID(26i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const X64_RegisterXmm9: REGISTER_ID = REGISTER_ID(27i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+pub const X64_RegisterXmmControlStatus: REGISTER_ID = REGISTER_ID(43i32);
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GUEST_OS_MICROSOFT_IDS(pub i32);
+impl ::core::marker::Copy for GUEST_OS_MICROSOFT_IDS {}
+impl ::core::clone::Clone for GUEST_OS_MICROSOFT_IDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GUEST_OS_MICROSOFT_IDS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for GUEST_OS_MICROSOFT_IDS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for GUEST_OS_MICROSOFT_IDS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GUEST_OS_MICROSOFT_IDS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GUEST_OS_OPENSOURCE_IDS(pub i32);
+impl ::core::marker::Copy for GUEST_OS_OPENSOURCE_IDS {}
+impl ::core::clone::Clone for GUEST_OS_OPENSOURCE_IDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GUEST_OS_OPENSOURCE_IDS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for GUEST_OS_OPENSOURCE_IDS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for GUEST_OS_OPENSOURCE_IDS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GUEST_OS_OPENSOURCE_IDS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GUEST_OS_VENDOR(pub i32);
+impl ::core::marker::Copy for GUEST_OS_VENDOR {}
+impl ::core::clone::Clone for GUEST_OS_VENDOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GUEST_OS_VENDOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for GUEST_OS_VENDOR {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for GUEST_OS_VENDOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GUEST_OS_VENDOR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HDV_DEVICE_HOST_FLAGS(pub i32);
+impl ::core::marker::Copy for HDV_DEVICE_HOST_FLAGS {}
+impl ::core::clone::Clone for HDV_DEVICE_HOST_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HDV_DEVICE_HOST_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for HDV_DEVICE_HOST_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for HDV_DEVICE_HOST_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDV_DEVICE_HOST_FLAGS").field(&self.0).finish()
+    }
+}
+impl HDV_DEVICE_HOST_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for HDV_DEVICE_HOST_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for HDV_DEVICE_HOST_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for HDV_DEVICE_HOST_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for HDV_DEVICE_HOST_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for HDV_DEVICE_HOST_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HDV_DEVICE_TYPE(pub i32);
+impl ::core::marker::Copy for HDV_DEVICE_TYPE {}
+impl ::core::clone::Clone for HDV_DEVICE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HDV_DEVICE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for HDV_DEVICE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for HDV_DEVICE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDV_DEVICE_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HDV_DOORBELL_FLAGS(pub i32);
+impl ::core::marker::Copy for HDV_DOORBELL_FLAGS {}
+impl ::core::clone::Clone for HDV_DOORBELL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HDV_DOORBELL_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for HDV_DOORBELL_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for HDV_DOORBELL_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDV_DOORBELL_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HDV_MMIO_MAPPING_FLAGS(pub i32);
+impl ::core::marker::Copy for HDV_MMIO_MAPPING_FLAGS {}
+impl ::core::clone::Clone for HDV_MMIO_MAPPING_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HDV_MMIO_MAPPING_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for HDV_MMIO_MAPPING_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for HDV_MMIO_MAPPING_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDV_MMIO_MAPPING_FLAGS").field(&self.0).finish()
+    }
+}
+impl HDV_MMIO_MAPPING_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for HDV_MMIO_MAPPING_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for HDV_MMIO_MAPPING_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for HDV_MMIO_MAPPING_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for HDV_MMIO_MAPPING_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for HDV_MMIO_MAPPING_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HDV_PCI_BAR_SELECTOR(pub i32);
+impl ::core::marker::Copy for HDV_PCI_BAR_SELECTOR {}
+impl ::core::clone::Clone for HDV_PCI_BAR_SELECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HDV_PCI_BAR_SELECTOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for HDV_PCI_BAR_SELECTOR {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for HDV_PCI_BAR_SELECTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDV_PCI_BAR_SELECTOR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HDV_PCI_INTERFACE_VERSION(pub i32);
+impl ::core::marker::Copy for HDV_PCI_INTERFACE_VERSION {}
+impl ::core::clone::Clone for HDV_PCI_INTERFACE_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HDV_PCI_INTERFACE_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for HDV_PCI_INTERFACE_VERSION {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for HDV_PCI_INTERFACE_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDV_PCI_INTERFACE_VERSION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PAGING_MODE(pub i32);
+impl ::core::marker::Copy for PAGING_MODE {}
+impl ::core::clone::Clone for PAGING_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PAGING_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for PAGING_MODE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for PAGING_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PAGING_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct REGISTER_ID(pub i32);
+impl ::core::marker::Copy for REGISTER_ID {}
+impl ::core::clone::Clone for REGISTER_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for REGISTER_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for REGISTER_ID {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for REGISTER_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("REGISTER_ID").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VIRTUAL_PROCESSOR_ARCH(pub i32);
+impl ::core::marker::Copy for VIRTUAL_PROCESSOR_ARCH {}
+impl ::core::clone::Clone for VIRTUAL_PROCESSOR_ARCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VIRTUAL_PROCESSOR_ARCH {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for VIRTUAL_PROCESSOR_ARCH {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_ARCH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VIRTUAL_PROCESSOR_ARCH").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VIRTUAL_PROCESSOR_VENDOR(pub i32);
+impl ::core::marker::Copy for VIRTUAL_PROCESSOR_VENDOR {}
+impl ::core::clone::Clone for VIRTUAL_PROCESSOR_VENDOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VIRTUAL_PROCESSOR_VENDOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for VIRTUAL_PROCESSOR_VENDOR {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for VIRTUAL_PROCESSOR_VENDOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VIRTUAL_PROCESSOR_VENDOR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WHV_ADVISE_GPA_RANGE_CODE(pub i32);
+impl ::core::marker::Copy for WHV_ADVISE_GPA_RANGE_CODE {}
+impl ::core::clone::Clone for WHV_ADVISE_GPA_RANGE_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WHV_ADVISE_GPA_RANGE_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WHV_ADVISE_GPA_RANGE_CODE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WHV_ADVISE_GPA_RANGE_CODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WHV_ADVISE_GPA_RANGE_CODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WHV_ALLOCATE_VPCI_RESOURCE_FLAGS(pub i32);
+impl ::core::marker::Copy for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {}
+impl ::core::clone::Clone for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WHV_ALLOCATE_VPCI_RESOURCE_FLAGS").field(&self.0).finish()
+    }
+}
+impl WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WHV_ALLOCATE_VPCI_RESOURCE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WHV_CACHE_TYPE(pub i32);
+impl ::core::marker::Copy for WHV_CACHE_TYPE {}
+impl ::core::clone::Clone for WHV_CACHE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WHV_CACHE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WHV_CACHE_TYPE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WHV_CACHE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WHV_CACHE_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WHV_CAPABILITY_CODE(pub i32);
+impl ::core::marker::Copy for WHV_CAPABILITY_CODE {}
+impl ::core::clone::Clone for WHV_CAPABILITY_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WHV_CAPABILITY_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WHV_CAPABILITY_CODE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WHV_CAPABILITY_CODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WHV_CAPABILITY_CODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WHV_CREATE_VPCI_DEVICE_FLAGS(pub i32);
+impl ::core::marker::Copy for WHV_CREATE_VPCI_DEVICE_FLAGS {}
+impl ::core::clone::Clone for WHV_CREATE_VPCI_DEVICE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WHV_CREATE_VPCI_DEVICE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WHV_CREATE_VPCI_DEVICE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WHV_CREATE_VPCI_DEVICE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WHV_CREATE_VPCI_DEVICE_FLAGS").field(&self.0).finish()
+    }
+}
+impl WHV_CREATE_VPCI_DEVICE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for WHV_CREATE_VPCI_DEVICE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WHV_CREATE_VPCI_DEVICE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WHV_CREATE_VPCI_DEVICE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WHV_CREATE_VPCI_DEVICE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WHV_CREATE_VPCI_DEVICE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WHV_EXCEPTION_TYPE(pub i32);
+impl ::core::marker::Copy for WHV_EXCEPTION_TYPE {}
+impl ::core::clone::Clone for WHV_EXCEPTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WHV_EXCEPTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WHV_EXCEPTION_TYPE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WHV_EXCEPTION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WHV_EXCEPTION_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WHV_INTERRUPT_DESTINATION_MODE(pub i32);
+impl ::core::marker::Copy for WHV_INTERRUPT_DESTINATION_MODE {}
+impl ::core::clone::Clone for WHV_INTERRUPT_DESTINATION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WHV_INTERRUPT_DESTINATION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WHV_INTERRUPT_DESTINATION_MODE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WHV_INTERRUPT_DESTINATION_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WHV_INTERRUPT_DESTINATION_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WHV_INTERRUPT_TRIGGER_MODE(pub i32);
+impl ::core::marker::Copy for WHV_INTERRUPT_TRIGGER_MODE {}
+impl ::core::clone::Clone for WHV_INTERRUPT_TRIGGER_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WHV_INTERRUPT_TRIGGER_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WHV_INTERRUPT_TRIGGER_MODE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WHV_INTERRUPT_TRIGGER_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WHV_INTERRUPT_TRIGGER_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WHV_INTERRUPT_TYPE(pub i32);
+impl ::core::marker::Copy for WHV_INTERRUPT_TYPE {}
+impl ::core::clone::Clone for WHV_INTERRUPT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WHV_INTERRUPT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WHV_INTERRUPT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WHV_INTERRUPT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WHV_INTERRUPT_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WHV_MAP_GPA_RANGE_FLAGS(pub i32);
+impl ::core::marker::Copy for WHV_MAP_GPA_RANGE_FLAGS {}
+impl ::core::clone::Clone for WHV_MAP_GPA_RANGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WHV_MAP_GPA_RANGE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WHV_MAP_GPA_RANGE_FLAGS {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WHV_MAP_GPA_RANGE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WHV_MAP_GPA_RANGE_FLAGS").field(&self.0).finish()
+    }
+}
+impl WHV_MAP_GPA_RANGE_FLAGS {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl ::core::ops::BitOr for WHV_MAP_GPA_RANGE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WHV_MAP_GPA_RANGE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WHV_MAP_GPA_RANGE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WHV_MAP_GPA_RANGE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WHV_MAP_GPA_RANGE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WHV_MEMORY_ACCESS_TYPE(pub i32);
+impl ::core::marker::Copy for WHV_MEMORY_ACCESS_TYPE {}
+impl ::core::clone::Clone for WHV_MEMORY_ACCESS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WHV_MEMORY_ACCESS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WHV_MEMORY_ACCESS_TYPE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WHV_MEMORY_ACCESS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WHV_MEMORY_ACCESS_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WHV_MSR_ACTION(pub i32);
+impl ::core::marker::Copy for WHV_MSR_ACTION {}
+impl ::core::clone::Clone for WHV_MSR_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WHV_MSR_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WHV_MSR_ACTION {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WHV_MSR_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WHV_MSR_ACTION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WHV_NOTIFICATION_PORT_PROPERTY_CODE(pub i32);
+impl ::core::marker::Copy for WHV_NOTIFICATION_PORT_PROPERTY_CODE {}
+impl ::core::clone::Clone for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WHV_NOTIFICATION_PORT_PROPERTY_CODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WHV_NOTIFICATION_PORT_PROPERTY_CODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WHV_NOTIFICATION_PORT_TYPE(pub i32);
+impl ::core::marker::Copy for WHV_NOTIFICATION_PORT_TYPE {}
+impl ::core::clone::Clone for WHV_NOTIFICATION_PORT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WHV_NOTIFICATION_PORT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WHV_NOTIFICATION_PORT_TYPE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WHV_NOTIFICATION_PORT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WHV_NOTIFICATION_PORT_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WHV_PARTITION_COUNTER_SET(pub i32);
+impl ::core::marker::Copy for WHV_PARTITION_COUNTER_SET {}
+impl ::core::clone::Clone for WHV_PARTITION_COUNTER_SET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WHV_PARTITION_COUNTER_SET {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WHV_PARTITION_COUNTER_SET {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WHV_PARTITION_COUNTER_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WHV_PARTITION_COUNTER_SET").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WHV_PARTITION_PROPERTY_CODE(pub i32);
+impl ::core::marker::Copy for WHV_PARTITION_PROPERTY_CODE {}
+impl ::core::clone::Clone for WHV_PARTITION_PROPERTY_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WHV_PARTITION_PROPERTY_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WHV_PARTITION_PROPERTY_CODE {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WHV_PARTITION_PROPERTY_CODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WHV_PARTITION_PROPERTY_CODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WHV_PROCESSOR_COUNTER_SET(pub i32);
+impl ::core::marker::Copy for WHV_PROCESSOR_COUNTER_SET {}
+impl ::core::clone::Clone for WHV_PROCESSOR_COUNTER_SET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WHV_PROCESSOR_COUNTER_SET {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WHV_PROCESSOR_COUNTER_SET {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WHV_PROCESSOR_COUNTER_SET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WHV_PROCESSOR_COUNTER_SET").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WHV_PROCESSOR_VENDOR(pub i32);
+impl ::core::marker::Copy for WHV_PROCESSOR_VENDOR {}
+impl ::core::clone::Clone for WHV_PROCESSOR_VENDOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WHV_PROCESSOR_VENDOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::windows_core::TypeKind for WHV_PROCESSOR_VENDOR {
+    type TypeKind = ::windows_core::CopyType;
+}
+impl ::core::fmt::Debug for WHV_PROCESSOR_VENDOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WHV_PROCESSOR_VENDOR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WHV_REGISTER_NAME(pub i32);
 impl ::core::marker::Copy for WHV_REGISTER_NAME {}
 impl ::core::clone::Clone for WHV_REGISTER_NAME {
     fn clone(&self) -> Self {
@@ -3088,8 +3248,6 @@ impl ::core::fmt::Debug for WHV_REGISTER_NAME {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_RUN_VP_CANCEL_REASON(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRunVpCancelReasonUser: WHV_RUN_VP_CANCEL_REASON = WHV_RUN_VP_CANCEL_REASON(0i32);
 impl ::core::marker::Copy for WHV_RUN_VP_CANCEL_REASON {}
 impl ::core::clone::Clone for WHV_RUN_VP_CANCEL_REASON {
     fn clone(&self) -> Self {
@@ -3113,44 +3271,6 @@ impl ::core::fmt::Debug for WHV_RUN_VP_CANCEL_REASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_RUN_VP_EXIT_REASON(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRunVpExitReasonNone: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRunVpExitReasonMemoryAccess: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRunVpExitReasonX64IoPortAccess: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(2i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRunVpExitReasonUnrecoverableException: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(4i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRunVpExitReasonInvalidVpRegisterValue: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(5i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRunVpExitReasonUnsupportedFeature: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(6i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRunVpExitReasonX64InterruptWindow: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(7i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRunVpExitReasonX64Halt: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(8i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRunVpExitReasonX64ApicEoi: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(9i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRunVpExitReasonSynicSintDeliverable: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(10i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRunVpExitReasonX64MsrAccess: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(4096i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRunVpExitReasonX64Cpuid: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(4097i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRunVpExitReasonException: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(4098i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRunVpExitReasonX64Rdtsc: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(4099i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRunVpExitReasonX64ApicSmiTrap: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(4100i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRunVpExitReasonHypercall: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(4101i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRunVpExitReasonX64ApicInitSipiTrap: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(4102i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRunVpExitReasonX64ApicWriteTrap: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(4103i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvRunVpExitReasonCanceled: WHV_RUN_VP_EXIT_REASON = WHV_RUN_VP_EXIT_REASON(8193i32);
 impl ::core::marker::Copy for WHV_RUN_VP_EXIT_REASON {}
 impl ::core::clone::Clone for WHV_RUN_VP_EXIT_REASON {
     fn clone(&self) -> Self {
@@ -3174,22 +3294,6 @@ impl ::core::fmt::Debug for WHV_RUN_VP_EXIT_REASON {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_TRANSLATE_GVA_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaFlagNone: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaFlagValidateRead: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaFlagValidateWrite: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaFlagValidateExecute: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaFlagPrivilegeExempt: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaFlagSetPageTableBits: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaFlagEnforceSmap: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(256i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaFlagOverrideSmap: WHV_TRANSLATE_GVA_FLAGS = WHV_TRANSLATE_GVA_FLAGS(512i32);
 impl ::core::marker::Copy for WHV_TRANSLATE_GVA_FLAGS {}
 impl ::core::clone::Clone for WHV_TRANSLATE_GVA_FLAGS {
     fn clone(&self) -> Self {
@@ -3246,24 +3350,6 @@ impl ::core::ops::Not for WHV_TRANSLATE_GVA_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_TRANSLATE_GVA_RESULT_CODE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaResultSuccess: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaResultPageNotPresent: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaResultPrivilegeViolation: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(2i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaResultInvalidPageTableFlags: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(3i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaResultGpaUnmapped: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(4i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaResultGpaNoReadAccess: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(5i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaResultGpaNoWriteAccess: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(6i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaResultGpaIllegalOverlayAccess: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(7i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTranslateGvaResultIntercept: WHV_TRANSLATE_GVA_RESULT_CODE = WHV_TRANSLATE_GVA_RESULT_CODE(8i32);
 impl ::core::marker::Copy for WHV_TRANSLATE_GVA_RESULT_CODE {}
 impl ::core::clone::Clone for WHV_TRANSLATE_GVA_RESULT_CODE {
     fn clone(&self) -> Self {
@@ -3287,12 +3373,6 @@ impl ::core::fmt::Debug for WHV_TRANSLATE_GVA_RESULT_CODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_TRIGGER_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTriggerTypeInterrupt: WHV_TRIGGER_TYPE = WHV_TRIGGER_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTriggerTypeSynicEvent: WHV_TRIGGER_TYPE = WHV_TRIGGER_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvTriggerTypeDeviceInterrupt: WHV_TRIGGER_TYPE = WHV_TRIGGER_TYPE(2i32);
 impl ::core::marker::Copy for WHV_TRIGGER_TYPE {}
 impl ::core::clone::Clone for WHV_TRIGGER_TYPE {
     fn clone(&self) -> Self {
@@ -3316,8 +3396,6 @@ impl ::core::fmt::Debug for WHV_TRIGGER_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVirtualProcessorPropertyCodeNumaNode: WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE = WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE(0i32);
 impl ::core::marker::Copy for WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE {}
 impl ::core::clone::Clone for WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE {
     fn clone(&self) -> Self {
@@ -3341,16 +3419,6 @@ impl ::core::fmt::Debug for WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_VIRTUAL_PROCESSOR_STATE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVirtualProcessorStateTypeSynicMessagePage: WHV_VIRTUAL_PROCESSOR_STATE_TYPE = WHV_VIRTUAL_PROCESSOR_STATE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVirtualProcessorStateTypeSynicEventFlagPage: WHV_VIRTUAL_PROCESSOR_STATE_TYPE = WHV_VIRTUAL_PROCESSOR_STATE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVirtualProcessorStateTypeSynicTimerState: WHV_VIRTUAL_PROCESSOR_STATE_TYPE = WHV_VIRTUAL_PROCESSOR_STATE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVirtualProcessorStateTypeInterruptControllerState2: WHV_VIRTUAL_PROCESSOR_STATE_TYPE = WHV_VIRTUAL_PROCESSOR_STATE_TYPE(4096i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVirtualProcessorStateTypeXsaveState: WHV_VIRTUAL_PROCESSOR_STATE_TYPE = WHV_VIRTUAL_PROCESSOR_STATE_TYPE(4097i32);
 impl ::core::marker::Copy for WHV_VIRTUAL_PROCESSOR_STATE_TYPE {}
 impl ::core::clone::Clone for WHV_VIRTUAL_PROCESSOR_STATE_TYPE {
     fn clone(&self) -> Self {
@@ -3374,12 +3442,6 @@ impl ::core::fmt::Debug for WHV_VIRTUAL_PROCESSOR_STATE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_VPCI_DEVICE_NOTIFICATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVpciDeviceNotificationUndefined: WHV_VPCI_DEVICE_NOTIFICATION_TYPE = WHV_VPCI_DEVICE_NOTIFICATION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVpciDeviceNotificationMmioRemapping: WHV_VPCI_DEVICE_NOTIFICATION_TYPE = WHV_VPCI_DEVICE_NOTIFICATION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVpciDeviceNotificationSurpriseRemoval: WHV_VPCI_DEVICE_NOTIFICATION_TYPE = WHV_VPCI_DEVICE_NOTIFICATION_TYPE(2i32);
 impl ::core::marker::Copy for WHV_VPCI_DEVICE_NOTIFICATION_TYPE {}
 impl ::core::clone::Clone for WHV_VPCI_DEVICE_NOTIFICATION_TYPE {
     fn clone(&self) -> Self {
@@ -3403,12 +3465,6 @@ impl ::core::fmt::Debug for WHV_VPCI_DEVICE_NOTIFICATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_VPCI_DEVICE_PROPERTY_CODE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVpciDevicePropertyCodeUndefined: WHV_VPCI_DEVICE_PROPERTY_CODE = WHV_VPCI_DEVICE_PROPERTY_CODE(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVpciDevicePropertyCodeHardwareIDs: WHV_VPCI_DEVICE_PROPERTY_CODE = WHV_VPCI_DEVICE_PROPERTY_CODE(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVpciDevicePropertyCodeProbedBARs: WHV_VPCI_DEVICE_PROPERTY_CODE = WHV_VPCI_DEVICE_PROPERTY_CODE(2i32);
 impl ::core::marker::Copy for WHV_VPCI_DEVICE_PROPERTY_CODE {}
 impl ::core::clone::Clone for WHV_VPCI_DEVICE_PROPERTY_CODE {
     fn clone(&self) -> Self {
@@ -3432,20 +3488,6 @@ impl ::core::fmt::Debug for WHV_VPCI_DEVICE_PROPERTY_CODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_VPCI_DEVICE_REGISTER_SPACE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVpciConfigSpace: WHV_VPCI_DEVICE_REGISTER_SPACE = WHV_VPCI_DEVICE_REGISTER_SPACE(-1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVpciBar0: WHV_VPCI_DEVICE_REGISTER_SPACE = WHV_VPCI_DEVICE_REGISTER_SPACE(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVpciBar1: WHV_VPCI_DEVICE_REGISTER_SPACE = WHV_VPCI_DEVICE_REGISTER_SPACE(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVpciBar2: WHV_VPCI_DEVICE_REGISTER_SPACE = WHV_VPCI_DEVICE_REGISTER_SPACE(2i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVpciBar3: WHV_VPCI_DEVICE_REGISTER_SPACE = WHV_VPCI_DEVICE_REGISTER_SPACE(3i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVpciBar4: WHV_VPCI_DEVICE_REGISTER_SPACE = WHV_VPCI_DEVICE_REGISTER_SPACE(4i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVpciBar5: WHV_VPCI_DEVICE_REGISTER_SPACE = WHV_VPCI_DEVICE_REGISTER_SPACE(5i32);
 impl ::core::marker::Copy for WHV_VPCI_DEVICE_REGISTER_SPACE {}
 impl ::core::clone::Clone for WHV_VPCI_DEVICE_REGISTER_SPACE {
     fn clone(&self) -> Self {
@@ -3469,10 +3511,6 @@ impl ::core::fmt::Debug for WHV_VPCI_DEVICE_REGISTER_SPACE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_VPCI_INTERRUPT_TARGET_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVpciInterruptTargetFlagNone: WHV_VPCI_INTERRUPT_TARGET_FLAGS = WHV_VPCI_INTERRUPT_TARGET_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVpciInterruptTargetFlagMulticast: WHV_VPCI_INTERRUPT_TARGET_FLAGS = WHV_VPCI_INTERRUPT_TARGET_FLAGS(1i32);
 impl ::core::marker::Copy for WHV_VPCI_INTERRUPT_TARGET_FLAGS {}
 impl ::core::clone::Clone for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
     fn clone(&self) -> Self {
@@ -3529,10 +3567,6 @@ impl ::core::ops::Not for WHV_VPCI_INTERRUPT_TARGET_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_VPCI_MMIO_RANGE_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVpciMmioRangeFlagReadAccess: WHV_VPCI_MMIO_RANGE_FLAGS = WHV_VPCI_MMIO_RANGE_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvVpciMmioRangeFlagWriteAccess: WHV_VPCI_MMIO_RANGE_FLAGS = WHV_VPCI_MMIO_RANGE_FLAGS(2i32);
 impl ::core::marker::Copy for WHV_VPCI_MMIO_RANGE_FLAGS {}
 impl ::core::clone::Clone for WHV_VPCI_MMIO_RANGE_FLAGS {
     fn clone(&self) -> Self {
@@ -3589,16 +3623,6 @@ impl ::core::ops::Not for WHV_VPCI_MMIO_RANGE_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_X64_APIC_WRITE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ApicWriteTypeLdr: WHV_X64_APIC_WRITE_TYPE = WHV_X64_APIC_WRITE_TYPE(208i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ApicWriteTypeDfr: WHV_X64_APIC_WRITE_TYPE = WHV_X64_APIC_WRITE_TYPE(224i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ApicWriteTypeSvr: WHV_X64_APIC_WRITE_TYPE = WHV_X64_APIC_WRITE_TYPE(240i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ApicWriteTypeLint0: WHV_X64_APIC_WRITE_TYPE = WHV_X64_APIC_WRITE_TYPE(848i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64ApicWriteTypeLint1: WHV_X64_APIC_WRITE_TYPE = WHV_X64_APIC_WRITE_TYPE(864i32);
 impl ::core::marker::Copy for WHV_X64_APIC_WRITE_TYPE {}
 impl ::core::clone::Clone for WHV_X64_APIC_WRITE_TYPE {
     fn clone(&self) -> Self {
@@ -3622,10 +3646,6 @@ impl ::core::fmt::Debug for WHV_X64_APIC_WRITE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_X64_CPUID_RESULT2_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64CpuidResult2FlagSubleafSpecific: WHV_X64_CPUID_RESULT2_FLAGS = WHV_X64_CPUID_RESULT2_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64CpuidResult2FlagVpSpecific: WHV_X64_CPUID_RESULT2_FLAGS = WHV_X64_CPUID_RESULT2_FLAGS(2i32);
 impl ::core::marker::Copy for WHV_X64_CPUID_RESULT2_FLAGS {}
 impl ::core::clone::Clone for WHV_X64_CPUID_RESULT2_FLAGS {
     fn clone(&self) -> Self {
@@ -3682,12 +3702,6 @@ impl ::core::ops::Not for WHV_X64_CPUID_RESULT2_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_X64_LOCAL_APIC_EMULATION_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64LocalApicEmulationModeNone: WHV_X64_LOCAL_APIC_EMULATION_MODE = WHV_X64_LOCAL_APIC_EMULATION_MODE(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64LocalApicEmulationModeXApic: WHV_X64_LOCAL_APIC_EMULATION_MODE = WHV_X64_LOCAL_APIC_EMULATION_MODE(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64LocalApicEmulationModeX2Apic: WHV_X64_LOCAL_APIC_EMULATION_MODE = WHV_X64_LOCAL_APIC_EMULATION_MODE(2i32);
 impl ::core::marker::Copy for WHV_X64_LOCAL_APIC_EMULATION_MODE {}
 impl ::core::clone::Clone for WHV_X64_LOCAL_APIC_EMULATION_MODE {
     fn clone(&self) -> Self {
@@ -3711,10 +3725,6 @@ impl ::core::fmt::Debug for WHV_X64_LOCAL_APIC_EMULATION_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_X64_PENDING_EVENT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64PendingEventException: WHV_X64_PENDING_EVENT_TYPE = WHV_X64_PENDING_EVENT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64PendingEventExtInt: WHV_X64_PENDING_EVENT_TYPE = WHV_X64_PENDING_EVENT_TYPE(5i32);
 impl ::core::marker::Copy for WHV_X64_PENDING_EVENT_TYPE {}
 impl ::core::clone::Clone for WHV_X64_PENDING_EVENT_TYPE {
     fn clone(&self) -> Self {
@@ -3738,12 +3748,6 @@ impl ::core::fmt::Debug for WHV_X64_PENDING_EVENT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_X64_PENDING_INTERRUPTION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64PendingInterrupt: WHV_X64_PENDING_INTERRUPTION_TYPE = WHV_X64_PENDING_INTERRUPTION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64PendingNmi: WHV_X64_PENDING_INTERRUPTION_TYPE = WHV_X64_PENDING_INTERRUPTION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvX64PendingException: WHV_X64_PENDING_INTERRUPTION_TYPE = WHV_X64_PENDING_INTERRUPTION_TYPE(3i32);
 impl ::core::marker::Copy for WHV_X64_PENDING_INTERRUPTION_TYPE {}
 impl ::core::clone::Clone for WHV_X64_PENDING_INTERRUPTION_TYPE {
     fn clone(&self) -> Self {
@@ -3767,10 +3771,6 @@ impl ::core::fmt::Debug for WHV_X64_PENDING_INTERRUPTION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WHV_X64_UNSUPPORTED_FEATURE_CODE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvUnsupportedFeatureIntercept: WHV_X64_UNSUPPORTED_FEATURE_CODE = WHV_X64_UNSUPPORTED_FEATURE_CODE(1i32);
-#[doc = "*Required features: `\"Win32_System_Hypervisor\"`*"]
-pub const WHvUnsupportedFeatureTaskSwitchTss: WHV_X64_UNSUPPORTED_FEATURE_CODE = WHV_X64_UNSUPPORTED_FEATURE_CODE(2i32);
 impl ::core::marker::Copy for WHV_X64_UNSUPPORTED_FEATURE_CODE {}
 impl ::core::clone::Clone for WHV_X64_UNSUPPORTED_FEATURE_CODE {
     fn clone(&self) -> Self {

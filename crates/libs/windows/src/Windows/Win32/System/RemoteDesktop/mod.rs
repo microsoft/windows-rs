@@ -7517,9 +7517,51 @@ pub struct _ITSWkspEvents_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_ANY: AAAuthSchemes = AAAuthSchemes(6i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_BASIC: AAAuthSchemes = AAAuthSchemes(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_CONID: AAAuthSchemes = AAAuthSchemes(10i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_COOKIE: AAAuthSchemes = AAAuthSchemes(7i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_DIGEST: AAAuthSchemes = AAAuthSchemes(8i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_LOGGEDONCREDENTIALS: AAAuthSchemes = AAAuthSchemes(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_MAX: AAAuthSchemes = AAAuthSchemes(12i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_MIN: AAAuthSchemes = AAAuthSchemes(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_NEGOTIATE: AAAuthSchemes = AAAuthSchemes(5i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_NTLM: AAAuthSchemes = AAAuthSchemes(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_ORGID: AAAuthSchemes = AAAuthSchemes(9i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_SC: AAAuthSchemes = AAAuthSchemes(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_SSPI_NTLM: AAAuthSchemes = AAAuthSchemes(11i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_MAIN_SESSION_CLOSED: AAAccountingDataType = AAAccountingDataType(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_MAIN_SESSION_CREATION: AAAccountingDataType = AAAccountingDataType(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_SUB_SESSION_CLOSED: AAAccountingDataType = AAAccountingDataType(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_SUB_SESSION_CREATION: AAAccountingDataType = AAAccountingDataType(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_TRUSTEDUSER_TRUSTEDCLIENT: AATrustClassID = AATrustClassID(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_TRUSTEDUSER_UNTRUSTEDCLIENT: AATrustClassID = AATrustClassID(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_UNTRUSTED: AATrustClassID = AATrustClassID(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const ACQUIRE_TARGET_LOCK_TIMEOUT: u32 = 300000u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const ADsTSUserEx: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2e9cae6_1e7b_4b8e_babd_e9bf6292ac29);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AllowOnlySDRServers: PolicyAttributeType = PolicyAttributeType(7i32);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const CHANNEL_BUFFER_SIZE: u32 = 65535u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -7621,9 +7663,35 @@ pub const CLIENTADDRESS_LENGTH: u32 = 30u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const CLIENTNAME_LENGTH: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CLIENT_MESSAGE_CONNECTION_ERROR: CLIENT_MESSAGE_TYPE = CLIENT_MESSAGE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CLIENT_MESSAGE_CONNECTION_INVALID: CLIENT_MESSAGE_TYPE = CLIENT_MESSAGE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CLIENT_MESSAGE_CONNECTION_STATUS: CLIENT_MESSAGE_TYPE = CLIENT_MESSAGE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4b150580_fea4_4d3c_9de4_7433a66618f7);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const CONNECTION_PROPERTY_IDLE_TIME_WARNING: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x693f7ff5_0c4e_4d17_b8e0_1f70325e5d58);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CONNECTION_REQUEST_CANCELLED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(5i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CONNECTION_REQUEST_FAILED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CONNECTION_REQUEST_INVALID: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CONNECTION_REQUEST_LB_COMPLETED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(6i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CONNECTION_REQUEST_ORCH_COMPLETED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(8i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CONNECTION_REQUEST_PENDING: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CONNECTION_REQUEST_QUERY_PL_COMPLETED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(7i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CONNECTION_REQUEST_SUCCEEDED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CONNECTION_REQUEST_TIMEDOUT: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const ClipboardRedirectionDisabled: PolicyAttributeType = PolicyAttributeType(5i32);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const DISPID_AX_ADMINMESSAGERECEIVED: u32 = 760u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -7697,11 +7765,33 @@ pub const DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCH_POINTER: u32 = 712u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const DOMAIN_LENGTH: u32 = 17u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DisableAllRedirections: PolicyAttributeType = PolicyAttributeType(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DriveRedirectionDisabled: PolicyAttributeType = PolicyAttributeType(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const EnableAllRedirections: PolicyAttributeType = PolicyAttributeType(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const FARM: TARGET_TYPE = TARGET_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const FORCE_REJOIN: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const FORCE_REJOIN_IN_CLUSTERMODE: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const KEEP_EXISTING_SESSIONS: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const KeyCombinationDown: KeyCombinationType = KeyCombinationType(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const KeyCombinationHome: KeyCombinationType = KeyCombinationType(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const KeyCombinationLeft: KeyCombinationType = KeyCombinationType(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const KeyCombinationRight: KeyCombinationType = KeyCombinationType(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const KeyCombinationScroll: KeyCombinationType = KeyCombinationType(5i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const KeyCombinationUp: KeyCombinationType = KeyCombinationType(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const LOAD_BALANCING_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(4i32);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const MAX_DATE_TIME_LENGTH: u32 = 56u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -7723,11 +7813,33 @@ pub const MaxNumOfExposed_IPs: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const MaxUserName_Len: u32 = 104u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const NONFARM: TARGET_TYPE = TARGET_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const NOTIFY_FOR_ALL_SESSIONS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const NOTIFY_FOR_THIS_SESSION: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const ORCHESTRATION_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const OWNER_MS_TS_PLUGIN: TARGET_OWNER = TARGET_OWNER(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const OWNER_MS_VM_PLUGIN: TARGET_OWNER = TARGET_OWNER(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const OWNER_UNKNOWN: TARGET_OWNER = TARGET_OWNER(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const PLACEMENT_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const PLUGIN_CAPABILITY_EXTERNAL_REDIRECTION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const POLICY_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const POSITION_CONTINUOUS: AE_POSITION_FLAGS = AE_POSITION_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const POSITION_DISCONTINUOUS: AE_POSITION_FLAGS = AE_POSITION_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const POSITION_INVALID: AE_POSITION_FLAGS = AE_POSITION_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const POSITION_QPC_ERROR: AE_POSITION_FLAGS = AE_POSITION_FLAGS(4i32);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const PRODUCTINFO_COMPANYNAME_LENGTH: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -7741,7 +7853,53 @@ pub const PROPERTY_TYPE_GET_FAST_RECONNECT: ::windows_core::GUID = ::windows_cor
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x197c427a_0135_4b6d_9c5e_e6579a0ab625);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const PROVISIONING_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(32i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const PasswordEncodingUTF16BE: PasswordEncodingType = PasswordEncodingType(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const PasswordEncodingUTF16LE: PasswordEncodingType = PasswordEncodingType(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const PasswordEncodingUTF8: PasswordEncodingType = PasswordEncodingType(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const PnpRedirectionDisabled: PolicyAttributeType = PolicyAttributeType(6i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const PortRedirectionDisabled: PolicyAttributeType = PolicyAttributeType(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const PrinterRedirectionDisabled: PolicyAttributeType = PolicyAttributeType(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const RDCLIENT_BITMAP_RENDER_SERVICE: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe4cc08cb_942e_4b19_8504_bd5a89a747f5);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RDV_TASK_STATUS_APPLYING: RDV_TASK_STATUS = RDV_TASK_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RDV_TASK_STATUS_DOWNLOADING: RDV_TASK_STATUS = RDV_TASK_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RDV_TASK_STATUS_FAILED: RDV_TASK_STATUS = RDV_TASK_STATUS(7i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RDV_TASK_STATUS_REBOOTED: RDV_TASK_STATUS = RDV_TASK_STATUS(5i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RDV_TASK_STATUS_REBOOTING: RDV_TASK_STATUS = RDV_TASK_STATUS(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RDV_TASK_STATUS_SEARCHING: RDV_TASK_STATUS = RDV_TASK_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RDV_TASK_STATUS_SUCCESS: RDV_TASK_STATUS = RDV_TASK_STATUS(6i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RDV_TASK_STATUS_TIMEOUT: RDV_TASK_STATUS = RDV_TASK_STATUS(8i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RDV_TASK_STATUS_UNKNOWN: RDV_TASK_STATUS = RDV_TASK_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RD_FARM_AUTO_PERSONAL_RDSH: RD_FARM_TYPE = RD_FARM_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RD_FARM_AUTO_PERSONAL_VM: RD_FARM_TYPE = RD_FARM_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RD_FARM_MANUAL_PERSONAL_RDSH: RD_FARM_TYPE = RD_FARM_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RD_FARM_MANUAL_PERSONAL_VM: RD_FARM_TYPE = RD_FARM_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RD_FARM_RDSH: RD_FARM_TYPE = RD_FARM_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RD_FARM_TEMP_VM: RD_FARM_TYPE = RD_FARM_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RD_FARM_TYPE_UNKNOWN: RD_FARM_TYPE = RD_FARM_TYPE(-1i32);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const REMOTECONTROL_KBDALT_HOTKEY: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -7757,6 +7915,8 @@ pub const RENDER_HINT_VIDEO: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const RESERVED_FOR_LEGACY: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RESOURCE_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const RFX_CLIENT_ID_LENGTH: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const RFX_GFX_MAX_SUPPORTED_MONITORS: u32 = 16u32;
@@ -7767,13 +7927,147 @@ pub const RFX_GFX_MSG_PREFIX_MASK: u32 = 48u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const RFX_RDP_MSG_PREFIX: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RemoteActionAppSwitch: RemoteActionType = RemoteActionType(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RemoteActionAppbar: RemoteActionType = RemoteActionType(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RemoteActionCharms: RemoteActionType = RemoteActionType(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RemoteActionSnap: RemoteActionType = RemoteActionType(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RemoteActionStartScreen: RemoteActionType = RemoteActionType(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const SB_SYNCH_CONFLICT_MAX_WRITE_ATTEMPTS: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const SESSION_TIMEOUT_ACTION_DISCONNECT: SESSION_TIMEOUT_ACTION_TYPE = SESSION_TIMEOUT_ACTION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const SESSION_TIMEOUT_ACTION_SILENT_REAUTH: SESSION_TIMEOUT_ACTION_TYPE = SESSION_TIMEOUT_ACTION_TYPE(1i32);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const SINGLE_SESSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const STATE_ACTIVE: TSSESSION_STATE = TSSESSION_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const STATE_CONNECTED: TSSESSION_STATE = TSSESSION_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const STATE_CONNECTQUERY: TSSESSION_STATE = TSSESSION_STATE(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const STATE_DISCONNECTED: TSSESSION_STATE = TSSESSION_STATE(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const STATE_DOWN: TSSESSION_STATE = TSSESSION_STATE(8i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const STATE_IDLE: TSSESSION_STATE = TSSESSION_STATE(5i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const STATE_INIT: TSSESSION_STATE = TSSESSION_STATE(9i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const STATE_INVALID: TSSESSION_STATE = TSSESSION_STATE(-1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const STATE_LISTEN: TSSESSION_STATE = TSSESSION_STATE(6i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const STATE_MAX: TSSESSION_STATE = TSSESSION_STATE(10i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const STATE_RESET: TSSESSION_STATE = TSSESSION_STATE(7i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const STATE_SHADOW: TSSESSION_STATE = TSSESSION_STATE(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const SnapshotEncodingDataUri: SnapshotEncodingType = SnapshotEncodingType(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const SnapshotFormatBmp: SnapshotFormatType = SnapshotFormatType(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const SnapshotFormatJpeg: SnapshotFormatType = SnapshotFormatType(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const SnapshotFormatPng: SnapshotFormatType = SnapshotFormatType(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_CHANGE_UNSPEC: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_CHECKED_OUT: TARGET_STATE = TARGET_STATE(6i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_DOWN: TARGET_STATE = TARGET_STATE(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_EXTERNALIP_CHANGED: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_FARM_MEMBERSHIP_CHANGED: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(1024i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_HIBERNATED: TARGET_STATE = TARGET_STATE(5i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_IDLE: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(64i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_INITIALIZING: TARGET_STATE = TARGET_STATE(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_INTERNALIP_CHANGED: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_INUSE: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(256i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_INVALID: TARGET_STATE = TARGET_STATE(8i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_JOINED: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_MAXSTATE: TARGET_STATE = TARGET_STATE(11i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_PATCH_COMPLETED: TARGET_PATCH_STATE = TARGET_PATCH_STATE(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_PATCH_FAILED: TARGET_PATCH_STATE = TARGET_PATCH_STATE(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_PATCH_IN_PROGRESS: TARGET_PATCH_STATE = TARGET_PATCH_STATE(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_PATCH_NOT_STARTED: TARGET_PATCH_STATE = TARGET_PATCH_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_PATCH_STATE_CHANGED: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(512i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_PATCH_UNKNOWN: TARGET_PATCH_STATE = TARGET_PATCH_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_PENDING: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(128i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_REMOVED: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_RUNNING: TARGET_STATE = TARGET_STATE(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_STARTING: TARGET_STATE = TARGET_STATE(9i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_STATE_CHANGED: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(32i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_STOPPED: TARGET_STATE = TARGET_STATE(7i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_STOPPING: TARGET_STATE = TARGET_STATE(10i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TARGET_UNKNOWN: TARGET_STATE = TARGET_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TASK_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(64i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TSPUB_PLUGIN_PD_ASSIGNMENT_EXISTING: TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE = TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TSPUB_PLUGIN_PD_ASSIGNMENT_NEW: TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE = TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TSPUB_PLUGIN_PD_QUERY_EXISTING: TSPUB_PLUGIN_PD_RESOLUTION_TYPE = TSPUB_PLUGIN_PD_RESOLUTION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TSPUB_PLUGIN_PD_QUERY_OR_CREATE: TSPUB_PLUGIN_PD_RESOLUTION_TYPE = TSPUB_PLUGIN_PD_RESOLUTION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TSSB_NOTIFY_CONNECTION_REQUEST_CHANGE: TSSB_NOTIFICATION_TYPE = TSSB_NOTIFICATION_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TSSB_NOTIFY_INVALID: TSSB_NOTIFICATION_TYPE = TSSB_NOTIFICATION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TSSB_NOTIFY_SESSION_CHANGE: TSSB_NOTIFICATION_TYPE = TSSB_NOTIFICATION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TSSB_NOTIFY_TARGET_CHANGE: TSSB_NOTIFICATION_TYPE = TSSB_NOTIFICATION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TSSD_ADDR_IPv4: TSSD_AddrV46Type = TSSD_AddrV46Type(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TSSD_ADDR_IPv6: TSSD_AddrV46Type = TSSD_AddrV46Type(6i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TSSD_ADDR_UNDEFINED: TSSD_AddrV46Type = TSSD_AddrV46Type(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const TSUserExInterfaces: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0910dd01_df8c_11d1_ae27_00c04fa35813);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TS_SB_SORT_BY_NAME: TS_SB_SORT_BY = TS_SB_SORT_BY(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TS_SB_SORT_BY_NONE: TS_SB_SORT_BY = TS_SB_SORT_BY(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TS_SB_SORT_BY_PROP: TS_SB_SORT_BY = TS_SB_SORT_BY(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const TS_VC_LISTENER_STATIC_CHANNEL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const UNKNOWN: TARGET_TYPE = TARGET_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const UNKNOWN_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(0i32);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const USERNAME_LENGTH: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -7782,6 +8076,24 @@ pub const VALIDATIONINFORMATION_HARDWAREID_LENGTH: u32 = 20u32;
 pub const VALIDATIONINFORMATION_LICENSE_LENGTH: u32 = 16384u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const VIRTUAL_CHANNEL_VERSION_WIN2000: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const VM_HOST_STATUS_INIT_COMPLETE: VM_HOST_NOTIFY_STATUS = VM_HOST_NOTIFY_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const VM_HOST_STATUS_INIT_FAILED: VM_HOST_NOTIFY_STATUS = VM_HOST_NOTIFY_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const VM_HOST_STATUS_INIT_IN_PROGRESS: VM_HOST_NOTIFY_STATUS = VM_HOST_NOTIFY_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const VM_HOST_STATUS_INIT_PENDING: VM_HOST_NOTIFY_STATUS = VM_HOST_NOTIFY_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const VM_NOTIFY_STATUS_CANCELED: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const VM_NOTIFY_STATUS_COMPLETE: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const VM_NOTIFY_STATUS_FAILED: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const VM_NOTIFY_STATUS_IN_PROGRESS: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const VM_NOTIFY_STATUS_PENDING: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(0i32);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WINSTATIONNAME_LENGTH: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -7796,6 +8108,10 @@ pub const WRDS_CLIENTADDRESS_LENGTH: u32 = 30u32;
 pub const WRDS_CLIENTNAME_LENGTH: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WRDS_CLIENT_PRODUCT_ID_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_CONNECTION_SETTING_LEVEL_1: WRDS_CONNECTION_SETTING_LEVEL = WRDS_CONNECTION_SETTING_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_CONNECTION_SETTING_LEVEL_INVALID: WRDS_CONNECTION_SETTING_LEVEL = WRDS_CONNECTION_SETTING_LEVEL(0i32);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WRDS_DEVICE_NAME_LENGTH: u32 = 19u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -7816,6 +8132,10 @@ pub const WRDS_KEY_EXCHANGE_ALG_RSA: u32 = 1u32;
 pub const WRDS_LICENSE_PREAMBLE_VERSION: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WRDS_LICENSE_PROTOCOL_VERSION: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_LISTENER_SETTING_LEVEL_1: WRDS_LISTENER_SETTING_LEVEL = WRDS_LISTENER_SETTING_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_LISTENER_SETTING_LEVEL_INVALID: WRDS_LISTENER_SETTING_LEVEL = WRDS_LISTENER_SETTING_LEVEL(0i32);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WRDS_MAX_CACHE_RESERVED: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -7853,6 +8173,26 @@ pub const WRDS_PROTOCOL_NAME_LENGTH: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WRDS_SERVICE_ID_GRAPHICS_GUID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2993f4d_02cf_4280_8c48_1624b44f8706);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_SETTING_LEVEL_1: WRDS_SETTING_LEVEL = WRDS_SETTING_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_SETTING_LEVEL_INVALID: WRDS_SETTING_LEVEL = WRDS_SETTING_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_SETTING_STATUS_DISABLED: WRDS_SETTING_STATUS = WRDS_SETTING_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_SETTING_STATUS_ENABLED: WRDS_SETTING_STATUS = WRDS_SETTING_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_SETTING_STATUS_NOTAPPLICABLE: WRDS_SETTING_STATUS = WRDS_SETTING_STATUS(-1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_SETTING_STATUS_NOTCONFIGURED: WRDS_SETTING_STATUS = WRDS_SETTING_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_SETTING_TYPE_INVALID: WRDS_SETTING_TYPE = WRDS_SETTING_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_SETTING_TYPE_MACHINE: WRDS_SETTING_TYPE = WRDS_SETTING_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_SETTING_TYPE_SAM: WRDS_SETTING_TYPE = WRDS_SETTING_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_SETTING_TYPE_USER: WRDS_SETTING_TYPE = WRDS_SETTING_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WRDS_USERNAME_LENGTH: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WRDS_VALUE_TYPE_BINARY: u32 = 3u32;
@@ -7863,7 +8203,191 @@ pub const WRDS_VALUE_TYPE_STRING: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WRDS_VALUE_TYPE_ULONG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRdsGraphicsChannelType_BestEffortDelivery: WRdsGraphicsChannelType = WRdsGraphicsChannelType(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRdsGraphicsChannelType_GuaranteedDelivery: WRdsGraphicsChannelType = WRdsGraphicsChannelType(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WRdsGraphicsChannels_LossyChannelMaxMessageSize: u32 = 988u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSActive: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSApplicationName: WTS_INFO_CLASS = WTS_INFO_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSClientAddress: WTS_INFO_CLASS = WTS_INFO_CLASS(14i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSClientBuildNumber: WTS_INFO_CLASS = WTS_INFO_CLASS(9i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSClientDirectory: WTS_INFO_CLASS = WTS_INFO_CLASS(11i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSClientDisplay: WTS_INFO_CLASS = WTS_INFO_CLASS(15i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSClientHardwareId: WTS_INFO_CLASS = WTS_INFO_CLASS(13i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSClientInfo: WTS_INFO_CLASS = WTS_INFO_CLASS(23i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSClientName: WTS_INFO_CLASS = WTS_INFO_CLASS(10i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSClientProductId: WTS_INFO_CLASS = WTS_INFO_CLASS(12i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSClientProtocolType: WTS_INFO_CLASS = WTS_INFO_CLASS(16i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSConfigInfo: WTS_INFO_CLASS = WTS_INFO_CLASS(26i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSConnectQuery: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSConnectState: WTS_INFO_CLASS = WTS_INFO_CLASS(8i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSConnected: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSDisconnected: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSDomainName: WTS_INFO_CLASS = WTS_INFO_CLASS(7i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSDown: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(8i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSIdle: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(5i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSIdleTime: WTS_INFO_CLASS = WTS_INFO_CLASS(17i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSIncomingBytes: WTS_INFO_CLASS = WTS_INFO_CLASS(19i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSIncomingFrames: WTS_INFO_CLASS = WTS_INFO_CLASS(21i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSInit: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(9i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSInitialProgram: WTS_INFO_CLASS = WTS_INFO_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSIsRemoteSession: WTS_INFO_CLASS = WTS_INFO_CLASS(29i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSListen: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(6i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSLogonTime: WTS_INFO_CLASS = WTS_INFO_CLASS(18i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSOEMId: WTS_INFO_CLASS = WTS_INFO_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSOutgoingBytes: WTS_INFO_CLASS = WTS_INFO_CLASS(20i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSOutgoingFrames: WTS_INFO_CLASS = WTS_INFO_CLASS(22i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSReset: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(7i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_ADDRESS_FAMILY_AF_INET: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_ADDRESS_FAMILY_AF_INET6: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_ADDRESS_FAMILY_AF_IPX: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_ADDRESS_FAMILY_AF_NETBIOS: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_ADDRESS_FAMILY_AF_UNSPEC: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_MACHINE_DRAIN_OFF: WTSSBX_MACHINE_DRAIN = WTSSBX_MACHINE_DRAIN(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_MACHINE_DRAIN_ON: WTSSBX_MACHINE_DRAIN = WTSSBX_MACHINE_DRAIN(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_MACHINE_DRAIN_UNSPEC: WTSSBX_MACHINE_DRAIN = WTSSBX_MACHINE_DRAIN(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_MACHINE_SESSION_MODE_MULTIPLE: WTSSBX_MACHINE_SESSION_MODE = WTSSBX_MACHINE_SESSION_MODE(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_MACHINE_SESSION_MODE_SINGLE: WTSSBX_MACHINE_SESSION_MODE = WTSSBX_MACHINE_SESSION_MODE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_MACHINE_SESSION_MODE_UNSPEC: WTSSBX_MACHINE_SESSION_MODE = WTSSBX_MACHINE_SESSION_MODE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_MACHINE_STATE_READY: WTSSBX_MACHINE_STATE = WTSSBX_MACHINE_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_MACHINE_STATE_SYNCHRONIZING: WTSSBX_MACHINE_STATE = WTSSBX_MACHINE_STATE(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_MACHINE_STATE_UNSPEC: WTSSBX_MACHINE_STATE = WTSSBX_MACHINE_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_NOTIFICATION_ADDED: WTSSBX_NOTIFICATION_TYPE = WTSSBX_NOTIFICATION_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_NOTIFICATION_CHANGED: WTSSBX_NOTIFICATION_TYPE = WTSSBX_NOTIFICATION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_NOTIFICATION_REMOVED: WTSSBX_NOTIFICATION_TYPE = WTSSBX_NOTIFICATION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_NOTIFICATION_RESYNC: WTSSBX_NOTIFICATION_TYPE = WTSSBX_NOTIFICATION_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_SESSION_STATE_ACTIVE: WTSSBX_SESSION_STATE = WTSSBX_SESSION_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_SESSION_STATE_DISCONNECTED: WTSSBX_SESSION_STATE = WTSSBX_SESSION_STATE(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_SESSION_STATE_UNSPEC: WTSSBX_SESSION_STATE = WTSSBX_SESSION_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSessionAddressV4: WTS_INFO_CLASS = WTS_INFO_CLASS(28i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSessionId: WTS_INFO_CLASS = WTS_INFO_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSessionInfo: WTS_INFO_CLASS = WTS_INFO_CLASS(24i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSessionInfoEx: WTS_INFO_CLASS = WTS_INFO_CLASS(25i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSShadow: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSTypeProcessInfoLevel0: WTS_TYPE_CLASS = WTS_TYPE_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSTypeProcessInfoLevel1: WTS_TYPE_CLASS = WTS_TYPE_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSTypeSessionInfoLevel1: WTS_TYPE_CLASS = WTS_TYPE_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigBrokenTimeoutSettings: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(10i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigInitialProgram: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigModemCallbackPhoneNumber: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(13i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigModemCallbackSettings: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(12i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigReconnectSettings: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(11i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigShadowingSettings: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(14i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigSourceSAM: WTS_CONFIG_SOURCE = WTS_CONFIG_SOURCE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigTerminalServerHomeDir: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(16i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigTerminalServerHomeDirDrive: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(17i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigTerminalServerProfilePath: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(15i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigTimeoutSettingsConnections: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigTimeoutSettingsDisconnections: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(5i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigTimeoutSettingsIdle: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(6i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigUser: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(19i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigWorkingDirectory: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigfAllowLogonTerminalServer: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigfDeviceClientDefaultPrinter: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(9i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigfDeviceClientDrives: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(7i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigfDeviceClientPrinters: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(8i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigfInheritInitialProgram: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigfTerminalServerRemoteHomeDir: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(18i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserName: WTS_INFO_CLASS = WTS_INFO_CLASS(5i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSValidationInfo: WTS_INFO_CLASS = WTS_INFO_CLASS(27i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSVirtualClientData: WTS_VIRTUAL_CLASS = WTS_VIRTUAL_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSVirtualFileHandle: WTS_VIRTUAL_CLASS = WTS_VIRTUAL_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSWinStationName: WTS_INFO_CLASS = WTS_INFO_CLASS(6i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSWorkingDirectory: WTS_INFO_CLASS = WTS_INFO_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_CERT_TYPE_INVALID: WTS_CERT_TYPE = WTS_CERT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_CERT_TYPE_PROPRIETORY: WTS_CERT_TYPE = WTS_CERT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_CERT_TYPE_X509: WTS_CERT_TYPE = WTS_CERT_TYPE(2i32);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WTS_CHANNEL_OPTION_DYNAMIC: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -7900,6 +8424,12 @@ pub const WTS_DEVICE_NAME_LENGTH: u32 = 19u32;
 pub const WTS_DIRECTORY_LENGTH: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WTS_DOMAIN_LENGTH: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_DRAIN_IN_DRAIN: WTS_RCM_DRAIN_STATE = WTS_RCM_DRAIN_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_DRAIN_NOT_IN_DRAIN: WTS_RCM_DRAIN_STATE = WTS_RCM_DRAIN_STATE(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_DRAIN_STATE_NONE: WTS_RCM_DRAIN_STATE = WTS_RCM_DRAIN_STATE(0i32);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WTS_DRIVER_NAME_LENGTH: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -7946,6 +8476,16 @@ pub const WTS_LISTENER_CREATE: u32 = 1u32;
 pub const WTS_LISTENER_NAME_LENGTH: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WTS_LISTENER_UPDATE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_LOGON_ERR_HANDLED_DONT_SHOW: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_LOGON_ERR_HANDLED_DONT_SHOW_START_OVER: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_LOGON_ERR_HANDLED_SHOW: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_LOGON_ERR_INVALID: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_LOGON_ERR_NOT_HANDLED: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(1i32);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WTS_MAX_CACHE_RESERVED: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
@@ -8001,6 +8541,42 @@ pub const WTS_QUERY_LOGON_SCREEN_SIZE: ::windows_core::GUID = ::windows_core::GU
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WTS_QUERY_MF_FORMAT_SUPPORT: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x41869ad0_6332_4dc8_95d5_db749e2f1d94);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_ALL_ACCESS: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(983999u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_CONNECT: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_CURRENT_GUEST_ACCESS: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(72u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_CURRENT_USER_ACCESS: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(590u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_DISCONNECT: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_GUEST_ACCESS: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_LOGOFF: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_LOGON: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_MESSAGE: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_QUERY_INFORMATION: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_REMOTE_CONTROL: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_RESET: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_SET_INFORMATION: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_USER_ACCESS: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(329u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_VIRTUAL_CHANNELS: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SERVICE_NONE: WTS_RCM_SERVICE_STATE = WTS_RCM_SERVICE_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SERVICE_START: WTS_RCM_SERVICE_STATE = WTS_RCM_SERVICE_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SERVICE_STOP: WTS_RCM_SERVICE_STATE = WTS_RCM_SERVICE_STATE(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WTS_SESSIONSTATE_LOCK: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const WTS_SESSIONSTATE_UNKNOWN: u32 = 4294967295u32;
@@ -8032,14 +8608,6 @@ pub const Workspace: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AAAccountingDataType(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_MAIN_SESSION_CREATION: AAAccountingDataType = AAAccountingDataType(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_SUB_SESSION_CREATION: AAAccountingDataType = AAAccountingDataType(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_SUB_SESSION_CLOSED: AAAccountingDataType = AAAccountingDataType(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_MAIN_SESSION_CLOSED: AAAccountingDataType = AAAccountingDataType(3i32);
 impl ::core::marker::Copy for AAAccountingDataType {}
 impl ::core::clone::Clone for AAAccountingDataType {
     fn clone(&self) -> Self {
@@ -8063,32 +8631,6 @@ impl ::core::fmt::Debug for AAAccountingDataType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AAAuthSchemes(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_MIN: AAAuthSchemes = AAAuthSchemes(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_BASIC: AAAuthSchemes = AAAuthSchemes(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_NTLM: AAAuthSchemes = AAAuthSchemes(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_SC: AAAuthSchemes = AAAuthSchemes(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_LOGGEDONCREDENTIALS: AAAuthSchemes = AAAuthSchemes(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_NEGOTIATE: AAAuthSchemes = AAAuthSchemes(5i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_ANY: AAAuthSchemes = AAAuthSchemes(6i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_COOKIE: AAAuthSchemes = AAAuthSchemes(7i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_DIGEST: AAAuthSchemes = AAAuthSchemes(8i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_ORGID: AAAuthSchemes = AAAuthSchemes(9i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_CONID: AAAuthSchemes = AAAuthSchemes(10i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_SSPI_NTLM: AAAuthSchemes = AAAuthSchemes(11i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_MAX: AAAuthSchemes = AAAuthSchemes(12i32);
 impl ::core::marker::Copy for AAAuthSchemes {}
 impl ::core::clone::Clone for AAAuthSchemes {
     fn clone(&self) -> Self {
@@ -8112,12 +8654,6 @@ impl ::core::fmt::Debug for AAAuthSchemes {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AATrustClassID(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_UNTRUSTED: AATrustClassID = AATrustClassID(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_TRUSTEDUSER_UNTRUSTEDCLIENT: AATrustClassID = AATrustClassID(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_TRUSTEDUSER_TRUSTEDCLIENT: AATrustClassID = AATrustClassID(2i32);
 impl ::core::marker::Copy for AATrustClassID {}
 impl ::core::clone::Clone for AATrustClassID {
     fn clone(&self) -> Self {
@@ -8141,14 +8677,6 @@ impl ::core::fmt::Debug for AATrustClassID {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AE_POSITION_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const POSITION_INVALID: AE_POSITION_FLAGS = AE_POSITION_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const POSITION_DISCONTINUOUS: AE_POSITION_FLAGS = AE_POSITION_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const POSITION_CONTINUOUS: AE_POSITION_FLAGS = AE_POSITION_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const POSITION_QPC_ERROR: AE_POSITION_FLAGS = AE_POSITION_FLAGS(4i32);
 impl ::core::marker::Copy for AE_POSITION_FLAGS {}
 impl ::core::clone::Clone for AE_POSITION_FLAGS {
     fn clone(&self) -> Self {
@@ -8172,12 +8700,6 @@ impl ::core::fmt::Debug for AE_POSITION_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLIENT_MESSAGE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CLIENT_MESSAGE_CONNECTION_INVALID: CLIENT_MESSAGE_TYPE = CLIENT_MESSAGE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CLIENT_MESSAGE_CONNECTION_STATUS: CLIENT_MESSAGE_TYPE = CLIENT_MESSAGE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CLIENT_MESSAGE_CONNECTION_ERROR: CLIENT_MESSAGE_TYPE = CLIENT_MESSAGE_TYPE(2i32);
 impl ::core::marker::Copy for CLIENT_MESSAGE_TYPE {}
 impl ::core::clone::Clone for CLIENT_MESSAGE_TYPE {
     fn clone(&self) -> Self {
@@ -8201,24 +8723,6 @@ impl ::core::fmt::Debug for CLIENT_MESSAGE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONNECTION_CHANGE_NOTIFICATION(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CONNECTION_REQUEST_INVALID: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CONNECTION_REQUEST_PENDING: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CONNECTION_REQUEST_FAILED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CONNECTION_REQUEST_TIMEDOUT: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CONNECTION_REQUEST_SUCCEEDED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CONNECTION_REQUEST_CANCELLED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(5i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CONNECTION_REQUEST_LB_COMPLETED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(6i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CONNECTION_REQUEST_QUERY_PL_COMPLETED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(7i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CONNECTION_REQUEST_ORCH_COMPLETED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(8i32);
 impl ::core::marker::Copy for CONNECTION_CHANGE_NOTIFICATION {}
 impl ::core::clone::Clone for CONNECTION_CHANGE_NOTIFICATION {
     fn clone(&self) -> Self {
@@ -8242,18 +8746,6 @@ impl ::core::fmt::Debug for CONNECTION_CHANGE_NOTIFICATION {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KeyCombinationType(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const KeyCombinationHome: KeyCombinationType = KeyCombinationType(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const KeyCombinationLeft: KeyCombinationType = KeyCombinationType(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const KeyCombinationUp: KeyCombinationType = KeyCombinationType(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const KeyCombinationRight: KeyCombinationType = KeyCombinationType(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const KeyCombinationDown: KeyCombinationType = KeyCombinationType(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const KeyCombinationScroll: KeyCombinationType = KeyCombinationType(5i32);
 impl ::core::marker::Copy for KeyCombinationType {}
 impl ::core::clone::Clone for KeyCombinationType {
     fn clone(&self) -> Self {
@@ -8277,22 +8769,6 @@ impl ::core::fmt::Debug for KeyCombinationType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PLUGIN_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const UNKNOWN_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const POLICY_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RESOURCE_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const LOAD_BALANCING_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const PLACEMENT_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const ORCHESTRATION_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const PROVISIONING_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(32i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TASK_PLUGIN: PLUGIN_TYPE = PLUGIN_TYPE(64i32);
 impl ::core::marker::Copy for PLUGIN_TYPE {}
 impl ::core::clone::Clone for PLUGIN_TYPE {
     fn clone(&self) -> Self {
@@ -8316,12 +8792,6 @@ impl ::core::fmt::Debug for PLUGIN_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PasswordEncodingType(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const PasswordEncodingUTF8: PasswordEncodingType = PasswordEncodingType(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const PasswordEncodingUTF16LE: PasswordEncodingType = PasswordEncodingType(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const PasswordEncodingUTF16BE: PasswordEncodingType = PasswordEncodingType(2i32);
 impl ::core::marker::Copy for PasswordEncodingType {}
 impl ::core::clone::Clone for PasswordEncodingType {
     fn clone(&self) -> Self {
@@ -8345,22 +8815,6 @@ impl ::core::fmt::Debug for PasswordEncodingType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PolicyAttributeType(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const EnableAllRedirections: PolicyAttributeType = PolicyAttributeType(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DisableAllRedirections: PolicyAttributeType = PolicyAttributeType(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DriveRedirectionDisabled: PolicyAttributeType = PolicyAttributeType(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const PrinterRedirectionDisabled: PolicyAttributeType = PolicyAttributeType(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const PortRedirectionDisabled: PolicyAttributeType = PolicyAttributeType(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const ClipboardRedirectionDisabled: PolicyAttributeType = PolicyAttributeType(5i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const PnpRedirectionDisabled: PolicyAttributeType = PolicyAttributeType(6i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AllowOnlySDRServers: PolicyAttributeType = PolicyAttributeType(7i32);
 impl ::core::marker::Copy for PolicyAttributeType {}
 impl ::core::clone::Clone for PolicyAttributeType {
     fn clone(&self) -> Self {
@@ -8384,24 +8838,6 @@ impl ::core::fmt::Debug for PolicyAttributeType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RDV_TASK_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RDV_TASK_STATUS_UNKNOWN: RDV_TASK_STATUS = RDV_TASK_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RDV_TASK_STATUS_SEARCHING: RDV_TASK_STATUS = RDV_TASK_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RDV_TASK_STATUS_DOWNLOADING: RDV_TASK_STATUS = RDV_TASK_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RDV_TASK_STATUS_APPLYING: RDV_TASK_STATUS = RDV_TASK_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RDV_TASK_STATUS_REBOOTING: RDV_TASK_STATUS = RDV_TASK_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RDV_TASK_STATUS_REBOOTED: RDV_TASK_STATUS = RDV_TASK_STATUS(5i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RDV_TASK_STATUS_SUCCESS: RDV_TASK_STATUS = RDV_TASK_STATUS(6i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RDV_TASK_STATUS_FAILED: RDV_TASK_STATUS = RDV_TASK_STATUS(7i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RDV_TASK_STATUS_TIMEOUT: RDV_TASK_STATUS = RDV_TASK_STATUS(8i32);
 impl ::core::marker::Copy for RDV_TASK_STATUS {}
 impl ::core::clone::Clone for RDV_TASK_STATUS {
     fn clone(&self) -> Self {
@@ -8425,20 +8861,6 @@ impl ::core::fmt::Debug for RDV_TASK_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RD_FARM_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RD_FARM_RDSH: RD_FARM_TYPE = RD_FARM_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RD_FARM_TEMP_VM: RD_FARM_TYPE = RD_FARM_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RD_FARM_MANUAL_PERSONAL_VM: RD_FARM_TYPE = RD_FARM_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RD_FARM_AUTO_PERSONAL_VM: RD_FARM_TYPE = RD_FARM_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RD_FARM_MANUAL_PERSONAL_RDSH: RD_FARM_TYPE = RD_FARM_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RD_FARM_AUTO_PERSONAL_RDSH: RD_FARM_TYPE = RD_FARM_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RD_FARM_TYPE_UNKNOWN: RD_FARM_TYPE = RD_FARM_TYPE(-1i32);
 impl ::core::marker::Copy for RD_FARM_TYPE {}
 impl ::core::clone::Clone for RD_FARM_TYPE {
     fn clone(&self) -> Self {
@@ -8462,16 +8884,6 @@ impl ::core::fmt::Debug for RD_FARM_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RemoteActionType(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RemoteActionCharms: RemoteActionType = RemoteActionType(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RemoteActionAppbar: RemoteActionType = RemoteActionType(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RemoteActionSnap: RemoteActionType = RemoteActionType(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RemoteActionStartScreen: RemoteActionType = RemoteActionType(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RemoteActionAppSwitch: RemoteActionType = RemoteActionType(4i32);
 impl ::core::marker::Copy for RemoteActionType {}
 impl ::core::clone::Clone for RemoteActionType {
     fn clone(&self) -> Self {
@@ -8495,10 +8907,6 @@ impl ::core::fmt::Debug for RemoteActionType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SESSION_TIMEOUT_ACTION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const SESSION_TIMEOUT_ACTION_DISCONNECT: SESSION_TIMEOUT_ACTION_TYPE = SESSION_TIMEOUT_ACTION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const SESSION_TIMEOUT_ACTION_SILENT_REAUTH: SESSION_TIMEOUT_ACTION_TYPE = SESSION_TIMEOUT_ACTION_TYPE(1i32);
 impl ::core::marker::Copy for SESSION_TIMEOUT_ACTION_TYPE {}
 impl ::core::clone::Clone for SESSION_TIMEOUT_ACTION_TYPE {
     fn clone(&self) -> Self {
@@ -8522,8 +8930,6 @@ impl ::core::fmt::Debug for SESSION_TIMEOUT_ACTION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SnapshotEncodingType(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const SnapshotEncodingDataUri: SnapshotEncodingType = SnapshotEncodingType(0i32);
 impl ::core::marker::Copy for SnapshotEncodingType {}
 impl ::core::clone::Clone for SnapshotEncodingType {
     fn clone(&self) -> Self {
@@ -8547,12 +8953,6 @@ impl ::core::fmt::Debug for SnapshotEncodingType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SnapshotFormatType(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const SnapshotFormatPng: SnapshotFormatType = SnapshotFormatType(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const SnapshotFormatJpeg: SnapshotFormatType = SnapshotFormatType(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const SnapshotFormatBmp: SnapshotFormatType = SnapshotFormatType(2i32);
 impl ::core::marker::Copy for SnapshotFormatType {}
 impl ::core::clone::Clone for SnapshotFormatType {
     fn clone(&self) -> Self {
@@ -8576,28 +8976,6 @@ impl ::core::fmt::Debug for SnapshotFormatType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TARGET_CHANGE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_CHANGE_UNSPEC: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_EXTERNALIP_CHANGED: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_INTERNALIP_CHANGED: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_JOINED: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_REMOVED: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_STATE_CHANGED: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(32i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_IDLE: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(64i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_PENDING: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(128i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_INUSE: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(256i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_PATCH_STATE_CHANGED: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(512i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_FARM_MEMBERSHIP_CHANGED: TARGET_CHANGE_TYPE = TARGET_CHANGE_TYPE(1024i32);
 impl ::core::marker::Copy for TARGET_CHANGE_TYPE {}
 impl ::core::clone::Clone for TARGET_CHANGE_TYPE {
     fn clone(&self) -> Self {
@@ -8621,12 +8999,6 @@ impl ::core::fmt::Debug for TARGET_CHANGE_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TARGET_OWNER(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const OWNER_UNKNOWN: TARGET_OWNER = TARGET_OWNER(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const OWNER_MS_TS_PLUGIN: TARGET_OWNER = TARGET_OWNER(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const OWNER_MS_VM_PLUGIN: TARGET_OWNER = TARGET_OWNER(2i32);
 impl ::core::marker::Copy for TARGET_OWNER {}
 impl ::core::clone::Clone for TARGET_OWNER {
     fn clone(&self) -> Self {
@@ -8650,16 +9022,6 @@ impl ::core::fmt::Debug for TARGET_OWNER {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TARGET_PATCH_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_PATCH_UNKNOWN: TARGET_PATCH_STATE = TARGET_PATCH_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_PATCH_NOT_STARTED: TARGET_PATCH_STATE = TARGET_PATCH_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_PATCH_IN_PROGRESS: TARGET_PATCH_STATE = TARGET_PATCH_STATE(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_PATCH_COMPLETED: TARGET_PATCH_STATE = TARGET_PATCH_STATE(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_PATCH_FAILED: TARGET_PATCH_STATE = TARGET_PATCH_STATE(4i32);
 impl ::core::marker::Copy for TARGET_PATCH_STATE {}
 impl ::core::clone::Clone for TARGET_PATCH_STATE {
     fn clone(&self) -> Self {
@@ -8683,28 +9045,6 @@ impl ::core::fmt::Debug for TARGET_PATCH_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TARGET_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_UNKNOWN: TARGET_STATE = TARGET_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_INITIALIZING: TARGET_STATE = TARGET_STATE(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_RUNNING: TARGET_STATE = TARGET_STATE(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_DOWN: TARGET_STATE = TARGET_STATE(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_HIBERNATED: TARGET_STATE = TARGET_STATE(5i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_CHECKED_OUT: TARGET_STATE = TARGET_STATE(6i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_STOPPED: TARGET_STATE = TARGET_STATE(7i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_INVALID: TARGET_STATE = TARGET_STATE(8i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_STARTING: TARGET_STATE = TARGET_STATE(9i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_STOPPING: TARGET_STATE = TARGET_STATE(10i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TARGET_MAXSTATE: TARGET_STATE = TARGET_STATE(11i32);
 impl ::core::marker::Copy for TARGET_STATE {}
 impl ::core::clone::Clone for TARGET_STATE {
     fn clone(&self) -> Self {
@@ -8728,12 +9068,6 @@ impl ::core::fmt::Debug for TARGET_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TARGET_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const UNKNOWN: TARGET_TYPE = TARGET_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const FARM: TARGET_TYPE = TARGET_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const NONFARM: TARGET_TYPE = TARGET_TYPE(2i32);
 impl ::core::marker::Copy for TARGET_TYPE {}
 impl ::core::clone::Clone for TARGET_TYPE {
     fn clone(&self) -> Self {
@@ -8757,10 +9091,6 @@ impl ::core::fmt::Debug for TARGET_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TSPUB_PLUGIN_PD_ASSIGNMENT_NEW: TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE = TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TSPUB_PLUGIN_PD_ASSIGNMENT_EXISTING: TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE = TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE(1i32);
 impl ::core::marker::Copy for TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE {}
 impl ::core::clone::Clone for TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE {
     fn clone(&self) -> Self {
@@ -8784,10 +9114,6 @@ impl ::core::fmt::Debug for TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TSPUB_PLUGIN_PD_RESOLUTION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TSPUB_PLUGIN_PD_QUERY_OR_CREATE: TSPUB_PLUGIN_PD_RESOLUTION_TYPE = TSPUB_PLUGIN_PD_RESOLUTION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TSPUB_PLUGIN_PD_QUERY_EXISTING: TSPUB_PLUGIN_PD_RESOLUTION_TYPE = TSPUB_PLUGIN_PD_RESOLUTION_TYPE(1i32);
 impl ::core::marker::Copy for TSPUB_PLUGIN_PD_RESOLUTION_TYPE {}
 impl ::core::clone::Clone for TSPUB_PLUGIN_PD_RESOLUTION_TYPE {
     fn clone(&self) -> Self {
@@ -8811,14 +9137,6 @@ impl ::core::fmt::Debug for TSPUB_PLUGIN_PD_RESOLUTION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TSSB_NOTIFICATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TSSB_NOTIFY_INVALID: TSSB_NOTIFICATION_TYPE = TSSB_NOTIFICATION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TSSB_NOTIFY_TARGET_CHANGE: TSSB_NOTIFICATION_TYPE = TSSB_NOTIFICATION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TSSB_NOTIFY_SESSION_CHANGE: TSSB_NOTIFICATION_TYPE = TSSB_NOTIFICATION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TSSB_NOTIFY_CONNECTION_REQUEST_CHANGE: TSSB_NOTIFICATION_TYPE = TSSB_NOTIFICATION_TYPE(4i32);
 impl ::core::marker::Copy for TSSB_NOTIFICATION_TYPE {}
 impl ::core::clone::Clone for TSSB_NOTIFICATION_TYPE {
     fn clone(&self) -> Self {
@@ -8842,12 +9160,6 @@ impl ::core::fmt::Debug for TSSB_NOTIFICATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TSSD_AddrV46Type(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TSSD_ADDR_UNDEFINED: TSSD_AddrV46Type = TSSD_AddrV46Type(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TSSD_ADDR_IPv4: TSSD_AddrV46Type = TSSD_AddrV46Type(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TSSD_ADDR_IPv6: TSSD_AddrV46Type = TSSD_AddrV46Type(6i32);
 impl ::core::marker::Copy for TSSD_AddrV46Type {}
 impl ::core::clone::Clone for TSSD_AddrV46Type {
     fn clone(&self) -> Self {
@@ -8871,30 +9183,6 @@ impl ::core::fmt::Debug for TSSD_AddrV46Type {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TSSESSION_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const STATE_INVALID: TSSESSION_STATE = TSSESSION_STATE(-1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const STATE_ACTIVE: TSSESSION_STATE = TSSESSION_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const STATE_CONNECTED: TSSESSION_STATE = TSSESSION_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const STATE_CONNECTQUERY: TSSESSION_STATE = TSSESSION_STATE(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const STATE_SHADOW: TSSESSION_STATE = TSSESSION_STATE(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const STATE_DISCONNECTED: TSSESSION_STATE = TSSESSION_STATE(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const STATE_IDLE: TSSESSION_STATE = TSSESSION_STATE(5i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const STATE_LISTEN: TSSESSION_STATE = TSSESSION_STATE(6i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const STATE_RESET: TSSESSION_STATE = TSSESSION_STATE(7i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const STATE_DOWN: TSSESSION_STATE = TSSESSION_STATE(8i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const STATE_INIT: TSSESSION_STATE = TSSESSION_STATE(9i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const STATE_MAX: TSSESSION_STATE = TSSESSION_STATE(10i32);
 impl ::core::marker::Copy for TSSESSION_STATE {}
 impl ::core::clone::Clone for TSSESSION_STATE {
     fn clone(&self) -> Self {
@@ -8918,12 +9206,6 @@ impl ::core::fmt::Debug for TSSESSION_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TS_SB_SORT_BY(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TS_SB_SORT_BY_NONE: TS_SB_SORT_BY = TS_SB_SORT_BY(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TS_SB_SORT_BY_NAME: TS_SB_SORT_BY = TS_SB_SORT_BY(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TS_SB_SORT_BY_PROP: TS_SB_SORT_BY = TS_SB_SORT_BY(2i32);
 impl ::core::marker::Copy for TS_SB_SORT_BY {}
 impl ::core::clone::Clone for TS_SB_SORT_BY {
     fn clone(&self) -> Self {
@@ -8947,14 +9229,6 @@ impl ::core::fmt::Debug for TS_SB_SORT_BY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VM_HOST_NOTIFY_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const VM_HOST_STATUS_INIT_PENDING: VM_HOST_NOTIFY_STATUS = VM_HOST_NOTIFY_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const VM_HOST_STATUS_INIT_IN_PROGRESS: VM_HOST_NOTIFY_STATUS = VM_HOST_NOTIFY_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const VM_HOST_STATUS_INIT_COMPLETE: VM_HOST_NOTIFY_STATUS = VM_HOST_NOTIFY_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const VM_HOST_STATUS_INIT_FAILED: VM_HOST_NOTIFY_STATUS = VM_HOST_NOTIFY_STATUS(3i32);
 impl ::core::marker::Copy for VM_HOST_NOTIFY_STATUS {}
 impl ::core::clone::Clone for VM_HOST_NOTIFY_STATUS {
     fn clone(&self) -> Self {
@@ -8978,16 +9252,6 @@ impl ::core::fmt::Debug for VM_HOST_NOTIFY_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VM_NOTIFY_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const VM_NOTIFY_STATUS_PENDING: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const VM_NOTIFY_STATUS_IN_PROGRESS: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const VM_NOTIFY_STATUS_COMPLETE: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const VM_NOTIFY_STATUS_FAILED: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const VM_NOTIFY_STATUS_CANCELED: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(4i32);
 impl ::core::marker::Copy for VM_NOTIFY_STATUS {}
 impl ::core::clone::Clone for VM_NOTIFY_STATUS {
     fn clone(&self) -> Self {
@@ -9011,10 +9275,6 @@ impl ::core::fmt::Debug for VM_NOTIFY_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WRDS_CONNECTION_SETTING_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_CONNECTION_SETTING_LEVEL_INVALID: WRDS_CONNECTION_SETTING_LEVEL = WRDS_CONNECTION_SETTING_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_CONNECTION_SETTING_LEVEL_1: WRDS_CONNECTION_SETTING_LEVEL = WRDS_CONNECTION_SETTING_LEVEL(1i32);
 impl ::core::marker::Copy for WRDS_CONNECTION_SETTING_LEVEL {}
 impl ::core::clone::Clone for WRDS_CONNECTION_SETTING_LEVEL {
     fn clone(&self) -> Self {
@@ -9038,10 +9298,6 @@ impl ::core::fmt::Debug for WRDS_CONNECTION_SETTING_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WRDS_LISTENER_SETTING_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_LISTENER_SETTING_LEVEL_INVALID: WRDS_LISTENER_SETTING_LEVEL = WRDS_LISTENER_SETTING_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_LISTENER_SETTING_LEVEL_1: WRDS_LISTENER_SETTING_LEVEL = WRDS_LISTENER_SETTING_LEVEL(1i32);
 impl ::core::marker::Copy for WRDS_LISTENER_SETTING_LEVEL {}
 impl ::core::clone::Clone for WRDS_LISTENER_SETTING_LEVEL {
     fn clone(&self) -> Self {
@@ -9065,10 +9321,6 @@ impl ::core::fmt::Debug for WRDS_LISTENER_SETTING_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WRDS_SETTING_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_SETTING_LEVEL_INVALID: WRDS_SETTING_LEVEL = WRDS_SETTING_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_SETTING_LEVEL_1: WRDS_SETTING_LEVEL = WRDS_SETTING_LEVEL(1i32);
 impl ::core::marker::Copy for WRDS_SETTING_LEVEL {}
 impl ::core::clone::Clone for WRDS_SETTING_LEVEL {
     fn clone(&self) -> Self {
@@ -9092,14 +9344,6 @@ impl ::core::fmt::Debug for WRDS_SETTING_LEVEL {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WRDS_SETTING_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_SETTING_STATUS_NOTAPPLICABLE: WRDS_SETTING_STATUS = WRDS_SETTING_STATUS(-1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_SETTING_STATUS_DISABLED: WRDS_SETTING_STATUS = WRDS_SETTING_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_SETTING_STATUS_ENABLED: WRDS_SETTING_STATUS = WRDS_SETTING_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_SETTING_STATUS_NOTCONFIGURED: WRDS_SETTING_STATUS = WRDS_SETTING_STATUS(2i32);
 impl ::core::marker::Copy for WRDS_SETTING_STATUS {}
 impl ::core::clone::Clone for WRDS_SETTING_STATUS {
     fn clone(&self) -> Self {
@@ -9123,14 +9367,6 @@ impl ::core::fmt::Debug for WRDS_SETTING_STATUS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WRDS_SETTING_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_SETTING_TYPE_INVALID: WRDS_SETTING_TYPE = WRDS_SETTING_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_SETTING_TYPE_MACHINE: WRDS_SETTING_TYPE = WRDS_SETTING_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_SETTING_TYPE_USER: WRDS_SETTING_TYPE = WRDS_SETTING_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_SETTING_TYPE_SAM: WRDS_SETTING_TYPE = WRDS_SETTING_TYPE(3i32);
 impl ::core::marker::Copy for WRDS_SETTING_TYPE {}
 impl ::core::clone::Clone for WRDS_SETTING_TYPE {
     fn clone(&self) -> Self {
@@ -9154,10 +9390,6 @@ impl ::core::fmt::Debug for WRDS_SETTING_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WRdsGraphicsChannelType(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRdsGraphicsChannelType_GuaranteedDelivery: WRdsGraphicsChannelType = WRdsGraphicsChannelType(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRdsGraphicsChannelType_BestEffortDelivery: WRdsGraphicsChannelType = WRdsGraphicsChannelType(1i32);
 impl ::core::marker::Copy for WRdsGraphicsChannelType {}
 impl ::core::clone::Clone for WRdsGraphicsChannelType {
     fn clone(&self) -> Self {
@@ -9181,16 +9413,6 @@ impl ::core::fmt::Debug for WRdsGraphicsChannelType {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WTSSBX_ADDRESS_FAMILY(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_ADDRESS_FAMILY_AF_UNSPEC: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_ADDRESS_FAMILY_AF_INET: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_ADDRESS_FAMILY_AF_INET6: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_ADDRESS_FAMILY_AF_IPX: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_ADDRESS_FAMILY_AF_NETBIOS: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(4i32);
 impl ::core::marker::Copy for WTSSBX_ADDRESS_FAMILY {}
 impl ::core::clone::Clone for WTSSBX_ADDRESS_FAMILY {
     fn clone(&self) -> Self {
@@ -9214,12 +9436,6 @@ impl ::core::fmt::Debug for WTSSBX_ADDRESS_FAMILY {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WTSSBX_MACHINE_DRAIN(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_MACHINE_DRAIN_UNSPEC: WTSSBX_MACHINE_DRAIN = WTSSBX_MACHINE_DRAIN(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_MACHINE_DRAIN_OFF: WTSSBX_MACHINE_DRAIN = WTSSBX_MACHINE_DRAIN(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_MACHINE_DRAIN_ON: WTSSBX_MACHINE_DRAIN = WTSSBX_MACHINE_DRAIN(2i32);
 impl ::core::marker::Copy for WTSSBX_MACHINE_DRAIN {}
 impl ::core::clone::Clone for WTSSBX_MACHINE_DRAIN {
     fn clone(&self) -> Self {
@@ -9243,12 +9459,6 @@ impl ::core::fmt::Debug for WTSSBX_MACHINE_DRAIN {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WTSSBX_MACHINE_SESSION_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_MACHINE_SESSION_MODE_UNSPEC: WTSSBX_MACHINE_SESSION_MODE = WTSSBX_MACHINE_SESSION_MODE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_MACHINE_SESSION_MODE_SINGLE: WTSSBX_MACHINE_SESSION_MODE = WTSSBX_MACHINE_SESSION_MODE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_MACHINE_SESSION_MODE_MULTIPLE: WTSSBX_MACHINE_SESSION_MODE = WTSSBX_MACHINE_SESSION_MODE(2i32);
 impl ::core::marker::Copy for WTSSBX_MACHINE_SESSION_MODE {}
 impl ::core::clone::Clone for WTSSBX_MACHINE_SESSION_MODE {
     fn clone(&self) -> Self {
@@ -9272,12 +9482,6 @@ impl ::core::fmt::Debug for WTSSBX_MACHINE_SESSION_MODE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WTSSBX_MACHINE_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_MACHINE_STATE_UNSPEC: WTSSBX_MACHINE_STATE = WTSSBX_MACHINE_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_MACHINE_STATE_READY: WTSSBX_MACHINE_STATE = WTSSBX_MACHINE_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_MACHINE_STATE_SYNCHRONIZING: WTSSBX_MACHINE_STATE = WTSSBX_MACHINE_STATE(2i32);
 impl ::core::marker::Copy for WTSSBX_MACHINE_STATE {}
 impl ::core::clone::Clone for WTSSBX_MACHINE_STATE {
     fn clone(&self) -> Self {
@@ -9301,14 +9505,6 @@ impl ::core::fmt::Debug for WTSSBX_MACHINE_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WTSSBX_NOTIFICATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_NOTIFICATION_REMOVED: WTSSBX_NOTIFICATION_TYPE = WTSSBX_NOTIFICATION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_NOTIFICATION_CHANGED: WTSSBX_NOTIFICATION_TYPE = WTSSBX_NOTIFICATION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_NOTIFICATION_ADDED: WTSSBX_NOTIFICATION_TYPE = WTSSBX_NOTIFICATION_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_NOTIFICATION_RESYNC: WTSSBX_NOTIFICATION_TYPE = WTSSBX_NOTIFICATION_TYPE(8i32);
 impl ::core::marker::Copy for WTSSBX_NOTIFICATION_TYPE {}
 impl ::core::clone::Clone for WTSSBX_NOTIFICATION_TYPE {
     fn clone(&self) -> Self {
@@ -9332,12 +9528,6 @@ impl ::core::fmt::Debug for WTSSBX_NOTIFICATION_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WTSSBX_SESSION_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_SESSION_STATE_UNSPEC: WTSSBX_SESSION_STATE = WTSSBX_SESSION_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_SESSION_STATE_ACTIVE: WTSSBX_SESSION_STATE = WTSSBX_SESSION_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_SESSION_STATE_DISCONNECTED: WTSSBX_SESSION_STATE = WTSSBX_SESSION_STATE(2i32);
 impl ::core::marker::Copy for WTSSBX_SESSION_STATE {}
 impl ::core::clone::Clone for WTSSBX_SESSION_STATE {
     fn clone(&self) -> Self {
@@ -9361,12 +9551,6 @@ impl ::core::fmt::Debug for WTSSBX_SESSION_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WTS_CERT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_CERT_TYPE_INVALID: WTS_CERT_TYPE = WTS_CERT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_CERT_TYPE_PROPRIETORY: WTS_CERT_TYPE = WTS_CERT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_CERT_TYPE_X509: WTS_CERT_TYPE = WTS_CERT_TYPE(2i32);
 impl ::core::marker::Copy for WTS_CERT_TYPE {}
 impl ::core::clone::Clone for WTS_CERT_TYPE {
     fn clone(&self) -> Self {
@@ -9390,46 +9574,6 @@ impl ::core::fmt::Debug for WTS_CERT_TYPE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WTS_CONFIG_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigInitialProgram: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigWorkingDirectory: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigfInheritInitialProgram: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigfAllowLogonTerminalServer: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigTimeoutSettingsConnections: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigTimeoutSettingsDisconnections: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigTimeoutSettingsIdle: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(6i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigfDeviceClientDrives: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(7i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigfDeviceClientPrinters: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(8i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigfDeviceClientDefaultPrinter: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(9i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigBrokenTimeoutSettings: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(10i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigReconnectSettings: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(11i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigModemCallbackSettings: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(12i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigModemCallbackPhoneNumber: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(13i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigShadowingSettings: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(14i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigTerminalServerProfilePath: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(15i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigTerminalServerHomeDir: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(16i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigTerminalServerHomeDirDrive: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(17i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigfTerminalServerRemoteHomeDir: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(18i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigUser: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(19i32);
 impl ::core::marker::Copy for WTS_CONFIG_CLASS {}
 impl ::core::clone::Clone for WTS_CONFIG_CLASS {
     fn clone(&self) -> Self {
@@ -9453,8 +9597,6 @@ impl ::core::fmt::Debug for WTS_CONFIG_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WTS_CONFIG_SOURCE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigSourceSAM: WTS_CONFIG_SOURCE = WTS_CONFIG_SOURCE(0i32);
 impl ::core::marker::Copy for WTS_CONFIG_SOURCE {}
 impl ::core::clone::Clone for WTS_CONFIG_SOURCE {
     fn clone(&self) -> Self {
@@ -9478,26 +9620,6 @@ impl ::core::fmt::Debug for WTS_CONFIG_SOURCE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WTS_CONNECTSTATE_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSActive: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSConnected: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSConnectQuery: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSShadow: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSDisconnected: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSIdle: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSListen: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(6i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSReset: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(7i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSDown: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(8i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSInit: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(9i32);
 impl ::core::marker::Copy for WTS_CONNECTSTATE_CLASS {}
 impl ::core::clone::Clone for WTS_CONNECTSTATE_CLASS {
     fn clone(&self) -> Self {
@@ -9521,66 +9643,6 @@ impl ::core::fmt::Debug for WTS_CONNECTSTATE_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WTS_INFO_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSInitialProgram: WTS_INFO_CLASS = WTS_INFO_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSApplicationName: WTS_INFO_CLASS = WTS_INFO_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSWorkingDirectory: WTS_INFO_CLASS = WTS_INFO_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSOEMId: WTS_INFO_CLASS = WTS_INFO_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSessionId: WTS_INFO_CLASS = WTS_INFO_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserName: WTS_INFO_CLASS = WTS_INFO_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSWinStationName: WTS_INFO_CLASS = WTS_INFO_CLASS(6i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSDomainName: WTS_INFO_CLASS = WTS_INFO_CLASS(7i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSConnectState: WTS_INFO_CLASS = WTS_INFO_CLASS(8i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSClientBuildNumber: WTS_INFO_CLASS = WTS_INFO_CLASS(9i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSClientName: WTS_INFO_CLASS = WTS_INFO_CLASS(10i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSClientDirectory: WTS_INFO_CLASS = WTS_INFO_CLASS(11i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSClientProductId: WTS_INFO_CLASS = WTS_INFO_CLASS(12i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSClientHardwareId: WTS_INFO_CLASS = WTS_INFO_CLASS(13i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSClientAddress: WTS_INFO_CLASS = WTS_INFO_CLASS(14i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSClientDisplay: WTS_INFO_CLASS = WTS_INFO_CLASS(15i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSClientProtocolType: WTS_INFO_CLASS = WTS_INFO_CLASS(16i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSIdleTime: WTS_INFO_CLASS = WTS_INFO_CLASS(17i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSLogonTime: WTS_INFO_CLASS = WTS_INFO_CLASS(18i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSIncomingBytes: WTS_INFO_CLASS = WTS_INFO_CLASS(19i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSOutgoingBytes: WTS_INFO_CLASS = WTS_INFO_CLASS(20i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSIncomingFrames: WTS_INFO_CLASS = WTS_INFO_CLASS(21i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSOutgoingFrames: WTS_INFO_CLASS = WTS_INFO_CLASS(22i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSClientInfo: WTS_INFO_CLASS = WTS_INFO_CLASS(23i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSessionInfo: WTS_INFO_CLASS = WTS_INFO_CLASS(24i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSessionInfoEx: WTS_INFO_CLASS = WTS_INFO_CLASS(25i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSConfigInfo: WTS_INFO_CLASS = WTS_INFO_CLASS(26i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSValidationInfo: WTS_INFO_CLASS = WTS_INFO_CLASS(27i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSessionAddressV4: WTS_INFO_CLASS = WTS_INFO_CLASS(28i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSIsRemoteSession: WTS_INFO_CLASS = WTS_INFO_CLASS(29i32);
 impl ::core::marker::Copy for WTS_INFO_CLASS {}
 impl ::core::clone::Clone for WTS_INFO_CLASS {
     fn clone(&self) -> Self {
@@ -9604,16 +9666,6 @@ impl ::core::fmt::Debug for WTS_INFO_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_LOGON_ERR_INVALID: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_LOGON_ERR_NOT_HANDLED: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_LOGON_ERR_HANDLED_SHOW: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_LOGON_ERR_HANDLED_DONT_SHOW: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_LOGON_ERR_HANDLED_DONT_SHOW_START_OVER: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(4i32);
 impl ::core::marker::Copy for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {}
 impl ::core::clone::Clone for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {
     fn clone(&self) -> Self {
@@ -9637,12 +9689,6 @@ impl ::core::fmt::Debug for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WTS_RCM_DRAIN_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_DRAIN_STATE_NONE: WTS_RCM_DRAIN_STATE = WTS_RCM_DRAIN_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_DRAIN_IN_DRAIN: WTS_RCM_DRAIN_STATE = WTS_RCM_DRAIN_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_DRAIN_NOT_IN_DRAIN: WTS_RCM_DRAIN_STATE = WTS_RCM_DRAIN_STATE(2i32);
 impl ::core::marker::Copy for WTS_RCM_DRAIN_STATE {}
 impl ::core::clone::Clone for WTS_RCM_DRAIN_STATE {
     fn clone(&self) -> Self {
@@ -9666,12 +9712,6 @@ impl ::core::fmt::Debug for WTS_RCM_DRAIN_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WTS_RCM_SERVICE_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SERVICE_NONE: WTS_RCM_SERVICE_STATE = WTS_RCM_SERVICE_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SERVICE_START: WTS_RCM_SERVICE_STATE = WTS_RCM_SERVICE_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SERVICE_STOP: WTS_RCM_SERVICE_STATE = WTS_RCM_SERVICE_STATE(2i32);
 impl ::core::marker::Copy for WTS_RCM_SERVICE_STATE {}
 impl ::core::clone::Clone for WTS_RCM_SERVICE_STATE {
     fn clone(&self) -> Self {
@@ -9695,36 +9735,6 @@ impl ::core::fmt::Debug for WTS_RCM_SERVICE_STATE {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WTS_SECURITY_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_CURRENT_GUEST_ACCESS: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(72u32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_USER_ACCESS: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(329u32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_CURRENT_USER_ACCESS: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(590u32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_ALL_ACCESS: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(983999u32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_QUERY_INFORMATION: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_SET_INFORMATION: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_RESET: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_VIRTUAL_CHANNELS: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_REMOTE_CONTROL: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_LOGON: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_LOGOFF: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_MESSAGE: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_CONNECT: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_DISCONNECT: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_GUEST_ACCESS: WTS_SECURITY_FLAGS = WTS_SECURITY_FLAGS(32u32);
 impl ::core::marker::Copy for WTS_SECURITY_FLAGS {}
 impl ::core::clone::Clone for WTS_SECURITY_FLAGS {
     fn clone(&self) -> Self {
@@ -9781,12 +9791,6 @@ impl ::core::ops::Not for WTS_SECURITY_FLAGS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WTS_TYPE_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSTypeProcessInfoLevel0: WTS_TYPE_CLASS = WTS_TYPE_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSTypeProcessInfoLevel1: WTS_TYPE_CLASS = WTS_TYPE_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSTypeSessionInfoLevel1: WTS_TYPE_CLASS = WTS_TYPE_CLASS(2i32);
 impl ::core::marker::Copy for WTS_TYPE_CLASS {}
 impl ::core::clone::Clone for WTS_TYPE_CLASS {
     fn clone(&self) -> Self {
@@ -9810,10 +9814,6 @@ impl ::core::fmt::Debug for WTS_TYPE_CLASS {
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WTS_VIRTUAL_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSVirtualClientData: WTS_VIRTUAL_CLASS = WTS_VIRTUAL_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSVirtualFileHandle: WTS_VIRTUAL_CLASS = WTS_VIRTUAL_CLASS(1i32);
 impl ::core::marker::Copy for WTS_VIRTUAL_CLASS {}
 impl ::core::clone::Clone for WTS_VIRTUAL_CLASS {
     fn clone(&self) -> Self {
