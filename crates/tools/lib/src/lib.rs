@@ -1,5 +1,5 @@
-use std::collections::BTreeMap;
 use metadata::RowReader;
+use std::collections::BTreeMap;
 
 pub enum CallingConvention {
     Stdcall(usize),
