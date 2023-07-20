@@ -45,6 +45,10 @@ pub const MS_INVERTCOLORS: i32 = 4i32;
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub const MS_SHOWMAGNIFIEDCURSOR: i32 = 1i32;
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
+pub const MW_FILTERMODE_EXCLUDE: MW_FILTERMODE = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
+pub const MW_FILTERMODE_INCLUDE: MW_FILTERMODE = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub const WC_MAGNIFIER: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Magnifier");
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub const WC_MAGNIFIERA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("Magnifier");
@@ -52,10 +56,6 @@ pub const WC_MAGNIFIERA: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("M
 pub const WC_MAGNIFIERW: ::windows_sys::core::PCWSTR = ::windows_sys::core::w!("Magnifier");
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub type MW_FILTERMODE = u32;
-#[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
-pub const MW_FILTERMODE_EXCLUDE: MW_FILTERMODE = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
-pub const MW_FILTERMODE_INCLUDE: MW_FILTERMODE = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Magnification\"`*"]
 pub struct MAGCOLOREFFECT {

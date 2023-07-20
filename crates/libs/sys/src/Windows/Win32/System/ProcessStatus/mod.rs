@@ -101,17 +101,17 @@
 #[cfg(feature = "Win32_Foundation")]
 ::windows_targets::link!("psapi.dll" "system" #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"] fn QueryWorkingSetEx(hprocess : super::super::Foundation:: HANDLE, pv : *mut ::core::ffi::c_void, cb : u32) -> super::super::Foundation:: BOOL);
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
-pub const PSAPI_VERSION: u32 = 2u32;
+pub const LIST_MODULES_32BIT: ENUM_PROCESS_MODULES_EX_FLAGS = 1u32;
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
-pub type ENUM_PROCESS_MODULES_EX_FLAGS = u32;
+pub const LIST_MODULES_64BIT: ENUM_PROCESS_MODULES_EX_FLAGS = 2u32;
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub const LIST_MODULES_ALL: ENUM_PROCESS_MODULES_EX_FLAGS = 3u32;
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub const LIST_MODULES_DEFAULT: ENUM_PROCESS_MODULES_EX_FLAGS = 0u32;
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
-pub const LIST_MODULES_32BIT: ENUM_PROCESS_MODULES_EX_FLAGS = 1u32;
+pub const PSAPI_VERSION: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
-pub const LIST_MODULES_64BIT: ENUM_PROCESS_MODULES_EX_FLAGS = 2u32;
+pub type ENUM_PROCESS_MODULES_EX_FLAGS = u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub struct ENUM_PAGE_FILE_INFORMATION {

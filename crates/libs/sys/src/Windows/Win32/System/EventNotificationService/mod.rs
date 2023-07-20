@@ -13,6 +13,10 @@ pub type ISensOnNow = *mut ::core::ffi::c_void;
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const CONNECTION_AOL: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
+pub const CONNECTION_LAN: SENS_CONNECTION_TYPE = 0u32;
+#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
+pub const CONNECTION_WAN: SENS_CONNECTION_TYPE = 1u32;
+#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const NETWORK_ALIVE_AOL: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const NETWORK_ALIVE_INTERNET: u32 = 8u32;
@@ -38,10 +42,6 @@ pub const SENSGUID_SUBSCRIBER_LCE: ::windows_sys::core::GUID = ::windows_sys::co
 pub const SENSGUID_SUBSCRIBER_WININET: ::windows_sys::core::GUID = ::windows_sys::core::GUID::from_u128(0xd3938ab5_5b9d_11d1_8dd2_00aa004abd5e);
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub type SENS_CONNECTION_TYPE = u32;
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
-pub const CONNECTION_LAN: SENS_CONNECTION_TYPE = 0u32;
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
-pub const CONNECTION_WAN: SENS_CONNECTION_TYPE = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub struct QOCINFO {

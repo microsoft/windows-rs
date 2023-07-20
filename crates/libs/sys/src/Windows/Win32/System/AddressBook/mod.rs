@@ -543,6 +543,12 @@ pub const cchProfilePassMax: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub const fMapiUnicode: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
+pub const genderFemale: Gender = 1i32;
+#[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
+pub const genderMale: Gender = 2i32;
+#[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
+pub const genderUnspecified: Gender = 0i32;
+#[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub const hrSuccess: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub const szHrDispatchNotifications: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("HrDispatchNotifications");
@@ -552,12 +558,6 @@ pub const szMAPINotificationMsg: ::windows_sys::core::PCSTR = ::windows_sys::cor
 pub const szScCreateConversationIndex: ::windows_sys::core::PCSTR = ::windows_sys::core::s!("ScCreateConversationIndex");
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 pub type Gender = i32;
-#[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-pub const genderUnspecified: Gender = 0i32;
-#[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-pub const genderFemale: Gender = 1i32;
-#[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
-pub const genderMale: Gender = 2i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
