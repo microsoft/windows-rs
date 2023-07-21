@@ -44,7 +44,7 @@ impl Type {
     /// Creates a `Type` object from an `ELEMENT_TYPE` (see ECMA-335) type constant, typically
     /// used to indicate the type of a constant or primitive type signature.
     pub fn from_code(code: usize) -> Option<Self> {
-        match code as _ {
+        match code as u8 {
             ELEMENT_TYPE_VOID => Some(Self::Void),
             ELEMENT_TYPE_BOOLEAN => Some(Self::Bool),
             ELEMENT_TYPE_CHAR => Some(Self::Char),

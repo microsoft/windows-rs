@@ -38,12 +38,12 @@ where
         T::from_default(item)
     }
     fn Size(&self) -> ::windows_core::Result<u32> {
-        Ok(self.values.len() as _)
+        Ok(self.values.len() as u32)
     }
     fn IndexOf(&self, value: &T::Default, result: &mut u32) -> ::windows_core::Result<bool> {
         match self.values.iter().position(|element| element == value) {
             Some(index) => {
-                *result = index as _;
+                *result = index as u32;
                 Ok(true)
             }
             None => Ok(false),
@@ -57,7 +57,7 @@ where
         let actual = std::cmp::min(self.values.len() - current, values.len());
         let (values, _) = values.split_at_mut(actual);
         values.clone_from_slice(&self.values[current..current + actual]);
-        Ok(actual as _)
+        Ok(actual as u32)
     }
 }
 
@@ -115,7 +115,7 @@ where
         values.clone_from_slice(&owner.values[current..current + actual]);
         self.current
             .fetch_add(actual, ::std::sync::atomic::Ordering::Relaxed);
-        Ok(actual as _)
+        Ok(actual as u32)
     }
 }
 

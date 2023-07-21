@@ -91,8 +91,8 @@ impl Writer {
     //             TypeName: self.strings.insert(name),
     //             TypeNamespace: self.strings.insert(namespace),
     //             Extends: extends,
-    //             FieldList: self.tables.Field.len() as _,
-    //             MethodList: self.tables.MethodDef.len() as _,
+    //             FieldList: self.tables.Field.len() as u32,
+    //             MethodList: self.tables.MethodDef.len() as u32,
     //         });
     //         for field in &def.fields {
     //             let blob = self.insert_field_sig(&field.ty);
@@ -104,9 +104,9 @@ impl Writer {
     //         }
     //         for method in &def.methods {
     //             let blob = self.insert_method_sig(method);
-    //             self.tables.MethodDef.push(MethodDef { RVA: 0, ImplFlags: 0, Flags: method.flags.0, Name: self.strings.insert(&method.name), Signature: blob, ParamList: self.tables.Param.len() as _ });
+    //             self.tables.MethodDef.push(MethodDef { RVA: 0, ImplFlags: 0, Flags: method.flags.0, Name: self.strings.insert(&method.name), Signature: blob, ParamList: self.tables.Param.len() as u32 });
     //             for (sequence, param) in method.params.iter().enumerate() {
-    //                 self.tables.Param.push(Param { Flags: param.flags.0, Sequence: (sequence + 1) as _, Name: self.strings.insert(&param.name) });
+    //                 self.tables.Param.push(Param { Flags: param.flags.0, Sequence: (sequence + 1) as u32, Name: self.strings.insert(&param.name) });
     //             }
     //         }
     //     }
@@ -233,91 +233,91 @@ impl Writer {
 
     fn type_blob(&mut self, ty: &Type, blob: &mut Vec<u8>) {
         match ty {
-            Type::Void => blob.push(ELEMENT_TYPE_VOID as _),
-            Type::Bool => blob.push(ELEMENT_TYPE_BOOLEAN as _),
-            Type::Char => blob.push(ELEMENT_TYPE_CHAR as _),
-            Type::I8 => blob.push(ELEMENT_TYPE_I1 as _),
-            Type::U8 => blob.push(ELEMENT_TYPE_U1 as _),
-            Type::I16 => blob.push(ELEMENT_TYPE_I2 as _),
-            Type::U16 => blob.push(ELEMENT_TYPE_U2 as _),
-            Type::I32 => blob.push(ELEMENT_TYPE_I4 as _),
-            Type::U32 => blob.push(ELEMENT_TYPE_U4 as _),
-            Type::I64 => blob.push(ELEMENT_TYPE_I8 as _),
-            Type::U64 => blob.push(ELEMENT_TYPE_U8 as _),
-            Type::F32 => blob.push(ELEMENT_TYPE_R4 as _),
-            Type::F64 => blob.push(ELEMENT_TYPE_R8 as _),
-            Type::ISize => blob.push(ELEMENT_TYPE_I as _),
-            Type::USize => blob.push(ELEMENT_TYPE_U as _),
-            Type::String => blob.push(ELEMENT_TYPE_STRING as _),
-            Type::IInspectable => blob.push(ELEMENT_TYPE_OBJECT as _),
+            Type::Void => blob.push(ELEMENT_TYPE_VOID),
+            Type::Bool => blob.push(ELEMENT_TYPE_BOOLEAN),
+            Type::Char => blob.push(ELEMENT_TYPE_CHAR),
+            Type::I8 => blob.push(ELEMENT_TYPE_I1),
+            Type::U8 => blob.push(ELEMENT_TYPE_U1),
+            Type::I16 => blob.push(ELEMENT_TYPE_I2),
+            Type::U16 => blob.push(ELEMENT_TYPE_U2),
+            Type::I32 => blob.push(ELEMENT_TYPE_I4),
+            Type::U32 => blob.push(ELEMENT_TYPE_U4),
+            Type::I64 => blob.push(ELEMENT_TYPE_I8),
+            Type::U64 => blob.push(ELEMENT_TYPE_U8),
+            Type::F32 => blob.push(ELEMENT_TYPE_R4),
+            Type::F64 => blob.push(ELEMENT_TYPE_R8),
+            Type::ISize => blob.push(ELEMENT_TYPE_I),
+            Type::USize => blob.push(ELEMENT_TYPE_U),
+            Type::String => blob.push(ELEMENT_TYPE_STRING),
+            Type::IInspectable => blob.push(ELEMENT_TYPE_OBJECT),
             Type::GUID => {
                 let code = self.insert_type_ref("System", "Guid");
-                blob.push(ELEMENT_TYPE_VALUETYPE as _);
-                usize_blob(code as _, blob);
+                blob.push(ELEMENT_TYPE_VALUETYPE);
+                usize_blob(code as usize, blob);
             }
             Type::HRESULT => {
                 let code = self.insert_type_ref("Windows.Foundation", "HResult");
-                blob.push(ELEMENT_TYPE_VALUETYPE as _);
-                usize_blob(code as _, blob);
+                blob.push(ELEMENT_TYPE_VALUETYPE);
+                usize_blob(code as usize, blob);
             }
             Type::TypeRef(ty) => {
                 let code = self.insert_type_ref(&ty.namespace, &ty.name);
-                blob.push(ELEMENT_TYPE_VALUETYPE as _);
-                usize_blob(code as _, blob);
+                blob.push(ELEMENT_TYPE_VALUETYPE);
+                usize_blob(code as usize, blob);
             }
             Type::BSTR => {
                 let code = self.insert_type_ref("Windows.Win32.Foundation", "BSTR");
-                blob.push(ELEMENT_TYPE_VALUETYPE as _);
-                usize_blob(code as _, blob);
+                blob.push(ELEMENT_TYPE_VALUETYPE);
+                usize_blob(code as usize, blob);
             }
             Type::IUnknown => {
                 let code = self.insert_type_ref("Windows.Win32.Foundation", "IUnknown");
-                blob.push(ELEMENT_TYPE_VALUETYPE as _);
-                usize_blob(code as _, blob);
+                blob.push(ELEMENT_TYPE_VALUETYPE);
+                usize_blob(code as usize, blob);
             }
             Type::PCWSTR | Type::PWSTR => {
                 let code = self.insert_type_ref("Windows.Win32.Foundation", "PWSTR");
-                blob.push(ELEMENT_TYPE_VALUETYPE as _);
-                usize_blob(code as _, blob);
+                blob.push(ELEMENT_TYPE_VALUETYPE);
+                usize_blob(code as usize, blob);
             }
             Type::PCSTR | Type::PSTR => {
                 let code = self.insert_type_ref("Windows.Win32.Foundation", "PSTR");
-                blob.push(ELEMENT_TYPE_VALUETYPE as _);
-                usize_blob(code as _, blob);
+                blob.push(ELEMENT_TYPE_VALUETYPE);
+                usize_blob(code as usize, blob);
             }
             Type::ConstRef(ty) => {
-                usize_blob(ELEMENT_TYPE_CMOD_OPT as _, blob);
+                usize_blob(ELEMENT_TYPE_CMOD_OPT as usize, blob);
                 usize_blob(
-                    self.insert_type_ref("System.Runtime.CompilerServices", "IsConst") as _,
+                    self.insert_type_ref("System.Runtime.CompilerServices", "IsConst") as usize,
                     blob,
                 );
-                usize_blob(ELEMENT_TYPE_BYREF as _, blob);
+                usize_blob(ELEMENT_TYPE_BYREF as usize, blob);
                 self.type_blob(ty, blob);
             }
             Type::WinrtArrayRef(ty) => {
-                usize_blob(ELEMENT_TYPE_BYREF as _, blob);
-                usize_blob(ELEMENT_TYPE_SZARRAY as _, blob);
+                usize_blob(ELEMENT_TYPE_BYREF as usize, blob);
+                usize_blob(ELEMENT_TYPE_SZARRAY as usize, blob);
                 self.type_blob(ty, blob);
             }
             Type::WinrtArray(ty) => {
-                usize_blob(ELEMENT_TYPE_SZARRAY as _, blob);
+                usize_blob(ELEMENT_TYPE_SZARRAY as usize, blob);
                 self.type_blob(ty, blob);
             }
             Type::Win32Array(ty, bounds) => {
-                usize_blob(ELEMENT_TYPE_ARRAY as _, blob);
+                usize_blob(ELEMENT_TYPE_ARRAY as usize, blob);
                 self.type_blob(ty, blob);
                 usize_blob(1, blob); // rank
                 usize_blob(1, blob); // count
-                usize_blob(*bounds as _, blob);
+                usize_blob(*bounds, blob);
             }
             Type::TypeName => {
                 let code = self.insert_type_ref("System", "Type");
-                blob.push(ELEMENT_TYPE_CLASS as _);
-                usize_blob(code as _, blob);
+                blob.push(ELEMENT_TYPE_CLASS);
+                usize_blob(code as usize, blob);
             }
             Type::MutPtr(ty, pointers) | Type::ConstPtr(ty, pointers) => {
                 for _ in 0..*pointers {
-                    usize_blob(ELEMENT_TYPE_PTR as _, blob);
+                    usize_blob(ELEMENT_TYPE_PTR as usize, blob);
                 }
                 self.type_blob(ty, blob);
             }
@@ -336,15 +336,15 @@ fn usize_blob(value: usize, blob: &mut Vec<u8>) {
     assert!(value < 0x20000000);
 
     if value < 0x80 {
-        blob.push(value as _);
+        blob.push(value as u8);
     } else if value < 0x4000 {
-        blob.push((0x80 | (value & 0x3F00) >> 8) as _);
-        blob.push((value & 0xFF) as _);
+        blob.push((0x80 | (value & 0x3F00) >> 8) as u8);
+        blob.push((value & 0xFF) as u8);
     } else {
-        blob.push((0xC0 | (value & 0x1F000000) >> 24) as _);
-        blob.push(((value & 0xFF0000) >> 16) as _);
-        blob.push(((value & 0xFF00) >> 8) as _);
-        blob.push((value & 0xFF) as _);
+        blob.push((0xC0 | (value & 0x1F000000) >> 24) as u8);
+        blob.push(((value & 0xFF0000) >> 16) as u8);
+        blob.push(((value & 0xFF00) >> 8) as u8);
+        blob.push((value & 0xFF) as u8);
     }
 }
 

@@ -12,7 +12,7 @@ struct Thing();
 #[allow(non_snake_case)]
 impl IVectorView_Impl<i32> for Thing {
     fn GetAt(&self, index: u32) -> Result<i32> {
-        Ok(index as _)
+        Ok(index as i32)
     }
 
     fn Size(&self) -> Result<u32> {
@@ -20,7 +20,7 @@ impl IVectorView_Impl<i32> for Thing {
     }
 
     fn IndexOf(&self, value: &i32, index: &mut u32) -> Result<bool> {
-        *index = *value as _;
+        *index = *value as u32;
         Ok(true)
     }
 

@@ -5,14 +5,17 @@ fn symbol() {
     unsafe {
         use windows_sys::Win32::Security::Authentication::Identity::RtlGenRandom;
         let mut buffer = [0u8; 8];
-        assert_eq!(RtlGenRandom(buffer.as_mut_ptr() as _, buffer.len() as _), 1);
+        assert_eq!(
+            RtlGenRandom(buffer.as_mut_ptr() as _, buffer.len() as u32),
+            1
+        );
         assert_ne!(&buffer, &[0u8; 8]);
     }
     unsafe {
         use windows::Win32::Security::Authentication::Identity::RtlGenRandom;
         let mut buffer = [0u8; 8];
         assert_eq!(
-            RtlGenRandom(buffer.as_mut_ptr() as _, buffer.len() as _),
+            RtlGenRandom(buffer.as_mut_ptr() as _, buffer.len() as u32),
             true
         );
         assert_ne!(&buffer, &[0u8; 8]);

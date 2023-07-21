@@ -32,7 +32,7 @@ pub enum HasAttribute {
 
 impl HasAttribute {
     pub fn encode(&self) -> usize {
-        (match self {
+        match self {
             Self::MethodDef(row) => (row.0.row + 1) << 5,
             Self::Field(row) => ((row.0.row + 1) << 5) | 1,
             Self::TypeRef(row) => ((row.0.row + 1) << 5) | 2,
@@ -42,7 +42,7 @@ impl HasAttribute {
             Self::MemberRef(row) => ((row.0.row + 1) << 5) | 6,
             Self::TypeSpec(row) => ((row.0.row + 1) << 5) | 13,
             Self::GenericParam(row) => ((row.0.row + 1) << 5) | 19,
-        }) as _
+        }
     }
 }
 
@@ -53,9 +53,9 @@ pub enum HasConstant {
 
 impl HasConstant {
     pub fn encode(&self) -> usize {
-        (match self {
+        match self {
             Self::Field(row) => (row.0.row + 1) << 2,
-        }) as _
+        }
     }
 }
 
@@ -66,9 +66,9 @@ pub enum MemberForwarded {
 
 impl MemberForwarded {
     pub fn encode(&self) -> usize {
-        (match self {
+        match self {
             Self::MethodDef(value) => ((value.0.row + 1) << 1) | 1,
-        }) as _
+        }
     }
 }
 
@@ -111,9 +111,9 @@ pub enum TypeOrMethodDef {
 
 impl TypeOrMethodDef {
     pub fn encode(&self) -> usize {
-        (match self {
+        match self {
             Self::TypeDef(value) => (value.0.row + 1) << 1,
-        }) as _
+        }
     }
 }
 

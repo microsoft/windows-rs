@@ -26,13 +26,13 @@ where
     }
 
     fn Size(&self) -> Result<u32> {
-        Ok(self.0.len() as _)
+        Ok(self.0.len() as u32)
     }
 
     fn IndexOf(&self, value: &T::Default, result: &mut u32) -> Result<bool> {
         match self.0.iter().position(|element| element == value) {
             Some(index) => {
-                *result = index as _;
+                *result = index as u32;
                 Ok(true)
             }
             None => Ok(false),

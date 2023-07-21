@@ -5,7 +5,7 @@ use std::mem::*;
 pub fn write(mut tables: Vec<u8>, mut strings: Vec<u8>, mut blobs: Vec<u8>) -> Vec<u8> {
     if [tables.len(), strings.len(), blobs.len()]
         .iter()
-        .any(|len| *len > u32::MAX as _)
+        .any(|len| *len > u32::MAX as usize)
     {
         panic!("heap too large");
     }
@@ -15,14 +15,14 @@ pub fn write(mut tables: Vec<u8>, mut strings: Vec<u8>, mut blobs: Vec<u8>) -> V
         let size_of_streams = tables.len() + guids.len() + strings.len() + blobs.len();
 
         let mut dos: IMAGE_DOS_HEADER = zeroed();
-        dos.e_magic = IMAGE_DOS_SIGNATURE as _;
+        dos.e_magic = IMAGE_DOS_SIGNATURE;
         dos.e_lfarlc = 64;
-        dos.e_lfanew = size_of::<IMAGE_DOS_HEADER>() as _;
+        dos.e_lfanew = size_of::<IMAGE_DOS_HEADER>() as i32;
 
         let mut file: IMAGE_FILE_HEADER = zeroed();
         file.Machine = IMAGE_FILE_MACHINE_I386;
         file.NumberOfSections = 1;
-        file.SizeOfOptionalHeader = size_of::<IMAGE_OPTIONAL_HEADER32>() as _;
+        file.SizeOfOptionalHeader = size_of::<IMAGE_OPTIONAL_HEADER32>() as u16;
         file.Characteristics =
             IMAGE_FILE_DLL | IMAGE_FILE_32BIT_MACHINE | IMAGE_FILE_EXECUTABLE_IMAGE;
 
@@ -53,7 +53,7 @@ pub fn write(mut tables: Vec<u8>, mut strings: Vec<u8>, mut blobs: Vec<u8>) -> V
         section.VirtualAddress = SECTION_ALIGNMENT;
 
         let mut clr: IMAGE_COR20_HEADER = zeroed();
-        clr.cb = size_of::<IMAGE_COR20_HEADER>() as _;
+        clr.cb = size_of::<IMAGE_COR20_HEADER>() as u32;
         clr.MajorRuntimeVersion = 2;
         clr.MinorRuntimeVersion = 5;
         clr.Flags = 1;
@@ -83,14 +83,16 @@ pub fn write(mut tables: Vec<u8>, mut strings: Vec<u8>, mut blobs: Vec<u8>) -> V
             + size_of_stream_headers
             + size_of_streams;
 
-        optional.SizeOfImage = round(size_of_image, optional.SectionAlignment as _) as _;
+        optional.SizeOfImage = round(size_of_image, optional.SectionAlignment as usize) as u32;
         section.Misc.VirtualSize = size_of_image as u32 - optional.FileAlignment;
-        section.SizeOfRawData =
-            round(section.Misc.VirtualSize as _, optional.FileAlignment as _) as _;
+        section.SizeOfRawData = round(
+            section.Misc.VirtualSize as usize,
+            optional.FileAlignment as usize,
+        ) as u32;
 
         optional.DataDirectory[14] = IMAGE_DATA_DIRECTORY {
             VirtualAddress: SECTION_ALIGNMENT,
-            Size: size_of::<IMAGE_COR20_HEADER>() as _,
+            Size: size_of::<IMAGE_COR20_HEADER>() as u32,
         };
         section.PointerToRawData = optional.FileAlignment;
         clr.MetaData.VirtualAddress = SECTION_ALIGNMENT + size_of::<IMAGE_COR20_HEADER>() as u32;
@@ -103,26 +105,29 @@ pub fn write(mut tables: Vec<u8>, mut strings: Vec<u8>, mut blobs: Vec<u8>) -> V
         buffer.write_header(&file);
         buffer.write_header(&optional);
         buffer.write_header(&section);
-        debug_assert!(buffer.len() < optional.FileAlignment as _);
-        buffer.resize(optional.FileAlignment as _, 0);
+        debug_assert!(buffer.len() < optional.FileAlignment as usize);
+        buffer.resize(optional.FileAlignment as usize, 0);
         buffer.write_header(&clr);
         let metadata_offset = buffer.len();
         buffer.write_header(&metadata);
 
         let stream_offset = buffer.len() - metadata_offset + size_of_stream_headers;
-        let tables_header = TablesHeader::new(stream_offset as _, tables.len() as _, b"#~\0\0");
+        let tables_header = TablesHeader::new(stream_offset as u32, tables.len() as u32, b"#~\0\0");
         let strings_header = StringsHeader::new(
             tables_header.next_offset(),
-            strings.len() as _,
+            strings.len() as u32,
             b"#Strings\0\0\0\0",
         );
         let guids_header = GuidsHeader::new(
             strings_header.next_offset(),
-            guids.len() as _,
+            guids.len() as u32,
             b"#GUID\0\0\0",
         );
-        let blobs_header =
-            BlobsHeader::new(guids_header.next_offset(), blobs.len() as _, b"#Blob\0\0\0");
+        let blobs_header = BlobsHeader::new(
+            guids_header.next_offset(),
+            blobs.len() as u32,
+            b"#Blob\0\0\0",
+        );
 
         buffer.write_header(&tables_header);
         buffer.write_header(&strings_header);

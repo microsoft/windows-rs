@@ -43,12 +43,12 @@ impl WeakRefCount {
             return TearOff::from_encoding(count_or_pointer);
         }
 
-        let tear_off = TearOff::new(object, count_or_pointer as _);
+        let tear_off = TearOff::new(object, count_or_pointer as u32);
         let tear_off_ptr: *mut std::ffi::c_void = std::mem::transmute_copy(&tear_off);
         let encoding: usize = ((tear_off_ptr as usize) >> 1) | (1 << (std::mem::size_of::<usize>() * 8 - 1));
 
         loop {
-            match self.0.compare_exchange_weak(count_or_pointer, encoding as _, Ordering::AcqRel, Ordering::Relaxed) {
+            match self.0.compare_exchange_weak(count_or_pointer, encoding as isize, Ordering::AcqRel, Ordering::Relaxed) {
                 Ok(_) => {
                     let result: *mut std::ffi::c_void = std::mem::transmute(tear_off);
                     TearOff::from_strong_ptr(result).strong_count.add_ref();
@@ -61,7 +61,7 @@ impl WeakRefCount {
                 return TearOff::from_encoding(count_or_pointer);
             }
 
-            TearOff::from_strong_ptr(tear_off_ptr).strong_count.0.store(count_or_pointer as _, Ordering::SeqCst);
+            TearOff::from_strong_ptr(tear_off_ptr).strong_count.0.store(count_or_pointer as i32, Ordering::SeqCst);
         }
     }
 }

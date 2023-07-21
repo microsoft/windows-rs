@@ -252,7 +252,7 @@ fn gen_winrt_invoke_arg(writer: &Writer, param: &SignatureParam) -> TokenStream 
         .contains(ParamAttributes::In)
     {
         if param.ty.is_winrt_array() {
-            quote! { ::core::slice::from_raw_parts(::core::mem::transmute_copy(&#name), #abi_size_name as _) }
+            quote! { ::core::slice::from_raw_parts(::core::mem::transmute_copy(&#name), #abi_size_name as usize) }
         } else if writer.reader.type_is_primitive(&param.ty) {
             quote! { #name }
         } else if param.ty.is_const_ref() {
@@ -263,7 +263,7 @@ fn gen_winrt_invoke_arg(writer: &Writer, param: &SignatureParam) -> TokenStream 
             quote! { ::core::mem::transmute(&#name) }
         }
     } else if param.ty.is_winrt_array() {
-        quote! { ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&#name), #abi_size_name as _) }
+        quote! { ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&#name), #abi_size_name as usize) }
     } else if param.ty.is_winrt_array_ref() {
         quote! { ::windows_core::ArrayProxy::from_raw_parts(::core::mem::transmute_copy(&#name), #abi_size_name).as_array() }
     } else {

@@ -22,8 +22,11 @@ fn conversions() {
     );
 
     // std::io::Error from WIN32_ERROR
-    let std_error = std::io::Error::from_raw_os_error(ERROR_INVALID_DATA.0 as _);
-    assert_eq!(std_error.raw_os_error().unwrap(), ERROR_INVALID_DATA.0 as _);
+    let std_error = std::io::Error::from_raw_os_error(ERROR_INVALID_DATA.0 as i32);
+    assert_eq!(
+        std_error.raw_os_error().unwrap(),
+        ERROR_INVALID_DATA.0 as i32
+    );
     assert_eq!(format!("{std_error}"), "The data is invalid. (os error 13)");
 
     // Starting with WIN32_ERROR...

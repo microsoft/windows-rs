@@ -42,7 +42,7 @@ impl BSTR {
             return Ok(Self::new());
         }
 
-        let result = unsafe { Self(crate::imp::SysAllocStringLen(value.as_ptr(), value.len() as _)) };
+        let result = unsafe { Self(crate::imp::SysAllocStringLen(value.as_ptr(), value.len() as u32)) };
 
         if result.is_empty() {
             Err(crate::imp::E_OUTOFMEMORY.into())

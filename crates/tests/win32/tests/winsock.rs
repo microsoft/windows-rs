@@ -15,7 +15,7 @@ fn in_addr() {
     fn in_addr_to_string(in_addr: &IN_ADDR) -> String {
         unsafe {
             let mut chars = [0; 24];
-            inet_ntop(AF_INET.0 as _, in_addr as *const IN_ADDR as _, &mut chars);
+            inet_ntop(AF_INET.0 as i32, in_addr as *const IN_ADDR as _, &mut chars);
             std::ffi::CStr::from_ptr(chars.as_ptr() as *const _)
                 .to_str()
                 .unwrap()

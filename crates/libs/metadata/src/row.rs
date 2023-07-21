@@ -6,7 +6,7 @@ pub struct Row {
 
 impl Row {
     pub fn new(row: usize, file: usize) -> Self {
-        Self { row: row as _, file: file as _ }
+        Self { row, file }
     }
 
     fn next(&self) -> Self {
@@ -48,7 +48,7 @@ impl<R: AsRow> Iterator for RowIterator<R> {
     type Item = R;
 
     fn next(&mut self) -> Option<Self::Item> {
-        self.rows.next().map(|row| R::from_row(Row::new(row, self.file as _)))
+        self.rows.next().map(|row| R::from_row(Row::new(row, self.file)))
     }
 }
 

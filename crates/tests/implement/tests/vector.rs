@@ -40,13 +40,13 @@ where
     }
     fn Size(&self) -> Result<u32> {
         let reader = self.0.read().unwrap();
-        Ok(reader.len() as _)
+        Ok(reader.len() as u32)
     }
     fn IndexOf(&self, value: &T::Default, result: &mut u32) -> Result<bool> {
         let reader = self.0.read().unwrap();
         match reader.iter().position(|element| element == value) {
             Some(index) => {
-                *result = index as _;
+                *result = index as u32;
                 Ok(true)
             }
             None => Ok(false),
@@ -88,7 +88,7 @@ where
         } else {
             let len = writer.len();
             writer.try_reserve(len + 1).map_err(|_| err_memory())?;
-            writer.insert(index as _, value.clone());
+            writer.insert(index as usize, value.clone());
             Ok(())
         }
     }

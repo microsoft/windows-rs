@@ -6,7 +6,7 @@ pub trait RowReader<'a> {
     fn row_usize<R: AsRow>(&self, row: R, column: usize) -> usize {
         let file = self.row_file(row);
         let row = row.to_row();
-        file.usize(row.row as _, R::TABLE as _, column)
+        file.usize(row.row, R::TABLE, column)
     }
 
     fn row_str<R: AsRow>(&self, row: R, column: usize) -> &'a str {
@@ -148,7 +148,7 @@ pub trait RowReader<'a> {
     //
 
     fn field_flags(&self, row: Field) -> FieldAttributes {
-        FieldAttributes(self.row_usize(row, 0) as _)
+        FieldAttributes(self.row_usize(row, 0) as u16)
     }
 
     fn field_name(&self, row: Field) -> &'a str {
@@ -216,7 +216,7 @@ pub trait RowReader<'a> {
     }
 
     fn method_def_flags(&self, row: MethodDef) -> MethodAttributes {
-        MethodAttributes(self.row_usize(row, 2) as _)
+        MethodAttributes(self.row_usize(row, 2) as u16)
     }
 
     fn method_def_name(&self, row: MethodDef) -> &'a str {
@@ -269,7 +269,7 @@ pub trait RowReader<'a> {
     //
 
     fn param_flags(&self, row: Param) -> ParamAttributes {
-        ParamAttributes(self.row_usize(row, 0) as _)
+        ParamAttributes(self.row_usize(row, 0) as u16)
     }
 
     fn param_sequence(&self, row: Param) -> usize {
@@ -289,7 +289,7 @@ pub trait RowReader<'a> {
     //
 
     fn type_def_flags(&self, row: TypeDef) -> TypeAttributes {
-        TypeAttributes(self.row_usize(row, 0) as _)
+        TypeAttributes(self.row_usize(row, 0) as u32)
     }
 
     fn type_def_name(&self, row: TypeDef) -> &'a str {
@@ -324,15 +324,15 @@ pub trait RowReader<'a> {
     }
 
     fn type_def_interface_impls(&self, row: TypeDef) -> RowIterator<InterfaceImpl> {
-        self.row_equal_range(row, 0, (row.0.row + 1) as _)
+        self.row_equal_range(row, 0, row.0.row + 1)
     }
 
     fn type_def_enclosing_type(&self, row: TypeDef) -> Option<TypeDef> {
-        self.row_equal_range::<TypeDef, NestedClass>(row, 0, (row.0.row + 1) as _).next().map(|row| TypeDef(Row::new(self.row_usize(row, 1) - 1, row.file())))
+        self.row_equal_range::<TypeDef, NestedClass>(row, 0, row.0.row + 1).next().map(|row| TypeDef(Row::new(self.row_usize(row, 1) - 1, row.file())))
     }
 
     fn type_def_class_layout(&self, row: TypeDef) -> Option<ClassLayout> {
-        self.row_equal_range(row, 2, (row.0.row + 1) as _).next()
+        self.row_equal_range(row, 2, row.0.row + 1).next()
     }
 
     fn type_def_is_scoped(&self, row: TypeDef) -> bool {

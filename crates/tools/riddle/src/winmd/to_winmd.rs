@@ -35,9 +35,9 @@ pub fn from_reader(
 
         writer.tables.TypeDef.push(writer::TypeDef {
             Extends: extends,
-            FieldList: writer.tables.Field.len() as _,
+            FieldList: writer.tables.Field.len() as u32,
             Flags: reader.type_def_flags(def).0,
-            MethodList: writer.tables.MethodDef.len() as _,
+            MethodList: writer.tables.MethodDef.len() as u32,
             TypeName: writer.strings.insert(reader.type_def_name(def)),
             TypeNamespace: writer.strings.insert(reader.type_def_namespace(def)),
         });
@@ -67,13 +67,13 @@ pub fn from_reader(
                 Flags: 0,
                 Name: writer.strings.insert(name),
                 Signature: signature,
-                ParamList: writer.tables.Param.len() as _,
+                ParamList: writer.tables.Param.len() as u32,
             });
 
             for (sequence, param) in sig.params.iter().enumerate() {
                 writer.tables.Param.push(writer::Param {
                     Flags: 0,
-                    Sequence: (sequence + 1) as _,
+                    Sequence: (sequence + 1) as u16,
                     Name: writer.strings.insert(&param.name),
                 });
             }

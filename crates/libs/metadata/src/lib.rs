@@ -293,7 +293,7 @@ impl<'a> Reader<'a> {
             let _id = values.read_u8();
             let arg_type = values.read_u8();
             let mut name = values.read_str().to_string();
-            let arg = match arg_type as _ {
+            let arg = match arg_type {
                 ELEMENT_TYPE_BOOLEAN => Value::Bool(values.read_bool()),
                 ELEMENT_TYPE_I2 => Value::I16(values.read_i16()),
                 ELEMENT_TYPE_I4 => Value::I32(values.read_i32()),
@@ -447,7 +447,7 @@ impl<'a> Reader<'a> {
     }
     pub fn method_def_signature(&self, namespace: &str, row: MethodDef, generics: &[Type]) -> Signature {
         let mut blob = self.row_blob(row, 4);
-        let call_flags = MethodCallAttributes(blob.read_usize() as _);
+        let call_flags = MethodCallAttributes(blob.read_usize() as u8);
         let _param_count = blob.read_usize();
         let mut return_type = self.type_from_blob(&mut blob, None, generics);
 
@@ -635,8 +635,8 @@ impl<'a> Reader<'a> {
                 "NativeArrayInfoAttribute" => {
                     for (_, value) in self.attribute_args(attribute) {
                         match value {
-                            Value::I16(value) => return SignatureParamKind::ArrayRelativeLen(value as _),
-                            Value::I32(value) => return SignatureParamKind::ArrayFixed(value as _),
+                            Value::I16(value) => return SignatureParamKind::ArrayRelativeLen(value as usize),
+                            Value::I32(value) => return SignatureParamKind::ArrayFixed(value as usize),
                             _ => {}
                         }
                     }
@@ -644,7 +644,7 @@ impl<'a> Reader<'a> {
                 "MemorySizeAttribute" => {
                     for (_, value) in self.attribute_args(attribute) {
                         if let Value::I16(value) = value {
-                            return SignatureParamKind::ArrayRelativeByteLen(value as _);
+                            return SignatureParamKind::ArrayRelativeByteLen(value as usize);
                         }
                     }
                 }
@@ -1527,17 +1527,17 @@ impl<'a> Reader<'a> {
 
         // Used by WinRT to indicate an output parameter, but there are other ways to determine this direction so here
         // it is only used to distinguish between slices and heap-allocated arrays.
-        let is_ref = blob.read_expected(ELEMENT_TYPE_BYREF as _);
+        let is_ref = blob.read_expected(ELEMENT_TYPE_BYREF as usize);
 
-        if blob.read_expected(ELEMENT_TYPE_VOID as _) {
+        if blob.read_expected(ELEMENT_TYPE_VOID as usize) {
             return Type::Void;
         }
 
-        let is_array = blob.read_expected(ELEMENT_TYPE_SZARRAY as _); // Used by WinRT to indicate an array
+        let is_array = blob.read_expected(ELEMENT_TYPE_SZARRAY as usize); // Used by WinRT to indicate an array
 
         let mut pointers = 0;
 
-        while blob.read_expected(ELEMENT_TYPE_PTR as _) {
+        while blob.read_expected(ELEMENT_TYPE_PTR as usize) {
             pointers += 1;
         }
 
@@ -1564,7 +1564,7 @@ impl<'a> Reader<'a> {
             return code;
         }
 
-        match code as _ {
+        match code as u8 {
             ELEMENT_TYPE_VALUETYPE | ELEMENT_TYPE_CLASS => self.type_from_ref(TypeDefOrRef::decode(blob.file, blob.read_usize()), enclosing, generics),
             ELEMENT_TYPE_VAR => generics.get(blob.read_usize()).unwrap_or(&Type::Void).clone(),
             ELEMENT_TYPE_ARRAY => {

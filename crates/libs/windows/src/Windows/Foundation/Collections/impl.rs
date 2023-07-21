@@ -86,7 +86,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
         unsafe extern "system" fn GetMany<T: ::windows_core::RuntimeType + 'static, Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IIterator_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, items_array_size: u32, items: *mut ::windows_core::AbiType<T>, result__: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMany(::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&items), items_array_size as _)) {
+            match this.GetMany(::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&items), items_array_size as usize)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::windows_core::HRESULT(0)
@@ -573,7 +573,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
         unsafe extern "system" fn GetMany<T: ::windows_core::RuntimeType + 'static, Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, items_array_size: u32, items: *mut ::windows_core::AbiType<T>, result__: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMany(startindex, ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&items), items_array_size as _)) {
+            match this.GetMany(startindex, ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&items), items_array_size as usize)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::windows_core::HRESULT(0)
@@ -584,7 +584,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
         unsafe extern "system" fn ReplaceAll<T: ::windows_core::RuntimeType + 'static, Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVector_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, items_array_size: u32, items: *const ::windows_core::AbiType<T>) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.ReplaceAll(::core::slice::from_raw_parts(::core::mem::transmute_copy(&items), items_array_size as _)).into()
+            this.ReplaceAll(::core::slice::from_raw_parts(::core::mem::transmute_copy(&items), items_array_size as usize)).into()
         }
         Self {
             base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IVector<T>, OFFSET>(),
@@ -701,7 +701,7 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
         unsafe extern "system" fn GetMany<T: ::windows_core::RuntimeType + 'static, Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVectorView_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startindex: u32, items_array_size: u32, items: *mut ::windows_core::AbiType<T>, result__: *mut u32) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.GetMany(startindex, ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&items), items_array_size as _)) {
+            match this.GetMany(startindex, ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&items), items_array_size as usize)) {
                 ::core::result::Result::Ok(ok__) => {
                     ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::windows_core::HRESULT(0)
@@ -797,7 +797,7 @@ where
         let (values, _) = values.split_at_mut(actual);
         values.clone_from_slice(&owner.values[current..current + actual]);
         self.current.fetch_add(actual, ::std::sync::atomic::Ordering::Relaxed);
-        Ok(actual as _)
+        Ok(actual as u32)
     }
 }
 
@@ -851,7 +851,7 @@ where
         V::from_default(value)
     }
     fn Size(&self) -> ::windows_core::Result<u32> {
-        Ok(self.map.len() as _)
+        Ok(self.map.len() as u32)
     }
     fn HasKey(&self, key: &K::Default) -> ::windows_core::Result<bool> {
         Ok(self.map.contains_key(key))
@@ -918,7 +918,7 @@ where
             }
         }
 
-        Ok(actual as _)
+        Ok(actual)
     }
 }
 
@@ -995,12 +995,12 @@ where
         T::from_default(item)
     }
     fn Size(&self) -> ::windows_core::Result<u32> {
-        Ok(self.values.len() as _)
+        Ok(self.values.len() as u32)
     }
     fn IndexOf(&self, value: &T::Default, result: &mut u32) -> ::windows_core::Result<bool> {
         match self.values.iter().position(|element| element == value) {
             Some(index) => {
-                *result = index as _;
+                *result = index as u32;
                 Ok(true)
             }
             None => Ok(false),
@@ -1014,7 +1014,7 @@ where
         let actual = std::cmp::min(self.values.len() - current, values.len());
         let (values, _) = values.split_at_mut(actual);
         values.clone_from_slice(&self.values[current..current + actual]);
-        Ok(actual as _)
+        Ok(actual as u32)
     }
 }
 
@@ -1070,7 +1070,7 @@ where
         let (values, _) = values.split_at_mut(actual);
         values.clone_from_slice(&owner.values[current..current + actual]);
         self.current.fetch_add(actual, ::std::sync::atomic::Ordering::Relaxed);
-        Ok(actual as _)
+        Ok(actual as u32)
     }
 }
 

@@ -42,7 +42,7 @@ impl ICoreAutomationRemoteOperationExtensionProvider_Vtbl {
         unsafe extern "system" fn CallExtension<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICoreAutomationRemoteOperationExtensionProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, extensionid: ::windows_core::GUID, context: *mut ::core::ffi::c_void, operandIds_array_size: u32, operandids: *const AutomationRemoteOperationOperandId) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.CallExtension(::core::mem::transmute(&extensionid), ::windows_core::from_raw_borrowed(&context), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&operandids), operandIds_array_size as _)).into()
+            this.CallExtension(::core::mem::transmute(&extensionid), ::windows_core::from_raw_borrowed(&context), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&operandids), operandIds_array_size as usize)).into()
         }
         unsafe extern "system" fn IsExtensionSupported<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICoreAutomationRemoteOperationExtensionProvider_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, extensionid: ::windows_core::GUID, result__: *mut bool) -> ::windows_core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

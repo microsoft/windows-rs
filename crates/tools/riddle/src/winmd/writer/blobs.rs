@@ -23,19 +23,19 @@ impl Blobs {
 
         match self.map.entry(value.to_vec()) {
             Entry::Vacant(entry) => {
-                let offset = *entry.insert(self.stream.len() as _);
+                let offset = *entry.insert(self.stream.len() as u32);
                 let len = value.len();
                 match len {
-                    0..=0x7F => self.stream.push(len as _),
+                    0..=0x7F => self.stream.push(len as u8),
                     0x80..=0x3FFF => {
-                        self.stream.push((0x80 | len >> 8) as _);
-                        self.stream.push((0xFF & len) as _);
+                        self.stream.push((0x80 | len >> 8) as u8);
+                        self.stream.push((0xFF & len) as u8);
                     }
                     _ => {
-                        self.stream.push((0xC0 | len >> 24) as _);
-                        self.stream.push((0xFF & len >> 16) as _);
-                        self.stream.push((0xFF & len >> 8) as _);
-                        self.stream.push((0xFF & len) as _);
+                        self.stream.push((0xC0 | len >> 24) as u8);
+                        self.stream.push((0xFF & len >> 16) as u8);
+                        self.stream.push((0xFF & len >> 8) as u8);
+                        self.stream.push((0xFF & len) as u8);
                     }
                 }
                 self.stream.extend_from_slice(value);

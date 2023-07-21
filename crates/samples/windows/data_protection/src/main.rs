@@ -25,5 +25,8 @@ fn main() -> std::io::Result<()> {
 unsafe fn as_mut_bytes(buffer: &IBuffer) -> Result<&mut [u8]> {
     let interop = buffer.cast::<IBufferByteAccess>()?;
     let data = interop.Buffer()?;
-    Ok(std::slice::from_raw_parts_mut(data, buffer.Length()? as _))
+    Ok(std::slice::from_raw_parts_mut(
+        data,
+        buffer.Length()? as usize,
+    ))
 }
