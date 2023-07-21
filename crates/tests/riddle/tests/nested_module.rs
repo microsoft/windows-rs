@@ -3,7 +3,7 @@ use windows_metadata::*;
 
 #[test]
 fn test() {
-    let files = run_riddle("nested_module");
+    let files = run_riddle("nested_module", &["--config", "FLATTEN"]);
     let reader = &Reader::new(&files);
 
     let types: Vec<Item> = reader

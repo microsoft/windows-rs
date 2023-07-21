@@ -6,7 +6,7 @@ mod r#struct;
 
 use std::process::Command;
 
-pub fn run_riddle(name: &str) -> Vec<windows_metadata::File> {
+pub fn run_riddle(name: &str, etc: &[&str]) -> Vec<windows_metadata::File> {
     let rd = format!("tests/{name}.rd");
     let winmd = format!("tests/{name}.winmd");
     let rs = format!("src/{name}.rs");
@@ -34,9 +34,9 @@ pub fn run_riddle(name: &str) -> Vec<windows_metadata::File> {
     // Convert .rd to .rs
     let mut command = Command::new("cargo");
     command.args([
-        "run", "-p", "riddle", "--", "--in", &rd, "--out", &rs, "--filter", "Test", "--config",
-        "FLATTEN",
+        "run", "-p", "riddle", "--", "--in", &rd, "--out", &rs, "--filter", "Test",
     ]);
+    command.args(etc);
     assert!(command.status().unwrap().success());
 
     // Return winmd file for validation
