@@ -91,7 +91,7 @@ impl Window {
                     for column in 0..CARD_COLUMNS {
                         print!(
                             " {}",
-                            char::from_u32(cards[row * CARD_COLUMNS + column].value as _)
+                            char::from_u32(cards[row * CARD_COLUMNS + column].value as u32)
                                 .expect("char")
                         );
                     }
@@ -211,13 +211,13 @@ impl Window {
             let mut rect = RECT {
                 left: 0,
                 top: 0,
-                right: logical_to_physical(WINDOW_WIDTH, self.dpi.0) as _,
-                bottom: logical_to_physical(WINDOW_HEIGHT, self.dpi.1) as _,
+                right: logical_to_physical(WINDOW_WIDTH, self.dpi.0) as i32,
+                bottom: logical_to_physical(WINDOW_HEIGHT, self.dpi.1) as i32,
             };
 
             AdjustWindowRect(
                 &mut rect,
-                WINDOW_STYLE(GetWindowLongW(self.handle, GWL_STYLE) as _),
+                WINDOW_STYLE(GetWindowLongW(self.handle, GWL_STYLE) as u32),
                 false,
             )?;
 
@@ -367,7 +367,7 @@ impl Window {
             let monitor = MonitorFromWindow(self.handle, MONITOR_DEFAULTTONEAREST);
             let mut dpi = (0, 0);
             GetDpiForMonitor(monitor, MDT_EFFECTIVE_DPI, &mut dpi.0, &mut dpi.1)?;
-            self.dpi = (dpi.0 as _, dpi.1 as _);
+            self.dpi = (dpi.0 as f32, dpi.1 as f32);
 
             if cfg!(debug_assertions) {
                 println!("initial dpi: {:?}", self.dpi);
@@ -580,8 +580,8 @@ fn create_surface(
 ) -> Result<IDCompositionSurface> {
     unsafe {
         device.CreateSurface(
-            width as _,
-            height as _,
+            width as u32,
+            height as u32,
             DXGI_FORMAT_B8G8R8A8_UNORM,
             DXGI_ALPHA_MODE_PREMULTIPLIED,
         )
@@ -680,8 +680,8 @@ fn draw_card_front(
         dc.SetDpi(dpi.0, dpi.1);
 
         dc.SetTransform(&Matrix3x2::translation(
-            physical_to_logical(offset.x as _, dpi.0),
-            physical_to_logical(offset.y as _, dpi.1),
+            physical_to_logical(offset.x as f32, dpi.0),
+            physical_to_logical(offset.y as f32, dpi.1),
         ));
 
         dc.Clear(Some(&D2D1_COLOR_F {
@@ -721,12 +721,12 @@ fn draw_card_back(
         dc.SetDpi(dpi.0, dpi.1);
 
         dc.SetTransform(&Matrix3x2::translation(
-            physical_to_logical(dc_offset.x as _, dpi.0),
-            physical_to_logical(dc_offset.y as _, dpi.1),
+            physical_to_logical(dc_offset.x as f32, dpi.0),
+            physical_to_logical(dc_offset.y as f32, dpi.1),
         ));
 
-        let left = physical_to_logical(offset.0 as _, dpi.0);
-        let top = physical_to_logical(offset.1 as _, dpi.1);
+        let left = physical_to_logical(offset.0, dpi.0);
+        let top = physical_to_logical(offset.1, dpi.1);
 
         dc.DrawBitmap(
             bitmap,

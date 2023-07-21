@@ -597,10 +597,13 @@ impl IClass_Vtbl {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Int32Array(
-                ::core::slice::from_raw_parts(::core::mem::transmute_copy(&a), a_array_size as _),
+                ::core::slice::from_raw_parts(
+                    ::core::mem::transmute_copy(&a),
+                    a_array_size as usize,
+                ),
                 ::core::slice::from_raw_parts_mut(
                     ::core::mem::transmute_copy(&b),
-                    b_array_size as _,
+                    b_array_size as usize,
                 ),
                 ::windows_core::ArrayProxy::from_raw_parts(
                     ::core::mem::transmute_copy(&c),
@@ -635,10 +638,13 @@ impl IClass_Vtbl {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.StringArray(
-                ::core::slice::from_raw_parts(::core::mem::transmute_copy(&a), a_array_size as _),
+                ::core::slice::from_raw_parts(
+                    ::core::mem::transmute_copy(&a),
+                    a_array_size as usize,
+                ),
                 ::core::slice::from_raw_parts_mut(
                     ::core::mem::transmute_copy(&b),
-                    b_array_size as _,
+                    b_array_size as usize,
                 ),
                 ::windows_core::ArrayProxy::from_raw_parts(
                     ::core::mem::transmute_copy(&c),

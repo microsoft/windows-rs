@@ -248,8 +248,8 @@ impl<T: ComInterface> Delegate<T> {
     fn to_token(&self) -> i64 {
         unsafe {
             match self {
-                Self::Direct(delegate) => crate::imp::EncodePointer(std::mem::transmute_copy(delegate)) as _,
-                Self::Indirect(delegate) => crate::imp::EncodePointer(std::mem::transmute_copy(delegate)) as _,
+                Self::Direct(delegate) => crate::imp::EncodePointer(std::mem::transmute_copy(delegate)) as i64,
+                Self::Indirect(delegate) => crate::imp::EncodePointer(std::mem::transmute_copy(delegate)) as i64,
             }
         }
     }

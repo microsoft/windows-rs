@@ -44,7 +44,7 @@ where
         V::from_default(value)
     }
     fn Size(&self) -> ::windows_core::Result<u32> {
-        Ok(self.map.len() as _)
+        Ok(self.map.len() as u32)
     }
     fn HasKey(&self, key: &K::Default) -> ::windows_core::Result<bool> {
         Ok(self.map.contains_key(key))
@@ -125,7 +125,7 @@ where
             }
         }
 
-        Ok(actual as _)
+        Ok(actual)
     }
 }
 

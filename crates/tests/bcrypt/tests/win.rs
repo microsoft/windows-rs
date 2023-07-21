@@ -20,7 +20,7 @@ fn test() -> Result<()> {
         )?;
         let object_len = u32::from_le_bytes(object_len);
 
-        let mut shared_secret = vec![0; object_len as _];
+        let mut shared_secret = vec![0; object_len as usize];
         BCryptGenRandom(rng, &mut shared_secret, Default::default())?;
 
         let mut encrypt_key = Default::default();
@@ -52,7 +52,7 @@ fn test() -> Result<()> {
             Default::default(),
         )?;
 
-        let mut encrypted = vec![0; encrypted_len as _];
+        let mut encrypted = vec![0; encrypted_len as usize];
         BCryptEncrypt(
             encrypt_key,
             Some(&send_buffer),
@@ -77,7 +77,7 @@ fn test() -> Result<()> {
             Default::default(),
         )?;
 
-        let mut decrypted = vec![0; decrypted_len as _];
+        let mut decrypted = vec![0; decrypted_len as usize];
         BCryptDecrypt(
             decrypt_key,
             Some(&encrypted),

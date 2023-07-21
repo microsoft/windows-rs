@@ -21790,7 +21790,7 @@ impl WIN32_ERROR {
     }
     #[inline]
     pub const fn to_hresult(self) -> ::windows_core::HRESULT {
-        ::windows_core::HRESULT(if self.0 == 0 { self.0 } else { (self.0 & 0x0000_FFFF) | (7 << 16) | 0x8000_0000 } as _)
+        ::windows_core::HRESULT(if self.0 == 0 { self.0 } else { (self.0 & 0x0000_FFFF) | (7 << 16) | 0x8000_0000 } as i32)
     }
     #[inline]
     pub fn from_error(error: &::windows_core::Error) -> ::core::option::Option<Self> {

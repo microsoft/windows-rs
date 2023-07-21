@@ -97,7 +97,7 @@ fn write_interface(
         Extends: 0,
         FieldList: 0,
         Flags: flags.0,
-        MethodList: writer.tables.MethodDef.len() as _,
+        MethodList: writer.tables.MethodDef.len() as u32,
         TypeName: writer.strings.insert(name),
         TypeNamespace: writer.strings.insert(namespace),
     });
@@ -112,13 +112,13 @@ fn write_interface(
             Flags: 0,
             Name: writer.strings.insert(&method.sig.ident.to_string()),
             Signature: signature,
-            ParamList: writer.tables.Param.len() as _,
+            ParamList: writer.tables.Param.len() as u32,
         });
 
         for (sequence, param) in sig.params.iter().enumerate() {
             writer.tables.Param.push(winmd::Param {
                 Flags: 0,
-                Sequence: (sequence + 1) as _,
+                Sequence: (sequence + 1) as u16,
                 Name: writer.strings.insert(&param.name),
             });
         }
@@ -136,7 +136,7 @@ fn write_struct(writer: &mut winmd::Writer, namespace: &str, name: &str, member:
 
     writer.tables.TypeDef.push(winmd::TypeDef {
         Extends: extends,
-        FieldList: writer.tables.Field.len() as _,
+        FieldList: writer.tables.Field.len() as u32,
         Flags: flags.0,
         MethodList: 0,
         TypeName: writer.strings.insert(name),

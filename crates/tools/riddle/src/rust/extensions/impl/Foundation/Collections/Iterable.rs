@@ -79,7 +79,7 @@ where
         values.clone_from_slice(&owner.values[current..current + actual]);
         self.current
             .fetch_add(actual, ::std::sync::atomic::Ordering::Relaxed);
-        Ok(actual as _)
+        Ok(actual as u32)
     }
 }
 

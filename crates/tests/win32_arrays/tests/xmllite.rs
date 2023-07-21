@@ -48,7 +48,7 @@ fn test() -> Result<()> {
         assert_eq!(node_type, XmlNodeType_Element);
         reader.GetLocalName(&mut name, Some(&mut name_len))?;
         assert_eq!(
-            String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)),
+            String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as usize)),
             "html"
         );
 
@@ -57,7 +57,7 @@ fn test() -> Result<()> {
         assert_eq!(node_type, XmlNodeType_Element);
         reader.GetLocalName(&mut name, Some(&mut name_len))?;
         assert_eq!(
-            String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)),
+            String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as usize)),
             "head"
         );
 
@@ -71,7 +71,7 @@ fn test() -> Result<()> {
         let mut read_count = 0;
 
         while reader.ReadValueChunk(&mut chunk, &mut chars_read).is_ok() && chars_read > 0 {
-            message.extend_from_slice(&chunk[0..chars_read as _]);
+            message.extend_from_slice(&chunk[0..chars_read as usize]);
             read_count += 1;
         }
 
@@ -96,7 +96,10 @@ fn test() -> Result<()> {
         reader.ReadValueChunk(&mut chunk, &mut chars_read).ok()?;
         assert_eq!(chars_read, 4);
         assert_eq!(
-            String::from_utf16_lossy(std::slice::from_raw_parts(chunk.as_ptr(), chars_read as _)),
+            String::from_utf16_lossy(std::slice::from_raw_parts(
+                chunk.as_ptr(),
+                chars_read as usize
+            )),
             "Rust"
         );
 
@@ -140,7 +143,7 @@ fn lite() -> Result<()> {
         assert_eq!(node_type, XmlNodeType_Element);
         reader.GetLocalName(&mut name, Some(&mut name_len))?;
         assert_eq!(
-            String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)),
+            String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as usize)),
             "html"
         );
 
@@ -149,13 +152,13 @@ fn lite() -> Result<()> {
 
         reader.GetLocalName(&mut name, Some(&mut name_len))?;
         assert_eq!(
-            String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)),
+            String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as usize)),
             "no-value"
         );
 
         reader.GetValue(&mut name, Some(&mut name_len))?;
         assert_eq!(
-            String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)),
+            String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as usize)),
             ""
         );
 
@@ -163,13 +166,13 @@ fn lite() -> Result<()> {
 
         reader.GetLocalName(&mut name, Some(&mut name_len))?;
         assert_eq!(
-            String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)),
+            String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as usize)),
             "with-value"
         );
 
         reader.GetValue(&mut name, Some(&mut name_len))?;
         assert_eq!(
-            String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as _)),
+            String::from_utf16_lossy(std::slice::from_raw_parts(name.0, name_len as usize)),
             "value"
         );
 

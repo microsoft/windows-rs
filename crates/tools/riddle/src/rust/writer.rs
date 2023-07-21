@@ -1135,7 +1135,7 @@ impl<'a> Writer<'a> {
                 SignatureParamKind::ArrayFixed(fixed) => {
                     let ty = param.ty.deref();
                     let ty = self.type_default_name(&ty);
-                    let len = Literal::u32_unsuffixed(fixed as _);
+                    let len = Literal::u32_unsuffixed(fixed as u32);
                     let ty = if self
                         .reader
                         .param_flags(param.def)

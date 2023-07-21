@@ -23,7 +23,7 @@ impl Strings {
 
         match self.map.entry(value.to_string()) {
             Entry::Vacant(entry) => {
-                let offset = *entry.insert(self.stream.len() as _);
+                let offset = *entry.insert(self.stream.len() as u32);
                 self.stream.extend_from_slice(value.as_bytes());
                 self.stream.push(0);
                 offset

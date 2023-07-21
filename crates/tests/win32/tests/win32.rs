@@ -149,7 +149,7 @@ fn com() -> windows::core::Result<()> {
 
         let mut copied = 0;
         stream
-            .Write(values.as_ptr() as _, values.len() as _, Some(&mut copied))
+            .Write(values.as_ptr() as _, values.len() as u32, Some(&mut copied))
             .ok()?;
         assert!(copied == 4);
 
@@ -162,7 +162,7 @@ fn com() -> windows::core::Result<()> {
         stream
             .Read(
                 values.as_mut_ptr() as _,
-                values.len() as _,
+                values.len() as u32,
                 Some(&mut copied),
             )
             .ok()?;

@@ -11,7 +11,7 @@ fn main() -> Result<()> {
         let mut bytes_required = 0;
         _ = GetTokenInformation(token, TokenPrivileges, None, 0, &mut bytes_required);
 
-        let buffer = LocalAlloc(LPTR, bytes_required as _)?;
+        let buffer = LocalAlloc(LPTR, bytes_required as usize)?;
 
         GetTokenInformation(
             token,
@@ -24,7 +24,7 @@ fn main() -> Result<()> {
         let header = &*(buffer.0 as *const TOKEN_PRIVILEGES);
 
         let privileges =
-            std::slice::from_raw_parts(header.Privileges.as_ptr(), header.PrivilegeCount as _);
+            std::slice::from_raw_parts(header.Privileges.as_ptr(), header.PrivilegeCount as usize);
 
         for privilege in privileges {
             let mut name_len = 0;

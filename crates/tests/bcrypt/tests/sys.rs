@@ -23,17 +23,22 @@ fn test() {
                 des,
                 BCRYPT_OBJECT_LENGTH,
                 object_len.as_mut_ptr(),
-                object_len.len() as _,
+                object_len.len() as u32,
                 &mut bytes_copied,
                 0
             )
         );
         let object_len = u32::from_le_bytes(object_len);
 
-        let mut shared_secret = vec![0; object_len as _];
+        let mut shared_secret = vec![0; object_len as usize];
         assert_eq!(
             STATUS_SUCCESS,
-            BCryptGenRandom(rng, shared_secret.as_mut_ptr(), shared_secret.len() as _, 0)
+            BCryptGenRandom(
+                rng,
+                shared_secret.as_mut_ptr(),
+                shared_secret.len() as u32,
+                0
+            )
         );
 
         let mut encrypt_key = std::ptr::null_mut();
@@ -45,7 +50,7 @@ fn test() {
                 std::ptr::null_mut(),
                 0,
                 shared_secret.as_ptr(),
-                shared_secret.len() as _,
+                shared_secret.len() as u32,
                 0
             )
         );
@@ -57,7 +62,7 @@ fn test() {
                 des,
                 BCRYPT_BLOCK_LENGTH,
                 block_len.as_mut_ptr(),
-                block_len.len() as _,
+                block_len.len() as u32,
                 &mut bytes_copied,
                 0
             )
@@ -75,7 +80,7 @@ fn test() {
             BCryptEncrypt(
                 encrypt_key,
                 send_buffer.as_ptr(),
-                send_buffer.len() as _,
+                send_buffer.len() as u32,
                 std::ptr::null(),
                 std::ptr::null_mut(),
                 0,
@@ -86,18 +91,18 @@ fn test() {
             )
         );
 
-        let mut encrypted = vec![0; encrypted_len as _];
+        let mut encrypted = vec![0; encrypted_len as usize];
         assert_eq!(
             STATUS_SUCCESS,
             BCryptEncrypt(
                 encrypt_key,
                 send_buffer.as_ptr(),
-                send_buffer.len() as _,
+                send_buffer.len() as u32,
                 std::ptr::null(),
                 std::ptr::null_mut(),
                 0,
                 encrypted.as_mut_ptr(),
-                encrypted.len() as _,
+                encrypted.len() as u32,
                 &mut encrypted_len,
                 0
             )
@@ -112,7 +117,7 @@ fn test() {
                 std::ptr::null_mut(),
                 0,
                 shared_secret.as_ptr(),
-                shared_secret.len() as _,
+                shared_secret.len() as u32,
                 0
             )
         );
@@ -123,7 +128,7 @@ fn test() {
             BCryptDecrypt(
                 decrypt_key,
                 encrypted.as_ptr(),
-                encrypted.len() as _,
+                encrypted.len() as u32,
                 std::ptr::null(),
                 std::ptr::null_mut(),
                 0,
@@ -134,18 +139,18 @@ fn test() {
             )
         );
 
-        let mut decrypted = vec![0; decrypted_len as _];
+        let mut decrypted = vec![0; decrypted_len as usize];
         assert_eq!(
             STATUS_SUCCESS,
             BCryptDecrypt(
                 decrypt_key,
                 encrypted.as_ptr(),
-                encrypted.len() as _,
+                encrypted.len() as u32,
                 std::ptr::null(),
                 std::ptr::null_mut(),
                 0,
                 decrypted.as_mut_ptr(),
-                decrypted.len() as _,
+                decrypted.len() as u32,
                 &mut decrypted_len,
                 0
             )

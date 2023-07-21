@@ -37,7 +37,7 @@ impl Write for Vec<u8> {
 
     fn write_code(&mut self, value: u32, size: usize) {
         if size == 2 {
-            self.write_u16(value as _);
+            self.write_u16(value as u16);
         } else {
             self.write_u32(value);
         }
@@ -64,6 +64,6 @@ pub trait Push2<T> {
 impl<T> Push2<T> for Vec<T> {
     fn push2(&mut self, value: T) -> u32 {
         self.push(value);
-        (self.len() - 1) as _
+        (self.len() - 1) as u32
     }
 }

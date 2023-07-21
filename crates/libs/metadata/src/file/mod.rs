@@ -26,7 +26,7 @@ impl File {
 
         let dos = result.bytes.view_as::<IMAGE_DOS_HEADER>(0)?;
 
-        if dos.e_magic != IMAGE_DOS_SIGNATURE as _ || result.bytes.copy_as::<u32>(dos.e_lfanew as _)? != IMAGE_NT_SIGNATURE {
+        if dos.e_magic != IMAGE_DOS_SIGNATURE || result.bytes.copy_as::<u32>(dos.e_lfanew as usize)? != IMAGE_NT_SIGNATURE {
             return Err(());
         }
 
@@ -47,14 +47,14 @@ impl File {
             _ => return Err(()),
         };
 
-        let clr = result.bytes.view_as::<IMAGE_COR20_HEADER>(offset_from_rva(section_from_rva(sections, com_virtual_address)?, com_virtual_address) as _)?;
+        let clr = result.bytes.view_as::<IMAGE_COR20_HEADER>(offset_from_rva(section_from_rva(sections, com_virtual_address)?, com_virtual_address))?;
 
-        if clr.cb != std::mem::size_of::<IMAGE_COR20_HEADER>() as _ {
+        if clr.cb != std::mem::size_of::<IMAGE_COR20_HEADER>() as u32 {
             return Err(());
         }
 
         let metadata_offset = offset_from_rva(section_from_rva(sections, clr.MetaData.VirtualAddress)?, clr.MetaData.VirtualAddress);
-        let metadata = result.bytes.view_as::<METADATA_HEADER>(metadata_offset as _)?;
+        let metadata = result.bytes.view_as::<METADATA_HEADER>(metadata_offset)?;
 
         if metadata.signature != METADATA_SIGNATURE {
             return Err(());
@@ -119,7 +119,7 @@ impl File {
                 continue;
             }
 
-            let len = result.bytes.copy_as::<u32>(view)? as _;
+            let len = result.bytes.copy_as::<u32>(view)? as usize;
             view += 4;
 
             match i {
