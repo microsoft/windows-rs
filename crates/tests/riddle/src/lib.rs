@@ -3,6 +3,8 @@ mod nested_module;
 mod nested_struct;
 mod params;
 mod r#struct;
+mod winrt_struct;
+mod win32_struct;
 
 use std::process::Command;
 
