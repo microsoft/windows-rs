@@ -17,7 +17,7 @@ impl Writer {
     }
 
     pub fn into_string(mut self) -> String {
-        self.out.push('\n');   
+        self.out.push('\n');
         self.out
     }
 
@@ -38,7 +38,7 @@ impl Writer {
     }
 
     fn idl_file(&mut self, file: &rdl::File) {
-        if file.winrt{ 
+        if file.winrt {
             self.word("#![winrt]\n");
         } else {
             self.word("#![win32]\n");

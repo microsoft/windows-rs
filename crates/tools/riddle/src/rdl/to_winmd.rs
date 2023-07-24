@@ -134,9 +134,9 @@ fn write_struct(writer: &mut winmd::Writer, namespace: &str, name: &str, member:
         | metadata::TypeAttributes::Import
         | metadata::TypeAttributes::SequentialLayout;
 
-        if member.winrt {
-            flags |= metadata::TypeAttributes::WindowsRuntime
-        }
+    if member.winrt {
+        flags |= metadata::TypeAttributes::WindowsRuntime
+    }
 
     let extends = writer.insert_type_ref("System", "ValueType");
 

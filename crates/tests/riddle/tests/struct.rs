@@ -3,7 +3,7 @@ use windows_metadata::*;
 
 #[test]
 fn test() {
-    let files = run_riddle("struct","winrt", &[]);
+    let files = run_riddle("struct", "winrt", &[]);
     let reader = &Reader::new(&files);
 
     let def = reader

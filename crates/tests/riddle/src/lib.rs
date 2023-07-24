@@ -3,8 +3,8 @@ mod nested_module;
 mod nested_struct;
 mod params;
 mod r#struct;
-mod winrt_struct;
 mod win32_struct;
+mod winrt_struct;
 
 use std::process::Command;
 
@@ -25,7 +25,7 @@ pub fn run_riddle(name: &str, dialect: &str, etc: &[&str]) -> Vec<windows_metada
     // Convert .winmd back to .rdl
     let mut command = Command::new("cargo");
     command.args([
-        "run", "-p", "riddle", "--", "--in", &winmd, "--out", &rdl, "--filter", "Test", "--config", 
+        "run", "-p", "riddle", "--", "--in", &winmd, "--out", &rdl, "--filter", "Test", "--config",
     ]);
     command.arg(format!("TYPE={dialect}"));
     assert!(command.status().unwrap().success());

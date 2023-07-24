@@ -11,7 +11,11 @@ pub fn from_reader(
     let dialect = match config.remove("TYPE") {
         Some("winrt") => Dialect::WinRT,
         Some("win32") => Dialect::Win32,
-        _ => return Err(Error::new("configuration value `TYPE` must be `win32` or `winrt`")),
+        _ => {
+            return Err(Error::new(
+                "configuration value `TYPE` must be `win32` or `winrt`",
+            ))
+        }
     };
 
     let writer = Writer::new(reader, filter, dialect);
@@ -67,7 +71,7 @@ impl<'a> Writer<'a> {
             .nested
             .values()
             .map(|tree| self.with_namespace(tree.namespace).tree(tree));
-           
+
         if tree.namespace.is_empty() {
             match self.dialect {
                 Dialect::Win32 => quote! { #![win32] #(#modules)* },
