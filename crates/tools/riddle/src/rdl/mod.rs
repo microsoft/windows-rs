@@ -30,7 +30,7 @@ impl File {
 
     pub fn into_winmd(mut self) -> Result<Vec<u8>> {
         self.canonicalize()?;
-        to_winmd::idl_to_winmd(&self)
+        to_winmd::rdl_to_winmd(&self)
     }
 }
 

@@ -7,7 +7,7 @@ use std::collections::HashMap;
 // TODO: this creates a temporary in-memory winmd used to treat the IDL content uniformly as metadata.
 // The winmd_to_winmd does the harder job of validating and producing canonical winmd for public consumption.
 
-pub fn idl_to_winmd(file: &rdl::File) -> Result<Vec<u8>> {
+pub fn rdl_to_winmd(file: &rdl::File) -> Result<Vec<u8>> {
     // Local-to-qualified type names found in use declaration - e.g. "IStringable" -> "Windows.Foundation.IStringable"
     // This is just a convenience for the developer to shorten common references like this but would not support globs or renames.
     // Note that none of these are verified to be real until much later when the winmd is validated since we don't
@@ -165,7 +165,7 @@ fn write_enum(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _membe
 
 fn write_class(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _member: &rdl::Class) {}
 
-// fn idl_interface(writer:  &mut winmd::Writer, _file: &rdl::File, ty: &rdl::Interface, namespace: &str, phase: ReadPhase) -> Result<()> {
+// fn rdl_interface(writer:  &mut winmd::Writer, _file: &rdl::File, ty: &rdl::Interface, namespace: &str, phase: ReadPhase) -> Result<()> {
 //     let ident = ty.ident.to_string();
 
 //         match phase {
@@ -208,7 +208,7 @@ fn write_class(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _memb
 //     Ok(())
 // }
 
-// fn idl_struct(writer:  &mut winmd::Writer, _file: &rdl::File, ty: &rdl::Struct, namespace: &str, phase: ReadPhase) -> Result<()> {
+// fn rdl_struct(writer:  &mut winmd::Writer, _file: &rdl::File, ty: &rdl::Struct, namespace: &str, phase: ReadPhase) -> Result<()> {
 //     let ident = ty.item.ident.to_string();
 
 //         match phase {
@@ -241,7 +241,7 @@ fn write_class(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _memb
 //     Ok(())
 // }
 
-// fn idl_enum(writer:  &mut winmd::Writer, _file: &rdl::File, ty: &rdl::Enum, namespace: &str, phase: ReadPhase) -> Result<()> {
+// fn rdl_enum(writer:  &mut winmd::Writer, _file: &rdl::File, ty: &rdl::Enum, namespace: &str, phase: ReadPhase) -> Result<()> {
 //     let ident = ty.item.ident.to_string();
 
 //         match phase {
@@ -269,7 +269,7 @@ fn write_class(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _memb
 //     Ok(())
 // }
 
-// fn idl_class(writer:  &mut winmd::Writer, _file: &rdl::File, ty: &rdl::Class, namespace: &str, _phase: ReadPhase) -> Result<()> {
+// fn rdl_class(writer:  &mut winmd::Writer, _file: &rdl::File, ty: &rdl::Class, namespace: &str, _phase: ReadPhase) -> Result<()> {
 //     let ident = ty.ident.to_string();
 //     self.insert(namespace, 0).types.entry(ident).or_default();
 //     Ok(())
