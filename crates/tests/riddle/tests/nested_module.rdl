@@ -1,3 +1,5 @@
+#![winrt]
+
 mod Test {
     mod NestedModule {
         struct NestedType {

@@ -1,3 +1,5 @@
+#![winrt]
+
 mod Test {
     struct Primitives {
         field_bool: bool,

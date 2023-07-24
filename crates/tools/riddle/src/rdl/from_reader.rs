@@ -1,14 +1,20 @@
 use crate::tokens::{quote, to_ident, TokenStream};
-use crate::{rd, Error, Result, Tree};
+use crate::{rdl, Error, Result, Tree};
 use metadata::RowReader;
 
 pub fn from_reader(
     reader: &metadata::Reader,
     filter: &metadata::Filter,
-    config: std::collections::BTreeMap<&str, &str>,
+    mut config: std::collections::BTreeMap<&str, &str>,
     output: &str,
 ) -> Result<()> {
-    let writer = Writer::new(reader, filter);
+    let dialect = match config.remove("TYPE") {
+        Some("winrt") => Dialect::WinRT,
+        Some("win32") => Dialect::Win32,
+        _ => return Err(Error::new("configuration value `TYPE` must be `win32` or `winrt`")),
+    };
+
+    let writer = Writer::new(reader, filter, dialect);
 
     // TODO: do we need any configuration values for IDL generation?
     // Maybe per-namespace IDL files for namespace-splitting - be sure to use
@@ -20,22 +26,30 @@ pub fn from_reader(
 
     let tree = Tree::new(writer.reader, writer.filter);
     let tokens = writer.tree(&tree);
-    let file = rd::File::parse_str(&tokens.into_string())?;
+    let file = rdl::File::parse_str(&tokens.into_string())?;
     crate::write_to_file(output, file.fmt())
+}
+
+#[derive(Debug, Copy, Clone)]
+enum Dialect {
+    Win32,
+    WinRT,
 }
 
 struct Writer<'a> {
     reader: &'a metadata::Reader<'a>,
     filter: &'a metadata::Filter<'a>,
     namespace: &'a str,
+    dialect: Dialect,
 }
 
 impl<'a> Writer<'a> {
-    fn new(reader: &'a metadata::Reader, filter: &'a metadata::Filter) -> Self {
+    fn new(reader: &'a metadata::Reader, filter: &'a metadata::Filter, dialect: Dialect) -> Self {
         Self {
             reader,
             filter,
             namespace: "",
+            dialect,
         }
     }
 
@@ -44,6 +58,7 @@ impl<'a> Writer<'a> {
             reader: self.reader,
             filter: self.filter,
             namespace,
+            dialect: self.dialect,
         }
     }
 
@@ -52,9 +67,12 @@ impl<'a> Writer<'a> {
             .nested
             .values()
             .map(|tree| self.with_namespace(tree.namespace).tree(tree));
-
+           
         if tree.namespace.is_empty() {
-            quote! { #(#modules)* }
+            match self.dialect {
+                Dialect::Win32 => quote! { #![win32] #(#modules)* },
+                Dialect::WinRT => quote! { #![winrt] #(#modules)* },
+            }
         } else {
             let name = to_ident(
                 tree.namespace

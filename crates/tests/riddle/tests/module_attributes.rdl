@@ -1,0 +1,7 @@
+#![winrt]
+
+mod Test {
+    struct Type {
+        field: i32,
+    }
+}

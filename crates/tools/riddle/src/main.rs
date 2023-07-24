@@ -1,6 +1,6 @@
 mod args;
 mod error;
-mod rd;
+mod rdl;
 mod rust;
 mod tokens;
 mod tree;
@@ -33,11 +33,11 @@ fn run() -> Result<()> {
             r#"Usage: riddle.exe [options...]
 
 Options:
-  --in  <path>          Path to files and directories containing .winmd and .rd files
-  --out <path>          Path to .winmd, .rd, or .rs file to generate
+  --in  <path>          Path to files and directories containing .winmd and .rdl files
+  --out <path>          Path to .winmd, .rdl, or .rs file to generate
   --filter <namespace>  Namespaces to include or !exclude in output
   --config <key=value>  Override a configuration value
-  --format              Format .rd files only
+  --format              Format .rdl files only
   --etc <path>          File containing command line options
 "#
         );
@@ -94,19 +94,19 @@ Options:
     if format {
         if output.is_some() || !include.is_empty() || !exclude.is_empty() {
             return Err(Error::new(
-                "--format cannot be combined with --out or --filter",
+                "`--format` cannot be combined with `--out` or `--filter`",
             ));
         }
 
-        let input = filter_input(&input, &["rd"])?;
+        let input = filter_input(&input, &["rdl"])?;
 
         if input.is_empty() {
-            return Err(Error::new("no .rd inputs"));
+            return Err(Error::new("no .rdl inputs"));
         }
 
         for path in &input {
             read_file_text(path)
-                .and_then(|source| rd::File::parse_str(&source))
+                .and_then(|source| rdl::File::parse_str(&source))
                 .and_then(|file| write_to_file(path, file.fmt()))
                 .map_err(|err| err.with_path(path))?;
         }
@@ -121,7 +121,7 @@ Options:
     // This isn't strictly necessary but avoids a common newbie pitfall where all metadata
     // would be generated when building a component for a specific API.
     if include.is_empty() {
-        return Err(Error::new("at least one filter must be specified"));
+        return Err(Error::new("at least one `--filter` must be specified"));
     }
 
     let output = canonicalize(output)?;
@@ -133,10 +133,10 @@ Options:
     winmd::verify(&reader, &filter)?;
 
     match extension(&output) {
-        "rd" => rd::from_reader(&reader, &filter, config, &output)?,
+        "rdl" => rdl::from_reader(&reader, &filter, config, &output)?,
         "winmd" => winmd::from_reader(&reader, &filter, config, &output)?,
         "rs" => rust::from_reader(&reader, &filter, config, &output)?,
-        _ => return Err(Error::new("output extension must be one of winmd/rd/rs")),
+        _ => return Err(Error::new("output extension must be one of winmd/rdl/rs")),
     }
 
     let elapsed = time.elapsed().as_secs_f32();
@@ -195,7 +195,7 @@ fn filter_input(input: &[&str], extensions: &[&str]) -> Result<Vec<String>> {
 }
 
 fn read_input(input: &[&str]) -> Result<Vec<metadata::File>> {
-    let input = filter_input(input, &["winmd", "rd"])?;
+    let input = filter_input(input, &["winmd", "rdl"])?;
 
     if input.is_empty() {
         return Err(Error::new("no inputs"));
@@ -207,7 +207,7 @@ fn read_input(input: &[&str]) -> Result<Vec<metadata::File>> {
         let file = if extension(input) == "winmd" {
             read_winmd_file(input)?
         } else {
-            read_idl_file(input)?
+            read_rdl_file(input)?
         };
 
         results.push(file);
@@ -237,13 +237,13 @@ fn read_file_lines(path: &str) -> Result<Vec<String>> {
     Ok(lines)
 }
 
-fn read_idl_file(path: &str) -> Result<metadata::File> {
+fn read_rdl_file(path: &str) -> Result<metadata::File> {
     read_file_text(path)
-        .and_then(|source| rd::File::parse_str(&source))
+        .and_then(|source| rdl::File::parse_str(&source))
         .and_then(|file| file.into_winmd())
         .map(|bytes| {
             // TODO: Write bytes to file if you need to debug the intermediate .winmd file like so:
-            // _ = write_to_file("temp.winmd", &bytes);
+            _ = write_to_file("temp.winmd", &bytes);
 
             // Unwrapping here is fine since `idl_to_winmd` should have produced a valid winmd
             metadata::File::new(bytes).unwrap()

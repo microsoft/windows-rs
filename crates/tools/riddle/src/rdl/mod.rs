@@ -1,9 +1,9 @@
-mod to_idl;
+mod from_reader;
 mod to_winmd;
-mod writer;
+mod fmt;
 use crate::Result;
 use syn::spanned::Spanned;
-pub use to_idl::from_reader;
+pub use from_reader::from_reader;
 
 // TODO: may want to finally get rid of `syn` as it also doesn't support preserving code comments
 
@@ -15,7 +15,7 @@ impl File {
     // Note: this isn't called automatically by `parse_str` to avoid canonicalizing when we're merely formatting IDL.
     pub fn canonicalize(&mut self) -> Result<()> {
         // TODO maybe we rewrite the `File` here to resolve any `super` references and use declarations so that
-        // subsequently the rd-to-winmd conversion can just assume everything's fully qualified?
+        // subsequently the rdl-to-winmd conversion can just assume everything's fully qualified?
         // * super can't refer to something outside of the IDL file
         // * use declarations are only used for unqualified names that aren't defined in the IDL file
         // * use declarations don't support globs and must name all externally defined types
@@ -25,7 +25,7 @@ impl File {
     }
 
     pub fn fmt(&self) -> String {
-        writer::Writer::new(self).into_string()
+        fmt::Writer::new(self).into_string()
     }
 
     pub fn into_winmd(mut self) -> Result<Vec<u8>> {
@@ -38,6 +38,7 @@ impl File {
 // tree such as the use declarations and if we get rid of it we'd always "format" IDL by stripping out any of that into a single
 // canonical form which would not be very friendly to developers.
 pub struct File {
+    pub winrt: bool,
     pub references: Vec<syn::ItemUse>,
     pub modules: Vec<Module>,
 }
@@ -47,8 +48,6 @@ pub struct File {
 
 #[derive(Clone)]
 pub struct Module {
-    pub winrt: bool,
-    pub attributes: Vec<syn::Attribute>,
     pub namespace: String,
     pub members: Vec<ModuleMember>,
 }
@@ -77,12 +76,14 @@ impl ModuleMember {
 
 #[derive(Clone)]
 pub struct Enum {
+    pub winrt: bool,
     pub name: String,
     pub item: syn::ItemEnum,
 }
 
 #[derive(Clone)]
 pub struct Struct {
+    pub winrt: bool,
     pub name: String,
     pub attributes: Vec<syn::Attribute>,
     pub span: proc_macro2::Span,
@@ -106,6 +107,7 @@ pub struct Class {
 
 #[derive(Clone)]
 pub struct Interface {
+    pub winrt: bool,
     pub name: String,
     pub attributes: Vec<syn::Attribute>,
     pub methods: Vec<syn::TraitItemFn>,
@@ -114,28 +116,44 @@ pub struct Interface {
 syn::custom_keyword!(interface);
 syn::custom_keyword!(class);
 
+fn winrt(input: syn::parse::ParseStream) -> syn::Result<bool> {
+    let attributes = input.call(syn::Attribute::parse_inner)?;
+    if attributes.len() == 1 {
+            if let syn::Meta::Path(path) = &attributes[0].meta  {
+                if path.is_ident("winrt") {
+                    return Ok(true);
+                }
+
+                if path.is_ident("win32") {
+                    return Ok(false);
+                }
+            }
+        }
+
+     Err(syn::Error::new(
+        input.span(),
+        "A single `#![win32]` or `#![winrt]` attribute required",
+    ))
+}
+
 impl syn::parse::Parse for File {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let mut references = vec![];
         let mut modules = vec![];
+        let winrt = winrt(input)?;
+
         while !input.is_empty() {
-            let attributes: Vec<syn::Attribute> = input.call(syn::Attribute::parse_outer)?;
             let lookahead = input.lookahead1();
             if lookahead.peek(syn::Token![mod]) {
-                modules.push(Module::parse(None, attributes, input)?);
+                modules.push(Module::parse("", winrt,  input)?);
             } else if lookahead.peek(syn::Token![use]) {
-                if let Some(attribute) = attributes.first() {
-                    return Err(syn::Error::new(
-                        attribute.span(),
-                        "module attributes not supported",
-                    ));
-                }
                 references.push(input.parse()?);
             } else {
                 return Err(lookahead.error());
             }
         }
         Ok(Self {
+            winrt,
             references,
             modules,
         })
@@ -150,61 +168,26 @@ impl Module {
     }
 
     fn parse(
-        parent: Option<(&str, bool)>,
-        attributes: Vec<syn::Attribute>,
+        namespace: &str,
+        winrt: bool,
         input: syn::parse::ParseStream,
     ) -> syn::Result<Self> {
         input.parse::<syn::Token![mod]>()?;
         let name = input.parse::<syn::Ident>()?.to_string();
-        let (namespace, mut winrt) = if let Some((namespace, winrt)) = parent {
-            (format!("{namespace}.{name}"), winrt)
+
+        let namespace = if namespace.is_empty() {
+            name.to_string()
         } else {
-            (name, false)
+            format!("{namespace}.{name}")
         };
-
-        let len = attributes.len();
-
-        if len == 1 {
-            if let syn::Meta::Path(path) = &attributes[0].meta {
-                if path.segments.len() == 1 {
-                    match path.segments[0].ident.to_string().as_str() {
-                        "winrt" => winrt = true,
-                        "win32" => winrt = false,
-                        _ => {
-                            return Err(syn::Error::new(
-                                attributes[0].span(),
-                                "unsupported module attributes",
-                            ))
-                        }
-                    }
-                }
-            }
-        }
-
-        if len > 1 {
-            return Err(syn::Error::new(
-                attributes[1].span(),
-                "unsupported module attributes",
-            ));
-        }
-
-        // TODO: uncomment when ready to enforce this
-        // if len == 0 && parent.is_none() {
-        //     return Err(syn::Error::new(
-        //         input.span(),
-        //         "#[win32] or #[winrt] module attribute required",
-        //     ))
-        // }
 
         let content;
         syn::braced!(content in input);
         let mut members = vec![];
         while !content.is_empty() {
-            members.push(ModuleMember::parse((&namespace, winrt), &content)?);
+            members.push(ModuleMember::parse(&namespace, winrt, &content)?);
         }
         Ok(Self {
-            winrt,
-            attributes,
             namespace,
             members,
         })
@@ -212,23 +195,30 @@ impl Module {
 }
 
 impl ModuleMember {
-    fn parse(parent: (&str, bool), input: syn::parse::ParseStream) -> syn::Result<Self> {
+    fn parse(namespace: &str,
+        winrt: bool, input: syn::parse::ParseStream) -> syn::Result<Self> {
         let attributes: Vec<syn::Attribute> = input.call(syn::Attribute::parse_outer)?;
         let lookahead = input.lookahead1();
         if lookahead.peek(syn::Token![mod]) {
+            if let Some(attribute) = attributes.first() {
+                return Err(syn::Error::new(
+                    attribute.span(),
+                    "`use` attributes not supported",
+                ));
+            }
             Ok(ModuleMember::Module(Module::parse(
-                Some(parent),
-                attributes,
+                namespace, winrt,
                 input,
             )?))
         } else if lookahead.peek(interface) {
             Ok(ModuleMember::Interface(Interface::parse(
+                namespace, winrt,
                 attributes, input,
             )?))
         } else if lookahead.peek(syn::Token![struct]) {
-            Ok(ModuleMember::Struct(Struct::parse(attributes, input)?))
+            Ok(ModuleMember::Struct(Struct::parse(namespace, winrt, attributes, input)?))
         } else if lookahead.peek(syn::Token![enum]) {
-            Ok(ModuleMember::Enum(Enum::parse(attributes, input)?))
+            Ok(ModuleMember::Enum(Enum::parse(namespace, winrt, attributes, input)?))
         } else if lookahead.peek(class) {
             Ok(ModuleMember::Class(Class::parse(attributes, input)?))
         } else {
@@ -261,7 +251,8 @@ impl Class {
 }
 
 impl Interface {
-    fn parse(attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream) -> syn::Result<Self> {
+    fn parse(_namespace: &str,
+        winrt: bool, attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream) -> syn::Result<Self> {
         input.parse::<interface>()?;
         let name = input.parse::<syn::Ident>()?.to_string();
         let content;
@@ -271,6 +262,7 @@ impl Interface {
             methods.push(content.parse::<syn::TraitItemFn>()?);
         }
         Ok(Self {
+            winrt,
             attributes,
             name,
             methods,
@@ -279,7 +271,8 @@ impl Interface {
 }
 
 impl Struct {
-    fn parse(attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream) -> syn::Result<Self> {
+    fn parse(_namespace: &str,
+        winrt: bool, attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream) -> syn::Result<Self> {
         // TODO: need to validate that the struct is valid according to the constraints of the winmd type system.
         // Same for the other types. That way we can spit out errors quickly for things like unnamed fields.
         let span = input.span();
@@ -302,6 +295,7 @@ impl Struct {
         }
 
         Ok(Self {
+            winrt,
             name,
             attributes,
             span,
@@ -311,10 +305,10 @@ impl Struct {
 }
 
 impl Enum {
-    fn parse(attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream) -> syn::Result<Self> {
+    fn parse(_namespace: &str, winrt: bool, attributes: Vec<syn::Attribute>, input: syn::parse::ParseStream) -> syn::Result<Self> {
         let mut item: syn::ItemEnum = input.parse()?;
         item.attrs = attributes;
         let name = item.ident.to_string();
-        Ok(Self { name, item })
+        Ok(Self { winrt, name, item })
     }
 }
