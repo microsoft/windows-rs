@@ -243,7 +243,7 @@ fn read_rdl_file(path: &str) -> Result<metadata::File> {
         .and_then(|file| file.into_winmd())
         .map(|bytes| {
             // TODO: Write bytes to file if you need to debug the intermediate .winmd file like so:
-            _ = write_to_file("temp.winmd", &bytes);
+            // _ = write_to_file("temp.winmd", &bytes);
 
             // Unwrapping here is fine since `rdl_to_winmd` should have produced a valid winmd
             metadata::File::new(bytes).unwrap()
