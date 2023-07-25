@@ -1,4 +1,4 @@
-use crate::rd;
+use crate::rdl;
 
 // TODO: should we use rustfmt in the short term (with pre/post)
 
@@ -10,13 +10,14 @@ pub struct Writer {
 }
 
 impl Writer {
-    pub fn new(file: &rd::File) -> Self {
+    pub fn new(file: &rdl::File) -> Self {
         let mut writer = Self::default();
-        writer.idl_file(file);
+        writer.rdl_file(file);
         writer
     }
 
-    pub fn into_string(self) -> String {
+    pub fn into_string(mut self) -> String {
+        self.out.push('\n');
         self.out
     }
 
@@ -36,19 +37,25 @@ impl Writer {
         self.newline = true;
     }
 
-    fn idl_file(&mut self, file: &rd::File) {
+    fn rdl_file(&mut self, file: &rdl::File) {
+        if file.winrt {
+            self.word("#![winrt]\n");
+        } else {
+            self.word("#![win32]\n");
+        }
+
+        self.newline();
+
         for reference in &file.references {
             self.item_use(reference);
         }
 
         for module in &file.modules {
-            self.idl_module(module);
+            self.rdl_module(module);
         }
     }
 
-    fn idl_module(&mut self, module: &rd::Module) {
-        self.attrs(&module.attributes);
-
+    fn rdl_module(&mut self, module: &rdl::Module) {
         self.word("mod ");
         self.word(module.name());
         self.word(" {");
@@ -56,7 +63,7 @@ impl Writer {
         self.indent += 1;
 
         for member in &module.members {
-            self.idl_module_member(member);
+            self.rdl_module_member(member);
             self.newline();
         }
 
@@ -66,17 +73,17 @@ impl Writer {
         self.newline();
     }
 
-    fn idl_module_member(&mut self, member: &rd::ModuleMember) {
+    fn rdl_module_member(&mut self, member: &rdl::ModuleMember) {
         match member {
-            rd::ModuleMember::Module(member) => self.idl_module(member),
-            rd::ModuleMember::Interface(member) => self.idl_interface(member),
-            rd::ModuleMember::Struct(member) => self.idl_struct(member),
-            rd::ModuleMember::Enum(member) => self.idl_enum(member),
-            rd::ModuleMember::Class(member) => self.idl_class(member),
+            rdl::ModuleMember::Module(member) => self.rdl_module(member),
+            rdl::ModuleMember::Interface(member) => self.rdl_interface(member),
+            rdl::ModuleMember::Struct(member) => self.rdl_struct(member),
+            rdl::ModuleMember::Enum(member) => self.rdl_enum(member),
+            rdl::ModuleMember::Class(member) => self.rdl_class(member),
         }
     }
 
-    fn idl_interface(&mut self, member: &rd::Interface) {
+    fn rdl_interface(&mut self, member: &rdl::Interface) {
         self.attrs(&member.attributes);
         self.word("interface ");
         self.word(&member.name);
@@ -129,7 +136,7 @@ impl Writer {
         self.expr(&meta.value);
     }
 
-    fn idl_struct(&mut self, member: &rd::Struct) {
+    fn rdl_struct(&mut self, member: &rdl::Struct) {
         self.attrs(&member.attributes);
 
         self.word("struct ");
@@ -151,7 +158,7 @@ impl Writer {
         self.word("}");
     }
 
-    fn idl_enum(&mut self, member: &rd::Enum) {
+    fn rdl_enum(&mut self, member: &rdl::Enum) {
         self.attrs(&member.item.attrs);
 
         self.word("enum ");
@@ -175,7 +182,7 @@ impl Writer {
         self.word("}");
     }
 
-    fn idl_class(&mut self, _member: &rd::Class) {}
+    fn rdl_class(&mut self, _member: &rdl::Class) {}
 
     fn trait_item_fn(&mut self, method: &syn::TraitItemFn) {
         self.attrs(&method.attrs);

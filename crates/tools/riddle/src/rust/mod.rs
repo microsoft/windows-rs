@@ -34,13 +34,13 @@ pub fn from_reader(
 
     if writer.package && writer.flatten {
         return Err(Error::new(
-            "cannot combine PACKAGE and FLATTEN configuration values",
+            "cannot combine `PACKAGE` and `FLATTEN` configuration values",
         ));
     }
 
     if writer.implement && writer.sys {
         return Err(Error::new(
-            "cannot combine IMPLEMENT and SYS configuration values",
+            "cannot combine `IMPLEMENT` and `SYS` configuration values",
         ));
     }
 

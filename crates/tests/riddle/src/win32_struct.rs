@@ -25,10 +25,6 @@ impl ::core::fmt::Debug for Type {
 impl ::windows_core::TypeKind for Type {
     type TypeKind = ::windows_core::CopyType;
 }
-impl ::windows_core::RuntimeType for Type {
-    const SIGNATURE: ::windows_core::imp::ConstBuffer =
-        ::windows_core::imp::ConstBuffer::from_slice(b"struct(Test.Type;i4)");
-}
 impl ::core::cmp::PartialEq for Type {
     fn eq(&self, other: &Self) -> bool {
         self.field == other.field
