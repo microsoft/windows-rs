@@ -12,11 +12,12 @@ fn attribute_enum() {
         ))
         .next()
         .unwrap();
-    let attrs = reader.method_def_attributes(method);
+
     check_attr_arg_enum(
         reader,
-        attrs,
-        "SupportedArchitectureAttribute",
+        reader
+            .find_attribute(method, "SupportedArchitectureAttribute")
+            .unwrap(),
         "",
         "Windows.Win32.Foundation.Metadata.Architecture",
         4 | 2,
@@ -27,11 +28,10 @@ fn attribute_enum() {
         .get_type_def(TypeName::new("Windows.Graphics.Imaging", "BitmapBuffer"))
         .next()
         .unwrap();
-    let attrs = reader.type_def_attributes(def);
+
     check_attr_arg_enum(
         reader,
-        attrs,
-        "GCPressureAttribute",
+        reader.find_attribute(def, "GCPressureAttribute").unwrap(),
         "amount",
         "Windows.Foundation.Metadata.GCPressureAmount",
         2,
@@ -40,15 +40,11 @@ fn attribute_enum() {
 
 fn check_attr_arg_enum(
     reader: &Reader,
-    mut attrs: impl Iterator<Item = Attribute>,
-    attr_name: &str,
+    attr: Attribute,
     arg_name: &str,
     expected_type: &str,
     expected_value: i32,
 ) {
-    let attr = attrs
-        .find(|&attr| reader.attribute_name(attr) == attr_name)
-        .unwrap();
     let (_, value) = reader
         .attribute_args(attr)
         .drain(..)

@@ -169,8 +169,7 @@ impl<'a> Reader<'a> {
                     namespace_items.entry(trim_tick(name)).or_default().push(Item::Type(def));
 
                     // TODO: these should all be fields on the Apis class so we don't have to go looking for all of these as well.
-                    if files.type_def_extends(def) == Some(TypeName::Enum) && !files.type_def_flags(def)
-                    .contains(TypeAttributes::WindowsRuntime) && !files.has_attribute(def, "ScopedEnumAttribute") {
+                    if files.type_def_extends(def) == Some(TypeName::Enum) && !files.type_def_flags(def).contains(TypeAttributes::WindowsRuntime) && !files.has_attribute(def, "ScopedEnumAttribute") {
                         for field in files.type_def_fields(def).filter(|field| files.field_flags(*field).contains(FieldAttributes::Literal)) {
                             let name = files.field_name(field);
                             namespace_items.entry(name).or_default().push(Item::Const(field));
