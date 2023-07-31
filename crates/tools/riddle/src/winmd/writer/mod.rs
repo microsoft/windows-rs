@@ -6,6 +6,7 @@ mod tables;
 mod traits;
 mod r#type;
 
+use super::*;
 use blobs::Blobs;
 use codes::*;
 use metadata::imp::*;

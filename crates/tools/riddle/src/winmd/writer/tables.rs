@@ -1,6 +1,7 @@
 #![allow(non_snake_case)]
 
 use super::Write;
+use super::*;
 use metadata::imp::coded_index_size;
 
 #[derive(Default)]

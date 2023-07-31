@@ -1,3 +1,4 @@
+use super::*;
 use crate::{rdl, winmd, Result};
 
 // TODO: store span in winmd so that errors resolving type references can be traced back to file/line/column
@@ -57,12 +58,19 @@ fn collect_member<'a>(
 ) {
     match member {
         rdl::ModuleMember::Module(module) => collect_module(collector, module),
+        rdl::ModuleMember::Constant(_) | rdl::ModuleMember::Function(_) => {
+            collector
+                .entry(module.namespace.to_string())
+                .or_default()
+                .entry("Apis")
+                .or_insert(member.clone());
+        }
         _ => {
-            _ = collector
+            collector
                 .entry(module.namespace.to_string())
                 .or_default()
                 .entry(member.name())
-                .or_insert(member.clone())
+                .or_insert(member.clone());
         }
     }
 }
@@ -78,7 +86,7 @@ fn write_member(
         rdl::ModuleMember::Struct(member) => write_struct(writer, namespace, name, member),
         rdl::ModuleMember::Enum(member) => write_enum(writer, namespace, name, member),
         rdl::ModuleMember::Class(member) => write_class(writer, namespace, name, member),
-        rdl::ModuleMember::Module(_) => {} // modules have already been flattened but rustc doesn't know this
+        rest => unimplemented!("{rest:?}"),
     }
 }
 
@@ -164,163 +172,6 @@ fn write_struct(writer: &mut winmd::Writer, namespace: &str, name: &str, member:
 fn write_enum(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _member: &rdl::Enum) {}
 
 fn write_class(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _member: &rdl::Class) {}
-
-// fn rdl_interface(writer:  &mut winmd::Writer, _file: &rdl::File, ty: &rdl::Interface, namespace: &str, phase: ReadPhase) -> Result<()> {
-//     let ident = ty.ident.to_string();
-
-//         match phase {
-//             ReadPhase::Index => {
-//                 self.insert(namespace, 0).types.entry(ident).or_default();
-//             }
-//             ReadPhase::Define => {
-//                 let flags = TypeAttributes::Public | TypeAttributes::Interface | TypeAttributes::WindowsRuntime | TypeAttributes::Abstract;
-//                 let mut def = TypeDef { flags, extends: None, ..Default::default() };
-
-//                 for method in &ty.methods {
-//                     let name = method.sig.ident.to_string();
-//                     let mut params = vec![];
-
-//                     for input in &method.sig.inputs {
-//                         let syn::FnArg::Typed(pat_type) = input else {
-//                     unimplemented!();
-//                 };
-
-//                         let syn::Pat::Ident(ref pat_ident) = *pat_type.pat else {
-//                     unimplemented!();
-//                 };
-
-//                         let name = pat_ident.ident.to_string();
-//                         let ty = self.read_ty(namespace, &pat_type.ty)?;
-//                         params.push(Param { name, ty, ..Default::default() });
-//                     }
-
-//                     let ty = if let syn::ReturnType::Type(_, ty) = &method.sig.output { self.read_ty(namespace, ty)? } else { Type::Void };
-//                     let return_type = Param { ty, ..Default::default() };
-//                     let flags = MethodAttributes::Public;
-
-//                     def.methods.push(Method { flags, name, params, return_type, ..Default::default() });
-//                 }
-
-//                 self.insert(namespace, 0).types.entry(ident).or_default().push(def);
-//             }
-//         }
-
-//     Ok(())
-// }
-
-// fn rdl_struct(writer:  &mut winmd::Writer, _file: &rdl::File, ty: &rdl::Struct, namespace: &str, phase: ReadPhase) -> Result<()> {
-//     let ident = ty.item.ident.to_string();
-
-//         match phase {
-//             ReadPhase::Index => {
-//                 self.insert(namespace, 0).types.entry(ident).or_default();
-//             }
-//             ReadPhase::Define => {
-//                 let flags = TypeAttributes::Public | TypeAttributes::WindowsRuntime | TypeAttributes::Sealed | TypeAttributes::Import | TypeAttributes::SequentialLayout;
-//                 let mut def = TypeDef { flags, extends: Some(TypeRef { namespace: "System".to_string(), name: "ValueType".to_string(), ..Default::default() }), ..Default::default() };
-
-//                 let syn::Fields::Named(fields) = &ty.item.fields else {
-//                     unimplemented!();
-//                 };
-
-//                 for field in &fields.named {
-//                     let Some(ref ident) = field.ident else {
-//                        unimplemented!();
-//                     };
-
-//                     let flags = FieldAttributes::Public;
-//                     let name = ident.to_string();
-//                     let ty = self.read_ty(namespace, &field.ty)?;
-//                     def.fields.push(Field { flags, name, ty, ..Default::default() });
-//                 }
-
-//                 self.insert(namespace, 0).types.entry(ident).or_default().push(def);
-//             }
-//         }
-
-//     Ok(())
-// }
-
-// fn rdl_enum(writer:  &mut winmd::Writer, _file: &rdl::File, ty: &rdl::Enum, namespace: &str, phase: ReadPhase) -> Result<()> {
-//     let ident = ty.item.ident.to_string();
-
-//         match phase {
-//             ReadPhase::Index => {
-//                 self.insert(namespace, 0).types.entry(ident).or_default();
-//             }
-//             ReadPhase::Define => {
-//                 let mut def = TypeDef { extends: Some(TypeRef { namespace: "System".to_string(), name: "Enum".to_string(), ..Default::default() }), ..Default::default() };
-//                 let enum_type = Type::TypeRef(TypeRef { namespace: namespace.to_string(), name: ident.clone(), ..Default::default() });
-
-//                 for variant in &ty.item.variants {
-//                     if let Some((_, expr)) = &variant.discriminant {
-//                         let flags = FieldAttributes::Public;
-//                         let name = variant.ident.to_string();
-//                         let value = self.read_expr(expr, false)?;
-
-//                         def.fields.push(Field { flags, name, ty: enum_type.clone(), value: Some(value) });
-//                     }
-//                 }
-
-//                 self.insert(namespace, 0).types.entry(ident).or_default().push(def);
-//             }
-//         }
-
-//     Ok(())
-// }
-
-// fn rdl_class(writer:  &mut winmd::Writer, _file: &rdl::File, ty: &rdl::Class, namespace: &str, _phase: ReadPhase) -> Result<()> {
-//     let ident = ty.ident.to_string();
-//     self.insert(namespace, 0).types.entry(ident).or_default();
-//     Ok(())
-// }
-
-// fn syn_expr(writer:  &mut winmd::Writer, expr: &syn::Expr, neg: bool) -> Result<Value> {
-//     match expr {
-//         syn::Expr::Lit(lit) => self.read_expr_lit(lit, neg),
-//         syn::Expr::Unary(unary) => self.read_expr_unary(unary),
-//         rest => unimplemented!("{rest:?}"),
-//     }
-// }
-
-// fn syn_expr_unary(writer:  &mut winmd::Writer, unary: &syn::ExprUnary) -> Result<Value> {
-//     self.read_expr(&unary.expr, true)
-// }
-
-// fn syn_expr_lit(writer:  &mut winmd::Writer, expr: &syn::ExprLit, neg: bool) -> Result<Value> {
-//     self.read_lit(&expr.lit, neg)
-// }
-
-// fn syn_lit(writer:  &mut winmd::Writer, lit: &syn::Lit, neg: bool) -> Result<Value> {
-//     match lit {
-//         syn::Lit::Int(lit) => self.read_lit_int(lit, neg),
-//         syn::Lit::Str(lit) => self.read_lit_str(lit),
-//         rest => unimplemented!("{rest:?}"),
-//     }
-// }
-
-// fn syn_lit_str(writer:  &mut winmd::Writer, lit: &syn::LitStr) -> Result<Value> {
-//     Ok(Value::String(lit.value()))
-// }
-
-// fn syn_lit_int(writer:  &mut winmd::Writer, lit: &syn::LitInt, neg: bool) -> Result<Value> {
-//     fn parse<T: std::str::FromStr>(lit: &syn::LitInt, neg: bool) -> Result<T> {
-//         let raw = if neg { format!("-{}", lit.base10_digits()) } else { lit.base10_digits().to_string() };
-//         raw.parse().map_err(|_| Error::new("failed to parse literal").with_span(lit.span()))
-//     }
-
-//     match lit.suffix() {
-//         "i8" => Ok(Value::I8(parse(lit, neg)?)),
-//         "u8" => Ok(Value::U8(parse(lit, neg)?)),
-//         "i16" => Ok(Value::I16(parse(lit, neg)?)),
-//         "u16" => Ok(Value::U16(parse(lit, neg)?)),
-//         "i32" => Ok(Value::I32(parse(lit, neg)?)),
-//         "u32" => Ok(Value::U32(parse(lit, neg)?)),
-//         "i64" => Ok(Value::I64(parse(lit, neg)?)),
-//         "u64" => Ok(Value::U64(parse(lit, neg)?)),
-//         suffix => unimplemented!("suffix {:?}", suffix),
-//     }
-// }
 
 fn syn_signature(namespace: &str, sig: &syn::Signature) -> winmd::Signature {
     let params = sig

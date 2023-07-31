@@ -1,3 +1,4 @@
+use super::*;
 use metadata::RowReader;
 
 pub fn verify(reader: &metadata::Reader, filter: &metadata::Filter) -> crate::Result<()> {

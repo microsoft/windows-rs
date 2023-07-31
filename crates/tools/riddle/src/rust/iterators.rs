@@ -163,9 +163,7 @@ pub fn writer(
                 TypeName::IVectorView => {
                     let item = writer.type_name(&interface_generics[0]);
                     let mut cfg = cfg.clone();
-                    writer
-                        .reader
-                        .type_def_cfg_combine(*interface, interface_generics, &mut cfg);
+                    type_def_cfg_combine(writer.reader, *interface, interface_generics, &mut cfg);
                     let features = writer.cfg_features(&cfg);
 
                     return quote! {
@@ -192,9 +190,7 @@ pub fn writer(
                 TypeName::IVector => {
                     let item = writer.type_name(&interface_generics[0]);
                     let mut cfg = cfg.clone();
-                    writer
-                        .reader
-                        .type_def_cfg_combine(*interface, interface_generics, &mut cfg);
+                    type_def_cfg_combine(writer.reader, *interface, interface_generics, &mut cfg);
                     let features = writer.cfg_features(&cfg);
 
                     return quote! {
@@ -231,9 +227,7 @@ pub fn writer(
         Some((interface, interface_generics)) => {
             let item = writer.type_name(&interface_generics[0]);
             let mut cfg = cfg.clone();
-            writer
-                .reader
-                .type_def_cfg_combine(interface, &interface_generics, &mut cfg);
+            type_def_cfg_combine(writer.reader, interface, &interface_generics, &mut cfg);
             let features = writer.cfg_features(&cfg);
 
             quote! {

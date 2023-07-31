@@ -21,10 +21,8 @@ pub fn writer(
     let vname = virtual_names.add(writer, method);
     let generics = writer.constraint_generics(params);
     let where_clause = writer.where_clause(params);
-    let mut cfg = writer.reader.signature_cfg(&signature);
-    writer
-        .reader
-        .type_def_cfg_combine(def, generic_types, &mut cfg);
+    let mut cfg = signature_cfg(writer.reader, &signature);
+    type_def_cfg_combine(writer.reader, def, generic_types, &mut cfg);
     let doc = writer.cfg_method_doc(&cfg);
     let features = writer.cfg_features(&cfg);
     let args = gen_winrt_abi_args(writer, params);

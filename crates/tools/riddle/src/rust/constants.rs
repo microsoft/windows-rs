@@ -3,7 +3,7 @@ use super::*;
 pub fn writer(writer: &Writer, def: Field) -> TokenStream {
     let name = to_ident(writer.reader.field_name(def));
     let ty = writer.reader.field_type(def, None).to_const_type();
-    let cfg = writer.reader.field_cfg(def);
+    let cfg = field_cfg(writer.reader, def);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
 
@@ -130,8 +130,7 @@ fn field_initializer<'a>(writer: &Writer, field: Field, input: &'a str) -> (Toke
 fn constant(writer: &Writer, def: Field) -> Option<String> {
     writer
         .reader
-        .field_attributes(def)
-        .find(|attribute| writer.reader.attribute_name(*attribute) == "ConstantAttribute")
+        .find_attribute(def, "ConstantAttribute")
         .map(|attribute| {
             let args = writer.reader.attribute_args(attribute);
             match &args[0].1 {

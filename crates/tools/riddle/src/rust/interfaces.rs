@@ -27,7 +27,7 @@ fn gen_win_interface(writer: &Writer, def: TypeDef) -> TokenStream {
     let is_exclusive = writer.reader.type_def_is_exclusive(def);
     let phantoms = writer.generic_phantoms(generics);
     let constraints = writer.generic_constraints(generics);
-    let cfg = writer.reader.type_def_cfg(def, &[]);
+    let cfg = type_def_cfg(writer.reader, def, &[]);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
     let interfaces = writer
@@ -151,7 +151,7 @@ fn gen_win_interface(writer: &Writer, def: TypeDef) -> TokenStream {
                 let into = writer.type_name(ty);
 
                 write!(&mut hierarchy, ", {into}").unwrap();
-                hierarchy_cfg = hierarchy_cfg.union(&writer.reader.type_cfg(ty));
+                hierarchy_cfg = hierarchy_cfg.union(&type_cfg(writer.reader, ty));
             }
 
             hierarchy.push_str(");");
@@ -160,7 +160,7 @@ fn gen_win_interface(writer: &Writer, def: TypeDef) -> TokenStream {
         } else {
             for ty in &vtables {
                 let into = writer.type_name(ty);
-                let cfg = writer.cfg_features(&cfg.union(&writer.reader.type_cfg(ty)));
+                let cfg = writer.cfg_features(&cfg.union(&type_cfg(writer.reader, ty)));
                 tokens.combine(&quote! {
                     #cfg
                     impl<#constraints> ::windows_core::CanInto<#into> for #ident {}
@@ -175,7 +175,7 @@ fn gen_win_interface(writer: &Writer, def: TypeDef) -> TokenStream {
         {
             for interface in &interfaces {
                 let into = writer.type_name(&interface.ty);
-                let cfg = writer.cfg_features(&cfg.union(&writer.reader.type_cfg(&interface.ty)));
+                let cfg = writer.cfg_features(&cfg.union(&type_cfg(writer.reader, &interface.ty)));
                 tokens.combine(&quote! {
                     #cfg
                     impl<#constraints> ::windows_core::CanTryInto<#into> for #ident {}

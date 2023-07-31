@@ -27,7 +27,7 @@ fn gen_class(writer: &Writer, def: TypeDef) -> TokenStream {
     let mut methods = quote! {};
     let mut method_names = MethodNames::new();
 
-    let cfg = writer.reader.type_def_cfg(def, &[]);
+    let cfg = type_def_cfg(writer.reader, def, &[]);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
 
@@ -54,7 +54,7 @@ fn gen_class(writer: &Writer, def: TypeDef) -> TokenStream {
             if let Type::TypeDef(def, generics) = &interface.ty {
                 if writer.reader.type_def_methods(*def).next().is_some() {
                     let interface_type = writer.type_name(&interface.ty);
-                    let features = writer.cfg_features(&writer.reader.type_def_cfg(*def, generics));
+                    let features = writer.cfg_features(&type_def_cfg(writer.reader, *def, generics));
 
                     return Some(quote! {
                         #[doc(hidden)]
@@ -193,7 +193,7 @@ fn gen_conversions(
         }
 
         let into = writer.type_name(&interface.ty);
-        let features = writer.cfg_features(&cfg.union(&writer.reader.type_cfg(&interface.ty)));
+        let features = writer.cfg_features(&cfg.union(&type_cfg(writer.reader, &interface.ty)));
 
         tokens.combine(&quote! {
             #features
@@ -203,7 +203,7 @@ fn gen_conversions(
 
     for def in writer.reader.type_def_bases(def) {
         let into = writer.type_def_name(def, &[]);
-        let features = writer.cfg_features(&cfg.union(&writer.reader.type_def_cfg(def, &[])));
+        let features = writer.cfg_features(&cfg.union(&type_def_cfg(writer.reader, def, &[])));
 
         tokens.combine(&quote! {
             #features

@@ -2,6 +2,7 @@ use super::*;
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord, Debug)]
 pub enum Type {
+    // Primitives in ECMA-335
     Void,
     Bool,
     Char,
@@ -17,27 +18,39 @@ pub enum Type {
     F64,
     ISize,
     USize,
+
+    // Dialect specific "special" types as they don't necessarily map to metadata
     String,
     GUID,
     IUnknown,
     IInspectable,
     HRESULT,
-    PSTR,
-    PWSTR,
-    PCSTR,
-    PCWSTR,
-    BSTR,
+
+    // Meta-type indicating type name in attribute blob.
     TypeName,
+
+    // Regular ECMA-335 types that map to metadata
     TypeRef(TypeDefOrRef),
     GenericParam(GenericParam),
     TypeDef(TypeDef, Vec<Self>),
+
+    // Qualified types
     MutPtr(Box<Self>, usize),
     ConstPtr(Box<Self>, usize),
     Win32Array(Box<Self>, usize),
     WinrtArray(Box<Self>),
     WinrtArrayRef(Box<Self>),
     ConstRef(Box<Self>),
+
+    // TODO: temporary hack to accommodate Win32 metadata
     PrimitiveOrEnum(Box<Self>, Box<Self>),
+
+    // TODO: these should not be "special" and just point to regular metadata types in Win32.Foundation
+    PSTR,
+    PWSTR,
+    PCSTR,
+    PCWSTR,
+    BSTR,
 }
 
 impl Type {

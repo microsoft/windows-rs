@@ -909,7 +909,7 @@ impl<'a> Writer<'a> {
                 method,
                 generics,
             );
-            let mut cfg = self.reader.signature_cfg(&signature);
+            let mut cfg = signature_cfg(self.reader, &signature);
             let signature = self.vtbl_signature(def, generics, &signature);
             cfg.add_feature(self.reader.type_def_namespace(def));
             let cfg_all = self.cfg_features(&cfg);
@@ -1024,7 +1024,13 @@ impl<'a> Writer<'a> {
     }
     pub fn return_sig(&self, signature: &Signature) -> TokenStream {
         match &signature.return_type {
-            Type::Void if self.reader.method_def_does_not_return(signature.def) => " -> !".into(),
+            Type::Void
+                if self
+                    .reader
+                    .has_attribute(signature.def, "DoesNotReturnAttribute") =>
+            {
+                " -> !".into()
+            }
             Type::Void => " -> ()".into(),
             _ => {
                 let tokens = self.type_default_name(&signature.return_type);

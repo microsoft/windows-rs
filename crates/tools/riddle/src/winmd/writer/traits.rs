@@ -1,4 +1,4 @@
-use super::round;
+use super::*;
 
 pub trait Write {
     unsafe fn write_header<T: Sized>(&mut self, value: &T);

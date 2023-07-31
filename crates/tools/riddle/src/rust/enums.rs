@@ -5,9 +5,15 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
     let ident = to_ident(type_name.name);
     let underlying_type = writer.reader.type_def_underlying_type(def);
     let underlying_type = writer.type_name(&underlying_type);
+
     // TODO: unscoped enums should be removed from metadata
-    let is_scoped = writer.reader.type_def_is_scoped(def);
-    let cfg = writer.reader.type_def_cfg(def, &[]);
+    let is_scoped = writer
+        .reader
+        .type_def_flags(def)
+        .contains(TypeAttributes::WindowsRuntime)
+        || writer.reader.has_attribute(def, "ScopedEnumAttribute");
+
+    let cfg = type_def_cfg(writer.reader, def, &[]);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
 
@@ -110,7 +116,17 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
             }
         });
 
-        if writer.reader.type_def_is_flags(def) {
+        // Win32 enums use the Flags attribute. WinRT enums don't have the Flags attribute but are paritioned merely based
+        // on whether they are signed.
+        // TODO: Win32 metadata should just follow WinRT's example here.
+        let type_def_is_flags = writer.reader.has_attribute(def, "FlagsAttribute")
+            || (writer
+                .reader
+                .type_def_flags(def)
+                .contains(TypeAttributes::WindowsRuntime)
+                && writer.reader.type_def_underlying_type(def) == Type::U32);
+
+        if type_def_is_flags {
             tokens.combine(&quote! {
                 #features
                 impl #ident {

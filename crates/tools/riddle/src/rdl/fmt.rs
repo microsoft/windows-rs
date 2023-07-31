@@ -1,4 +1,4 @@
-use crate::rdl;
+use super::*;
 
 // TODO: should we use rustfmt in the short term (with pre/post)
 
@@ -80,6 +80,8 @@ impl Writer {
             rdl::ModuleMember::Struct(member) => self.rdl_struct(member),
             rdl::ModuleMember::Enum(member) => self.rdl_enum(member),
             rdl::ModuleMember::Class(member) => self.rdl_class(member),
+            rdl::ModuleMember::Constant(member) => self.rdl_constant(member),
+            rdl::ModuleMember::Function(member) => self.rdl_function(member),
         }
     }
 
@@ -100,6 +102,27 @@ impl Writer {
         self.indent -= 1;
         self.newline();
         self.word("}");
+    }
+
+    fn rdl_constant(&mut self, member: &rdl::Constant) {
+        self.item_const(&member.item);
+    }
+
+    fn rdl_function(&mut self, member: &rdl::Function) {
+        self.trait_item_fn(&member.item);
+        self.word(";");
+        self.newline();
+    }
+
+    fn item_const(&mut self, item: &syn::ItemConst) {
+        self.word("const ");
+        self.ident(&item.ident);
+        self.word(": ");
+        self.ty(&item.ty);
+        self.word(" = ");
+        self.expr(&item.expr);
+        self.word(";");
+        self.newline();
     }
 
     fn attrs(&mut self, attrs: &[syn::Attribute]) {

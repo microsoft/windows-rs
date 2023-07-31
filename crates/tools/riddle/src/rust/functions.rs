@@ -26,7 +26,7 @@ pub fn writer(writer: &Writer, namespace: &str, def: MethodDef) -> TokenStream {
 
 fn gen_sys_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenStream {
     let signature = writer.reader.method_def_signature(namespace, def, &[]);
-    let cfg = writer.reader.signature_cfg(&signature);
+    let cfg = signature_cfg(writer.reader, &signature);
     let mut tokens = writer.cfg_features(&cfg);
     tokens.combine(&gen_link(writer, namespace, &signature, &cfg));
     tokens
@@ -38,7 +38,7 @@ fn gen_win_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenSt
     let generics = writer.constraint_generics(&signature.params);
     let where_clause = writer.where_clause(&signature.params);
     let abi_return_type = writer.return_sig(&signature);
-    let cfg = writer.reader.signature_cfg(&signature);
+    let cfg = signature_cfg(writer.reader, &signature);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
     let link = gen_link(writer, namespace, &signature, &cfg);
@@ -274,7 +274,7 @@ fn gen_link(writer: &Writer, namespace: &str, signature: &Signature, cfg: &Cfg) 
 }
 
 fn does_not_return(writer: &Writer, def: MethodDef) -> TokenStream {
-    if writer.reader.method_def_does_not_return(def) {
+    if writer.reader.has_attribute(def, "DoesNotReturnAttribute") {
         quote! { -> ! }
     } else {
         quote! {}

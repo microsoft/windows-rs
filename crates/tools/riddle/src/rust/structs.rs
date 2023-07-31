@@ -1,7 +1,7 @@
 use super::*;
 
 pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
-    if writer.reader.type_def_is_contract(def) {
+    if writer.reader.has_attribute(def, "ApiContractAttribute") {
         return quote! {};
     }
 
@@ -47,7 +47,7 @@ fn gen_struct_with_name(
     }
 
     let flags = writer.reader.type_def_flags(def);
-    let cfg = cfg.union(&writer.reader.type_def_cfg(def, &[]));
+    let cfg = cfg.union(&type_def_cfg(writer.reader, def, &[]));
 
     let repr = if let Some(layout) = writer.reader.type_def_class_layout(def) {
         let packing = Literal::usize_unsuffixed(writer.reader.class_layout_packing_size(layout));
