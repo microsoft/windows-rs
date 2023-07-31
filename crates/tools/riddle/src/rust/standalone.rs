@@ -6,9 +6,7 @@ pub fn standalone_imp(writer: &Writer) -> String {
     let mut constants = BTreeSet::new();
 
     for item in writer.reader.items(writer.filter) {
-        writer
-            .reader
-            .item_collect_standalone(item.clone(), &mut types);
+        item_collect_standalone(writer.reader, item.clone(), &mut types);
 
         match item {
             Item::Type(_) => {}
@@ -160,5 +158,107 @@ struct SortedTokens(BTreeMap<String, TokenStream>);
 impl SortedTokens {
     fn insert(&mut self, key: &str, tokens: TokenStream) {
         self.0.entry(key.to_string()).or_default().combine(&tokens);
+    }
+}
+
+fn item_collect_standalone(reader: &Reader, item: Item, set: &mut BTreeSet<Type>) {
+    match item {
+        Item::Type(def) => type_collect_standalone(reader, &Type::TypeDef(def, vec![]), set),
+        Item::Const(def) => {
+            type_collect_standalone(reader, &reader.field_type(def, None).to_const_type(), set)
+        }
+        Item::Fn(def, namespace) => {
+            let signature = reader.method_def_signature(&namespace, def, &[]);
+            type_collect_standalone(reader, &signature.return_type, set);
+            signature
+                .params
+                .iter()
+                .for_each(|param| type_collect_standalone(reader, &param.ty, set));
+        }
+    }
+}
+// TODO: remove or move to riddle
+fn type_collect_standalone(reader: &Reader, ty: &Type, set: &mut BTreeSet<Type>) {
+    let ty = ty.to_underlying_type();
+    if !set.insert(ty.clone()) {
+        return;
+    }
+
+    let Type::TypeDef(def, generics) = &ty else {
+        return;
+    };
+
+    let def = *def;
+
+    // Ensure that we collect all the typedefs of the same name. We need to
+    // do this in the case where the user specifies a top level item that
+    // references a typedef by name, but that name resolves to more than 1
+    // Type based on target architecture (typically)
+    //
+    // Note this is a bit overeager as we can collect a typedef that is used
+    // by one architecture but not by another
+    let type_name = reader.type_def_type_name(def);
+    if !type_name.namespace.is_empty() {
+        for row in reader.get_type_def(type_name) {
+            if def != row {
+                type_collect_standalone(reader, &Type::TypeDef(row, Vec::new()), set);
+            }
+        }
+    }
+
+    for generic in generics {
+        type_collect_standalone(reader, generic, set);
+    }
+    for field in reader.type_def_fields(def) {
+        let ty = reader.field_type(field, Some(def));
+        if let Type::TypeDef(def, _) = &ty {
+            if reader.type_def_namespace(*def).is_empty() {
+                continue;
+            }
+        }
+        type_collect_standalone(reader, &ty, set);
+    }
+    for method in reader.type_def_methods(def) {
+        // Skip delegate pseudo-constructors.
+        if reader.method_def_name(method) == ".ctor" {
+            continue;
+        }
+        let signature =
+            reader.method_def_signature(reader.type_def_namespace(def), method, generics);
+        type_collect_standalone(reader, &signature.return_type, set);
+        signature
+            .params
+            .iter()
+            .for_each(|param| type_collect_standalone(reader, &param.ty, set));
+    }
+    for interface in reader.type_interfaces(&ty) {
+        type_collect_standalone(reader, &interface.ty, set);
+    }
+    if reader.type_def_kind(def) == TypeKind::Struct
+        && reader.type_def_fields(def).next().is_none()
+        && reader.type_def_guid(def).is_some()
+    {
+        set.insert(Type::GUID);
+    }
+
+    type_collect_standalone_nested(reader, def, set);
+}
+
+fn type_collect_standalone_nested(reader: &Reader, td: TypeDef, set: &mut BTreeSet<Type>) {
+    for nested in reader.nested_types(td) {
+        type_collect_standalone_nested(reader, nested, set);
+
+        for field in reader.type_def_fields(nested) {
+            let ty = reader.field_type(field, Some(nested));
+            if let Type::TypeDef(def, _) = &ty {
+                // Skip the fields that actually refer to the anonymous nested
+                // type, otherwise it will get added to the typeset and emitted
+                if reader.type_def_namespace(*def).is_empty() {
+                    continue;
+                }
+
+                type_collect_standalone(reader, &ty, set);
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 mod args;
 mod error;
+mod metadata;
 mod rdl;
 mod rust;
 mod tokens;
@@ -267,13 +268,21 @@ fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) -> Result<()> {
     std::fs::write(path, contents).map_err(|_| Error::new("failed to write file").with_path(path))
 }
 
-fn canonicalize(path: &str) -> Result<String> {
-    if !std::path::Path::new(path).exists() {
-        write_to_file(path, "")?;
+fn canonicalize(value: &str) -> Result<String> {
+    let temp = !std::path::Path::new(value).exists();
+
+    // `std::fs::canonicalize` only works if the file exists so we temporarily create it here.
+    if temp {
+        write_to_file(value, "")?;
     }
 
-    let path = std::fs::canonicalize(path)
-        .map_err(|_| Error::new("failed to find path").with_path(path))?;
+    let path = std::fs::canonicalize(value)
+        .map_err(|_| Error::new("failed to find path").with_path(value))?;
+
+    if temp {
+        std::fs::remove_file(value)
+            .map_err(|_| Error::new("failed to remove temporary file").with_path(value))?;
+    }
 
     let path = path
         .to_string_lossy()

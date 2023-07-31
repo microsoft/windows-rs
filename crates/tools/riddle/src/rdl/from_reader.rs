@@ -1,3 +1,4 @@
+use super::*;
 use crate::tokens::{quote, to_ident, TokenStream};
 use crate::{rdl, Error, Result, Tree};
 use metadata::RowReader;
@@ -18,23 +19,48 @@ pub fn from_reader(
         }
     };
 
-    let writer = Writer::new(reader, filter, dialect);
+    let mut writer = Writer::new(reader, filter, output, dialect);
 
-    // TODO: do we need any configuration values for IDL generation?
-    // Maybe per-namespace IDL files for namespace-splitting - be sure to use
-    // the same key as for winmd generation.
+    // TODO: be sure to use the same "SPLIT" key for winmd splitting.
+    // May also want to support SPLIT=N similar to the way MIDLRT supports winmd splitting
+    // at different nesting levels.
+    writer.split = config.remove("SPLIT").is_some();
 
     if let Some((key, _)) = config.first_key_value() {
         return Err(Error::new(&format!("invalid configuration value `{key}`")));
     }
 
-    let tree = Tree::new(writer.reader, writer.filter);
-    let tokens = writer.tree(&tree);
-    let file = rdl::File::parse_str(&tokens.into_string())?;
-    crate::write_to_file(output, file.fmt())
+    if writer.split {
+        gen_split(&writer)
+    } else {
+        gen_file(&writer)
+    }
 }
 
-#[derive(Debug, Copy, Clone)]
+fn gen_split(writer: &Writer) -> Result<()> {
+    let tree = Tree::new(writer.reader, writer.filter);
+    let directory = crate::directory(writer.output);
+
+    // TODO: parallelize
+    for tree in tree.flatten() {
+        let tokens = writer.tree(tree);
+
+        if !tokens.is_empty() {
+            let output = format!("{directory}/{}.rdl", tree.namespace);
+            writer.write_to_file(&output, tokens)?;
+        }
+    }
+
+    Ok(())
+}
+
+fn gen_file(writer: &Writer) -> Result<()> {
+    let tree = Tree::new(writer.reader, writer.filter);
+    let tokens = writer.tree(&tree);
+    writer.write_to_file(writer.output, tokens)
+}
+
+#[derive(Debug, Copy, Clone, PartialEq)]
 enum Dialect {
     Win32,
     WinRT,
@@ -45,15 +71,24 @@ struct Writer<'a> {
     filter: &'a metadata::Filter<'a>,
     namespace: &'a str,
     dialect: Dialect,
+    split: bool,
+    output: &'a str,
 }
 
 impl<'a> Writer<'a> {
-    fn new(reader: &'a metadata::Reader, filter: &'a metadata::Filter, dialect: Dialect) -> Self {
+    fn new(
+        reader: &'a metadata::Reader,
+        filter: &'a metadata::Filter,
+        output: &'a str,
+        dialect: Dialect,
+    ) -> Self {
         Self {
             reader,
             filter,
             namespace: "",
+            output,
             dialect,
+            split: false,
         }
     }
 
@@ -63,45 +98,121 @@ impl<'a> Writer<'a> {
             filter: self.filter,
             namespace,
             dialect: self.dialect,
+            output: self.output,
+            split: self.split,
         }
     }
 
-    fn tree(&self, tree: &'a Tree) -> TokenStream {
-        let modules = tree
-            .nested
-            .values()
-            .map(|tree| self.with_namespace(tree.namespace).tree(tree));
+    fn write_to_file(&self, output: &str, tokens: TokenStream) -> Result<()> {
+        let dialect = match self.dialect {
+            Dialect::Win32 => quote! { #![win32] },
+            Dialect::WinRT => quote! { #![winrt] },
+        };
 
-        if tree.namespace.is_empty() {
-            match self.dialect {
-                Dialect::Win32 => quote! { #![win32] #(#modules)* },
-                Dialect::WinRT => quote! { #![winrt] #(#modules)* },
+        let tokens = quote! {
+            #dialect
+            #tokens
+        };
+
+        let file = rdl::File::parse_str(&tokens.into_string())?;
+        crate::write_to_file(output, file.fmt())
+    }
+
+    fn tree(&self, tree: &'a Tree) -> TokenStream {
+        let items = self.items(tree);
+
+        if self.split {
+            let mut tokens = items;
+
+            if !tokens.is_empty() {
+                for name in tree.namespace.rsplit('.').map(to_ident) {
+                    tokens = quote! {
+                        mod #name {
+                            #tokens
+                        }
+                    };
+                }
             }
+
+            tokens
         } else {
             let name = to_ident(
                 tree.namespace
                     .rsplit_once('.')
                     .map_or(tree.namespace, |(_, name)| name),
             );
-            let types = self
-                .reader
-                .namespace_items(tree.namespace, self.filter)
-                .map(|item| self.item(item));
 
-            quote! {
-                mod #name {
+            let modules = tree
+                .nested
+                .values()
+                .map(|tree| self.with_namespace(tree.namespace).tree(tree));
+
+            if tree.namespace.is_empty() {
+                quote! {
                     #(#modules)*
-                    #(#types)*
+                    #items
+                }
+            } else {
+                quote! {
+                    mod #name {
+                        #(#modules)*
+                        #items
+                    }
                 }
             }
         }
     }
 
-    fn item(&self, item: metadata::Item) -> TokenStream {
-        match item {
-            metadata::Item::Type(def) => self.type_def(def),
-            rest => unimplemented!("{rest:?}"),
+    fn items(&self, tree: &'a Tree) -> TokenStream {
+        let mut functions = vec![];
+        let mut constants = vec![];
+        let mut types = vec![];
+
+        if !tree.namespace.is_empty() {
+            for item in self
+                .reader
+                .namespace_items(tree.namespace, self.filter)
+                .filter(|item| match item {
+                    metadata::Item::Type(def) => {
+                        let winrt = self
+                            .reader
+                            .type_def_flags(*def)
+                            .contains(metadata::TypeAttributes::WindowsRuntime);
+                        match self.dialect {
+                            Dialect::Win32 => !winrt,
+                            Dialect::WinRT => winrt,
+                        }
+                    }
+                    metadata::Item::Fn(_, _) | metadata::Item::Const(_) => {
+                        self.dialect == Dialect::Win32
+                    }
+                })
+            {
+                match item {
+                    metadata::Item::Type(def) => types.push(self.type_def(def)),
+                    metadata::Item::Const(field) => constants.push(self.constant(field)),
+                    metadata::Item::Fn(method, namespace) => {
+                        functions.push(self.function(method, &namespace))
+                    }
+                }
+            }
         }
+
+        quote! {
+            #(#functions)*
+            #(#constants)*
+            #(#types)*
+        }
+    }
+
+    fn function(&self, def: metadata::MethodDef, _namespace: &str) -> TokenStream {
+        let name = to_ident(self.reader.method_def_name(def));
+        quote! { fn #name(); }
+    }
+
+    fn constant(&self, def: metadata::Field) -> TokenStream {
+        let name = to_ident(self.reader.field_name(def));
+        quote! { const #name: i32 = 0; }
     }
 
     fn type_def(&self, def: metadata::TypeDef) -> TokenStream {
@@ -232,7 +343,14 @@ impl<'a> Writer<'a> {
             metadata::Type::F64 => quote! { f64 },
             metadata::Type::ISize => quote! { isize },
             metadata::Type::USize => quote! { usize },
+
+            // TODO: dialect-specific keywords for "well-known types" that don't map to metadata in all cases.
             metadata::Type::String => quote! { HSTRING },
+            metadata::Type::HRESULT => quote! { HRESULT },
+            metadata::Type::GUID => quote! { GUID },
+            metadata::Type::IInspectable => quote! { IInspectable },
+            metadata::Type::IUnknown => quote! { IUnknown },
+
             metadata::Type::TypeDef(def, generics) => {
                 let namespace = self.namespace(self.reader.type_def_namespace(*def));
                 let name = to_ident(self.reader.type_def_name(*def));
@@ -243,6 +361,22 @@ impl<'a> Writer<'a> {
                     quote! { #namespace #name<#(#generics,)*> }
                 }
             }
+            metadata::Type::GenericParam(generic) => {
+                self.reader.generic_param_name(*generic).into()
+            }
+            metadata::Type::WinrtArray(ty) => self.ty(ty),
+            metadata::Type::WinrtArrayRef(ty) => self.ty(ty),
+            metadata::Type::ConstRef(ty) => self.ty(ty),
+            metadata::Type::MutPtr(ty, _pointers) => self.ty(ty),
+            metadata::Type::ConstPtr(ty, _pointers) => self.ty(ty),
+            metadata::Type::Win32Array(ty, _len) => self.ty(ty),
+            // TODO: these types should just be regular metadata type defs
+            metadata::Type::PSTR => quote! { PSTR },
+            metadata::Type::PWSTR => quote! { PWSTR },
+            metadata::Type::PCSTR => quote! { PCSTR },
+            metadata::Type::PCWSTR => quote! { PCWSTR },
+            metadata::Type::BSTR => quote! { BSTR },
+            metadata::Type::PrimitiveOrEnum(_, ty) => self.ty(ty),
             rest => unimplemented!("{rest:?}"),
         }
     }

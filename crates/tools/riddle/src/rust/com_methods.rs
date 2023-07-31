@@ -18,7 +18,7 @@ pub fn writer(
     let vname = virtual_names.add(writer, method);
     let generics = writer.constraint_generics(&signature.params);
     let where_clause = writer.where_clause(&signature.params);
-    let mut cfg = writer.reader.signature_cfg(&signature);
+    let mut cfg = signature_cfg(writer.reader, &signature);
     cfg.add_feature(writer.reader.type_def_namespace(def));
     let doc = writer.cfg_method_doc(&cfg);
     let features = writer.cfg_features(&cfg);

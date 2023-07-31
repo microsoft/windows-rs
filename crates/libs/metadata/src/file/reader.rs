@@ -96,6 +96,18 @@ pub trait RowReader<'a> {
         self.type_ref_name(row)
     }
 
+    fn attributes<R: AsRow + Into<HasAttribute>>(&self, row: R) -> RowIterator<Attribute> {
+        self.row_equal_range(row, 0, row.into().encode())
+    }
+
+    fn find_attribute<R: AsRow + Into<HasAttribute>>(&self, row: R, name: &str) -> Option<Attribute> {
+        self.attributes(row).find(|attribute| self.attribute_name(*attribute) == name)
+    }
+
+    fn has_attribute<R: AsRow + Into<HasAttribute>>(&self, row: R, name: &str) -> bool {
+        self.find_attribute(row, name).is_some()
+    }
+
     //
     // Other
     //
@@ -159,10 +171,6 @@ pub trait RowReader<'a> {
         self.row_equal_range(row, 1, HasConstant::Field(row).encode()).next()
     }
 
-    fn field_attributes(&self, row: Field) -> RowIterator<Attribute> {
-        self.row_equal_range(row, 0, HasAttribute::Field(row).encode())
-    }
-
     //
     // GenericParam
     //
@@ -185,14 +193,6 @@ pub trait RowReader<'a> {
 
     fn impl_map_import_name(&self, row: ImplMap) -> &'a str {
         self.row_str(row, 2)
-    }
-
-    //
-    // InterfaceImpl
-    //
-
-    fn interface_impl_attributes(&self, row: InterfaceImpl) -> RowIterator<Attribute> {
-        self.row_equal_range(row, 0, HasAttribute::InterfaceImpl(row).encode())
     }
 
     //
@@ -225,10 +225,6 @@ pub trait RowReader<'a> {
 
     fn method_def_params(&self, row: MethodDef) -> RowIterator<Param> {
         self.row_list(row, 5)
-    }
-
-    fn method_def_attributes(&self, row: MethodDef) -> RowIterator<Attribute> {
-        self.row_equal_range(row, 0, HasAttribute::MethodDef(row).encode())
     }
 
     fn method_def_impl_map(&self, row: MethodDef) -> Option<ImplMap> {
@@ -280,10 +276,6 @@ pub trait RowReader<'a> {
         self.row_str(row, 2)
     }
 
-    fn param_attributes(&self, row: Param) -> RowIterator<Attribute> {
-        self.row_equal_range(row, 0, HasAttribute::Param(row).encode())
-    }
-
     //
     // TypeDef
     //
@@ -315,10 +307,6 @@ pub trait RowReader<'a> {
         self.row_list(row, 4)
     }
 
-    fn type_def_attributes(&self, row: TypeDef) -> RowIterator<Attribute> {
-        self.row_equal_range(row, 0, HasAttribute::TypeDef(row).encode())
-    }
-
     fn type_def_generics(&self, row: TypeDef) -> Vec<Type> {
         self.row_equal_range(row, 2, TypeOrMethodDef::TypeDef(row).encode()).map(Type::GenericParam).collect()
     }
@@ -333,10 +321,6 @@ pub trait RowReader<'a> {
 
     fn type_def_class_layout(&self, row: TypeDef) -> Option<ClassLayout> {
         self.row_equal_range(row, 2, row.0.row + 1).next()
-    }
-
-    fn type_def_is_scoped(&self, row: TypeDef) -> bool {
-        self.type_def_flags(row).contains(TypeAttributes::WindowsRuntime) || self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ScopedEnumAttribute")
     }
 
     //

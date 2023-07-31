@@ -1,3 +1,5 @@
+use super::*;
+
 #[derive(Debug)]
 pub struct Tree<'a> {
     pub namespace: &'a str,

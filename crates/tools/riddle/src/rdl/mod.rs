@@ -1,3 +1,4 @@
+use super::*;
 mod fmt;
 mod from_reader;
 mod to_winmd;
@@ -37,6 +38,7 @@ impl File {
 // The value of the IDL-specific memory representation is that it allows for constructs that are not modeled in the abstract Module
 // tree such as the use declarations and if we get rid of it we'd always "format" IDL by stripping out any of that into a single
 // canonical form which would not be very friendly to developers.
+#[derive(Debug)]
 pub struct File {
     pub winrt: bool,
     pub references: Vec<syn::ItemUse>,
@@ -46,20 +48,21 @@ pub struct File {
 // TODO: need to change these to unpack the syn types and store strings we can reference for efficiency along with spans since the syn
 // is made for value semantics.
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct Module {
     pub namespace: String,
     pub members: Vec<ModuleMember>,
 }
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub enum ModuleMember {
     Module(Module),
     Interface(Interface),
     Struct(Struct),
     Enum(Enum),
     Class(Class),
-    // Function and Delegate
+    Function(Function),
+    Constant(Constant),
 }
 
 impl ModuleMember {
@@ -70,18 +73,26 @@ impl ModuleMember {
             Self::Struct(member) => &member.name,
             Self::Enum(member) => &member.name,
             Self::Class(member) => &member.name,
+            Self::Function(member) => &member.name,
+            Self::Constant(member) => &member.name,
         }
     }
 }
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct Enum {
     pub winrt: bool,
     pub name: String,
     pub item: syn::ItemEnum,
 }
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
+pub struct Constant {
+    pub name: String,
+    pub item: syn::ItemConst,
+}
+
+#[derive(Clone, Debug)]
 pub struct Struct {
     pub winrt: bool,
     pub name: String,
@@ -90,7 +101,7 @@ pub struct Struct {
     pub fields: Vec<Field>,
 }
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct Field {
     pub name: String,
     pub attributes: Vec<syn::Attribute>,
@@ -98,14 +109,20 @@ pub struct Field {
     pub ty: syn::Type,
 }
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct Class {
     pub name: String,
     pub attributes: Vec<syn::Attribute>,
     pub extends: Vec<syn::Path>,
 }
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
+pub struct Function {
+    pub name: String,
+    pub item: syn::TraitItemFn,
+}
+
+#[derive(Clone, Debug)]
 pub struct Interface {
     pub winrt: bool,
     pub name: String,
@@ -215,6 +232,14 @@ impl ModuleMember {
             )?))
         } else if lookahead.peek(class) {
             Ok(ModuleMember::Class(Class::parse(attributes, input)?))
+        } else if lookahead.peek(syn::Token![fn]) {
+            Ok(ModuleMember::Function(Function::parse(
+                namespace, attributes, input,
+            )?))
+        } else if lookahead.peek(syn::Token![const]) {
+            Ok(ModuleMember::Constant(Constant::parse(
+                namespace, attributes, input,
+            )?))
         } else {
             Err(lookahead.error())
         }
@@ -317,5 +342,31 @@ impl Enum {
         item.attrs = attributes;
         let name = item.ident.to_string();
         Ok(Self { winrt, name, item })
+    }
+}
+
+impl Constant {
+    fn parse(
+        _namespace: &str,
+        attributes: Vec<syn::Attribute>,
+        input: syn::parse::ParseStream,
+    ) -> syn::Result<Self> {
+        let mut item: syn::ItemConst = input.parse()?;
+        item.attrs = attributes;
+        let name = item.ident.to_string();
+        Ok(Self { name, item })
+    }
+}
+
+impl Function {
+    fn parse(
+        _namespace: &str,
+        attributes: Vec<syn::Attribute>,
+        input: syn::parse::ParseStream,
+    ) -> syn::Result<Self> {
+        let mut item: syn::TraitItemFn = input.parse()?;
+        item.attrs = attributes;
+        let name = item.sig.ident.to_string();
+        Ok(Self { name, item })
     }
 }

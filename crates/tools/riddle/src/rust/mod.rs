@@ -1,3 +1,4 @@
+mod cfg;
 mod classes;
 mod com_methods;
 mod constants;
@@ -15,7 +16,9 @@ mod structs;
 mod try_format;
 mod winrt_methods;
 mod writer;
+use super::*;
 use crate::{Error, Result, Tree};
+use cfg::*;
 use rayon::prelude::*;
 
 pub fn from_reader(
@@ -217,7 +220,7 @@ fn namespace(writer: &Writer, tree: &Tree) -> String {
                                 let ident = to_ident(name);
                                 let value = writer.guid(&guid);
                                 let guid = writer.type_name(&Type::GUID);
-                                let cfg = writer.reader.type_def_cfg(def, &[]);
+                                let cfg = type_def_cfg(writer.reader, def, &[]);
                                 let doc = writer.cfg_doc(&cfg);
                                 let constant = quote! {
                                     #doc

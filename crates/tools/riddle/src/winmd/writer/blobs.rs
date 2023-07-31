@@ -1,4 +1,4 @@
-use super::Write;
+use super::*;
 use std::collections::hash_map::*;
 
 pub struct Blobs {

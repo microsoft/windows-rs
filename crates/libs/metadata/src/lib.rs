@@ -127,36 +127,6 @@ pub struct SignatureParam {
     pub kind: SignatureParamKind,
 }
 
-#[derive(Default, Clone)]
-pub struct Cfg<'a> {
-    pub types: BTreeMap<&'a str, BTreeSet<TypeDef>>,
-    pub core_types: BTreeSet<Type>,
-    pub arches: BTreeSet<&'static str>,
-    pub implement: bool,
-}
-
-impl<'a> Cfg<'a> {
-    pub fn add_feature(&mut self, feature: &'a str) {
-        self.types.entry(feature).or_default();
-    }
-    pub fn union(&self, other: &Self) -> Self {
-        let mut union = Self::default();
-        self.types.keys().for_each(|feature| {
-            union.types.entry(feature).or_default();
-        });
-        other.types.keys().for_each(|feature| {
-            union.types.entry(feature).or_default();
-        });
-        self.arches.iter().for_each(|arch| {
-            union.arches.insert(arch);
-        });
-        other.arches.iter().for_each(|arch| {
-            union.arches.insert(arch);
-        });
-        union
-    }
-}
-
 #[derive(Clone, Debug)]
 pub enum Item {
     Type(TypeDef),
@@ -199,7 +169,7 @@ impl<'a> Reader<'a> {
                     namespace_items.entry(trim_tick(name)).or_default().push(Item::Type(def));
 
                     // TODO: these should all be fields on the Apis class so we don't have to go looking for all of these as well.
-                    if files.type_def_extends(def) == Some(TypeName::Enum) && !files.type_def_is_scoped(def) {
+                    if files.type_def_extends(def) == Some(TypeName::Enum) && !files.type_def_flags(def).contains(TypeAttributes::WindowsRuntime) && !files.has_attribute(def, "ScopedEnumAttribute") {
                         for field in files.type_def_fields(def).filter(|field| files.field_flags(*field).contains(FieldAttributes::Literal)) {
                             let name = files.field_name(field);
                             namespace_items.entry(name).or_default().push(Item::Const(field));
@@ -230,7 +200,7 @@ impl<'a> Reader<'a> {
     pub fn namespace_items(&'a self, namespace: &str, filter: &'a Filter) -> impl Iterator<Item = Item> + '_ {
         self.items.get_key_value(namespace).into_iter().flat_map(move |(namespace, items)| items.iter().filter(move |(name, _)| filter.includes_type_name(TypeName::new(namespace, name)))).flat_map(move |(_, items)| items).cloned()
     }
-    pub fn get_item(&self, type_name: TypeName) -> impl Iterator<Item = Item> + '_ {
+    fn get_item(&self, type_name: TypeName) -> impl Iterator<Item = Item> + '_ {
         if let Some(items) = self.items.get(type_name.namespace) {
             if let Some(items) = items.get(type_name.name) {
                 return Some(items.iter().cloned()).into_iter().flatten();
@@ -320,9 +290,6 @@ impl<'a> Reader<'a> {
     // Field table queries
     //
 
-    pub fn field_is_const(&self, row: Field) -> bool {
-        self.field_attributes(row).any(|attribute| self.attribute_name(attribute) == "ConstAttribute")
-    }
     // TODO: enclosing craziness is only needed for nested structs - get rid of those in riddle and this goes away.
     pub fn field_type(&self, row: Field, enclosing: Option<TypeDef>) -> Type {
         let mut blob = self.row_blob(row, 2);
@@ -330,7 +297,7 @@ impl<'a> Reader<'a> {
         blob.read_modifiers();
         let def = self.type_from_blob(&mut blob, enclosing, &[]);
 
-        if self.field_is_const(row) {
+        if self.has_attribute(row, "ConstAttribute") {
             def.to_const_type().to_const_ptr()
         } else {
             def
@@ -343,41 +310,19 @@ impl<'a> Reader<'a> {
         self.type_is_copyable(&self.field_type(row, Some(enclosing)))
     }
     pub fn field_guid(&self, row: Field) -> Option<GUID> {
-        for attribute in self.field_attributes(row) {
-            if self.attribute_name(attribute) == "GuidAttribute" {
-                return Some(GUID::from_args(&self.attribute_args(attribute)));
-            }
-        }
-        None
-    }
-    pub fn field_cfg(&self, row: Field) -> Cfg {
-        let mut cfg = Cfg::default();
-        self.field_cfg_combine(row, None, &mut cfg);
-        cfg
-    }
-    fn field_cfg_combine(&'a self, row: Field, enclosing: Option<TypeDef>, cfg: &mut Cfg<'a>) {
-        self.type_cfg_combine(&self.field_type(row, enclosing), cfg)
+        self.find_attribute(row, "GuidAttribute").map(|attribute| GUID::from_args(&self.attribute_args(attribute)))
     }
     pub fn field_is_ansi(&self, row: Field) -> bool {
-        for attribute in self.field_attributes(row) {
-            if self.attribute_name(attribute) == "NativeEncodingAttribute" {
-                if let Some((_, Value::String(encoding))) = self.attribute_args(attribute).get(0) {
-                    if encoding == "ansi" {
-                        return true;
-                    }
-                }
-            }
-        }
-        false
+        self.find_attribute(row, "NativeEncodingAttribute").is_some_and(|attribute| matches!(self.attribute_args(attribute).get(0), Some((_, Value::String(encoding))) if encoding == "ansi"))
     }
 
     //
     // InterfaceImpl table queries
     //
 
-    pub fn interface_impl_type(&self, row: InterfaceImpl, generics: &[Type]) -> Interface {
+    fn interface_impl_type(&self, row: InterfaceImpl, generics: &[Type]) -> Interface {
         let mut kind = InterfaceKind::None;
-        for attribute in self.interface_impl_attributes(row) {
+        for attribute in self.attributes(row) {
             match self.attribute_name(attribute) {
                 "DefaultAttribute" => kind = InterfaceKind::Default,
                 "OverridableAttribute" => kind = InterfaceKind::Overridable,
@@ -386,20 +331,11 @@ impl<'a> Reader<'a> {
         }
         Interface { ty: self.type_from_ref(self.row_decode(row, 1), None, generics), kind }
     }
-    pub fn interface_impl_is_default(&self, row: InterfaceImpl) -> bool {
-        self.interface_impl_attributes(row).any(|attribute| self.attribute_name(attribute) == "DefaultAttribute")
-    }
 
     //
     // MethodDef table queries
     //
 
-    pub fn method_def_does_not_return(&self, row: MethodDef) -> bool {
-        self.method_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "DoesNotReturnAttribute")
-    }
-    pub fn method_def_can_return_multiple_success_values(&self, row: MethodDef) -> bool {
-        self.method_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "CanReturnMultipleSuccessValuesAttribute")
-    }
     pub fn method_def_special_name(&self, row: MethodDef) -> String {
         let name = self.method_def_name(row);
         if self.method_def_flags(row).contains(MethodAttributes::SpecialName) {
@@ -415,12 +351,10 @@ impl<'a> Reader<'a> {
                 name.to_string()
             }
         } else {
-            for attribute in self.method_def_attributes(row) {
-                if self.attribute_name(attribute) == "OverloadAttribute" {
-                    for (_, arg) in self.attribute_args(attribute) {
-                        if let Value::String(name) = arg {
-                            return name;
-                        }
+            if let Some(attribute) = self.find_attribute(row, "OverloadAttribute") {
+                for (_, arg) in self.attribute_args(attribute) {
+                    if let Value::String(name) = arg {
+                        return name;
                     }
                 }
             }
@@ -428,17 +362,15 @@ impl<'a> Reader<'a> {
         }
     }
     pub fn method_def_static_lib(&self, row: MethodDef) -> Option<String> {
-        for attribute in self.method_def_attributes(row) {
-            if self.attribute_name(attribute) == "StaticLibraryAttribute" {
-                let args = self.attribute_args(attribute);
-                if let Value::String(value) = &args[0].1 {
-                    return Some(value.clone());
-                }
+        self.find_attribute(row, "StaticLibraryAttribute").and_then(|attribute| {
+            let args = self.attribute_args(attribute);
+            if let Value::String(value) = &args[0].1 {
+                return Some(value.clone());
             }
-        }
-        None
+            None
+        })
     }
-    pub fn method_def_last_error(&self, row: MethodDef) -> bool {
+    fn method_def_last_error(&self, row: MethodDef) -> bool {
         if let Some(map) = self.method_def_impl_map(row) {
             self.impl_map_flags(map).contains(PInvokeAttributes::SupportsLastError)
         } else {
@@ -454,8 +386,9 @@ impl<'a> Reader<'a> {
         let mut params: Vec<SignatureParam> = self
             .method_def_params(row)
             .filter_map(|param| {
+                let param_is_const = self.has_attribute(param, "ConstAttribute");
                 if self.param_sequence(param) == 0 {
-                    if self.param_is_const(param) {
+                    if param_is_const {
                         return_type = return_type.clone().to_const_type();
                     }
                     None
@@ -468,7 +401,7 @@ impl<'a> Reader<'a> {
                         ty = Type::PrimitiveOrEnum(Box::new(ty), Box::new(Type::TypeDef(def, Vec::new())));
                     }
 
-                    if self.param_is_const(param) || !is_output {
+                    if param_is_const || !is_output {
                         ty = ty.to_const_type();
                     }
                     if !is_output {
@@ -492,7 +425,7 @@ impl<'a> Reader<'a> {
                     }
                 }
                 SignatureParamKind::ArrayFixed(_) => {
-                    if self.param_free_with(params[position].def).is_some() {
+                    if self.has_attribute(params[position].def, "FreeWithAttribute") {
                         params[position].kind = SignatureParamKind::Other;
                     }
                 }
@@ -542,7 +475,7 @@ impl<'a> Reader<'a> {
                     }
                 } else {
                     let flags = self.param_flags(param.def);
-                    if param.ty.is_pointer() && (flags.contains(ParamAttributes::Optional) || self.param_is_reserved(param.def)) {
+                    if param.ty.is_pointer() && (flags.contains(ParamAttributes::Optional) || self.has_attribute(param.def, "ReservedAttribute")) {
                         param.kind = SignatureParamKind::OptionalPointer;
                     } else if self.type_is_primitive(&param.ty) && (!param.ty.is_pointer() || self.type_is_blittable(&param.ty.deref())) {
                         param.kind = SignatureParamKind::ValueType;
@@ -626,11 +559,8 @@ impl<'a> Reader<'a> {
     // Param table queries
     //
 
-    pub fn param_is_com_out_ptr(&self, row: Param) -> bool {
-        self.param_attributes(row).any(|attribute| self.attribute_name(attribute) == "ComOutPtrAttribute")
-    }
     fn param_kind(&self, row: Param) -> SignatureParamKind {
-        for attribute in self.param_attributes(row) {
+        for attribute in self.attributes(row) {
             match self.attribute_name(attribute) {
                 "NativeArrayInfoAttribute" => {
                     for (_, value) in self.attribute_args(attribute) {
@@ -653,38 +583,16 @@ impl<'a> Reader<'a> {
         }
         SignatureParamKind::Other
     }
-    pub fn param_is_retval(&self, row: Param) -> bool {
-        self.param_attributes(row).any(|attribute| self.attribute_name(attribute) == "RetValAttribute")
-    }
-    pub fn param_is_reserved(&self, row: Param) -> bool {
-        self.param_attributes(row).any(|attribute| self.attribute_name(attribute) == "ReservedAttribute")
-    }
-    pub fn param_free_with(&self, row: Param) -> Option<String> {
-        for attribute in self.param_attributes(row) {
-            if self.attribute_name(attribute) == "FreeWithAttribute" {
-                for (_, arg) in self.attribute_args(attribute) {
-                    if let Value::String(name) = arg {
-                        return Some(name);
-                    }
+    // TODO: this is a terribly broken Win32 metadata attribute - need to get rid of it.
+    fn param_or_enum(&self, row: Param) -> Option<String> {
+        self.find_attribute(row, "AssociatedEnumAttribute").and_then(|attribute| {
+            for (_, arg) in self.attribute_args(attribute) {
+                if let Value::String(name) = arg {
+                    return Some(name);
                 }
             }
-        }
-        None
-    }
-    pub fn param_or_enum(&self, row: Param) -> Option<String> {
-        for attribute in self.param_attributes(row) {
-            if self.attribute_name(attribute) == "AssociatedEnumAttribute" {
-                for (_, arg) in self.attribute_args(attribute) {
-                    if let Value::String(name) = arg {
-                        return Some(name);
-                    }
-                }
-            }
-        }
-        None
-    }
-    pub fn param_is_const(&self, row: Param) -> bool {
-        self.param_attributes(row).any(|attribute| self.attribute_name(attribute) == "ConstAttribute")
+            None
+        })
     }
 
     //
@@ -711,17 +619,6 @@ impl<'a> Reader<'a> {
             Some(_) => TypeKind::Class,
         }
     }
-    pub fn type_def_stdcall(&self, row: TypeDef) -> usize {
-        if self.type_def_kind(row) == TypeKind::Struct {
-            if self.type_def_flags(row).contains(TypeAttributes::ExplicitLayout) {
-                self.type_def_fields(row).map(|field| self.type_stdcall(&self.field_type(field, Some(row)))).max().unwrap_or(1)
-            } else {
-                self.type_def_fields(row).fold(0, |sum, field| sum + self.type_stdcall(&self.field_type(field, Some(row))))
-            }
-        } else {
-            4
-        }
-    }
     pub fn type_def_is_blittable(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
             TypeKind::Struct => {
@@ -744,11 +641,11 @@ impl<'a> Reader<'a> {
             _ => false,
         }
     }
-    pub fn type_def_is_callback(&self, row: TypeDef) -> bool {
+    fn type_def_is_callback(&self, row: TypeDef) -> bool {
         !self.type_def_flags(row).contains(TypeAttributes::WindowsRuntime) && self.type_def_kind(row) == TypeKind::Delegate
     }
     pub fn type_def_has_default_constructor(&self, row: TypeDef) -> bool {
-        for attribute in self.type_def_attributes(row) {
+        for attribute in self.attributes(row) {
             if self.attribute_name(attribute) == "ActivatableAttribute" {
                 if self.attribute_args(attribute).iter().any(|arg| matches!(arg.1, Value::TypeName(_))) {
                     continue;
@@ -761,9 +658,7 @@ impl<'a> Reader<'a> {
     }
     // TODO: consider removing all the expects and just return Option<T> and let the caller expect it
     // that way the metadata reader is a little more schema-agnostic...
-    pub fn type_def_invoke_method(&self, row: TypeDef) -> MethodDef {
-        self.type_def_methods(row).find(|method| self.method_def_name(*method) == "Invoke").expect("`Invoke` method not found")
-    }
+
     pub fn type_def_interfaces(&'a self, row: TypeDef, generics: &'a [Type]) -> impl Iterator<Item = Interface> + '_ {
         self.type_def_interface_impls(row).map(move |row| self.interface_impl_type(row, generics))
     }
@@ -771,19 +666,13 @@ impl<'a> Reader<'a> {
         self.type_def_interfaces(row, &[]).find(|interface| interface.kind == InterfaceKind::Default).map(|interface| interface.ty)
     }
     pub fn type_def_has_default_interface(&self, row: TypeDef) -> bool {
-        self.type_def_interface_impls(row).any(|imp| self.interface_impl_is_default(imp))
+        self.type_def_interface_impls(row).any(|imp| self.has_attribute(imp, "DefaultAttribute"))
     }
     pub fn type_def_is_handle(&self, row: TypeDef) -> bool {
-        self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "NativeTypedefAttribute")
+        self.has_attribute(row, "NativeTypedefAttribute")
     }
     pub fn type_def_is_exclusive(&self, row: TypeDef) -> bool {
-        self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ExclusiveToAttribute")
-    }
-    pub fn type_def_is_contract(&self, row: TypeDef) -> bool {
-        self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ApiContractAttribute")
-    }
-    fn type_def_is_composable(&self, row: TypeDef) -> bool {
-        self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "ComposableAttribute")
+        self.has_attribute(row, "ExclusiveToAttribute")
     }
     fn type_def_is_struct(&self, row: TypeDef) -> bool {
         // This check is used to detect virtual functions that return C-style PODs that affect how the stack is packed for x86.
@@ -791,13 +680,13 @@ impl<'a> Reader<'a> {
         // nested structs. Fortunately, this is rare enough that this check is sufficient.
         self.type_def_kind(row) == TypeKind::Struct && !self.type_def_is_handle(row)
     }
-    pub fn type_def_is_trivially_convertible(&self, row: TypeDef) -> bool {
+    fn type_def_is_trivially_convertible(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
             TypeKind::Struct => self.type_def_is_handle(row),
             _ => false,
         }
     }
-    pub fn type_def_is_primitive(&self, row: TypeDef) -> bool {
+    fn type_def_is_primitive(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
             TypeKind::Enum => true,
             TypeKind::Struct => self.type_def_is_handle(row),
@@ -881,12 +770,7 @@ impl<'a> Reader<'a> {
         }
     }
     pub fn type_def_guid(&self, row: TypeDef) -> Option<GUID> {
-        for attribute in self.type_def_attributes(row) {
-            if self.attribute_name(attribute) == "GuidAttribute" {
-                return Some(GUID::from_args(&self.attribute_args(attribute)));
-            }
-        }
-        None
+        self.find_attribute(row, "GuidAttribute").map(|attribute| GUID::from_args(&self.attribute_args(attribute)))
     }
     pub fn type_def_bases(&self, mut row: TypeDef) -> Vec<TypeDef> {
         let mut bases = Vec::new();
@@ -901,13 +785,8 @@ impl<'a> Reader<'a> {
         }
         bases
     }
-    pub fn type_def_is_flags(&self, row: TypeDef) -> bool {
-        // Win32 enums use the Flags attribute. WinRT enums don't have the Flags attribute but are paritioned merely based
-        // on whether they are signed.
-        self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "FlagsAttribute") || (self.type_def_flags(row).contains(TypeAttributes::WindowsRuntime) && self.type_def_underlying_type(row) == Type::U32)
-    }
     pub fn type_def_is_agile(&self, row: TypeDef) -> bool {
-        for attribute in self.type_def_attributes(row) {
+        for attribute in self.attributes(row) {
             match self.attribute_name(attribute) {
                 "AgileAttribute" => return true,
                 "MarshalingBehaviorAttribute" => {
@@ -924,7 +803,7 @@ impl<'a> Reader<'a> {
     }
     pub fn type_def_invalid_values(&self, row: TypeDef) -> Vec<i64> {
         let mut values = Vec::new();
-        for attribute in self.type_def_attributes(row) {
+        for attribute in self.attributes(row) {
             if self.attribute_name(attribute) == "InvalidHandleValueAttribute" {
                 if let Some((_, Value::I64(value))) = self.attribute_args(attribute).get(0) {
                     values.push(*value);
@@ -934,16 +813,14 @@ impl<'a> Reader<'a> {
         values
     }
     pub fn type_def_usable_for(&self, row: TypeDef) -> Option<TypeDef> {
-        for attribute in self.type_def_attributes(row) {
-            if self.attribute_name(attribute) == "AlsoUsableForAttribute" {
-                if let Some((_, Value::String(name))) = self.attribute_args(attribute).get(0) {
-                    return self.get_type_def(TypeName::new(self.type_def_namespace(row), name.as_str())).next();
-                }
+        if let Some(attribute) = self.find_attribute(row, "AlsoUsableForAttribute") {
+            if let Some((_, Value::String(name))) = self.attribute_args(attribute).get(0) {
+                return self.get_type_def(TypeName::new(self.type_def_namespace(row), name.as_str())).next();
             }
         }
         None
     }
-    pub fn type_def_is_nullable(&self, row: TypeDef) -> bool {
+    fn type_def_is_nullable(&self, row: TypeDef) -> bool {
         match self.type_def_kind(row) {
             TypeKind::Interface | TypeKind::Class => true,
             // Win32 callbacks are defined as `Option<T>` so we don't include them here to avoid them
@@ -953,23 +830,21 @@ impl<'a> Reader<'a> {
         }
     }
     pub fn type_def_can_implement(&self, row: TypeDef) -> bool {
-        for attribute in self.type_def_attributes(row) {
-            if self.attribute_name(attribute) == "ExclusiveToAttribute" {
-                for (_, arg) in self.attribute_args(attribute) {
-                    if let Value::TypeName(type_name) = arg {
-                        for child in self.get_type_def(TypeName::parse(&type_name)).flat_map(|def| self.type_def_interfaces(def, &[])) {
-                            if child.kind == InterfaceKind::Overridable {
-                                if let Type::TypeDef(def, _) = child.ty {
-                                    if self.type_def_type_name(def) == self.type_def_type_name(row) {
-                                        return true;
-                                    }
+        if let Some(attribute) = self.find_attribute(row, "ExclusiveToAttribute") {
+            for (_, arg) in self.attribute_args(attribute) {
+                if let Value::TypeName(type_name) = arg {
+                    for child in self.get_type_def(TypeName::parse(&type_name)).flat_map(|def| self.type_def_interfaces(def, &[])) {
+                        if child.kind == InterfaceKind::Overridable {
+                            if let Type::TypeDef(def, _) = child.ty {
+                                if self.type_def_type_name(def) == self.type_def_type_name(row) {
+                                    return true;
                                 }
                             }
                         }
                     }
                 }
-                return false;
             }
+            return false;
         }
         true
     }
@@ -1025,80 +900,7 @@ impl<'a> Reader<'a> {
             result
         }
     }
-    pub fn type_def_cfg(&self, row: TypeDef, generics: &[Type]) -> Cfg {
-        let mut cfg = Cfg::default();
-        self.type_def_cfg_combine(row, generics, &mut cfg);
-        self.cfg_add_attributes(&mut cfg, self.type_def_attributes(row));
-        cfg
-    }
-    pub fn type_def_cfg_impl(&self, def: TypeDef, generics: &[Type]) -> Cfg {
-        let mut cfg = Cfg { implement: true, ..Default::default() };
 
-        fn combine<'a>(reader: &'a Reader, def: TypeDef, generics: &[Type], cfg: &mut Cfg<'a>) {
-            reader.type_def_cfg_combine(def, generics, cfg);
-
-            for method in reader.type_def_methods(def) {
-                reader.signature_cfg_combine(&reader.method_def_signature(reader.type_def_namespace(def), method, generics), cfg);
-            }
-        }
-
-        combine(self, def, generics, &mut cfg);
-
-        for def in self.type_def_vtables(def) {
-            if let Type::TypeDef(def, generics) = def {
-                combine(self, def, &generics, &mut cfg);
-            }
-        }
-
-        if self.type_def_flags(def).contains(TypeAttributes::WindowsRuntime) {
-            for interface in self.type_def_interfaces(def, generics) {
-                if let Type::TypeDef(def, generics) = interface.ty {
-                    combine(self, def, &generics, &mut cfg);
-                }
-            }
-        }
-
-        self.cfg_add_attributes(&mut cfg, self.type_def_attributes(def));
-        cfg
-    }
-    pub fn type_def_cfg_combine(&'a self, row: TypeDef, generics: &[Type], cfg: &mut Cfg<'a>) {
-        let type_name = self.type_def_type_name(row);
-
-        for generic in generics {
-            self.type_cfg_combine(generic, cfg);
-        }
-
-        if cfg.types.entry(type_name.namespace).or_default().insert(row) {
-            match self.type_def_kind(row) {
-                TypeKind::Class => {
-                    if let Some(default_interface) = self.type_def_default_interface(row) {
-                        self.type_cfg_combine(&default_interface, cfg);
-                    }
-                }
-                TypeKind::Interface => {
-                    if !self.type_def_flags(row).contains(TypeAttributes::WindowsRuntime) {
-                        for def in self.type_def_vtables(row) {
-                            if let Type::TypeDef(def, _) = def {
-                                cfg.add_feature(self.type_def_namespace(def));
-                            }
-                        }
-                    }
-                }
-                TypeKind::Struct => {
-                    self.type_def_fields(row).for_each(|field| self.field_cfg_combine(field, Some(row), cfg));
-                    if !type_name.namespace.is_empty() {
-                        for def in self.get_type_def(type_name) {
-                            if def != row {
-                                self.type_def_cfg_combine(def, &[], cfg);
-                            }
-                        }
-                    }
-                }
-                TypeKind::Delegate => self.signature_cfg_combine(&self.method_def_signature(type_name.namespace, self.type_def_invoke_method(row), generics), cfg),
-                _ => {}
-            }
-        }
-    }
     pub fn type_def_vtables(&self, row: TypeDef) -> Vec<Type> {
         let mut result = Vec::new();
         if self.type_def_flags(row).contains(TypeAttributes::WindowsRuntime) {
@@ -1134,32 +936,19 @@ impl<'a> Reader<'a> {
     // Signature queries
     //
 
-    pub fn signature_cfg(&self, signature: &Signature) -> Cfg {
-        let mut cfg = Cfg::default();
-        self.signature_cfg_combine(signature, &mut cfg);
-        self.cfg_add_attributes(&mut cfg, self.method_def_attributes(signature.def));
-        cfg
-    }
-    fn signature_cfg_combine(&'a self, signature: &Signature, cfg: &mut Cfg<'a>) {
-        self.type_cfg_combine(&signature.return_type, cfg);
-        signature.params.iter().for_each(|param| self.type_cfg_combine(&param.ty, cfg));
-    }
     pub fn signature_param_is_borrowed(&self, param: &SignatureParam) -> bool {
         self.type_is_borrowed(&param.ty)
     }
     pub fn signature_param_is_failible_param(&self, param: &SignatureParam) -> bool {
         self.type_is_non_exclusive_winrt_interface(&param.ty)
     }
-    pub fn signature_param_is_trivially_convertible(&self, param: &SignatureParam) -> bool {
-        self.type_is_trivially_convertible(&param.ty)
-    }
     pub fn signature_param_is_convertible(&self, param: &SignatureParam) -> bool {
         !self.param_flags(param.def).contains(ParamAttributes::Out) && !param.ty.is_winrt_array() && !param.ty.is_pointer() && !param.kind.is_array() && (self.type_is_borrowed(&param.ty) || self.type_is_non_exclusive_winrt_interface(&param.ty) || self.type_is_trivially_convertible(&param.ty))
     }
-    pub fn signature_param_is_retval(&self, param: &SignatureParam) -> bool {
+    fn signature_param_is_retval(&self, param: &SignatureParam) -> bool {
         // The Win32 metadata uses `RetValAttribute` to call out retval methods but it is employed
         // very sparingly, so this heuristic is used to apply the transformation more uniformly.
-        if self.param_is_retval(param.def) {
+        if self.has_attribute(param.def, "RetValAttribute") {
             return true;
         }
         if !param.ty.is_pointer() {
@@ -1184,7 +973,7 @@ impl<'a> Reader<'a> {
         !self.type_is_callback(&param.ty.deref())
     }
     pub fn signature_kind(&self, signature: &Signature) -> SignatureKind {
-        if self.method_def_can_return_multiple_success_values(signature.def) {
+        if self.has_attribute(signature.def, "CanReturnMultipleSuccessValuesAttribute") {
             return SignatureKind::PreserveSig;
         }
         match &signature.return_type {
@@ -1226,145 +1015,13 @@ impl<'a> Reader<'a> {
         params.iter().rposition(|param| param.ty == Type::ConstPtr(Box::new(Type::GUID), 1) && !self.param_flags(param.def).contains(ParamAttributes::Out))
     }
     fn signature_param_is_query_object(&self, params: &[SignatureParam]) -> Option<usize> {
-        params.iter().rposition(|param| param.ty == Type::MutPtr(Box::new(Type::Void), 2) && self.param_is_com_out_ptr(param.def))
+        params.iter().rposition(|param| param.ty == Type::MutPtr(Box::new(Type::Void), 2) && self.has_attribute(param.def, "ComOutPtrAttribute"))
     }
 
     //
     // Other type queries
     //
 
-    fn cfg_add_attributes(&self, cfg: &mut Cfg, attributes: impl Iterator<Item = Attribute>) {
-        for attribute in attributes {
-            match self.attribute_name(attribute) {
-                "SupportedArchitectureAttribute" => {
-                    if let Some((_, Value::EnumDef(_, value))) = self.attribute_args(attribute).get(0) {
-                        if let Value::I32(value) = **value {
-                            if value & 1 == 1 {
-                                cfg.arches.insert("x86");
-                            }
-                            if value & 2 == 2 {
-                                cfg.arches.insert("x86_64");
-                            }
-                            if value & 4 == 4 {
-                                cfg.arches.insert("aarch64");
-                            }
-                        }
-                    }
-                }
-                "DeprecatedAttribute" => {
-                    cfg.add_feature("deprecated");
-                }
-                _ => {}
-            }
-        }
-    }
-    // TODO: remove or move to riddle
-    pub fn item_collect_standalone(&self, item: Item, set: &mut BTreeSet<Type>) {
-        match item {
-            Item::Type(def) => self.type_collect_standalone(&Type::TypeDef(def, vec![]), set),
-            Item::Const(def) => self.type_collect_standalone(&self.field_type(def, None).to_const_type(), set),
-            Item::Fn(def, namespace) => {
-                let signature = self.method_def_signature(&namespace, def, &[]);
-                self.type_collect_standalone(&signature.return_type, set);
-                signature.params.iter().for_each(|param| self.type_collect_standalone(&param.ty, set));
-            }
-        }
-    }
-    // TODO: remove or move to riddle
-    pub fn type_collect_standalone(&self, ty: &Type, set: &mut BTreeSet<Type>) {
-        let ty = ty.to_underlying_type();
-        if !set.insert(ty.clone()) {
-            return;
-        }
-
-        let Type::TypeDef(def, generics) = &ty else {
-            return;
-        };
-
-        let def = *def;
-
-        // Ensure that we collect all the typedefs of the same name. We need to
-        // do this in the case where the user specifies a top level item that
-        // references a typedef by name, but that name resolves to more than 1
-        // Type based on target architecture (typically)
-        //
-        // Note this is a bit overeager as we can collect a typedef that is used
-        // by one architecture but not by another
-        let type_name = self.type_def_type_name(def);
-        if !type_name.namespace.is_empty() {
-            for row in self.get_type_def(type_name) {
-                if def != row {
-                    self.type_collect_standalone(&Type::TypeDef(row, Vec::new()), set);
-                }
-            }
-        }
-
-        for generic in generics {
-            self.type_collect_standalone(generic, set);
-        }
-        for field in self.type_def_fields(def) {
-            let ty = self.field_type(field, Some(def));
-            if let Type::TypeDef(def, _) = &ty {
-                if self.type_def_namespace(*def).is_empty() {
-                    continue;
-                }
-            }
-            self.type_collect_standalone(&ty, set);
-        }
-        for method in self.type_def_methods(def) {
-            // Skip delegate pseudo-constructors.
-            if self.method_def_name(method) == ".ctor" {
-                continue;
-            }
-            let signature = self.method_def_signature(self.type_def_namespace(def), method, generics);
-            self.type_collect_standalone(&signature.return_type, set);
-            signature.params.iter().for_each(|param| self.type_collect_standalone(&param.ty, set));
-        }
-        for interface in self.type_interfaces(&ty) {
-            self.type_collect_standalone(&interface.ty, set);
-        }
-        if self.type_def_kind(def) == TypeKind::Struct && self.type_def_fields(def).next().is_none() && self.type_def_guid(def).is_some() {
-            set.insert(Type::GUID);
-        }
-
-        self.type_collect_standalone_nested(def, set);
-    }
-
-    fn type_collect_standalone_nested(&self, td: TypeDef, set: &mut BTreeSet<Type>) {
-        for nested in self.nested_types(td) {
-            self.type_collect_standalone_nested(nested, set);
-
-            for field in self.type_def_fields(nested) {
-                let ty = self.field_type(field, Some(nested));
-                if let Type::TypeDef(def, _) = &ty {
-                    // Skip the fields that actually refer to the anonymous nested
-                    // type, otherwise it will get added to the typeset and emitted
-                    if self.type_def_namespace(*def).is_empty() {
-                        continue;
-                    }
-
-                    self.type_collect_standalone(&ty, set);
-                }
-            }
-        }
-    }
-
-    pub fn type_cfg(&self, ty: &Type) -> Cfg {
-        let mut cfg = Cfg::default();
-        self.type_cfg_combine(ty, &mut cfg);
-        cfg
-    }
-    pub fn type_cfg_combine(&'a self, ty: &Type, cfg: &mut Cfg<'a>) {
-        match ty {
-            Type::TypeDef(row, generics) => self.type_def_cfg_combine(*row, generics, cfg),
-            Type::Win32Array(ty, _) => self.type_cfg_combine(ty, cfg),
-            Type::ConstPtr(ty, _) => self.type_cfg_combine(ty, cfg),
-            Type::MutPtr(ty, _) => self.type_cfg_combine(ty, cfg),
-            Type::WinrtArray(ty) => self.type_cfg_combine(ty, cfg),
-            Type::WinrtArrayRef(ty) => self.type_cfg_combine(ty, cfg),
-            ty => _ = cfg.core_types.insert(ty.clone()),
-        }
-    }
     pub fn type_interfaces(&self, ty: &Type) -> Vec<Interface> {
         // TODO: collect into btree map and then return collected vec
         // This will both sort the results and should make finding dupes faster
@@ -1403,7 +1060,7 @@ impl<'a> Reader<'a> {
                 for base in self.type_def_bases(*row) {
                     walk(self, &mut result, &Type::TypeDef(base, Vec::new()), true);
                 }
-                for attribute in self.type_def_attributes(*row) {
+                for attribute in self.attributes(*row) {
                     match self.attribute_name(attribute) {
                         "StaticAttribute" | "ActivatableAttribute" => {
                             for (_, arg) in self.attribute_args(attribute) {
@@ -1429,16 +1086,6 @@ impl<'a> Reader<'a> {
             rest => unimplemented!("{rest:?}"),
         }
     }
-    fn type_stdcall(&self, ty: &Type) -> usize {
-        match ty {
-            Type::I8 | Type::U8 => 1,
-            Type::I16 | Type::U16 => 2,
-            Type::I64 | Type::U64 | Type::F64 => 8,
-            Type::GUID => 16,
-            Type::TypeDef(row, _) => self.type_def_stdcall(*row),
-            _ => 4,
-        }
-    }
     pub fn type_is_exclusive(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef(row, _) => self.type_def_is_exclusive(*row),
@@ -1454,7 +1101,7 @@ impl<'a> Reader<'a> {
             _ => true,
         }
     }
-    pub fn type_is_copyable(&self, ty: &Type) -> bool {
+    fn type_is_copyable(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef(row, _) => self.type_def_is_copyable(*row),
             Type::String | Type::BSTR | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => false,
@@ -1463,14 +1110,14 @@ impl<'a> Reader<'a> {
             _ => true,
         }
     }
-    pub fn type_has_explicit_layout(&self, ty: &Type) -> bool {
+    fn type_has_explicit_layout(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef(row, _) => self.type_def_has_explicit_layout(*row),
             Type::Win32Array(ty, _) => self.type_has_explicit_layout(ty),
             _ => false,
         }
     }
-    pub fn type_has_packing(&self, ty: &Type) -> bool {
+    fn type_has_packing(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef(row, _) => self.type_def_has_packing(*row),
             Type::Win32Array(ty, _) => self.type_has_packing(ty),
@@ -1492,12 +1139,14 @@ impl<'a> Reader<'a> {
 
         let mut full_name = self.type_def_or_ref(code);
 
+        // TODO: remove this
         for (known_name, kind) in CORE_TYPES {
             if full_name == known_name {
                 return kind;
             }
         }
 
+        // TODO: remove this
         for (from, to) in REMAP_TYPES {
             if full_name == from {
                 full_name = to;
@@ -1589,13 +1238,13 @@ impl<'a> Reader<'a> {
             rest => unimplemented!("{rest:?}"),
         }
     }
-    pub fn type_name(&self, ty: &Type) -> &str {
+    fn type_name(&self, ty: &Type) -> &str {
         match ty {
             Type::TypeDef(row, _) => self.type_def_name(*row),
             _ => "",
         }
     }
-    pub fn type_signature(&self, ty: &Type) -> String {
+    fn type_signature(&self, ty: &Type) -> String {
         match ty {
             Type::Bool => "b1".to_string(),
             Type::Char => "c2".to_string(),
@@ -1633,7 +1282,7 @@ impl<'a> Reader<'a> {
             _ => false,
         }
     }
-    pub fn type_is_non_exclusive_winrt_interface(&self, ty: &Type) -> bool {
+    fn type_is_non_exclusive_winrt_interface(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef(row, _) => {
                 let flags = self.type_def_flags(*row);
@@ -1642,7 +1291,7 @@ impl<'a> Reader<'a> {
                 } else {
                     match self.type_def_kind(*row) {
                         TypeKind::Interface => !self.type_def_is_exclusive(*row),
-                        TypeKind::Class => self.type_def_is_composable(*row),
+                        TypeKind::Class => self.has_attribute(*row, "ComposableAttribute"),
                         _ => false,
                     }
                 }
@@ -1650,14 +1299,14 @@ impl<'a> Reader<'a> {
             _ => false,
         }
     }
-    pub fn type_is_trivially_convertible(&self, ty: &Type) -> bool {
+    fn type_is_trivially_convertible(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef(row, _) => self.type_def_is_trivially_convertible(*row),
             Type::PCSTR | Type::PCWSTR => true,
             _ => false,
         }
     }
-    pub fn type_is_callback(&self, ty: &Type) -> bool {
+    fn type_is_callback(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef(row, _) => self.type_def_is_callback(*row),
             _ => false,
@@ -1707,6 +1356,8 @@ fn trim_tick(name: &str) -> &str {
     }
 }
 
+// TODO: this should be in riddle's Rust generator if at all.
 pub const REMAP_TYPES: [(TypeName, TypeName); 2] = [(TypeName::D2D_MATRIX_3X2_F, TypeName::Matrix3x2), (TypeName::D3DMATRIX, TypeName::Matrix4x4)];
 
+// TODO: get rid of at least the second tuple if not the whole thing.
 pub const CORE_TYPES: [(TypeName, Type); 11] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HRESULT, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::BSTR, Type::BSTR), (TypeName::IInspectable, Type::IInspectable), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::TypeName), (TypeName::CHAR, Type::U8)];

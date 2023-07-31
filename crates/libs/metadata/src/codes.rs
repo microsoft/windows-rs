@@ -46,6 +46,52 @@ impl HasAttribute {
     }
 }
 
+impl From<MethodDef> for HasAttribute {
+    fn from(from: MethodDef) -> Self {
+        Self::MethodDef(from)
+    }
+}
+impl From<Field> for HasAttribute {
+    fn from(from: Field) -> Self {
+        Self::Field(from)
+    }
+}
+impl From<TypeRef> for HasAttribute {
+    fn from(from: TypeRef) -> Self {
+        Self::TypeRef(from)
+    }
+}
+impl From<TypeDef> for HasAttribute {
+    fn from(from: TypeDef) -> Self {
+        Self::TypeDef(from)
+    }
+}
+impl From<Param> for HasAttribute {
+    fn from(from: Param) -> Self {
+        Self::Param(from)
+    }
+}
+impl From<InterfaceImpl> for HasAttribute {
+    fn from(from: InterfaceImpl) -> Self {
+        Self::InterfaceImpl(from)
+    }
+}
+impl From<MemberRef> for HasAttribute {
+    fn from(from: MemberRef) -> Self {
+        Self::MemberRef(from)
+    }
+}
+impl From<TypeSpec> for HasAttribute {
+    fn from(from: TypeSpec) -> Self {
+        Self::TypeSpec(from)
+    }
+}
+impl From<GenericParam> for HasAttribute {
+    fn from(from: GenericParam) -> Self {
+        Self::GenericParam(from)
+    }
+}
+
 #[derive(Clone)]
 pub enum HasConstant {
     Field(Field),

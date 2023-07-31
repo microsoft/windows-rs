@@ -1,3 +1,4 @@
+use super::*;
 use crate::winmd::{self, writer};
 use metadata::RowReader;
 
@@ -41,6 +42,8 @@ pub fn from_reader(
             TypeName: writer.strings.insert(reader.type_def_name(def)),
             TypeNamespace: writer.strings.insert(reader.type_def_namespace(def)),
         });
+
+        // TODO: if the class is "Apis" then should we sort the fields (constants) and methods (functions) for stability
 
         for field in reader.type_def_fields(def) {
             let ty = winmd_type(reader, &reader.field_type(field, Some(def)));
