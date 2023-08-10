@@ -89,7 +89,7 @@ impl core::iter::FromIterator<TokenStream> for TokenStream {
     fn from_iter<I: IntoIterator<Item = TokenStream>>(iter: I) -> Self {
         iter.into_iter()
             .fold(None, |accum: Option<TokenStream>, n| {
-                let mut ts = accum.unwrap_or_else(TokenStream::new);
+                let mut ts = accum.unwrap_or_default();
                 ts.combine(&n);
                 Some(ts)
             })
