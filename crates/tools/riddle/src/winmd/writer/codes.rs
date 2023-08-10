@@ -55,3 +55,17 @@ impl HasConstant {
         }
     }
 }
+
+/// A `TypeOrMethodDef` is an index into a certain table used to locate the owner of a generic parameter.
+#[derive(Clone)]
+pub enum TypeOrMethodDef {
+    TypeDef(u32),
+}
+
+impl TypeOrMethodDef {
+    pub fn encode(&self) -> u32 {
+        match self {
+            Self::TypeDef(row) => (row + 1) << 1,
+        }
+    }
+}

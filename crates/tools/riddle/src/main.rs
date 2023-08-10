@@ -60,9 +60,9 @@ Options:
 
         match kind {
             ArgKind::None => match arg.as_str() {
-                "--in" => kind = ArgKind::Input,
-                "--out" => kind = ArgKind::Output,
-                "--filter" => kind = ArgKind::Filter,
+                "-i" | "--in" => kind = ArgKind::Input,
+                "-o" | "--out" => kind = ArgKind::Output,
+                "-f" | "--filter" => kind = ArgKind::Filter,
                 "--config" => kind = ArgKind::Config,
                 "--format" => format = true,
                 _ => return Err(Error::new(&format!("invalid option `{arg}`"))),
@@ -244,7 +244,7 @@ fn read_rdl_file(path: &str) -> Result<metadata::File> {
         .and_then(|file| file.into_winmd())
         .map(|bytes| {
             // TODO: Write bytes to file if you need to debug the intermediate .winmd file like so:
-            // _ = write_to_file("temp.winmd", &bytes);
+            _ = write_to_file("temp.winmd", &bytes);
 
             // Unwrapping here is fine since `rdl_to_winmd` should have produced a valid winmd
             metadata::File::new(bytes).unwrap()

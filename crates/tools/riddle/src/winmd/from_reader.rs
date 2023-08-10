@@ -20,13 +20,16 @@ pub fn from_reader(
         )));
     }
 
+    // TODO: just use the reader directly since we now have everything in the reader, there's no need to abstract
+    // away the source format. Few reprs is always better.
+
     for item in reader.items(filter) {
         // TODO: cover all variants
         let metadata::Item::Type(def) = item else {
             continue;
         };
 
-        let generics = &reader.type_def_generics(def);
+        let generics = &metadata::type_def_generics(reader, def);
 
         let extends = if let Some(extends) = reader.type_def_extends(def) {
             writer.insert_type_ref(extends.namespace, extends.name)
@@ -43,6 +46,34 @@ pub fn from_reader(
             TypeNamespace: writer.strings.insert(reader.type_def_namespace(def)),
         });
 
+        for generic in reader.type_def_generics(def) {
+            writer.tables.GenericParam.push(writer::GenericParam {
+                Number: reader.generic_param_number(generic),
+                Flags: 0,
+                Owner: writer::TypeOrMethodDef::TypeDef(writer.tables.TypeDef.len() as u32 - 1)
+                    .encode(),
+                Name: writer.strings.insert(reader.generic_param_name(generic)),
+            });
+        }
+
+        for imp in reader.type_def_interface_impls(def) {
+            let ty = reader.interface_impl_type(imp, generics);
+            let ty = winmd_type(reader, &ty);
+
+            let reference = match &ty {
+                winmd::Type::TypeRef(type_name) if type_name.generics.is_empty() => {
+                    writer.insert_type_ref(&type_name.namespace, &type_name.name)
+                }
+                winmd::Type::TypeRef(_) => writer.insert_type_spec(ty),
+                rest => unimplemented!("{rest:?}"),
+            };
+
+            writer.tables.InterfaceImpl.push(writer::InterfaceImpl {
+                Class: writer.tables.TypeDef.len() as u32 - 1,
+                Interface: reference,
+            });
+        }
+
         // TODO: if the class is "Apis" then should we sort the fields (constants) and methods (functions) for stability
 
         for field in reader.type_def_fields(def) {
@@ -57,27 +88,31 @@ pub fn from_reader(
         }
 
         for method in reader.type_def_methods(def) {
-            let name = reader.method_def_name(method);
-            let sig = winmd_signature(
-                reader,
-                &reader.method_def_signature(reader.type_def_namespace(def), method, generics),
-            );
-            let signature = writer.insert_method_sig(&sig);
+            let signature = reader.method_def_signature(method, generics);
+            let return_type = winmd_type(reader, &signature.return_type);
+            let param_types: Vec<Type> = signature
+                .params
+                .iter()
+                .map(|param| winmd_type(reader, param))
+                .collect();
+
+            let signature =
+                writer.insert_method_sig(signature.call_flags, &return_type, &param_types);
 
             writer.tables.MethodDef.push(winmd::MethodDef {
                 RVA: 0,
-                ImplFlags: 0,
-                Flags: 0,
-                Name: writer.strings.insert(name),
+                ImplFlags: reader.method_def_impl_flags(method).0,
+                Flags: reader.method_def_flags(method).0,
+                Name: writer.strings.insert(reader.method_def_name(method)),
                 Signature: signature,
                 ParamList: writer.tables.Param.len() as u32,
             });
 
-            for (sequence, param) in sig.params.iter().enumerate() {
+            for param in reader.method_def_params(method) {
                 writer.tables.Param.push(writer::Param {
-                    Flags: 0,
-                    Sequence: (sequence + 1) as u16,
-                    Name: writer.strings.insert(&param.name),
+                    Flags: reader.param_flags(param).0,
+                    Sequence: reader.param_sequence(param),
+                    Name: writer.strings.insert(reader.param_name(param)),
                 });
             }
         }
@@ -88,25 +123,7 @@ pub fn from_reader(
     crate::write_to_file(output, writer.into_stream()).map_err(|err| err.with_path(output))
 }
 
-fn winmd_signature(reader: &metadata::Reader, sig: &metadata::Signature) -> winmd::Signature {
-    let params = sig
-        .params
-        .iter()
-        .map(|param| {
-            let name = reader.param_name(param.def).to_string();
-            let ty = winmd_type(reader, &param.ty);
-            winmd::SignatureParam { name, ty }
-        })
-        .collect();
-
-    let return_type = winmd_type(reader, &sig.return_type);
-    winmd::Signature {
-        params,
-        return_type,
-        call_flags: 0,
-    }
-}
-
+// TODO: keep the basic type conversion
 fn winmd_type(reader: &metadata::Reader, ty: &metadata::Type) -> winmd::Type {
     match ty {
         metadata::Type::Void => winmd::Type::Void,
@@ -140,6 +157,23 @@ fn winmd_type(reader: &metadata::Reader, ty: &metadata::Type) -> winmd::Type {
             name: reader.type_def_name(*def).to_string(),
             generics: generics.iter().map(|ty| winmd_type(reader, ty)).collect(),
         }),
+        metadata::Type::GenericParam(generic) => {
+            winmd::Type::GenericParam(reader.generic_param_number(*generic))
+        }
+        metadata::Type::ConstRef(ty) => winmd::Type::ConstRef(Box::new(winmd_type(reader, ty))),
+        metadata::Type::WinrtArrayRef(ty) => {
+            winmd::Type::WinrtArrayRef(Box::new(winmd_type(reader, ty)))
+        }
+        metadata::Type::WinrtArray(ty) => winmd::Type::WinrtArray(Box::new(winmd_type(reader, ty))),
+        metadata::Type::MutPtr(ty, pointers) => {
+            winmd::Type::MutPtr(Box::new(winmd_type(reader, ty)), *pointers)
+        }
+        metadata::Type::ConstPtr(ty, pointers) => {
+            winmd::Type::ConstPtr(Box::new(winmd_type(reader, ty)), *pointers)
+        }
+        metadata::Type::Win32Array(ty, len) => {
+            winmd::Type::Win32Array(Box::new(winmd_type(reader, ty)), *len)
+        }
         rest => unimplemented!("{rest:?}"),
     }
 }

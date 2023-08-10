@@ -1,0 +1,21 @@
+#![winrt]
+
+mod Test {
+    interface IIterable<T> {
+        fn First() -> IIterator<T>;
+    }
+    interface IIterator<T> {
+        fn get_Current() -> T;
+        fn get_HasCurrent() -> bool;
+        fn MoveNext() -> bool;
+    }
+    interface IKeyValuePair<K, V> {
+        fn get_Key() -> K;
+        fn get_Value() -> V;
+    }
+    interface IMapView<K, V> : IIterable<IKeyValuePair<K, V>> {
+        fn Lookup(key: K) -> V;
+        fn get_Size() -> u32;
+        fn HasKey(key: K) -> bool;
+    }
+}

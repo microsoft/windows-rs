@@ -116,6 +116,7 @@ impl<'a> Writer<'a> {
 
         let file = rdl::File::parse_str(&tokens.into_string())?;
         crate::write_to_file(output, file.fmt())
+        //crate::write_to_file(output, tokens.into_string())
     }
 
     fn tree(&self, tree: &'a Tree) -> TokenStream {
@@ -275,22 +276,24 @@ impl<'a> Writer<'a> {
 
     fn class_def(&self, def: metadata::TypeDef) -> TokenStream {
         let name = to_ident(self.reader.type_def_name(def));
+        let implements = self.implements(def, &[]);
 
         quote! {
-            struct #name {
-
-            }
+            class #name #implements;
         }
     }
 
     fn interface_def(&self, def: metadata::TypeDef) -> TokenStream {
         let name = to_ident(self.reader.type_def_name(def));
-        let generics = &self.reader.type_def_generics(def);
+        let generics = &metadata::type_def_generics(self.reader, def);
+        let implements = self.implements(def, generics);
 
         let methods = self.reader.type_def_methods(def).map(|method| {
             let name = to_ident(self.reader.method_def_name(method));
 
-            let signature = self.reader.method_def_signature(
+            // TODO: use reader.method_def_signature instead
+            let signature = metadata::method_def_signature(
+                self.reader,
                 self.reader.type_def_namespace(def),
                 method,
                 generics,
@@ -309,10 +312,46 @@ impl<'a> Writer<'a> {
             }
         });
 
+        let generics = self.generics(generics);
+
         quote! {
-            interface #name {
+            interface #name #generics #implements {
                 #(#methods)*
             }
+        }
+    }
+
+    fn generics(&self, generics: &[metadata::Type]) -> TokenStream {
+        if generics.is_empty() {
+            quote! {}
+        } else {
+            let generics = generics.iter().map(|generic| self.ty(generic));
+
+            quote! { <#(#generics),*>}
+        }
+    }
+
+    fn implements(&self, def: metadata::TypeDef, generics: &[metadata::Type]) -> TokenStream {
+        let mut types = Vec::<metadata::Type>::new();
+
+        // TODO: if a winrt composable class then start with base
+        // TODO: then list default interface first
+        // Then everything else
+
+        for imp in self.reader.type_def_interface_impls(def) {
+            let ty = self.reader.interface_impl_type(imp, generics);
+            if self.reader.has_attribute(imp, "DefaultAttribute") {
+                types.insert(0, ty);
+            } else {
+                types.push(ty);
+            }
+        }
+
+        if types.is_empty() {
+            quote! {}
+        } else {
+            let types = types.iter().map(|ty| self.ty(ty));
+            quote! { : #(#types),* }
         }
     }
 
@@ -361,6 +400,14 @@ impl<'a> Writer<'a> {
                     quote! { #namespace #name<#(#generics,)*> }
                 }
             }
+
+            metadata::Type::TypeRef(code) => {
+                let type_name = self.reader.type_def_or_ref(*code);
+                let namespace = self.namespace(type_name.namespace);
+                let name = to_ident(type_name.name);
+                quote! { #namespace #name }
+            }
+
             metadata::Type::GenericParam(generic) => {
                 self.reader.generic_param_name(*generic).into()
             }
@@ -386,29 +433,42 @@ impl<'a> Writer<'a> {
         if namespace.is_empty() || self.namespace == namespace {
             quote! {}
         } else {
-            let mut relative = self.namespace.split('.').peekable();
-            let mut namespace = namespace.split('.').peekable();
-            let mut related = false;
+            // TODO: problem with making relative paths here is that we don't have the context to disambiguate
 
-            while relative.peek() == namespace.peek() {
-                related = true;
+            // let mut relative = self.namespace.split('.').peekable();
+            // let mut namespace = namespace.split('.').peekable();
+            // let mut related = false;
 
-                if relative.next().is_none() {
-                    break;
-                }
+            // while relative.peek() == namespace.peek() {
+            //     related = true;
 
-                namespace.next();
-            }
+            //     if relative.next().is_none() {
+            //         break;
+            //     }
+
+            //     namespace.next();
+            // }
+
+            // let mut tokens = TokenStream::new();
+
+            // if related {
+            //     for _ in 0..relative.count() {
+            //         tokens.push_str("super::");
+            //     }
+            // }
+
+            // for namespace in namespace {
+            //     tokens.push_str(namespace);
+            //     tokens.push_str("::");
+            // }
+
+            // tokens
+
+            // TODO: so instead we just gen it out in full
 
             let mut tokens = TokenStream::new();
 
-            if related {
-                for _ in 0..relative.count() {
-                    tokens.push_str("super::");
-                }
-            }
-
-            for namespace in namespace {
+            for namespace in namespace.split('.') {
                 tokens.push_str(namespace);
                 tokens.push_str("::");
             }

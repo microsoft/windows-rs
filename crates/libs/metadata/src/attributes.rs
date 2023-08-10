@@ -61,11 +61,12 @@ impl MethodAttributes {
     pub const Virtual: Self = Self(0x40);
 }
 
-flags!(MethodImplAttributes, usize);
+flags!(MethodImplAttributes, u16);
 impl MethodImplAttributes {
     pub const PreserveSig: Self = Self(0x80);
 }
 
+// These are not really ECMA-335 attributes but instead the flags found in the method signature.
 flags!(MethodCallAttributes, u8);
 impl MethodCallAttributes {
     pub const HASTHIS: Self = Self(0x20);

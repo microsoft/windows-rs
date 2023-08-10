@@ -8,19 +8,19 @@ pub fn verify(reader: &metadata::Reader, filter: &metadata::Filter) -> crate::Re
             continue;
         };
 
-        let generics = &reader.type_def_generics(def);
+        let generics = &metadata::type_def_generics(reader, def);
 
         reader
             .type_def_fields(def)
             .try_for_each(|field| not_type_ref(reader, &reader.field_type(field, Some(def))))?;
 
         reader.type_def_methods(def).try_for_each(|method| {
-            let sig = reader.method_def_signature(reader.type_def_namespace(def), method, generics);
+            let sig = reader.method_def_signature(method, generics);
             not_type_ref(reader, &sig.return_type)?;
 
             sig.params
                 .iter()
-                .try_for_each(|param| not_type_ref(reader, &param.ty))
+                .try_for_each(|param| not_type_ref(reader, param))
         })?;
     }
 

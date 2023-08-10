@@ -113,7 +113,7 @@ pub struct Field {
 pub struct Class {
     pub name: String,
     pub attributes: Vec<syn::Attribute>,
-    pub extends: Vec<syn::Path>,
+    pub extends: Vec<syn::TypePath>,
 }
 
 #[derive(Clone, Debug)]
@@ -126,7 +126,9 @@ pub struct Function {
 pub struct Interface {
     pub winrt: bool,
     pub name: String,
+    pub generics: Vec<String>,
     pub attributes: Vec<syn::Attribute>,
+    pub extends: Vec<syn::TypePath>,
     pub methods: Vec<syn::TraitItemFn>,
 }
 
@@ -254,8 +256,8 @@ impl Class {
 
         if input.peek(syn::Token![:]) {
             input.parse::<syn::Token![:]>()?;
-            while input.peek(syn::Ident) {
-                extends.push(input.parse::<syn::Path>()?);
+            while !input.peek(syn::Token![;]) {
+                extends.push(input.parse()?);
                 _ = input.parse::<syn::Token![,]>();
             }
         }
@@ -278,15 +280,40 @@ impl Interface {
     ) -> syn::Result<Self> {
         input.parse::<interface>()?;
         let name = input.parse::<syn::Ident>()?.to_string();
+
+        let mut generics = Vec::new();
+
+        if input.peek(syn::Token![<]) {
+            input.parse::<syn::Token![<]>()?;
+            while input.peek(syn::Ident) {
+                generics.push(input.parse::<syn::Ident>()?.to_string());
+                _ = input.parse::<syn::Token![,]>();
+            }
+
+            input.parse::<syn::Token![>]>()?;
+        }
+
+        let mut extends = Vec::new();
+
+        if input.peek(syn::Token![:]) {
+            input.parse::<syn::Token![:]>()?;
+            while !input.peek(syn::token::Brace) {
+                extends.push(input.parse()?);
+                _ = input.parse::<syn::Token![,]>();
+            }
+        }
+
         let content;
         syn::braced!(content in input);
         let mut methods = vec![];
         while !content.is_empty() {
-            methods.push(content.parse::<syn::TraitItemFn>()?);
+            methods.push(content.parse()?);
         }
         Ok(Self {
             winrt,
             attributes,
+            generics,
+            extends,
             name,
             methods,
         })

@@ -2,12 +2,12 @@ use super::*;
 
 pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
     if writer.reader.type_def_kind(def) != TypeKind::Interface
-        || (!writer.implement && !writer.reader.type_def_can_implement(def))
+        || (!writer.implement && writer.reader.has_attribute(def, "ExclusiveToAttribute"))
     {
         return quote! {};
     }
 
-    let generics = &writer.reader.type_def_generics(def);
+    let generics = &type_def_generics(writer.reader, def);
     let type_ident = to_ident(writer.reader.type_def_name(def));
     let impl_ident = type_ident.join("_Impl");
     let vtbl_ident = type_ident.join("_Vtbl");
@@ -52,10 +52,7 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
         .contains(TypeAttributes::WindowsRuntime)
     {
         // TODO: this awkward wrapping of TypeDefs needs fixing
-        for interface in writer
-            .reader
-            .type_interfaces(&Type::TypeDef(def, generics.to_vec()))
-        {
+        for interface in type_interfaces(writer.reader, &Type::TypeDef(def, generics.to_vec())) {
             if let Type::TypeDef(def, generics) = interface.ty {
                 requires.combine(&gen_required_trait(writer, def, &generics));
             }
@@ -71,7 +68,8 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
     let method_traits = writer.reader.type_def_methods(def).map(|method| {
         let name = method_names.add(writer, method);
 
-        let signature = writer.reader.method_def_signature(
+        let signature = method_def_signature(
+            writer.reader,
             writer.reader.type_def_namespace(def),
             method,
             generics,
@@ -86,7 +84,7 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
 
     let method_impls = writer.reader.type_def_methods(def).map(|method| {
         let name = method_names.add(writer, method);
-        let signature = writer.reader.method_def_signature(writer.reader.type_def_namespace(def), method, generics);
+        let signature = method_def_signature(writer.reader,writer.reader.type_def_namespace(def), method, generics);
         let vtbl_signature = writer.vtbl_signature(def, generics, &signature);
 
         let invoke_upcall = if writer.reader.type_def_flags(def).contains(TypeAttributes::WindowsRuntime) { winrt_methods::gen_upcall(writer, &signature, quote! { this.#name }) } else { com_methods::gen_upcall(writer, &signature, quote! { this.#name }) };

@@ -16,10 +16,12 @@ fn gen_callback(writer: &Writer, def: TypeDef) -> TokenStream {
     let name = to_ident(writer.reader.type_def_name(def));
     let method = type_def_invoke_method(writer.reader, def);
 
-    let signature =
-        writer
-            .reader
-            .method_def_signature(writer.reader.type_def_namespace(def), method, &[]);
+    let signature = method_def_signature(
+        writer.reader,
+        writer.reader.type_def_namespace(def),
+        method,
+        &[],
+    );
 
     let return_type = writer.return_sig(&signature);
     let cfg = type_def_cfg(writer.reader, def, &[]);
@@ -55,7 +57,7 @@ fn gen_win_delegate(writer: &Writer, def: TypeDef) -> TokenStream {
     let vtbl = name.join("_Vtbl");
     let boxed = name.join("Box");
 
-    let generics = &writer.reader.type_def_generics(def);
+    let generics = &type_def_generics(writer.reader, def);
     let phantoms = writer.generic_phantoms(generics);
     let named_phantoms = writer.generic_named_phantoms(generics);
     let constraints = writer.generic_constraints(generics);
@@ -64,10 +66,12 @@ fn gen_win_delegate(writer: &Writer, def: TypeDef) -> TokenStream {
     let ident = writer.type_def_name(def, generics);
     let method = type_def_invoke_method(writer.reader, def);
 
-    let signature =
-        writer
-            .reader
-            .method_def_signature(writer.reader.type_def_namespace(def), method, generics);
+    let signature = method_def_signature(
+        writer.reader,
+        writer.reader.type_def_namespace(def),
+        method,
+        generics,
+    );
 
     let fn_constraint = gen_fn_constraint(writer, def, &signature);
     let cfg = type_def_cfg(writer.reader, def, generics);

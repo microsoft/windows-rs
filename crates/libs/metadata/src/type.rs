@@ -30,7 +30,7 @@ pub enum Type {
     TypeName,
 
     // Regular ECMA-335 types that map to metadata
-    TypeRef(TypeDefOrRef),
+    TypeRef(TypeDefOrRef), // Note: this ought to be a TypeName but that would require Type to have a lifetime reference.
     GenericParam(GenericParam),
     TypeDef(TypeDef, Vec<Self>),
 

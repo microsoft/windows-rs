@@ -1,3 +1,4 @@
+mod generic_interfaces;
 mod module_attributes;
 mod nested_module;
 mod nested_struct;
