@@ -542,6 +542,7 @@ impl<'a> Writer<'a> {
                 tokens.push('\"');
                 tokens.into()
             }
+            Value::Char(value) => format!("'{}'", value.escape_default()).into(),
             rest => unimplemented!("{rest:?}"),
         }
     }
@@ -562,6 +563,7 @@ impl<'a> Writer<'a> {
             Value::String(_) => {
                 quote! { &str = #literal }
             }
+            Value::Char(_) => quote! { char = #literal },
             rest => unimplemented!("{rest:?}"),
         }
     }

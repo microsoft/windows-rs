@@ -109,6 +109,10 @@ impl<'a> Blob<'a> {
         value
     }
 
+    pub fn read_char(&mut self) -> char {
+        char::from_u32(self.read_u16().into()).unwrap()
+    }
+
     pub fn read_i32(&mut self) -> i32 {
         let value = i32::from_le_bytes(self[..4].try_into().unwrap());
         self.offset(4);

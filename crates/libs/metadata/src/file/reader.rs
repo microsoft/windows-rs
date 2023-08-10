@@ -151,6 +151,7 @@ pub trait RowReader<'a> {
             Type::F32 => Value::F32(blob.read_f32()),
             Type::F64 => Value::F64(blob.read_f64()),
             Type::String => Value::String(blob.read_string()),
+            Type::Char => Value::Char(blob.read_char()),
             rest => unimplemented!("{rest:?}"),
         }
     }

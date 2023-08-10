@@ -47,6 +47,7 @@ pub enum Value {
     F32(f32),
     F64(f64),
     String(String),
+    Char(char),
     TypeName(String),
     TypeRef(TypeDefOrRef),
     EnumDef(TypeDef, Box<Self>),
