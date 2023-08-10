@@ -151,9 +151,7 @@ pub fn writer(
 
     let wfc = writer.namespace("Windows.Foundation.Collections");
     let mut iterable = None;
-    let interfaces = writer
-        .reader
-        .type_interfaces(&Type::TypeDef(def, generics.to_vec()));
+    let interfaces = type_interfaces(writer.reader, &Type::TypeDef(def, generics.to_vec()));
 
     // If the class or interface is not one of the well-known collection interfaces, we then see whether it
     // implements any one of them. Here is where we favor IVectorView/IVector over IIterable.

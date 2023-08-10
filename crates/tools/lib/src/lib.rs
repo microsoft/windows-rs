@@ -52,7 +52,7 @@ fn combine_libraries(
     libraries: &mut BTreeMap<String, BTreeMap<String, CallingConvention>>,
 ) {
     for item in reader.items(&Default::default()) {
-        let metadata::Item::Fn(method, namespace) = item else {
+        let metadata::Item::Fn(method, _) = item else {
             continue;
         };
 
@@ -69,7 +69,7 @@ fn combine_libraries(
         }
 
         if flags.contains(metadata::PInvokeAttributes::CallConvPlatformapi) {
-            let params = reader.method_def_size(&namespace, method);
+            let params = reader.method_def_size(method);
             libraries
                 .entry(library)
                 .or_default()

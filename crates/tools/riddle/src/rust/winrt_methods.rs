@@ -10,7 +10,8 @@ pub fn writer(
     method_names: &mut MethodNames,
     virtual_names: &mut MethodNames,
 ) -> TokenStream {
-    let signature = writer.reader.method_def_signature(
+    let signature = method_def_signature(
+        writer.reader,
         writer.reader.type_def_namespace(def),
         method,
         generic_types,
@@ -21,7 +22,7 @@ pub fn writer(
     let vname = virtual_names.add(writer, method);
     let generics = writer.constraint_generics(params);
     let where_clause = writer.where_clause(params);
-    let mut cfg = signature_cfg(writer.reader, &signature);
+    let mut cfg = signature_cfg(writer.reader, method);
     type_def_cfg_combine(writer.reader, def, generic_types, &mut cfg);
     let doc = writer.cfg_method_doc(&cfg);
     let features = writer.cfg_features(&cfg);
@@ -125,7 +126,7 @@ fn gen_winrt_params(writer: &Writer, params: &[SignatureParam]) -> TokenStream {
         {
             if param.ty.is_winrt_array() {
                 result.combine(&quote! { #name: &[#default_type], });
-            } else if writer.reader.signature_param_is_convertible(param) {
+            } else if signature_param_is_convertible(writer.reader, param) {
                 let (position, _) = generic_params.next().unwrap();
                 let kind: TokenStream = format!("P{position}").into();
                 result.combine(&quote! { #name: #kind, });
@@ -162,9 +163,9 @@ fn gen_winrt_abi_args(writer: &Writer, params: &[SignatureParam]) -> TokenStream
                 } else {
                     quote! { #name.len() as u32, ::core::mem::transmute(#name.as_ptr()), }
                 }
-            } else if writer.reader.signature_param_is_failible_param(param) {
+            } else if type_is_non_exclusive_winrt_interface(writer.reader, &param.ty) {
                 quote! { #name.try_into_param()?.abi(), }
-            } else if writer.reader.signature_param_is_borrowed(param) {
+            } else if signature_param_is_borrowed(writer.reader, param) {
                 quote! { #name.into_param().abi(), }
             } else if writer.reader.type_is_blittable(&param.ty) {
                 if param.ty.is_const_ref() {

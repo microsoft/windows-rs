@@ -85,10 +85,64 @@ impl Writer {
         }
     }
 
+    fn rdl_class(&mut self, member: &rdl::Class) {
+        self.attrs(&member.attributes);
+        self.word("class ");
+        self.word(&member.name);
+
+        if !member.extends.is_empty() {
+            self.word(" : ");
+
+            let mut first = true;
+            for path in &member.extends {
+                if first {
+                    first = false;
+                } else {
+                    self.word(", ");
+                }
+                self.type_path(path);
+            }
+        }
+
+        self.word(";");
+        self.newline();
+    }
+
     fn rdl_interface(&mut self, member: &rdl::Interface) {
         self.attrs(&member.attributes);
         self.word("interface ");
         self.word(&member.name);
+
+        if !member.generics.is_empty() {
+            self.word("<");
+
+            let mut first = true;
+            for generic in &member.generics {
+                if first {
+                    first = false;
+                } else {
+                    self.word(", ");
+                }
+                self.word(generic);
+            }
+
+            self.word(">");
+        }
+
+        if !member.extends.is_empty() {
+            self.word(" : ");
+
+            let mut first = true;
+            for path in &member.extends {
+                if first {
+                    first = false;
+                } else {
+                    self.word(", ");
+                }
+                self.type_path(path);
+            }
+        }
+
         self.word(" {");
         self.newline();
         self.indent += 1;
@@ -204,8 +258,6 @@ impl Writer {
         self.newline();
         self.word("}");
     }
-
-    fn rdl_class(&mut self, _member: &rdl::Class) {}
 
     fn trait_item_fn(&mut self, method: &syn::TraitItemFn) {
         self.attrs(&method.attrs);
@@ -337,6 +389,29 @@ impl Writer {
 
     pub fn path_segment(&mut self, segment: &syn::PathSegment) {
         self.ident(&segment.ident);
+
+        if let syn::PathArguments::AngleBracketed(args) = &segment.arguments {
+            self.word("<");
+
+            let mut first = true;
+            for arg in &args.args {
+                if first {
+                    first = false;
+                } else {
+                    self.word(", ");
+                }
+                self.generic_argument(arg);
+            }
+
+            self.word(">");
+        }
+    }
+
+    fn generic_argument(&mut self, arg: &syn::GenericArgument) {
+        match arg {
+            syn::GenericArgument::Type(ty) => self.ty(ty),
+            rest => unimplemented!("{rest:?}"),
+        }
     }
 
     fn item_use(&mut self, item: &syn::ItemUse) {

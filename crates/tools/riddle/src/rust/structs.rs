@@ -181,7 +181,7 @@ fn gen_compare_traits(writer: &Writer, def: TypeDef, name: &TokenStream, cfg: &C
     if writer.sys
         || writer.reader.type_def_has_explicit_layout(def)
         || writer.reader.type_def_has_packing(def)
-        || writer.reader.type_def_has_callback(def)
+        || type_def_has_callback(writer.reader, def)
     {
         quote! {}
     } else {
@@ -232,7 +232,7 @@ fn gen_debug(writer: &Writer, def: TypeDef, ident: &TokenStream, cfg: &Cfg) -> T
                 let name = writer.reader.field_name(f);
                 let ident = to_ident(name);
                 let ty = writer.reader.field_type(f, Some(def));
-                if writer.reader.type_has_callback(&ty) {
+                if type_has_callback(writer.reader, &ty) {
                     None
                 } else {
                     Some(quote! { .field(#name, &self.#ident) })

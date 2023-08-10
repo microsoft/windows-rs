@@ -25,8 +25,8 @@ pub fn writer(writer: &Writer, namespace: &str, def: MethodDef) -> TokenStream {
 }
 
 fn gen_sys_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenStream {
-    let signature = writer.reader.method_def_signature(namespace, def, &[]);
-    let cfg = signature_cfg(writer.reader, &signature);
+    let signature = method_def_signature(writer.reader, namespace, def, &[]);
+    let cfg = signature_cfg(writer.reader, def);
     let mut tokens = writer.cfg_features(&cfg);
     tokens.combine(&gen_link(writer, namespace, &signature, &cfg));
     tokens
@@ -34,16 +34,16 @@ fn gen_sys_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenSt
 
 fn gen_win_function(writer: &Writer, namespace: &str, def: MethodDef) -> TokenStream {
     let name = to_ident(writer.reader.method_def_name(def));
-    let signature = writer.reader.method_def_signature(namespace, def, &[]);
+    let signature = method_def_signature(writer.reader, namespace, def, &[]);
     let generics = writer.constraint_generics(&signature.params);
     let where_clause = writer.where_clause(&signature.params);
     let abi_return_type = writer.return_sig(&signature);
-    let cfg = signature_cfg(writer.reader, &signature);
+    let cfg = signature_cfg(writer.reader, def);
     let doc = writer.cfg_doc(&cfg);
     let features = writer.cfg_features(&cfg);
     let link = gen_link(writer, namespace, &signature, &cfg);
 
-    let kind = writer.reader.signature_kind(&signature);
+    let kind = signature_kind(writer.reader, &signature);
     match kind {
         SignatureKind::Query(_) => {
             let args = writer.win32_args(&signature.params, kind);

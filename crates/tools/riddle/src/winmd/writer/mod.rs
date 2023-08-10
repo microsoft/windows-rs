@@ -8,7 +8,7 @@ mod r#type;
 
 use super::*;
 use blobs::Blobs;
-use codes::*;
+pub use codes::*;
 use metadata::imp::*;
 pub use r#type::*;
 use std::collections::HashMap;
@@ -21,7 +21,9 @@ pub struct Writer {
     pub strings: Strings,
     pub tables: Tables,
     pub scopes: HashMap<String, u32>,
-    pub references: HashMap<String, HashMap<String, u32>>,
+    // TODO: is this faster than jsut using a single HashMap with a (String,String) key?
+    pub type_refs: HashMap<String, HashMap<String, u32>>,
+    pub type_specs: HashMap<Type, u32>,
 }
 
 impl Writer {
@@ -31,7 +33,8 @@ impl Writer {
             strings: Default::default(),
             tables: Default::default(),
             scopes: Default::default(),
-            references: Default::default(),
+            type_refs: Default::default(),
+            type_specs: Default::default(),
         };
 
         writer.tables.TypeDef.push(TypeDef {
@@ -77,97 +80,25 @@ impl Writer {
         )
     }
 
-    // fn insert_module_types(&mut self, module: &'a Module) {
-    //     for (name, def) in &module.types {
-    //         self.insert_type_def(&module.namespace, name, def);
-    //     }
-    //     module.modules.values().for_each(|module| self.insert_module_types(module));
-    // }
+    pub fn insert_method_sig(
+        &mut self,
+        call_flags: metadata::MethodCallAttributes,
+        return_type: &Type,
+        param_types: &[Type],
+    ) -> u32 {
+        let mut blob = vec![call_flags.0];
+        usize_blob(param_types.len(), &mut blob);
+        self.type_blob(return_type, &mut blob);
 
-    // fn insert_type_def(&mut self, namespace: &'a str, name: &'a str, def: &'a [TypeDef]) {
-    //     for def in def {
-    //         let extends = if let Some(extends) = &def.extends { self.insert_type_ref(&extends.namespace, &extends.name) } else { 0 };
-    //         self.tables.TypeDef.push(TypeDef {
-    //             Flags: def.flags.0,
-    //             TypeName: self.strings.insert(name),
-    //             TypeNamespace: self.strings.insert(namespace),
-    //             Extends: extends,
-    //             FieldList: self.tables.Field.len() as u32,
-    //             MethodList: self.tables.MethodDef.len() as u32,
-    //         });
-    //         for field in &def.fields {
-    //             let blob = self.insert_field_sig(&field.ty);
-    //             let parent = self.tables.Field.push2(Field { Flags: field.flags.0, Name: self.strings.insert(&field.name), Signature: blob });
-    //             if let Some(value) = &field.value {
-    //                 let blob = self.insert_value_blob(value);
-    //                 self.tables.Constant.push(Constant { Type: value.to_code(), Parent: HasConstant::Field(parent).encode(), Value: blob });
-    //             }
-    //         }
-    //         for method in &def.methods {
-    //             let blob = self.insert_method_sig(method);
-    //             self.tables.MethodDef.push(MethodDef { RVA: 0, ImplFlags: 0, Flags: method.flags.0, Name: self.strings.insert(&method.name), Signature: blob, ParamList: self.tables.Param.len() as u32 });
-    //             for (sequence, param) in method.params.iter().enumerate() {
-    //                 self.tables.Param.push(Param { Flags: param.flags.0, Sequence: (sequence + 1) as u32, Name: self.strings.insert(&param.name) });
-    //             }
-    //         }
-    //     }
-    // }
-
-    // fn insert_value_blob(&mut self, value: &Value) -> u32 {
-    //     // TODO: can either cache in Writer, like we do for scopes and references, or regenerate each time.
-    //     // Profile once we can stress test this with field/method signatures.
-
-    //     let blob = match value {
-    //         Value::I8(value) => value.to_le_bytes().to_vec(),
-    //         Value::U8(value) => value.to_le_bytes().to_vec(),
-    //         Value::I16(value) => value.to_le_bytes().to_vec(),
-    //         Value::U16(value) => value.to_le_bytes().to_vec(),
-    //         Value::I32(value) => value.to_le_bytes().to_vec(),
-    //         Value::U32(value) => value.to_le_bytes().to_vec(),
-    //         Value::I64(value) => value.to_le_bytes().to_vec(),
-    //         Value::U64(value) => value.to_le_bytes().to_vec(),
-    //         Value::F32(value) => value.to_le_bytes().to_vec(),
-    //         Value::F64(value) => value.to_le_bytes().to_vec(),
-    //         Value::String(value) => {
-    //             let mut blob = vec![];
-    //             usize_blob(value.len(), &mut blob);
-    //             blob.extend_from_slice(value.as_bytes());
-    //             blob
-    //         }
-    //         rest => unimplemented!("{rest:?}"),
-    //     };
-
-    //     self.blobs.insert(&blob)
-    // }
-
-    // fn insert_method_sig(&mut self, method: &'a Method) -> u32 {
-    //     // TODO: can either cache in Writer, like we do for scopes and references, or regenerate each time.
-    //     // Profile once we can stress test this with field/method signatures.
-
-    //     let mut blob = vec![method.call_flags.0];
-    //     usize_blob(method.params.len(), &mut blob);
-    //     self.type_blob(&method.return_type.ty, &mut blob);
-    //     for param in &method.params {
-    //         self.type_blob(&param.ty, &mut blob);
-    //     }
-
-    //     self.blobs.insert(&blob)
-    // }
-
-    pub fn insert_method_sig(&mut self, sig: &Signature) -> u32 {
-        let mut blob = vec![sig.call_flags];
-        usize_blob(sig.params.len(), &mut blob);
-        self.type_blob(&sig.return_type, &mut blob);
-
-        for param in &sig.params {
-            self.type_blob(&param.ty, &mut blob);
+        for ty in param_types {
+            self.type_blob(ty, &mut blob);
         }
 
         self.blobs.insert(&blob)
     }
 
     pub fn insert_field_sig(&mut self, ty: &Type) -> u32 {
-        // TODO: can either cache in Writer, like we do for scopes and references, or regenerate each time.
+        // TODO: can either cache in Writer, like we do for scopes and type_refs, or regenerate each time.
         // Profile once we can stress test this with field/method signatures.
 
         let mut blob = vec![0x6]; // FIELD
@@ -186,7 +117,7 @@ impl Writer {
                     MajorVersion: 4,
                     PublicKeyOrToken: self
                         .blobs
-                        .insert(&[0xB7, 0x7A, 0x5C, 0x56, 0x19, 0x34, 0xE0, 0x89]),
+                        .insert(&[0xB7, 0x7A, 0x5C, 0x56, 0x19, 0x34, 0xE0, 0x89]), // TODO: comment on this
                     ..Default::default()
                 }),
             )
@@ -194,7 +125,7 @@ impl Writer {
             self.scopes.insert(namespace.to_string(), scope);
             scope
         } else {
-            // TODO: may need to capture the original assembly info for external references.
+            // TODO: may need to capture the original assembly info for external type_refs.
             let scope = ResolutionScope::AssemblyRef(self.tables.AssemblyRef.push2(AssemblyRef {
                 Name: self.strings.insert(namespace),
                 MajorVersion: 0xFF,
@@ -211,7 +142,7 @@ impl Writer {
     }
 
     pub fn insert_type_ref(&mut self, namespace: &str, name: &str) -> u32 {
-        if let Some(key) = self.references.get(namespace) {
+        if let Some(key) = self.type_refs.get(namespace) {
             if let Some(reference) = key.get(name) {
                 return *reference;
             }
@@ -225,10 +156,28 @@ impl Writer {
             ResolutionScope: scope,
         }))
         .encode();
-        self.references
+        self.type_refs
             .entry(namespace.to_string())
             .or_default()
             .insert(name.to_string(), reference);
+        reference
+    }
+
+    pub fn insert_type_spec(&mut self, ty: Type) -> u32 {
+        if let Some(key) = self.type_specs.get(&ty) {
+            return *key;
+        }
+
+        let mut blob = vec![];
+        self.type_blob(&ty, &mut blob);
+        let signature = self.blobs.insert(&blob);
+
+        let reference = TypeDefOrRef::TypeSpec(self.tables.TypeSpec.push2(TypeSpec {
+            Signature: signature,
+        }))
+        .encode();
+
+        self.type_specs.insert(ty, reference);
         reference
     }
 
@@ -262,9 +211,20 @@ impl Writer {
                 usize_blob(code as usize, blob);
             }
             Type::TypeRef(ty) => {
+                if !ty.generics.is_empty() {
+                    blob.push(ELEMENT_TYPE_GENERICINST);
+                }
                 let code = self.insert_type_ref(&ty.namespace, &ty.name);
                 blob.push(ELEMENT_TYPE_VALUETYPE);
                 usize_blob(code as usize, blob);
+
+                if !ty.generics.is_empty() {
+                    usize_blob(ty.generics.len(), blob);
+
+                    for ty in &ty.generics {
+                        self.type_blob(ty, blob);
+                    }
+                }
             }
             Type::BSTR => {
                 let code = self.insert_type_ref("Windows.Win32.Foundation", "BSTR");
@@ -322,7 +282,10 @@ impl Writer {
                 }
                 self.type_blob(ty, blob);
             }
-            rest => unimplemented!("{rest:?}"),
+            Type::GenericParam(index) => {
+                blob.push(ELEMENT_TYPE_VAR);
+                usize_blob(*index as usize, blob);
+            }
         }
     }
 }

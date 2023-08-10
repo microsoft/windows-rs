@@ -168,7 +168,7 @@ fn item_collect_standalone(reader: &Reader, item: Item, set: &mut BTreeSet<Type>
             type_collect_standalone(reader, &reader.field_type(def, None).to_const_type(), set)
         }
         Item::Fn(def, namespace) => {
-            let signature = reader.method_def_signature(&namespace, def, &[]);
+            let signature = method_def_signature(reader, &namespace, def, &[]);
             type_collect_standalone(reader, &signature.return_type, set);
             signature
                 .params
@@ -224,14 +224,14 @@ fn type_collect_standalone(reader: &Reader, ty: &Type, set: &mut BTreeSet<Type>)
             continue;
         }
         let signature =
-            reader.method_def_signature(reader.type_def_namespace(def), method, generics);
+            method_def_signature(reader, reader.type_def_namespace(def), method, generics);
         type_collect_standalone(reader, &signature.return_type, set);
         signature
             .params
             .iter()
             .for_each(|param| type_collect_standalone(reader, &param.ty, set));
     }
-    for interface in reader.type_interfaces(&ty) {
+    for interface in type_interfaces(reader, &ty) {
         type_collect_standalone(reader, &interface.ty, set);
     }
     if reader.type_def_kind(def) == TypeKind::Struct

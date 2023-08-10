@@ -60,11 +60,7 @@ pub fn type_def_cfg_impl<'a>(reader: &'a Reader, def: TypeDef, generics: &[Type]
         type_def_cfg_combine(reader, def, generics, cfg);
 
         for method in reader.type_def_methods(def) {
-            signature_cfg_combine(
-                reader,
-                &reader.method_def_signature(reader.type_def_namespace(def), method, generics),
-                cfg,
-            );
+            signature_cfg_combine(reader, &reader.method_def_signature(method, generics), cfg);
         }
     }
 
@@ -81,7 +77,7 @@ pub fn type_def_cfg_impl<'a>(reader: &'a Reader, def: TypeDef, generics: &[Type]
         .contains(TypeAttributes::WindowsRuntime)
     {
         for interface in reader.type_def_interfaces(def, generics) {
-            if let Type::TypeDef(def, generics) = interface.ty {
+            if let Type::TypeDef(def, generics) = interface {
                 combine(reader, def, &generics, &mut cfg);
             }
         }
@@ -140,11 +136,7 @@ pub fn type_def_cfg_combine<'a>(
             }
             TypeKind::Delegate => signature_cfg_combine(
                 reader,
-                &reader.method_def_signature(
-                    type_name.namespace,
-                    type_def_invoke_method(reader, row),
-                    generics,
-                ),
+                &reader.method_def_signature(type_def_invoke_method(reader, row), generics),
                 cfg,
             ),
             _ => {}
@@ -152,18 +144,18 @@ pub fn type_def_cfg_combine<'a>(
     }
 }
 
-pub fn signature_cfg<'a>(reader: &'a Reader, signature: &Signature) -> Cfg<'a> {
+pub fn signature_cfg<'a>(reader: &'a Reader, method: MethodDef) -> Cfg<'a> {
     let mut cfg = Cfg::default();
-    signature_cfg_combine(reader, signature, &mut cfg);
-    cfg_add_attributes(reader, &mut cfg, signature.def);
+    signature_cfg_combine(reader, &reader.method_def_signature(method, &[]), &mut cfg);
+    cfg_add_attributes(reader, &mut cfg, method);
     cfg
 }
-fn signature_cfg_combine<'a>(reader: &'a Reader, signature: &Signature, cfg: &mut Cfg<'a>) {
+fn signature_cfg_combine<'a>(reader: &'a Reader, signature: &MethodDefSig, cfg: &mut Cfg<'a>) {
     type_cfg_combine(reader, &signature.return_type, cfg);
     signature
         .params
         .iter()
-        .for_each(|param| type_cfg_combine(reader, &param.ty, cfg));
+        .for_each(|param| type_cfg_combine(reader, param, cfg));
 }
 
 fn cfg_add_attributes<R: AsRow + Into<HasAttribute>>(reader: &Reader, cfg: &mut Cfg, row: R) {

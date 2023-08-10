@@ -1,5 +1,6 @@
 use super::*;
-use crate::{rdl, winmd, Result};
+use crate::winmd::{self, writer};
+use crate::{rdl, Result};
 
 // TODO: store span in winmd so that errors resolving type references can be traced back to file/line/column
 use std::collections::HashMap;
@@ -106,27 +107,72 @@ fn write_interface(
 
     writer.tables.TypeDef.push(winmd::TypeDef {
         Extends: 0,
-        FieldList: 0,
-        Flags: flags.0,
+        FieldList: writer.tables.Field.len() as u32,
         MethodList: writer.tables.MethodDef.len() as u32,
+        Flags: flags.0,
         TypeName: writer.strings.insert(name),
         TypeNamespace: writer.strings.insert(namespace),
     });
 
+    for (number, generic) in member.generics.iter().enumerate() {
+        writer.tables.GenericParam.push(writer::GenericParam {
+            Number: number as u16,
+            Flags: 0,
+            Owner: writer::TypeOrMethodDef::TypeDef(writer.tables.TypeDef.len() as u32 - 1)
+                .encode(),
+            Name: writer.strings.insert(generic),
+        });
+    }
+
+    for type_path in &member.extends {
+        let ty = syn_type_path(namespace, &member.generics, type_path);
+
+        let reference = match &ty {
+            winmd::Type::TypeRef(type_name) if type_name.generics.is_empty() => {
+                writer.insert_type_ref(&type_name.namespace, &type_name.name)
+            }
+            winmd::Type::TypeRef(_) => writer.insert_type_spec(ty),
+            rest => unimplemented!("{rest:?}"),
+        };
+
+        writer.tables.InterfaceImpl.push(writer::InterfaceImpl {
+            Class: writer.tables.TypeDef.len() as u32 - 1,
+            Interface: reference,
+        });
+    }
+
     for method in &member.methods {
-        let sig = syn_signature(namespace, &method.sig);
-        let signature = writer.insert_method_sig(&sig);
+        let signature = syn_signature(namespace, &member.generics, &method.sig);
+
+        let params: Vec<winmd::Type> = signature
+            .params
+            .iter()
+            .map(|param| param.ty.clone())
+            .collect();
+
+        let signature_blob = writer.insert_method_sig(
+            metadata::MethodCallAttributes(0),
+            &signature.return_type,
+            &params,
+        );
+
+        let flags = metadata::MethodAttributes::Abstract
+            | metadata::MethodAttributes::HideBySig
+            | metadata::MethodAttributes::HideBySig
+            | metadata::MethodAttributes::NewSlot
+            | metadata::MethodAttributes::Public
+            | metadata::MethodAttributes::Virtual;
 
         writer.tables.MethodDef.push(winmd::MethodDef {
             RVA: 0,
             ImplFlags: 0,
-            Flags: 0,
+            Flags: flags.0,
             Name: writer.strings.insert(&method.sig.ident.to_string()),
-            Signature: signature,
+            Signature: signature_blob,
             ParamList: writer.tables.Param.len() as u32,
         });
 
-        for (sequence, param) in sig.params.iter().enumerate() {
+        for (sequence, param) in signature.params.iter().enumerate() {
             writer.tables.Param.push(winmd::Param {
                 Flags: 0,
                 Sequence: (sequence + 1) as u16,
@@ -139,7 +185,6 @@ fn write_interface(
 fn write_struct(writer: &mut winmd::Writer, namespace: &str, name: &str, member: &rdl::Struct) {
     let mut flags = metadata::TypeAttributes::Public
         | metadata::TypeAttributes::Sealed
-        | metadata::TypeAttributes::Import
         | metadata::TypeAttributes::SequentialLayout;
 
     if member.winrt {
@@ -151,18 +196,19 @@ fn write_struct(writer: &mut winmd::Writer, namespace: &str, name: &str, member:
     writer.tables.TypeDef.push(winmd::TypeDef {
         Extends: extends,
         FieldList: writer.tables.Field.len() as u32,
+        MethodList: writer.tables.MethodDef.len() as u32,
         Flags: flags.0,
-        MethodList: 0,
         TypeName: writer.strings.insert(name),
         TypeNamespace: writer.strings.insert(namespace),
     });
 
     for field in &member.fields {
-        let ty = syn_type(namespace, &field.ty);
+        let flags = metadata::FieldAttributes::Public;
+        let ty = syn_type(namespace, &[], &field.ty);
         let signature = writer.insert_field_sig(&ty);
 
         writer.tables.Field.push(winmd::Field {
-            Flags: 0,
+            Flags: flags.0,
             Name: writer.strings.insert(&field.name),
             Signature: signature,
         });
@@ -171,9 +217,25 @@ fn write_struct(writer: &mut winmd::Writer, namespace: &str, name: &str, member:
 
 fn write_enum(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _member: &rdl::Enum) {}
 
-fn write_class(_writer: &mut winmd::Writer, _namespace: &str, _name: &str, _member: &rdl::Class) {}
+fn write_class(writer: &mut winmd::Writer, namespace: &str, name: &str, _member: &rdl::Class) {
+    let flags = metadata::TypeAttributes::Public
+        | metadata::TypeAttributes::Sealed
+        | metadata::TypeAttributes::WindowsRuntime;
 
-fn syn_signature(namespace: &str, sig: &syn::Signature) -> winmd::Signature {
+    let extends = writer.insert_type_ref("System", "Object");
+
+    writer.tables.TypeDef.push(winmd::TypeDef {
+        Extends: extends,
+        // Even though ECMA-335 says these can be "null", bugs in ILDASM necessitate this to avoid "misreading" the list terminators.
+        FieldList: writer.tables.Field.len() as u32,
+        MethodList: writer.tables.MethodDef.len() as u32,
+        Flags: flags.0,
+        TypeName: writer.strings.insert(name),
+        TypeNamespace: writer.strings.insert(namespace),
+    });
+}
+
+fn syn_signature(namespace: &str, generics: &[String], sig: &syn::Signature) -> winmd::Signature {
     let params = sig
         .inputs
         .iter()
@@ -183,7 +245,7 @@ fn syn_signature(namespace: &str, sig: &syn::Signature) -> winmd::Signature {
                     syn::Pat::Ident(pat_ident) => pat_ident.ident.to_string(),
                     rest => unimplemented!("{rest:?}"),
                 };
-                let ty = syn_type(namespace, &pat_type.ty);
+                let ty = syn_type(namespace, generics, &pat_type.ty);
                 winmd::SignatureParam { name, ty }
             }
             rest => unimplemented!("{rest:?}"),
@@ -191,7 +253,7 @@ fn syn_signature(namespace: &str, sig: &syn::Signature) -> winmd::Signature {
         .collect();
 
     let return_type = if let syn::ReturnType::Type(_, ty) = &sig.output {
-        syn_type(namespace, ty)
+        syn_type(namespace, generics, ty)
     } else {
         winmd::Type::Void
     };
@@ -203,9 +265,9 @@ fn syn_signature(namespace: &str, sig: &syn::Signature) -> winmd::Signature {
     }
 }
 
-fn syn_type(namespace: &str, ty: &syn::Type) -> winmd::Type {
+fn syn_type(namespace: &str, generics: &[String], ty: &syn::Type) -> winmd::Type {
     match ty {
-        syn::Type::Path(ty) => syn_type_path(namespace, ty),
+        syn::Type::Path(ty) => syn_type_path(namespace, generics, ty),
         syn::Type::Ptr(ptr) => syn_type_ptr(namespace, ptr),
         syn::Type::Array(array) => syn_type_array(namespace, array),
         rest => unimplemented!("{rest:?}"),
@@ -213,7 +275,7 @@ fn syn_type(namespace: &str, ty: &syn::Type) -> winmd::Type {
 }
 
 fn syn_type_array(namespace: &str, array: &syn::TypeArray) -> winmd::Type {
-    let ty = syn_type(namespace, &array.elem);
+    let ty = syn_type(namespace, &[], &array.elem);
 
     if let syn::Expr::Lit(lit) = &array.len {
         if let syn::Lit::Int(lit) = &lit.lit {
@@ -227,7 +289,7 @@ fn syn_type_array(namespace: &str, array: &syn::TypeArray) -> winmd::Type {
 }
 
 fn syn_type_ptr(namespace: &str, ptr: &syn::TypePtr) -> winmd::Type {
-    let ty = syn_type(namespace, &ptr.elem);
+    let ty = syn_type(namespace, &[], &ptr.elem);
     if ptr.mutability.is_some() {
         ty.into_mut_ptr()
     } else {
@@ -235,71 +297,99 @@ fn syn_type_ptr(namespace: &str, ptr: &syn::TypePtr) -> winmd::Type {
     }
 }
 
-fn syn_type_path(namespace: &str, ty: &syn::TypePath) -> winmd::Type {
+fn syn_type_path(namespace: &str, generics: &[String], ty: &syn::TypePath) -> winmd::Type {
     if ty.qself.is_none() {
-        return syn_path(namespace, &ty.path);
+        return syn_path(namespace, generics, &ty.path);
     }
 
     unimplemented!()
 }
 
-fn syn_path(namespace: &str, path: &syn::Path) -> winmd::Type {
+fn syn_path(namespace: &str, generics: &[String], path: &syn::Path) -> winmd::Type {
     if let Some(segment) = path.segments.first() {
-        if path.segments.len() == 1 {
+        if path.segments.len() == 1 && segment.arguments.is_empty() {
             let name = segment.ident.to_string();
 
-            return match name.as_str() {
-                "void" => winmd::Type::Void,
-                "bool" => winmd::Type::Bool,
-                "char" => winmd::Type::Char,
-                "i8" => winmd::Type::I8,
-                "u8" => winmd::Type::U8,
-                "i16" => winmd::Type::I16,
-                "u16" => winmd::Type::U16,
-                "i32" => winmd::Type::I32,
-                "u32" => winmd::Type::U32,
-                "i64" => winmd::Type::I64,
-                "u64" => winmd::Type::U64,
-                "f32" => winmd::Type::F32,
-                "f64" => winmd::Type::F64,
-                "isize" => winmd::Type::ISize,
-                "usize" => winmd::Type::USize,
-                "HSTRING" => winmd::Type::String,
-                "GUID" => winmd::Type::GUID,
-                "IUnknown" => winmd::Type::IUnknown,
-                "IInspectable" => winmd::Type::IInspectable,
-                "HRESULT" => winmd::Type::HRESULT,
-                "PSTR" => winmd::Type::PSTR,
-                "PWSTR" => winmd::Type::PWSTR,
-                "PCSTR" => winmd::Type::PCSTR,
-                "PCWSTR" => winmd::Type::PCWSTR,
-                "BSTR" => winmd::Type::BSTR,
-                _ => winmd::Type::TypeRef(winmd::TypeName {
-                    namespace: namespace.to_string(),
-                    name,
-                    generics: vec![],
-                }),
+            if let Some(number) = generics.iter().position(|generic| generic == &name) {
+                return winmd::Type::GenericParam(number as u16);
+            }
+
+            match name.as_str() {
+                "void" => return winmd::Type::Void,
+                "bool" => return winmd::Type::Bool,
+                "char" => return winmd::Type::Char,
+                "i8" => return winmd::Type::I8,
+                "u8" => return winmd::Type::U8,
+                "i16" => return winmd::Type::I16,
+                "u16" => return winmd::Type::U16,
+                "i32" => return winmd::Type::I32,
+                "u32" => return winmd::Type::U32,
+                "i64" => return winmd::Type::I64,
+                "u64" => return winmd::Type::U64,
+                "f32" => return winmd::Type::F32,
+                "f64" => return winmd::Type::F64,
+                "isize" => return winmd::Type::ISize,
+                "usize" => return winmd::Type::USize,
+                "HSTRING" => return winmd::Type::String,
+                "GUID" => return winmd::Type::GUID,
+                "IUnknown" => return winmd::Type::IUnknown,
+                "IInspectable" => return winmd::Type::IInspectable,
+                "HRESULT" => return winmd::Type::HRESULT,
+                "PSTR" => return winmd::Type::PSTR,
+                "PWSTR" => return winmd::Type::PWSTR,
+                "PCSTR" => return winmd::Type::PCSTR,
+                "PCWSTR" => return winmd::Type::PCWSTR,
+                "BSTR" => return winmd::Type::BSTR,
+                _ => {}
             };
         }
     }
 
     // TODO: Here we assume that paths are absolute since there's no way to disambiguate between nested and absolute paths
-    // The canonicalize function preprocesses the IDL to make this work
+    // The canonicalize function (should maybe) preprocesses the IDL to make this work
 
     let mut builder = vec![];
 
     for segment in &path.segments {
         let segment = segment.ident.to_string();
-        builder.push(segment);
+
+        if segment == "super" {
+            if builder.is_empty() {
+                for segment in namespace.split('.') {
+                    builder.push(segment.to_string());
+                }
+            }
+            builder.pop();
+        } else {
+            builder.push(segment);
+        }
     }
 
-    // Unwrapping as there are more one segments
-    let (name, namespace) = builder.split_last().unwrap();
-    let namespace = namespace.join(".");
+    // Unwrapping is fine as there should always be at least one segment.
+    let (name, type_namespace) = builder.split_last().unwrap();
+    let type_namespace = if type_namespace.is_empty() {
+        namespace.to_string()
+    } else {
+        type_namespace.join(".")
+    };
+    let mut type_generics = vec![];
+
+    if let Some(segment) = path.segments.last() {
+        if let syn::PathArguments::AngleBracketed(args) = &segment.arguments {
+            for arg in &args.args {
+                match arg {
+                    syn::GenericArgument::Type(ty) => {
+                        type_generics.push(syn_type(namespace, generics, ty))
+                    }
+                    rest => unimplemented!("{rest:?}"),
+                }
+            }
+        }
+    }
 
     winmd::Type::TypeRef(winmd::TypeName {
-        namespace,
+        namespace: type_namespace,
         name: name.to_string(),
-        generics: vec![],
+        generics: type_generics,
     })
 }

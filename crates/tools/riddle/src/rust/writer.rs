@@ -298,7 +298,7 @@ impl<'a> Writer<'a> {
     ) -> impl Iterator<Item = (usize, &SignatureParam)> + 'b {
         params
             .iter()
-            .filter(move |param| self.reader.signature_param_is_convertible(param))
+            .filter(move |param| signature_param_is_convertible(self.reader, param))
             .enumerate()
     }
     /// The generic param names (i.e., `T` in `fn foo<T>()`)
@@ -624,13 +624,13 @@ impl<'a> Writer<'a> {
         _phantoms: &TokenStream,
         features: &TokenStream,
     ) -> TokenStream {
-        let mut kind = self.reader.type_def_async_kind(def);
+        let mut kind = type_def_async_kind(self.reader, def);
         let mut async_generics = generics.to_vec();
 
         if kind == AsyncKind::None {
             for interface in self.reader.type_def_interfaces(def, generics) {
-                if let Type::TypeDef(interface_def, interface_generics) = &interface.ty {
-                    kind = self.reader.type_def_async_kind(*interface_def);
+                if let Type::TypeDef(interface_def, interface_generics) = &interface {
+                    kind = type_def_async_kind(self.reader, *interface_def);
                     if kind != AsyncKind::None {
                         async_generics = interface_generics.to_vec();
                         break;
@@ -904,12 +904,13 @@ impl<'a> Writer<'a> {
                 continue;
             }
             let name = method_names.add(self, method);
-            let signature = self.reader.method_def_signature(
+            let signature = method_def_signature(
+                self.reader,
                 self.reader.type_def_namespace(def),
                 method,
                 generics,
             );
-            let mut cfg = signature_cfg(self.reader, &signature);
+            let mut cfg = signature_cfg(self.reader, method);
             let signature = self.vtbl_signature(def, generics, &signature);
             cfg.add_feature(self.reader.type_def_namespace(def));
             let cfg_all = self.cfg_features(&cfg);
@@ -1260,7 +1261,7 @@ impl<'a> Writer<'a> {
 
             quote! { (#this #(#params),*) -> ::windows_core::Result<#return_type> }
         } else {
-            let signature_kind = self.reader.signature_kind(signature);
+            let signature_kind = signature_kind(self.reader, signature);
             let mut params = quote! {};
 
             if signature_kind == SignatureKind::ResultValue {
