@@ -136,6 +136,7 @@ jobs:
           cargo clippy -p tool_windows &&
           cargo clippy -p tool_yml &&
           cargo clippy -p windows &&
+          cargo clippy -p windows-bindgen &&
           cargo clippy -p windows-core &&
           cargo clippy -p windows-implement &&
           cargo clippy -p windows-interface &&

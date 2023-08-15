@@ -143,6 +143,7 @@ jobs:
           cargo test -p tool_windows &&
           cargo test -p tool_yml &&
           cargo test -p windows &&
+          cargo test -p windows-bindgen &&
           cargo test -p windows-core &&
           cargo test -p windows-implement &&
           cargo test -p windows-interface &&
