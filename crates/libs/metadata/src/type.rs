@@ -19,12 +19,10 @@ pub enum Type {
     ISize,
     USize,
 
-    // Dialect specific "special" types as they don't necessarily map to metadata
-    String,
-    GUID,
-    IUnknown,
-    IInspectable,
-    HRESULT,
+    // System types
+    GUID,         // Both Win32 and WinRT agree that this is represented by System.Guid
+    String,       // TODO: Win32 should use System.String when referring to an HSTRING
+    IInspectable, // TODO: Win32 should use System.Object when referring to an IInspectable
 
     // Meta-type indicating type name in attribute blob.
     TypeName,
@@ -46,6 +44,8 @@ pub enum Type {
     PrimitiveOrEnum(Box<Self>, Box<Self>),
 
     // TODO: these should not be "special" and just point to regular metadata types in Win32.Foundation
+    HRESULT,  // TODO: Win32 should use Windows.Foundation.HResult when referring to HRESULT
+    IUnknown, // TODO: should be defined in Windows.Win32.Foundation.IUnknown
     PSTR,
     PWSTR,
     PCSTR,

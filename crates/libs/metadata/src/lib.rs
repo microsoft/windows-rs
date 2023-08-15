@@ -118,19 +118,18 @@ impl<'a> Reader<'a> {
         Self { files, items, nested }
     }
 
-    //
-    // Hash functions for fast type lookup
-    //
-
     pub fn namespaces(&self) -> impl Iterator<Item = &str> + '_ {
         self.items.keys().copied()
     }
+
     pub fn items(&'a self, filter: &'a Filter) -> impl Iterator<Item = Item> + '_ {
         self.items.iter().filter(move |(namespace, _)| filter.includes_namespace(namespace)).flat_map(move |(namespace, items)| items.iter().filter(move |(name, _)| filter.includes_type_name(TypeName::new(namespace, name)))).flat_map(move |(_, items)| items).cloned()
     }
+
     pub fn namespace_items(&'a self, namespace: &str, filter: &'a Filter) -> impl Iterator<Item = Item> + '_ {
         self.items.get_key_value(namespace).into_iter().flat_map(move |(namespace, items)| items.iter().filter(move |(name, _)| filter.includes_type_name(TypeName::new(namespace, name)))).flat_map(move |(_, items)| items).cloned()
     }
+
     fn get_item(&self, type_name: TypeName) -> impl Iterator<Item = Item> + '_ {
         if let Some(items) = self.items.get(type_name.namespace) {
             if let Some(items) = items.get(type_name.name) {
@@ -139,9 +138,11 @@ impl<'a> Reader<'a> {
         }
         None.into_iter().flatten()
     }
+
     pub fn get_type_def(&self, type_name: TypeName) -> impl Iterator<Item = TypeDef> + '_ {
         self.get_item(type_name).filter_map(|item| if let Item::Type(def) = item { Some(def) } else { None })
     }
+
     pub fn get_method_def(&self, type_name: TypeName) -> impl Iterator<Item = (MethodDef, String)> + '_ {
         self.get_item(type_name).filter_map(|item| if let Item::Fn(def, namespace) = item { Some((def, namespace)) } else { None })
     }
@@ -149,10 +150,6 @@ impl<'a> Reader<'a> {
     pub fn nested_types(&self, type_def: TypeDef) -> impl Iterator<Item = TypeDef> + '_ {
         self.nested.get(&type_def).map(|map| map.values().copied()).into_iter().flatten()
     }
-
-    //
-    // Attribute table queries
-    //
 
     pub fn attribute_args(&self, row: Attribute) -> Vec<(String, Value)> {
         let AttributeType::MemberRef(member) = self.row_decode(row, 1);
@@ -214,10 +211,6 @@ impl<'a> Reader<'a> {
         args
     }
 
-    //
-    // Field table queries
-    //
-
     // TODO: enclosing craziness is only needed for nested structs - get rid of those in riddle and this goes away.
     pub fn field_type(&self, row: Field, enclosing: Option<TypeDef>) -> Type {
         let mut blob = self.row_blob(row, 2);
@@ -231,64 +224,9 @@ impl<'a> Reader<'a> {
             def
         }
     }
-    pub fn field_is_blittable(&self, row: Field, enclosing: TypeDef) -> bool {
-        self.type_is_blittable(&self.field_type(row, Some(enclosing)))
-    }
-    pub fn field_is_copyable(&self, row: Field, enclosing: TypeDef) -> bool {
-        self.type_is_copyable(&self.field_type(row, Some(enclosing)))
-    }
-    pub fn field_guid(&self, row: Field) -> Option<GUID> {
-        self.find_attribute(row, "GuidAttribute").map(|attribute| GUID::from_args(&self.attribute_args(attribute)))
-    }
-    pub fn field_is_ansi(&self, row: Field) -> bool {
-        self.find_attribute(row, "NativeEncodingAttribute").is_some_and(|attribute| matches!(self.attribute_args(attribute).get(0), Some((_, Value::String(encoding))) if encoding == "ansi"))
-    }
-
-    //
-    // InterfaceImpl table queries
-    //
 
     pub fn interface_impl_type(&self, row: InterfaceImpl, generics: &[Type]) -> Type {
         self.type_from_ref(self.row_decode(row, 1), None, generics)
-    }
-
-    //
-    // MethodDef table queries
-    //
-
-    pub fn method_def_special_name(&self, row: MethodDef) -> String {
-        let name = self.method_def_name(row);
-        if self.method_def_flags(row).contains(MethodAttributes::SpecialName) {
-            if name.starts_with("get") {
-                name[4..].to_string()
-            } else if name.starts_with("put") {
-                format!("Set{}", &name[4..])
-            } else if name.starts_with("add") {
-                name[4..].to_string()
-            } else if name.starts_with("remove") {
-                format!("Remove{}", &name[7..])
-            } else {
-                name.to_string()
-            }
-        } else {
-            if let Some(attribute) = self.find_attribute(row, "OverloadAttribute") {
-                for (_, arg) in self.attribute_args(attribute) {
-                    if let Value::String(name) = arg {
-                        return name;
-                    }
-                }
-            }
-            name.to_string()
-        }
-    }
-    pub fn method_def_static_lib(&self, row: MethodDef) -> Option<String> {
-        self.find_attribute(row, "StaticLibraryAttribute").and_then(|attribute| {
-            let args = self.attribute_args(attribute);
-            if let Value::String(value) = &args[0].1 {
-                return Some(value.clone());
-            }
-            None
-        })
     }
 
     pub fn method_def_signature(&self, method: MethodDef, generics: &[Type]) -> MethodDefSig {
@@ -300,22 +238,34 @@ impl<'a> Reader<'a> {
         MethodDefSig { call_flags, return_type, params: (0..params).map(|_| self.type_from_blob(&mut blob, None, generics)).collect() }
     }
 
-    pub fn method_def_extern_abi(&self, def: MethodDef) -> &'static str {
-        let impl_map = self.method_def_impl_map(def).expect("ImplMap not found");
-        let flags = self.impl_map_flags(impl_map);
-
-        if flags.contains(PInvokeAttributes::CallConvPlatformapi) {
-            "system"
-        } else if flags.contains(PInvokeAttributes::CallConvCdecl) {
-            "cdecl"
-        } else {
-            unimplemented!()
-        }
-    }
     pub fn method_def_size(&self, method: MethodDef) -> usize {
         let sig = self.method_def_signature(method, &[]);
         sig.params.iter().fold(0, |sum, param| sum + std::cmp::max(4, self.type_size(param)))
     }
+
+    pub fn type_def_type_name(&self, row: TypeDef) -> TypeName {
+        TypeName::new(self.type_def_namespace(row), self.type_def_name(row))
+    }
+
+    pub fn type_def_underlying_type(&self, row: TypeDef) -> Type {
+        let field = self.type_def_fields(row).next().expect("Field not found");
+        if let Some(constant) = self.field_constant(field) {
+            self.constant_type(constant)
+        } else {
+            self.field_type(field, Some(row))
+        }
+    }
+
+    pub fn type_def_kind(&self, row: TypeDef) -> TypeKind {
+        match self.type_def_extends(row) {
+            None => TypeKind::Interface,
+            Some(TypeName::Enum) => TypeKind::Enum,
+            Some(TypeName::Delegate) => TypeKind::Delegate,
+            Some(TypeName::Struct) => TypeKind::Struct,
+            Some(_) => TypeKind::Class,
+        }
+    }
+
     pub fn type_def_size(&self, def: TypeDef) -> usize {
         match self.type_def_kind(def) {
             TypeKind::Struct => {
@@ -336,6 +286,27 @@ impl<'a> Reader<'a> {
             _ => 4,
         }
     }
+
+    fn type_def_align(&self, def: TypeDef) -> usize {
+        match self.type_def_kind(def) {
+            TypeKind::Struct => self.type_def_fields(def).map(|field| self.type_align(&self.field_type(field, Some(def)))).max().unwrap_or(1),
+            TypeKind::Enum => self.type_align(&self.type_def_underlying_type(def)),
+            _ => 4,
+        }
+    }
+
+    fn type_align(&self, ty: &Type) -> usize {
+        match ty {
+            Type::I8 | Type::U8 => 1,
+            Type::I16 | Type::U16 => 2,
+            Type::I64 | Type::U64 | Type::F64 => 8,
+            Type::GUID => 4,
+            Type::TypeDef(def, _) => self.type_def_align(*def),
+            Type::Win32Array(ty, len) => self.type_align(ty) * len,
+            _ => 4,
+        }
+    }
+
     // TODO: this shouldn't be public - needed to work around Win32 metadata hackery.
     pub fn type_size(&self, ty: &Type) -> usize {
         match ty {
@@ -349,354 +320,12 @@ impl<'a> Reader<'a> {
             _ => 4,
         }
     }
-    fn type_def_align(&self, def: TypeDef) -> usize {
-        match self.type_def_kind(def) {
-            TypeKind::Struct => self.type_def_fields(def).map(|field| self.type_align(&self.field_type(field, Some(def)))).max().unwrap_or(1),
-            TypeKind::Enum => self.type_align(&self.type_def_underlying_type(def)),
-            _ => 4,
-        }
-    }
-    fn type_align(&self, ty: &Type) -> usize {
-        match ty {
-            Type::I8 | Type::U8 => 1,
-            Type::I16 | Type::U16 => 2,
-            Type::I64 | Type::U64 | Type::F64 => 8,
-            Type::GUID => 4,
-            Type::TypeDef(def, _) => self.type_def_align(*def),
-            Type::Win32Array(ty, len) => self.type_align(ty) * len,
-            _ => 4,
-        }
-    }
-
-    //
-    // TypeDef table queries
-    //
-
-    pub fn type_def_type_name(&self, row: TypeDef) -> TypeName {
-        TypeName::new(self.type_def_namespace(row), self.type_def_name(row))
-    }
-    pub fn type_def_underlying_type(&self, row: TypeDef) -> Type {
-        let field = self.type_def_fields(row).next().expect("Field not found");
-        if let Some(constant) = self.field_constant(field) {
-            self.constant_type(constant)
-        } else {
-            self.field_type(field, Some(row))
-        }
-    }
-    pub fn type_def_kind(&self, row: TypeDef) -> TypeKind {
-        match self.type_def_extends(row) {
-            None => TypeKind::Interface,
-            Some(TypeName::Enum) => TypeKind::Enum,
-            Some(TypeName::Delegate) => TypeKind::Delegate,
-            Some(TypeName::Struct) => TypeKind::Struct,
-            Some(_) => TypeKind::Class,
-        }
-    }
-    pub fn type_def_is_blittable(&self, row: TypeDef) -> bool {
-        match self.type_def_kind(row) {
-            TypeKind::Struct => {
-                if self.type_def_flags(row).contains(TypeAttributes::WindowsRuntime) {
-                    self.type_def_fields(row).all(|field| self.field_is_blittable(field, row))
-                } else {
-                    true
-                }
-            }
-            TypeKind::Enum => true,
-            TypeKind::Delegate => !self.type_def_flags(row).contains(TypeAttributes::WindowsRuntime),
-            _ => false,
-        }
-    }
-    pub fn type_def_is_copyable(&self, row: TypeDef) -> bool {
-        match self.type_def_kind(row) {
-            TypeKind::Struct => self.type_def_fields(row).all(|field| self.field_is_copyable(field, row)),
-            TypeKind::Enum => true,
-            TypeKind::Delegate => !self.type_def_flags(row).contains(TypeAttributes::WindowsRuntime),
-            _ => false,
-        }
-    }
-
-    pub fn type_def_has_default_constructor(&self, row: TypeDef) -> bool {
-        for attribute in self.attributes(row) {
-            if self.attribute_name(attribute) == "ActivatableAttribute" {
-                if self.attribute_args(attribute).iter().any(|arg| matches!(arg.1, Value::TypeName(_))) {
-                    continue;
-                } else {
-                    return true;
-                }
-            }
-        }
-        false
-    }
-
-    pub fn type_def_interfaces(&'a self, row: TypeDef, generics: &'a [Type]) -> impl Iterator<Item = Type> + '_ {
-        self.type_def_interface_impls(row).map(move |row| self.interface_impl_type(row, generics))
-    }
-
-    pub fn type_def_default_interface(&self, row: TypeDef) -> Option<Type> {
-        self.type_def_interface_impls(row).find_map(move |row| if self.has_attribute(row, "DefaultAttribute") { Some(self.interface_impl_type(row, &[])) } else { None })
-    }
-    pub fn type_def_has_default_interface(&self, row: TypeDef) -> bool {
-        self.type_def_interface_impls(row).any(|imp| self.has_attribute(imp, "DefaultAttribute"))
-    }
-    pub fn type_def_is_handle(&self, row: TypeDef) -> bool {
-        self.has_attribute(row, "NativeTypedefAttribute")
-    }
-    pub fn type_def_is_exclusive(&self, row: TypeDef) -> bool {
-        self.has_attribute(row, "ExclusiveToAttribute")
-    }
-    fn type_def_is_struct(&self, row: TypeDef) -> bool {
-        // This check is used to detect virtual functions that return C-style PODs that affect how the stack is packed for x86.
-        // It could be defined as a struct with more than one field but that check is complicated as it would have to detect
-        // nested structs. Fortunately, this is rare enough that this check is sufficient.
-        self.type_def_kind(row) == TypeKind::Struct && !self.type_def_is_handle(row)
-    }
-
-    fn type_def_is_primitive(&self, row: TypeDef) -> bool {
-        match self.type_def_kind(row) {
-            TypeKind::Enum => true,
-            TypeKind::Struct => self.type_def_is_handle(row),
-            TypeKind::Delegate => !self.type_def_flags(row).contains(TypeAttributes::WindowsRuntime),
-            _ => false,
-        }
-    }
-    pub fn type_def_has_explicit_layout(&self, row: TypeDef) -> bool {
-        if self.type_def_kind(row) != TypeKind::Struct {
-            return false;
-        }
-        fn check(reader: &Reader, row: TypeDef) -> bool {
-            if reader.type_def_flags(row).contains(TypeAttributes::ExplicitLayout) {
-                return true;
-            }
-            if reader.type_def_fields(row).any(|field| reader.type_has_explicit_layout(&reader.field_type(field, Some(row)))) {
-                return true;
-            }
-            false
-        }
-        let type_name = self.type_def_type_name(row);
-        if type_name.namespace.is_empty() {
-            check(self, row)
-        } else {
-            for row in self.get_type_def(type_name) {
-                if check(self, row) {
-                    return true;
-                }
-            }
-            false
-        }
-    }
-    pub fn type_def_has_packing(&self, row: TypeDef) -> bool {
-        if self.type_def_kind(row) != TypeKind::Struct {
-            return false;
-        }
-        fn check(reader: &Reader, row: TypeDef) -> bool {
-            if reader.type_def_class_layout(row).is_some() {
-                return true;
-            }
-            if reader.type_def_fields(row).any(|field| reader.type_has_packing(&reader.field_type(field, Some(row)))) {
-                return true;
-            }
-            false
-        }
-        let type_name = self.type_def_type_name(row);
-        if type_name.namespace.is_empty() {
-            check(self, row)
-        } else {
-            for row in self.get_type_def(type_name) {
-                if check(self, row) {
-                    return true;
-                }
-            }
-            false
-        }
-    }
-
-    pub fn type_def_guid(&self, row: TypeDef) -> Option<GUID> {
-        self.find_attribute(row, "GuidAttribute").map(|attribute| GUID::from_args(&self.attribute_args(attribute)))
-    }
-    pub fn type_def_bases(&self, mut row: TypeDef) -> Vec<TypeDef> {
-        let mut bases = Vec::new();
-        loop {
-            match self.type_def_extends(row) {
-                Some(base) if base != TypeName::Object => {
-                    row = self.get_type_def(base).next().expect("Type not found");
-                    bases.push(row);
-                }
-                _ => break,
-            }
-        }
-        bases
-    }
-    pub fn type_def_is_agile(&self, row: TypeDef) -> bool {
-        for attribute in self.attributes(row) {
-            match self.attribute_name(attribute) {
-                "AgileAttribute" => return true,
-                "MarshalingBehaviorAttribute" => {
-                    if let Some((_, Value::EnumDef(_, value))) = self.attribute_args(attribute).get(0) {
-                        if let Value::I32(2) = **value {
-                            return true;
-                        }
-                    }
-                }
-                _ => {}
-            }
-        }
-        matches!(self.type_def_type_name(row), TypeName::IAsyncAction | TypeName::IAsyncActionWithProgress | TypeName::IAsyncOperation | TypeName::IAsyncOperationWithProgress)
-    }
-    pub fn type_def_invalid_values(&self, row: TypeDef) -> Vec<i64> {
-        let mut values = Vec::new();
-        for attribute in self.attributes(row) {
-            if self.attribute_name(attribute) == "InvalidHandleValueAttribute" {
-                if let Some((_, Value::I64(value))) = self.attribute_args(attribute).get(0) {
-                    values.push(*value);
-                }
-            }
-        }
-        values
-    }
-    pub fn type_def_usable_for(&self, row: TypeDef) -> Option<TypeDef> {
-        if let Some(attribute) = self.find_attribute(row, "AlsoUsableForAttribute") {
-            if let Some((_, Value::String(name))) = self.attribute_args(attribute).get(0) {
-                return self.get_type_def(TypeName::new(self.type_def_namespace(row), name.as_str())).next();
-            }
-        }
-        None
-    }
-    fn type_def_is_nullable(&self, row: TypeDef) -> bool {
-        match self.type_def_kind(row) {
-            TypeKind::Interface | TypeKind::Class => true,
-            // Win32 callbacks are defined as `Option<T>` so we don't include them here to avoid them
-            // from being doubly wrapped in `Option`.
-            TypeKind::Delegate => self.type_def_flags(row).contains(TypeAttributes::WindowsRuntime),
-            _ => false,
-        }
-    }
-
-    pub fn type_def_signature(&self, row: TypeDef, generics: &[Type]) -> String {
-        match self.type_def_kind(row) {
-            TypeKind::Interface => self.type_def_interface_signature(row, generics),
-            TypeKind::Class => {
-                if let Some(Type::TypeDef(default, generics)) = self.type_def_default_interface(row) {
-                    format!("rc({};{})", self.type_def_type_name(row), self.type_def_interface_signature(default, &generics))
-                } else {
-                    unimplemented!();
-                }
-            }
-            TypeKind::Enum => format!("enum({};{})", self.type_def_type_name(row), self.type_signature(&self.type_def_underlying_type(row))),
-            TypeKind::Struct => {
-                let mut result = format!("struct({}", self.type_def_type_name(row));
-                for field in self.type_def_fields(row) {
-                    result.push(';');
-                    result.push_str(&self.type_signature(&self.field_type(field, Some(row))));
-                }
-                result.push(')');
-                result
-            }
-            TypeKind::Delegate => {
-                if generics.is_empty() {
-                    format!("delegate({})", self.type_def_interface_signature(row, generics))
-                } else {
-                    self.type_def_interface_signature(row, generics)
-                }
-            }
-        }
-    }
-    fn type_def_interface_signature(&self, row: TypeDef, generics: &[Type]) -> String {
-        let guid = self.type_def_guid(row).unwrap();
-        if generics.is_empty() {
-            format!("{{{guid:#?}}}")
-        } else {
-            let mut result = format!("pinterface({{{guid:#?}}}");
-            for generic in generics {
-                result.push(';');
-                result.push_str(&self.type_signature(generic));
-            }
-            result.push(')');
-            result
-        }
-    }
-
-    pub fn type_def_vtables(&self, row: TypeDef) -> Vec<Type> {
-        let mut result = Vec::new();
-        if self.type_def_flags(row).contains(TypeAttributes::WindowsRuntime) {
-            result.push(Type::IUnknown);
-            if self.type_def_kind(row) != TypeKind::Delegate {
-                result.push(Type::IInspectable);
-            }
-        } else {
-            let mut next = row;
-            while let Some(base) = self.type_def_interfaces(next, &[]).next() {
-                match base {
-                    Type::TypeDef(row, _) => {
-                        next = row;
-                        result.insert(0, base);
-                    }
-                    Type::IInspectable => {
-                        result.insert(0, Type::IUnknown);
-                        result.insert(1, Type::IInspectable);
-                        break;
-                    }
-                    Type::IUnknown => {
-                        result.insert(0, Type::IUnknown);
-                        break;
-                    }
-                    rest => unimplemented!("{rest:?}"),
-                }
-            }
-        }
-        result
-    }
-
-    //
-    // Signature queries
-    //
-
-    //
-    // Other type queries
-    //
 
     pub fn type_def_or_ref(&self, code: TypeDefOrRef) -> TypeName {
         match code {
             TypeDefOrRef::TypeDef(row) => TypeName::new(self.type_def_namespace(row), self.type_def_name(row)),
             TypeDefOrRef::TypeRef(row) => TypeName::new(self.type_ref_namespace(row), self.type_ref_name(row)),
             rest => unimplemented!("{rest:?}"),
-        }
-    }
-    pub fn type_is_exclusive(&self, ty: &Type) -> bool {
-        match ty {
-            Type::TypeDef(row, _) => self.type_def_is_exclusive(*row),
-            _ => false,
-        }
-    }
-    pub fn type_is_blittable(&self, ty: &Type) -> bool {
-        match ty {
-            Type::TypeDef(row, _) => self.type_def_is_blittable(*row),
-            Type::String | Type::BSTR | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => false,
-            Type::Win32Array(kind, _) => self.type_is_blittable(kind),
-            Type::WinrtArray(kind) => self.type_is_blittable(kind),
-            _ => true,
-        }
-    }
-    fn type_is_copyable(&self, ty: &Type) -> bool {
-        match ty {
-            Type::TypeDef(row, _) => self.type_def_is_copyable(*row),
-            Type::String | Type::BSTR | Type::IInspectable | Type::IUnknown | Type::GenericParam(_) => false,
-            Type::Win32Array(kind, _) => self.type_is_copyable(kind),
-            Type::WinrtArray(kind) => self.type_is_copyable(kind),
-            _ => true,
-        }
-    }
-    fn type_has_explicit_layout(&self, ty: &Type) -> bool {
-        match ty {
-            Type::TypeDef(row, _) => self.type_def_has_explicit_layout(*row),
-            Type::Win32Array(ty, _) => self.type_has_explicit_layout(ty),
-            _ => false,
-        }
-    }
-    fn type_has_packing(&self, ty: &Type) -> bool {
-        match ty {
-            Type::TypeDef(row, _) => self.type_def_has_packing(*row),
-            Type::Win32Array(ty, _) => self.type_has_packing(ty),
-            _ => false,
         }
     }
 
@@ -739,6 +368,7 @@ impl<'a> Reader<'a> {
             Type::TypeRef(code)
         }
     }
+
     // TODO: this shouldn't be public
     pub fn type_from_blob(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
         // Used by WinRT to indicate that a struct input parameter is passed by reference rather than by value on the ABI.
@@ -776,6 +406,7 @@ impl<'a> Reader<'a> {
             kind
         }
     }
+
     fn type_from_blob_impl(&self, blob: &mut Blob, enclosing: Option<TypeDef>, generics: &[Type]) -> Type {
         let code = blob.read_usize();
 
@@ -807,67 +438,6 @@ impl<'a> Reader<'a> {
                 Type::TypeDef(def, args)
             }
             rest => unimplemented!("{rest:?}"),
-        }
-    }
-
-    fn type_signature(&self, ty: &Type) -> String {
-        match ty {
-            Type::Bool => "b1".to_string(),
-            Type::Char => "c2".to_string(),
-            Type::I8 => "i1".to_string(),
-            Type::U8 => "u1".to_string(),
-            Type::I16 => "i2".to_string(),
-            Type::U16 => "u2".to_string(),
-            Type::I32 => "i4".to_string(),
-            Type::U32 => "u4".to_string(),
-            Type::I64 => "i8".to_string(),
-            Type::U64 => "u8".to_string(),
-            Type::F32 => "f4".to_string(),
-            Type::F64 => "f8".to_string(),
-            Type::ISize => "is".to_string(),
-            Type::USize => "us".to_string(),
-            Type::String => "string".to_string(),
-            Type::IInspectable => "cinterface(IInspectable)".to_string(),
-            Type::GUID => "g16".to_string(),
-            Type::HRESULT => "struct(Windows.Foundation.HResult;i4)".to_string(),
-            Type::TypeDef(row, generics) => self.type_def_signature(*row, generics),
-            rest => unimplemented!("{rest:?}"),
-        }
-    }
-    pub fn type_is_nullable(&self, ty: &Type) -> bool {
-        match ty {
-            Type::TypeDef(row, _) => self.type_def_is_nullable(*row),
-            Type::IInspectable | Type::IUnknown => true,
-            _ => false,
-        }
-    }
-
-    pub fn type_is_primitive(&self, ty: &Type) -> bool {
-        match ty {
-            Type::TypeDef(row, _) => self.type_def_is_primitive(*row),
-            Type::Bool | Type::Char | Type::I8 | Type::U8 | Type::I16 | Type::U16 | Type::I32 | Type::U32 | Type::I64 | Type::U64 | Type::F32 | Type::F64 | Type::ISize | Type::USize | Type::HRESULT | Type::ConstPtr(_, _) | Type::MutPtr(_, _) => true,
-            _ => false,
-        }
-    }
-    pub fn type_is_struct(&self, ty: &Type) -> bool {
-        match ty {
-            Type::TypeDef(row, _) => self.type_def_is_struct(*row),
-            Type::GUID => true,
-            _ => false,
-        }
-    }
-    pub fn type_underlying_type(&self, ty: &Type) -> Type {
-        match ty {
-            Type::TypeDef(row, _) => self.type_def_underlying_type(*row),
-            Type::HRESULT => Type::I32,
-            _ => ty.clone(),
-        }
-    }
-    pub fn type_has_replacement(&self, ty: &Type) -> bool {
-        match ty {
-            Type::HRESULT | Type::PCSTR | Type::PCWSTR => true,
-            Type::TypeDef(row, _) => self.type_def_is_handle(*row) || self.type_def_kind(*row) == TypeKind::Enum,
-            _ => false,
         }
     }
 }

@@ -1,3 +1,4 @@
+mod composition;
 mod generic_interfaces;
 mod module_attributes;
 mod nested_module;
@@ -28,7 +29,7 @@ pub fn run_riddle(name: &str, dialect: &str, etc: &[&str]) -> Vec<windows_metada
     command.args([
         "run", "-p", "riddle", "--", "--in", &winmd, "--out", &rdl, "--filter", "Test", "--config",
     ]);
-    command.arg(format!("TYPE={dialect}"));
+    command.arg(format!("type={dialect}"));
     assert!(command.status().unwrap().success());
 
     // Check that .rdl is unchanged

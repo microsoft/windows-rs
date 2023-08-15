@@ -1,6 +1,6 @@
---in crates/libs/metadata/default
+--in crates/libs/bindgen/default
 --out crates/libs/windows/src/lib.rs
---config PACKAGE
+--config package
 
 --filter
     Windows

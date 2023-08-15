@@ -1,6 +1,6 @@
---in crates/libs/metadata/default
+--in crates/libs/bindgen/default
 --out crates/libs/sys/src/lib.rs
---config PACKAGE SYS
+--config package sys
 
 --filter
     Windows.Wdk
