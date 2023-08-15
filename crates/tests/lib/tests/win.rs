@@ -43,7 +43,7 @@ fn clr() -> Result<()> {
         let mut version = vec![0; 20];
         let mut len = 0;
         GetFileVersion(
-            w!("../../libs/metadata/default/Windows.winmd"),
+            w!("../../libs/bindgen/default/Windows.winmd"),
             Some(&mut version),
             &mut len,
         )?;

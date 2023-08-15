@@ -138,15 +138,15 @@ fn main() {
 }
 
 fn write_sys(output: &str, filter: &[&str]) {
-    riddle(output, filter, &["FLATTEN", "SYS", "MINIMAL"]);
+    riddle(output, filter, &["flatten", "sys", "minimal"]);
 }
 
 fn write_win(output: &str, filter: &[&str]) {
-    riddle(output, filter, &["FLATTEN", "MINIMAL"]);
+    riddle(output, filter, &["flatten", "minimal"]);
 }
 
 fn write_std(output: &str, filter: &[&str]) {
-    riddle(output, filter, &["FLATTEN", "STD", "MINIMAL"]);
+    riddle(output, filter, &["flatten", "std", "minimal"]);
 }
 
 fn riddle(output: &str, filter: &[&str], config: &[&str]) {
@@ -160,7 +160,7 @@ fn riddle(output: &str, filter: &[&str], config: &[&str]) {
         "../../../target/test_standalone", // TODO: workaround for https://github.com/rust-lang/cargo/issues/6412
         "--",
         "--in",
-        "../../libs/metadata/default",
+        "../../libs/bindgen/default",
         "--out",
         output,
         "--filter",

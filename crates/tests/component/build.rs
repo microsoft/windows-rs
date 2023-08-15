@@ -39,7 +39,7 @@ fn main() {
         "--filter",
         "test_component",
         "--config",
-        "IMPLEMENT",
+        "implement",
     ]);
 
     if !command.status().unwrap().success() {

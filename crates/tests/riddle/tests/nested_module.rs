@@ -11,7 +11,9 @@ fn test() {
         .collect();
 
     assert_eq!(types.len(), 1);
-    let Item::Type(def) = types[0] else { panic!("type expected") };
+    let Item::Type(def) = types[0] else {
+        panic!("type expected")
+    };
 
     assert_eq!(reader.type_def_name(def), "TestType");
     assert_eq!(reader.type_def_kind(def), TypeKind::Struct);
@@ -25,7 +27,9 @@ fn test() {
         .collect();
 
     assert_eq!(types.len(), 1);
-    let Item::Type(def) = types[0] else { panic!("type expected") };
+    let Item::Type(def) = types[0] else {
+        panic!("type expected")
+    };
 
     assert_eq!(reader.type_def_name(def), "NestedType");
     assert_eq!(reader.type_def_kind(def), TypeKind::Struct);

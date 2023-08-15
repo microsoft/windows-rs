@@ -1,0 +1,24 @@
+#![winrt]
+
+mod Test {
+    // TODO: maybe sort TypeDefs by  kind at when writing out rdl from winmd
+    class CompositionObject : ICompositionObject;
+    class Compositor : ICompositor;
+    interface ICompositionObject {
+        fn get_Compositor() -> Compositor;
+    }
+    interface ICompositor {
+        fn CreateSpriteVisual() -> SpriteVisual;
+    }
+    interface ISpriteVisual {
+        fn get_Brush() -> bool;
+    }
+    interface IVisual {
+        fn get_IsVisible() -> bool;
+    }
+    interface IVisual2 {
+        fn get_Opacity(value: bool);
+    }
+    class SpriteVisual : class Visual, ISpriteVisual;
+    class Visual : class CompositionObject, IVisual, IVisual2;
+}
