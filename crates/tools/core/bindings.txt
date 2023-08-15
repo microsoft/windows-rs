@@ -1,6 +1,5 @@
---in crates/libs/metadata/default
 --out crates/libs/core/src/imp/bindings.rs
---config FLATTEN SYS MINIMAL
+--config flatten sys minimal
 
 --filter
     Windows.Win32.Foundation.CloseHandle
