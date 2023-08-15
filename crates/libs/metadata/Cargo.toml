@@ -4,7 +4,7 @@ version = "0.49.0"
 authors = ["Microsoft"]
 edition = "2021"
 license = "MIT OR Apache-2.0"
-description = "Windows metadata reader and writer"
+description = "Windows metadata reader"
 repository = "https://github.com/microsoft/windows-rs"
 
 [package.metadata.docs.rs]
