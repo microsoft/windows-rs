@@ -30,7 +30,9 @@ where
         }
         if expand {
             for args in crate::read_file_lines(&arg)? {
-                from_string(result, &args)?;
+                if !args.starts_with("//") {
+                    from_string(result, &args)?;
+                }
             }
         } else if arg == "--etc" {
             expand = true;
