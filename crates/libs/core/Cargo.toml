@@ -1,7 +1,7 @@
 
 [package]
 name = "windows-core"
-version = "0.51.0"
+version = "0.51.1"
 authors = ["Microsoft"]
 edition = "2021"
 license = "MIT OR Apache-2.0"
@@ -16,7 +16,7 @@ default-target = "x86_64-pc-windows-msvc"
 targets = []
 
 [dependencies.windows-targets]
-version = "0.48.2"
+version = "0.48.3"
 path = "../targets"
 
 [features]
