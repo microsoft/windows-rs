@@ -17,7 +17,7 @@ targets = []
 all-features = true
 
 [dependencies.windows-targets]
-version = "0.48.3"
+version = "0.48.4"
 path = "../targets"
 
 [features]
