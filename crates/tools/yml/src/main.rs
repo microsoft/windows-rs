@@ -13,6 +13,8 @@ fn test_yml() {
 on:
   pull_request:
   push:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
     branches:
       - master
 
@@ -74,6 +76,8 @@ fn clippy_yml() {
 on:
   pull_request:
   push:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
     branches:
       - master
 
