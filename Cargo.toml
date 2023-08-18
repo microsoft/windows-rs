@@ -1,5 +1,4 @@
 [workspace]
-resolver = "2"
 members = [
     "crates/libs/*",
     "crates/samples/windows-sys/*",

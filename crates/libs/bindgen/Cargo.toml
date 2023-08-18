@@ -1,8 +1,9 @@
 [package]
 name = "windows-bindgen"
-version = "0.51.1"
+version = "0.52.0"
 authors = ["Microsoft"]
 edition = "2021"
+rust-version = "1.56"
 license = "MIT OR Apache-2.0"
 description = "Windows metadata compiler"
 repository = "https://github.com/microsoft/windows-rs"
@@ -17,7 +18,7 @@ default = ["metadata"]
 metadata = []
 
 [dependencies]
-windows-metadata = { path = "../metadata", version = "0.51.1" }
+windows-metadata = { path = "../metadata", version = "0.52.0" }
 rayon = "1.7"
 
 [dependencies.syn]
