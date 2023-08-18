@@ -7,7 +7,7 @@ body:
       label: Summary
       description: >
         Please provide a short summary of the bug, along with any information
-        you feel relevant to replicating the bug.
+        you feel is relevant to replicating the bug.
   - type: textarea
     attributes:
       label: Crate manifest
