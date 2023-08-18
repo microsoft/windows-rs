@@ -77,7 +77,7 @@ on:
   pull_request:
   push:
     paths-ignore:
-      - '.github/ISSUE_TEMPLATE/**'  
+      - '.github/ISSUE_TEMPLATE/**'
     branches:
       - master
 
