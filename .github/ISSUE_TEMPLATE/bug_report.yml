@@ -1,28 +1,7 @@
 name: Bug report
 description: File a bug report
-title: "Bug:"
 labels: [bug]
-assignees: []
 body:
-  - type: markdown
-    attributes:
-      value: "Thank you for filing a bug report! 🐛"
-  - type: dropdown
-    attributes:
-      label: Which crate is this about?
-      multiple: true
-      options:
-        - "windows"
-        - "windows-sys"
-        - "windows-metadata"
-        - "windows-core"
-        - "windows-targets"
-        - "other (please share in the comments)"
-  - type: input
-    attributes:
-      label: Crate version
-      description: What is the version of the crate you're using?
-      placeholder: You can find the exact crate version in your `Cargo.lock` file.
   - type: textarea
     attributes:
       label: Summary
@@ -31,81 +10,13 @@ body:
         you feel relevant to replicating the bug.
   - type: textarea
     attributes:
-      label: Toolchain version/configuration
-      description: >
-        Please provide the output of `rustup show`.
-      placeholder: |
-        Default host: x86_64-pc-windows-msvc
-        rustup home:  C:\Users\Ferris\.rustup
-
-        installed toolchains
-        --------------------
-
-        stable-i686-pc-windows-gnu
-        stable-x86_64-pc-windows-gnu
-        stable-x86_64-pc-windows-msvc
-        nightly-i686-pc-windows-msvc
-        nightly-x86_64-pc-windows-gnu
-        nightly-x86_64-pc-windows-msvc (default)
-        1.51-x86_64-pc-windows-msvc
-
-        installed targets for active toolchain
-        --------------------------------------
-
-        i686-pc-windows-gnu
-        i686-pc-windows-msvc
-        x86_64-pc-windows-gnu
-        x86_64-pc-windows-msvc
-
-        active toolchain
-        ----------------
-
-        nightly-x86_64-pc-windows-msvc (default)
-        rustc 1.60.0-nightly (a00e130da 2022-01-29)
-  - type: textarea
-    attributes:
-      label: Reproducible example
-      description: >
-        Please provide all code needed to reproduce the issue.
-      placeholder: |
-        use windows::Win32::UI::WindowsAndMessaging::{MessageBoxA, MB_OK};
-
-        fn main() {
-            unsafe {
-                MessageBoxA(None, "Hello", "World", MB_OK);
-            }
-        }
-      render: rust
-  - type: textarea
-    attributes:
       label: Crate manifest
       description: >
-        Please provide a crate manifest (`Cargo.toml`) that corresponds
-        to the reproducible example.
-      placeholder: |
-        # ...
-
-        [dependencies.windows]
-        version = "0.51.1"
-        features = [
-            "Win32_Foundation",
-            "Win32_UI_WindowsAndMessaging",
-        ]
-      render: toml
+        Please provide the Cargo manifest (Cargo.toml) needed to compile your crate.
+      render: TOML
   - type: textarea
     attributes:
-      label: Expected behavior
-      description: "I expected to see this happen:"
-  - type: textarea
-    attributes:
-      label: Actual behavior
-      description: "Instead, this happened:"
-  - type: textarea
-    attributes:
-      label: Additional comments
-      description: Is there anything else you'd like to share?
-    validations:
-      required: false
-  - type: markdown
-    attributes:
-      value: "Thank you! 🦀"
+      label: Crate code
+      description: >
+        Please provide all code needed to reproduce the issue.
+      render: Rust
