@@ -34,7 +34,7 @@ macro_rules! link {
 #[macro_export]
 macro_rules! link {
     ($library:literal $abi:literal $($link_name:literal)? $(#[$doc:meta])? fn $($function:tt)*) => (
-        #[link(name = "windows.0.48.5")]
+        #[link(name = "windows.0.52.0")]
         extern $abi {
             $(#[$doc])?
             $(#[link_name=$link_name])?

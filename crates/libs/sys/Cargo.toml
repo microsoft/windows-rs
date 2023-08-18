@@ -1,14 +1,13 @@
-
 [package]
 name = "windows-sys"
-version = "0.48.0"
+version = "0.52.0"
 authors = ["Microsoft"]
 edition = "2021"
+rust-version = "1.56"
 license = "MIT OR Apache-2.0"
 description = "Rust for Windows"
 repository = "https://github.com/microsoft/windows-rs"
 readme = "../../../docs/readme.md"
-rust-version = "1.56"
 categories = ["os::windows-apis"]
 
 [package.metadata.docs.rs]
@@ -17,7 +16,7 @@ targets = []
 all-features = true
 
 [dependencies.windows-targets]
-version = "0.48.5"
+version = "0.52.0"
 path = "../targets"
 
 [features]

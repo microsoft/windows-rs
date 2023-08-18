@@ -3,11 +3,11 @@
 
 #[test]
 fn test() {
-    std::include_bytes!("../../../targets/aarch64_gnullvm/lib/libwindows.0.48.5.a");
-    std::include_bytes!("../../../targets/aarch64_msvc/lib/windows.0.48.5.lib");
-    std::include_bytes!("../../../targets/i686_gnu/lib/libwindows.0.48.5.a");
-    std::include_bytes!("../../../targets/i686_msvc/lib/windows.0.48.5.lib");
-    std::include_bytes!("../../../targets/x86_64_gnu/lib/libwindows.0.48.5.a");
-    std::include_bytes!("../../../targets/x86_64_gnullvm/lib/libwindows.0.48.5.a");
-    std::include_bytes!("../../../targets/x86_64_msvc/lib/windows.0.48.5.lib");
+    std::include_bytes!("../../../targets/aarch64_gnullvm/lib/libwindows.0.52.0.a");
+    std::include_bytes!("../../../targets/aarch64_msvc/lib/windows.0.52.0.lib");
+    std::include_bytes!("../../../targets/i686_gnu/lib/libwindows.0.52.0.a");
+    std::include_bytes!("../../../targets/i686_msvc/lib/windows.0.52.0.lib");
+    std::include_bytes!("../../../targets/x86_64_gnu/lib/libwindows.0.52.0.a");
+    std::include_bytes!("../../../targets/x86_64_gnullvm/lib/libwindows.0.52.0.a");
+    std::include_bytes!("../../../targets/x86_64_msvc/lib/windows.0.52.0.lib");
 }
