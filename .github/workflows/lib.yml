@@ -70,7 +70,7 @@ jobs:
           foreach($Test in $Tests) {
             $Target = $Test.Item1
             $Magic = $Test.Item2
-            $Output = [string](& $DumpbinPath /headers crates/targets/$Target/lib/windows.0.48.3.lib)
+            $Output = [string](& $DumpbinPath /headers crates/targets/$Target/lib/windows.0.48.4.lib)
             if($Output -match "Machine\s*: $Magic" -ne $True) {
               Write-Error "Import lib check failed for $Target ($Magic)."
               Exit 1
