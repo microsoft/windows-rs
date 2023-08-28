@@ -2,6 +2,18 @@ use super::*;
 use metadata::RowReader;
 
 pub fn verify(reader: &metadata::Reader, filter: &metadata::Filter) -> crate::Result<()> {
+    let unused: Vec<&str> = filter.unused(reader).collect();
+
+    if !unused.is_empty() {
+        let mut message = "unused filters".to_string();
+
+        for unused in unused {
+            message.push_str(&format!("\n  {unused}"));
+        }
+
+        return Err(crate::Error::new(&message));
+    }
+
     for item in reader.items(filter) {
         // TODO: cover all variants
         let metadata::Item::Type(def) = item else {
