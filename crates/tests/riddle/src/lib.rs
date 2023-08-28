@@ -18,7 +18,7 @@ pub fn run_riddle(name: &str, dialect: &str, etc: &[&str]) -> Vec<windows_metada
     let before = std::fs::read_to_string(&rdl).expect("Failed to read input");
 
     // Convert .rdl to .winmd
-    std::fs::remove_file(&winmd).expect("Failed to delete output");
+    _ = std::fs::remove_file(&winmd);
     let mut command = Command::new("cargo");
     command.args([
         "run", "-p", "riddle", "--", "--in", &rdl, "--out", &winmd, "--filter", "Test",
