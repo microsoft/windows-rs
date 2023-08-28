@@ -130,6 +130,29 @@ impl<'a> Reader<'a> {
         self.items.get_key_value(namespace).into_iter().flat_map(move |(namespace, items)| items.iter().filter(move |(name, _)| filter.includes_type_name(TypeName::new(namespace, name)))).flat_map(move |(_, items)| items).cloned()
     }
 
+    fn unused(&self, filter: &str) -> bool {
+        // Match namespaces
+        if self.items.contains_key(filter) {
+            return false;
+        }
+
+        // Match type names
+        if let Some((namespace, name)) = filter.rsplit_once('.') {
+            if self.items.get(namespace).is_some_and(|items| items.contains_key(name)) {
+                return false;
+            }
+        }
+
+        // Match empty parent namespaces
+        for namespace in self.items.keys() {
+            if namespace.len() > filter.len() && namespace.starts_with(filter) && namespace.as_bytes()[filter.len()] == b'.' {
+                return false;
+            }
+        }
+
+        true
+    }
+
     fn get_item(&self, type_name: TypeName) -> impl Iterator<Item = Item> + '_ {
         if let Some(items) = self.items.get(type_name.namespace) {
             if let Some(items) = items.get(type_name.name) {

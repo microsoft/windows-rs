@@ -70,6 +70,10 @@ impl<'a> Filter<'a> {
     fn is_empty(&self) -> bool {
         self.0.is_empty()
     }
+
+    pub fn unused(&self, reader: &'a Reader) -> impl Iterator<Item = &str> + '_ {
+        self.0.iter().filter_map(|(name, _)| if reader.unused(name) { Some(*name) } else { None })
+    }
 }
 
 fn match_type_name(rule: &str, namespace: &str, name: &str) -> bool {

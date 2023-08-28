@@ -18,6 +18,7 @@ pub fn run_riddle(name: &str, dialect: &str, etc: &[&str]) -> Vec<windows_metada
     let before = std::fs::read_to_string(&rdl).expect("Failed to read input");
 
     // Convert .rdl to .winmd
+    std::fs::remove_file(&winmd).expect("Failed to delete output");
     let mut command = Command::new("cargo");
     command.args([
         "run", "-p", "riddle", "--", "--in", &rdl, "--out", &winmd, "--filter", "Test",
@@ -25,6 +26,7 @@ pub fn run_riddle(name: &str, dialect: &str, etc: &[&str]) -> Vec<windows_metada
     assert!(command.status().unwrap().success());
 
     // Convert .winmd back to .rdl
+    std::fs::remove_file(&rdl).expect("Failed to delete output");
     let mut command = Command::new("cargo");
     command.args([
         "run", "-p", "riddle", "--", "--in", &winmd, "--out", &rdl, "--filter", "Test", "--config",
@@ -37,6 +39,7 @@ pub fn run_riddle(name: &str, dialect: &str, etc: &[&str]) -> Vec<windows_metada
     assert_eq!(before, after, "no equal {}", rdl);
 
     // Convert .rdl to .rs
+    std::fs::remove_file(&rs).expect("Failed to delete output");
     let mut command = Command::new("cargo");
     command.args([
         "run", "-p", "riddle", "--", "--in", &rdl, "--out", &rs, "--filter", "Test",
