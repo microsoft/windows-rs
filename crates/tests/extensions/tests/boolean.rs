@@ -1,4 +1,4 @@
-use windows::Win32::Foundation::*;
+use windows::{Win32::Foundation::*, Win32::NetworkManagement::IpHelper::*};
 
 #[test]
 fn test() {
@@ -20,4 +20,25 @@ fn test() {
     assert_eq!(result.is_ok(), false);
     let error = result.unwrap_err();
     assert_eq!(error.code(), E_ACCESSDENIED);
+}
+
+#[test]
+#[ignore]
+fn no_run() {
+    unsafe {
+        _ = NotifyUnicastIpAddressChange(
+            Default::default(),
+            None,
+            None,
+            true,
+            std::ptr::null_mut(),
+        );
+        _ = NotifyUnicastIpAddressChange(
+            Default::default(),
+            None,
+            None,
+            BOOLEAN(1),
+            std::ptr::null_mut(),
+        );
+    }
 }
