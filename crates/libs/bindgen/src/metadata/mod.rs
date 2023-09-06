@@ -575,16 +575,6 @@ pub fn method_def_special_name(reader: &Reader, row: MethodDef) -> String {
     }
 }
 
-pub fn method_def_static_lib(reader: &Reader, row: MethodDef) -> Option<String> {
-    reader.find_attribute(row, "StaticLibraryAttribute").and_then(|attribute| {
-        let args = reader.attribute_args(attribute);
-        if let Value::String(value) = &args[0].1 {
-            return Some(value.clone());
-        }
-        None
-    })
-}
-
 pub fn method_def_extern_abi(reader: &Reader, def: MethodDef) -> &'static str {
     let impl_map = reader.method_def_impl_map(def).expect("ImplMap not found");
     let flags = reader.impl_map_flags(impl_map);

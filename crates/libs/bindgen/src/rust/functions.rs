@@ -225,14 +225,6 @@ fn gen_link(writer: &Writer, namespace: &str, signature: &Signature, cfg: &Cfg) 
                 pub fn #ident(#(#params,)* #vararg) #return_type;
             }
         }
-    } else if let Some(library) = method_def_static_lib(writer.reader, signature.def) {
-        quote! {
-            #[link(name = #library, kind = "static")]
-            extern #abi {
-                #link_name
-                pub fn #ident(#(#params,)* #vararg) #return_type;
-            }
-        }
     } else {
         let symbol = if symbol != name { format!(" \"{symbol}\"") } else { String::new() };
 
