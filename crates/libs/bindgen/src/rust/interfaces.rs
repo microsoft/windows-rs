@@ -44,12 +44,14 @@ fn gen_win_interface(writer: &Writer, def: TypeDef) -> TokenStream {
         tokens.combine(&quote! {
             #features
             #[repr(transparent)]
+            #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
             pub struct #ident(::windows_core::IUnknown, #phantoms) where #constraints;
         });
     } else {
         tokens.combine(&quote! {
             #features
             #[repr(transparent)]
+            #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
             pub struct #ident(::std::ptr::NonNull<::std::ffi::c_void>);
         });
     }
@@ -136,7 +138,6 @@ fn gen_win_interface(writer: &Writer, def: TypeDef) -> TokenStream {
             }
         }
 
-        tokens.combine(&writer.interface_core_traits(def, generics, &ident, &constraints, &phantoms, &features));
         tokens.combine(&writer.interface_winrt_trait(def, generics, &ident, &constraints, &phantoms, &features));
         tokens.combine(&writer.async_get(def, generics, &ident, &constraints, &phantoms, &features));
         tokens.combine(&iterators::writer(writer, def, generics, &ident, &constraints, &phantoms, &cfg));

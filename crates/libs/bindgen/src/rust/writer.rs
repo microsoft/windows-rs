@@ -537,25 +537,6 @@ impl<'a> Writer<'a> {
         let guid = self.type_name(&Type::GUID);
         format!("{}::from_u128(0x{:08x?}_{:04x?}_{:04x?}_{:02x?}{:02x?}_{:02x?}{:02x?}{:02x?}{:02x?}{:02x?}{:02x?})", guid.into_string(), value.0, value.1, value.2, value.3, value.4, value.5, value.6, value.7, value.8, value.9, value.10).into()
     }
-    pub fn interface_core_traits(&self, def: TypeDef, _generics: &[Type], ident: &TokenStream, constraints: &TokenStream, _phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
-        let name = crate::trim_tick(self.reader.type_def_name(def));
-        quote! {
-            #features
-            impl<#constraints> ::core::cmp::PartialEq for #ident {
-                fn eq(&self, other: &Self) -> bool {
-                    self.0 == other.0
-                }
-            }
-            #features
-            impl<#constraints> ::core::cmp::Eq for #ident {}
-            #features
-            impl<#constraints> ::core::fmt::Debug for #ident {
-                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                    f.debug_tuple(#name).field(&self.0).finish()
-                }
-            }
-        }
-    }
     pub fn agile(&self, def: TypeDef, ident: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {
         if type_def_is_agile(self.reader, def) {
             quote! {
@@ -719,12 +700,6 @@ impl<'a> Writer<'a> {
             let vtbl = self.type_vtbl_name(&default);
             quote! {
                 #features
-                impl<#constraints> ::core::clone::Clone for #ident {
-                    fn clone(&self) -> Self {
-                        Self(self.0.clone())
-                    }
-                }
-                #features
                 unsafe impl ::windows_core::Interface for #ident {
                     type Vtable = #vtbl;
                 }
@@ -750,18 +725,10 @@ impl<'a> Writer<'a> {
                 }
             };
 
-            let phantoms = self.generic_phantoms(generics);
-
             let mut tokens = quote! {
                 #features
                 unsafe impl<#constraints> ::windows_core::Interface for #ident {
                     type Vtable = #vtbl;
-                }
-                #features
-                impl<#constraints> ::core::clone::Clone for #ident {
-                    fn clone(&self) -> Self {
-                        Self(self.0.clone(), #phantoms)
-                    }
                 }
             };
 
