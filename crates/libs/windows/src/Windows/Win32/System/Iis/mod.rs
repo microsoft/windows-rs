@@ -28,6 +28,7 @@ pub unsafe fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u3
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncIFtpAuthenticationProvider(::windows_core::IUnknown);
 impl AsyncIFtpAuthenticationProvider {
     pub unsafe fn Begin_AuthenticateUser<P0, P1, P2, P3>(&self, pszsessionid: P0, pszsitename: P1, pszusername: P2, pszpassword: P3) -> ::windows_core::Result<()>
@@ -46,24 +47,8 @@ impl AsyncIFtpAuthenticationProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(AsyncIFtpAuthenticationProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for AsyncIFtpAuthenticationProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIFtpAuthenticationProvider {}
-impl ::core::fmt::Debug for AsyncIFtpAuthenticationProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIFtpAuthenticationProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for AsyncIFtpAuthenticationProvider {
     type Vtable = AsyncIFtpAuthenticationProvider_Vtbl;
-}
-impl ::core::clone::Clone for AsyncIFtpAuthenticationProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for AsyncIFtpAuthenticationProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc24efb65_9f3e_4996_8fb1_ce166916bab5);
@@ -80,6 +65,7 @@ pub struct AsyncIFtpAuthenticationProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncIFtpAuthorizationProvider(::windows_core::IUnknown);
 impl AsyncIFtpAuthorizationProvider {
     pub unsafe fn Begin_GetUserAccessPermission<P0, P1, P2, P3>(&self, pszsessionid: P0, pszsitename: P1, pszvirtualpath: P2, pszusername: P3) -> ::windows_core::Result<()>
@@ -97,24 +83,8 @@ impl AsyncIFtpAuthorizationProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(AsyncIFtpAuthorizationProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for AsyncIFtpAuthorizationProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIFtpAuthorizationProvider {}
-impl ::core::fmt::Debug for AsyncIFtpAuthorizationProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIFtpAuthorizationProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for AsyncIFtpAuthorizationProvider {
     type Vtable = AsyncIFtpAuthorizationProvider_Vtbl;
-}
-impl ::core::clone::Clone for AsyncIFtpAuthorizationProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for AsyncIFtpAuthorizationProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x860dc339_07e5_4a5c_9c61_8820cea012bc);
@@ -128,6 +98,7 @@ pub struct AsyncIFtpAuthorizationProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncIFtpHomeDirectoryProvider(::windows_core::IUnknown);
 impl AsyncIFtpHomeDirectoryProvider {
     pub unsafe fn Begin_GetUserHomeDirectoryData<P0, P1, P2>(&self, pszsessionid: P0, pszsitename: P1, pszusername: P2) -> ::windows_core::Result<()>
@@ -144,24 +115,8 @@ impl AsyncIFtpHomeDirectoryProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(AsyncIFtpHomeDirectoryProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for AsyncIFtpHomeDirectoryProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIFtpHomeDirectoryProvider {}
-impl ::core::fmt::Debug for AsyncIFtpHomeDirectoryProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIFtpHomeDirectoryProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for AsyncIFtpHomeDirectoryProvider {
     type Vtable = AsyncIFtpHomeDirectoryProvider_Vtbl;
-}
-impl ::core::clone::Clone for AsyncIFtpHomeDirectoryProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for AsyncIFtpHomeDirectoryProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73f81638_6295_42bd_a2be_4a657f7c479c);
@@ -175,6 +130,7 @@ pub struct AsyncIFtpHomeDirectoryProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncIFtpLogProvider(::windows_core::IUnknown);
 impl AsyncIFtpLogProvider {
     pub unsafe fn Begin_Log(&self, ploggingparameters: *const LOGGING_PARAMETERS) -> ::windows_core::Result<()> {
@@ -185,24 +141,8 @@ impl AsyncIFtpLogProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(AsyncIFtpLogProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for AsyncIFtpLogProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIFtpLogProvider {}
-impl ::core::fmt::Debug for AsyncIFtpLogProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIFtpLogProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for AsyncIFtpLogProvider {
     type Vtable = AsyncIFtpLogProvider_Vtbl;
-}
-impl ::core::clone::Clone for AsyncIFtpLogProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for AsyncIFtpLogProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00a0ae46_2498_48b2_95e6_df678ed7d49f);
@@ -216,6 +156,7 @@ pub struct AsyncIFtpLogProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncIFtpPostprocessProvider(::windows_core::IUnknown);
 impl AsyncIFtpPostprocessProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -229,24 +170,8 @@ impl AsyncIFtpPostprocessProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(AsyncIFtpPostprocessProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for AsyncIFtpPostprocessProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIFtpPostprocessProvider {}
-impl ::core::fmt::Debug for AsyncIFtpPostprocessProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIFtpPostprocessProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for AsyncIFtpPostprocessProvider {
     type Vtable = AsyncIFtpPostprocessProvider_Vtbl;
-}
-impl ::core::clone::Clone for AsyncIFtpPostprocessProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for AsyncIFtpPostprocessProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa16b2542_9694_4eb1_a564_6c2e91fdc133);
@@ -263,6 +188,7 @@ pub struct AsyncIFtpPostprocessProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncIFtpPreprocessProvider(::windows_core::IUnknown);
 impl AsyncIFtpPreprocessProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -276,24 +202,8 @@ impl AsyncIFtpPreprocessProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(AsyncIFtpPreprocessProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for AsyncIFtpPreprocessProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIFtpPreprocessProvider {}
-impl ::core::fmt::Debug for AsyncIFtpPreprocessProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIFtpPreprocessProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for AsyncIFtpPreprocessProvider {
     type Vtable = AsyncIFtpPreprocessProvider_Vtbl;
-}
-impl ::core::clone::Clone for AsyncIFtpPreprocessProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for AsyncIFtpPreprocessProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6ff5fd8f_fd8e_48b1_a3e0_bf7073db4db5);
@@ -310,6 +220,7 @@ pub struct AsyncIFtpPreprocessProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncIFtpRoleProvider(::windows_core::IUnknown);
 impl AsyncIFtpRoleProvider {
     pub unsafe fn Begin_IsUserInRole<P0, P1, P2, P3>(&self, pszsessionid: P0, pszsitename: P1, pszusername: P2, pszrole: P3) -> ::windows_core::Result<()>
@@ -329,24 +240,8 @@ impl AsyncIFtpRoleProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(AsyncIFtpRoleProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for AsyncIFtpRoleProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIFtpRoleProvider {}
-impl ::core::fmt::Debug for AsyncIFtpRoleProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIFtpRoleProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for AsyncIFtpRoleProvider {
     type Vtable = AsyncIFtpRoleProvider_Vtbl;
-}
-impl ::core::clone::Clone for AsyncIFtpRoleProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for AsyncIFtpRoleProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3e83bf99_70ec_41ca_84b6_aca7c7a62caf);
@@ -363,6 +258,7 @@ pub struct AsyncIFtpRoleProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncIMSAdminBaseSinkW(::windows_core::IUnknown);
 impl AsyncIMSAdminBaseSinkW {
     pub unsafe fn Begin_SinkNotify(&self, pcochangelist: &[MD_CHANGE_OBJECT_W]) -> ::windows_core::Result<()> {
@@ -379,24 +275,8 @@ impl AsyncIMSAdminBaseSinkW {
     }
 }
 ::windows_core::imp::interface_hierarchy!(AsyncIMSAdminBaseSinkW, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for AsyncIMSAdminBaseSinkW {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIMSAdminBaseSinkW {}
-impl ::core::fmt::Debug for AsyncIMSAdminBaseSinkW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIMSAdminBaseSinkW").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for AsyncIMSAdminBaseSinkW {
     type Vtable = AsyncIMSAdminBaseSinkW_Vtbl;
-}
-impl ::core::clone::Clone for AsyncIMSAdminBaseSinkW {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for AsyncIMSAdminBaseSinkW {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9e69613_b80d_11d0_b9b9_00a0c922e750);
@@ -412,6 +292,7 @@ pub struct AsyncIMSAdminBaseSinkW_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADMEXT(::windows_core::IUnknown);
 impl IADMEXT {
     pub unsafe fn Initialize(&self) -> ::windows_core::Result<()> {
@@ -425,24 +306,8 @@ impl IADMEXT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IADMEXT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IADMEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IADMEXT {}
-impl ::core::fmt::Debug for IADMEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADMEXT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IADMEXT {
     type Vtable = IADMEXT_Vtbl;
-}
-impl ::core::clone::Clone for IADMEXT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IADMEXT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51dfe970_f6f2_11d0_b9bd_00a0c922e750);
@@ -457,6 +322,7 @@ pub struct IADMEXT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFtpAuthenticationProvider(::windows_core::IUnknown);
 impl IFtpAuthenticationProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -472,24 +338,8 @@ impl IFtpAuthenticationProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IFtpAuthenticationProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IFtpAuthenticationProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFtpAuthenticationProvider {}
-impl ::core::fmt::Debug for IFtpAuthenticationProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFtpAuthenticationProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IFtpAuthenticationProvider {
     type Vtable = IFtpAuthenticationProvider_Vtbl;
-}
-impl ::core::clone::Clone for IFtpAuthenticationProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFtpAuthenticationProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4659f95c_d5a8_4707_b2fc_6fd5794246cf);
@@ -505,6 +355,7 @@ pub struct IFtpAuthenticationProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFtpAuthorizationProvider(::windows_core::IUnknown);
 impl IFtpAuthorizationProvider {
     pub unsafe fn GetUserAccessPermission<P0, P1, P2, P3>(&self, pszsessionid: P0, pszsitename: P1, pszvirtualpath: P2, pszusername: P3) -> ::windows_core::Result<FTP_ACCESS>
@@ -519,24 +370,8 @@ impl IFtpAuthorizationProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IFtpAuthorizationProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IFtpAuthorizationProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFtpAuthorizationProvider {}
-impl ::core::fmt::Debug for IFtpAuthorizationProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFtpAuthorizationProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IFtpAuthorizationProvider {
     type Vtable = IFtpAuthorizationProvider_Vtbl;
-}
-impl ::core::clone::Clone for IFtpAuthorizationProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFtpAuthorizationProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa50ae7a1_a35a_42b4_a4f3_f4f7057a05d1);
@@ -549,6 +384,7 @@ pub struct IFtpAuthorizationProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFtpHomeDirectoryProvider(::windows_core::IUnknown);
 impl IFtpHomeDirectoryProvider {
     pub unsafe fn GetUserHomeDirectoryData<P0, P1, P2>(&self, pszsessionid: P0, pszsitename: P1, pszusername: P2) -> ::windows_core::Result<::windows_core::PWSTR>
@@ -562,24 +398,8 @@ impl IFtpHomeDirectoryProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IFtpHomeDirectoryProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IFtpHomeDirectoryProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFtpHomeDirectoryProvider {}
-impl ::core::fmt::Debug for IFtpHomeDirectoryProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFtpHomeDirectoryProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IFtpHomeDirectoryProvider {
     type Vtable = IFtpHomeDirectoryProvider_Vtbl;
-}
-impl ::core::clone::Clone for IFtpHomeDirectoryProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFtpHomeDirectoryProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0933b392_18dd_4097_8b9c_83325c35d9a6);
@@ -592,6 +412,7 @@ pub struct IFtpHomeDirectoryProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFtpLogProvider(::windows_core::IUnknown);
 impl IFtpLogProvider {
     pub unsafe fn Log(&self, ploggingparameters: *const LOGGING_PARAMETERS) -> ::windows_core::Result<()> {
@@ -599,24 +420,8 @@ impl IFtpLogProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IFtpLogProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IFtpLogProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFtpLogProvider {}
-impl ::core::fmt::Debug for IFtpLogProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFtpLogProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IFtpLogProvider {
     type Vtable = IFtpLogProvider_Vtbl;
-}
-impl ::core::clone::Clone for IFtpLogProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFtpLogProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa18a94cc_8299_4408_816c_7c3baca1a40e);
@@ -629,6 +434,7 @@ pub struct IFtpLogProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFtpPostprocessProvider(::windows_core::IUnknown);
 impl IFtpPostprocessProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -639,24 +445,8 @@ impl IFtpPostprocessProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IFtpPostprocessProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IFtpPostprocessProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFtpPostprocessProvider {}
-impl ::core::fmt::Debug for IFtpPostprocessProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFtpPostprocessProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IFtpPostprocessProvider {
     type Vtable = IFtpPostprocessProvider_Vtbl;
-}
-impl ::core::clone::Clone for IFtpPostprocessProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFtpPostprocessProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4522cbc6_16cd_49ad_8653_9a2c579e4280);
@@ -672,6 +462,7 @@ pub struct IFtpPostprocessProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFtpPreprocessProvider(::windows_core::IUnknown);
 impl IFtpPreprocessProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -682,24 +473,8 @@ impl IFtpPreprocessProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IFtpPreprocessProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IFtpPreprocessProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFtpPreprocessProvider {}
-impl ::core::fmt::Debug for IFtpPreprocessProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFtpPreprocessProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IFtpPreprocessProvider {
     type Vtable = IFtpPreprocessProvider_Vtbl;
-}
-impl ::core::clone::Clone for IFtpPreprocessProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFtpPreprocessProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa3c19b60_5a28_471a_8f93_ab30411cee82);
@@ -715,6 +490,7 @@ pub struct IFtpPreprocessProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFtpProviderConstruct(::windows_core::IUnknown);
 impl IFtpProviderConstruct {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -724,24 +500,8 @@ impl IFtpProviderConstruct {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IFtpProviderConstruct, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IFtpProviderConstruct {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFtpProviderConstruct {}
-impl ::core::fmt::Debug for IFtpProviderConstruct {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFtpProviderConstruct").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IFtpProviderConstruct {
     type Vtable = IFtpProviderConstruct_Vtbl;
-}
-impl ::core::clone::Clone for IFtpProviderConstruct {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFtpProviderConstruct {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4d1a3f7b_412d_447c_b199_64f967e9a2da);
@@ -757,6 +517,7 @@ pub struct IFtpProviderConstruct_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFtpRoleProvider(::windows_core::IUnknown);
 impl IFtpRoleProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -773,24 +534,8 @@ impl IFtpRoleProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IFtpRoleProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IFtpRoleProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFtpRoleProvider {}
-impl ::core::fmt::Debug for IFtpRoleProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFtpRoleProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IFtpRoleProvider {
     type Vtable = IFtpRoleProvider_Vtbl;
-}
-impl ::core::clone::Clone for IFtpRoleProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFtpRoleProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x909c850d_8ca0_4674_96b8_cc2941535725);
@@ -806,6 +551,7 @@ pub struct IFtpRoleProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSAdminBase2W(::windows_core::IUnknown);
 impl IMSAdminBase2W {
     pub unsafe fn AddKey<P0>(&self, hmdhandle: u32, pszmdpath: P0) -> ::windows_core::Result<()>
@@ -1031,24 +777,8 @@ impl IMSAdminBase2W {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMSAdminBase2W, ::windows_core::IUnknown, IMSAdminBaseW);
-impl ::core::cmp::PartialEq for IMSAdminBase2W {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMSAdminBase2W {}
-impl ::core::fmt::Debug for IMSAdminBase2W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSAdminBase2W").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMSAdminBase2W {
     type Vtable = IMSAdminBase2W_Vtbl;
-}
-impl ::core::clone::Clone for IMSAdminBase2W {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMSAdminBase2W {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8298d101_f992_43b7_8eca_5052d885b995);
@@ -1069,6 +799,7 @@ pub struct IMSAdminBase2W_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSAdminBase3W(::windows_core::IUnknown);
 impl IMSAdminBase3W {
     pub unsafe fn AddKey<P0>(&self, hmdhandle: u32, pszmdpath: P0) -> ::windows_core::Result<()>
@@ -1300,24 +1031,8 @@ impl IMSAdminBase3W {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMSAdminBase3W, ::windows_core::IUnknown, IMSAdminBaseW, IMSAdminBase2W);
-impl ::core::cmp::PartialEq for IMSAdminBase3W {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMSAdminBase3W {}
-impl ::core::fmt::Debug for IMSAdminBase3W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSAdminBase3W").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMSAdminBase3W {
     type Vtable = IMSAdminBase3W_Vtbl;
-}
-impl ::core::clone::Clone for IMSAdminBase3W {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMSAdminBase3W {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf612954d_3b0b_4c56_9563_227b7be624b4);
@@ -1330,6 +1045,7 @@ pub struct IMSAdminBase3W_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSAdminBaseSinkW(::windows_core::IUnknown);
 impl IMSAdminBaseSinkW {
     pub unsafe fn SinkNotify(&self, pcochangelist: &[MD_CHANGE_OBJECT_W]) -> ::windows_core::Result<()> {
@@ -1340,24 +1056,8 @@ impl IMSAdminBaseSinkW {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMSAdminBaseSinkW, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMSAdminBaseSinkW {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMSAdminBaseSinkW {}
-impl ::core::fmt::Debug for IMSAdminBaseSinkW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSAdminBaseSinkW").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMSAdminBaseSinkW {
     type Vtable = IMSAdminBaseSinkW_Vtbl;
-}
-impl ::core::clone::Clone for IMSAdminBaseSinkW {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMSAdminBaseSinkW {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9e69612_b80d_11d0_b9b9_00a0c922e750);
@@ -1371,6 +1071,7 @@ pub struct IMSAdminBaseSinkW_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSAdminBaseW(::windows_core::IUnknown);
 impl IMSAdminBaseW {
     pub unsafe fn AddKey<P0>(&self, hmdhandle: u32, pszmdpath: P0) -> ::windows_core::Result<()>
@@ -1554,24 +1255,8 @@ impl IMSAdminBaseW {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMSAdminBaseW, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMSAdminBaseW {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMSAdminBaseW {}
-impl ::core::fmt::Debug for IMSAdminBaseW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSAdminBaseW").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMSAdminBaseW {
     type Vtable = IMSAdminBaseW_Vtbl;
-}
-impl ::core::clone::Clone for IMSAdminBaseW {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMSAdminBaseW {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x70b51430_b6ca_11d0_b9b9_00a0c922e750);
@@ -1629,6 +1314,7 @@ pub struct IMSAdminBaseW_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Iis\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMSImpExpHelpW(::windows_core::IUnknown);
 impl IMSImpExpHelpW {
     pub unsafe fn EnumeratePathsInFile<P0, P1>(&self, pszfilename: P0, pszkeytype: P1, pszbuffer: ::core::option::Option<&mut [u16]>, pdwmdrequiredbuffersize: *mut u32) -> ::windows_core::Result<()>
@@ -1640,24 +1326,8 @@ impl IMSImpExpHelpW {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMSImpExpHelpW, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMSImpExpHelpW {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMSImpExpHelpW {}
-impl ::core::fmt::Debug for IMSImpExpHelpW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMSImpExpHelpW").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMSImpExpHelpW {
     type Vtable = IMSImpExpHelpW_Vtbl;
-}
-impl ::core::clone::Clone for IMSImpExpHelpW {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMSImpExpHelpW {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x29ff67ff_8050_480f_9f30_cc41635f2f9d);

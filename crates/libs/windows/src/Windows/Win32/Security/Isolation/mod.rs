@@ -106,6 +106,7 @@ pub unsafe fn IsProcessInWDAGContainer(reserved: *const ::core::ffi::c_void) -> 
 }
 #[doc = "*Required features: `\"Win32_Security_Isolation\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIsolatedAppLauncher(::windows_core::IUnknown);
 impl IIsolatedAppLauncher {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -119,24 +120,8 @@ impl IIsolatedAppLauncher {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIsolatedAppLauncher, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIsolatedAppLauncher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIsolatedAppLauncher {}
-impl ::core::fmt::Debug for IIsolatedAppLauncher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIsolatedAppLauncher").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIsolatedAppLauncher {
     type Vtable = IIsolatedAppLauncher_Vtbl;
-}
-impl ::core::clone::Clone for IIsolatedAppLauncher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIsolatedAppLauncher {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf686878f_7b42_4cc4_96fb_f4f3b6e3d24d);

@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGameService(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGameService {
     type Vtable = IGameService_Vtbl;
-}
-impl ::core::clone::Clone for IGameService {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGameService {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2e2d5098_48a9_4efc_afd6_8e6da09003fb);
@@ -45,14 +41,10 @@ pub struct IGameService_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGameService2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGameService2 {
     type Vtable = IGameService2_Vtbl;
-}
-impl ::core::clone::Clone for IGameService2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGameService2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2364ef6_ea17_4be5_8d8a_c860885e051f);
@@ -69,14 +61,10 @@ pub struct IGameService2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGameServicePropertyCollection(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGameServicePropertyCollection {
     type Vtable = IGameServicePropertyCollection_Vtbl;
-}
-impl ::core::clone::Clone for IGameServicePropertyCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGameServicePropertyCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x07e57fc8_debb_4609_9cc8_529d16bc2bd9);
@@ -180,6 +168,7 @@ impl ::windows_core::RuntimeName for GameService {
 }
 #[doc = "*Required features: `\"Phone_System_UserProfile_GameServices_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GameServicePropertyCollection(::windows_core::IUnknown);
 impl GameServicePropertyCollection {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -192,24 +181,8 @@ impl GameServicePropertyCollection {
         }
     }
 }
-impl ::core::cmp::PartialEq for GameServicePropertyCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameServicePropertyCollection {}
-impl ::core::fmt::Debug for GameServicePropertyCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GameServicePropertyCollection").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for GameServicePropertyCollection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.System.UserProfile.GameServices.Core.GameServicePropertyCollection;{07e57fc8-debb-4609-9cc8-529d16bc2bd9})");
-}
-impl ::core::clone::Clone for GameServicePropertyCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for GameServicePropertyCollection {
     type Vtable = IGameServicePropertyCollection_Vtbl;

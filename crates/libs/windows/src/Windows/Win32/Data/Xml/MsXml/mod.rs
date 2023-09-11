@@ -1,6 +1,7 @@
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMXAttributes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMXAttributes {
@@ -74,28 +75,8 @@ impl IMXAttributes {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMXAttributes, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMXAttributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMXAttributes {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMXAttributes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMXAttributes").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMXAttributes {
     type Vtable = IMXAttributes_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMXAttributes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMXAttributes {
@@ -126,6 +107,7 @@ pub struct IMXAttributes_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMXNamespaceManager(::windows_core::IUnknown);
 impl IMXNamespaceManager {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -187,24 +169,8 @@ impl IMXNamespaceManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMXNamespaceManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMXNamespaceManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMXNamespaceManager {}
-impl ::core::fmt::Debug for IMXNamespaceManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMXNamespaceManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMXNamespaceManager {
     type Vtable = IMXNamespaceManager_Vtbl;
-}
-impl ::core::clone::Clone for IMXNamespaceManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMXNamespaceManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc90352f6_643c_4fbc_bb23_e996eb2d51fd);
@@ -239,6 +205,7 @@ pub struct IMXNamespaceManager_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMXNamespacePrefixes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMXNamespacePrefixes {
@@ -258,28 +225,8 @@ impl IMXNamespacePrefixes {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMXNamespacePrefixes, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMXNamespacePrefixes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMXNamespacePrefixes {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMXNamespacePrefixes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMXNamespacePrefixes").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMXNamespacePrefixes {
     type Vtable = IMXNamespacePrefixes_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMXNamespacePrefixes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMXNamespacePrefixes {
@@ -297,6 +244,7 @@ pub struct IMXNamespacePrefixes_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMXReaderControl(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMXReaderControl {
@@ -313,28 +261,8 @@ impl IMXReaderControl {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMXReaderControl, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMXReaderControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMXReaderControl {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMXReaderControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMXReaderControl").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMXReaderControl {
     type Vtable = IMXReaderControl_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMXReaderControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMXReaderControl {
@@ -352,6 +280,7 @@ pub struct IMXReaderControl_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMXSchemaDeclHandler(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMXSchemaDeclHandler {
@@ -367,28 +296,8 @@ impl IMXSchemaDeclHandler {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMXSchemaDeclHandler, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMXSchemaDeclHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMXSchemaDeclHandler {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMXSchemaDeclHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMXSchemaDeclHandler").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMXSchemaDeclHandler {
     type Vtable = IMXSchemaDeclHandler_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMXSchemaDeclHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMXSchemaDeclHandler {
@@ -407,6 +316,7 @@ pub struct IMXSchemaDeclHandler_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMXWriter(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMXWriter {
@@ -518,28 +428,8 @@ impl IMXWriter {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMXWriter, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMXWriter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMXWriter {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMXWriter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMXWriter").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMXWriter {
     type Vtable = IMXWriter_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMXWriter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMXWriter {
@@ -607,6 +497,7 @@ pub struct IMXWriter_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMXXMLFilter(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMXXMLFilter {
@@ -689,28 +580,8 @@ impl IMXXMLFilter {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IMXXMLFilter, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IMXXMLFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IMXXMLFilter {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IMXXMLFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMXXMLFilter").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IMXXMLFilter {
     type Vtable = IMXXMLFilter_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IMXXMLFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IMXXMLFilter {
@@ -748,6 +619,7 @@ pub struct IMXXMLFilter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISAXAttributes(::windows_core::IUnknown);
 impl ISAXAttributes {
     pub unsafe fn getLength(&self) -> ::windows_core::Result<i32> {
@@ -815,24 +687,8 @@ impl ISAXAttributes {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISAXAttributes, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISAXAttributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISAXAttributes {}
-impl ::core::fmt::Debug for ISAXAttributes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISAXAttributes").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISAXAttributes {
     type Vtable = ISAXAttributes_Vtbl;
-}
-impl ::core::clone::Clone for ISAXAttributes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISAXAttributes {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf078abe1_45d2_4832_91ea_4466ce2f25c9);
@@ -857,6 +713,7 @@ pub struct ISAXAttributes_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISAXContentHandler(::windows_core::IUnknown);
 impl ISAXContentHandler {
     pub unsafe fn putDocumentLocator<P0>(&self, plocator: P0) -> ::windows_core::Result<()>
@@ -928,24 +785,8 @@ impl ISAXContentHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISAXContentHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISAXContentHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISAXContentHandler {}
-impl ::core::fmt::Debug for ISAXContentHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISAXContentHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISAXContentHandler {
     type Vtable = ISAXContentHandler_Vtbl;
-}
-impl ::core::clone::Clone for ISAXContentHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISAXContentHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1545cdfa_9e4e_4497_a8a4_2bf7d0112c44);
@@ -968,6 +809,7 @@ pub struct ISAXContentHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISAXDTDHandler(::windows_core::IUnknown);
 impl ISAXDTDHandler {
     pub unsafe fn notationDecl<P0, P1, P2>(&self, pwchname: P0, cchname: i32, pwchpublicid: P1, cchpublicid: i32, pwchsystemid: P2, cchsystemid: i32) -> ::windows_core::Result<()>
@@ -989,24 +831,8 @@ impl ISAXDTDHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISAXDTDHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISAXDTDHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISAXDTDHandler {}
-impl ::core::fmt::Debug for ISAXDTDHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISAXDTDHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISAXDTDHandler {
     type Vtable = ISAXDTDHandler_Vtbl;
-}
-impl ::core::clone::Clone for ISAXDTDHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISAXDTDHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe15c1baf_afb3_4d60_8c36_19a8c45defed);
@@ -1020,6 +846,7 @@ pub struct ISAXDTDHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISAXDeclHandler(::windows_core::IUnknown);
 impl ISAXDeclHandler {
     pub unsafe fn elementDecl<P0, P1>(&self, pwchname: P0, cchname: i32, pwchmodel: P1, cchmodel: i32) -> ::windows_core::Result<()>
@@ -1056,24 +883,8 @@ impl ISAXDeclHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISAXDeclHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISAXDeclHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISAXDeclHandler {}
-impl ::core::fmt::Debug for ISAXDeclHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISAXDeclHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISAXDeclHandler {
     type Vtable = ISAXDeclHandler_Vtbl;
-}
-impl ::core::clone::Clone for ISAXDeclHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISAXDeclHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x862629ac_771a_47b2_8337_4e6843c1be90);
@@ -1089,6 +900,7 @@ pub struct ISAXDeclHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISAXEntityResolver(::windows_core::IUnknown);
 impl ISAXEntityResolver {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -1103,24 +915,8 @@ impl ISAXEntityResolver {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISAXEntityResolver, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISAXEntityResolver {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISAXEntityResolver {}
-impl ::core::fmt::Debug for ISAXEntityResolver {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISAXEntityResolver").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISAXEntityResolver {
     type Vtable = ISAXEntityResolver_Vtbl;
-}
-impl ::core::clone::Clone for ISAXEntityResolver {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISAXEntityResolver {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x99bca7bd_e8c4_4d5f_a0cf_6d907901ff07);
@@ -1136,6 +932,7 @@ pub struct ISAXEntityResolver_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISAXErrorHandler(::windows_core::IUnknown);
 impl ISAXErrorHandler {
     pub unsafe fn error<P0, P1>(&self, plocator: P0, pwcherrormessage: P1, hrerrorcode: ::windows_core::HRESULT) -> ::windows_core::Result<()>
@@ -1161,24 +958,8 @@ impl ISAXErrorHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISAXErrorHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISAXErrorHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISAXErrorHandler {}
-impl ::core::fmt::Debug for ISAXErrorHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISAXErrorHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISAXErrorHandler {
     type Vtable = ISAXErrorHandler_Vtbl;
-}
-impl ::core::clone::Clone for ISAXErrorHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISAXErrorHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa60511c4_ccf5_479e_98a3_dc8dc545b7d0);
@@ -1193,6 +974,7 @@ pub struct ISAXErrorHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISAXLexicalHandler(::windows_core::IUnknown);
 impl ISAXLexicalHandler {
     pub unsafe fn startDTD<P0, P1, P2>(&self, pwchname: P0, cchname: i32, pwchpublicid: P1, cchpublicid: i32, pwchsystemid: P2, cchsystemid: i32) -> ::windows_core::Result<()>
@@ -1232,24 +1014,8 @@ impl ISAXLexicalHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISAXLexicalHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISAXLexicalHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISAXLexicalHandler {}
-impl ::core::fmt::Debug for ISAXLexicalHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISAXLexicalHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISAXLexicalHandler {
     type Vtable = ISAXLexicalHandler_Vtbl;
-}
-impl ::core::clone::Clone for ISAXLexicalHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISAXLexicalHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f85d5f5_47a8_4497_bda5_84ba04819ea6);
@@ -1268,6 +1034,7 @@ pub struct ISAXLexicalHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISAXLocator(::windows_core::IUnknown);
 impl ISAXLocator {
     pub unsafe fn getColumnNumber(&self) -> ::windows_core::Result<i32> {
@@ -1288,24 +1055,8 @@ impl ISAXLocator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISAXLocator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISAXLocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISAXLocator {}
-impl ::core::fmt::Debug for ISAXLocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISAXLocator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISAXLocator {
     type Vtable = ISAXLocator_Vtbl;
-}
-impl ::core::clone::Clone for ISAXLocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISAXLocator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b7e472a_0de4_4640_bff3_84d38a051c31);
@@ -1321,6 +1072,7 @@ pub struct ISAXLocator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISAXXMLFilter(::windows_core::IUnknown);
 impl ISAXXMLFilter {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1441,24 +1193,8 @@ impl ISAXXMLFilter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISAXXMLFilter, ::windows_core::IUnknown, ISAXXMLReader);
-impl ::core::cmp::PartialEq for ISAXXMLFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISAXXMLFilter {}
-impl ::core::fmt::Debug for ISAXXMLFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISAXXMLFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISAXXMLFilter {
     type Vtable = ISAXXMLFilter_Vtbl;
-}
-impl ::core::clone::Clone for ISAXXMLFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISAXXMLFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x70409222_ca09_4475_acb8_40312fe8d145);
@@ -1472,6 +1208,7 @@ pub struct ISAXXMLFilter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISAXXMLReader(::windows_core::IUnknown);
 impl ISAXXMLReader {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1582,24 +1319,8 @@ impl ISAXXMLReader {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISAXXMLReader, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISAXXMLReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISAXXMLReader {}
-impl ::core::fmt::Debug for ISAXXMLReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISAXXMLReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISAXXMLReader {
     type Vtable = ISAXXMLReader_Vtbl;
-}
-impl ::core::clone::Clone for ISAXXMLReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISAXXMLReader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa4f96ed0_f829_476e_81c0_cdc7bd2a0802);
@@ -1645,6 +1366,7 @@ pub struct ISAXXMLReader_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISchema(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchema {
@@ -1739,28 +1461,8 @@ impl ISchema {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISchema, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISchema {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISchema {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISchema {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISchema").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISchema {
     type Vtable = ISchema_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISchema {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISchema {
@@ -1805,6 +1507,7 @@ pub struct ISchema_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISchemaAny(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaAny {
@@ -1871,28 +1574,8 @@ impl ISchemaAny {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISchemaAny, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem, ISchemaParticle);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISchemaAny {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISchemaAny {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISchemaAny {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISchemaAny").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISchemaAny {
     type Vtable = ISchemaAny_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISchemaAny {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISchemaAny {
@@ -1912,6 +1595,7 @@ pub struct ISchemaAny_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISchemaAttribute(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaAttribute {
@@ -1986,28 +1670,8 @@ impl ISchemaAttribute {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISchemaAttribute, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISchemaAttribute {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISchemaAttribute {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISchemaAttribute {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISchemaAttribute").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISchemaAttribute {
     type Vtable = ISchemaAttribute_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISchemaAttribute {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISchemaAttribute {
@@ -2037,6 +1701,7 @@ pub struct ISchemaAttribute_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISchemaAttributeGroup(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaAttributeGroup {
@@ -2093,28 +1758,8 @@ impl ISchemaAttributeGroup {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISchemaAttributeGroup, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISchemaAttributeGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISchemaAttributeGroup {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISchemaAttributeGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISchemaAttributeGroup").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISchemaAttributeGroup {
     type Vtable = ISchemaAttributeGroup_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISchemaAttributeGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISchemaAttributeGroup {
@@ -2137,6 +1782,7 @@ pub struct ISchemaAttributeGroup_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISchemaComplexType(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaComplexType {
@@ -2302,28 +1948,8 @@ impl ISchemaComplexType {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISchemaComplexType, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem, ISchemaType);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISchemaComplexType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISchemaComplexType {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISchemaComplexType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISchemaComplexType").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISchemaComplexType {
     type Vtable = ISchemaComplexType_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISchemaComplexType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISchemaComplexType {
@@ -2356,6 +1982,7 @@ pub struct ISchemaComplexType_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISchemaElement(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaElement {
@@ -2470,28 +2097,8 @@ impl ISchemaElement {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISchemaElement, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem, ISchemaParticle);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISchemaElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISchemaElement {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISchemaElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISchemaElement").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISchemaElement {
     type Vtable = ISchemaElement_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISchemaElement {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISchemaElement {
@@ -2538,6 +2145,7 @@ pub struct ISchemaElement_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISchemaIdentityConstraint(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaIdentityConstraint {
@@ -2598,28 +2206,8 @@ impl ISchemaIdentityConstraint {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISchemaIdentityConstraint, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISchemaIdentityConstraint {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISchemaIdentityConstraint {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISchemaIdentityConstraint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISchemaIdentityConstraint").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISchemaIdentityConstraint {
     type Vtable = ISchemaIdentityConstraint_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISchemaIdentityConstraint {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISchemaIdentityConstraint {
@@ -2643,6 +2231,7 @@ pub struct ISchemaIdentityConstraint_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISchemaItem(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaItem {
@@ -2687,28 +2276,8 @@ impl ISchemaItem {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISchemaItem, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISchemaItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISchemaItem {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISchemaItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISchemaItem").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISchemaItem {
     type Vtable = ISchemaItem_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISchemaItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISchemaItem {
@@ -2739,6 +2308,7 @@ pub struct ISchemaItem_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISchemaItemCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaItemCollection {
@@ -2779,28 +2349,8 @@ impl ISchemaItemCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISchemaItemCollection, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISchemaItemCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISchemaItemCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISchemaItemCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISchemaItemCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISchemaItemCollection {
     type Vtable = ISchemaItemCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISchemaItemCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISchemaItemCollection {
@@ -2829,6 +2379,7 @@ pub struct ISchemaItemCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISchemaModelGroup(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaModelGroup {
@@ -2891,28 +2442,8 @@ impl ISchemaModelGroup {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISchemaModelGroup, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem, ISchemaParticle);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISchemaModelGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISchemaModelGroup {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISchemaModelGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISchemaModelGroup").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISchemaModelGroup {
     type Vtable = ISchemaModelGroup_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISchemaModelGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISchemaModelGroup {
@@ -2931,6 +2462,7 @@ pub struct ISchemaModelGroup_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISchemaNotation(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaNotation {
@@ -2983,28 +2515,8 @@ impl ISchemaNotation {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISchemaNotation, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISchemaNotation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISchemaNotation {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISchemaNotation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISchemaNotation").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISchemaNotation {
     type Vtable = ISchemaNotation_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISchemaNotation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISchemaNotation {
@@ -3021,6 +2533,7 @@ pub struct ISchemaNotation_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISchemaParticle(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaParticle {
@@ -3077,28 +2590,8 @@ impl ISchemaParticle {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISchemaParticle, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISchemaParticle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISchemaParticle {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISchemaParticle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISchemaParticle").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISchemaParticle {
     type Vtable = ISchemaParticle_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISchemaParticle {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISchemaParticle {
@@ -3121,6 +2614,7 @@ pub struct ISchemaParticle_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISchemaStringCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaStringCollection {
@@ -3140,28 +2634,8 @@ impl ISchemaStringCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISchemaStringCollection, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISchemaStringCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISchemaStringCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISchemaStringCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISchemaStringCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISchemaStringCollection {
     type Vtable = ISchemaStringCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISchemaStringCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISchemaStringCollection {
@@ -3179,6 +2653,7 @@ pub struct ISchemaStringCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISchemaType(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISchemaType {
@@ -3312,28 +2787,8 @@ impl ISchemaType {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISchemaType, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ISchemaItem);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISchemaType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISchemaType {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISchemaType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISchemaType").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISchemaType {
     type Vtable = ISchemaType_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISchemaType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISchemaType {
@@ -3392,6 +2847,7 @@ pub struct ISchemaType_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IServerXMLHTTPRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IServerXMLHTTPRequest {
@@ -3496,28 +2952,8 @@ impl IServerXMLHTTPRequest {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IServerXMLHTTPRequest, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLHTTPRequest);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IServerXMLHTTPRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IServerXMLHTTPRequest {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IServerXMLHTTPRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IServerXMLHTTPRequest").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IServerXMLHTTPRequest {
     type Vtable = IServerXMLHTTPRequest_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IServerXMLHTTPRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IServerXMLHTTPRequest {
@@ -3545,6 +2981,7 @@ pub struct IServerXMLHTTPRequest_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IServerXMLHTTPRequest2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IServerXMLHTTPRequest2 {
@@ -3661,28 +3098,8 @@ impl IServerXMLHTTPRequest2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IServerXMLHTTPRequest2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLHTTPRequest, IServerXMLHTTPRequest);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IServerXMLHTTPRequest2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IServerXMLHTTPRequest2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IServerXMLHTTPRequest2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IServerXMLHTTPRequest2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IServerXMLHTTPRequest2 {
     type Vtable = IServerXMLHTTPRequest2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IServerXMLHTTPRequest2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IServerXMLHTTPRequest2 {
@@ -3702,6 +3119,7 @@ pub struct IServerXMLHTTPRequest2_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVBMXNamespaceManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBMXNamespaceManager {
@@ -3782,28 +3200,8 @@ impl IVBMXNamespaceManager {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IVBMXNamespaceManager, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IVBMXNamespaceManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IVBMXNamespaceManager {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IVBMXNamespaceManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVBMXNamespaceManager").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IVBMXNamespaceManager {
     type Vtable = IVBMXNamespaceManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IVBMXNamespaceManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IVBMXNamespaceManager {
@@ -3850,6 +3248,7 @@ pub struct IVBMXNamespaceManager_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVBSAXAttributes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXAttributes {
@@ -3926,28 +3325,8 @@ impl IVBSAXAttributes {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IVBSAXAttributes, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IVBSAXAttributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IVBSAXAttributes {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IVBSAXAttributes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVBSAXAttributes").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IVBSAXAttributes {
     type Vtable = IVBSAXAttributes_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IVBSAXAttributes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IVBSAXAttributes {
@@ -3974,6 +3353,7 @@ pub struct IVBSAXAttributes_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVBSAXContentHandler(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXContentHandler {
@@ -4024,28 +3404,8 @@ impl IVBSAXContentHandler {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IVBSAXContentHandler, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IVBSAXContentHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IVBSAXContentHandler {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IVBSAXContentHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVBSAXContentHandler").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IVBSAXContentHandler {
     type Vtable = IVBSAXContentHandler_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IVBSAXContentHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IVBSAXContentHandler {
@@ -4077,6 +3437,7 @@ pub struct IVBSAXContentHandler_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVBSAXDTDHandler(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXDTDHandler {
@@ -4090,28 +3451,8 @@ impl IVBSAXDTDHandler {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IVBSAXDTDHandler, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IVBSAXDTDHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IVBSAXDTDHandler {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IVBSAXDTDHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVBSAXDTDHandler").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IVBSAXDTDHandler {
     type Vtable = IVBSAXDTDHandler_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IVBSAXDTDHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IVBSAXDTDHandler {
@@ -4128,6 +3469,7 @@ pub struct IVBSAXDTDHandler_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVBSAXDeclHandler(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXDeclHandler {
@@ -4147,28 +3489,8 @@ impl IVBSAXDeclHandler {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IVBSAXDeclHandler, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IVBSAXDeclHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IVBSAXDeclHandler {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IVBSAXDeclHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVBSAXDeclHandler").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IVBSAXDeclHandler {
     type Vtable = IVBSAXDeclHandler_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IVBSAXDeclHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IVBSAXDeclHandler {
@@ -4187,6 +3509,7 @@ pub struct IVBSAXDeclHandler_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVBSAXEntityResolver(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXEntityResolver {
@@ -4199,28 +3522,8 @@ impl IVBSAXEntityResolver {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IVBSAXEntityResolver, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IVBSAXEntityResolver {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IVBSAXEntityResolver {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IVBSAXEntityResolver {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVBSAXEntityResolver").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IVBSAXEntityResolver {
     type Vtable = IVBSAXEntityResolver_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IVBSAXEntityResolver {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IVBSAXEntityResolver {
@@ -4239,6 +3542,7 @@ pub struct IVBSAXEntityResolver_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVBSAXErrorHandler(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXErrorHandler {
@@ -4270,28 +3574,8 @@ impl IVBSAXErrorHandler {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IVBSAXErrorHandler, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IVBSAXErrorHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IVBSAXErrorHandler {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IVBSAXErrorHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVBSAXErrorHandler").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IVBSAXErrorHandler {
     type Vtable = IVBSAXErrorHandler_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IVBSAXErrorHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IVBSAXErrorHandler {
@@ -4318,6 +3602,7 @@ pub struct IVBSAXErrorHandler_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVBSAXLexicalHandler(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXLexicalHandler {
@@ -4346,28 +3631,8 @@ impl IVBSAXLexicalHandler {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IVBSAXLexicalHandler, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IVBSAXLexicalHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IVBSAXLexicalHandler {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IVBSAXLexicalHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVBSAXLexicalHandler").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IVBSAXLexicalHandler {
     type Vtable = IVBSAXLexicalHandler_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IVBSAXLexicalHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IVBSAXLexicalHandler {
@@ -4389,6 +3654,7 @@ pub struct IVBSAXLexicalHandler_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVBSAXLocator(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXLocator {
@@ -4412,28 +3678,8 @@ impl IVBSAXLocator {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IVBSAXLocator, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IVBSAXLocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IVBSAXLocator {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IVBSAXLocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVBSAXLocator").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IVBSAXLocator {
     type Vtable = IVBSAXLocator_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IVBSAXLocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IVBSAXLocator {
@@ -4452,6 +3698,7 @@ pub struct IVBSAXLocator_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVBSAXXMLFilter(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXXMLFilter {
@@ -4473,28 +3720,8 @@ impl IVBSAXXMLFilter {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IVBSAXXMLFilter, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IVBSAXXMLFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IVBSAXXMLFilter {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IVBSAXXMLFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVBSAXXMLFilter").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IVBSAXXMLFilter {
     type Vtable = IVBSAXXMLFilter_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IVBSAXXMLFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IVBSAXXMLFilter {
@@ -4517,6 +3744,7 @@ pub struct IVBSAXXMLFilter_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVBSAXXMLReader(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IVBSAXXMLReader {
@@ -4646,28 +3874,8 @@ impl IVBSAXXMLReader {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IVBSAXXMLReader, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IVBSAXXMLReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IVBSAXXMLReader {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IVBSAXXMLReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVBSAXXMLReader").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IVBSAXXMLReader {
     type Vtable = IVBSAXXMLReader_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IVBSAXXMLReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IVBSAXXMLReader {
@@ -4739,6 +3947,7 @@ pub struct IVBSAXXMLReader_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLAttribute(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLAttribute {
@@ -4754,28 +3963,8 @@ impl IXMLAttribute {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLAttribute, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLAttribute {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLAttribute {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLAttribute {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLAttribute").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLAttribute {
     type Vtable = IXMLAttribute_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLAttribute {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLAttribute {
@@ -4792,6 +3981,7 @@ pub struct IXMLAttribute_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMAttribute(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMAttribute {
@@ -5039,28 +4229,8 @@ impl IXMLDOMAttribute {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMAttribute, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMAttribute {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMAttribute {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMAttribute {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMAttribute").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMAttribute {
     type Vtable = IXMLDOMAttribute_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMAttribute {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMAttribute {
@@ -5084,6 +4254,7 @@ pub struct IXMLDOMAttribute_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMCDATASection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMCDATASection {
@@ -5361,28 +4532,8 @@ impl IXMLDOMCDATASection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMCDATASection, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMCharacterData, IXMLDOMText);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMCDATASection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMCDATASection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMCDATASection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMCDATASection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMCDATASection {
     type Vtable = IXMLDOMCDATASection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMCDATASection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMCDATASection {
@@ -5397,6 +4548,7 @@ pub struct IXMLDOMCDATASection_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMCharacterData(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMCharacterData {
@@ -5668,28 +4820,8 @@ impl IXMLDOMCharacterData {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMCharacterData, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMCharacterData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMCharacterData {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMCharacterData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMCharacterData").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMCharacterData {
     type Vtable = IXMLDOMCharacterData_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMCharacterData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMCharacterData {
@@ -5712,6 +4844,7 @@ pub struct IXMLDOMCharacterData_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMComment(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMComment {
@@ -5983,28 +5116,8 @@ impl IXMLDOMComment {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMComment, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMCharacterData);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMComment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMComment {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMComment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMComment").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMComment {
     type Vtable = IXMLDOMComment_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMComment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMComment {
@@ -6019,6 +5132,7 @@ pub struct IXMLDOMComment_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMDocument(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMDocument {
@@ -6483,28 +5597,8 @@ impl IXMLDOMDocument {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMDocument, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMDocument {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMDocument {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMDocument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMDocument").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMDocument {
     type Vtable = IXMLDOMDocument_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMDocument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMDocument {
@@ -6642,6 +5736,7 @@ pub struct IXMLDOMDocument_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMDocument2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMDocument2 {
@@ -7146,28 +6241,8 @@ impl IXMLDOMDocument2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMDocument2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMDocument);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMDocument2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMDocument2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMDocument2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMDocument2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMDocument2 {
     type Vtable = IXMLDOMDocument2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMDocument2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMDocument2 {
@@ -7206,6 +6281,7 @@ pub struct IXMLDOMDocument2_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMDocument3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMDocument3 {
@@ -7729,28 +6805,8 @@ impl IXMLDOMDocument3 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMDocument3, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMDocument, IXMLDOMDocument2);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMDocument3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMDocument3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMDocument3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMDocument3").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMDocument3 {
     type Vtable = IXMLDOMDocument3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMDocument3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMDocument3 {
@@ -7773,6 +6829,7 @@ pub struct IXMLDOMDocument3_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMDocumentFragment(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMDocumentFragment {
@@ -8005,28 +7062,8 @@ impl IXMLDOMDocumentFragment {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMDocumentFragment, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMDocumentFragment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMDocumentFragment {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMDocumentFragment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMDocumentFragment").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMDocumentFragment {
     type Vtable = IXMLDOMDocumentFragment_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMDocumentFragment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMDocumentFragment {
@@ -8041,6 +7078,7 @@ pub struct IXMLDOMDocumentFragment_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMDocumentType(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMDocumentType {
@@ -8289,28 +7327,8 @@ impl IXMLDOMDocumentType {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMDocumentType, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMDocumentType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMDocumentType {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMDocumentType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMDocumentType").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMDocumentType {
     type Vtable = IXMLDOMDocumentType_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMDocumentType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMDocumentType {
@@ -8334,6 +7352,7 @@ pub struct IXMLDOMDocumentType_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMElement(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMElement {
@@ -8632,28 +7651,8 @@ impl IXMLDOMElement {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMElement, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMElement {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMElement").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMElement {
     type Vtable = IXMLDOMElement_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMElement {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMElement {
@@ -8695,6 +7694,7 @@ pub struct IXMLDOMElement_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMEntity(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMEntity {
@@ -8943,28 +7943,8 @@ impl IXMLDOMEntity {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMEntity, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMEntity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMEntity {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMEntity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMEntity").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMEntity {
     type Vtable = IXMLDOMEntity_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMEntity {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMEntity {
@@ -8988,6 +7968,7 @@ pub struct IXMLDOMEntity_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMEntityReference(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMEntityReference {
@@ -9220,28 +8201,8 @@ impl IXMLDOMEntityReference {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMEntityReference, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMEntityReference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMEntityReference {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMEntityReference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMEntityReference").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMEntityReference {
     type Vtable = IXMLDOMEntityReference_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMEntityReference {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMEntityReference {
@@ -9256,6 +8217,7 @@ pub struct IXMLDOMEntityReference_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMImplementation(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMImplementation {
@@ -9273,28 +8235,8 @@ impl IXMLDOMImplementation {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMImplementation, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMImplementation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMImplementation {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMImplementation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMImplementation").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMImplementation {
     type Vtable = IXMLDOMImplementation_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMImplementation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMImplementation {
@@ -9313,6 +8255,7 @@ pub struct IXMLDOMImplementation_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMNamedNodeMap(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMNamedNodeMap {
@@ -9390,28 +8333,8 @@ impl IXMLDOMNamedNodeMap {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMNamedNodeMap, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMNamedNodeMap {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMNamedNodeMap {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMNamedNodeMap {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMNamedNodeMap").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMNamedNodeMap {
     type Vtable = IXMLDOMNamedNodeMap_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMNamedNodeMap {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMNamedNodeMap {
@@ -9457,6 +8380,7 @@ pub struct IXMLDOMNamedNodeMap_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMNode(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMNode {
@@ -9689,28 +8613,8 @@ impl IXMLDOMNode {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMNode, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMNode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMNode {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMNode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMNode").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMNode {
     type Vtable = IXMLDOMNode_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMNode {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMNode {
@@ -9839,6 +8743,7 @@ pub struct IXMLDOMNode_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMNodeList(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMNodeList {
@@ -9869,28 +8774,8 @@ impl IXMLDOMNodeList {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMNodeList, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMNodeList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMNodeList {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMNodeList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMNodeList").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMNodeList {
     type Vtable = IXMLDOMNodeList_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMNodeList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMNodeList {
@@ -9916,6 +8801,7 @@ pub struct IXMLDOMNodeList_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMNotation(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMNotation {
@@ -10160,28 +9046,8 @@ impl IXMLDOMNotation {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMNotation, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMNotation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMNotation {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMNotation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMNotation").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMNotation {
     type Vtable = IXMLDOMNotation_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMNotation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMNotation {
@@ -10204,6 +9070,7 @@ pub struct IXMLDOMNotation_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMParseError(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMParseError {
@@ -10239,28 +9106,8 @@ impl IXMLDOMParseError {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMParseError, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMParseError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMParseError {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMParseError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMParseError").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMParseError {
     type Vtable = IXMLDOMParseError_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMParseError {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMParseError {
@@ -10282,6 +9129,7 @@ pub struct IXMLDOMParseError_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMParseError2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMParseError2 {
@@ -10335,28 +9183,8 @@ impl IXMLDOMParseError2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMParseError2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMParseError);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMParseError2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMParseError2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMParseError2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMParseError2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMParseError2 {
     type Vtable = IXMLDOMParseError2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMParseError2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMParseError2 {
@@ -10378,6 +9206,7 @@ pub struct IXMLDOMParseError2_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMParseErrorCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMParseErrorCollection {
@@ -10408,28 +9237,8 @@ impl IXMLDOMParseErrorCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMParseErrorCollection, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMParseErrorCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMParseErrorCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMParseErrorCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMParseErrorCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMParseErrorCollection {
     type Vtable = IXMLDOMParseErrorCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMParseErrorCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMParseErrorCollection {
@@ -10455,6 +9264,7 @@ pub struct IXMLDOMParseErrorCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMProcessingInstruction(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMProcessingInstruction {
@@ -10701,28 +9511,8 @@ impl IXMLDOMProcessingInstruction {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMProcessingInstruction, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMProcessingInstruction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMProcessingInstruction {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMProcessingInstruction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMProcessingInstruction").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMProcessingInstruction {
     type Vtable = IXMLDOMProcessingInstruction_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMProcessingInstruction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMProcessingInstruction {
@@ -10740,6 +9530,7 @@ pub struct IXMLDOMProcessingInstruction_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMSchemaCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMSchemaCollection {
@@ -10790,28 +9581,8 @@ impl IXMLDOMSchemaCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMSchemaCollection, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMSchemaCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMSchemaCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMSchemaCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMSchemaCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMSchemaCollection {
     type Vtable = IXMLDOMSchemaCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMSchemaCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMSchemaCollection {
@@ -10842,6 +9613,7 @@ pub struct IXMLDOMSchemaCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMSchemaCollection2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMSchemaCollection2 {
@@ -10927,28 +9699,8 @@ impl IXMLDOMSchemaCollection2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMSchemaCollection2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMSchemaCollection);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMSchemaCollection2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMSchemaCollection2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMSchemaCollection2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMSchemaCollection2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMSchemaCollection2 {
     type Vtable = IXMLDOMSchemaCollection2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMSchemaCollection2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMSchemaCollection2 {
@@ -10980,6 +9732,7 @@ pub struct IXMLDOMSchemaCollection2_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMSelection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMSelection {
@@ -11081,28 +9834,8 @@ impl IXMLDOMSelection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMSelection, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNodeList);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMSelection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMSelection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMSelection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMSelection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMSelection {
     type Vtable = IXMLDOMSelection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMSelection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMSelection {
@@ -11152,6 +9885,7 @@ pub struct IXMLDOMSelection_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDOMText(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDOMText {
@@ -11429,28 +10163,8 @@ impl IXMLDOMText {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDOMText, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode, IXMLDOMCharacterData);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDOMText {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDOMText {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDOMText {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDOMText").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDOMText {
     type Vtable = IXMLDOMText_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDOMText {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDOMText {
@@ -11469,6 +10183,7 @@ pub struct IXMLDOMText_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDSOControl(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDSOControl {
@@ -11508,28 +10223,8 @@ impl IXMLDSOControl {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDSOControl, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDSOControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDSOControl {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDSOControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDSOControl").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDSOControl {
     type Vtable = IXMLDSOControl_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDSOControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDSOControl {
@@ -11561,6 +10256,7 @@ pub struct IXMLDSOControl_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDocument(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDocument {
@@ -11632,28 +10328,8 @@ impl IXMLDocument {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDocument, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDocument {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDocument {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDocument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDocument").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDocument {
     type Vtable = IXMLDocument_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDocument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDocument {
@@ -11688,6 +10364,7 @@ pub struct IXMLDocument_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLDocument2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLDocument2 {
@@ -11773,28 +10450,8 @@ impl IXMLDocument2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLDocument2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLDocument2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLDocument2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLDocument2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLDocument2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLDocument2 {
     type Vtable = IXMLDocument2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLDocument2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLDocument2 {
@@ -11837,6 +10494,7 @@ pub struct IXMLDocument2_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLElement(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLElement {
@@ -11919,28 +10577,8 @@ impl IXMLElement {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLElement, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLElement {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLElement").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLElement {
     type Vtable = IXMLElement_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLElement {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLElement {
@@ -11985,6 +10623,7 @@ pub struct IXMLElement_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLElement2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLElement2 {
@@ -12073,28 +10712,8 @@ impl IXMLElement2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLElement2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLElement2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLElement2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLElement2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLElement2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLElement2 {
     type Vtable = IXMLElement2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLElement2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLElement2 {
@@ -12143,6 +10762,7 @@ pub struct IXMLElement2_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLElementCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLElementCollection {
@@ -12167,28 +10787,8 @@ impl IXMLElementCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLElementCollection, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLElementCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLElementCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLElementCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLElementCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLElementCollection {
     type Vtable = IXMLElementCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLElementCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLElementCollection {
@@ -12209,6 +10809,7 @@ pub struct IXMLElementCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLError(::windows_core::IUnknown);
 impl IXMLError {
     pub unsafe fn GetErrorInfo(&self, perrorreturn: *mut XML_ERROR) -> ::windows_core::Result<()> {
@@ -12216,24 +10817,8 @@ impl IXMLError {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXMLError, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXMLError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXMLError {}
-impl ::core::fmt::Debug for IXMLError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLError").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXMLError {
     type Vtable = IXMLError_Vtbl;
-}
-impl ::core::clone::Clone for IXMLError {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXMLError {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x948c5ad3_c58d_11d0_9c0b_00c04fc99c8e);
@@ -12247,6 +10832,7 @@ pub struct IXMLError_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLHTTPRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXMLHTTPRequest {
@@ -12331,28 +10917,8 @@ impl IXMLHTTPRequest {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXMLHTTPRequest, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXMLHTTPRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXMLHTTPRequest {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXMLHTTPRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLHTTPRequest").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXMLHTTPRequest {
     type Vtable = IXMLHTTPRequest_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXMLHTTPRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXMLHTTPRequest {
@@ -12398,6 +10964,7 @@ pub struct IXMLHTTPRequest_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLHTTPRequest2(::windows_core::IUnknown);
 impl IXMLHTTPRequest2 {
     pub unsafe fn Open<P0, P1, P2, P3, P4, P5, P6>(&self, pwszmethod: P0, pwszurl: P1, pstatuscallback: P2, pwszusername: P3, pwszpassword: P4, pwszproxyusername: P5, pwszproxypassword: P6) -> ::windows_core::Result<()>
@@ -12469,24 +11036,8 @@ impl IXMLHTTPRequest2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXMLHTTPRequest2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXMLHTTPRequest2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXMLHTTPRequest2 {}
-impl ::core::fmt::Debug for IXMLHTTPRequest2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLHTTPRequest2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXMLHTTPRequest2 {
     type Vtable = IXMLHTTPRequest2_Vtbl;
-}
-impl ::core::clone::Clone for IXMLHTTPRequest2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXMLHTTPRequest2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe5d37dc0_552a_4d52_9cc0_a14d546fbd04);
@@ -12520,6 +11071,7 @@ pub struct IXMLHTTPRequest2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLHTTPRequest2Callback(::windows_core::IUnknown);
 impl IXMLHTTPRequest2Callback {
     pub unsafe fn OnRedirect<P0, P1>(&self, pxhr: P0, pwszredirecturl: P1) -> ::windows_core::Result<()>
@@ -12562,24 +11114,8 @@ impl IXMLHTTPRequest2Callback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXMLHTTPRequest2Callback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXMLHTTPRequest2Callback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXMLHTTPRequest2Callback {}
-impl ::core::fmt::Debug for IXMLHTTPRequest2Callback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLHTTPRequest2Callback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXMLHTTPRequest2Callback {
     type Vtable = IXMLHTTPRequest2Callback_Vtbl;
-}
-impl ::core::clone::Clone for IXMLHTTPRequest2Callback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXMLHTTPRequest2Callback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa44a9299_e321_40de_8866_341b41669162);
@@ -12602,6 +11138,7 @@ pub struct IXMLHTTPRequest2Callback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLHTTPRequest3(::windows_core::IUnknown);
 impl IXMLHTTPRequest3 {
     pub unsafe fn Open<P0, P1, P2, P3, P4, P5, P6>(&self, pwszmethod: P0, pwszurl: P1, pstatuscallback: P2, pwszusername: P3, pwszpassword: P4, pwszproxyusername: P5, pwszproxypassword: P6) -> ::windows_core::Result<()>
@@ -12679,24 +11216,8 @@ impl IXMLHTTPRequest3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXMLHTTPRequest3, ::windows_core::IUnknown, IXMLHTTPRequest2);
-impl ::core::cmp::PartialEq for IXMLHTTPRequest3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXMLHTTPRequest3 {}
-impl ::core::fmt::Debug for IXMLHTTPRequest3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLHTTPRequest3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXMLHTTPRequest3 {
     type Vtable = IXMLHTTPRequest3_Vtbl;
-}
-impl ::core::clone::Clone for IXMLHTTPRequest3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXMLHTTPRequest3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1c9feee_0617_4f23_9d58_8961ea43567c);
@@ -12709,6 +11230,7 @@ pub struct IXMLHTTPRequest3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXMLHTTPRequest3Callback(::windows_core::IUnknown);
 impl IXMLHTTPRequest3Callback {
     pub unsafe fn OnRedirect<P0, P1>(&self, pxhr: P0, pwszredirecturl: P1) -> ::windows_core::Result<()>
@@ -12763,24 +11285,8 @@ impl IXMLHTTPRequest3Callback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXMLHTTPRequest3Callback, ::windows_core::IUnknown, IXMLHTTPRequest2Callback);
-impl ::core::cmp::PartialEq for IXMLHTTPRequest3Callback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXMLHTTPRequest3Callback {}
-impl ::core::fmt::Debug for IXMLHTTPRequest3Callback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXMLHTTPRequest3Callback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXMLHTTPRequest3Callback {
     type Vtable = IXMLHTTPRequest3Callback_Vtbl;
-}
-impl ::core::clone::Clone for IXMLHTTPRequest3Callback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXMLHTTPRequest3Callback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb9e57830_8c6c_4a6f_9c13_47772bb047bb);
@@ -12795,6 +11301,7 @@ pub struct IXMLHTTPRequest3Callback_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXSLProcessor(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXSLProcessor {
@@ -12882,28 +11389,8 @@ impl IXSLProcessor {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXSLProcessor, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXSLProcessor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXSLProcessor {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXSLProcessor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXSLProcessor").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXSLProcessor {
     type Vtable = IXSLProcessor_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXSLProcessor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXSLProcessor {
@@ -12959,6 +11446,7 @@ pub struct IXSLProcessor_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXSLTemplate(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXSLTemplate {
@@ -12986,28 +11474,8 @@ impl IXSLTemplate {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXSLTemplate, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXSLTemplate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXSLTemplate {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXSLTemplate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXSLTemplate").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXSLTemplate {
     type Vtable = IXSLTemplate_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXSLTemplate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXSLTemplate {
@@ -13034,6 +11502,7 @@ pub struct IXSLTemplate_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXTLRuntime(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IXTLRuntime {
@@ -13344,28 +11813,8 @@ impl IXTLRuntime {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IXTLRuntime, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IXMLDOMNode);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IXTLRuntime {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IXTLRuntime {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IXTLRuntime {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXTLRuntime").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IXTLRuntime {
     type Vtable = IXTLRuntime_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IXTLRuntime {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IXTLRuntime {
@@ -13410,34 +11859,15 @@ pub struct IXTLRuntime_Vtbl {
 #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XMLDOMDocumentEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl XMLDOMDocumentEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(XMLDOMDocumentEvents, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for XMLDOMDocumentEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for XMLDOMDocumentEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for XMLDOMDocumentEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XMLDOMDocumentEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for XMLDOMDocumentEvents {
     type Vtable = XMLDOMDocumentEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for XMLDOMDocumentEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for XMLDOMDocumentEvents {

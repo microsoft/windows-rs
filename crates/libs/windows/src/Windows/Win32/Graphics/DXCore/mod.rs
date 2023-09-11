@@ -10,6 +10,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXCoreAdapter(::windows_core::IUnknown);
 impl IDXCoreAdapter {
     pub unsafe fn IsValid(&self) -> bool {
@@ -49,24 +50,8 @@ impl IDXCoreAdapter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXCoreAdapter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDXCoreAdapter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXCoreAdapter {}
-impl ::core::fmt::Debug for IDXCoreAdapter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXCoreAdapter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDXCoreAdapter {
     type Vtable = IDXCoreAdapter_Vtbl;
-}
-impl ::core::clone::Clone for IDXCoreAdapter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXCoreAdapter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf0db4c7f_fe5a_42a2_bd62_f2a6cf6fc83e);
@@ -88,6 +73,7 @@ pub struct IDXCoreAdapter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXCoreAdapterFactory(::windows_core::IUnknown);
 impl IDXCoreAdapterFactory {
     pub unsafe fn CreateAdapterList<T>(&self, filterattributes: &[::windows_core::GUID]) -> ::windows_core::Result<T>
@@ -121,24 +107,8 @@ impl IDXCoreAdapterFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXCoreAdapterFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDXCoreAdapterFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXCoreAdapterFactory {}
-impl ::core::fmt::Debug for IDXCoreAdapterFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXCoreAdapterFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDXCoreAdapterFactory {
     type Vtable = IDXCoreAdapterFactory_Vtbl;
-}
-impl ::core::clone::Clone for IDXCoreAdapterFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXCoreAdapterFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x78ee5945_c36e_4b13_a669_005dd11c0f06);
@@ -158,6 +128,7 @@ pub struct IDXCoreAdapterFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DXCore\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXCoreAdapterList(::windows_core::IUnknown);
 impl IDXCoreAdapterList {
     pub unsafe fn GetAdapter<T>(&self, index: u32) -> ::windows_core::Result<T>
@@ -188,24 +159,8 @@ impl IDXCoreAdapterList {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXCoreAdapterList, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDXCoreAdapterList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXCoreAdapterList {}
-impl ::core::fmt::Debug for IDXCoreAdapterList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXCoreAdapterList").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDXCoreAdapterList {
     type Vtable = IDXCoreAdapterList_Vtbl;
-}
-impl ::core::clone::Clone for IDXCoreAdapterList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXCoreAdapterList {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x526c7776_40e9_459b_b711_f32ad76dfc28);

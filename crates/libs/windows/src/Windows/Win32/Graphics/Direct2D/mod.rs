@@ -101,6 +101,7 @@ pub unsafe fn D2D1Vec3Length(x: f32, y: f32, z: f32) -> f32 {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1AnalysisTransform(::windows_core::IUnknown);
 impl ID2D1AnalysisTransform {
     pub unsafe fn ProcessAnalysisResults(&self, analysisdata: &[u8]) -> ::windows_core::Result<()> {
@@ -108,26 +109,10 @@ impl ID2D1AnalysisTransform {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1AnalysisTransform, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID2D1AnalysisTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1AnalysisTransform {}
-impl ::core::fmt::Debug for ID2D1AnalysisTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1AnalysisTransform").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1AnalysisTransform {}
 unsafe impl ::core::marker::Sync for ID2D1AnalysisTransform {}
 unsafe impl ::windows_core::Interface for ID2D1AnalysisTransform {
     type Vtable = ID2D1AnalysisTransform_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1AnalysisTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1AnalysisTransform {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0359dc30_95e6_4568_9055_27720d130e93);
@@ -140,6 +125,7 @@ pub struct ID2D1AnalysisTransform_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Bitmap(::windows_core::IUnknown);
 impl ID2D1Bitmap {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -194,26 +180,10 @@ impl ID2D1Bitmap {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Bitmap, ::windows_core::IUnknown, ID2D1Resource, ID2D1Image);
-impl ::core::cmp::PartialEq for ID2D1Bitmap {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Bitmap {}
-impl ::core::fmt::Debug for ID2D1Bitmap {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Bitmap").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Bitmap {}
 unsafe impl ::core::marker::Sync for ID2D1Bitmap {}
 unsafe impl ::windows_core::Interface for ID2D1Bitmap {
     type Vtable = ID2D1Bitmap_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Bitmap {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Bitmap {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2296057_ea42_4099_983b_539fb6505426);
@@ -250,6 +220,7 @@ pub struct ID2D1Bitmap_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Bitmap1(::windows_core::IUnknown);
 impl ID2D1Bitmap1 {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -325,26 +296,10 @@ impl ID2D1Bitmap1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Bitmap1, ::windows_core::IUnknown, ID2D1Resource, ID2D1Image, ID2D1Bitmap);
-impl ::core::cmp::PartialEq for ID2D1Bitmap1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Bitmap1 {}
-impl ::core::fmt::Debug for ID2D1Bitmap1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Bitmap1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Bitmap1 {}
 unsafe impl ::core::marker::Sync for ID2D1Bitmap1 {}
 unsafe impl ::windows_core::Interface for ID2D1Bitmap1 {
     type Vtable = ID2D1Bitmap1_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Bitmap1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Bitmap1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa898a84c_3873_4588_b08b_ebbf978df041);
@@ -364,6 +319,7 @@ pub struct ID2D1Bitmap1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1BitmapBrush(::windows_core::IUnknown);
 impl ID2D1BitmapBrush {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -418,26 +374,10 @@ impl ID2D1BitmapBrush {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1BitmapBrush, ::windows_core::IUnknown, ID2D1Resource, ID2D1Brush);
-impl ::core::cmp::PartialEq for ID2D1BitmapBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1BitmapBrush {}
-impl ::core::fmt::Debug for ID2D1BitmapBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1BitmapBrush").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1BitmapBrush {}
 unsafe impl ::core::marker::Sync for ID2D1BitmapBrush {}
 unsafe impl ::windows_core::Interface for ID2D1BitmapBrush {
     type Vtable = ID2D1BitmapBrush_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1BitmapBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1BitmapBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd906aa_12e2_11dc_9fed_001143a055f9);
@@ -457,6 +397,7 @@ pub struct ID2D1BitmapBrush_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1BitmapBrush1(::windows_core::IUnknown);
 impl ID2D1BitmapBrush1 {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -517,26 +458,10 @@ impl ID2D1BitmapBrush1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1BitmapBrush1, ::windows_core::IUnknown, ID2D1Resource, ID2D1Brush, ID2D1BitmapBrush);
-impl ::core::cmp::PartialEq for ID2D1BitmapBrush1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1BitmapBrush1 {}
-impl ::core::fmt::Debug for ID2D1BitmapBrush1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1BitmapBrush1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1BitmapBrush1 {}
 unsafe impl ::core::marker::Sync for ID2D1BitmapBrush1 {}
 unsafe impl ::windows_core::Interface for ID2D1BitmapBrush1 {
     type Vtable = ID2D1BitmapBrush1_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1BitmapBrush1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1BitmapBrush1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x41343a53_e41a_49a2_91cd_21793bbb62e5);
@@ -550,6 +475,7 @@ pub struct ID2D1BitmapBrush1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1BitmapRenderTarget(::windows_core::IUnknown);
 impl ID2D1BitmapRenderTarget {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -887,26 +813,10 @@ impl ID2D1BitmapRenderTarget {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1BitmapRenderTarget, ::windows_core::IUnknown, ID2D1Resource, ID2D1RenderTarget);
-impl ::core::cmp::PartialEq for ID2D1BitmapRenderTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1BitmapRenderTarget {}
-impl ::core::fmt::Debug for ID2D1BitmapRenderTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1BitmapRenderTarget").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1BitmapRenderTarget {}
 unsafe impl ::core::marker::Sync for ID2D1BitmapRenderTarget {}
 unsafe impl ::windows_core::Interface for ID2D1BitmapRenderTarget {
     type Vtable = ID2D1BitmapRenderTarget_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1BitmapRenderTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1BitmapRenderTarget {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd90695_12e2_11dc_9fed_001143a055f9);
@@ -919,6 +829,7 @@ pub struct ID2D1BitmapRenderTarget_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1BlendTransform(::windows_core::IUnknown);
 impl ID2D1BlendTransform {
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -943,26 +854,10 @@ impl ID2D1BlendTransform {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1BlendTransform, ::windows_core::IUnknown, ID2D1TransformNode, ID2D1ConcreteTransform);
-impl ::core::cmp::PartialEq for ID2D1BlendTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1BlendTransform {}
-impl ::core::fmt::Debug for ID2D1BlendTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1BlendTransform").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1BlendTransform {}
 unsafe impl ::core::marker::Sync for ID2D1BlendTransform {}
 unsafe impl ::windows_core::Interface for ID2D1BlendTransform {
     type Vtable = ID2D1BlendTransform_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1BlendTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1BlendTransform {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x63ac0b32_ba44_450f_8806_7f4ca1ff2f1b);
@@ -976,6 +871,7 @@ pub struct ID2D1BlendTransform_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1BorderTransform(::windows_core::IUnknown);
 impl ID2D1BorderTransform {
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -1006,26 +902,10 @@ impl ID2D1BorderTransform {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1BorderTransform, ::windows_core::IUnknown, ID2D1TransformNode, ID2D1ConcreteTransform);
-impl ::core::cmp::PartialEq for ID2D1BorderTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1BorderTransform {}
-impl ::core::fmt::Debug for ID2D1BorderTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1BorderTransform").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1BorderTransform {}
 unsafe impl ::core::marker::Sync for ID2D1BorderTransform {}
 unsafe impl ::windows_core::Interface for ID2D1BorderTransform {
     type Vtable = ID2D1BorderTransform_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1BorderTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1BorderTransform {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4998735c_3a19_473c_9781_656847e3a347);
@@ -1041,6 +921,7 @@ pub struct ID2D1BorderTransform_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1BoundsAdjustmentTransform(::windows_core::IUnknown);
 impl ID2D1BoundsAdjustmentTransform {
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -1060,26 +941,10 @@ impl ID2D1BoundsAdjustmentTransform {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1BoundsAdjustmentTransform, ::windows_core::IUnknown, ID2D1TransformNode);
-impl ::core::cmp::PartialEq for ID2D1BoundsAdjustmentTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1BoundsAdjustmentTransform {}
-impl ::core::fmt::Debug for ID2D1BoundsAdjustmentTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1BoundsAdjustmentTransform").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1BoundsAdjustmentTransform {}
 unsafe impl ::core::marker::Sync for ID2D1BoundsAdjustmentTransform {}
 unsafe impl ::windows_core::Interface for ID2D1BoundsAdjustmentTransform {
     type Vtable = ID2D1BoundsAdjustmentTransform_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1BoundsAdjustmentTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1BoundsAdjustmentTransform {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x90f732e2_5092_4606_a819_8651970baccd);
@@ -1099,6 +964,7 @@ pub struct ID2D1BoundsAdjustmentTransform_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Brush(::windows_core::IUnknown);
 impl ID2D1Brush {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -1124,26 +990,10 @@ impl ID2D1Brush {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Brush, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1Brush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Brush {}
-impl ::core::fmt::Debug for ID2D1Brush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Brush").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Brush {}
 unsafe impl ::core::marker::Sync for ID2D1Brush {}
 unsafe impl ::windows_core::Interface for ID2D1Brush {
     type Vtable = ID2D1Brush_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Brush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Brush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd906a8_12e2_11dc_9fed_001143a055f9);
@@ -1165,6 +1015,7 @@ pub struct ID2D1Brush_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1ColorContext(::windows_core::IUnknown);
 impl ID2D1ColorContext {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -1183,26 +1034,10 @@ impl ID2D1ColorContext {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1ColorContext, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1ColorContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1ColorContext {}
-impl ::core::fmt::Debug for ID2D1ColorContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1ColorContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1ColorContext {}
 unsafe impl ::core::marker::Sync for ID2D1ColorContext {}
 unsafe impl ::windows_core::Interface for ID2D1ColorContext {
     type Vtable = ID2D1ColorContext_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1ColorContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1ColorContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1c4820bb_5771_4518_a581_2fe4dd0ec657);
@@ -1217,6 +1052,7 @@ pub struct ID2D1ColorContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1ColorContext1(::windows_core::IUnknown);
 impl ID2D1ColorContext1 {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -1248,26 +1084,10 @@ impl ID2D1ColorContext1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1ColorContext1, ::windows_core::IUnknown, ID2D1Resource, ID2D1ColorContext);
-impl ::core::cmp::PartialEq for ID2D1ColorContext1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1ColorContext1 {}
-impl ::core::fmt::Debug for ID2D1ColorContext1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1ColorContext1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1ColorContext1 {}
 unsafe impl ::core::marker::Sync for ID2D1ColorContext1 {}
 unsafe impl ::windows_core::Interface for ID2D1ColorContext1 {
     type Vtable = ID2D1ColorContext1_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1ColorContext1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1ColorContext1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1ab42875_c57f_4be9_bd85_9cd78d6f55ee);
@@ -1288,6 +1108,7 @@ pub struct ID2D1ColorContext1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1CommandList(::windows_core::IUnknown);
 impl ID2D1CommandList {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -1306,26 +1127,10 @@ impl ID2D1CommandList {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1CommandList, ::windows_core::IUnknown, ID2D1Resource, ID2D1Image);
-impl ::core::cmp::PartialEq for ID2D1CommandList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1CommandList {}
-impl ::core::fmt::Debug for ID2D1CommandList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1CommandList").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1CommandList {}
 unsafe impl ::core::marker::Sync for ID2D1CommandList {}
 unsafe impl ::windows_core::Interface for ID2D1CommandList {
     type Vtable = ID2D1CommandList_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1CommandList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1CommandList {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb4f34a19_2383_4d76_94f6_ec343657c3dc);
@@ -1339,6 +1144,7 @@ pub struct ID2D1CommandList_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1CommandSink(::windows_core::IUnknown);
 impl ID2D1CommandSink {
     pub unsafe fn BeginDraw(&self) -> ::windows_core::Result<()> {
@@ -1491,26 +1297,10 @@ impl ID2D1CommandSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1CommandSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID2D1CommandSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1CommandSink {}
-impl ::core::fmt::Debug for ID2D1CommandSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1CommandSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1CommandSink {}
 unsafe impl ::core::marker::Sync for ID2D1CommandSink {}
 unsafe impl ::windows_core::Interface for ID2D1CommandSink {
     type Vtable = ID2D1CommandSink_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1CommandSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1CommandSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54d7898a_a061_40a7_bec7_e465bcba2c4f);
@@ -1586,6 +1376,7 @@ pub struct ID2D1CommandSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1CommandSink1(::windows_core::IUnknown);
 impl ID2D1CommandSink1 {
     pub unsafe fn BeginDraw(&self) -> ::windows_core::Result<()> {
@@ -1741,26 +1532,10 @@ impl ID2D1CommandSink1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1CommandSink1, ::windows_core::IUnknown, ID2D1CommandSink);
-impl ::core::cmp::PartialEq for ID2D1CommandSink1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1CommandSink1 {}
-impl ::core::fmt::Debug for ID2D1CommandSink1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1CommandSink1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1CommandSink1 {}
 unsafe impl ::core::marker::Sync for ID2D1CommandSink1 {}
 unsafe impl ::windows_core::Interface for ID2D1CommandSink1 {
     type Vtable = ID2D1CommandSink1_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1CommandSink1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1CommandSink1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9eb767fd_4269_4467_b8c2_eb30cb305743);
@@ -1773,6 +1548,7 @@ pub struct ID2D1CommandSink1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1CommandSink2(::windows_core::IUnknown);
 impl ID2D1CommandSink2 {
     pub unsafe fn BeginDraw(&self) -> ::windows_core::Result<()> {
@@ -1950,26 +1726,10 @@ impl ID2D1CommandSink2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1CommandSink2, ::windows_core::IUnknown, ID2D1CommandSink, ID2D1CommandSink1);
-impl ::core::cmp::PartialEq for ID2D1CommandSink2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1CommandSink2 {}
-impl ::core::fmt::Debug for ID2D1CommandSink2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1CommandSink2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1CommandSink2 {}
 unsafe impl ::core::marker::Sync for ID2D1CommandSink2 {}
 unsafe impl ::windows_core::Interface for ID2D1CommandSink2 {
     type Vtable = ID2D1CommandSink2_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1CommandSink2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1CommandSink2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3bab440e_417e_47df_a2e2_bc0be6a00916);
@@ -1987,6 +1747,7 @@ pub struct ID2D1CommandSink2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1CommandSink3(::windows_core::IUnknown);
 impl ID2D1CommandSink3 {
     pub unsafe fn BeginDraw(&self) -> ::windows_core::Result<()> {
@@ -2171,26 +1932,10 @@ impl ID2D1CommandSink3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1CommandSink3, ::windows_core::IUnknown, ID2D1CommandSink, ID2D1CommandSink1, ID2D1CommandSink2);
-impl ::core::cmp::PartialEq for ID2D1CommandSink3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1CommandSink3 {}
-impl ::core::fmt::Debug for ID2D1CommandSink3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1CommandSink3").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1CommandSink3 {}
 unsafe impl ::core::marker::Sync for ID2D1CommandSink3 {}
 unsafe impl ::windows_core::Interface for ID2D1CommandSink3 {
     type Vtable = ID2D1CommandSink3_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1CommandSink3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1CommandSink3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x18079135_4cf3_4868_bc8e_06067e6d242d);
@@ -2203,6 +1948,7 @@ pub struct ID2D1CommandSink3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1CommandSink4(::windows_core::IUnknown);
 impl ID2D1CommandSink4 {
     pub unsafe fn BeginDraw(&self) -> ::windows_core::Result<()> {
@@ -2390,26 +2136,10 @@ impl ID2D1CommandSink4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1CommandSink4, ::windows_core::IUnknown, ID2D1CommandSink, ID2D1CommandSink1, ID2D1CommandSink2, ID2D1CommandSink3);
-impl ::core::cmp::PartialEq for ID2D1CommandSink4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1CommandSink4 {}
-impl ::core::fmt::Debug for ID2D1CommandSink4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1CommandSink4").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1CommandSink4 {}
 unsafe impl ::core::marker::Sync for ID2D1CommandSink4 {}
 unsafe impl ::windows_core::Interface for ID2D1CommandSink4 {
     type Vtable = ID2D1CommandSink4_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1CommandSink4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1CommandSink4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc78a6519_40d6_4218_b2de_beeeb744bb3e);
@@ -2422,6 +2152,7 @@ pub struct ID2D1CommandSink4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1CommandSink5(::windows_core::IUnknown);
 impl ID2D1CommandSink5 {
     pub unsafe fn BeginDraw(&self) -> ::windows_core::Result<()> {
@@ -2617,26 +2348,10 @@ impl ID2D1CommandSink5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1CommandSink5, ::windows_core::IUnknown, ID2D1CommandSink, ID2D1CommandSink1, ID2D1CommandSink2, ID2D1CommandSink3, ID2D1CommandSink4);
-impl ::core::cmp::PartialEq for ID2D1CommandSink5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1CommandSink5 {}
-impl ::core::fmt::Debug for ID2D1CommandSink5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1CommandSink5").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1CommandSink5 {}
 unsafe impl ::core::marker::Sync for ID2D1CommandSink5 {}
 unsafe impl ::windows_core::Interface for ID2D1CommandSink5 {
     type Vtable = ID2D1CommandSink5_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1CommandSink5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1CommandSink5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7047dd26_b1e7_44a7_959a_8349e2144fa8);
@@ -2652,6 +2367,7 @@ pub struct ID2D1CommandSink5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1ComputeInfo(::windows_core::IUnknown);
 impl ID2D1ComputeInfo {
     pub unsafe fn SetInputDescription(&self, inputindex: u32, inputdescription: D2D1_INPUT_DESCRIPTION) -> ::windows_core::Result<()> {
@@ -2685,26 +2401,10 @@ impl ID2D1ComputeInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1ComputeInfo, ::windows_core::IUnknown, ID2D1RenderInfo);
-impl ::core::cmp::PartialEq for ID2D1ComputeInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1ComputeInfo {}
-impl ::core::fmt::Debug for ID2D1ComputeInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1ComputeInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1ComputeInfo {}
 unsafe impl ::core::marker::Sync for ID2D1ComputeInfo {}
 unsafe impl ::windows_core::Interface for ID2D1ComputeInfo {
     type Vtable = ID2D1ComputeInfo_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1ComputeInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1ComputeInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5598b14b_9fd7_48b7_9bdb_8f0964eb38bc);
@@ -2719,6 +2419,7 @@ pub struct ID2D1ComputeInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1ComputeTransform(::windows_core::IUnknown);
 impl ID2D1ComputeTransform {
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -2753,26 +2454,10 @@ impl ID2D1ComputeTransform {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1ComputeTransform, ::windows_core::IUnknown, ID2D1TransformNode, ID2D1Transform);
-impl ::core::cmp::PartialEq for ID2D1ComputeTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1ComputeTransform {}
-impl ::core::fmt::Debug for ID2D1ComputeTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1ComputeTransform").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1ComputeTransform {}
 unsafe impl ::core::marker::Sync for ID2D1ComputeTransform {}
 unsafe impl ::windows_core::Interface for ID2D1ComputeTransform {
     type Vtable = ID2D1ComputeTransform_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1ComputeTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1ComputeTransform {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d85573c_01e3_4f7d_bfd9_0d60608bf3c3);
@@ -2789,6 +2474,7 @@ pub struct ID2D1ComputeTransform_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1ConcreteTransform(::windows_core::IUnknown);
 impl ID2D1ConcreteTransform {
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -2807,26 +2493,10 @@ impl ID2D1ConcreteTransform {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1ConcreteTransform, ::windows_core::IUnknown, ID2D1TransformNode);
-impl ::core::cmp::PartialEq for ID2D1ConcreteTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1ConcreteTransform {}
-impl ::core::fmt::Debug for ID2D1ConcreteTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1ConcreteTransform").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1ConcreteTransform {}
 unsafe impl ::core::marker::Sync for ID2D1ConcreteTransform {}
 unsafe impl ::windows_core::Interface for ID2D1ConcreteTransform {
     type Vtable = ID2D1ConcreteTransform_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1ConcreteTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1ConcreteTransform {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1a799d8a_69f7_4e4c_9fed_437ccc6684cc);
@@ -2843,6 +2513,7 @@ pub struct ID2D1ConcreteTransform_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1DCRenderTarget(::windows_core::IUnknown);
 impl ID2D1DCRenderTarget {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -3184,26 +2855,10 @@ impl ID2D1DCRenderTarget {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1DCRenderTarget, ::windows_core::IUnknown, ID2D1Resource, ID2D1RenderTarget);
-impl ::core::cmp::PartialEq for ID2D1DCRenderTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1DCRenderTarget {}
-impl ::core::fmt::Debug for ID2D1DCRenderTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1DCRenderTarget").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1DCRenderTarget {}
 unsafe impl ::core::marker::Sync for ID2D1DCRenderTarget {}
 unsafe impl ::windows_core::Interface for ID2D1DCRenderTarget {
     type Vtable = ID2D1DCRenderTarget_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1DCRenderTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1DCRenderTarget {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1c51bc64_de61_46fd_9899_63a5d8f03950);
@@ -3219,6 +2874,7 @@ pub struct ID2D1DCRenderTarget_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Device(::windows_core::IUnknown);
 impl ID2D1Device {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -3251,26 +2907,10 @@ impl ID2D1Device {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Device, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1Device {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Device {}
-impl ::core::fmt::Debug for ID2D1Device {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Device").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Device {}
 unsafe impl ::core::marker::Sync for ID2D1Device {}
 unsafe impl ::windows_core::Interface for ID2D1Device {
     type Vtable = ID2D1Device_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Device {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Device {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x47dd575d_ac05_4cdd_8049_9b02cd16f44c);
@@ -3290,6 +2930,7 @@ pub struct ID2D1Device_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Device1(::windows_core::IUnknown);
 impl ID2D1Device1 {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -3332,26 +2973,10 @@ impl ID2D1Device1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Device1, ::windows_core::IUnknown, ID2D1Resource, ID2D1Device);
-impl ::core::cmp::PartialEq for ID2D1Device1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Device1 {}
-impl ::core::fmt::Debug for ID2D1Device1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Device1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Device1 {}
 unsafe impl ::core::marker::Sync for ID2D1Device1 {}
 unsafe impl ::windows_core::Interface for ID2D1Device1 {
     type Vtable = ID2D1Device1_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Device1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Device1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd21768e1_23a4_4823_a14b_7c3eba85d658);
@@ -3366,6 +2991,7 @@ pub struct ID2D1Device1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Device2(::windows_core::IUnknown);
 impl ID2D1Device2 {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -3424,26 +3050,10 @@ impl ID2D1Device2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Device2, ::windows_core::IUnknown, ID2D1Resource, ID2D1Device, ID2D1Device1);
-impl ::core::cmp::PartialEq for ID2D1Device2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Device2 {}
-impl ::core::fmt::Debug for ID2D1Device2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Device2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Device2 {}
 unsafe impl ::core::marker::Sync for ID2D1Device2 {}
 unsafe impl ::windows_core::Interface for ID2D1Device2 {
     type Vtable = ID2D1Device2_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Device2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Device2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa44472e1_8dfb_4e60_8492_6e2861c9ca8b);
@@ -3461,6 +3071,7 @@ pub struct ID2D1Device2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Device3(::windows_core::IUnknown);
 impl ID2D1Device3 {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -3523,26 +3134,10 @@ impl ID2D1Device3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Device3, ::windows_core::IUnknown, ID2D1Resource, ID2D1Device, ID2D1Device1, ID2D1Device2);
-impl ::core::cmp::PartialEq for ID2D1Device3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Device3 {}
-impl ::core::fmt::Debug for ID2D1Device3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Device3").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Device3 {}
 unsafe impl ::core::marker::Sync for ID2D1Device3 {}
 unsafe impl ::windows_core::Interface for ID2D1Device3 {
     type Vtable = ID2D1Device3_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Device3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Device3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x852f2087_802c_4037_ab60_ff2e7ee6fc01);
@@ -3555,6 +3150,7 @@ pub struct ID2D1Device3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Device4(::windows_core::IUnknown);
 impl ID2D1Device4 {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -3627,26 +3223,10 @@ impl ID2D1Device4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Device4, ::windows_core::IUnknown, ID2D1Resource, ID2D1Device, ID2D1Device1, ID2D1Device2, ID2D1Device3);
-impl ::core::cmp::PartialEq for ID2D1Device4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Device4 {}
-impl ::core::fmt::Debug for ID2D1Device4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Device4").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Device4 {}
 unsafe impl ::core::marker::Sync for ID2D1Device4 {}
 unsafe impl ::windows_core::Interface for ID2D1Device4 {
     type Vtable = ID2D1Device4_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Device4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Device4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7bdb159_5683_4a46_bc9c_72dc720b858b);
@@ -3661,6 +3241,7 @@ pub struct ID2D1Device4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Device5(::windows_core::IUnknown);
 impl ID2D1Device5 {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -3737,26 +3318,10 @@ impl ID2D1Device5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Device5, ::windows_core::IUnknown, ID2D1Resource, ID2D1Device, ID2D1Device1, ID2D1Device2, ID2D1Device3, ID2D1Device4);
-impl ::core::cmp::PartialEq for ID2D1Device5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Device5 {}
-impl ::core::fmt::Debug for ID2D1Device5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Device5").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Device5 {}
 unsafe impl ::core::marker::Sync for ID2D1Device5 {}
 unsafe impl ::windows_core::Interface for ID2D1Device5 {
     type Vtable = ID2D1Device5_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Device5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Device5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd55ba0a4_6405_4694_aef5_08ee1a4358b4);
@@ -3769,6 +3334,7 @@ pub struct ID2D1Device5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Device6(::windows_core::IUnknown);
 impl ID2D1Device6 {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -3849,26 +3415,10 @@ impl ID2D1Device6 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Device6, ::windows_core::IUnknown, ID2D1Resource, ID2D1Device, ID2D1Device1, ID2D1Device2, ID2D1Device3, ID2D1Device4, ID2D1Device5);
-impl ::core::cmp::PartialEq for ID2D1Device6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Device6 {}
-impl ::core::fmt::Debug for ID2D1Device6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Device6").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Device6 {}
 unsafe impl ::core::marker::Sync for ID2D1Device6 {}
 unsafe impl ::windows_core::Interface for ID2D1Device6 {
     type Vtable = ID2D1Device6_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Device6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Device6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7bfef914_2d75_4bad_be87_e18ddb077b6d);
@@ -3881,6 +3431,7 @@ pub struct ID2D1Device6_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1DeviceContext(::windows_core::IUnknown);
 impl ID2D1DeviceContext {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -4444,26 +3995,10 @@ impl ID2D1DeviceContext {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1DeviceContext, ::windows_core::IUnknown, ID2D1Resource, ID2D1RenderTarget);
-impl ::core::cmp::PartialEq for ID2D1DeviceContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1DeviceContext {}
-impl ::core::fmt::Debug for ID2D1DeviceContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1DeviceContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1DeviceContext {}
 unsafe impl ::core::marker::Sync for ID2D1DeviceContext {}
 unsafe impl ::windows_core::Interface for ID2D1DeviceContext {
     type Vtable = ID2D1DeviceContext_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1DeviceContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1DeviceContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe8f7fe7a_191c_466d_ad95_975678bda998);
@@ -4579,6 +4114,7 @@ pub struct ID2D1DeviceContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1DeviceContext1(::windows_core::IUnknown);
 impl ID2D1DeviceContext1 {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -5164,26 +4700,10 @@ impl ID2D1DeviceContext1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1DeviceContext1, ::windows_core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext);
-impl ::core::cmp::PartialEq for ID2D1DeviceContext1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1DeviceContext1 {}
-impl ::core::fmt::Debug for ID2D1DeviceContext1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1DeviceContext1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1DeviceContext1 {}
 unsafe impl ::core::marker::Sync for ID2D1DeviceContext1 {}
 unsafe impl ::windows_core::Interface for ID2D1DeviceContext1 {
     type Vtable = ID2D1DeviceContext1_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1DeviceContext1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1DeviceContext1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd37f57e4_6908_459f_a199_e72f24f79987);
@@ -5198,6 +4718,7 @@ pub struct ID2D1DeviceContext1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1DeviceContext2(::windows_core::IUnknown);
 impl ID2D1DeviceContext2 {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -5856,26 +5377,10 @@ impl ID2D1DeviceContext2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1DeviceContext2, ::windows_core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext, ID2D1DeviceContext1);
-impl ::core::cmp::PartialEq for ID2D1DeviceContext2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1DeviceContext2 {}
-impl ::core::fmt::Debug for ID2D1DeviceContext2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1DeviceContext2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1DeviceContext2 {}
 unsafe impl ::core::marker::Sync for ID2D1DeviceContext2 {}
 unsafe impl ::windows_core::Interface for ID2D1DeviceContext2 {
     type Vtable = ID2D1DeviceContext2_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1DeviceContext2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1DeviceContext2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x394ea6a3_0c34_4321_950b_6ca20f0be6c7);
@@ -5916,6 +5421,7 @@ pub struct ID2D1DeviceContext2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1DeviceContext3(::windows_core::IUnknown);
 impl ID2D1DeviceContext3 {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -6585,26 +6091,10 @@ impl ID2D1DeviceContext3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1DeviceContext3, ::windows_core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext, ID2D1DeviceContext1, ID2D1DeviceContext2);
-impl ::core::cmp::PartialEq for ID2D1DeviceContext3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1DeviceContext3 {}
-impl ::core::fmt::Debug for ID2D1DeviceContext3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1DeviceContext3").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1DeviceContext3 {}
 unsafe impl ::core::marker::Sync for ID2D1DeviceContext3 {}
 unsafe impl ::windows_core::Interface for ID2D1DeviceContext3 {
     type Vtable = ID2D1DeviceContext3_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1DeviceContext3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1DeviceContext3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x235a7496_8351_414c_bcd4_6672ab2d8e00);
@@ -6618,6 +6108,7 @@ pub struct ID2D1DeviceContext3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1DeviceContext4(::windows_core::IUnknown);
 impl ID2D1DeviceContext4 {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -7345,26 +6836,10 @@ impl ID2D1DeviceContext4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1DeviceContext4, ::windows_core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext, ID2D1DeviceContext1, ID2D1DeviceContext2, ID2D1DeviceContext3);
-impl ::core::cmp::PartialEq for ID2D1DeviceContext4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1DeviceContext4 {}
-impl ::core::fmt::Debug for ID2D1DeviceContext4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1DeviceContext4").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1DeviceContext4 {}
 unsafe impl ::core::marker::Sync for ID2D1DeviceContext4 {}
 unsafe impl ::windows_core::Interface for ID2D1DeviceContext4 {
     type Vtable = ID2D1DeviceContext4_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1DeviceContext4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1DeviceContext4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c427831_3d90_4476_b647_c4fae349e4db);
@@ -7401,6 +6876,7 @@ pub struct ID2D1DeviceContext4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1DeviceContext5(::windows_core::IUnknown);
 impl ID2D1DeviceContext5 {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -8155,26 +7631,10 @@ impl ID2D1DeviceContext5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1DeviceContext5, ::windows_core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext, ID2D1DeviceContext1, ID2D1DeviceContext2, ID2D1DeviceContext3, ID2D1DeviceContext4);
-impl ::core::cmp::PartialEq for ID2D1DeviceContext5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1DeviceContext5 {}
-impl ::core::fmt::Debug for ID2D1DeviceContext5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1DeviceContext5").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1DeviceContext5 {}
 unsafe impl ::core::marker::Sync for ID2D1DeviceContext5 {}
 unsafe impl ::windows_core::Interface for ID2D1DeviceContext5 {
     type Vtable = ID2D1DeviceContext5_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1DeviceContext5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1DeviceContext5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7836d248_68cc_4df6_b9e8_de991bf62eb7);
@@ -8199,6 +7659,7 @@ pub struct ID2D1DeviceContext5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1DeviceContext6(::windows_core::IUnknown);
 impl ID2D1DeviceContext6 {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -8961,26 +8422,10 @@ impl ID2D1DeviceContext6 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1DeviceContext6, ::windows_core::IUnknown, ID2D1Resource, ID2D1RenderTarget, ID2D1DeviceContext, ID2D1DeviceContext1, ID2D1DeviceContext2, ID2D1DeviceContext3, ID2D1DeviceContext4, ID2D1DeviceContext5);
-impl ::core::cmp::PartialEq for ID2D1DeviceContext6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1DeviceContext6 {}
-impl ::core::fmt::Debug for ID2D1DeviceContext6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1DeviceContext6").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1DeviceContext6 {}
 unsafe impl ::core::marker::Sync for ID2D1DeviceContext6 {}
 unsafe impl ::windows_core::Interface for ID2D1DeviceContext6 {
     type Vtable = ID2D1DeviceContext6_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1DeviceContext6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1DeviceContext6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x985f7e37_4ed0_4a19_98a3_15b0edfde306);
@@ -8996,6 +8441,7 @@ pub struct ID2D1DeviceContext6_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1DrawInfo(::windows_core::IUnknown);
 impl ID2D1DrawInfo {
     pub unsafe fn SetInputDescription(&self, inputindex: u32, inputdescription: D2D1_INPUT_DESCRIPTION) -> ::windows_core::Result<()> {
@@ -9038,26 +8484,10 @@ impl ID2D1DrawInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1DrawInfo, ::windows_core::IUnknown, ID2D1RenderInfo);
-impl ::core::cmp::PartialEq for ID2D1DrawInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1DrawInfo {}
-impl ::core::fmt::Debug for ID2D1DrawInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1DrawInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1DrawInfo {}
 unsafe impl ::core::marker::Sync for ID2D1DrawInfo {}
 unsafe impl ::windows_core::Interface for ID2D1DrawInfo {
     type Vtable = ID2D1DrawInfo_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1DrawInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1DrawInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x693ce632_7f2f_45de_93fe_18d88b37aa21);
@@ -9074,6 +8504,7 @@ pub struct ID2D1DrawInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1DrawTransform(::windows_core::IUnknown);
 impl ID2D1DrawTransform {
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -9103,26 +8534,10 @@ impl ID2D1DrawTransform {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1DrawTransform, ::windows_core::IUnknown, ID2D1TransformNode, ID2D1Transform);
-impl ::core::cmp::PartialEq for ID2D1DrawTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1DrawTransform {}
-impl ::core::fmt::Debug for ID2D1DrawTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1DrawTransform").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1DrawTransform {}
 unsafe impl ::core::marker::Sync for ID2D1DrawTransform {}
 unsafe impl ::windows_core::Interface for ID2D1DrawTransform {
     type Vtable = ID2D1DrawTransform_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1DrawTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1DrawTransform {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36bfdcb6_9739_435d_a30d_a653beff6a6f);
@@ -9135,6 +8550,7 @@ pub struct ID2D1DrawTransform_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1DrawingStateBlock(::windows_core::IUnknown);
 impl ID2D1DrawingStateBlock {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -9169,26 +8585,10 @@ impl ID2D1DrawingStateBlock {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1DrawingStateBlock, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1DrawingStateBlock {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1DrawingStateBlock {}
-impl ::core::fmt::Debug for ID2D1DrawingStateBlock {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1DrawingStateBlock").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1DrawingStateBlock {}
 unsafe impl ::core::marker::Sync for ID2D1DrawingStateBlock {}
 unsafe impl ::windows_core::Interface for ID2D1DrawingStateBlock {
     type Vtable = ID2D1DrawingStateBlock_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1DrawingStateBlock {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1DrawingStateBlock {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28506e39_ebf6_46a1_bb47_fd85565ab957);
@@ -9216,6 +8616,7 @@ pub struct ID2D1DrawingStateBlock_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1DrawingStateBlock1(::windows_core::IUnknown);
 impl ID2D1DrawingStateBlock1 {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -9260,26 +8661,10 @@ impl ID2D1DrawingStateBlock1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1DrawingStateBlock1, ::windows_core::IUnknown, ID2D1Resource, ID2D1DrawingStateBlock);
-impl ::core::cmp::PartialEq for ID2D1DrawingStateBlock1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1DrawingStateBlock1 {}
-impl ::core::fmt::Debug for ID2D1DrawingStateBlock1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1DrawingStateBlock1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1DrawingStateBlock1 {}
 unsafe impl ::core::marker::Sync for ID2D1DrawingStateBlock1 {}
 unsafe impl ::windows_core::Interface for ID2D1DrawingStateBlock1 {
     type Vtable = ID2D1DrawingStateBlock1_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1DrawingStateBlock1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1DrawingStateBlock1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x689f1f85_c72e_4e33_8f19_85754efd5ace);
@@ -9299,6 +8684,7 @@ pub struct ID2D1DrawingStateBlock1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Effect(::windows_core::IUnknown);
 impl ID2D1Effect {
     pub unsafe fn GetPropertyCount(&self) -> u32 {
@@ -9371,26 +8757,10 @@ impl ID2D1Effect {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Effect, ::windows_core::IUnknown, ID2D1Properties);
-impl ::core::cmp::PartialEq for ID2D1Effect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Effect {}
-impl ::core::fmt::Debug for ID2D1Effect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Effect").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Effect {}
 unsafe impl ::core::marker::Sync for ID2D1Effect {}
 unsafe impl ::windows_core::Interface for ID2D1Effect {
     type Vtable = ID2D1Effect_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Effect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Effect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28211a43_7d89_476f_8181_2d6159b220ad);
@@ -9410,6 +8780,7 @@ pub struct ID2D1Effect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1EffectContext(::windows_core::IUnknown);
 impl ID2D1EffectContext {
     pub unsafe fn GetDpi(&self, dpix: *mut f32, dpiy: *mut f32) {
@@ -9514,26 +8885,10 @@ impl ID2D1EffectContext {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1EffectContext, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID2D1EffectContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1EffectContext {}
-impl ::core::fmt::Debug for ID2D1EffectContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1EffectContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1EffectContext {}
 unsafe impl ::core::marker::Sync for ID2D1EffectContext {}
 unsafe impl ::windows_core::Interface for ID2D1EffectContext {
     type Vtable = ID2D1EffectContext_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1EffectContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1EffectContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d9f916b_27dc_4ad7_b4f1_64945340f563);
@@ -9587,6 +8942,7 @@ pub struct ID2D1EffectContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1EffectContext1(::windows_core::IUnknown);
 impl ID2D1EffectContext1 {
     pub unsafe fn GetDpi(&self, dpix: *mut f32, dpiy: *mut f32) {
@@ -9695,26 +9051,10 @@ impl ID2D1EffectContext1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1EffectContext1, ::windows_core::IUnknown, ID2D1EffectContext);
-impl ::core::cmp::PartialEq for ID2D1EffectContext1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1EffectContext1 {}
-impl ::core::fmt::Debug for ID2D1EffectContext1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1EffectContext1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1EffectContext1 {}
 unsafe impl ::core::marker::Sync for ID2D1EffectContext1 {}
 unsafe impl ::windows_core::Interface for ID2D1EffectContext1 {
     type Vtable = ID2D1EffectContext1_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1EffectContext1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1EffectContext1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x84ab595a_fc81_4546_bacd_e8ef4d8abe7a);
@@ -9727,6 +9067,7 @@ pub struct ID2D1EffectContext1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1EffectContext2(::windows_core::IUnknown);
 impl ID2D1EffectContext2 {
     pub unsafe fn GetDpi(&self, dpix: *mut f32, dpiy: *mut f32) {
@@ -9847,26 +9188,10 @@ impl ID2D1EffectContext2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1EffectContext2, ::windows_core::IUnknown, ID2D1EffectContext, ID2D1EffectContext1);
-impl ::core::cmp::PartialEq for ID2D1EffectContext2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1EffectContext2 {}
-impl ::core::fmt::Debug for ID2D1EffectContext2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1EffectContext2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1EffectContext2 {}
 unsafe impl ::core::marker::Sync for ID2D1EffectContext2 {}
 unsafe impl ::windows_core::Interface for ID2D1EffectContext2 {
     type Vtable = ID2D1EffectContext2_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1EffectContext2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1EffectContext2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x577ad2a0_9fc7_4dda_8b18_dab810140052);
@@ -9886,6 +9211,7 @@ pub struct ID2D1EffectContext2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1EffectImpl(::windows_core::IUnknown);
 impl ID2D1EffectImpl {
     pub unsafe fn Initialize<P0, P1>(&self, effectcontext: P0, transformgraph: P1) -> ::windows_core::Result<()>
@@ -9906,26 +9232,10 @@ impl ID2D1EffectImpl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1EffectImpl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID2D1EffectImpl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1EffectImpl {}
-impl ::core::fmt::Debug for ID2D1EffectImpl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1EffectImpl").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1EffectImpl {}
 unsafe impl ::core::marker::Sync for ID2D1EffectImpl {}
 unsafe impl ::windows_core::Interface for ID2D1EffectImpl {
     type Vtable = ID2D1EffectImpl_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1EffectImpl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1EffectImpl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa248fd3f_3e6c_4e63_9f03_7f68ecc91db9);
@@ -9940,6 +9250,7 @@ pub struct ID2D1EffectImpl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1EllipseGeometry(::windows_core::IUnknown);
 impl ID2D1EllipseGeometry {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -10054,26 +9365,10 @@ impl ID2D1EllipseGeometry {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1EllipseGeometry, ::windows_core::IUnknown, ID2D1Resource, ID2D1Geometry);
-impl ::core::cmp::PartialEq for ID2D1EllipseGeometry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1EllipseGeometry {}
-impl ::core::fmt::Debug for ID2D1EllipseGeometry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1EllipseGeometry").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1EllipseGeometry {}
 unsafe impl ::core::marker::Sync for ID2D1EllipseGeometry {}
 unsafe impl ::windows_core::Interface for ID2D1EllipseGeometry {
     type Vtable = ID2D1EllipseGeometry_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1EllipseGeometry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1EllipseGeometry {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd906a4_12e2_11dc_9fed_001143a055f9);
@@ -10089,6 +9384,7 @@ pub struct ID2D1EllipseGeometry_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Factory(::windows_core::IUnknown);
 impl ID2D1Factory {
     pub unsafe fn ReloadSystemMetrics(&self) -> ::windows_core::Result<()> {
@@ -10179,26 +9475,10 @@ impl ID2D1Factory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Factory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID2D1Factory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Factory {}
-impl ::core::fmt::Debug for ID2D1Factory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Factory").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Factory {}
 unsafe impl ::core::marker::Sync for ID2D1Factory {}
 unsafe impl ::windows_core::Interface for ID2D1Factory {
     type Vtable = ID2D1Factory_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Factory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Factory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x06152247_6f50_465a_9245_118bfd3b6007);
@@ -10254,6 +9534,7 @@ pub struct ID2D1Factory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Factory1(::windows_core::IUnknown);
 impl ID2D1Factory1 {
     pub unsafe fn ReloadSystemMetrics(&self) -> ::windows_core::Result<()> {
@@ -10403,26 +9684,10 @@ impl ID2D1Factory1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Factory1, ::windows_core::IUnknown, ID2D1Factory);
-impl ::core::cmp::PartialEq for ID2D1Factory1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Factory1 {}
-impl ::core::fmt::Debug for ID2D1Factory1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Factory1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Factory1 {}
 unsafe impl ::core::marker::Sync for ID2D1Factory1 {}
 unsafe impl ::windows_core::Interface for ID2D1Factory1 {
     type Vtable = ID2D1Factory1_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Factory1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Factory1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb12d362_daee_4b9a_aa1d_14ba401cfa1f);
@@ -10456,6 +9721,7 @@ pub struct ID2D1Factory1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Factory2(::windows_core::IUnknown);
 impl ID2D1Factory2 {
     pub unsafe fn ReloadSystemMetrics(&self) -> ::windows_core::Result<()> {
@@ -10614,26 +9880,10 @@ impl ID2D1Factory2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Factory2, ::windows_core::IUnknown, ID2D1Factory, ID2D1Factory1);
-impl ::core::cmp::PartialEq for ID2D1Factory2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Factory2 {}
-impl ::core::fmt::Debug for ID2D1Factory2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Factory2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Factory2 {}
 unsafe impl ::core::marker::Sync for ID2D1Factory2 {}
 unsafe impl ::windows_core::Interface for ID2D1Factory2 {
     type Vtable = ID2D1Factory2_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Factory2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Factory2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x94f81a73_9212_4376_9c58_b16a3a0d3992);
@@ -10649,6 +9899,7 @@ pub struct ID2D1Factory2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Factory3(::windows_core::IUnknown);
 impl ID2D1Factory3 {
     pub unsafe fn ReloadSystemMetrics(&self) -> ::windows_core::Result<()> {
@@ -10816,26 +10067,10 @@ impl ID2D1Factory3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Factory3, ::windows_core::IUnknown, ID2D1Factory, ID2D1Factory1, ID2D1Factory2);
-impl ::core::cmp::PartialEq for ID2D1Factory3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Factory3 {}
-impl ::core::fmt::Debug for ID2D1Factory3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Factory3").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Factory3 {}
 unsafe impl ::core::marker::Sync for ID2D1Factory3 {}
 unsafe impl ::windows_core::Interface for ID2D1Factory3 {
     type Vtable = ID2D1Factory3_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Factory3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Factory3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0869759f_4f00_413f_b03e_2bda45404d0f);
@@ -10851,6 +10086,7 @@ pub struct ID2D1Factory3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Factory4(::windows_core::IUnknown);
 impl ID2D1Factory4 {
     pub unsafe fn ReloadSystemMetrics(&self) -> ::windows_core::Result<()> {
@@ -11027,26 +10263,10 @@ impl ID2D1Factory4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Factory4, ::windows_core::IUnknown, ID2D1Factory, ID2D1Factory1, ID2D1Factory2, ID2D1Factory3);
-impl ::core::cmp::PartialEq for ID2D1Factory4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Factory4 {}
-impl ::core::fmt::Debug for ID2D1Factory4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Factory4").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Factory4 {}
 unsafe impl ::core::marker::Sync for ID2D1Factory4 {}
 unsafe impl ::windows_core::Interface for ID2D1Factory4 {
     type Vtable = ID2D1Factory4_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Factory4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Factory4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbd4ec2d2_0662_4bee_ba8e_6f29f032e096);
@@ -11062,6 +10282,7 @@ pub struct ID2D1Factory4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Factory5(::windows_core::IUnknown);
 impl ID2D1Factory5 {
     pub unsafe fn ReloadSystemMetrics(&self) -> ::windows_core::Result<()> {
@@ -11247,26 +10468,10 @@ impl ID2D1Factory5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Factory5, ::windows_core::IUnknown, ID2D1Factory, ID2D1Factory1, ID2D1Factory2, ID2D1Factory3, ID2D1Factory4);
-impl ::core::cmp::PartialEq for ID2D1Factory5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Factory5 {}
-impl ::core::fmt::Debug for ID2D1Factory5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Factory5").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Factory5 {}
 unsafe impl ::core::marker::Sync for ID2D1Factory5 {}
 unsafe impl ::windows_core::Interface for ID2D1Factory5 {
     type Vtable = ID2D1Factory5_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Factory5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Factory5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4349994_838e_4b0f_8cab_44997d9eeacc);
@@ -11282,6 +10487,7 @@ pub struct ID2D1Factory5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Factory6(::windows_core::IUnknown);
 impl ID2D1Factory6 {
     pub unsafe fn ReloadSystemMetrics(&self) -> ::windows_core::Result<()> {
@@ -11476,26 +10682,10 @@ impl ID2D1Factory6 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Factory6, ::windows_core::IUnknown, ID2D1Factory, ID2D1Factory1, ID2D1Factory2, ID2D1Factory3, ID2D1Factory4, ID2D1Factory5);
-impl ::core::cmp::PartialEq for ID2D1Factory6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Factory6 {}
-impl ::core::fmt::Debug for ID2D1Factory6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Factory6").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Factory6 {}
 unsafe impl ::core::marker::Sync for ID2D1Factory6 {}
 unsafe impl ::windows_core::Interface for ID2D1Factory6 {
     type Vtable = ID2D1Factory6_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Factory6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Factory6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf9976f46_f642_44c1_97ca_da32ea2a2635);
@@ -11511,6 +10701,7 @@ pub struct ID2D1Factory6_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Factory7(::windows_core::IUnknown);
 impl ID2D1Factory7 {
     pub unsafe fn ReloadSystemMetrics(&self) -> ::windows_core::Result<()> {
@@ -11714,26 +10905,10 @@ impl ID2D1Factory7 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Factory7, ::windows_core::IUnknown, ID2D1Factory, ID2D1Factory1, ID2D1Factory2, ID2D1Factory3, ID2D1Factory4, ID2D1Factory5, ID2D1Factory6);
-impl ::core::cmp::PartialEq for ID2D1Factory7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Factory7 {}
-impl ::core::fmt::Debug for ID2D1Factory7 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Factory7").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Factory7 {}
 unsafe impl ::core::marker::Sync for ID2D1Factory7 {}
 unsafe impl ::windows_core::Interface for ID2D1Factory7 {
     type Vtable = ID2D1Factory7_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Factory7 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Factory7 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbdc2bdd3_b96c_4de6_bdf7_99d4745454de);
@@ -11749,6 +10924,7 @@ pub struct ID2D1Factory7_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1GdiInteropRenderTarget(::windows_core::IUnknown);
 impl ID2D1GdiInteropRenderTarget {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -11764,26 +10940,10 @@ impl ID2D1GdiInteropRenderTarget {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1GdiInteropRenderTarget, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID2D1GdiInteropRenderTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1GdiInteropRenderTarget {}
-impl ::core::fmt::Debug for ID2D1GdiInteropRenderTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1GdiInteropRenderTarget").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1GdiInteropRenderTarget {}
 unsafe impl ::core::marker::Sync for ID2D1GdiInteropRenderTarget {}
 unsafe impl ::windows_core::Interface for ID2D1GdiInteropRenderTarget {
     type Vtable = ID2D1GdiInteropRenderTarget_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1GdiInteropRenderTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1GdiInteropRenderTarget {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe0db51c3_6f77_4bae_b3d5_e47509b35838);
@@ -11803,6 +10963,7 @@ pub struct ID2D1GdiInteropRenderTarget_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1GdiMetafile(::windows_core::IUnknown);
 impl ID2D1GdiMetafile {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -11824,26 +10985,10 @@ impl ID2D1GdiMetafile {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1GdiMetafile, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1GdiMetafile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1GdiMetafile {}
-impl ::core::fmt::Debug for ID2D1GdiMetafile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1GdiMetafile").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1GdiMetafile {}
 unsafe impl ::core::marker::Sync for ID2D1GdiMetafile {}
 unsafe impl ::windows_core::Interface for ID2D1GdiMetafile {
     type Vtable = ID2D1GdiMetafile_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1GdiMetafile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1GdiMetafile {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2f543dc3_cfc1_4211_864f_cfd91c6f3395);
@@ -11860,6 +11005,7 @@ pub struct ID2D1GdiMetafile_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1GdiMetafile1(::windows_core::IUnknown);
 impl ID2D1GdiMetafile1 {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -11890,26 +11036,10 @@ impl ID2D1GdiMetafile1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1GdiMetafile1, ::windows_core::IUnknown, ID2D1Resource, ID2D1GdiMetafile);
-impl ::core::cmp::PartialEq for ID2D1GdiMetafile1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1GdiMetafile1 {}
-impl ::core::fmt::Debug for ID2D1GdiMetafile1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1GdiMetafile1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1GdiMetafile1 {}
 unsafe impl ::core::marker::Sync for ID2D1GdiMetafile1 {}
 unsafe impl ::windows_core::Interface for ID2D1GdiMetafile1 {
     type Vtable = ID2D1GdiMetafile1_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1GdiMetafile1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1GdiMetafile1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2e69f9e8_dd3f_4bf9_95ba_c04f49d788df);
@@ -11926,6 +11056,7 @@ pub struct ID2D1GdiMetafile1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1GdiMetafileSink(::windows_core::IUnknown);
 impl ID2D1GdiMetafileSink {
     pub unsafe fn ProcessRecord(&self, recordtype: u32, recorddata: ::core::option::Option<*const ::core::ffi::c_void>, recorddatasize: u32) -> ::windows_core::Result<()> {
@@ -11933,26 +11064,10 @@ impl ID2D1GdiMetafileSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1GdiMetafileSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID2D1GdiMetafileSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1GdiMetafileSink {}
-impl ::core::fmt::Debug for ID2D1GdiMetafileSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1GdiMetafileSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1GdiMetafileSink {}
 unsafe impl ::core::marker::Sync for ID2D1GdiMetafileSink {}
 unsafe impl ::windows_core::Interface for ID2D1GdiMetafileSink {
     type Vtable = ID2D1GdiMetafileSink_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1GdiMetafileSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1GdiMetafileSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x82237326_8111_4f7c_bcf4_b5c1175564fe);
@@ -11965,6 +11080,7 @@ pub struct ID2D1GdiMetafileSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1GdiMetafileSink1(::windows_core::IUnknown);
 impl ID2D1GdiMetafileSink1 {
     pub unsafe fn ProcessRecord(&self, recordtype: u32, recorddata: ::core::option::Option<*const ::core::ffi::c_void>, recorddatasize: u32) -> ::windows_core::Result<()> {
@@ -11975,26 +11091,10 @@ impl ID2D1GdiMetafileSink1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1GdiMetafileSink1, ::windows_core::IUnknown, ID2D1GdiMetafileSink);
-impl ::core::cmp::PartialEq for ID2D1GdiMetafileSink1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1GdiMetafileSink1 {}
-impl ::core::fmt::Debug for ID2D1GdiMetafileSink1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1GdiMetafileSink1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1GdiMetafileSink1 {}
 unsafe impl ::core::marker::Sync for ID2D1GdiMetafileSink1 {}
 unsafe impl ::windows_core::Interface for ID2D1GdiMetafileSink1 {
     type Vtable = ID2D1GdiMetafileSink1_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1GdiMetafileSink1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1GdiMetafileSink1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd0ecb6b_91e6_411e_8655_395e760f91b4);
@@ -12007,6 +11107,7 @@ pub struct ID2D1GdiMetafileSink1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Geometry(::windows_core::IUnknown);
 impl ID2D1Geometry {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -12114,26 +11215,10 @@ impl ID2D1Geometry {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Geometry, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1Geometry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Geometry {}
-impl ::core::fmt::Debug for ID2D1Geometry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Geometry").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Geometry {}
 unsafe impl ::core::marker::Sync for ID2D1Geometry {}
 unsafe impl ::windows_core::Interface for ID2D1Geometry {
     type Vtable = ID2D1Geometry_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Geometry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Geometry {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd906a1_12e2_11dc_9fed_001143a055f9);
@@ -12197,6 +11282,7 @@ pub struct ID2D1Geometry_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1GeometryGroup(::windows_core::IUnknown);
 impl ID2D1GeometryGroup {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -12315,26 +11401,10 @@ impl ID2D1GeometryGroup {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1GeometryGroup, ::windows_core::IUnknown, ID2D1Resource, ID2D1Geometry);
-impl ::core::cmp::PartialEq for ID2D1GeometryGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1GeometryGroup {}
-impl ::core::fmt::Debug for ID2D1GeometryGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1GeometryGroup").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1GeometryGroup {}
 unsafe impl ::core::marker::Sync for ID2D1GeometryGroup {}
 unsafe impl ::windows_core::Interface for ID2D1GeometryGroup {
     type Vtable = ID2D1GeometryGroup_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1GeometryGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1GeometryGroup {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd906a6_12e2_11dc_9fed_001143a055f9);
@@ -12352,6 +11422,7 @@ pub struct ID2D1GeometryGroup_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1GeometryRealization(::windows_core::IUnknown);
 impl ID2D1GeometryRealization {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -12361,26 +11432,10 @@ impl ID2D1GeometryRealization {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1GeometryRealization, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1GeometryRealization {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1GeometryRealization {}
-impl ::core::fmt::Debug for ID2D1GeometryRealization {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1GeometryRealization").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1GeometryRealization {}
 unsafe impl ::core::marker::Sync for ID2D1GeometryRealization {}
 unsafe impl ::windows_core::Interface for ID2D1GeometryRealization {
     type Vtable = ID2D1GeometryRealization_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1GeometryRealization {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1GeometryRealization {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa16907d7_bc02_4801_99e8_8cf7f485f774);
@@ -12393,6 +11448,7 @@ pub struct ID2D1GeometryRealization_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1GeometrySink(::windows_core::IUnknown);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ID2D1GeometrySink {
@@ -12460,32 +11516,12 @@ impl ID2D1GeometrySink {
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 ::windows_core::imp::interface_hierarchy!(ID2D1GeometrySink, ::windows_core::IUnknown, Common::ID2D1SimplifiedGeometrySink);
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::cmp::PartialEq for ID2D1GeometrySink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::cmp::Eq for ID2D1GeometrySink {}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::fmt::Debug for ID2D1GeometrySink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1GeometrySink").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 unsafe impl ::core::marker::Send for ID2D1GeometrySink {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 unsafe impl ::core::marker::Sync for ID2D1GeometrySink {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 unsafe impl ::windows_core::Interface for ID2D1GeometrySink {
     type Vtable = ID2D1GeometrySink_Vtbl;
-}
-#[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-impl ::core::clone::Clone for ID2D1GeometrySink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 unsafe impl ::windows_core::ComInterface for ID2D1GeometrySink {
@@ -12519,6 +11555,7 @@ pub struct ID2D1GeometrySink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1GradientMesh(::windows_core::IUnknown);
 impl ID2D1GradientMesh {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -12536,26 +11573,10 @@ impl ID2D1GradientMesh {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1GradientMesh, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1GradientMesh {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1GradientMesh {}
-impl ::core::fmt::Debug for ID2D1GradientMesh {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1GradientMesh").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1GradientMesh {}
 unsafe impl ::core::marker::Sync for ID2D1GradientMesh {}
 unsafe impl ::windows_core::Interface for ID2D1GradientMesh {
     type Vtable = ID2D1GradientMesh_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1GradientMesh {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1GradientMesh {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf292e401_c050_4cde_83d7_04962d3b23c2);
@@ -12572,6 +11593,7 @@ pub struct ID2D1GradientMesh_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1GradientStopCollection(::windows_core::IUnknown);
 impl ID2D1GradientStopCollection {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -12595,26 +11617,10 @@ impl ID2D1GradientStopCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1GradientStopCollection, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1GradientStopCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1GradientStopCollection {}
-impl ::core::fmt::Debug for ID2D1GradientStopCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1GradientStopCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1GradientStopCollection {}
 unsafe impl ::core::marker::Sync for ID2D1GradientStopCollection {}
 unsafe impl ::windows_core::Interface for ID2D1GradientStopCollection {
     type Vtable = ID2D1GradientStopCollection_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1GradientStopCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1GradientStopCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd906a7_12e2_11dc_9fed_001143a055f9);
@@ -12633,6 +11639,7 @@ pub struct ID2D1GradientStopCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1GradientStopCollection1(::windows_core::IUnknown);
 impl ID2D1GradientStopCollection1 {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -12673,26 +11680,10 @@ impl ID2D1GradientStopCollection1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1GradientStopCollection1, ::windows_core::IUnknown, ID2D1Resource, ID2D1GradientStopCollection);
-impl ::core::cmp::PartialEq for ID2D1GradientStopCollection1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1GradientStopCollection1 {}
-impl ::core::fmt::Debug for ID2D1GradientStopCollection1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1GradientStopCollection1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1GradientStopCollection1 {}
 unsafe impl ::core::marker::Sync for ID2D1GradientStopCollection1 {}
 unsafe impl ::windows_core::Interface for ID2D1GradientStopCollection1 {
     type Vtable = ID2D1GradientStopCollection1_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1GradientStopCollection1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1GradientStopCollection1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae1572f4_5dd0_4777_998b_9279472ae63b);
@@ -12712,6 +11703,7 @@ pub struct ID2D1GradientStopCollection1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1HwndRenderTarget(::windows_core::IUnknown);
 impl ID2D1HwndRenderTarget {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -13058,26 +12050,10 @@ impl ID2D1HwndRenderTarget {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1HwndRenderTarget, ::windows_core::IUnknown, ID2D1Resource, ID2D1RenderTarget);
-impl ::core::cmp::PartialEq for ID2D1HwndRenderTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1HwndRenderTarget {}
-impl ::core::fmt::Debug for ID2D1HwndRenderTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1HwndRenderTarget").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1HwndRenderTarget {}
 unsafe impl ::core::marker::Sync for ID2D1HwndRenderTarget {}
 unsafe impl ::windows_core::Interface for ID2D1HwndRenderTarget {
     type Vtable = ID2D1HwndRenderTarget_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1HwndRenderTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1HwndRenderTarget {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd90698_12e2_11dc_9fed_001143a055f9);
@@ -13098,6 +12074,7 @@ pub struct ID2D1HwndRenderTarget_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Image(::windows_core::IUnknown);
 impl ID2D1Image {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -13107,26 +12084,10 @@ impl ID2D1Image {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Image, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1Image {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Image {}
-impl ::core::fmt::Debug for ID2D1Image {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Image").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Image {}
 unsafe impl ::core::marker::Sync for ID2D1Image {}
 unsafe impl ::windows_core::Interface for ID2D1Image {
     type Vtable = ID2D1Image_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Image {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Image {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x65019f75_8da2_497c_b32c_dfa34e48ede6);
@@ -13138,6 +12099,7 @@ pub struct ID2D1Image_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1ImageBrush(::windows_core::IUnknown);
 impl ID2D1ImageBrush {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -13204,26 +12166,10 @@ impl ID2D1ImageBrush {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1ImageBrush, ::windows_core::IUnknown, ID2D1Resource, ID2D1Brush);
-impl ::core::cmp::PartialEq for ID2D1ImageBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1ImageBrush {}
-impl ::core::fmt::Debug for ID2D1ImageBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1ImageBrush").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1ImageBrush {}
 unsafe impl ::core::marker::Sync for ID2D1ImageBrush {}
 unsafe impl ::windows_core::Interface for ID2D1ImageBrush {
     type Vtable = ID2D1ImageBrush_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1ImageBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1ImageBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfe9e984d_3f95_407c_b5db_cb94d4e8f87c);
@@ -13251,6 +12197,7 @@ pub struct ID2D1ImageBrush_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1ImageSource(::windows_core::IUnknown);
 impl ID2D1ImageSource {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -13269,26 +12216,10 @@ impl ID2D1ImageSource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1ImageSource, ::windows_core::IUnknown, ID2D1Resource, ID2D1Image);
-impl ::core::cmp::PartialEq for ID2D1ImageSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1ImageSource {}
-impl ::core::fmt::Debug for ID2D1ImageSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1ImageSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1ImageSource {}
 unsafe impl ::core::marker::Sync for ID2D1ImageSource {}
 unsafe impl ::windows_core::Interface for ID2D1ImageSource {
     type Vtable = ID2D1ImageSource_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1ImageSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1ImageSource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc9b664e5_74a1_4378_9ac2_eefc37a3f4d8);
@@ -13305,6 +12236,7 @@ pub struct ID2D1ImageSource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1ImageSourceFromWic(::windows_core::IUnknown);
 impl ID2D1ImageSourceFromWic {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -13340,26 +12272,10 @@ impl ID2D1ImageSourceFromWic {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1ImageSourceFromWic, ::windows_core::IUnknown, ID2D1Resource, ID2D1Image, ID2D1ImageSource);
-impl ::core::cmp::PartialEq for ID2D1ImageSourceFromWic {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1ImageSourceFromWic {}
-impl ::core::fmt::Debug for ID2D1ImageSourceFromWic {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1ImageSourceFromWic").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1ImageSourceFromWic {}
 unsafe impl ::core::marker::Sync for ID2D1ImageSourceFromWic {}
 unsafe impl ::windows_core::Interface for ID2D1ImageSourceFromWic {
     type Vtable = ID2D1ImageSourceFromWic_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1ImageSourceFromWic {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1ImageSourceFromWic {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x77395441_1c8f_4555_8683_f50dab0fe792);
@@ -13383,6 +12299,7 @@ pub struct ID2D1ImageSourceFromWic_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Ink(::windows_core::IUnknown);
 impl ID2D1Ink {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -13436,26 +12353,10 @@ impl ID2D1Ink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Ink, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1Ink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Ink {}
-impl ::core::fmt::Debug for ID2D1Ink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Ink").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Ink {}
 unsafe impl ::core::marker::Sync for ID2D1Ink {}
 unsafe impl ::windows_core::Interface for ID2D1Ink {
     type Vtable = ID2D1Ink_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Ink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Ink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb499923b_7029_478f_a8b3_432c7c5f5312);
@@ -13483,6 +12384,7 @@ pub struct ID2D1Ink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1InkStyle(::windows_core::IUnknown);
 impl ID2D1InkStyle {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -13508,26 +12410,10 @@ impl ID2D1InkStyle {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1InkStyle, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1InkStyle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1InkStyle {}
-impl ::core::fmt::Debug for ID2D1InkStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1InkStyle").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1InkStyle {}
 unsafe impl ::core::marker::Sync for ID2D1InkStyle {}
 unsafe impl ::windows_core::Interface for ID2D1InkStyle {
     type Vtable = ID2D1InkStyle_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1InkStyle {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1InkStyle {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbae8b344_23fc_4071_8cb5_d05d6f073848);
@@ -13549,6 +12435,7 @@ pub struct ID2D1InkStyle_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Layer(::windows_core::IUnknown);
 impl ID2D1Layer {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -13565,26 +12452,10 @@ impl ID2D1Layer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Layer, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1Layer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Layer {}
-impl ::core::fmt::Debug for ID2D1Layer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Layer").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Layer {}
 unsafe impl ::core::marker::Sync for ID2D1Layer {}
 unsafe impl ::windows_core::Interface for ID2D1Layer {
     type Vtable = ID2D1Layer_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Layer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Layer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd9069b_12e2_11dc_9fed_001143a055f9);
@@ -13600,6 +12471,7 @@ pub struct ID2D1Layer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1LinearGradientBrush(::windows_core::IUnknown);
 impl ID2D1LinearGradientBrush {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -13654,26 +12526,10 @@ impl ID2D1LinearGradientBrush {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1LinearGradientBrush, ::windows_core::IUnknown, ID2D1Resource, ID2D1Brush);
-impl ::core::cmp::PartialEq for ID2D1LinearGradientBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1LinearGradientBrush {}
-impl ::core::fmt::Debug for ID2D1LinearGradientBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1LinearGradientBrush").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1LinearGradientBrush {}
 unsafe impl ::core::marker::Sync for ID2D1LinearGradientBrush {}
 unsafe impl ::windows_core::Interface for ID2D1LinearGradientBrush {
     type Vtable = ID2D1LinearGradientBrush_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1LinearGradientBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1LinearGradientBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd906ab_12e2_11dc_9fed_001143a055f9);
@@ -13702,6 +12558,7 @@ pub struct ID2D1LinearGradientBrush_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1LookupTable3D(::windows_core::IUnknown);
 impl ID2D1LookupTable3D {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -13711,26 +12568,10 @@ impl ID2D1LookupTable3D {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1LookupTable3D, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1LookupTable3D {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1LookupTable3D {}
-impl ::core::fmt::Debug for ID2D1LookupTable3D {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1LookupTable3D").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1LookupTable3D {}
 unsafe impl ::core::marker::Sync for ID2D1LookupTable3D {}
 unsafe impl ::windows_core::Interface for ID2D1LookupTable3D {
     type Vtable = ID2D1LookupTable3D_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1LookupTable3D {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1LookupTable3D {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53dd9855_a3b0_4d5b_82e1_26e25c5e5797);
@@ -13742,6 +12583,7 @@ pub struct ID2D1LookupTable3D_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Mesh(::windows_core::IUnknown);
 impl ID2D1Mesh {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -13755,26 +12597,10 @@ impl ID2D1Mesh {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Mesh, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1Mesh {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Mesh {}
-impl ::core::fmt::Debug for ID2D1Mesh {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Mesh").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Mesh {}
 unsafe impl ::core::marker::Sync for ID2D1Mesh {}
 unsafe impl ::windows_core::Interface for ID2D1Mesh {
     type Vtable = ID2D1Mesh_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Mesh {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Mesh {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd906c2_12e2_11dc_9fed_001143a055f9);
@@ -13787,6 +12613,7 @@ pub struct ID2D1Mesh_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Multithread(::windows_core::IUnknown);
 impl ID2D1Multithread {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -13802,26 +12629,10 @@ impl ID2D1Multithread {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Multithread, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID2D1Multithread {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Multithread {}
-impl ::core::fmt::Debug for ID2D1Multithread {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Multithread").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Multithread {}
 unsafe impl ::core::marker::Sync for ID2D1Multithread {}
 unsafe impl ::windows_core::Interface for ID2D1Multithread {
     type Vtable = ID2D1Multithread_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Multithread {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Multithread {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x31e6e7bc_e0ff_4d46_8c64_a0a8c41c15d3);
@@ -13839,6 +12650,7 @@ pub struct ID2D1Multithread_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1OffsetTransform(::windows_core::IUnknown);
 impl ID2D1OffsetTransform {
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -13858,26 +12670,10 @@ impl ID2D1OffsetTransform {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1OffsetTransform, ::windows_core::IUnknown, ID2D1TransformNode);
-impl ::core::cmp::PartialEq for ID2D1OffsetTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1OffsetTransform {}
-impl ::core::fmt::Debug for ID2D1OffsetTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1OffsetTransform").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1OffsetTransform {}
 unsafe impl ::core::marker::Sync for ID2D1OffsetTransform {}
 unsafe impl ::windows_core::Interface for ID2D1OffsetTransform {
     type Vtable = ID2D1OffsetTransform_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1OffsetTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1OffsetTransform {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3fe6adea_7643_4f53_bd14_a0ce63f24042);
@@ -13897,6 +12693,7 @@ pub struct ID2D1OffsetTransform_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1PathGeometry(::windows_core::IUnknown);
 impl ID2D1PathGeometry {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -14026,26 +12823,10 @@ impl ID2D1PathGeometry {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1PathGeometry, ::windows_core::IUnknown, ID2D1Resource, ID2D1Geometry);
-impl ::core::cmp::PartialEq for ID2D1PathGeometry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1PathGeometry {}
-impl ::core::fmt::Debug for ID2D1PathGeometry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1PathGeometry").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1PathGeometry {}
 unsafe impl ::core::marker::Sync for ID2D1PathGeometry {}
 unsafe impl ::windows_core::Interface for ID2D1PathGeometry {
     type Vtable = ID2D1PathGeometry_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1PathGeometry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1PathGeometry {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd906a5_12e2_11dc_9fed_001143a055f9);
@@ -14067,6 +12848,7 @@ pub struct ID2D1PathGeometry_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1PathGeometry1(::windows_core::IUnknown);
 impl ID2D1PathGeometry1 {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -14201,26 +12983,10 @@ impl ID2D1PathGeometry1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1PathGeometry1, ::windows_core::IUnknown, ID2D1Resource, ID2D1Geometry, ID2D1PathGeometry);
-impl ::core::cmp::PartialEq for ID2D1PathGeometry1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1PathGeometry1 {}
-impl ::core::fmt::Debug for ID2D1PathGeometry1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1PathGeometry1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1PathGeometry1 {}
 unsafe impl ::core::marker::Sync for ID2D1PathGeometry1 {}
 unsafe impl ::windows_core::Interface for ID2D1PathGeometry1 {
     type Vtable = ID2D1PathGeometry1_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1PathGeometry1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1PathGeometry1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x62baa2d2_ab54_41b7_b872_787e0106a421);
@@ -14236,6 +13002,7 @@ pub struct ID2D1PathGeometry1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1PrintControl(::windows_core::IUnknown);
 impl ID2D1PrintControl {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_System_Com\"`*"]
@@ -14252,26 +13019,10 @@ impl ID2D1PrintControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1PrintControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID2D1PrintControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1PrintControl {}
-impl ::core::fmt::Debug for ID2D1PrintControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1PrintControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1PrintControl {}
 unsafe impl ::core::marker::Sync for ID2D1PrintControl {}
 unsafe impl ::windows_core::Interface for ID2D1PrintControl {
     type Vtable = ID2D1PrintControl_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1PrintControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1PrintControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c1d867d_c290_41c8_ae7e_34a98702e9a5);
@@ -14288,6 +13039,7 @@ pub struct ID2D1PrintControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Properties(::windows_core::IUnknown);
 impl ID2D1Properties {
     pub unsafe fn GetPropertyCount(&self) -> u32 {
@@ -14335,26 +13087,10 @@ impl ID2D1Properties {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Properties, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID2D1Properties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Properties {}
-impl ::core::fmt::Debug for ID2D1Properties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Properties").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Properties {}
 unsafe impl ::core::marker::Sync for ID2D1Properties {}
 unsafe impl ::windows_core::Interface for ID2D1Properties {
     type Vtable = ID2D1Properties_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Properties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Properties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x483473d7_cd46_4f9d_9d3a_3112aa80159d);
@@ -14377,6 +13113,7 @@ pub struct ID2D1Properties_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1RadialGradientBrush(::windows_core::IUnknown);
 impl ID2D1RadialGradientBrush {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -14443,26 +13180,10 @@ impl ID2D1RadialGradientBrush {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1RadialGradientBrush, ::windows_core::IUnknown, ID2D1Resource, ID2D1Brush);
-impl ::core::cmp::PartialEq for ID2D1RadialGradientBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1RadialGradientBrush {}
-impl ::core::fmt::Debug for ID2D1RadialGradientBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1RadialGradientBrush").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1RadialGradientBrush {}
 unsafe impl ::core::marker::Sync for ID2D1RadialGradientBrush {}
 unsafe impl ::windows_core::Interface for ID2D1RadialGradientBrush {
     type Vtable = ID2D1RadialGradientBrush_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1RadialGradientBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1RadialGradientBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd906ac_12e2_11dc_9fed_001143a055f9);
@@ -14495,6 +13216,7 @@ pub struct ID2D1RadialGradientBrush_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1RectangleGeometry(::windows_core::IUnknown);
 impl ID2D1RectangleGeometry {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -14609,26 +13331,10 @@ impl ID2D1RectangleGeometry {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1RectangleGeometry, ::windows_core::IUnknown, ID2D1Resource, ID2D1Geometry);
-impl ::core::cmp::PartialEq for ID2D1RectangleGeometry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1RectangleGeometry {}
-impl ::core::fmt::Debug for ID2D1RectangleGeometry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1RectangleGeometry").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1RectangleGeometry {}
 unsafe impl ::core::marker::Sync for ID2D1RectangleGeometry {}
 unsafe impl ::windows_core::Interface for ID2D1RectangleGeometry {
     type Vtable = ID2D1RectangleGeometry_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1RectangleGeometry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1RectangleGeometry {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd906a2_12e2_11dc_9fed_001143a055f9);
@@ -14644,6 +13350,7 @@ pub struct ID2D1RectangleGeometry_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1RenderInfo(::windows_core::IUnknown);
 impl ID2D1RenderInfo {
     pub unsafe fn SetInputDescription(&self, inputindex: u32, inputdescription: D2D1_INPUT_DESCRIPTION) -> ::windows_core::Result<()> {
@@ -14665,26 +13372,10 @@ impl ID2D1RenderInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1RenderInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID2D1RenderInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1RenderInfo {}
-impl ::core::fmt::Debug for ID2D1RenderInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1RenderInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1RenderInfo {}
 unsafe impl ::core::marker::Sync for ID2D1RenderInfo {}
 unsafe impl ::windows_core::Interface for ID2D1RenderInfo {
     type Vtable = ID2D1RenderInfo_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1RenderInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1RenderInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x519ae1bd_d19a_420d_b849_364f594776b7);
@@ -14703,6 +13394,7 @@ pub struct ID2D1RenderInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1RenderTarget(::windows_core::IUnknown);
 impl ID2D1RenderTarget {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -15036,26 +13728,10 @@ impl ID2D1RenderTarget {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1RenderTarget, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1RenderTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1RenderTarget {}
-impl ::core::fmt::Debug for ID2D1RenderTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1RenderTarget").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1RenderTarget {}
 unsafe impl ::core::marker::Sync for ID2D1RenderTarget {}
 unsafe impl ::windows_core::Interface for ID2D1RenderTarget {
     type Vtable = ID2D1RenderTarget_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1RenderTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1RenderTarget {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd90694_12e2_11dc_9fed_001143a055f9);
@@ -15219,6 +13895,7 @@ pub struct ID2D1RenderTarget_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Resource(::windows_core::IUnknown);
 impl ID2D1Resource {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -15228,26 +13905,10 @@ impl ID2D1Resource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Resource, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID2D1Resource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Resource {}
-impl ::core::fmt::Debug for ID2D1Resource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Resource").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Resource {}
 unsafe impl ::core::marker::Sync for ID2D1Resource {}
 unsafe impl ::windows_core::Interface for ID2D1Resource {
     type Vtable = ID2D1Resource_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Resource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Resource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd90691_12e2_11dc_9fed_001143a055f9);
@@ -15260,6 +13921,7 @@ pub struct ID2D1Resource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1ResourceTexture(::windows_core::IUnknown);
 impl ID2D1ResourceTexture {
     pub unsafe fn Update(&self, minimumextents: ::core::option::Option<*const u32>, maximimumextents: ::core::option::Option<*const u32>, strides: ::core::option::Option<*const u32>, dimensions: u32, data: &[u8]) -> ::windows_core::Result<()> {
@@ -15267,26 +13929,10 @@ impl ID2D1ResourceTexture {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1ResourceTexture, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID2D1ResourceTexture {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1ResourceTexture {}
-impl ::core::fmt::Debug for ID2D1ResourceTexture {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1ResourceTexture").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1ResourceTexture {}
 unsafe impl ::core::marker::Sync for ID2D1ResourceTexture {}
 unsafe impl ::windows_core::Interface for ID2D1ResourceTexture {
     type Vtable = ID2D1ResourceTexture_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1ResourceTexture {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1ResourceTexture {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x688d15c3_02b0_438d_b13a_d1b44c32c39a);
@@ -15299,6 +13945,7 @@ pub struct ID2D1ResourceTexture_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1RoundedRectangleGeometry(::windows_core::IUnknown);
 impl ID2D1RoundedRectangleGeometry {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -15411,26 +14058,10 @@ impl ID2D1RoundedRectangleGeometry {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1RoundedRectangleGeometry, ::windows_core::IUnknown, ID2D1Resource, ID2D1Geometry);
-impl ::core::cmp::PartialEq for ID2D1RoundedRectangleGeometry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1RoundedRectangleGeometry {}
-impl ::core::fmt::Debug for ID2D1RoundedRectangleGeometry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1RoundedRectangleGeometry").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1RoundedRectangleGeometry {}
 unsafe impl ::core::marker::Sync for ID2D1RoundedRectangleGeometry {}
 unsafe impl ::windows_core::Interface for ID2D1RoundedRectangleGeometry {
     type Vtable = ID2D1RoundedRectangleGeometry_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1RoundedRectangleGeometry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1RoundedRectangleGeometry {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd906a3_12e2_11dc_9fed_001143a055f9);
@@ -15446,6 +14077,7 @@ pub struct ID2D1RoundedRectangleGeometry_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1SolidColorBrush(::windows_core::IUnknown);
 impl ID2D1SolidColorBrush {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -15483,26 +14115,10 @@ impl ID2D1SolidColorBrush {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1SolidColorBrush, ::windows_core::IUnknown, ID2D1Resource, ID2D1Brush);
-impl ::core::cmp::PartialEq for ID2D1SolidColorBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1SolidColorBrush {}
-impl ::core::fmt::Debug for ID2D1SolidColorBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1SolidColorBrush").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1SolidColorBrush {}
 unsafe impl ::core::marker::Sync for ID2D1SolidColorBrush {}
 unsafe impl ::windows_core::Interface for ID2D1SolidColorBrush {
     type Vtable = ID2D1SolidColorBrush_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1SolidColorBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1SolidColorBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd906a9_12e2_11dc_9fed_001143a055f9);
@@ -15522,6 +14138,7 @@ pub struct ID2D1SolidColorBrush_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1SourceTransform(::windows_core::IUnknown);
 impl ID2D1SourceTransform {
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -15559,26 +14176,10 @@ impl ID2D1SourceTransform {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1SourceTransform, ::windows_core::IUnknown, ID2D1TransformNode, ID2D1Transform);
-impl ::core::cmp::PartialEq for ID2D1SourceTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1SourceTransform {}
-impl ::core::fmt::Debug for ID2D1SourceTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1SourceTransform").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1SourceTransform {}
 unsafe impl ::core::marker::Sync for ID2D1SourceTransform {}
 unsafe impl ::windows_core::Interface for ID2D1SourceTransform {
     type Vtable = ID2D1SourceTransform_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1SourceTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1SourceTransform {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdb1800dd_0c34_4cf9_be90_31cc0a5653e1);
@@ -15595,6 +14196,7 @@ pub struct ID2D1SourceTransform_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1SpriteBatch(::windows_core::IUnknown);
 impl ID2D1SpriteBatch {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -15625,26 +14227,10 @@ impl ID2D1SpriteBatch {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1SpriteBatch, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1SpriteBatch {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1SpriteBatch {}
-impl ::core::fmt::Debug for ID2D1SpriteBatch {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1SpriteBatch").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1SpriteBatch {}
 unsafe impl ::core::marker::Sync for ID2D1SpriteBatch {}
 unsafe impl ::windows_core::Interface for ID2D1SpriteBatch {
     type Vtable = ID2D1SpriteBatch_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1SpriteBatch {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1SpriteBatch {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4dc583bf_3a10_438a_8722_e9765224f1f1);
@@ -15670,6 +14256,7 @@ pub struct ID2D1SpriteBatch_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1StrokeStyle(::windows_core::IUnknown);
 impl ID2D1StrokeStyle {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -15706,26 +14293,10 @@ impl ID2D1StrokeStyle {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1StrokeStyle, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1StrokeStyle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1StrokeStyle {}
-impl ::core::fmt::Debug for ID2D1StrokeStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1StrokeStyle").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1StrokeStyle {}
 unsafe impl ::core::marker::Sync for ID2D1StrokeStyle {}
 unsafe impl ::windows_core::Interface for ID2D1StrokeStyle {
     type Vtable = ID2D1StrokeStyle_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1StrokeStyle {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1StrokeStyle {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd9069d_12e2_11dc_9fed_001143a055f9);
@@ -15746,6 +14317,7 @@ pub struct ID2D1StrokeStyle_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1StrokeStyle1(::windows_core::IUnknown);
 impl ID2D1StrokeStyle1 {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -15785,26 +14357,10 @@ impl ID2D1StrokeStyle1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1StrokeStyle1, ::windows_core::IUnknown, ID2D1Resource, ID2D1StrokeStyle);
-impl ::core::cmp::PartialEq for ID2D1StrokeStyle1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1StrokeStyle1 {}
-impl ::core::fmt::Debug for ID2D1StrokeStyle1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1StrokeStyle1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1StrokeStyle1 {}
 unsafe impl ::core::marker::Sync for ID2D1StrokeStyle1 {}
 unsafe impl ::windows_core::Interface for ID2D1StrokeStyle1 {
     type Vtable = ID2D1StrokeStyle1_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1StrokeStyle1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1StrokeStyle1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x10a72a66_e91c_43f4_993f_ddf4b82b0b4a);
@@ -15817,6 +14373,7 @@ pub struct ID2D1StrokeStyle1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1SvgAttribute(::windows_core::IUnknown);
 impl ID2D1SvgAttribute {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -15835,26 +14392,10 @@ impl ID2D1SvgAttribute {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1SvgAttribute, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1SvgAttribute {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1SvgAttribute {}
-impl ::core::fmt::Debug for ID2D1SvgAttribute {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1SvgAttribute").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1SvgAttribute {}
 unsafe impl ::core::marker::Sync for ID2D1SvgAttribute {}
 unsafe impl ::windows_core::Interface for ID2D1SvgAttribute {
     type Vtable = ID2D1SvgAttribute_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1SvgAttribute {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1SvgAttribute {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc9cdb0dd_f8c9_4e70_b7c2_301c80292c5e);
@@ -15868,6 +14409,7 @@ pub struct ID2D1SvgAttribute_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1SvgDocument(::windows_core::IUnknown);
 impl ID2D1SvgDocument {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -15948,26 +14490,10 @@ impl ID2D1SvgDocument {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1SvgDocument, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1SvgDocument {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1SvgDocument {}
-impl ::core::fmt::Debug for ID2D1SvgDocument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1SvgDocument").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1SvgDocument {}
 unsafe impl ::core::marker::Sync for ID2D1SvgDocument {}
 unsafe impl ::windows_core::Interface for ID2D1SvgDocument {
     type Vtable = ID2D1SvgDocument_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1SvgDocument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1SvgDocument {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x86b88e4d_afa4_4d7b_88e4_68a51c4a0aec);
@@ -16008,6 +14534,7 @@ pub struct ID2D1SvgDocument_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1SvgElement(::windows_core::IUnknown);
 impl ID2D1SvgElement {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -16183,26 +14710,10 @@ impl ID2D1SvgElement {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1SvgElement, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1SvgElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1SvgElement {}
-impl ::core::fmt::Debug for ID2D1SvgElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1SvgElement").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1SvgElement {}
 unsafe impl ::core::marker::Sync for ID2D1SvgElement {}
 unsafe impl ::windows_core::Interface for ID2D1SvgElement {
     type Vtable = ID2D1SvgElement_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1SvgElement {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1SvgElement {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xac7b67a6_183e_49c1_a823_0ebe40b0db29);
@@ -16259,6 +14770,7 @@ pub struct ID2D1SvgElement_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1SvgGlyphStyle(::windows_core::IUnknown);
 impl ID2D1SvgGlyphStyle {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -16291,26 +14803,10 @@ impl ID2D1SvgGlyphStyle {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1SvgGlyphStyle, ::windows_core::IUnknown, ID2D1Resource);
-impl ::core::cmp::PartialEq for ID2D1SvgGlyphStyle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1SvgGlyphStyle {}
-impl ::core::fmt::Debug for ID2D1SvgGlyphStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1SvgGlyphStyle").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1SvgGlyphStyle {}
 unsafe impl ::core::marker::Sync for ID2D1SvgGlyphStyle {}
 unsafe impl ::windows_core::Interface for ID2D1SvgGlyphStyle {
     type Vtable = ID2D1SvgGlyphStyle_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1SvgGlyphStyle {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1SvgGlyphStyle {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaf671749_d241_4db8_8e41_dcc2e5c1a438);
@@ -16327,6 +14823,7 @@ pub struct ID2D1SvgGlyphStyle_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1SvgPaint(::windows_core::IUnknown);
 impl ID2D1SvgPaint {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -16375,26 +14872,10 @@ impl ID2D1SvgPaint {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1SvgPaint, ::windows_core::IUnknown, ID2D1Resource, ID2D1SvgAttribute);
-impl ::core::cmp::PartialEq for ID2D1SvgPaint {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1SvgPaint {}
-impl ::core::fmt::Debug for ID2D1SvgPaint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1SvgPaint").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1SvgPaint {}
 unsafe impl ::core::marker::Sync for ID2D1SvgPaint {}
 unsafe impl ::windows_core::Interface for ID2D1SvgPaint {
     type Vtable = ID2D1SvgPaint_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1SvgPaint {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1SvgPaint {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd59bab0a_68a2_455b_a5dc_9eb2854e2490);
@@ -16419,6 +14900,7 @@ pub struct ID2D1SvgPaint_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1SvgPathData(::windows_core::IUnknown);
 impl ID2D1SvgPathData {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -16467,26 +14949,10 @@ impl ID2D1SvgPathData {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1SvgPathData, ::windows_core::IUnknown, ID2D1Resource, ID2D1SvgAttribute);
-impl ::core::cmp::PartialEq for ID2D1SvgPathData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1SvgPathData {}
-impl ::core::fmt::Debug for ID2D1SvgPathData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1SvgPathData").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1SvgPathData {}
 unsafe impl ::core::marker::Sync for ID2D1SvgPathData {}
 unsafe impl ::windows_core::Interface for ID2D1SvgPathData {
     type Vtable = ID2D1SvgPathData_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1SvgPathData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1SvgPathData {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc095e4f4_bb98_43d6_9745_4d1b84ec9888);
@@ -16510,6 +14976,7 @@ pub struct ID2D1SvgPathData_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1SvgPointCollection(::windows_core::IUnknown);
 impl ID2D1SvgPointCollection {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -16544,26 +15011,10 @@ impl ID2D1SvgPointCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1SvgPointCollection, ::windows_core::IUnknown, ID2D1Resource, ID2D1SvgAttribute);
-impl ::core::cmp::PartialEq for ID2D1SvgPointCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1SvgPointCollection {}
-impl ::core::fmt::Debug for ID2D1SvgPointCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1SvgPointCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1SvgPointCollection {}
 unsafe impl ::core::marker::Sync for ID2D1SvgPointCollection {}
 unsafe impl ::windows_core::Interface for ID2D1SvgPointCollection {
     type Vtable = ID2D1SvgPointCollection_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1SvgPointCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1SvgPointCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9dbe4c0d_3572_4dd9_9825_5530813bb712);
@@ -16585,6 +15036,7 @@ pub struct ID2D1SvgPointCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1SvgStrokeDashArray(::windows_core::IUnknown);
 impl ID2D1SvgStrokeDashArray {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -16621,26 +15073,10 @@ impl ID2D1SvgStrokeDashArray {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1SvgStrokeDashArray, ::windows_core::IUnknown, ID2D1Resource, ID2D1SvgAttribute);
-impl ::core::cmp::PartialEq for ID2D1SvgStrokeDashArray {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1SvgStrokeDashArray {}
-impl ::core::fmt::Debug for ID2D1SvgStrokeDashArray {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1SvgStrokeDashArray").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1SvgStrokeDashArray {}
 unsafe impl ::core::marker::Sync for ID2D1SvgStrokeDashArray {}
 unsafe impl ::windows_core::Interface for ID2D1SvgStrokeDashArray {
     type Vtable = ID2D1SvgStrokeDashArray_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1SvgStrokeDashArray {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1SvgStrokeDashArray {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf1c0ca52_92a3_4f00_b4ce_f35691efd9d9);
@@ -16658,6 +15094,7 @@ pub struct ID2D1SvgStrokeDashArray_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1TessellationSink(::windows_core::IUnknown);
 impl ID2D1TessellationSink {
     #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
@@ -16670,26 +15107,10 @@ impl ID2D1TessellationSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1TessellationSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID2D1TessellationSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1TessellationSink {}
-impl ::core::fmt::Debug for ID2D1TessellationSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1TessellationSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1TessellationSink {}
 unsafe impl ::core::marker::Sync for ID2D1TessellationSink {}
 unsafe impl ::windows_core::Interface for ID2D1TessellationSink {
     type Vtable = ID2D1TessellationSink_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1TessellationSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1TessellationSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd906c1_12e2_11dc_9fed_001143a055f9);
@@ -16706,6 +15127,7 @@ pub struct ID2D1TessellationSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1Transform(::windows_core::IUnknown);
 impl ID2D1Transform {
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -16729,26 +15151,10 @@ impl ID2D1Transform {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1Transform, ::windows_core::IUnknown, ID2D1TransformNode);
-impl ::core::cmp::PartialEq for ID2D1Transform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1Transform {}
-impl ::core::fmt::Debug for ID2D1Transform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1Transform").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1Transform {}
 unsafe impl ::core::marker::Sync for ID2D1Transform {}
 unsafe impl ::windows_core::Interface for ID2D1Transform {
     type Vtable = ID2D1Transform_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1Transform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1Transform {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef1a287d_342a_4f76_8fdb_da0d6ea9f92b);
@@ -16772,6 +15178,7 @@ pub struct ID2D1Transform_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1TransformGraph(::windows_core::IUnknown);
 impl ID2D1TransformGraph {
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -16822,26 +15229,10 @@ impl ID2D1TransformGraph {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1TransformGraph, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID2D1TransformGraph {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1TransformGraph {}
-impl ::core::fmt::Debug for ID2D1TransformGraph {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1TransformGraph").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1TransformGraph {}
 unsafe impl ::core::marker::Sync for ID2D1TransformGraph {}
 unsafe impl ::windows_core::Interface for ID2D1TransformGraph {
     type Vtable = ID2D1TransformGraph_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1TransformGraph {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1TransformGraph {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x13d29038_c3e6_4034_9081_13b53a417992);
@@ -16862,6 +15253,7 @@ pub struct ID2D1TransformGraph_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1TransformNode(::windows_core::IUnknown);
 impl ID2D1TransformNode {
     pub unsafe fn GetInputCount(&self) -> u32 {
@@ -16869,26 +15261,10 @@ impl ID2D1TransformNode {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1TransformNode, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID2D1TransformNode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1TransformNode {}
-impl ::core::fmt::Debug for ID2D1TransformNode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1TransformNode").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1TransformNode {}
 unsafe impl ::core::marker::Sync for ID2D1TransformNode {}
 unsafe impl ::windows_core::Interface for ID2D1TransformNode {
     type Vtable = ID2D1TransformNode_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1TransformNode {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1TransformNode {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2efe1e7_729f_4102_949f_505fa21bf666);
@@ -16901,6 +15277,7 @@ pub struct ID2D1TransformNode_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1TransformedGeometry(::windows_core::IUnknown);
 impl ID2D1TransformedGeometry {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -17018,26 +15395,10 @@ impl ID2D1TransformedGeometry {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1TransformedGeometry, ::windows_core::IUnknown, ID2D1Resource, ID2D1Geometry);
-impl ::core::cmp::PartialEq for ID2D1TransformedGeometry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1TransformedGeometry {}
-impl ::core::fmt::Debug for ID2D1TransformedGeometry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1TransformedGeometry").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1TransformedGeometry {}
 unsafe impl ::core::marker::Sync for ID2D1TransformedGeometry {}
 unsafe impl ::windows_core::Interface for ID2D1TransformedGeometry {
     type Vtable = ID2D1TransformedGeometry_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1TransformedGeometry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1TransformedGeometry {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd906bb_12e2_11dc_9fed_001143a055f9);
@@ -17054,6 +15415,7 @@ pub struct ID2D1TransformedGeometry_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1TransformedImageSource(::windows_core::IUnknown);
 impl ID2D1TransformedImageSource {
     pub unsafe fn GetFactory(&self) -> ::windows_core::Result<ID2D1Factory> {
@@ -17071,26 +15433,10 @@ impl ID2D1TransformedImageSource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1TransformedImageSource, ::windows_core::IUnknown, ID2D1Resource, ID2D1Image);
-impl ::core::cmp::PartialEq for ID2D1TransformedImageSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1TransformedImageSource {}
-impl ::core::fmt::Debug for ID2D1TransformedImageSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1TransformedImageSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1TransformedImageSource {}
 unsafe impl ::core::marker::Sync for ID2D1TransformedImageSource {}
 unsafe impl ::windows_core::Interface for ID2D1TransformedImageSource {
     type Vtable = ID2D1TransformedImageSource_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1TransformedImageSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1TransformedImageSource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f1f79e5_2796_416c_8f55_700f911445e5);
@@ -17104,6 +15450,7 @@ pub struct ID2D1TransformedImageSource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1VertexBuffer(::windows_core::IUnknown);
 impl ID2D1VertexBuffer {
     pub unsafe fn Map(&self, data: *mut *mut u8, buffersize: u32) -> ::windows_core::Result<()> {
@@ -17114,26 +15461,10 @@ impl ID2D1VertexBuffer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1VertexBuffer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID2D1VertexBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1VertexBuffer {}
-impl ::core::fmt::Debug for ID2D1VertexBuffer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1VertexBuffer").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1VertexBuffer {}
 unsafe impl ::core::marker::Sync for ID2D1VertexBuffer {}
 unsafe impl ::windows_core::Interface for ID2D1VertexBuffer {
     type Vtable = ID2D1VertexBuffer_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1VertexBuffer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1VertexBuffer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b8b1336_00a5_4668_92b7_ced5d8bf9b7b);

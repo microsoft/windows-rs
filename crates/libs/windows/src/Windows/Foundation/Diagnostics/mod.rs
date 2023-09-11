@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAsyncCausalityTracerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAsyncCausalityTracerStatics {
     type Vtable = IAsyncCausalityTracerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IAsyncCausalityTracerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAsyncCausalityTracerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x50850b26_267e_451b_a890_ab6a370245ee);
@@ -26,14 +22,10 @@ pub struct IAsyncCausalityTracerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IErrorDetails(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IErrorDetails {
     type Vtable = IErrorDetails_Vtbl;
-}
-impl ::core::clone::Clone for IErrorDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IErrorDetails {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x378cbb01_2cc9_428f_8c55_2c990d463e8f);
@@ -48,14 +40,10 @@ pub struct IErrorDetails_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IErrorDetailsStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IErrorDetailsStatics {
     type Vtable = IErrorDetailsStatics_Vtbl;
-}
-impl ::core::clone::Clone for IErrorDetailsStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IErrorDetailsStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb7703750_0b1d_46c8_aa0e_4b8178e4fce9);
@@ -68,6 +56,7 @@ pub struct IErrorDetailsStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IErrorReportingSettings(::windows_core::IUnknown);
 impl IErrorReportingSettings {
     pub fn SetErrorOptions(&self, value: ErrorOptions) -> ::windows_core::Result<()> {
@@ -83,27 +72,11 @@ impl IErrorReportingSettings {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IErrorReportingSettings, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IErrorReportingSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IErrorReportingSettings {}
-impl ::core::fmt::Debug for IErrorReportingSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IErrorReportingSettings").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IErrorReportingSettings {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{16369792-b03e-4ba1-8bb8-d28f4ab4d2c0}");
 }
 unsafe impl ::windows_core::Interface for IErrorReportingSettings {
     type Vtable = IErrorReportingSettings_Vtbl;
-}
-impl ::core::clone::Clone for IErrorReportingSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IErrorReportingSettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x16369792_b03e_4ba1_8bb8_d28f4ab4d2c0);
@@ -117,6 +90,7 @@ pub struct IErrorReportingSettings_Vtbl {
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileLoggingSession(::windows_core::IUnknown);
 impl IFileLoggingSession {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -177,27 +151,11 @@ impl IFileLoggingSession {
 }
 ::windows_core::imp::interface_hierarchy!(IFileLoggingSession, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IClosable> for IFileLoggingSession {}
-impl ::core::cmp::PartialEq for IFileLoggingSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFileLoggingSession {}
-impl ::core::fmt::Debug for IFileLoggingSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFileLoggingSession").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IFileLoggingSession {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{24c74216-fed2-404c-895f-1f9699cb02f7}");
 }
 unsafe impl ::windows_core::Interface for IFileLoggingSession {
     type Vtable = IFileLoggingSession_Vtbl;
-}
-impl ::core::clone::Clone for IFileLoggingSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFileLoggingSession {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24c74216_fed2_404c_895f_1f9699cb02f7);
@@ -219,14 +177,10 @@ pub struct IFileLoggingSession_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileLoggingSessionFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IFileLoggingSessionFactory {
     type Vtable = IFileLoggingSessionFactory_Vtbl;
-}
-impl ::core::clone::Clone for IFileLoggingSessionFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFileLoggingSessionFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeea08dce_8447_4daa_9133_12eb46f697d4);
@@ -239,14 +193,10 @@ pub struct IFileLoggingSessionFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILogFileGeneratedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILogFileGeneratedEventArgs {
     type Vtable = ILogFileGeneratedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for ILogFileGeneratedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILogFileGeneratedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x269e976f_0d38_4c1a_b53f_b395d881df84);
@@ -262,14 +212,10 @@ pub struct ILogFileGeneratedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILoggingActivity(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILoggingActivity {
     type Vtable = ILoggingActivity_Vtbl;
-}
-impl ::core::clone::Clone for ILoggingActivity {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILoggingActivity {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbc032941_b766_4cb5_9848_97ac6ba6d60c);
@@ -283,14 +229,10 @@ pub struct ILoggingActivity_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILoggingActivity2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILoggingActivity2 {
     type Vtable = ILoggingActivity2_Vtbl;
-}
-impl ::core::clone::Clone for ILoggingActivity2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILoggingActivity2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x26c29808_6322_456a_af82_80c8642f178b);
@@ -306,14 +248,10 @@ pub struct ILoggingActivity2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILoggingActivityFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILoggingActivityFactory {
     type Vtable = ILoggingActivityFactory_Vtbl;
-}
-impl ::core::clone::Clone for ILoggingActivityFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILoggingActivityFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b33b483_e10a_4c58_97d5_10fb451074fb);
@@ -327,6 +265,7 @@ pub struct ILoggingActivityFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILoggingChannel(::windows_core::IUnknown);
 impl ILoggingChannel {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -387,27 +326,11 @@ impl ILoggingChannel {
 }
 ::windows_core::imp::interface_hierarchy!(ILoggingChannel, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IClosable> for ILoggingChannel {}
-impl ::core::cmp::PartialEq for ILoggingChannel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILoggingChannel {}
-impl ::core::fmt::Debug for ILoggingChannel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILoggingChannel").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ILoggingChannel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{e9a50343-11d7-4f01-b5ca-cf495278c0a8}");
 }
 unsafe impl ::windows_core::Interface for ILoggingChannel {
     type Vtable = ILoggingChannel_Vtbl;
-}
-impl ::core::clone::Clone for ILoggingChannel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILoggingChannel {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe9a50343_11d7_4f01_b5ca_cf495278c0a8);
@@ -428,14 +351,10 @@ pub struct ILoggingChannel_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILoggingChannel2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILoggingChannel2 {
     type Vtable = ILoggingChannel2_Vtbl;
-}
-impl ::core::clone::Clone for ILoggingChannel2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILoggingChannel2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f4c3cf3_0bac_45a5_9e33_baf3f3a246a5);
@@ -448,14 +367,10 @@ pub struct ILoggingChannel2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILoggingChannelFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILoggingChannelFactory {
     type Vtable = ILoggingChannelFactory_Vtbl;
-}
-impl ::core::clone::Clone for ILoggingChannelFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILoggingChannelFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4edc5b9c_af80_4a9b_b0dc_398f9ae5207b);
@@ -471,14 +386,10 @@ pub struct ILoggingChannelFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILoggingChannelFactory2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILoggingChannelFactory2 {
     type Vtable = ILoggingChannelFactory2_Vtbl;
-}
-impl ::core::clone::Clone for ILoggingChannelFactory2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILoggingChannelFactory2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c6ef5dd_3b27_4dc9_99f0_299c6e4603a1);
@@ -492,14 +403,10 @@ pub struct ILoggingChannelFactory2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILoggingChannelOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILoggingChannelOptions {
     type Vtable = ILoggingChannelOptions_Vtbl;
-}
-impl ::core::clone::Clone for ILoggingChannelOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILoggingChannelOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc3e847ff_0ebb_4a53_8c54_dec24926cb2c);
@@ -513,14 +420,10 @@ pub struct ILoggingChannelOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILoggingChannelOptionsFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILoggingChannelOptionsFactory {
     type Vtable = ILoggingChannelOptionsFactory_Vtbl;
-}
-impl ::core::clone::Clone for ILoggingChannelOptionsFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILoggingChannelOptionsFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa93151da_7faf_4191_8755_5e86dc65d896);
@@ -533,14 +436,10 @@ pub struct ILoggingChannelOptionsFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILoggingFields(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILoggingFields {
     type Vtable = ILoggingFields_Vtbl;
-}
-impl ::core::clone::Clone for ILoggingFields {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILoggingFields {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7f6b7af_762d_4579_83bd_52c23bc333bc);
@@ -667,14 +566,10 @@ pub struct ILoggingFields_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILoggingOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILoggingOptions {
     type Vtable = ILoggingOptions_Vtbl;
-}
-impl ::core::clone::Clone for ILoggingOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILoggingOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x90bc7850_0192_4f5d_ac26_006adaca12d8);
@@ -698,14 +593,10 @@ pub struct ILoggingOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILoggingOptionsFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILoggingOptionsFactory {
     type Vtable = ILoggingOptionsFactory_Vtbl;
-}
-impl ::core::clone::Clone for ILoggingOptionsFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILoggingOptionsFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd713c6cb_98ab_464b_9f22_a3268478368a);
@@ -718,6 +609,7 @@ pub struct ILoggingOptionsFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILoggingSession(::windows_core::IUnknown);
 impl ILoggingSession {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -767,27 +659,11 @@ impl ILoggingSession {
 }
 ::windows_core::imp::interface_hierarchy!(ILoggingSession, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<super::IClosable> for ILoggingSession {}
-impl ::core::cmp::PartialEq for ILoggingSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILoggingSession {}
-impl ::core::fmt::Debug for ILoggingSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILoggingSession").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ILoggingSession {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{6221f306-9380-4ad7-baf5-41ea9310d768}");
 }
 unsafe impl ::windows_core::Interface for ILoggingSession {
     type Vtable = ILoggingSession_Vtbl;
-}
-impl ::core::clone::Clone for ILoggingSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILoggingSession {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6221f306_9380_4ad7_baf5_41ea9310d768);
@@ -807,14 +683,10 @@ pub struct ILoggingSession_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILoggingSessionFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILoggingSessionFactory {
     type Vtable = ILoggingSessionFactory_Vtbl;
-}
-impl ::core::clone::Clone for ILoggingSessionFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILoggingSessionFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e937ee5_58fd_45e0_8c2f_a132eff95c1e);
@@ -827,6 +699,7 @@ pub struct ILoggingSessionFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILoggingTarget(::windows_core::IUnknown);
 impl ILoggingTarget {
     pub fn IsEnabled(&self) -> ::windows_core::Result<bool> {
@@ -916,27 +789,11 @@ impl ILoggingTarget {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ILoggingTarget, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for ILoggingTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILoggingTarget {}
-impl ::core::fmt::Debug for ILoggingTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILoggingTarget").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ILoggingTarget {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{65f16c35-e388-4e26-b17a-f51cd3a83916}");
 }
 unsafe impl ::windows_core::Interface for ILoggingTarget {
     type Vtable = ILoggingTarget_Vtbl;
-}
-impl ::core::clone::Clone for ILoggingTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILoggingTarget {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x65f16c35_e388_4e26_b17a_f51cd3a83916);
@@ -959,14 +816,10 @@ pub struct ILoggingTarget_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITracingStatusChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITracingStatusChangedEventArgs {
     type Vtable = ITracingStatusChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for ITracingStatusChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITracingStatusChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x410b7711_ff3b_477f_9c9a_d2efda302dc3);
@@ -1019,6 +872,7 @@ impl ::windows_core::RuntimeName for AsyncCausalityTracer {
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ErrorDetails(::windows_core::IUnknown);
 impl ErrorDetails {
     pub fn Description(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1054,24 +908,8 @@ impl ErrorDetails {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for ErrorDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ErrorDetails {}
-impl ::core::fmt::Debug for ErrorDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ErrorDetails").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ErrorDetails {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.ErrorDetails;{378cbb01-2cc9-428f-8c55-2c990d463e8f})");
-}
-impl ::core::clone::Clone for ErrorDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ErrorDetails {
     type Vtable = IErrorDetails_Vtbl;
@@ -1087,6 +925,7 @@ unsafe impl ::core::marker::Send for ErrorDetails {}
 unsafe impl ::core::marker::Sync for ErrorDetails {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FileLoggingSession(::windows_core::IUnknown);
 impl FileLoggingSession {
     pub fn Close(&self) -> ::windows_core::Result<()> {
@@ -1156,24 +995,8 @@ impl FileLoggingSession {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for FileLoggingSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileLoggingSession {}
-impl ::core::fmt::Debug for FileLoggingSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileLoggingSession").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for FileLoggingSession {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.FileLoggingSession;{24c74216-fed2-404c-895f-1f9699cb02f7})");
-}
-impl ::core::clone::Clone for FileLoggingSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for FileLoggingSession {
     type Vtable = IFileLoggingSession_Vtbl;
@@ -1191,6 +1014,7 @@ unsafe impl ::core::marker::Send for FileLoggingSession {}
 unsafe impl ::core::marker::Sync for FileLoggingSession {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LogFileGeneratedEventArgs(::windows_core::IUnknown);
 impl LogFileGeneratedEventArgs {
     #[doc = "*Required features: `\"Storage\"`*"]
@@ -1203,24 +1027,8 @@ impl LogFileGeneratedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for LogFileGeneratedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LogFileGeneratedEventArgs {}
-impl ::core::fmt::Debug for LogFileGeneratedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LogFileGeneratedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LogFileGeneratedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LogFileGeneratedEventArgs;{269e976f-0d38-4c1a-b53f-b395d881df84})");
-}
-impl ::core::clone::Clone for LogFileGeneratedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LogFileGeneratedEventArgs {
     type Vtable = ILogFileGeneratedEventArgs_Vtbl;
@@ -1236,6 +1044,7 @@ unsafe impl ::core::marker::Send for LogFileGeneratedEventArgs {}
 unsafe impl ::core::marker::Sync for LogFileGeneratedEventArgs {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LoggingActivity(::windows_core::IUnknown);
 impl LoggingActivity {
     pub fn Close(&self) -> ::windows_core::Result<()> {
@@ -1391,24 +1200,8 @@ impl LoggingActivity {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for LoggingActivity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LoggingActivity {}
-impl ::core::fmt::Debug for LoggingActivity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LoggingActivity").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LoggingActivity {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingActivity;{bc032941-b766-4cb5-9848-97ac6ba6d60c})");
-}
-impl ::core::clone::Clone for LoggingActivity {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LoggingActivity {
     type Vtable = ILoggingActivity_Vtbl;
@@ -1426,6 +1219,7 @@ unsafe impl ::core::marker::Send for LoggingActivity {}
 unsafe impl ::core::marker::Sync for LoggingActivity {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LoggingChannel(::windows_core::IUnknown);
 impl LoggingChannel {
     pub fn Close(&self) -> ::windows_core::Result<()> {
@@ -1612,24 +1406,8 @@ impl LoggingChannel {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for LoggingChannel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LoggingChannel {}
-impl ::core::fmt::Debug for LoggingChannel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LoggingChannel").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LoggingChannel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingChannel;{e9a50343-11d7-4f01-b5ca-cf495278c0a8})");
-}
-impl ::core::clone::Clone for LoggingChannel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LoggingChannel {
     type Vtable = ILoggingChannel_Vtbl;
@@ -1648,6 +1426,7 @@ unsafe impl ::core::marker::Send for LoggingChannel {}
 unsafe impl ::core::marker::Sync for LoggingChannel {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LoggingChannelOptions(::windows_core::IUnknown);
 impl LoggingChannelOptions {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1680,24 +1459,8 @@ impl LoggingChannelOptions {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for LoggingChannelOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LoggingChannelOptions {}
-impl ::core::fmt::Debug for LoggingChannelOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LoggingChannelOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LoggingChannelOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingChannelOptions;{c3e847ff-0ebb-4a53-8c54-dec24926cb2c})");
-}
-impl ::core::clone::Clone for LoggingChannelOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LoggingChannelOptions {
     type Vtable = ILoggingChannelOptions_Vtbl;
@@ -1713,6 +1476,7 @@ unsafe impl ::core::marker::Send for LoggingChannelOptions {}
 unsafe impl ::core::marker::Sync for LoggingChannelOptions {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LoggingFields(::windows_core::IUnknown);
 impl LoggingFields {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2183,24 +1947,8 @@ impl LoggingFields {
         unsafe { (::windows_core::Interface::vtable(this).AddRectArrayWithFormatAndTags)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), value.len() as u32, value.as_ptr(), format, tags).ok() }
     }
 }
-impl ::core::cmp::PartialEq for LoggingFields {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LoggingFields {}
-impl ::core::fmt::Debug for LoggingFields {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LoggingFields").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LoggingFields {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingFields;{d7f6b7af-762d-4579-83bd-52c23bc333bc})");
-}
-impl ::core::clone::Clone for LoggingFields {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LoggingFields {
     type Vtable = ILoggingFields_Vtbl;
@@ -2216,6 +1964,7 @@ unsafe impl ::core::marker::Send for LoggingFields {}
 unsafe impl ::core::marker::Sync for LoggingFields {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LoggingOptions(::windows_core::IUnknown);
 impl LoggingOptions {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2303,24 +2052,8 @@ impl LoggingOptions {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for LoggingOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LoggingOptions {}
-impl ::core::fmt::Debug for LoggingOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LoggingOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LoggingOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingOptions;{90bc7850-0192-4f5d-ac26-006adaca12d8})");
-}
-impl ::core::clone::Clone for LoggingOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LoggingOptions {
     type Vtable = ILoggingOptions_Vtbl;
@@ -2336,6 +2069,7 @@ unsafe impl ::core::marker::Send for LoggingOptions {}
 unsafe impl ::core::marker::Sync for LoggingOptions {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LoggingSession(::windows_core::IUnknown);
 impl LoggingSession {
     pub fn Close(&self) -> ::windows_core::Result<()> {
@@ -2394,24 +2128,8 @@ impl LoggingSession {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for LoggingSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LoggingSession {}
-impl ::core::fmt::Debug for LoggingSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LoggingSession").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LoggingSession {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.LoggingSession;{6221f306-9380-4ad7-baf5-41ea9310d768})");
-}
-impl ::core::clone::Clone for LoggingSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LoggingSession {
     type Vtable = ILoggingSession_Vtbl;
@@ -2429,6 +2147,7 @@ unsafe impl ::core::marker::Send for LoggingSession {}
 unsafe impl ::core::marker::Sync for LoggingSession {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RuntimeBrokerErrorSettings(::windows_core::IUnknown);
 impl RuntimeBrokerErrorSettings {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2450,24 +2169,8 @@ impl RuntimeBrokerErrorSettings {
         }
     }
 }
-impl ::core::cmp::PartialEq for RuntimeBrokerErrorSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RuntimeBrokerErrorSettings {}
-impl ::core::fmt::Debug for RuntimeBrokerErrorSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RuntimeBrokerErrorSettings").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RuntimeBrokerErrorSettings {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.RuntimeBrokerErrorSettings;{16369792-b03e-4ba1-8bb8-d28f4ab4d2c0})");
-}
-impl ::core::clone::Clone for RuntimeBrokerErrorSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RuntimeBrokerErrorSettings {
     type Vtable = IErrorReportingSettings_Vtbl;
@@ -2484,6 +2187,7 @@ unsafe impl ::core::marker::Send for RuntimeBrokerErrorSettings {}
 unsafe impl ::core::marker::Sync for RuntimeBrokerErrorSettings {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TracingStatusChangedEventArgs(::windows_core::IUnknown);
 impl TracingStatusChangedEventArgs {
     pub fn Enabled(&self) -> ::windows_core::Result<bool> {
@@ -2501,24 +2205,8 @@ impl TracingStatusChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for TracingStatusChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TracingStatusChangedEventArgs {}
-impl ::core::fmt::Debug for TracingStatusChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TracingStatusChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TracingStatusChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.TracingStatusChangedEventArgs;{410b7711-ff3b-477f-9c9a-d2efda302dc3})");
-}
-impl ::core::clone::Clone for TracingStatusChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TracingStatusChangedEventArgs {
     type Vtable = ITracingStatusChangedEventArgs_Vtbl;

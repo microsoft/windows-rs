@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICurrencyFormatter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICurrencyFormatter {
     type Vtable = ICurrencyFormatter_Vtbl;
-}
-impl ::core::clone::Clone for ICurrencyFormatter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICurrencyFormatter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x11730ca5_4b00_41b2_b332_73b12a497d54);
@@ -24,14 +20,10 @@ pub struct ICurrencyFormatter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICurrencyFormatter2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICurrencyFormatter2 {
     type Vtable = ICurrencyFormatter2_Vtbl;
-}
-impl ::core::clone::Clone for ICurrencyFormatter2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICurrencyFormatter2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x072c2f1d_e7ba_4197_920e_247c92f7dea6);
@@ -46,14 +38,10 @@ pub struct ICurrencyFormatter2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICurrencyFormatterFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICurrencyFormatterFactory {
     type Vtable = ICurrencyFormatterFactory_Vtbl;
-}
-impl ::core::clone::Clone for ICurrencyFormatterFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICurrencyFormatterFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x86c7537e_b938_4aa2_84b0_2c33dc5b1450);
@@ -70,14 +58,10 @@ pub struct ICurrencyFormatterFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDecimalFormatterFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDecimalFormatterFactory {
     type Vtable = IDecimalFormatterFactory_Vtbl;
-}
-impl ::core::clone::Clone for IDecimalFormatterFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDecimalFormatterFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d018c9a_e393_46b8_b830_7a69c8f89fbb);
@@ -93,14 +77,10 @@ pub struct IDecimalFormatterFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIncrementNumberRounder(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IIncrementNumberRounder {
     type Vtable = IIncrementNumberRounder_Vtbl;
-}
-impl ::core::clone::Clone for IIncrementNumberRounder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIncrementNumberRounder {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x70a64ff8_66ab_4155_9da1_739e46764543);
@@ -116,6 +96,7 @@ pub struct IIncrementNumberRounder_Vtbl {
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INumberFormatter(::windows_core::IUnknown);
 impl INumberFormatter {
     pub fn FormatInt(&self, value: i64) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -141,27 +122,11 @@ impl INumberFormatter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INumberFormatter, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for INumberFormatter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INumberFormatter {}
-impl ::core::fmt::Debug for INumberFormatter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INumberFormatter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for INumberFormatter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{a5007c49-7676-4db7-8631-1b6ff265caa9}");
 }
 unsafe impl ::windows_core::Interface for INumberFormatter {
     type Vtable = INumberFormatter_Vtbl;
-}
-impl ::core::clone::Clone for INumberFormatter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INumberFormatter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa5007c49_7676_4db7_8631_1b6ff265caa9);
@@ -176,6 +141,7 @@ pub struct INumberFormatter_Vtbl {
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INumberFormatter2(::windows_core::IUnknown);
 impl INumberFormatter2 {
     pub fn FormatInt(&self, value: i64) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -201,27 +167,11 @@ impl INumberFormatter2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INumberFormatter2, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for INumberFormatter2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INumberFormatter2 {}
-impl ::core::fmt::Debug for INumberFormatter2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INumberFormatter2").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for INumberFormatter2 {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{d4a8c1f0-80d0-4b0d-a89e-882c1e8f8310}");
 }
 unsafe impl ::windows_core::Interface for INumberFormatter2 {
     type Vtable = INumberFormatter2_Vtbl;
-}
-impl ::core::clone::Clone for INumberFormatter2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INumberFormatter2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd4a8c1f0_80d0_4b0d_a89e_882c1e8f8310);
@@ -236,6 +186,7 @@ pub struct INumberFormatter2_Vtbl {
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INumberFormatterOptions(::windows_core::IUnknown);
 impl INumberFormatterOptions {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -325,27 +276,11 @@ impl INumberFormatterOptions {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INumberFormatterOptions, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for INumberFormatterOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INumberFormatterOptions {}
-impl ::core::fmt::Debug for INumberFormatterOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INumberFormatterOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for INumberFormatterOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{80332d21-aee1-4a39-baa2-07ed8c96daf6}");
 }
 unsafe impl ::windows_core::Interface for INumberFormatterOptions {
     type Vtable = INumberFormatterOptions_Vtbl;
-}
-impl ::core::clone::Clone for INumberFormatterOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INumberFormatterOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x80332d21_aee1_4a39_baa2_07ed8c96daf6);
@@ -374,6 +309,7 @@ pub struct INumberFormatterOptions_Vtbl {
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INumberParser(::windows_core::IUnknown);
 impl INumberParser {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -405,27 +341,11 @@ impl INumberParser {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INumberParser, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for INumberParser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INumberParser {}
-impl ::core::fmt::Debug for INumberParser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INumberParser").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for INumberParser {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{e6659412-4a13-4a53-83a1-392fbe4cff9f}");
 }
 unsafe impl ::windows_core::Interface for INumberParser {
     type Vtable = INumberParser_Vtbl;
-}
-impl ::core::clone::Clone for INumberParser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INumberParser {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe6659412_4a13_4a53_83a1_392fbe4cff9f);
@@ -449,6 +369,7 @@ pub struct INumberParser_Vtbl {
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INumberRounder(::windows_core::IUnknown);
 impl INumberRounder {
     pub fn RoundInt32(&self, value: i32) -> ::windows_core::Result<i32> {
@@ -495,27 +416,11 @@ impl INumberRounder {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INumberRounder, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for INumberRounder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INumberRounder {}
-impl ::core::fmt::Debug for INumberRounder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INumberRounder").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for INumberRounder {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{5473c375-38ed-4631-b80c-ef34fc48b7f5}");
 }
 unsafe impl ::windows_core::Interface for INumberRounder {
     type Vtable = INumberRounder_Vtbl;
-}
-impl ::core::clone::Clone for INumberRounder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INumberRounder {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5473c375_38ed_4631_b80c_ef34fc48b7f5);
@@ -533,6 +438,7 @@ pub struct INumberRounder_Vtbl {
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INumberRounderOption(::windows_core::IUnknown);
 impl INumberRounderOption {
     pub fn NumberRounder(&self) -> ::windows_core::Result<INumberRounder> {
@@ -551,27 +457,11 @@ impl INumberRounderOption {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INumberRounderOption, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for INumberRounderOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INumberRounderOption {}
-impl ::core::fmt::Debug for INumberRounderOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INumberRounderOption").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for INumberRounderOption {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{3b088433-646f-4efe-8d48-66eb2e49e736}");
 }
 unsafe impl ::windows_core::Interface for INumberRounderOption {
     type Vtable = INumberRounderOption_Vtbl;
-}
-impl ::core::clone::Clone for INumberRounderOption {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INumberRounderOption {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3b088433_646f_4efe_8d48_66eb2e49e736);
@@ -585,14 +475,10 @@ pub struct INumberRounderOption_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INumeralSystemTranslator(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for INumeralSystemTranslator {
     type Vtable = INumeralSystemTranslator_Vtbl;
-}
-impl ::core::clone::Clone for INumeralSystemTranslator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INumeralSystemTranslator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28f5bc2c_8c23_4234_ad2e_fa5a3a426e9b);
@@ -612,14 +498,10 @@ pub struct INumeralSystemTranslator_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INumeralSystemTranslatorFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for INumeralSystemTranslatorFactory {
     type Vtable = INumeralSystemTranslatorFactory_Vtbl;
-}
-impl ::core::clone::Clone for INumeralSystemTranslatorFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INumeralSystemTranslatorFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9630c8da_36ef_4d88_a85c_6f0d98d620a6);
@@ -635,14 +517,10 @@ pub struct INumeralSystemTranslatorFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPercentFormatterFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPercentFormatterFactory {
     type Vtable = IPercentFormatterFactory_Vtbl;
-}
-impl ::core::clone::Clone for IPercentFormatterFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPercentFormatterFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb7828aef_fed4_4018_a6e2_e09961e03765);
@@ -658,14 +536,10 @@ pub struct IPercentFormatterFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPermilleFormatterFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPermilleFormatterFactory {
     type Vtable = IPermilleFormatterFactory_Vtbl;
-}
-impl ::core::clone::Clone for IPermilleFormatterFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPermilleFormatterFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2b37b4ac_e638_4ed5_a998_62f6b06a49ae);
@@ -681,6 +555,7 @@ pub struct IPermilleFormatterFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISignedZeroOption(::windows_core::IUnknown);
 impl ISignedZeroOption {
     pub fn IsZeroSigned(&self) -> ::windows_core::Result<bool> {
@@ -696,27 +571,11 @@ impl ISignedZeroOption {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISignedZeroOption, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for ISignedZeroOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISignedZeroOption {}
-impl ::core::fmt::Debug for ISignedZeroOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISignedZeroOption").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ISignedZeroOption {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{fd1cdd31-0a3c-49c4-a642-96a1564f4f30}");
 }
 unsafe impl ::windows_core::Interface for ISignedZeroOption {
     type Vtable = ISignedZeroOption_Vtbl;
-}
-impl ::core::clone::Clone for ISignedZeroOption {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISignedZeroOption {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd1cdd31_0a3c_49c4_a642_96a1564f4f30);
@@ -730,14 +589,10 @@ pub struct ISignedZeroOption_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISignificantDigitsNumberRounder(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISignificantDigitsNumberRounder {
     type Vtable = ISignificantDigitsNumberRounder_Vtbl;
-}
-impl ::core::clone::Clone for ISignificantDigitsNumberRounder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISignificantDigitsNumberRounder {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5941bca_6646_4913_8c76_1b191ff94dfd);
@@ -753,6 +608,7 @@ pub struct ISignificantDigitsNumberRounder_Vtbl {
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISignificantDigitsOption(::windows_core::IUnknown);
 impl ISignificantDigitsOption {
     pub fn SignificantDigits(&self) -> ::windows_core::Result<i32> {
@@ -768,27 +624,11 @@ impl ISignificantDigitsOption {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISignificantDigitsOption, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for ISignificantDigitsOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISignificantDigitsOption {}
-impl ::core::fmt::Debug for ISignificantDigitsOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISignificantDigitsOption").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ISignificantDigitsOption {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{1d4dfcdd-2d43-4ee8-bbf1-c1b26a711a58}");
 }
 unsafe impl ::windows_core::Interface for ISignificantDigitsOption {
     type Vtable = ISignificantDigitsOption_Vtbl;
-}
-impl ::core::clone::Clone for ISignificantDigitsOption {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISignificantDigitsOption {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1d4dfcdd_2d43_4ee8_bbf1_c1b26a711a58);
@@ -802,6 +642,7 @@ pub struct ISignificantDigitsOption_Vtbl {
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CurrencyFormatter(::windows_core::IUnknown);
 impl CurrencyFormatter {
     pub fn Currency(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1045,24 +886,8 @@ impl CurrencyFormatter {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for CurrencyFormatter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CurrencyFormatter {}
-impl ::core::fmt::Debug for CurrencyFormatter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CurrencyFormatter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CurrencyFormatter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.CurrencyFormatter;{11730ca5-4b00-41b2-b332-73b12a497d54})");
-}
-impl ::core::clone::Clone for CurrencyFormatter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CurrencyFormatter {
     type Vtable = ICurrencyFormatter_Vtbl;
@@ -1085,6 +910,7 @@ unsafe impl ::core::marker::Send for CurrencyFormatter {}
 unsafe impl ::core::marker::Sync for CurrencyFormatter {}
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DecimalFormatter(::windows_core::IUnknown);
 impl DecimalFormatter {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1301,24 +1127,8 @@ impl DecimalFormatter {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for DecimalFormatter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DecimalFormatter {}
-impl ::core::fmt::Debug for DecimalFormatter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DecimalFormatter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DecimalFormatter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.DecimalFormatter;{a5007c49-7676-4db7-8631-1b6ff265caa9})");
-}
-impl ::core::clone::Clone for DecimalFormatter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DecimalFormatter {
     type Vtable = INumberFormatter_Vtbl;
@@ -1341,6 +1151,7 @@ unsafe impl ::core::marker::Send for DecimalFormatter {}
 unsafe impl ::core::marker::Sync for DecimalFormatter {}
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IncrementNumberRounder(::windows_core::IUnknown);
 impl IncrementNumberRounder {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1415,24 +1226,8 @@ impl IncrementNumberRounder {
         }
     }
 }
-impl ::core::cmp::PartialEq for IncrementNumberRounder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IncrementNumberRounder {}
-impl ::core::fmt::Debug for IncrementNumberRounder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IncrementNumberRounder").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IncrementNumberRounder {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.IncrementNumberRounder;{5473c375-38ed-4631-b80c-ef34fc48b7f5})");
-}
-impl ::core::clone::Clone for IncrementNumberRounder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for IncrementNumberRounder {
     type Vtable = INumberRounder_Vtbl;
@@ -1449,6 +1244,7 @@ unsafe impl ::core::marker::Send for IncrementNumberRounder {}
 unsafe impl ::core::marker::Sync for IncrementNumberRounder {}
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct NumeralSystemTranslator(::windows_core::IUnknown);
 impl NumeralSystemTranslator {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1509,24 +1305,8 @@ impl NumeralSystemTranslator {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for NumeralSystemTranslator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NumeralSystemTranslator {}
-impl ::core::fmt::Debug for NumeralSystemTranslator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NumeralSystemTranslator").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for NumeralSystemTranslator {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.NumeralSystemTranslator;{28f5bc2c-8c23-4234-ad2e-fa5a3a426e9b})");
-}
-impl ::core::clone::Clone for NumeralSystemTranslator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for NumeralSystemTranslator {
     type Vtable = INumeralSystemTranslator_Vtbl;
@@ -1542,6 +1322,7 @@ unsafe impl ::core::marker::Send for NumeralSystemTranslator {}
 unsafe impl ::core::marker::Sync for NumeralSystemTranslator {}
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PercentFormatter(::windows_core::IUnknown);
 impl PercentFormatter {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1758,24 +1539,8 @@ impl PercentFormatter {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for PercentFormatter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PercentFormatter {}
-impl ::core::fmt::Debug for PercentFormatter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PercentFormatter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PercentFormatter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.PercentFormatter;{a5007c49-7676-4db7-8631-1b6ff265caa9})");
-}
-impl ::core::clone::Clone for PercentFormatter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PercentFormatter {
     type Vtable = INumberFormatter_Vtbl;
@@ -1798,6 +1563,7 @@ unsafe impl ::core::marker::Send for PercentFormatter {}
 unsafe impl ::core::marker::Sync for PercentFormatter {}
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PermilleFormatter(::windows_core::IUnknown);
 impl PermilleFormatter {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2014,24 +1780,8 @@ impl PermilleFormatter {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for PermilleFormatter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PermilleFormatter {}
-impl ::core::fmt::Debug for PermilleFormatter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PermilleFormatter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PermilleFormatter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.PermilleFormatter;{a5007c49-7676-4db7-8631-1b6ff265caa9})");
-}
-impl ::core::clone::Clone for PermilleFormatter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PermilleFormatter {
     type Vtable = INumberFormatter_Vtbl;
@@ -2054,6 +1804,7 @@ unsafe impl ::core::marker::Send for PermilleFormatter {}
 unsafe impl ::core::marker::Sync for PermilleFormatter {}
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SignificantDigitsNumberRounder(::windows_core::IUnknown);
 impl SignificantDigitsNumberRounder {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2128,24 +1879,8 @@ impl SignificantDigitsNumberRounder {
         unsafe { (::windows_core::Interface::vtable(this).SetSignificantDigits)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for SignificantDigitsNumberRounder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SignificantDigitsNumberRounder {}
-impl ::core::fmt::Debug for SignificantDigitsNumberRounder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SignificantDigitsNumberRounder").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SignificantDigitsNumberRounder {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder;{5473c375-38ed-4631-b80c-ef34fc48b7f5})");
-}
-impl ::core::clone::Clone for SignificantDigitsNumberRounder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SignificantDigitsNumberRounder {
     type Vtable = INumberRounder_Vtbl;

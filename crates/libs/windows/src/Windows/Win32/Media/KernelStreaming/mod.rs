@@ -139,6 +139,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsAggregateControl(::windows_core::IUnknown);
 impl IKsAggregateControl {
     pub unsafe fn KsAddAggregate(&self, aggregateclass: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
@@ -149,24 +150,8 @@ impl IKsAggregateControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsAggregateControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsAggregateControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsAggregateControl {}
-impl ::core::fmt::Debug for IKsAggregateControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsAggregateControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsAggregateControl {
     type Vtable = IKsAggregateControl_Vtbl;
-}
-impl ::core::clone::Clone for IKsAggregateControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsAggregateControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f40eac0_3947_11d2_874e_00a0c9223196);
@@ -180,6 +165,7 @@ pub struct IKsAggregateControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsAllocator(::windows_core::IUnknown);
 impl IKsAllocator {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -198,24 +184,8 @@ impl IKsAllocator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsAllocator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsAllocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsAllocator {}
-impl ::core::fmt::Debug for IKsAllocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsAllocator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsAllocator {
     type Vtable = IKsAllocator_Vtbl;
-}
-impl ::core::clone::Clone for IKsAllocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsAllocator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8da64899_c0d9_11d0_8413_0000f822fe8a);
@@ -234,6 +204,7 @@ pub struct IKsAllocator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsAllocatorEx(::windows_core::IUnknown);
 impl IKsAllocatorEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -274,24 +245,8 @@ impl IKsAllocatorEx {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsAllocatorEx, ::windows_core::IUnknown, IKsAllocator);
-impl ::core::cmp::PartialEq for IKsAllocatorEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsAllocatorEx {}
-impl ::core::fmt::Debug for IKsAllocatorEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsAllocatorEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsAllocatorEx {
     type Vtable = IKsAllocatorEx_Vtbl;
-}
-impl ::core::clone::Clone for IKsAllocatorEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsAllocatorEx {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x091bb63a_603f_11d1_b067_00a0c9062802);
@@ -313,6 +268,7 @@ pub struct IKsAllocatorEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsClockPropertySet(::windows_core::IUnknown);
 impl IKsClockPropertySet {
     pub unsafe fn KsGetTime(&self) -> ::windows_core::Result<i64> {
@@ -353,24 +309,8 @@ impl IKsClockPropertySet {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsClockPropertySet, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsClockPropertySet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsClockPropertySet {}
-impl ::core::fmt::Debug for IKsClockPropertySet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsClockPropertySet").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsClockPropertySet {
     type Vtable = IKsClockPropertySet_Vtbl;
-}
-impl ::core::clone::Clone for IKsClockPropertySet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsClockPropertySet {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c5cbd84_e755_11d0_ac18_00a0c9223196);
@@ -392,6 +332,7 @@ pub struct IKsClockPropertySet_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsControl(::windows_core::IUnknown);
 impl IKsControl {
     pub unsafe fn KsProperty(&self, property: *const KSIDENTIFIER, propertylength: u32, propertydata: *mut ::core::ffi::c_void, datalength: u32, bytesreturned: *mut u32) -> ::windows_core::Result<()> {
@@ -405,24 +346,8 @@ impl IKsControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsControl {}
-impl ::core::fmt::Debug for IKsControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsControl {
     type Vtable = IKsControl_Vtbl;
-}
-impl ::core::clone::Clone for IKsControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28f54685_06fd_11d2_b27a_00a0c9223196);
@@ -437,6 +362,7 @@ pub struct IKsControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsDataTypeCompletion(::windows_core::IUnknown);
 impl IKsDataTypeCompletion {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
@@ -449,24 +375,8 @@ impl IKsDataTypeCompletion {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsDataTypeCompletion, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsDataTypeCompletion {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsDataTypeCompletion {}
-impl ::core::fmt::Debug for IKsDataTypeCompletion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsDataTypeCompletion").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsDataTypeCompletion {
     type Vtable = IKsDataTypeCompletion_Vtbl;
-}
-impl ::core::clone::Clone for IKsDataTypeCompletion {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsDataTypeCompletion {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x827d1a0e_0f73_11d2_b27a_00a0c9223196);
@@ -482,6 +392,7 @@ pub struct IKsDataTypeCompletion_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsDataTypeHandler(::windows_core::IUnknown);
 impl IKsDataTypeHandler {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`*"]
@@ -515,24 +426,8 @@ impl IKsDataTypeHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsDataTypeHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsDataTypeHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsDataTypeHandler {}
-impl ::core::fmt::Debug for IKsDataTypeHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsDataTypeHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsDataTypeHandler {
     type Vtable = IKsDataTypeHandler_Vtbl;
-}
-impl ::core::clone::Clone for IKsDataTypeHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsDataTypeHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ffbaa02_49a3_11d0_9f36_00aa00a216a1);
@@ -558,6 +453,7 @@ pub struct IKsDataTypeHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsFormatSupport(::windows_core::IUnknown);
 impl IKsFormatSupport {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -571,24 +467,8 @@ impl IKsFormatSupport {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsFormatSupport, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsFormatSupport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsFormatSupport {}
-impl ::core::fmt::Debug for IKsFormatSupport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsFormatSupport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsFormatSupport {
     type Vtable = IKsFormatSupport_Vtbl;
-}
-impl ::core::clone::Clone for IKsFormatSupport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsFormatSupport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3cb4a69d_bb6f_4d2b_95b7_452d2c155db5);
@@ -605,6 +485,7 @@ pub struct IKsFormatSupport_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsInterfaceHandler(::windows_core::IUnknown);
 impl IKsInterfaceHandler {
     pub unsafe fn KsSetPin<P0>(&self, kspin: P0) -> ::windows_core::Result<()>
@@ -628,24 +509,8 @@ impl IKsInterfaceHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsInterfaceHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsInterfaceHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsInterfaceHandler {}
-impl ::core::fmt::Debug for IKsInterfaceHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsInterfaceHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsInterfaceHandler {
     type Vtable = IKsInterfaceHandler_Vtbl;
-}
-impl ::core::clone::Clone for IKsInterfaceHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsInterfaceHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd3abc7e0_9a61_11d0_a40d_00a0c9223196);
@@ -666,6 +531,7 @@ pub struct IKsInterfaceHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsJackContainerId(::windows_core::IUnknown);
 impl IKsJackContainerId {
     pub unsafe fn GetJackContainerId(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -674,24 +540,8 @@ impl IKsJackContainerId {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsJackContainerId, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsJackContainerId {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsJackContainerId {}
-impl ::core::fmt::Debug for IKsJackContainerId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsJackContainerId").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsJackContainerId {
     type Vtable = IKsJackContainerId_Vtbl;
-}
-impl ::core::clone::Clone for IKsJackContainerId {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsJackContainerId {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc99af463_d629_4ec4_8c00_e54d68154248);
@@ -704,6 +554,7 @@ pub struct IKsJackContainerId_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsJackDescription(::windows_core::IUnknown);
 impl IKsJackDescription {
     pub unsafe fn GetJackCount(&self) -> ::windows_core::Result<u32> {
@@ -717,24 +568,8 @@ impl IKsJackDescription {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsJackDescription, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsJackDescription {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsJackDescription {}
-impl ::core::fmt::Debug for IKsJackDescription {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsJackDescription").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsJackDescription {
     type Vtable = IKsJackDescription_Vtbl;
-}
-impl ::core::clone::Clone for IKsJackDescription {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsJackDescription {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4509f757_2d46_4637_8e62_ce7db944f57b);
@@ -751,6 +586,7 @@ pub struct IKsJackDescription_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsJackDescription2(::windows_core::IUnknown);
 impl IKsJackDescription2 {
     pub unsafe fn GetJackCount(&self) -> ::windows_core::Result<u32> {
@@ -763,24 +599,8 @@ impl IKsJackDescription2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsJackDescription2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsJackDescription2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsJackDescription2 {}
-impl ::core::fmt::Debug for IKsJackDescription2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsJackDescription2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsJackDescription2 {
     type Vtable = IKsJackDescription2_Vtbl;
-}
-impl ::core::clone::Clone for IKsJackDescription2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsJackDescription2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x478f3a9b_e0c9_4827_9228_6f5505ffe76a);
@@ -794,6 +614,7 @@ pub struct IKsJackDescription2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsJackDescription3(::windows_core::IUnknown);
 impl IKsJackDescription3 {
     pub unsafe fn GetJackCount(&self) -> ::windows_core::Result<u32> {
@@ -806,24 +627,8 @@ impl IKsJackDescription3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsJackDescription3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsJackDescription3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsJackDescription3 {}
-impl ::core::fmt::Debug for IKsJackDescription3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsJackDescription3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsJackDescription3 {
     type Vtable = IKsJackDescription3_Vtbl;
-}
-impl ::core::clone::Clone for IKsJackDescription3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsJackDescription3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe3f6778b_6660_4cc8_a291_ecc4192d9967);
@@ -837,6 +642,7 @@ pub struct IKsJackDescription3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsJackSinkInformation(::windows_core::IUnknown);
 impl IKsJackSinkInformation {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -846,24 +652,8 @@ impl IKsJackSinkInformation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsJackSinkInformation, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsJackSinkInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsJackSinkInformation {}
-impl ::core::fmt::Debug for IKsJackSinkInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsJackSinkInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsJackSinkInformation {
     type Vtable = IKsJackSinkInformation_Vtbl;
-}
-impl ::core::clone::Clone for IKsJackSinkInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsJackSinkInformation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd9bd72ed_290f_4581_9ff3_61027a8fe532);
@@ -879,6 +669,7 @@ pub struct IKsJackSinkInformation_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsNodeControl(::windows_core::IUnknown);
 impl IKsNodeControl {
     pub unsafe fn SetNodeId(&self, dwnodeid: u32) -> ::windows_core::Result<()> {
@@ -889,24 +680,8 @@ impl IKsNodeControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsNodeControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsNodeControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsNodeControl {}
-impl ::core::fmt::Debug for IKsNodeControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsNodeControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsNodeControl {
     type Vtable = IKsNodeControl_Vtbl;
-}
-impl ::core::clone::Clone for IKsNodeControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsNodeControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x11737c14_24a7_4bb5_81a0_0d003813b0c4);
@@ -920,6 +695,7 @@ pub struct IKsNodeControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsNotifyEvent(::windows_core::IUnknown);
 impl IKsNotifyEvent {
     pub unsafe fn KsNotifyEvent(&self, event: u32, lparam1: usize, lparam2: usize) -> ::windows_core::Result<()> {
@@ -927,24 +703,8 @@ impl IKsNotifyEvent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsNotifyEvent, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsNotifyEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsNotifyEvent {}
-impl ::core::fmt::Debug for IKsNotifyEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsNotifyEvent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsNotifyEvent {
     type Vtable = IKsNotifyEvent_Vtbl;
-}
-impl ::core::clone::Clone for IKsNotifyEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsNotifyEvent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x412bd695_f84b_46c1_ac73_54196dbc8fa7);
@@ -957,6 +717,7 @@ pub struct IKsNotifyEvent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsObject(::windows_core::IUnknown);
 impl IKsObject {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -966,24 +727,8 @@ impl IKsObject {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsObject, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsObject {}
-impl ::core::fmt::Debug for IKsObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsObject {
     type Vtable = IKsObject_Vtbl;
-}
-impl ::core::clone::Clone for IKsObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x423c13a2_2070_11d0_9ef7_00aa00a216a1);
@@ -999,6 +744,7 @@ pub struct IKsObject_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsPin(::windows_core::IUnknown);
 impl IKsPin {
     pub unsafe fn KsQueryMediums(&self) -> ::windows_core::Result<*mut KSMULTIPLE_ITEM> {
@@ -1058,24 +804,8 @@ impl IKsPin {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsPin, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsPin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsPin {}
-impl ::core::fmt::Debug for IKsPin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsPin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsPin {
     type Vtable = IKsPin_Vtbl;
-}
-impl ::core::clone::Clone for IKsPin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsPin {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb61178d1_a2d9_11cf_9e53_00aa00a216a1);
@@ -1112,6 +842,7 @@ pub struct IKsPin_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsPinEx(::windows_core::IUnknown);
 impl IKsPinEx {
     pub unsafe fn KsQueryMediums(&self) -> ::windows_core::Result<*mut KSMULTIPLE_ITEM> {
@@ -1179,24 +910,8 @@ impl IKsPinEx {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsPinEx, ::windows_core::IUnknown, IKsPin);
-impl ::core::cmp::PartialEq for IKsPinEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsPinEx {}
-impl ::core::fmt::Debug for IKsPinEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsPinEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsPinEx {
     type Vtable = IKsPinEx_Vtbl;
-}
-impl ::core::clone::Clone for IKsPinEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsPinEx {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7bb38260_d19c_11d2_b38a_00a0c95ec22e);
@@ -1212,6 +927,7 @@ pub struct IKsPinEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsPinFactory(::windows_core::IUnknown);
 impl IKsPinFactory {
     pub unsafe fn KsPinFactory(&self) -> ::windows_core::Result<u32> {
@@ -1220,24 +936,8 @@ impl IKsPinFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsPinFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsPinFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsPinFactory {}
-impl ::core::fmt::Debug for IKsPinFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsPinFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsPinFactory {
     type Vtable = IKsPinFactory_Vtbl;
-}
-impl ::core::clone::Clone for IKsPinFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsPinFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcd5ebe6b_8b6e_11d1_8ae0_00a0c9223196);
@@ -1250,6 +950,7 @@ pub struct IKsPinFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsPinPipe(::windows_core::IUnknown);
 impl IKsPinPipe {
     pub unsafe fn KsGetPinFramingCache(&self, framingex: *mut *mut KSALLOCATOR_FRAMING_EX, framingprop: *mut FRAMING_PROP, option: FRAMING_CACHE_OPS) -> ::windows_core::Result<()> {
@@ -1294,24 +995,8 @@ impl IKsPinPipe {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsPinPipe, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsPinPipe {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsPinPipe {}
-impl ::core::fmt::Debug for IKsPinPipe {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsPinPipe").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsPinPipe {
     type Vtable = IKsPinPipe_Vtbl;
-}
-impl ::core::clone::Clone for IKsPinPipe {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsPinPipe {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe539cd90_a8b4_11d1_8189_00a0c9062802);
@@ -1337,6 +1022,7 @@ pub struct IKsPinPipe_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsPropertySet(::windows_core::IUnknown);
 impl IKsPropertySet {
     pub unsafe fn Set(&self, guidpropset: *const ::windows_core::GUID, dwpropid: u32, pinstancedata: *const ::core::ffi::c_void, cbinstancedata: u32, ppropdata: *const ::core::ffi::c_void, cbpropdata: u32) -> ::windows_core::Result<()> {
@@ -1351,24 +1037,8 @@ impl IKsPropertySet {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsPropertySet, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsPropertySet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsPropertySet {}
-impl ::core::fmt::Debug for IKsPropertySet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsPropertySet").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsPropertySet {
     type Vtable = IKsPropertySet_Vtbl;
-}
-impl ::core::clone::Clone for IKsPropertySet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsPropertySet {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x31efac30_515c_11d0_a9aa_00aa0061be93);
@@ -1383,6 +1053,7 @@ pub struct IKsPropertySet_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsQualityForwarder(::windows_core::IUnknown);
 impl IKsQualityForwarder {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1398,24 +1069,8 @@ impl IKsQualityForwarder {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsQualityForwarder, ::windows_core::IUnknown, IKsObject);
-impl ::core::cmp::PartialEq for IKsQualityForwarder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsQualityForwarder {}
-impl ::core::fmt::Debug for IKsQualityForwarder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsQualityForwarder").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsQualityForwarder {
     type Vtable = IKsQualityForwarder_Vtbl;
-}
-impl ::core::clone::Clone for IKsQualityForwarder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsQualityForwarder {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97ebaacb_95bd_11d0_a3ea_00a0c9223196);
@@ -1428,6 +1083,7 @@ pub struct IKsQualityForwarder_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsTopology(::windows_core::IUnknown);
 impl IKsTopology {
     pub unsafe fn CreateNodeInstance<P0>(&self, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: P0, interfaceid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -1438,24 +1094,8 @@ impl IKsTopology {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsTopology, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsTopology {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsTopology {}
-impl ::core::fmt::Debug for IKsTopology {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsTopology").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsTopology {
     type Vtable = IKsTopology_Vtbl;
-}
-impl ::core::clone::Clone for IKsTopology {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsTopology {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28f54683_06fd_11d2_b27a_00a0c9223196);
@@ -1468,6 +1108,7 @@ pub struct IKsTopology_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKsTopologyInfo(::windows_core::IUnknown);
 impl IKsTopologyInfo {
     pub unsafe fn NumCategories(&self) -> ::windows_core::Result<u32> {
@@ -1502,24 +1143,8 @@ impl IKsTopologyInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKsTopologyInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKsTopologyInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKsTopologyInfo {}
-impl ::core::fmt::Debug for IKsTopologyInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKsTopologyInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKsTopologyInfo {
     type Vtable = IKsTopologyInfo_Vtbl;
-}
-impl ::core::clone::Clone for IKsTopologyInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKsTopologyInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x720d4ac0_7533_11d0_a5d6_28db04c10000);

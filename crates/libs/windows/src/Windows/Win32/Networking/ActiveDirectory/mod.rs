@@ -1546,6 +1546,7 @@ where
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADs(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADs {
@@ -1622,28 +1623,8 @@ impl IADs {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADs, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADs {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADs {
     type Vtable = IADs_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADs {
@@ -1686,6 +1667,7 @@ pub struct IADs_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsADSystemInfo(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsADSystemInfo {
@@ -1751,28 +1733,8 @@ impl IADsADSystemInfo {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsADSystemInfo, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsADSystemInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsADSystemInfo {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsADSystemInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsADSystemInfo").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsADSystemInfo {
     type Vtable = IADsADSystemInfo_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsADSystemInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsADSystemInfo {
@@ -1806,6 +1768,7 @@ pub struct IADsADSystemInfo_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsAccessControlEntry(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsAccessControlEntry {
@@ -1871,28 +1834,8 @@ impl IADsAccessControlEntry {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsAccessControlEntry, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsAccessControlEntry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsAccessControlEntry {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsAccessControlEntry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsAccessControlEntry").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsAccessControlEntry {
     type Vtable = IADsAccessControlEntry_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsAccessControlEntry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsAccessControlEntry {
@@ -1921,6 +1864,7 @@ pub struct IADsAccessControlEntry_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsAccessControlList(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsAccessControlList {
@@ -1968,28 +1912,8 @@ impl IADsAccessControlList {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsAccessControlList, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsAccessControlList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsAccessControlList {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsAccessControlList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsAccessControlList").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsAccessControlList {
     type Vtable = IADsAccessControlList_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsAccessControlList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsAccessControlList {
@@ -2021,6 +1945,7 @@ pub struct IADsAccessControlList_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsAcl(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsAcl {
@@ -2061,28 +1986,8 @@ impl IADsAcl {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsAcl, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsAcl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsAcl {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsAcl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsAcl").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsAcl {
     type Vtable = IADsAcl_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsAcl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsAcl {
@@ -2106,6 +2011,7 @@ pub struct IADsAcl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsAggregatee(::windows_core::IUnknown);
 impl IADsAggregatee {
     pub unsafe fn ConnectAsAggregatee<P0>(&self, pouterunknown: P0) -> ::windows_core::Result<()>
@@ -2125,24 +2031,8 @@ impl IADsAggregatee {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IADsAggregatee, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IADsAggregatee {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IADsAggregatee {}
-impl ::core::fmt::Debug for IADsAggregatee {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsAggregatee").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IADsAggregatee {
     type Vtable = IADsAggregatee_Vtbl;
-}
-impl ::core::clone::Clone for IADsAggregatee {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IADsAggregatee {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1346ce8c_9039_11d0_8528_00c04fd8d503);
@@ -2158,6 +2048,7 @@ pub struct IADsAggregatee_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsAggregator(::windows_core::IUnknown);
 impl IADsAggregator {
     pub unsafe fn ConnectAsAggregator<P0>(&self, paggregatee: P0) -> ::windows_core::Result<()>
@@ -2171,24 +2062,8 @@ impl IADsAggregator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IADsAggregator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IADsAggregator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IADsAggregator {}
-impl ::core::fmt::Debug for IADsAggregator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsAggregator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IADsAggregator {
     type Vtable = IADsAggregator_Vtbl;
-}
-impl ::core::clone::Clone for IADsAggregator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IADsAggregator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x52db5fb0_941f_11d0_8529_00c04fd8d503);
@@ -2203,6 +2078,7 @@ pub struct IADsAggregator_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsBackLink(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsBackLink {
@@ -2227,28 +2103,8 @@ impl IADsBackLink {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsBackLink, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsBackLink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsBackLink {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsBackLink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsBackLink").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsBackLink {
     type Vtable = IADsBackLink_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsBackLink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsBackLink {
@@ -2267,6 +2123,7 @@ pub struct IADsBackLink_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsCaseIgnoreList(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsCaseIgnoreList {
@@ -2285,28 +2142,8 @@ impl IADsCaseIgnoreList {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsCaseIgnoreList, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsCaseIgnoreList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsCaseIgnoreList {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsCaseIgnoreList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsCaseIgnoreList").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsCaseIgnoreList {
     type Vtable = IADsCaseIgnoreList_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsCaseIgnoreList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsCaseIgnoreList {
@@ -2329,6 +2166,7 @@ pub struct IADsCaseIgnoreList_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsClass(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsClass {
@@ -2571,28 +2409,8 @@ impl IADsClass {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsClass, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsClass {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsClass {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsClass {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsClass").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsClass {
     type Vtable = IADsClass_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsClass {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsClass {
@@ -2700,6 +2518,7 @@ pub struct IADsClass_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsCollection {
@@ -2734,28 +2553,8 @@ impl IADsCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsCollection {
     type Vtable = IADsCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsCollection {
@@ -2780,6 +2579,7 @@ pub struct IADsCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsComputer(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsComputer {
@@ -3015,28 +2815,8 @@ impl IADsComputer {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsComputer, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsComputer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsComputer {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsComputer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsComputer").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsComputer {
     type Vtable = IADsComputer_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsComputer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsComputer {
@@ -3089,6 +2869,7 @@ pub struct IADsComputer_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsComputerOperations(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsComputerOperations {
@@ -3179,28 +2960,8 @@ impl IADsComputerOperations {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsComputerOperations, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsComputerOperations {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsComputerOperations {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsComputerOperations {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsComputerOperations").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsComputerOperations {
     type Vtable = IADsComputerOperations_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsComputerOperations {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsComputerOperations {
@@ -3223,6 +2984,7 @@ pub struct IADsComputerOperations_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsContainer(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsContainer {
@@ -3307,28 +3069,8 @@ impl IADsContainer {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsContainer, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsContainer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsContainer {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsContainer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsContainer").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsContainer {
     type Vtable = IADsContainer_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsContainer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsContainer {
@@ -3378,6 +3120,7 @@ pub struct IADsContainer_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsDNWithBinary(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsDNWithBinary {
@@ -3406,28 +3149,8 @@ impl IADsDNWithBinary {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsDNWithBinary, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsDNWithBinary {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsDNWithBinary {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsDNWithBinary {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsDNWithBinary").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsDNWithBinary {
     type Vtable = IADsDNWithBinary_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsDNWithBinary {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsDNWithBinary {
@@ -3452,6 +3175,7 @@ pub struct IADsDNWithBinary_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsDNWithString(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsDNWithString {
@@ -3479,28 +3203,8 @@ impl IADsDNWithString {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsDNWithString, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsDNWithString {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsDNWithString {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsDNWithString {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsDNWithString").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsDNWithString {
     type Vtable = IADsDNWithString_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsDNWithString {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsDNWithString {
@@ -3519,6 +3223,7 @@ pub struct IADsDNWithString_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsDeleteOps(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsDeleteOps {
@@ -3529,28 +3234,8 @@ impl IADsDeleteOps {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsDeleteOps, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsDeleteOps {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsDeleteOps {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsDeleteOps {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsDeleteOps").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsDeleteOps {
     type Vtable = IADsDeleteOps_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsDeleteOps {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsDeleteOps {
@@ -3566,6 +3251,7 @@ pub struct IADsDeleteOps_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsDomain(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsDomain {
@@ -3704,28 +3390,8 @@ impl IADsDomain {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsDomain, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsDomain {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsDomain {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsDomain {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsDomain").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsDomain {
     type Vtable = IADsDomain_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsDomain {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsDomain {
@@ -3760,6 +3426,7 @@ pub struct IADsDomain_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsEmail(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsEmail {
@@ -3784,28 +3451,8 @@ impl IADsEmail {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsEmail, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsEmail {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsEmail {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsEmail {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsEmail").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsEmail {
     type Vtable = IADsEmail_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsEmail {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsEmail {
@@ -3823,6 +3470,7 @@ pub struct IADsEmail_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsExtension(::windows_core::IUnknown);
 impl IADsExtension {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -3841,24 +3489,8 @@ impl IADsExtension {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IADsExtension, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IADsExtension {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IADsExtension {}
-impl ::core::fmt::Debug for IADsExtension {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsExtension").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IADsExtension {
     type Vtable = IADsExtension_Vtbl;
-}
-impl ::core::clone::Clone for IADsExtension {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IADsExtension {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d35553c_d2b0_11d1_b17b_0000f87593a0);
@@ -3880,6 +3512,7 @@ pub struct IADsExtension_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsFaxNumber(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsFaxNumber {
@@ -3908,28 +3541,8 @@ impl IADsFaxNumber {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsFaxNumber, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsFaxNumber {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsFaxNumber {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsFaxNumber {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsFaxNumber").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsFaxNumber {
     type Vtable = IADsFaxNumber_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsFaxNumber {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsFaxNumber {
@@ -3954,6 +3567,7 @@ pub struct IADsFaxNumber_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsFileService(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsFileService {
@@ -4159,28 +3773,8 @@ impl IADsFileService {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsFileService, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs, IADsService);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsFileService {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsFileService {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsFileService {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsFileService").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsFileService {
     type Vtable = IADsFileService_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsFileService {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsFileService {
@@ -4199,6 +3793,7 @@ pub struct IADsFileService_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsFileServiceOperations(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsFileServiceOperations {
@@ -4309,28 +3904,8 @@ impl IADsFileServiceOperations {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsFileServiceOperations, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs, IADsServiceOperations);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsFileServiceOperations {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsFileServiceOperations {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsFileServiceOperations {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsFileServiceOperations").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsFileServiceOperations {
     type Vtable = IADsFileServiceOperations_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsFileServiceOperations {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsFileServiceOperations {
@@ -4353,6 +3928,7 @@ pub struct IADsFileServiceOperations_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsFileShare(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsFileShare {
@@ -4470,28 +4046,8 @@ impl IADsFileShare {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsFileShare, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsFileShare {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsFileShare {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsFileShare {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsFileShare").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsFileShare {
     type Vtable = IADsFileShare_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsFileShare {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsFileShare {
@@ -4515,6 +4071,7 @@ pub struct IADsFileShare_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsGroup(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsGroup {
@@ -4628,28 +4185,8 @@ impl IADsGroup {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsGroup, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsGroup {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsGroup").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsGroup {
     type Vtable = IADsGroup_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsGroup {
@@ -4676,6 +4213,7 @@ pub struct IADsGroup_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsHold(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsHold {
@@ -4700,28 +4238,8 @@ impl IADsHold {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsHold, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsHold {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsHold {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsHold {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsHold").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsHold {
     type Vtable = IADsHold_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsHold {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsHold {
@@ -4740,6 +4258,7 @@ pub struct IADsHold_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsLargeInteger(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsLargeInteger {
@@ -4761,28 +4280,8 @@ impl IADsLargeInteger {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsLargeInteger, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsLargeInteger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsLargeInteger {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsLargeInteger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsLargeInteger").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsLargeInteger {
     type Vtable = IADsLargeInteger_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsLargeInteger {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsLargeInteger {
@@ -4801,6 +4300,7 @@ pub struct IADsLargeInteger_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsLocality(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsLocality {
@@ -4918,28 +4418,8 @@ impl IADsLocality {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsLocality, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsLocality {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsLocality {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsLocality {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsLocality").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsLocality {
     type Vtable = IADsLocality_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsLocality {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsLocality {
@@ -4968,6 +4448,7 @@ pub struct IADsLocality_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsMembers(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsMembers {
@@ -4994,28 +4475,8 @@ impl IADsMembers {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsMembers, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsMembers {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsMembers {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsMembers {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsMembers").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsMembers {
     type Vtable = IADsMembers_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsMembers {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsMembers {
@@ -5040,6 +4501,7 @@ pub struct IADsMembers_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsNameTranslate(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsNameTranslate {
@@ -5086,28 +4548,8 @@ impl IADsNameTranslate {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsNameTranslate, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsNameTranslate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsNameTranslate {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsNameTranslate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsNameTranslate").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsNameTranslate {
     type Vtable = IADsNameTranslate_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsNameTranslate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsNameTranslate {
@@ -5135,6 +4577,7 @@ pub struct IADsNameTranslate_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsNamespaces(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsNamespaces {
@@ -5221,28 +4664,8 @@ impl IADsNamespaces {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsNamespaces, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsNamespaces {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsNamespaces {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsNamespaces {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsNamespaces").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsNamespaces {
     type Vtable = IADsNamespaces_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsNamespaces {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsNamespaces {
@@ -5259,6 +4682,7 @@ pub struct IADsNamespaces_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsNetAddress(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsNetAddress {
@@ -5284,28 +4708,8 @@ impl IADsNetAddress {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsNetAddress, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsNetAddress {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsNetAddress {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsNetAddress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsNetAddress").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsNetAddress {
     type Vtable = IADsNetAddress_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsNetAddress {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsNetAddress {
@@ -5330,6 +4734,7 @@ pub struct IADsNetAddress_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsO(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsO {
@@ -5467,28 +4872,8 @@ impl IADsO {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsO, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsO {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsO {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsO").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsO {
     type Vtable = IADsO_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsO {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsO {
@@ -5521,6 +4906,7 @@ pub struct IADsO_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsOU(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsOU {
@@ -5668,28 +5054,8 @@ impl IADsOU {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsOU, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsOU {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsOU {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsOU {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsOU").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsOU {
     type Vtable = IADsOU_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsOU {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsOU {
@@ -5724,6 +5090,7 @@ pub struct IADsOU_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsObjectOptions(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsObjectOptions {
@@ -5742,28 +5109,8 @@ impl IADsObjectOptions {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsObjectOptions, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsObjectOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsObjectOptions {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsObjectOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsObjectOptions").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsObjectOptions {
     type Vtable = IADsObjectOptions_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsObjectOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsObjectOptions {
@@ -5786,6 +5133,7 @@ pub struct IADsObjectOptions_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsOctetList(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsOctetList {
@@ -5804,28 +5152,8 @@ impl IADsOctetList {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsOctetList, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsOctetList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsOctetList {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsOctetList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsOctetList").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsOctetList {
     type Vtable = IADsOctetList_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsOctetList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsOctetList {
@@ -5848,6 +5176,7 @@ pub struct IADsOctetList_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsOpenDSObject(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsOpenDSObject {
@@ -5866,28 +5195,8 @@ impl IADsOpenDSObject {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsOpenDSObject, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsOpenDSObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsOpenDSObject {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsOpenDSObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsOpenDSObject").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsOpenDSObject {
     type Vtable = IADsOpenDSObject_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsOpenDSObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsOpenDSObject {
@@ -5906,6 +5215,7 @@ pub struct IADsOpenDSObject_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsPath(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsPath {
@@ -5940,28 +5250,8 @@ impl IADsPath {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsPath, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsPath {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsPath {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsPath {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsPath").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsPath {
     type Vtable = IADsPath_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsPath {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsPath {
@@ -5982,6 +5272,7 @@ pub struct IADsPath_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsPathname(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsPathname {
@@ -6039,28 +5330,8 @@ impl IADsPathname {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsPathname, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsPathname {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsPathname {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsPathname {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsPathname").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsPathname {
     type Vtable = IADsPathname_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsPathname {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsPathname {
@@ -6089,6 +5360,7 @@ pub struct IADsPathname_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsPostalAddress(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsPostalAddress {
@@ -6107,28 +5379,8 @@ impl IADsPostalAddress {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsPostalAddress, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsPostalAddress {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsPostalAddress {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsPostalAddress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsPostalAddress").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsPostalAddress {
     type Vtable = IADsPostalAddress_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsPostalAddress {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsPostalAddress {
@@ -6151,6 +5403,7 @@ pub struct IADsPostalAddress_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsPrintJob(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsPrintJob {
@@ -6302,28 +5555,8 @@ impl IADsPrintJob {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsPrintJob, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsPrintJob {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsPrintJob {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsPrintJob {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsPrintJob").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsPrintJob {
     type Vtable = IADsPrintJob_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsPrintJob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsPrintJob {
@@ -6356,6 +5589,7 @@ pub struct IADsPrintJob_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsPrintJobOperations(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsPrintJobOperations {
@@ -6457,28 +5691,8 @@ impl IADsPrintJobOperations {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsPrintJobOperations, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsPrintJobOperations {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsPrintJobOperations {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsPrintJobOperations {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsPrintJobOperations").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsPrintJobOperations {
     type Vtable = IADsPrintJobOperations_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsPrintJobOperations {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsPrintJobOperations {
@@ -6500,6 +5714,7 @@ pub struct IADsPrintJobOperations_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsPrintQueue(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsPrintQueue {
@@ -6696,28 +5911,8 @@ impl IADsPrintQueue {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsPrintQueue, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsPrintQueue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsPrintQueue {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsPrintQueue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsPrintQueue").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsPrintQueue {
     type Vtable = IADsPrintQueue_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsPrintQueue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsPrintQueue {
@@ -6770,6 +5965,7 @@ pub struct IADsPrintQueue_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsPrintQueueOperations(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsPrintQueueOperations {
@@ -6865,28 +6061,8 @@ impl IADsPrintQueueOperations {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsPrintQueueOperations, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsPrintQueueOperations {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsPrintQueueOperations {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsPrintQueueOperations {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsPrintQueueOperations").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsPrintQueueOperations {
     type Vtable = IADsPrintQueueOperations_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsPrintQueueOperations {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsPrintQueueOperations {
@@ -6909,6 +6085,7 @@ pub struct IADsPrintQueueOperations_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsProperty(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsProperty {
@@ -7039,28 +6216,8 @@ impl IADsProperty {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsProperty, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsProperty {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsProperty").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsProperty {
     type Vtable = IADsProperty_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsProperty {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsProperty {
@@ -7095,6 +6252,7 @@ pub struct IADsProperty_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsPropertyEntry(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsPropertyEntry {
@@ -7140,28 +6298,8 @@ impl IADsPropertyEntry {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsPropertyEntry, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsPropertyEntry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsPropertyEntry {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsPropertyEntry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsPropertyEntry").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsPropertyEntry {
     type Vtable = IADsPropertyEntry_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsPropertyEntry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsPropertyEntry {
@@ -7191,6 +6329,7 @@ pub struct IADsPropertyEntry_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsPropertyList(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsPropertyList {
@@ -7241,28 +6380,8 @@ impl IADsPropertyList {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsPropertyList, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsPropertyList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsPropertyList {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsPropertyList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsPropertyList").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsPropertyList {
     type Vtable = IADsPropertyList_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsPropertyList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsPropertyList {
@@ -7301,6 +6420,7 @@ pub struct IADsPropertyList_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsPropertyValue(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsPropertyValue {
@@ -7428,28 +6548,8 @@ impl IADsPropertyValue {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsPropertyValue, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsPropertyValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsPropertyValue {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsPropertyValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsPropertyValue").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsPropertyValue {
     type Vtable = IADsPropertyValue_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsPropertyValue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsPropertyValue {
@@ -7507,6 +6607,7 @@ pub struct IADsPropertyValue_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsPropertyValue2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsPropertyValue2 {
@@ -7524,28 +6625,8 @@ impl IADsPropertyValue2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsPropertyValue2, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsPropertyValue2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsPropertyValue2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsPropertyValue2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsPropertyValue2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsPropertyValue2 {
     type Vtable = IADsPropertyValue2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsPropertyValue2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsPropertyValue2 {
@@ -7568,6 +6649,7 @@ pub struct IADsPropertyValue2_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsReplicaPointer(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsReplicaPointer {
@@ -7617,28 +6699,8 @@ impl IADsReplicaPointer {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsReplicaPointer, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsReplicaPointer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsReplicaPointer {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsReplicaPointer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsReplicaPointer").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsReplicaPointer {
     type Vtable = IADsReplicaPointer_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsReplicaPointer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsReplicaPointer {
@@ -7669,6 +6731,7 @@ pub struct IADsReplicaPointer_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsResource(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsResource {
@@ -7761,28 +6824,8 @@ impl IADsResource {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsResource, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsResource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsResource {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsResource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsResource").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsResource {
     type Vtable = IADsResource_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsResource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsResource {
@@ -7801,6 +6844,7 @@ pub struct IADsResource_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsSecurityDescriptor(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsSecurityDescriptor {
@@ -7932,28 +6976,8 @@ impl IADsSecurityDescriptor {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsSecurityDescriptor, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsSecurityDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsSecurityDescriptor {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsSecurityDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsSecurityDescriptor").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsSecurityDescriptor {
     type Vtable = IADsSecurityDescriptor_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsSecurityDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsSecurityDescriptor {
@@ -8028,6 +7052,7 @@ pub struct IADsSecurityDescriptor_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsSecurityUtility(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsSecurityUtility {
@@ -8059,28 +7084,8 @@ impl IADsSecurityUtility {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsSecurityUtility, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsSecurityUtility {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsSecurityUtility {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsSecurityUtility {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsSecurityUtility").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsSecurityUtility {
     type Vtable = IADsSecurityUtility_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsSecurityUtility {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsSecurityUtility {
@@ -8109,6 +7114,7 @@ pub struct IADsSecurityUtility_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsService(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsService {
@@ -8297,28 +7303,8 @@ impl IADsService {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsService, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsService {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsService {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsService {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsService").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsService {
     type Vtable = IADsService_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsService {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsService {
@@ -8363,6 +7349,7 @@ pub struct IADsService_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsServiceOperations(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsServiceOperations {
@@ -8461,28 +7448,8 @@ impl IADsServiceOperations {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsServiceOperations, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsServiceOperations {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsServiceOperations {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsServiceOperations {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsServiceOperations").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsServiceOperations {
     type Vtable = IADsServiceOperations_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsServiceOperations {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsServiceOperations {
@@ -8503,6 +7470,7 @@ pub struct IADsServiceOperations_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsSession(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsSession {
@@ -8603,28 +7571,8 @@ impl IADsSession {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsSession, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsSession {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsSession").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsSession {
     type Vtable = IADsSession_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsSession {
@@ -8645,6 +7593,7 @@ pub struct IADsSession_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsSyntax(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsSyntax {
@@ -8728,28 +7677,8 @@ impl IADsSyntax {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsSyntax, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsSyntax {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsSyntax {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsSyntax {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsSyntax").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsSyntax {
     type Vtable = IADsSyntax_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsSyntax {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsSyntax {
@@ -8766,6 +7695,7 @@ pub struct IADsSyntax_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsTimestamp(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsTimestamp {
@@ -8787,28 +7717,8 @@ impl IADsTimestamp {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsTimestamp, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsTimestamp {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsTimestamp {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsTimestamp {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsTimestamp").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsTimestamp {
     type Vtable = IADsTimestamp_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsTimestamp {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsTimestamp {
@@ -8827,6 +7737,7 @@ pub struct IADsTimestamp_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsTypedName(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsTypedName {
@@ -8858,28 +7769,8 @@ impl IADsTypedName {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsTypedName, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsTypedName {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsTypedName {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsTypedName {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsTypedName").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsTypedName {
     type Vtable = IADsTypedName_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsTypedName {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsTypedName {
@@ -8900,6 +7791,7 @@ pub struct IADsTypedName_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsUser(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsUser {
@@ -9437,28 +8329,8 @@ impl IADsUser {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsUser, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IADs);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsUser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsUser {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsUser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsUser").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsUser {
     type Vtable = IADsUser_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsUser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsUser {
@@ -9669,6 +8541,7 @@ pub struct IADsUser_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsWinNTSystemInfo(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsWinNTSystemInfo {
@@ -9692,28 +8565,8 @@ impl IADsWinNTSystemInfo {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsWinNTSystemInfo, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsWinNTSystemInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsWinNTSystemInfo {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsWinNTSystemInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsWinNTSystemInfo").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsWinNTSystemInfo {
     type Vtable = IADsWinNTSystemInfo_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsWinNTSystemInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsWinNTSystemInfo {
@@ -9731,6 +8584,7 @@ pub struct IADsWinNTSystemInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICommonQuery(::windows_core::IUnknown);
 impl ICommonQuery {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -9743,24 +8597,8 @@ impl ICommonQuery {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICommonQuery, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICommonQuery {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICommonQuery {}
-impl ::core::fmt::Debug for ICommonQuery {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICommonQuery").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICommonQuery {
     type Vtable = ICommonQuery_Vtbl;
-}
-impl ::core::clone::Clone for ICommonQuery {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICommonQuery {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab50dec0_6f1d_11d0_a1c4_00aa00c16e65);
@@ -9776,6 +8614,7 @@ pub struct ICommonQuery_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectoryObject(::windows_core::IUnknown);
 impl IDirectoryObject {
     pub unsafe fn GetObjectInformation(&self) -> ::windows_core::Result<*mut ADS_OBJECT_INFO> {
@@ -9810,24 +8649,8 @@ impl IDirectoryObject {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectoryObject, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectoryObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectoryObject {}
-impl ::core::fmt::Debug for IDirectoryObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectoryObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectoryObject {
     type Vtable = IDirectoryObject_Vtbl;
-}
-impl ::core::clone::Clone for IDirectoryObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectoryObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe798de2c_22e4_11d0_84fe_00c04fd8d503);
@@ -9853,6 +8676,7 @@ pub struct IDirectoryObject_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectorySchemaMgmt(::windows_core::IUnknown);
 impl IDirectorySchemaMgmt {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -9911,24 +8735,8 @@ impl IDirectorySchemaMgmt {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectorySchemaMgmt, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectorySchemaMgmt {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectorySchemaMgmt {}
-impl ::core::fmt::Debug for IDirectorySchemaMgmt {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectorySchemaMgmt").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectorySchemaMgmt {
     type Vtable = IDirectorySchemaMgmt_Vtbl;
-}
-impl ::core::clone::Clone for IDirectorySchemaMgmt {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectorySchemaMgmt {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75db3b9c_a4d8_11d0_a79c_00c04fd8d5a8);
@@ -9966,6 +8774,7 @@ pub struct IDirectorySchemaMgmt_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirectorySearch(::windows_core::IUnknown);
 impl IDirectorySearch {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -10032,24 +8841,8 @@ impl IDirectorySearch {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDirectorySearch, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDirectorySearch {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDirectorySearch {}
-impl ::core::fmt::Debug for IDirectorySearch {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDirectorySearch").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDirectorySearch {
     type Vtable = IDirectorySearch_Vtbl;
-}
-impl ::core::clone::Clone for IDirectorySearch {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirectorySearch {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x109ba8ec_92f0_11d0_a790_00c04fd8d5a8);
@@ -10080,6 +8873,7 @@ pub struct IDirectorySearch_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDsAdminCreateObj(::windows_core::IUnknown);
 impl IDsAdminCreateObj {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -10103,24 +8897,8 @@ impl IDsAdminCreateObj {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDsAdminCreateObj, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDsAdminCreateObj {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDsAdminCreateObj {}
-impl ::core::fmt::Debug for IDsAdminCreateObj {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDsAdminCreateObj").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDsAdminCreateObj {
     type Vtable = IDsAdminCreateObj_Vtbl;
-}
-impl ::core::clone::Clone for IDsAdminCreateObj {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDsAdminCreateObj {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53554a38_f902_11d2_82b9_00c04f68928b);
@@ -10140,6 +8918,7 @@ pub struct IDsAdminCreateObj_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDsAdminNewObj(::windows_core::IUnknown);
 impl IDsAdminNewObj {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -10155,24 +8934,8 @@ impl IDsAdminNewObj {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDsAdminNewObj, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDsAdminNewObj {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDsAdminNewObj {}
-impl ::core::fmt::Debug for IDsAdminNewObj {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDsAdminNewObj").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDsAdminNewObj {
     type Vtable = IDsAdminNewObj_Vtbl;
-}
-impl ::core::clone::Clone for IDsAdminNewObj {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDsAdminNewObj {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2573587_e6fc_11d2_82af_00c04f68928b);
@@ -10189,6 +8952,7 @@ pub struct IDsAdminNewObj_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDsAdminNewObjExt(::windows_core::IUnknown);
 impl IDsAdminNewObjExt {
     #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -10239,24 +9003,8 @@ impl IDsAdminNewObjExt {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDsAdminNewObjExt, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDsAdminNewObjExt {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDsAdminNewObjExt {}
-impl ::core::fmt::Debug for IDsAdminNewObjExt {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDsAdminNewObjExt").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDsAdminNewObjExt {
     type Vtable = IDsAdminNewObjExt_Vtbl;
-}
-impl ::core::clone::Clone for IDsAdminNewObjExt {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDsAdminNewObjExt {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6088eae2_e7bf_11d2_82af_00c04f68928b);
@@ -10289,6 +9037,7 @@ pub struct IDsAdminNewObjExt_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDsAdminNewObjPrimarySite(::windows_core::IUnknown);
 impl IDsAdminNewObjPrimarySite {
     pub unsafe fn CreateNew<P0>(&self, pszname: P0) -> ::windows_core::Result<()>
@@ -10302,24 +9051,8 @@ impl IDsAdminNewObjPrimarySite {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDsAdminNewObjPrimarySite, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDsAdminNewObjPrimarySite {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDsAdminNewObjPrimarySite {}
-impl ::core::fmt::Debug for IDsAdminNewObjPrimarySite {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDsAdminNewObjPrimarySite").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDsAdminNewObjPrimarySite {
     type Vtable = IDsAdminNewObjPrimarySite_Vtbl;
-}
-impl ::core::clone::Clone for IDsAdminNewObjPrimarySite {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDsAdminNewObjPrimarySite {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbe2b487e_f904_11d2_82b9_00c04f68928b);
@@ -10333,6 +9066,7 @@ pub struct IDsAdminNewObjPrimarySite_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDsAdminNotifyHandler(::windows_core::IUnknown);
 impl IDsAdminNotifyHandler {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -10360,24 +9094,8 @@ impl IDsAdminNotifyHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDsAdminNotifyHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDsAdminNotifyHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDsAdminNotifyHandler {}
-impl ::core::fmt::Debug for IDsAdminNotifyHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDsAdminNotifyHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDsAdminNotifyHandler {
     type Vtable = IDsAdminNotifyHandler_Vtbl;
-}
-impl ::core::clone::Clone for IDsAdminNotifyHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDsAdminNotifyHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe4a2b8b3_5a18_11d2_97c1_00a0c9a06d2d);
@@ -10399,6 +9117,7 @@ pub struct IDsAdminNotifyHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDsBrowseDomainTree(::windows_core::IUnknown);
 impl IDsBrowseDomainTree {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -10432,24 +9151,8 @@ impl IDsBrowseDomainTree {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDsBrowseDomainTree, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDsBrowseDomainTree {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDsBrowseDomainTree {}
-impl ::core::fmt::Debug for IDsBrowseDomainTree {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDsBrowseDomainTree").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDsBrowseDomainTree {
     type Vtable = IDsBrowseDomainTree_Vtbl;
-}
-impl ::core::clone::Clone for IDsBrowseDomainTree {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDsBrowseDomainTree {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7cabcf1e_78f5_11d2_960c_00c04fa31a86);
@@ -10475,6 +9178,7 @@ pub struct IDsBrowseDomainTree_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDsDisplaySpecifier(::windows_core::IUnknown);
 impl IDsDisplaySpecifier {
     pub unsafe fn SetServer<P0, P1, P2>(&self, pszserver: P0, pszusername: P1, pszpassword: P2, dwflags: u32) -> ::windows_core::Result<()>
@@ -10553,24 +9257,8 @@ impl IDsDisplaySpecifier {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDsDisplaySpecifier, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDsDisplaySpecifier {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDsDisplaySpecifier {}
-impl ::core::fmt::Debug for IDsDisplaySpecifier {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDsDisplaySpecifier").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDsDisplaySpecifier {
     type Vtable = IDsDisplaySpecifier_Vtbl;
-}
-impl ::core::clone::Clone for IDsDisplaySpecifier {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDsDisplaySpecifier {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1ab4a8c0_6a0b_11d2_ad49_00c04fa31a86);
@@ -10602,6 +9290,7 @@ pub struct IDsDisplaySpecifier_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDsObjectPicker(::windows_core::IUnknown);
 impl IDsObjectPicker {
     pub unsafe fn Initialize(&self, pinitinfo: *mut DSOP_INIT_INFO) -> ::windows_core::Result<()> {
@@ -10618,24 +9307,8 @@ impl IDsObjectPicker {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDsObjectPicker, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDsObjectPicker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDsObjectPicker {}
-impl ::core::fmt::Debug for IDsObjectPicker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDsObjectPicker").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDsObjectPicker {
     type Vtable = IDsObjectPicker_Vtbl;
-}
-impl ::core::clone::Clone for IDsObjectPicker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDsObjectPicker {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c87e64e_3b7a_11d2_b9e0_00c04fd8dbf7);
@@ -10652,6 +9325,7 @@ pub struct IDsObjectPicker_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDsObjectPickerCredentials(::windows_core::IUnknown);
 impl IDsObjectPickerCredentials {
     pub unsafe fn Initialize(&self, pinitinfo: *mut DSOP_INIT_INFO) -> ::windows_core::Result<()> {
@@ -10675,24 +9349,8 @@ impl IDsObjectPickerCredentials {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDsObjectPickerCredentials, ::windows_core::IUnknown, IDsObjectPicker);
-impl ::core::cmp::PartialEq for IDsObjectPickerCredentials {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDsObjectPickerCredentials {}
-impl ::core::fmt::Debug for IDsObjectPickerCredentials {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDsObjectPickerCredentials").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDsObjectPickerCredentials {
     type Vtable = IDsObjectPickerCredentials_Vtbl;
-}
-impl ::core::clone::Clone for IDsObjectPickerCredentials {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDsObjectPickerCredentials {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2d3ec9b_d041_445a_8f16_4748de8fb1cf);
@@ -10706,6 +9364,7 @@ pub struct IDsObjectPickerCredentials_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPersistQuery(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPersistQuery {
@@ -10765,28 +9424,8 @@ impl IPersistQuery {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPersistQuery, ::windows_core::IUnknown, super::super::System::Com::IPersist);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPersistQuery {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPersistQuery {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPersistQuery {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPersistQuery").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPersistQuery {
     type Vtable = IPersistQuery_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPersistQuery {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPersistQuery {
@@ -10807,6 +9446,7 @@ pub struct IPersistQuery_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrivateDispatch(::windows_core::IUnknown);
 impl IPrivateDispatch {
     pub unsafe fn ADSIInitializeDispatchManager(&self, dwextensionid: i32) -> ::windows_core::Result<()> {
@@ -10833,24 +9473,8 @@ impl IPrivateDispatch {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrivateDispatch, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrivateDispatch {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrivateDispatch {}
-impl ::core::fmt::Debug for IPrivateDispatch {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrivateDispatch").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrivateDispatch {
     type Vtable = IPrivateDispatch_Vtbl;
-}
-impl ::core::clone::Clone for IPrivateDispatch {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrivateDispatch {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x86ab4bbe_65f6_11d1_8c13_00c04fd8d503);
@@ -10873,6 +9497,7 @@ pub struct IPrivateDispatch_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrivateUnknown(::windows_core::IUnknown);
 impl IPrivateUnknown {
     pub unsafe fn ADSIInitializeObject<P0, P1>(&self, lpszusername: P0, lpszpassword: P1, lnreserved: i32) -> ::windows_core::Result<()>
@@ -10887,24 +9512,8 @@ impl IPrivateUnknown {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrivateUnknown, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrivateUnknown {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrivateUnknown {}
-impl ::core::fmt::Debug for IPrivateUnknown {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrivateUnknown").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrivateUnknown {
     type Vtable = IPrivateUnknown_Vtbl;
-}
-impl ::core::clone::Clone for IPrivateUnknown {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrivateUnknown {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x89126bab_6ead_11d1_8c18_00c04fd8d503);
@@ -10918,6 +9527,7 @@ pub struct IPrivateUnknown_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IQueryForm(::windows_core::IUnknown);
 impl IQueryForm {
     #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
@@ -10946,24 +9556,8 @@ impl IQueryForm {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IQueryForm, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IQueryForm {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IQueryForm {}
-impl ::core::fmt::Debug for IQueryForm {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IQueryForm").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IQueryForm {
     type Vtable = IQueryForm_Vtbl;
-}
-impl ::core::clone::Clone for IQueryForm {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IQueryForm {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8cfcee30_39bd_11d0_b8d1_00a024ab2dbb);

@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_WinRT_Media\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioFrameNative(::windows_core::IUnknown);
 impl IAudioFrameNative {
     pub unsafe fn GetData<T>(&self) -> ::windows_core::Result<T>
@@ -11,24 +12,8 @@ impl IAudioFrameNative {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioFrameNative, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IAudioFrameNative {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioFrameNative {}
-impl ::core::fmt::Debug for IAudioFrameNative {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioFrameNative").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioFrameNative {
     type Vtable = IAudioFrameNative_Vtbl;
-}
-impl ::core::clone::Clone for IAudioFrameNative {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioFrameNative {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20be1e2e_930f_4746_9335_3c332f255093);
@@ -41,6 +26,7 @@ pub struct IAudioFrameNative_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Media\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioFrameNativeFactory(::windows_core::IUnknown);
 impl IAudioFrameNativeFactory {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
@@ -56,24 +42,8 @@ impl IAudioFrameNativeFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioFrameNativeFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IAudioFrameNativeFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioFrameNativeFactory {}
-impl ::core::fmt::Debug for IAudioFrameNativeFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioFrameNativeFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioFrameNativeFactory {
     type Vtable = IAudioFrameNativeFactory_Vtbl;
-}
-impl ::core::clone::Clone for IAudioFrameNativeFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioFrameNativeFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7bd67cf8_bf7d_43e6_af8d_b170ee0c0110);
@@ -89,6 +59,7 @@ pub struct IAudioFrameNativeFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Media\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVideoFrameNative(::windows_core::IUnknown);
 impl IVideoFrameNative {
     pub unsafe fn GetData<T>(&self) -> ::windows_core::Result<T>
@@ -107,24 +78,8 @@ impl IVideoFrameNative {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVideoFrameNative, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IVideoFrameNative {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVideoFrameNative {}
-impl ::core::fmt::Debug for IVideoFrameNative {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVideoFrameNative").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVideoFrameNative {
     type Vtable = IVideoFrameNative_Vtbl;
-}
-impl ::core::clone::Clone for IVideoFrameNative {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVideoFrameNative {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x26ba702b_314a_4620_aaf6_7a51aa58fa18);
@@ -138,6 +93,7 @@ pub struct IVideoFrameNative_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Media\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVideoFrameNativeFactory(::windows_core::IUnknown);
 impl IVideoFrameNativeFactory {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
@@ -154,24 +110,8 @@ impl IVideoFrameNativeFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVideoFrameNativeFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IVideoFrameNativeFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVideoFrameNativeFactory {}
-impl ::core::fmt::Debug for IVideoFrameNativeFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVideoFrameNativeFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IVideoFrameNativeFactory {
     type Vtable = IVideoFrameNativeFactory_Vtbl;
-}
-impl ::core::clone::Clone for IVideoFrameNativeFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVideoFrameNativeFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69e3693e_8e1e_4e63_ac4c_7fdc21d9731d);

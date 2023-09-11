@@ -2,14 +2,10 @@
 pub mod Provider;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBarcodeScanner(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBarcodeScanner {
     type Vtable = IBarcodeScanner_Vtbl;
-}
-impl ::core::clone::Clone for IBarcodeScanner {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBarcodeScanner {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbea33e06_b264_4f03_a9c1_45b20f01134f);
@@ -56,14 +52,10 @@ pub struct IBarcodeScanner_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBarcodeScanner2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBarcodeScanner2 {
     type Vtable = IBarcodeScanner2_Vtbl;
-}
-impl ::core::clone::Clone for IBarcodeScanner2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBarcodeScanner2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x89215167_8cee_436d_89ab_8dfb43bb4286);
@@ -76,14 +68,10 @@ pub struct IBarcodeScanner2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBarcodeScannerCapabilities(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBarcodeScannerCapabilities {
     type Vtable = IBarcodeScannerCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for IBarcodeScannerCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBarcodeScannerCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc60691e4_f2c8_4420_a307_b12ef6622857);
@@ -99,14 +87,10 @@ pub struct IBarcodeScannerCapabilities_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBarcodeScannerCapabilities1(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBarcodeScannerCapabilities1 {
     type Vtable = IBarcodeScannerCapabilities1_Vtbl;
-}
-impl ::core::clone::Clone for IBarcodeScannerCapabilities1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBarcodeScannerCapabilities1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8e5ab3e9_0e2c_472f_a1cc_ee8054b6a684);
@@ -119,14 +103,10 @@ pub struct IBarcodeScannerCapabilities1_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBarcodeScannerCapabilities2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBarcodeScannerCapabilities2 {
     type Vtable = IBarcodeScannerCapabilities2_Vtbl;
-}
-impl ::core::clone::Clone for IBarcodeScannerCapabilities2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBarcodeScannerCapabilities2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf211cfec_e1a1_4ea8_9abc_92b1596270ab);
@@ -139,14 +119,10 @@ pub struct IBarcodeScannerCapabilities2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBarcodeScannerDataReceivedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBarcodeScannerDataReceivedEventArgs {
     type Vtable = IBarcodeScannerDataReceivedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IBarcodeScannerDataReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBarcodeScannerDataReceivedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4234a7e2_ed97_467d_ad2b_01e44313a929);
@@ -159,14 +135,10 @@ pub struct IBarcodeScannerDataReceivedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBarcodeScannerErrorOccurredEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBarcodeScannerErrorOccurredEventArgs {
     type Vtable = IBarcodeScannerErrorOccurredEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IBarcodeScannerErrorOccurredEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBarcodeScannerErrorOccurredEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd2602f_cf3a_4002_a75a_c5ec468f0a20);
@@ -181,14 +153,10 @@ pub struct IBarcodeScannerErrorOccurredEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBarcodeScannerImagePreviewReceivedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBarcodeScannerImagePreviewReceivedEventArgs {
     type Vtable = IBarcodeScannerImagePreviewReceivedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IBarcodeScannerImagePreviewReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBarcodeScannerImagePreviewReceivedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf3b7de85_6e8b_434e_9f58_06ef26bc4baf);
@@ -204,14 +172,10 @@ pub struct IBarcodeScannerImagePreviewReceivedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBarcodeScannerReport(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBarcodeScannerReport {
     type Vtable = IBarcodeScannerReport_Vtbl;
-}
-impl ::core::clone::Clone for IBarcodeScannerReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBarcodeScannerReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ce4d8b0_a489_4b96_86c4_f0bf8a37753d);
@@ -232,14 +196,10 @@ pub struct IBarcodeScannerReport_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBarcodeScannerReportFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBarcodeScannerReportFactory {
     type Vtable = IBarcodeScannerReportFactory_Vtbl;
-}
-impl ::core::clone::Clone for IBarcodeScannerReportFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBarcodeScannerReportFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2547326_2013_457c_8963_49c15dca78ce);
@@ -255,14 +215,10 @@ pub struct IBarcodeScannerReportFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBarcodeScannerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBarcodeScannerStatics {
     type Vtable = IBarcodeScannerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IBarcodeScannerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBarcodeScannerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d115f6f_da49_41e8_8c8c_f0cb62a9c4fc);
@@ -283,14 +239,10 @@ pub struct IBarcodeScannerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBarcodeScannerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBarcodeScannerStatics2 {
     type Vtable = IBarcodeScannerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IBarcodeScannerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBarcodeScannerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb8652473_a36f_4007_b1d0_279ebe92a656);
@@ -303,14 +255,10 @@ pub struct IBarcodeScannerStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBarcodeScannerStatusUpdatedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBarcodeScannerStatusUpdatedEventArgs {
     type Vtable = IBarcodeScannerStatusUpdatedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IBarcodeScannerStatusUpdatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBarcodeScannerStatusUpdatedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x355d8586_9c43_462b_a91a_816dc97f452c);
@@ -324,14 +272,10 @@ pub struct IBarcodeScannerStatusUpdatedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBarcodeSymbologiesStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBarcodeSymbologiesStatics {
     type Vtable = IBarcodeSymbologiesStatics_Vtbl;
-}
-impl ::core::clone::Clone for IBarcodeSymbologiesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBarcodeSymbologiesStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xca8549bb_06d2_43f4_a44b_c620679fd8d0);
@@ -437,14 +381,10 @@ pub struct IBarcodeSymbologiesStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBarcodeSymbologiesStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBarcodeSymbologiesStatics2 {
     type Vtable = IBarcodeSymbologiesStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IBarcodeSymbologiesStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBarcodeSymbologiesStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8b7518f4_99d0_40bf_9424_b91d6dd4c6e0);
@@ -457,14 +397,10 @@ pub struct IBarcodeSymbologiesStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBarcodeSymbologyAttributes(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBarcodeSymbologyAttributes {
     type Vtable = IBarcodeSymbologyAttributes_Vtbl;
-}
-impl ::core::clone::Clone for IBarcodeSymbologyAttributes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBarcodeSymbologyAttributes {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x66413a78_ab7a_4ada_8ece_936014b2ead7);
@@ -489,14 +425,10 @@ pub struct IBarcodeSymbologyAttributes_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICashDrawer(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICashDrawer {
     type Vtable = ICashDrawer_Vtbl;
-}
-impl ::core::clone::Clone for ICashDrawer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICashDrawer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f88f5c8_de54_4aee_a890_920bcbfe30fc);
@@ -533,14 +465,10 @@ pub struct ICashDrawer_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICashDrawerCapabilities(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICashDrawerCapabilities {
     type Vtable = ICashDrawerCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for ICashDrawerCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICashDrawerCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0bc6de0b_e8e7_4b1f_b1d1_3e501ad08247);
@@ -558,14 +486,10 @@ pub struct ICashDrawerCapabilities_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICashDrawerCloseAlarm(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICashDrawerCloseAlarm {
     type Vtable = ICashDrawerCloseAlarm_Vtbl;
-}
-impl ::core::clone::Clone for ICashDrawerCloseAlarm {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICashDrawerCloseAlarm {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6bf88cc7_6f63_430e_ab3b_95d75ffbe87f);
@@ -615,14 +539,10 @@ pub struct ICashDrawerCloseAlarm_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICashDrawerEventSource(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICashDrawerEventSource {
     type Vtable = ICashDrawerEventSource_Vtbl;
-}
-impl ::core::clone::Clone for ICashDrawerEventSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICashDrawerEventSource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe006e46c_f2f9_442f_8dd6_06c10a4227ba);
@@ -650,6 +570,7 @@ pub struct ICashDrawerEventSource_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICashDrawerEventSourceEventArgs(::windows_core::IUnknown);
 impl ICashDrawerEventSourceEventArgs {
     pub fn CashDrawer(&self) -> ::windows_core::Result<CashDrawer> {
@@ -661,27 +582,11 @@ impl ICashDrawerEventSourceEventArgs {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICashDrawerEventSourceEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for ICashDrawerEventSourceEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICashDrawerEventSourceEventArgs {}
-impl ::core::fmt::Debug for ICashDrawerEventSourceEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICashDrawerEventSourceEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ICashDrawerEventSourceEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{69cb3bc1-147f-421c-9c23-090123bb786c}");
 }
 unsafe impl ::windows_core::Interface for ICashDrawerEventSourceEventArgs {
     type Vtable = ICashDrawerEventSourceEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for ICashDrawerEventSourceEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICashDrawerEventSourceEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69cb3bc1_147f_421c_9c23_090123bb786c);
@@ -694,14 +599,10 @@ pub struct ICashDrawerEventSourceEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICashDrawerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICashDrawerStatics {
     type Vtable = ICashDrawerStatics_Vtbl;
-}
-impl ::core::clone::Clone for ICashDrawerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICashDrawerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdfa0955a_d437_4fff_b547_dda969a4f883);
@@ -722,14 +623,10 @@ pub struct ICashDrawerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICashDrawerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICashDrawerStatics2 {
     type Vtable = ICashDrawerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ICashDrawerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICashDrawerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3e818121_8c42_40e8_9c0e_40297048104c);
@@ -742,14 +639,10 @@ pub struct ICashDrawerStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICashDrawerStatus(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICashDrawerStatus {
     type Vtable = ICashDrawerStatus_Vtbl;
-}
-impl ::core::clone::Clone for ICashDrawerStatus {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICashDrawerStatus {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6bbd78bf_dca1_4e06_99eb_5af6a5aec108);
@@ -763,14 +656,10 @@ pub struct ICashDrawerStatus_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICashDrawerStatusUpdatedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICashDrawerStatusUpdatedEventArgs {
     type Vtable = ICashDrawerStatusUpdatedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for ICashDrawerStatusUpdatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICashDrawerStatusUpdatedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30aae98a_0d70_459c_9553_87e124c52488);
@@ -783,14 +672,10 @@ pub struct ICashDrawerStatusUpdatedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedBarcodeScanner(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedBarcodeScanner {
     type Vtable = IClaimedBarcodeScanner_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedBarcodeScanner {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedBarcodeScanner {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4a63b49c_8fa4_4332_bb26_945d11d81e0f);
@@ -881,14 +766,10 @@ pub struct IClaimedBarcodeScanner_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedBarcodeScanner1(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedBarcodeScanner1 {
     type Vtable = IClaimedBarcodeScanner1_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedBarcodeScanner1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedBarcodeScanner1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf61aad0c_8551_42b4_998c_970c20210a22);
@@ -908,14 +789,10 @@ pub struct IClaimedBarcodeScanner1_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedBarcodeScanner2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedBarcodeScanner2 {
     type Vtable = IClaimedBarcodeScanner2_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedBarcodeScanner2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedBarcodeScanner2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe3b59e8c_2d8b_4f70_8af3_3448bedd5fe2);
@@ -935,14 +812,10 @@ pub struct IClaimedBarcodeScanner2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedBarcodeScanner3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedBarcodeScanner3 {
     type Vtable = IClaimedBarcodeScanner3_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedBarcodeScanner3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedBarcodeScanner3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe6ceb430_712e_45fc_8b86_cd55f5aef79d);
@@ -961,14 +834,10 @@ pub struct IClaimedBarcodeScanner3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedBarcodeScanner4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedBarcodeScanner4 {
     type Vtable = IClaimedBarcodeScanner4_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedBarcodeScanner4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedBarcodeScanner4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d501f97_376a_41a8_a230_2f37c1949dde);
@@ -988,14 +857,10 @@ pub struct IClaimedBarcodeScanner4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedBarcodeScannerClosedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedBarcodeScannerClosedEventArgs {
     type Vtable = IClaimedBarcodeScannerClosedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedBarcodeScannerClosedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedBarcodeScannerClosedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf7d5489_a22c_4c65_a901_88d77d833954);
@@ -1007,14 +872,10 @@ pub struct IClaimedBarcodeScannerClosedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedCashDrawer(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedCashDrawer {
     type Vtable = IClaimedCashDrawer_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedCashDrawer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedCashDrawer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xca3f99af_abb8_42c1_8a84_5c66512f5a75);
@@ -1062,14 +923,10 @@ pub struct IClaimedCashDrawer_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedCashDrawer2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedCashDrawer2 {
     type Vtable = IClaimedCashDrawer2_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedCashDrawer2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedCashDrawer2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9cbab5a2_de42_4d5b_b0c1_9b57a2ba89c3);
@@ -1089,14 +946,10 @@ pub struct IClaimedCashDrawer2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedCashDrawerClosedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedCashDrawerClosedEventArgs {
     type Vtable = IClaimedCashDrawerClosedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedCashDrawerClosedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedCashDrawerClosedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc573f33_3f34_4c5c_baae_deadf16cd7fa);
@@ -1108,14 +961,10 @@ pub struct IClaimedCashDrawerClosedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedJournalPrinter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedJournalPrinter {
     type Vtable = IClaimedJournalPrinter_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedJournalPrinter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedJournalPrinter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x67ea0630_517d_487f_9fdf_d2e0a0a264a5);
@@ -1128,14 +977,10 @@ pub struct IClaimedJournalPrinter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedLineDisplay(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedLineDisplay {
     type Vtable = IClaimedLineDisplay_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedLineDisplay {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedLineDisplay {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x120ac970_9a75_4acf_aae7_09972bcf8794);
@@ -1164,14 +1009,10 @@ pub struct IClaimedLineDisplay_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedLineDisplay2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedLineDisplay2 {
     type Vtable = IClaimedLineDisplay2_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedLineDisplay2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedLineDisplay2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa31c75ed_41f5_4e76_a074_795e47a46e97);
@@ -1245,14 +1086,10 @@ pub struct IClaimedLineDisplay2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedLineDisplay3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedLineDisplay3 {
     type Vtable = IClaimedLineDisplay3_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedLineDisplay3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedLineDisplay3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x642ecd92_e9d4_4ecc_af75_329c274cd18f);
@@ -1272,14 +1109,10 @@ pub struct IClaimedLineDisplay3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedLineDisplayClosedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedLineDisplayClosedEventArgs {
     type Vtable = IClaimedLineDisplayClosedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedLineDisplayClosedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedLineDisplayClosedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf915f364_d3d5_4f10_b511_90939edfacd8);
@@ -1291,14 +1124,10 @@ pub struct IClaimedLineDisplayClosedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedLineDisplayStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedLineDisplayStatics {
     type Vtable = IClaimedLineDisplayStatics_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedLineDisplayStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedLineDisplayStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x78ca98fb_8b6b_4973_86f0_3e570c351825);
@@ -1316,14 +1145,10 @@ pub struct IClaimedLineDisplayStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedMagneticStripeReader(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedMagneticStripeReader {
     type Vtable = IClaimedMagneticStripeReader_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedMagneticStripeReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedMagneticStripeReader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x475ca8f3_9417_48bc_b9d7_4163a7844c02);
@@ -1422,14 +1247,10 @@ pub struct IClaimedMagneticStripeReader_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedMagneticStripeReader2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedMagneticStripeReader2 {
     type Vtable = IClaimedMagneticStripeReader2_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedMagneticStripeReader2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedMagneticStripeReader2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x236fafdf_e2dc_4d7d_9c78_060df2bf2928);
@@ -1449,14 +1270,10 @@ pub struct IClaimedMagneticStripeReader2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedMagneticStripeReaderClosedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedMagneticStripeReaderClosedEventArgs {
     type Vtable = IClaimedMagneticStripeReaderClosedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedMagneticStripeReaderClosedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedMagneticStripeReaderClosedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x14ada93a_adcd_4c80_acda_c3eaed2647e1);
@@ -1468,14 +1285,10 @@ pub struct IClaimedMagneticStripeReaderClosedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedPosPrinter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedPosPrinter {
     type Vtable = IClaimedPosPrinter_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedPosPrinter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedPosPrinter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d64ce0c_e03e_4b14_a38e_c28c34b86353);
@@ -1527,14 +1340,10 @@ pub struct IClaimedPosPrinter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedPosPrinter2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedPosPrinter2 {
     type Vtable = IClaimedPosPrinter2_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedPosPrinter2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedPosPrinter2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5bf7a3d5_5198_437a_82df_589993fa77e1);
@@ -1554,14 +1363,10 @@ pub struct IClaimedPosPrinter2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedPosPrinterClosedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedPosPrinterClosedEventArgs {
     type Vtable = IClaimedPosPrinterClosedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedPosPrinterClosedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedPosPrinterClosedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2b7a27b_4d40_471d_92ed_63375b18c788);
@@ -1573,14 +1378,10 @@ pub struct IClaimedPosPrinterClosedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedReceiptPrinter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedReceiptPrinter {
     type Vtable = IClaimedReceiptPrinter_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedReceiptPrinter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedReceiptPrinter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9ad27a74_dd61_4ee2_9837_5b5d72d538b9);
@@ -1604,14 +1405,10 @@ pub struct IClaimedReceiptPrinter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClaimedSlipPrinter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClaimedSlipPrinter {
     type Vtable = IClaimedSlipPrinter_Vtbl;
-}
-impl ::core::clone::Clone for IClaimedSlipPrinter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClaimedSlipPrinter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbd5deff2_af90_4e8a_b77b_e3ae9ca63a7f);
@@ -1648,6 +1445,7 @@ pub struct IClaimedSlipPrinter_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICommonClaimedPosPrinterStation(::windows_core::IUnknown);
 impl ICommonClaimedPosPrinterStation {
     pub fn SetCharactersPerLine(&self, value: u32) -> ::windows_core::Result<()> {
@@ -1770,27 +1568,11 @@ impl ICommonClaimedPosPrinterStation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICommonClaimedPosPrinterStation, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for ICommonClaimedPosPrinterStation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICommonClaimedPosPrinterStation {}
-impl ::core::fmt::Debug for ICommonClaimedPosPrinterStation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICommonClaimedPosPrinterStation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ICommonClaimedPosPrinterStation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{b7eb66a8-fe8a-4cfb-8b42-e35b280cb27c}");
 }
 unsafe impl ::windows_core::Interface for ICommonClaimedPosPrinterStation {
     type Vtable = ICommonClaimedPosPrinterStation_Vtbl;
-}
-impl ::core::clone::Clone for ICommonClaimedPosPrinterStation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICommonClaimedPosPrinterStation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb7eb66a8_fe8a_4cfb_8b42_e35b280cb27c);
@@ -1821,6 +1603,7 @@ pub struct ICommonClaimedPosPrinterStation_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICommonPosPrintStationCapabilities(::windows_core::IUnknown);
 impl ICommonPosPrintStationCapabilities {
     pub fn IsPrinterPresent(&self) -> ::windows_core::Result<bool> {
@@ -1918,27 +1701,11 @@ impl ICommonPosPrintStationCapabilities {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICommonPosPrintStationCapabilities, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for ICommonPosPrintStationCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICommonPosPrintStationCapabilities {}
-impl ::core::fmt::Debug for ICommonPosPrintStationCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICommonPosPrintStationCapabilities").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ICommonPosPrintStationCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{de5b52ca-e02e-40e9-9e5e-1b488e6aacfc}");
 }
 unsafe impl ::windows_core::Interface for ICommonPosPrintStationCapabilities {
     type Vtable = ICommonPosPrintStationCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for ICommonPosPrintStationCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICommonPosPrintStationCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xde5b52ca_e02e_40e9_9e5e_1b488e6aacfc);
@@ -1966,6 +1733,7 @@ pub struct ICommonPosPrintStationCapabilities_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICommonReceiptSlipCapabilities(::windows_core::IUnknown);
 impl ICommonReceiptSlipCapabilities {
     pub fn IsBarcodeSupported(&self) -> ::windows_core::Result<bool> {
@@ -2131,27 +1899,11 @@ impl ICommonReceiptSlipCapabilities {
 }
 ::windows_core::imp::interface_hierarchy!(ICommonReceiptSlipCapabilities, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<ICommonPosPrintStationCapabilities> for ICommonReceiptSlipCapabilities {}
-impl ::core::cmp::PartialEq for ICommonReceiptSlipCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICommonReceiptSlipCapabilities {}
-impl ::core::fmt::Debug for ICommonReceiptSlipCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICommonReceiptSlipCapabilities").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ICommonReceiptSlipCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{09286b8b-9873-4d05-bfbe-4727a6038f69}");
 }
 unsafe impl ::windows_core::Interface for ICommonReceiptSlipCapabilities {
     type Vtable = ICommonReceiptSlipCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for ICommonReceiptSlipCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICommonReceiptSlipCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x09286b8b_9873_4d05_bfbe_4727a6038f69);
@@ -2178,14 +1930,10 @@ pub struct ICommonReceiptSlipCapabilities_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IJournalPrintJob(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IJournalPrintJob {
     type Vtable = IJournalPrintJob_Vtbl;
-}
-impl ::core::clone::Clone for IJournalPrintJob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IJournalPrintJob {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f4f2864_f3f0_55d0_8c39_74cc91783eed);
@@ -2200,14 +1948,10 @@ pub struct IJournalPrintJob_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IJournalPrinterCapabilities(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IJournalPrinterCapabilities {
     type Vtable = IJournalPrinterCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for IJournalPrinterCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IJournalPrinterCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3b5ccc43_e047_4463_bb58_17b5ba1d8056);
@@ -2219,14 +1963,10 @@ pub struct IJournalPrinterCapabilities_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IJournalPrinterCapabilities2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IJournalPrinterCapabilities2 {
     type Vtable = IJournalPrinterCapabilities2_Vtbl;
-}
-impl ::core::clone::Clone for IJournalPrinterCapabilities2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IJournalPrinterCapabilities2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03b0b645_33b8_533b_baaa_a4389283ab0a);
@@ -2244,14 +1984,10 @@ pub struct IJournalPrinterCapabilities2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILineDisplay(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILineDisplay {
     type Vtable = ILineDisplay_Vtbl;
-}
-impl ::core::clone::Clone for ILineDisplay {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILineDisplay {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24f5df4e_3c99_44e2_b73f_e51be3637a8c);
@@ -2274,14 +2010,10 @@ pub struct ILineDisplay_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILineDisplay2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILineDisplay2 {
     type Vtable = ILineDisplay2_Vtbl;
-}
-impl ::core::clone::Clone for ILineDisplay2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILineDisplay2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc296a628_ef44_40f3_bd1c_b04c6a5cdc7d);
@@ -2297,14 +2029,10 @@ pub struct ILineDisplay2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILineDisplayAttributes(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILineDisplayAttributes {
     type Vtable = ILineDisplayAttributes_Vtbl;
-}
-impl ::core::clone::Clone for ILineDisplayAttributes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILineDisplayAttributes {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc17de99c_229a_4c14_a6f1_b4e4b1fead92);
@@ -2342,14 +2070,10 @@ pub struct ILineDisplayAttributes_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILineDisplayCapabilities(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILineDisplayCapabilities {
     type Vtable = ILineDisplayCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for ILineDisplayCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILineDisplayCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5a15b5d1_8dc5_4b9c_9172_303e47b70c55);
@@ -2379,14 +2103,10 @@ pub struct ILineDisplayCapabilities_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILineDisplayCursor(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILineDisplayCursor {
     type Vtable = ILineDisplayCursor_Vtbl;
-}
-impl ::core::clone::Clone for ILineDisplayCursor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILineDisplayCursor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xecdffc45_754a_4e3b_ab2b_151181085605);
@@ -2410,14 +2130,10 @@ pub struct ILineDisplayCursor_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILineDisplayCursorAttributes(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILineDisplayCursorAttributes {
     type Vtable = ILineDisplayCursorAttributes_Vtbl;
-}
-impl ::core::clone::Clone for ILineDisplayCursorAttributes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILineDisplayCursorAttributes {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e2d54fe_4ffd_4190_aae1_ce285f20c896);
@@ -2443,14 +2159,10 @@ pub struct ILineDisplayCursorAttributes_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILineDisplayCustomGlyphs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILineDisplayCustomGlyphs {
     type Vtable = ILineDisplayCustomGlyphs_Vtbl;
-}
-impl ::core::clone::Clone for ILineDisplayCustomGlyphs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILineDisplayCustomGlyphs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2257f63c_f263_44f1_a1a0_e750a6a0ec54);
@@ -2474,14 +2186,10 @@ pub struct ILineDisplayCustomGlyphs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILineDisplayMarquee(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILineDisplayMarquee {
     type Vtable = ILineDisplayMarquee_Vtbl;
-}
-impl ::core::clone::Clone for ILineDisplayMarquee {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILineDisplayMarquee {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa3d33e3e_f46a_4b7a_bc21_53eb3b57f8b4);
@@ -2519,14 +2227,10 @@ pub struct ILineDisplayMarquee_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILineDisplayStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILineDisplayStatics {
     type Vtable = ILineDisplayStatics_Vtbl;
-}
-impl ::core::clone::Clone for ILineDisplayStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILineDisplayStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x022dc0b6_11b0_4690_9547_0b39c5af2114);
@@ -2548,14 +2252,10 @@ pub struct ILineDisplayStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILineDisplayStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILineDisplayStatics2 {
     type Vtable = ILineDisplayStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ILineDisplayStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILineDisplayStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x600c3f1c_77ab_4968_a7de_c02ff169f2cc);
@@ -2568,14 +2268,10 @@ pub struct ILineDisplayStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILineDisplayStatisticsCategorySelector(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILineDisplayStatisticsCategorySelector {
     type Vtable = ILineDisplayStatisticsCategorySelector_Vtbl;
-}
-impl ::core::clone::Clone for ILineDisplayStatisticsCategorySelector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILineDisplayStatisticsCategorySelector {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb521c46b_9274_4d24_94f3_b6017b832444);
@@ -2590,14 +2286,10 @@ pub struct ILineDisplayStatisticsCategorySelector_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILineDisplayStatusUpdatedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILineDisplayStatusUpdatedEventArgs {
     type Vtable = ILineDisplayStatusUpdatedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for ILineDisplayStatusUpdatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILineDisplayStatusUpdatedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xddd57c1a_86fb_4eba_93d1_6f5eda52b752);
@@ -2610,14 +2302,10 @@ pub struct ILineDisplayStatusUpdatedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILineDisplayStoredBitmap(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILineDisplayStoredBitmap {
     type Vtable = ILineDisplayStoredBitmap_Vtbl;
-}
-impl ::core::clone::Clone for ILineDisplayStoredBitmap {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILineDisplayStoredBitmap {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf621515b_d81e_43ba_bf1b_bcfa3c785ba0);
@@ -2634,14 +2322,10 @@ pub struct ILineDisplayStoredBitmap_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILineDisplayWindow(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILineDisplayWindow {
     type Vtable = ILineDisplayWindow_Vtbl;
-}
-impl ::core::clone::Clone for ILineDisplayWindow {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILineDisplayWindow {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd21feef4_2364_4be5_bee1_851680af4964);
@@ -2689,14 +2373,10 @@ pub struct ILineDisplayWindow_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILineDisplayWindow2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILineDisplayWindow2 {
     type Vtable = ILineDisplayWindow2_Vtbl;
-}
-impl ::core::clone::Clone for ILineDisplayWindow2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILineDisplayWindow2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa95ce2e6_bdd8_4365_8e11_de94de8dff02);
@@ -2738,14 +2418,10 @@ pub struct ILineDisplayWindow2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMagneticStripeReader(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMagneticStripeReader {
     type Vtable = IMagneticStripeReader_Vtbl;
-}
-impl ::core::clone::Clone for IMagneticStripeReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMagneticStripeReader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1a92b015_47c3_468a_9333_0c6517574883);
@@ -2782,14 +2458,10 @@ pub struct IMagneticStripeReader_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMagneticStripeReaderAamvaCardDataReceivedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMagneticStripeReaderAamvaCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMagneticStripeReaderAamvaCardDataReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMagneticStripeReaderAamvaCardDataReceivedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a4bbd51_c316_4910_87f3_7a62ba862d31);
@@ -2820,14 +2492,10 @@ pub struct IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMagneticStripeReaderBankCardDataReceivedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMagneticStripeReaderBankCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderBankCardDataReceivedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMagneticStripeReaderBankCardDataReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMagneticStripeReaderBankCardDataReceivedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2e958823_a31a_4763_882c_23725e39b08e);
@@ -2848,14 +2516,10 @@ pub struct IMagneticStripeReaderBankCardDataReceivedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMagneticStripeReaderCapabilities(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMagneticStripeReaderCapabilities {
     type Vtable = IMagneticStripeReaderCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for IMagneticStripeReaderCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMagneticStripeReaderCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7128809c_c440_44a2_a467_469175d02896);
@@ -2878,14 +2542,10 @@ pub struct IMagneticStripeReaderCapabilities_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMagneticStripeReaderCardTypesStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMagneticStripeReaderCardTypesStatics {
     type Vtable = IMagneticStripeReaderCardTypesStatics_Vtbl;
-}
-impl ::core::clone::Clone for IMagneticStripeReaderCardTypesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMagneticStripeReaderCardTypesStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x528f2c5d_2986_474f_8454_7ccd05928d5f);
@@ -2901,14 +2561,10 @@ pub struct IMagneticStripeReaderCardTypesStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMagneticStripeReaderEncryptionAlgorithmsStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMagneticStripeReaderEncryptionAlgorithmsStatics {
     type Vtable = IMagneticStripeReaderEncryptionAlgorithmsStatics_Vtbl;
-}
-impl ::core::clone::Clone for IMagneticStripeReaderEncryptionAlgorithmsStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMagneticStripeReaderEncryptionAlgorithmsStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53b57350_c3db_4754_9c00_41392374a109);
@@ -2923,14 +2579,10 @@ pub struct IMagneticStripeReaderEncryptionAlgorithmsStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMagneticStripeReaderErrorOccurredEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMagneticStripeReaderErrorOccurredEventArgs {
     type Vtable = IMagneticStripeReaderErrorOccurredEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMagneticStripeReaderErrorOccurredEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMagneticStripeReaderErrorOccurredEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1fedf95d_2c84_41ad_b778_f2356a789ab1);
@@ -2948,14 +2600,10 @@ pub struct IMagneticStripeReaderErrorOccurredEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMagneticStripeReaderReport(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMagneticStripeReaderReport {
     type Vtable = IMagneticStripeReaderReport_Vtbl;
-}
-impl ::core::clone::Clone for IMagneticStripeReaderReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMagneticStripeReaderReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a5b6047_99b0_4188_bef1_eddf79f78fe6);
@@ -2985,14 +2633,10 @@ pub struct IMagneticStripeReaderReport_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMagneticStripeReaderStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMagneticStripeReaderStatics {
     type Vtable = IMagneticStripeReaderStatics_Vtbl;
-}
-impl ::core::clone::Clone for IMagneticStripeReaderStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMagneticStripeReaderStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc45fab4a_efd7_4760_a5ce_15b0e47e94eb);
@@ -3013,14 +2657,10 @@ pub struct IMagneticStripeReaderStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMagneticStripeReaderStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMagneticStripeReaderStatics2 {
     type Vtable = IMagneticStripeReaderStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IMagneticStripeReaderStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMagneticStripeReaderStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8cadc362_d667_48fa_86bc_f5ae1189262b);
@@ -3033,14 +2673,10 @@ pub struct IMagneticStripeReaderStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMagneticStripeReaderStatusUpdatedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMagneticStripeReaderStatusUpdatedEventArgs {
     type Vtable = IMagneticStripeReaderStatusUpdatedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMagneticStripeReaderStatusUpdatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMagneticStripeReaderStatusUpdatedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x09cc6bb0_3262_401d_9e8a_e80d6358906b);
@@ -3054,14 +2690,10 @@ pub struct IMagneticStripeReaderStatusUpdatedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMagneticStripeReaderTrackData(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMagneticStripeReaderTrackData {
     type Vtable = IMagneticStripeReaderTrackData_Vtbl;
-}
-impl ::core::clone::Clone for IMagneticStripeReaderTrackData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMagneticStripeReaderTrackData {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x104cf671_4a9d_446e_abc5_20402307ba36);
@@ -3085,14 +2717,10 @@ pub struct IMagneticStripeReaderTrackData_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaf0a5514_59cc_4a60_99e8_99a53dace5aa);
@@ -3105,14 +2733,10 @@ pub struct IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPosPrinter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPosPrinter {
     type Vtable = IPosPrinter_Vtbl;
-}
-impl ::core::clone::Clone for IPosPrinter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPosPrinter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a03c10e_9a19_4a01_994f_12dfad6adcbf);
@@ -3155,14 +2779,10 @@ pub struct IPosPrinter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPosPrinter2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPosPrinter2 {
     type Vtable = IPosPrinter2_Vtbl;
-}
-impl ::core::clone::Clone for IPosPrinter2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPosPrinter2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x248475e8_8b98_5517_8e48_760e86f68987);
@@ -3179,14 +2799,10 @@ pub struct IPosPrinter2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPosPrinterCapabilities(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPosPrinterCapabilities {
     type Vtable = IPosPrinterCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for IPosPrinterCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPosPrinterCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcde95721_4380_4985_adc5_39db30cd93bc);
@@ -3208,14 +2824,10 @@ pub struct IPosPrinterCapabilities_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPosPrinterCharacterSetIdsStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPosPrinterCharacterSetIdsStatics {
     type Vtable = IPosPrinterCharacterSetIdsStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPosPrinterCharacterSetIdsStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPosPrinterCharacterSetIdsStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c709eff_709a_4fe7_b215_06a748a38b39);
@@ -3230,14 +2842,10 @@ pub struct IPosPrinterCharacterSetIdsStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPosPrinterFontProperty(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPosPrinterFontProperty {
     type Vtable = IPosPrinterFontProperty_Vtbl;
-}
-impl ::core::clone::Clone for IPosPrinterFontProperty {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPosPrinterFontProperty {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa7f4e93a_f8ac_5f04_84d2_29b16d8a633c);
@@ -3255,6 +2863,7 @@ pub struct IPosPrinterFontProperty_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPosPrinterJob(::windows_core::IUnknown);
 impl IPosPrinterJob {
     pub fn Print(&self, data: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -3280,27 +2889,11 @@ impl IPosPrinterJob {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPosPrinterJob, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IPosPrinterJob {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPosPrinterJob {}
-impl ::core::fmt::Debug for IPosPrinterJob {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPosPrinterJob").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IPosPrinterJob {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{9a94005c-0615-4591-a58f-30f87edfe2e4}");
 }
 unsafe impl ::windows_core::Interface for IPosPrinterJob {
     type Vtable = IPosPrinterJob_Vtbl;
-}
-impl ::core::clone::Clone for IPosPrinterJob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPosPrinterJob {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a94005c_0615_4591_a58f_30f87edfe2e4);
@@ -3319,14 +2912,10 @@ pub struct IPosPrinterJob_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPosPrinterPrintOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPosPrinterPrintOptions {
     type Vtable = IPosPrinterPrintOptions_Vtbl;
-}
-impl ::core::clone::Clone for IPosPrinterPrintOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPosPrinterPrintOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a2e16fd_1d02_5a58_9d59_bfcde76fde86);
@@ -3364,14 +2953,10 @@ pub struct IPosPrinterPrintOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPosPrinterReleaseDeviceRequestedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPosPrinterReleaseDeviceRequestedEventArgs {
     type Vtable = IPosPrinterReleaseDeviceRequestedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IPosPrinterReleaseDeviceRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPosPrinterReleaseDeviceRequestedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2bcba359_1cef_40b2_9ecb_f927f856ae3c);
@@ -3383,14 +2968,10 @@ pub struct IPosPrinterReleaseDeviceRequestedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPosPrinterStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPosPrinterStatics {
     type Vtable = IPosPrinterStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPosPrinterStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPosPrinterStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8ce0d4ea_132f_4cdf_a64a_2d0d7c96a85b);
@@ -3411,14 +2992,10 @@ pub struct IPosPrinterStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPosPrinterStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPosPrinterStatics2 {
     type Vtable = IPosPrinterStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IPosPrinterStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPosPrinterStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeecd2c1c_b0d0_42e7_b137_b89b16244d41);
@@ -3431,14 +3008,10 @@ pub struct IPosPrinterStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPosPrinterStatus(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPosPrinterStatus {
     type Vtable = IPosPrinterStatus_Vtbl;
-}
-impl ::core::clone::Clone for IPosPrinterStatus {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPosPrinterStatus {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd1f0c730_da40_4328_bf76_5156fa33b747);
@@ -3452,14 +3025,10 @@ pub struct IPosPrinterStatus_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPosPrinterStatusUpdatedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPosPrinterStatusUpdatedEventArgs {
     type Vtable = IPosPrinterStatusUpdatedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IPosPrinterStatusUpdatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPosPrinterStatusUpdatedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2edb87df_13a6_428d_ba81_b0e7c3e5a3cd);
@@ -3472,6 +3041,7 @@ pub struct IPosPrinterStatusUpdatedEventArgs_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IReceiptOrSlipJob(::windows_core::IUnknown);
 impl IReceiptOrSlipJob {
     pub fn SetBarcodeRotation(&self, value: PosPrinterRotation) -> ::windows_core::Result<()> {
@@ -3600,27 +3170,11 @@ impl IReceiptOrSlipJob {
 }
 ::windows_core::imp::interface_hierarchy!(IReceiptOrSlipJob, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IPosPrinterJob> for IReceiptOrSlipJob {}
-impl ::core::cmp::PartialEq for IReceiptOrSlipJob {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IReceiptOrSlipJob {}
-impl ::core::fmt::Debug for IReceiptOrSlipJob {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IReceiptOrSlipJob").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IReceiptOrSlipJob {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{532199be-c8c3-4dc2-89e9-5c4a37b34ddc}");
 }
 unsafe impl ::windows_core::Interface for IReceiptOrSlipJob {
     type Vtable = IReceiptOrSlipJob_Vtbl;
-}
-impl ::core::clone::Clone for IReceiptOrSlipJob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IReceiptOrSlipJob {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x532199be_c8c3_4dc2_89e9_5c4a37b34ddc);
@@ -3674,14 +3228,10 @@ pub struct IReceiptOrSlipJob_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IReceiptPrintJob(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IReceiptPrintJob {
     type Vtable = IReceiptPrintJob_Vtbl;
-}
-impl ::core::clone::Clone for IReceiptPrintJob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IReceiptPrintJob {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa96066e_acad_4b79_9d0f_c0cfc08dc77b);
@@ -3696,14 +3246,10 @@ pub struct IReceiptPrintJob_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IReceiptPrintJob2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IReceiptPrintJob2 {
     type Vtable = IReceiptPrintJob2_Vtbl;
-}
-impl ::core::clone::Clone for IReceiptPrintJob2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IReceiptPrintJob2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0cbc12e3_9e29_5179_bcd8_1811d3b9a10e);
@@ -3719,14 +3265,10 @@ pub struct IReceiptPrintJob2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IReceiptPrinterCapabilities(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IReceiptPrinterCapabilities {
     type Vtable = IReceiptPrinterCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for IReceiptPrinterCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IReceiptPrinterCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb8f0b58f_51a8_43fc_9bd5_8de272a6415b);
@@ -3741,14 +3283,10 @@ pub struct IReceiptPrinterCapabilities_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IReceiptPrinterCapabilities2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IReceiptPrinterCapabilities2 {
     type Vtable = IReceiptPrinterCapabilities2_Vtbl;
-}
-impl ::core::clone::Clone for IReceiptPrinterCapabilities2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IReceiptPrinterCapabilities2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20030638_8a2c_55ac_9a7b_7576d8869e99);
@@ -3766,14 +3304,10 @@ pub struct IReceiptPrinterCapabilities2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISlipPrintJob(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISlipPrintJob {
     type Vtable = ISlipPrintJob_Vtbl;
-}
-impl ::core::clone::Clone for ISlipPrintJob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISlipPrintJob {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d88f95d_6131_5a4b_b7d5_8ef2da7b4165);
@@ -3788,14 +3322,10 @@ pub struct ISlipPrintJob_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISlipPrinterCapabilities(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISlipPrinterCapabilities {
     type Vtable = ISlipPrinterCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for ISlipPrinterCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISlipPrinterCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x99b16399_488c_4157_8ac2_9f57f708d3db);
@@ -3809,14 +3339,10 @@ pub struct ISlipPrinterCapabilities_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISlipPrinterCapabilities2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISlipPrinterCapabilities2 {
     type Vtable = ISlipPrinterCapabilities2_Vtbl;
-}
-impl ::core::clone::Clone for ISlipPrinterCapabilities2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISlipPrinterCapabilities2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6ff89671_2d1a_5000_87c2_b0851bfdf07e);
@@ -3834,14 +3360,10 @@ pub struct ISlipPrinterCapabilities2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUnifiedPosErrorData(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUnifiedPosErrorData {
     type Vtable = IUnifiedPosErrorData_Vtbl;
-}
-impl ::core::clone::Clone for IUnifiedPosErrorData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUnifiedPosErrorData {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2b998c3a_555c_4889_8ed8_c599bb3a712a);
@@ -3857,14 +3379,10 @@ pub struct IUnifiedPosErrorData_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUnifiedPosErrorDataFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUnifiedPosErrorDataFactory {
     type Vtable = IUnifiedPosErrorDataFactory_Vtbl;
-}
-impl ::core::clone::Clone for IUnifiedPosErrorDataFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUnifiedPosErrorDataFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4b982551_1ffe_451b_a368_63e0ce465f5a);
@@ -3877,6 +3395,7 @@ pub struct IUnifiedPosErrorDataFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BarcodeScanner(::windows_core::IUnknown);
 impl BarcodeScanner {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -4027,24 +3546,8 @@ impl BarcodeScanner {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for BarcodeScanner {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScanner {}
-impl ::core::fmt::Debug for BarcodeScanner {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScanner").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BarcodeScanner {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScanner;{bea33e06-b264-4f03-a9c1-45b20f01134f})");
-}
-impl ::core::clone::Clone for BarcodeScanner {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BarcodeScanner {
     type Vtable = IBarcodeScanner_Vtbl;
@@ -4062,6 +3565,7 @@ unsafe impl ::core::marker::Send for BarcodeScanner {}
 unsafe impl ::core::marker::Sync for BarcodeScanner {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BarcodeScannerCapabilities(::windows_core::IUnknown);
 impl BarcodeScannerCapabilities {
     pub fn PowerReportingType(&self) -> ::windows_core::Result<UnifiedPosPowerReportingType> {
@@ -4107,24 +3611,8 @@ impl BarcodeScannerCapabilities {
         }
     }
 }
-impl ::core::cmp::PartialEq for BarcodeScannerCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerCapabilities {}
-impl ::core::fmt::Debug for BarcodeScannerCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerCapabilities").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BarcodeScannerCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerCapabilities;{c60691e4-f2c8-4420-a307-b12ef6622857})");
-}
-impl ::core::clone::Clone for BarcodeScannerCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BarcodeScannerCapabilities {
     type Vtable = IBarcodeScannerCapabilities_Vtbl;
@@ -4140,6 +3628,7 @@ unsafe impl ::core::marker::Send for BarcodeScannerCapabilities {}
 unsafe impl ::core::marker::Sync for BarcodeScannerCapabilities {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BarcodeScannerDataReceivedEventArgs(::windows_core::IUnknown);
 impl BarcodeScannerDataReceivedEventArgs {
     pub fn Report(&self) -> ::windows_core::Result<BarcodeScannerReport> {
@@ -4150,24 +3639,8 @@ impl BarcodeScannerDataReceivedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for BarcodeScannerDataReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerDataReceivedEventArgs {}
-impl ::core::fmt::Debug for BarcodeScannerDataReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerDataReceivedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BarcodeScannerDataReceivedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerDataReceivedEventArgs;{4234a7e2-ed97-467d-ad2b-01e44313a929})");
-}
-impl ::core::clone::Clone for BarcodeScannerDataReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BarcodeScannerDataReceivedEventArgs {
     type Vtable = IBarcodeScannerDataReceivedEventArgs_Vtbl;
@@ -4183,6 +3656,7 @@ unsafe impl ::core::marker::Send for BarcodeScannerDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerDataReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BarcodeScannerErrorOccurredEventArgs(::windows_core::IUnknown);
 impl BarcodeScannerErrorOccurredEventArgs {
     pub fn PartialInputData(&self) -> ::windows_core::Result<BarcodeScannerReport> {
@@ -4207,24 +3681,8 @@ impl BarcodeScannerErrorOccurredEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for BarcodeScannerErrorOccurredEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerErrorOccurredEventArgs {}
-impl ::core::fmt::Debug for BarcodeScannerErrorOccurredEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerErrorOccurredEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BarcodeScannerErrorOccurredEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerErrorOccurredEventArgs;{2cd2602f-cf3a-4002-a75a-c5ec468f0a20})");
-}
-impl ::core::clone::Clone for BarcodeScannerErrorOccurredEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BarcodeScannerErrorOccurredEventArgs {
     type Vtable = IBarcodeScannerErrorOccurredEventArgs_Vtbl;
@@ -4240,6 +3698,7 @@ unsafe impl ::core::marker::Send for BarcodeScannerErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerErrorOccurredEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BarcodeScannerImagePreviewReceivedEventArgs(::windows_core::IUnknown);
 impl BarcodeScannerImagePreviewReceivedEventArgs {
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -4252,24 +3711,8 @@ impl BarcodeScannerImagePreviewReceivedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for BarcodeScannerImagePreviewReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerImagePreviewReceivedEventArgs {}
-impl ::core::fmt::Debug for BarcodeScannerImagePreviewReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerImagePreviewReceivedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BarcodeScannerImagePreviewReceivedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerImagePreviewReceivedEventArgs;{f3b7de85-6e8b-434e-9f58-06ef26bc4baf})");
-}
-impl ::core::clone::Clone for BarcodeScannerImagePreviewReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BarcodeScannerImagePreviewReceivedEventArgs {
     type Vtable = IBarcodeScannerImagePreviewReceivedEventArgs_Vtbl;
@@ -4285,6 +3728,7 @@ unsafe impl ::core::marker::Send for BarcodeScannerImagePreviewReceivedEventArgs
 unsafe impl ::core::marker::Sync for BarcodeScannerImagePreviewReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BarcodeScannerReport(::windows_core::IUnknown);
 impl BarcodeScannerReport {
     pub fn ScanDataType(&self) -> ::windows_core::Result<u32> {
@@ -4330,24 +3774,8 @@ impl BarcodeScannerReport {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for BarcodeScannerReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerReport {}
-impl ::core::fmt::Debug for BarcodeScannerReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerReport").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BarcodeScannerReport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerReport;{5ce4d8b0-a489-4b96-86c4-f0bf8a37753d})");
-}
-impl ::core::clone::Clone for BarcodeScannerReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BarcodeScannerReport {
     type Vtable = IBarcodeScannerReport_Vtbl;
@@ -4363,6 +3791,7 @@ unsafe impl ::core::marker::Send for BarcodeScannerReport {}
 unsafe impl ::core::marker::Sync for BarcodeScannerReport {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BarcodeScannerStatusUpdatedEventArgs(::windows_core::IUnknown);
 impl BarcodeScannerStatusUpdatedEventArgs {
     pub fn Status(&self) -> ::windows_core::Result<BarcodeScannerStatus> {
@@ -4380,24 +3809,8 @@ impl BarcodeScannerStatusUpdatedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for BarcodeScannerStatusUpdatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerStatusUpdatedEventArgs {}
-impl ::core::fmt::Debug for BarcodeScannerStatusUpdatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerStatusUpdatedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BarcodeScannerStatusUpdatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerStatusUpdatedEventArgs;{355d8586-9c43-462b-a91a-816dc97f452c})");
-}
-impl ::core::clone::Clone for BarcodeScannerStatusUpdatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BarcodeScannerStatusUpdatedEventArgs {
     type Vtable = IBarcodeScannerStatusUpdatedEventArgs_Vtbl;
@@ -5000,6 +4413,7 @@ impl ::windows_core::RuntimeName for BarcodeSymbologies {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BarcodeSymbologyAttributes(::windows_core::IUnknown);
 impl BarcodeSymbologyAttributes {
     pub fn IsCheckDigitValidationEnabled(&self) -> ::windows_core::Result<bool> {
@@ -5079,24 +4493,8 @@ impl BarcodeSymbologyAttributes {
         }
     }
 }
-impl ::core::cmp::PartialEq for BarcodeSymbologyAttributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeSymbologyAttributes {}
-impl ::core::fmt::Debug for BarcodeSymbologyAttributes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeSymbologyAttributes").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BarcodeSymbologyAttributes {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeSymbologyAttributes;{66413a78-ab7a-4ada-8ece-936014b2ead7})");
-}
-impl ::core::clone::Clone for BarcodeSymbologyAttributes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BarcodeSymbologyAttributes {
     type Vtable = IBarcodeSymbologyAttributes_Vtbl;
@@ -5112,6 +4510,7 @@ unsafe impl ::core::marker::Send for BarcodeSymbologyAttributes {}
 unsafe impl ::core::marker::Sync for BarcodeSymbologyAttributes {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CashDrawer(::windows_core::IUnknown);
 impl CashDrawer {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -5242,24 +4641,8 @@ impl CashDrawer {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for CashDrawer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CashDrawer {}
-impl ::core::fmt::Debug for CashDrawer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CashDrawer").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CashDrawer {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawer;{9f88f5c8-de54-4aee-a890-920bcbfe30fc})");
-}
-impl ::core::clone::Clone for CashDrawer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CashDrawer {
     type Vtable = ICashDrawer_Vtbl;
@@ -5277,6 +4660,7 @@ unsafe impl ::core::marker::Send for CashDrawer {}
 unsafe impl ::core::marker::Sync for CashDrawer {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CashDrawerCapabilities(::windows_core::IUnknown);
 impl CashDrawerCapabilities {
     pub fn PowerReportingType(&self) -> ::windows_core::Result<UnifiedPosPowerReportingType> {
@@ -5322,24 +4706,8 @@ impl CashDrawerCapabilities {
         }
     }
 }
-impl ::core::cmp::PartialEq for CashDrawerCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CashDrawerCapabilities {}
-impl ::core::fmt::Debug for CashDrawerCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CashDrawerCapabilities").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CashDrawerCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerCapabilities;{0bc6de0b-e8e7-4b1f-b1d1-3e501ad08247})");
-}
-impl ::core::clone::Clone for CashDrawerCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CashDrawerCapabilities {
     type Vtable = ICashDrawerCapabilities_Vtbl;
@@ -5355,6 +4723,7 @@ unsafe impl ::core::marker::Send for CashDrawerCapabilities {}
 unsafe impl ::core::marker::Sync for CashDrawerCapabilities {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CashDrawerCloseAlarm(::windows_core::IUnknown);
 impl CashDrawerCloseAlarm {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5441,24 +4810,8 @@ impl CashDrawerCloseAlarm {
         }
     }
 }
-impl ::core::cmp::PartialEq for CashDrawerCloseAlarm {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CashDrawerCloseAlarm {}
-impl ::core::fmt::Debug for CashDrawerCloseAlarm {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CashDrawerCloseAlarm").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CashDrawerCloseAlarm {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerCloseAlarm;{6bf88cc7-6f63-430e-ab3b-95d75ffbe87f})");
-}
-impl ::core::clone::Clone for CashDrawerCloseAlarm {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CashDrawerCloseAlarm {
     type Vtable = ICashDrawerCloseAlarm_Vtbl;
@@ -5474,6 +4827,7 @@ unsafe impl ::core::marker::Send for CashDrawerCloseAlarm {}
 unsafe impl ::core::marker::Sync for CashDrawerCloseAlarm {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CashDrawerClosedEventArgs(::windows_core::IUnknown);
 impl CashDrawerClosedEventArgs {
     pub fn CashDrawer(&self) -> ::windows_core::Result<CashDrawer> {
@@ -5484,24 +4838,8 @@ impl CashDrawerClosedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for CashDrawerClosedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CashDrawerClosedEventArgs {}
-impl ::core::fmt::Debug for CashDrawerClosedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CashDrawerClosedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CashDrawerClosedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerClosedEventArgs;{69cb3bc1-147f-421c-9c23-090123bb786c})");
-}
-impl ::core::clone::Clone for CashDrawerClosedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CashDrawerClosedEventArgs {
     type Vtable = ICashDrawerEventSourceEventArgs_Vtbl;
@@ -5518,6 +4856,7 @@ unsafe impl ::core::marker::Send for CashDrawerClosedEventArgs {}
 unsafe impl ::core::marker::Sync for CashDrawerClosedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CashDrawerEventSource(::windows_core::IUnknown);
 impl CashDrawerEventSource {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5557,24 +4896,8 @@ impl CashDrawerEventSource {
         unsafe { (::windows_core::Interface::vtable(this).RemoveDrawerOpened)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl ::core::cmp::PartialEq for CashDrawerEventSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CashDrawerEventSource {}
-impl ::core::fmt::Debug for CashDrawerEventSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CashDrawerEventSource").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CashDrawerEventSource {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerEventSource;{e006e46c-f2f9-442f-8dd6-06c10a4227ba})");
-}
-impl ::core::clone::Clone for CashDrawerEventSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CashDrawerEventSource {
     type Vtable = ICashDrawerEventSource_Vtbl;
@@ -5590,6 +4913,7 @@ unsafe impl ::core::marker::Send for CashDrawerEventSource {}
 unsafe impl ::core::marker::Sync for CashDrawerEventSource {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CashDrawerOpenedEventArgs(::windows_core::IUnknown);
 impl CashDrawerOpenedEventArgs {
     pub fn CashDrawer(&self) -> ::windows_core::Result<CashDrawer> {
@@ -5600,24 +4924,8 @@ impl CashDrawerOpenedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for CashDrawerOpenedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CashDrawerOpenedEventArgs {}
-impl ::core::fmt::Debug for CashDrawerOpenedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CashDrawerOpenedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CashDrawerOpenedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerOpenedEventArgs;{69cb3bc1-147f-421c-9c23-090123bb786c})");
-}
-impl ::core::clone::Clone for CashDrawerOpenedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CashDrawerOpenedEventArgs {
     type Vtable = ICashDrawerEventSourceEventArgs_Vtbl;
@@ -5634,6 +4942,7 @@ unsafe impl ::core::marker::Send for CashDrawerOpenedEventArgs {}
 unsafe impl ::core::marker::Sync for CashDrawerOpenedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CashDrawerStatus(::windows_core::IUnknown);
 impl CashDrawerStatus {
     pub fn StatusKind(&self) -> ::windows_core::Result<CashDrawerStatusKind> {
@@ -5651,24 +4960,8 @@ impl CashDrawerStatus {
         }
     }
 }
-impl ::core::cmp::PartialEq for CashDrawerStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CashDrawerStatus {}
-impl ::core::fmt::Debug for CashDrawerStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CashDrawerStatus").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CashDrawerStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerStatus;{6bbd78bf-dca1-4e06-99eb-5af6a5aec108})");
-}
-impl ::core::clone::Clone for CashDrawerStatus {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CashDrawerStatus {
     type Vtable = ICashDrawerStatus_Vtbl;
@@ -5684,6 +4977,7 @@ unsafe impl ::core::marker::Send for CashDrawerStatus {}
 unsafe impl ::core::marker::Sync for CashDrawerStatus {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CashDrawerStatusUpdatedEventArgs(::windows_core::IUnknown);
 impl CashDrawerStatusUpdatedEventArgs {
     pub fn Status(&self) -> ::windows_core::Result<CashDrawerStatus> {
@@ -5694,24 +4988,8 @@ impl CashDrawerStatusUpdatedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for CashDrawerStatusUpdatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CashDrawerStatusUpdatedEventArgs {}
-impl ::core::fmt::Debug for CashDrawerStatusUpdatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CashDrawerStatusUpdatedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CashDrawerStatusUpdatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerStatusUpdatedEventArgs;{30aae98a-0d70-459c-9553-87e124c52488})");
-}
-impl ::core::clone::Clone for CashDrawerStatusUpdatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CashDrawerStatusUpdatedEventArgs {
     type Vtable = ICashDrawerStatusUpdatedEventArgs_Vtbl;
@@ -5727,6 +5005,7 @@ unsafe impl ::core::marker::Send for CashDrawerStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for CashDrawerStatusUpdatedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ClaimedBarcodeScanner(::windows_core::IUnknown);
 impl ClaimedBarcodeScanner {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -6028,24 +5307,8 @@ impl ClaimedBarcodeScanner {
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ClaimedBarcodeScanner {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedBarcodeScanner {}
-impl ::core::fmt::Debug for ClaimedBarcodeScanner {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedBarcodeScanner").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ClaimedBarcodeScanner {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedBarcodeScanner;{4a63b49c-8fa4-4332-bb26-945d11d81e0f})");
-}
-impl ::core::clone::Clone for ClaimedBarcodeScanner {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ClaimedBarcodeScanner {
     type Vtable = IClaimedBarcodeScanner_Vtbl;
@@ -6063,26 +5326,11 @@ unsafe impl ::core::marker::Send for ClaimedBarcodeScanner {}
 unsafe impl ::core::marker::Sync for ClaimedBarcodeScanner {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ClaimedBarcodeScannerClosedEventArgs(::windows_core::IUnknown);
 impl ClaimedBarcodeScannerClosedEventArgs {}
-impl ::core::cmp::PartialEq for ClaimedBarcodeScannerClosedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedBarcodeScannerClosedEventArgs {}
-impl ::core::fmt::Debug for ClaimedBarcodeScannerClosedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedBarcodeScannerClosedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ClaimedBarcodeScannerClosedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedBarcodeScannerClosedEventArgs;{cf7d5489-a22c-4c65-a901-88d77d833954})");
-}
-impl ::core::clone::Clone for ClaimedBarcodeScannerClosedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ClaimedBarcodeScannerClosedEventArgs {
     type Vtable = IClaimedBarcodeScannerClosedEventArgs_Vtbl;
@@ -6098,6 +5346,7 @@ unsafe impl ::core::marker::Send for ClaimedBarcodeScannerClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedBarcodeScannerClosedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ClaimedCashDrawer(::windows_core::IUnknown);
 impl ClaimedCashDrawer {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -6231,24 +5480,8 @@ impl ClaimedCashDrawer {
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ClaimedCashDrawer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedCashDrawer {}
-impl ::core::fmt::Debug for ClaimedCashDrawer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedCashDrawer").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ClaimedCashDrawer {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedCashDrawer;{ca3f99af-abb8-42c1-8a84-5c66512f5a75})");
-}
-impl ::core::clone::Clone for ClaimedCashDrawer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ClaimedCashDrawer {
     type Vtable = IClaimedCashDrawer_Vtbl;
@@ -6266,26 +5499,11 @@ unsafe impl ::core::marker::Send for ClaimedCashDrawer {}
 unsafe impl ::core::marker::Sync for ClaimedCashDrawer {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ClaimedCashDrawerClosedEventArgs(::windows_core::IUnknown);
 impl ClaimedCashDrawerClosedEventArgs {}
-impl ::core::cmp::PartialEq for ClaimedCashDrawerClosedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedCashDrawerClosedEventArgs {}
-impl ::core::fmt::Debug for ClaimedCashDrawerClosedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedCashDrawerClosedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ClaimedCashDrawerClosedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedCashDrawerClosedEventArgs;{cc573f33-3f34-4c5c-baae-deadf16cd7fa})");
-}
-impl ::core::clone::Clone for ClaimedCashDrawerClosedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ClaimedCashDrawerClosedEventArgs {
     type Vtable = IClaimedCashDrawerClosedEventArgs_Vtbl;
@@ -6301,6 +5519,7 @@ unsafe impl ::core::marker::Send for ClaimedCashDrawerClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedCashDrawerClosedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ClaimedJournalPrinter(::windows_core::IUnknown);
 impl ClaimedJournalPrinter {
     pub fn CreateJob(&self) -> ::windows_core::Result<JournalPrintJob> {
@@ -6429,24 +5648,8 @@ impl ClaimedJournalPrinter {
         }
     }
 }
-impl ::core::cmp::PartialEq for ClaimedJournalPrinter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedJournalPrinter {}
-impl ::core::fmt::Debug for ClaimedJournalPrinter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedJournalPrinter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ClaimedJournalPrinter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedJournalPrinter;{67ea0630-517d-487f-9fdf-d2e0a0a264a5})");
-}
-impl ::core::clone::Clone for ClaimedJournalPrinter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ClaimedJournalPrinter {
     type Vtable = IClaimedJournalPrinter_Vtbl;
@@ -6463,6 +5666,7 @@ unsafe impl ::core::marker::Send for ClaimedJournalPrinter {}
 unsafe impl ::core::marker::Sync for ClaimedJournalPrinter {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ClaimedLineDisplay(::windows_core::IUnknown);
 impl ClaimedLineDisplay {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -6757,24 +5961,8 @@ impl ClaimedLineDisplay {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for ClaimedLineDisplay {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedLineDisplay {}
-impl ::core::fmt::Debug for ClaimedLineDisplay {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedLineDisplay").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ClaimedLineDisplay {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedLineDisplay;{120ac970-9a75-4acf-aae7-09972bcf8794})");
-}
-impl ::core::clone::Clone for ClaimedLineDisplay {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ClaimedLineDisplay {
     type Vtable = IClaimedLineDisplay_Vtbl;
@@ -6792,26 +5980,11 @@ unsafe impl ::core::marker::Send for ClaimedLineDisplay {}
 unsafe impl ::core::marker::Sync for ClaimedLineDisplay {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ClaimedLineDisplayClosedEventArgs(::windows_core::IUnknown);
 impl ClaimedLineDisplayClosedEventArgs {}
-impl ::core::cmp::PartialEq for ClaimedLineDisplayClosedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedLineDisplayClosedEventArgs {}
-impl ::core::fmt::Debug for ClaimedLineDisplayClosedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedLineDisplayClosedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ClaimedLineDisplayClosedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedLineDisplayClosedEventArgs;{f915f364-d3d5-4f10-b511-90939edfacd8})");
-}
-impl ::core::clone::Clone for ClaimedLineDisplayClosedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ClaimedLineDisplayClosedEventArgs {
     type Vtable = IClaimedLineDisplayClosedEventArgs_Vtbl;
@@ -6827,6 +6000,7 @@ unsafe impl ::core::marker::Send for ClaimedLineDisplayClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedLineDisplayClosedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ClaimedMagneticStripeReader(::windows_core::IUnknown);
 impl ClaimedMagneticStripeReader {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -7106,24 +6280,8 @@ impl ClaimedMagneticStripeReader {
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ClaimedMagneticStripeReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedMagneticStripeReader {}
-impl ::core::fmt::Debug for ClaimedMagneticStripeReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedMagneticStripeReader").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ClaimedMagneticStripeReader {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedMagneticStripeReader;{475ca8f3-9417-48bc-b9d7-4163a7844c02})");
-}
-impl ::core::clone::Clone for ClaimedMagneticStripeReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ClaimedMagneticStripeReader {
     type Vtable = IClaimedMagneticStripeReader_Vtbl;
@@ -7141,26 +6299,11 @@ unsafe impl ::core::marker::Send for ClaimedMagneticStripeReader {}
 unsafe impl ::core::marker::Sync for ClaimedMagneticStripeReader {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ClaimedMagneticStripeReaderClosedEventArgs(::windows_core::IUnknown);
 impl ClaimedMagneticStripeReaderClosedEventArgs {}
-impl ::core::cmp::PartialEq for ClaimedMagneticStripeReaderClosedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedMagneticStripeReaderClosedEventArgs {}
-impl ::core::fmt::Debug for ClaimedMagneticStripeReaderClosedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedMagneticStripeReaderClosedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ClaimedMagneticStripeReaderClosedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedMagneticStripeReaderClosedEventArgs;{14ada93a-adcd-4c80-acda-c3eaed2647e1})");
-}
-impl ::core::clone::Clone for ClaimedMagneticStripeReaderClosedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ClaimedMagneticStripeReaderClosedEventArgs {
     type Vtable = IClaimedMagneticStripeReaderClosedEventArgs_Vtbl;
@@ -7176,6 +6319,7 @@ unsafe impl ::core::marker::Send for ClaimedMagneticStripeReaderClosedEventArgs 
 unsafe impl ::core::marker::Sync for ClaimedMagneticStripeReaderClosedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ClaimedPosPrinter(::windows_core::IUnknown);
 impl ClaimedPosPrinter {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -7347,24 +6491,8 @@ impl ClaimedPosPrinter {
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ClaimedPosPrinter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedPosPrinter {}
-impl ::core::fmt::Debug for ClaimedPosPrinter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedPosPrinter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ClaimedPosPrinter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedPosPrinter;{6d64ce0c-e03e-4b14-a38e-c28c34b86353})");
-}
-impl ::core::clone::Clone for ClaimedPosPrinter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ClaimedPosPrinter {
     type Vtable = IClaimedPosPrinter_Vtbl;
@@ -7382,26 +6510,11 @@ unsafe impl ::core::marker::Send for ClaimedPosPrinter {}
 unsafe impl ::core::marker::Sync for ClaimedPosPrinter {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ClaimedPosPrinterClosedEventArgs(::windows_core::IUnknown);
 impl ClaimedPosPrinterClosedEventArgs {}
-impl ::core::cmp::PartialEq for ClaimedPosPrinterClosedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedPosPrinterClosedEventArgs {}
-impl ::core::fmt::Debug for ClaimedPosPrinterClosedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedPosPrinterClosedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ClaimedPosPrinterClosedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedPosPrinterClosedEventArgs;{e2b7a27b-4d40-471d-92ed-63375b18c788})");
-}
-impl ::core::clone::Clone for ClaimedPosPrinterClosedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ClaimedPosPrinterClosedEventArgs {
     type Vtable = IClaimedPosPrinterClosedEventArgs_Vtbl;
@@ -7417,6 +6530,7 @@ unsafe impl ::core::marker::Send for ClaimedPosPrinterClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedPosPrinterClosedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ClaimedReceiptPrinter(::windows_core::IUnknown);
 impl ClaimedReceiptPrinter {
     pub fn SidewaysMaxLines(&self) -> ::windows_core::Result<u32> {
@@ -7584,24 +6698,8 @@ impl ClaimedReceiptPrinter {
         }
     }
 }
-impl ::core::cmp::PartialEq for ClaimedReceiptPrinter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedReceiptPrinter {}
-impl ::core::fmt::Debug for ClaimedReceiptPrinter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedReceiptPrinter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ClaimedReceiptPrinter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedReceiptPrinter;{9ad27a74-dd61-4ee2-9837-5b5d72d538b9})");
-}
-impl ::core::clone::Clone for ClaimedReceiptPrinter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ClaimedReceiptPrinter {
     type Vtable = IClaimedReceiptPrinter_Vtbl;
@@ -7618,6 +6716,7 @@ unsafe impl ::core::marker::Send for ClaimedReceiptPrinter {}
 unsafe impl ::core::marker::Sync for ClaimedReceiptPrinter {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ClaimedSlipPrinter(::windows_core::IUnknown);
 impl ClaimedSlipPrinter {
     pub fn SidewaysMaxLines(&self) -> ::windows_core::Result<u32> {
@@ -7829,24 +6928,8 @@ impl ClaimedSlipPrinter {
         }
     }
 }
-impl ::core::cmp::PartialEq for ClaimedSlipPrinter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClaimedSlipPrinter {}
-impl ::core::fmt::Debug for ClaimedSlipPrinter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ClaimedSlipPrinter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ClaimedSlipPrinter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedSlipPrinter;{bd5deff2-af90-4e8a-b77b-e3ae9ca63a7f})");
-}
-impl ::core::clone::Clone for ClaimedSlipPrinter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ClaimedSlipPrinter {
     type Vtable = IClaimedSlipPrinter_Vtbl;
@@ -7863,6 +6946,7 @@ unsafe impl ::core::marker::Send for ClaimedSlipPrinter {}
 unsafe impl ::core::marker::Sync for ClaimedSlipPrinter {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct JournalPrintJob(::windows_core::IUnknown);
 impl JournalPrintJob {
     pub fn Print<P0>(&self, data: &::windows_core::HSTRING, printoptions: P0) -> ::windows_core::Result<()>
@@ -7902,24 +6986,8 @@ impl JournalPrintJob {
         }
     }
 }
-impl ::core::cmp::PartialEq for JournalPrintJob {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for JournalPrintJob {}
-impl ::core::fmt::Debug for JournalPrintJob {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JournalPrintJob").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for JournalPrintJob {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.JournalPrintJob;{9a94005c-0615-4591-a58f-30f87edfe2e4})");
-}
-impl ::core::clone::Clone for JournalPrintJob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for JournalPrintJob {
     type Vtable = IPosPrinterJob_Vtbl;
@@ -7936,6 +7004,7 @@ unsafe impl ::core::marker::Send for JournalPrintJob {}
 unsafe impl ::core::marker::Sync for JournalPrintJob {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct JournalPrinterCapabilities(::windows_core::IUnknown);
 impl JournalPrinterCapabilities {
     pub fn IsPrinterPresent(&self) -> ::windows_core::Result<bool> {
@@ -8074,24 +7143,8 @@ impl JournalPrinterCapabilities {
         }
     }
 }
-impl ::core::cmp::PartialEq for JournalPrinterCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for JournalPrinterCapabilities {}
-impl ::core::fmt::Debug for JournalPrinterCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JournalPrinterCapabilities").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for JournalPrinterCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.JournalPrinterCapabilities;{3b5ccc43-e047-4463-bb58-17b5ba1d8056})");
-}
-impl ::core::clone::Clone for JournalPrinterCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for JournalPrinterCapabilities {
     type Vtable = IJournalPrinterCapabilities_Vtbl;
@@ -8108,6 +7161,7 @@ unsafe impl ::core::marker::Send for JournalPrinterCapabilities {}
 unsafe impl ::core::marker::Sync for JournalPrinterCapabilities {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LineDisplay(::windows_core::IUnknown);
 impl LineDisplay {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8228,24 +7282,8 @@ impl LineDisplay {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for LineDisplay {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplay {}
-impl ::core::fmt::Debug for LineDisplay {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplay").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LineDisplay {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplay;{24f5df4e-3c99-44e2-b73f-e51be3637a8c})");
-}
-impl ::core::clone::Clone for LineDisplay {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LineDisplay {
     type Vtable = ILineDisplay_Vtbl;
@@ -8263,6 +7301,7 @@ unsafe impl ::core::marker::Send for LineDisplay {}
 unsafe impl ::core::marker::Sync for LineDisplay {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LineDisplayAttributes(::windows_core::IUnknown);
 impl LineDisplayAttributes {
     pub fn IsPowerNotifyEnabled(&self) -> ::windows_core::Result<bool> {
@@ -8354,24 +7393,8 @@ impl LineDisplayAttributes {
         unsafe { (::windows_core::Interface::vtable(this).SetCurrentWindow)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for LineDisplayAttributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayAttributes {}
-impl ::core::fmt::Debug for LineDisplayAttributes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayAttributes").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LineDisplayAttributes {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayAttributes;{c17de99c-229a-4c14-a6f1-b4e4b1fead92})");
-}
-impl ::core::clone::Clone for LineDisplayAttributes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LineDisplayAttributes {
     type Vtable = ILineDisplayAttributes_Vtbl;
@@ -8387,6 +7410,7 @@ unsafe impl ::core::marker::Send for LineDisplayAttributes {}
 unsafe impl ::core::marker::Sync for LineDisplayAttributes {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LineDisplayCapabilities(::windows_core::IUnknown);
 impl LineDisplayCapabilities {
     pub fn IsStatisticsReportingSupported(&self) -> ::windows_core::Result<bool> {
@@ -8516,24 +7540,8 @@ impl LineDisplayCapabilities {
         }
     }
 }
-impl ::core::cmp::PartialEq for LineDisplayCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayCapabilities {}
-impl ::core::fmt::Debug for LineDisplayCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayCapabilities").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LineDisplayCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCapabilities;{5a15b5d1-8dc5-4b9c-9172-303e47b70c55})");
-}
-impl ::core::clone::Clone for LineDisplayCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LineDisplayCapabilities {
     type Vtable = ILineDisplayCapabilities_Vtbl;
@@ -8549,6 +7557,7 @@ unsafe impl ::core::marker::Send for LineDisplayCapabilities {}
 unsafe impl ::core::marker::Sync for LineDisplayCapabilities {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LineDisplayCursor(::windows_core::IUnknown);
 impl LineDisplayCursor {
     pub fn CanCustomize(&self) -> ::windows_core::Result<bool> {
@@ -8620,24 +7629,8 @@ impl LineDisplayCursor {
         }
     }
 }
-impl ::core::cmp::PartialEq for LineDisplayCursor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayCursor {}
-impl ::core::fmt::Debug for LineDisplayCursor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayCursor").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LineDisplayCursor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCursor;{ecdffc45-754a-4e3b-ab2b-151181085605})");
-}
-impl ::core::clone::Clone for LineDisplayCursor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LineDisplayCursor {
     type Vtable = ILineDisplayCursor_Vtbl;
@@ -8653,6 +7646,7 @@ unsafe impl ::core::marker::Send for LineDisplayCursor {}
 unsafe impl ::core::marker::Sync for LineDisplayCursor {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LineDisplayCursorAttributes(::windows_core::IUnknown);
 impl LineDisplayCursorAttributes {
     pub fn IsBlinkEnabled(&self) -> ::windows_core::Result<bool> {
@@ -8704,24 +7698,8 @@ impl LineDisplayCursorAttributes {
         unsafe { (::windows_core::Interface::vtable(this).SetPosition)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for LineDisplayCursorAttributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayCursorAttributes {}
-impl ::core::fmt::Debug for LineDisplayCursorAttributes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayCursorAttributes").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LineDisplayCursorAttributes {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCursorAttributes;{4e2d54fe-4ffd-4190-aae1-ce285f20c896})");
-}
-impl ::core::clone::Clone for LineDisplayCursorAttributes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LineDisplayCursorAttributes {
     type Vtable = ILineDisplayCursorAttributes_Vtbl;
@@ -8737,6 +7715,7 @@ unsafe impl ::core::marker::Send for LineDisplayCursorAttributes {}
 unsafe impl ::core::marker::Sync for LineDisplayCursorAttributes {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LineDisplayCustomGlyphs(::windows_core::IUnknown);
 impl LineDisplayCustomGlyphs {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -8770,24 +7749,8 @@ impl LineDisplayCustomGlyphs {
         }
     }
 }
-impl ::core::cmp::PartialEq for LineDisplayCustomGlyphs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayCustomGlyphs {}
-impl ::core::fmt::Debug for LineDisplayCustomGlyphs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayCustomGlyphs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LineDisplayCustomGlyphs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCustomGlyphs;{2257f63c-f263-44f1-a1a0-e750a6a0ec54})");
-}
-impl ::core::clone::Clone for LineDisplayCustomGlyphs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LineDisplayCustomGlyphs {
     type Vtable = ILineDisplayCustomGlyphs_Vtbl;
@@ -8803,6 +7766,7 @@ unsafe impl ::core::marker::Send for LineDisplayCustomGlyphs {}
 unsafe impl ::core::marker::Sync for LineDisplayCustomGlyphs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LineDisplayMarquee(::windows_core::IUnknown);
 impl LineDisplayMarquee {
     pub fn Format(&self) -> ::windows_core::Result<LineDisplayMarqueeFormat> {
@@ -8865,24 +7829,8 @@ impl LineDisplayMarquee {
         }
     }
 }
-impl ::core::cmp::PartialEq for LineDisplayMarquee {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayMarquee {}
-impl ::core::fmt::Debug for LineDisplayMarquee {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayMarquee").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LineDisplayMarquee {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayMarquee;{a3d33e3e-f46a-4b7a-bc21-53eb3b57f8b4})");
-}
-impl ::core::clone::Clone for LineDisplayMarquee {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LineDisplayMarquee {
     type Vtable = ILineDisplayMarquee_Vtbl;
@@ -8898,6 +7846,7 @@ unsafe impl ::core::marker::Send for LineDisplayMarquee {}
 unsafe impl ::core::marker::Sync for LineDisplayMarquee {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LineDisplayStatisticsCategorySelector(::windows_core::IUnknown);
 impl LineDisplayStatisticsCategorySelector {
     pub fn AllStatistics(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -8922,24 +7871,8 @@ impl LineDisplayStatisticsCategorySelector {
         }
     }
 }
-impl ::core::cmp::PartialEq for LineDisplayStatisticsCategorySelector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayStatisticsCategorySelector {}
-impl ::core::fmt::Debug for LineDisplayStatisticsCategorySelector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayStatisticsCategorySelector").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LineDisplayStatisticsCategorySelector {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayStatisticsCategorySelector;{b521c46b-9274-4d24-94f3-b6017b832444})");
-}
-impl ::core::clone::Clone for LineDisplayStatisticsCategorySelector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LineDisplayStatisticsCategorySelector {
     type Vtable = ILineDisplayStatisticsCategorySelector_Vtbl;
@@ -8955,6 +7888,7 @@ unsafe impl ::core::marker::Send for LineDisplayStatisticsCategorySelector {}
 unsafe impl ::core::marker::Sync for LineDisplayStatisticsCategorySelector {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LineDisplayStatusUpdatedEventArgs(::windows_core::IUnknown);
 impl LineDisplayStatusUpdatedEventArgs {
     pub fn Status(&self) -> ::windows_core::Result<LineDisplayPowerStatus> {
@@ -8965,24 +7899,8 @@ impl LineDisplayStatusUpdatedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for LineDisplayStatusUpdatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayStatusUpdatedEventArgs {}
-impl ::core::fmt::Debug for LineDisplayStatusUpdatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayStatusUpdatedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LineDisplayStatusUpdatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayStatusUpdatedEventArgs;{ddd57c1a-86fb-4eba-93d1-6f5eda52b752})");
-}
-impl ::core::clone::Clone for LineDisplayStatusUpdatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LineDisplayStatusUpdatedEventArgs {
     type Vtable = ILineDisplayStatusUpdatedEventArgs_Vtbl;
@@ -8998,6 +7916,7 @@ unsafe impl ::core::marker::Send for LineDisplayStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for LineDisplayStatusUpdatedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LineDisplayStoredBitmap(::windows_core::IUnknown);
 impl LineDisplayStoredBitmap {
     pub fn EscapeSequence(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -9017,24 +7936,8 @@ impl LineDisplayStoredBitmap {
         }
     }
 }
-impl ::core::cmp::PartialEq for LineDisplayStoredBitmap {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayStoredBitmap {}
-impl ::core::fmt::Debug for LineDisplayStoredBitmap {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayStoredBitmap").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LineDisplayStoredBitmap {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayStoredBitmap;{f621515b-d81e-43ba-bf1b-bcfa3c785ba0})");
-}
-impl ::core::clone::Clone for LineDisplayStoredBitmap {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LineDisplayStoredBitmap {
     type Vtable = ILineDisplayStoredBitmap_Vtbl;
@@ -9050,6 +7953,7 @@ unsafe impl ::core::marker::Send for LineDisplayStoredBitmap {}
 unsafe impl ::core::marker::Sync for LineDisplayStoredBitmap {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LineDisplayWindow(::windows_core::IUnknown);
 impl LineDisplayWindow {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -9232,24 +8136,8 @@ impl LineDisplayWindow {
         }
     }
 }
-impl ::core::cmp::PartialEq for LineDisplayWindow {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayWindow {}
-impl ::core::fmt::Debug for LineDisplayWindow {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LineDisplayWindow").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LineDisplayWindow {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayWindow;{d21feef4-2364-4be5-bee1-851680af4964})");
-}
-impl ::core::clone::Clone for LineDisplayWindow {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LineDisplayWindow {
     type Vtable = ILineDisplayWindow_Vtbl;
@@ -9267,6 +8155,7 @@ unsafe impl ::core::marker::Send for LineDisplayWindow {}
 unsafe impl ::core::marker::Sync for LineDisplayWindow {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MagneticStripeReader(::windows_core::IUnknown);
 impl MagneticStripeReader {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -9397,24 +8286,8 @@ impl MagneticStripeReader {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for MagneticStripeReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReader {}
-impl ::core::fmt::Debug for MagneticStripeReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReader").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MagneticStripeReader {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReader;{1a92b015-47c3-468a-9333-0c6517574883})");
-}
-impl ::core::clone::Clone for MagneticStripeReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MagneticStripeReader {
     type Vtable = IMagneticStripeReader_Vtbl;
@@ -9432,6 +8305,7 @@ unsafe impl ::core::marker::Send for MagneticStripeReader {}
 unsafe impl ::core::marker::Sync for MagneticStripeReader {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MagneticStripeReaderAamvaCardDataReceivedEventArgs(::windows_core::IUnknown);
 impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
     pub fn Report(&self) -> ::windows_core::Result<MagneticStripeReaderReport> {
@@ -9568,24 +8442,8 @@ impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
-impl ::core::fmt::Debug for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderAamvaCardDataReceivedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderAamvaCardDataReceivedEventArgs;{0a4bbd51-c316-4910-87f3-7a62ba862d31})");
-}
-impl ::core::clone::Clone for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Vtbl;
@@ -9601,6 +8459,7 @@ unsafe impl ::core::marker::Send for MagneticStripeReaderAamvaCardDataReceivedEv
 unsafe impl ::core::marker::Sync for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MagneticStripeReaderBankCardDataReceivedEventArgs(::windows_core::IUnknown);
 impl MagneticStripeReaderBankCardDataReceivedEventArgs {
     pub fn Report(&self) -> ::windows_core::Result<MagneticStripeReaderReport> {
@@ -9667,24 +8526,8 @@ impl MagneticStripeReaderBankCardDataReceivedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MagneticStripeReaderBankCardDataReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderBankCardDataReceivedEventArgs {}
-impl ::core::fmt::Debug for MagneticStripeReaderBankCardDataReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderBankCardDataReceivedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MagneticStripeReaderBankCardDataReceivedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderBankCardDataReceivedEventArgs;{2e958823-a31a-4763-882c-23725e39b08e})");
-}
-impl ::core::clone::Clone for MagneticStripeReaderBankCardDataReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MagneticStripeReaderBankCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderBankCardDataReceivedEventArgs_Vtbl;
@@ -9700,6 +8543,7 @@ unsafe impl ::core::marker::Send for MagneticStripeReaderBankCardDataReceivedEve
 unsafe impl ::core::marker::Sync for MagneticStripeReaderBankCardDataReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MagneticStripeReaderCapabilities(::windows_core::IUnknown);
 impl MagneticStripeReaderCapabilities {
     pub fn CardAuthentication(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -9780,24 +8624,8 @@ impl MagneticStripeReaderCapabilities {
         }
     }
 }
-impl ::core::cmp::PartialEq for MagneticStripeReaderCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderCapabilities {}
-impl ::core::fmt::Debug for MagneticStripeReaderCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderCapabilities").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MagneticStripeReaderCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderCapabilities;{7128809c-c440-44a2-a467-469175d02896})");
-}
-impl ::core::clone::Clone for MagneticStripeReaderCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MagneticStripeReaderCapabilities {
     type Vtable = IMagneticStripeReaderCapabilities_Vtbl;
@@ -9879,6 +8707,7 @@ impl ::windows_core::RuntimeName for MagneticStripeReaderEncryptionAlgorithms {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MagneticStripeReaderErrorOccurredEventArgs(::windows_core::IUnknown);
 impl MagneticStripeReaderErrorOccurredEventArgs {
     pub fn Track1Status(&self) -> ::windows_core::Result<MagneticStripeReaderTrackErrorType> {
@@ -9924,24 +8753,8 @@ impl MagneticStripeReaderErrorOccurredEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MagneticStripeReaderErrorOccurredEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderErrorOccurredEventArgs {}
-impl ::core::fmt::Debug for MagneticStripeReaderErrorOccurredEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderErrorOccurredEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MagneticStripeReaderErrorOccurredEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderErrorOccurredEventArgs;{1fedf95d-2c84-41ad-b778-f2356a789ab1})");
-}
-impl ::core::clone::Clone for MagneticStripeReaderErrorOccurredEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MagneticStripeReaderErrorOccurredEventArgs {
     type Vtable = IMagneticStripeReaderErrorOccurredEventArgs_Vtbl;
@@ -9957,6 +8770,7 @@ unsafe impl ::core::marker::Send for MagneticStripeReaderErrorOccurredEventArgs 
 unsafe impl ::core::marker::Sync for MagneticStripeReaderErrorOccurredEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MagneticStripeReaderReport(::windows_core::IUnknown);
 impl MagneticStripeReaderReport {
     pub fn CardType(&self) -> ::windows_core::Result<u32> {
@@ -10029,24 +8843,8 @@ impl MagneticStripeReaderReport {
         }
     }
 }
-impl ::core::cmp::PartialEq for MagneticStripeReaderReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderReport {}
-impl ::core::fmt::Debug for MagneticStripeReaderReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderReport").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MagneticStripeReaderReport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderReport;{6a5b6047-99b0-4188-bef1-eddf79f78fe6})");
-}
-impl ::core::clone::Clone for MagneticStripeReaderReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MagneticStripeReaderReport {
     type Vtable = IMagneticStripeReaderReport_Vtbl;
@@ -10062,6 +8860,7 @@ unsafe impl ::core::marker::Send for MagneticStripeReaderReport {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderReport {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MagneticStripeReaderStatusUpdatedEventArgs(::windows_core::IUnknown);
 impl MagneticStripeReaderStatusUpdatedEventArgs {
     pub fn Status(&self) -> ::windows_core::Result<MagneticStripeReaderStatus> {
@@ -10079,24 +8878,8 @@ impl MagneticStripeReaderStatusUpdatedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MagneticStripeReaderStatusUpdatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderStatusUpdatedEventArgs {}
-impl ::core::fmt::Debug for MagneticStripeReaderStatusUpdatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderStatusUpdatedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MagneticStripeReaderStatusUpdatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderStatusUpdatedEventArgs;{09cc6bb0-3262-401d-9e8a-e80d6358906b})");
-}
-impl ::core::clone::Clone for MagneticStripeReaderStatusUpdatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MagneticStripeReaderStatusUpdatedEventArgs {
     type Vtable = IMagneticStripeReaderStatusUpdatedEventArgs_Vtbl;
@@ -10112,6 +8895,7 @@ unsafe impl ::core::marker::Send for MagneticStripeReaderStatusUpdatedEventArgs 
 unsafe impl ::core::marker::Sync for MagneticStripeReaderStatusUpdatedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MagneticStripeReaderTrackData(::windows_core::IUnknown);
 impl MagneticStripeReaderTrackData {
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -10142,24 +8926,8 @@ impl MagneticStripeReaderTrackData {
         }
     }
 }
-impl ::core::cmp::PartialEq for MagneticStripeReaderTrackData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderTrackData {}
-impl ::core::fmt::Debug for MagneticStripeReaderTrackData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderTrackData").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MagneticStripeReaderTrackData {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderTrackData;{104cf671-4a9d-446e-abc5-20402307ba36})");
-}
-impl ::core::clone::Clone for MagneticStripeReaderTrackData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MagneticStripeReaderTrackData {
     type Vtable = IMagneticStripeReaderTrackData_Vtbl;
@@ -10175,6 +8943,7 @@ unsafe impl ::core::marker::Send for MagneticStripeReaderTrackData {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderTrackData {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs(::windows_core::IUnknown);
 impl MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     pub fn Report(&self) -> ::windows_core::Result<MagneticStripeReaderReport> {
@@ -10185,24 +8954,8 @@ impl MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
-impl ::core::fmt::Debug for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs;{af0a5514-59cc-4a60-99e8-99a53dace5aa})");
-}
-impl ::core::clone::Clone for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_Vtbl;
@@ -10218,6 +8971,7 @@ unsafe impl ::core::marker::Send for MagneticStripeReaderVendorSpecificCardDataR
 unsafe impl ::core::marker::Sync for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PosPrinter(::windows_core::IUnknown);
 impl PosPrinter {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -10368,24 +9122,8 @@ impl PosPrinter {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for PosPrinter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinter {}
-impl ::core::fmt::Debug for PosPrinter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PosPrinter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinter;{2a03c10e-9a19-4a01-994f-12dfad6adcbf})");
-}
-impl ::core::clone::Clone for PosPrinter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PosPrinter {
     type Vtable = IPosPrinter_Vtbl;
@@ -10403,6 +9141,7 @@ unsafe impl ::core::marker::Send for PosPrinter {}
 unsafe impl ::core::marker::Sync for PosPrinter {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PosPrinterCapabilities(::windows_core::IUnknown);
 impl PosPrinterCapabilities {
     pub fn PowerReportingType(&self) -> ::windows_core::Result<UnifiedPosPowerReportingType> {
@@ -10476,24 +9215,8 @@ impl PosPrinterCapabilities {
         }
     }
 }
-impl ::core::cmp::PartialEq for PosPrinterCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterCapabilities {}
-impl ::core::fmt::Debug for PosPrinterCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterCapabilities").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PosPrinterCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterCapabilities;{cde95721-4380-4985-adc5-39db30cd93bc})");
-}
-impl ::core::clone::Clone for PosPrinterCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PosPrinterCapabilities {
     type Vtable = IPosPrinterCapabilities_Vtbl;
@@ -10539,6 +9262,7 @@ impl ::windows_core::RuntimeName for PosPrinterCharacterSetIds {
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PosPrinterFontProperty(::windows_core::IUnknown);
 impl PosPrinterFontProperty {
     pub fn TypeFace(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -10565,24 +9289,8 @@ impl PosPrinterFontProperty {
         }
     }
 }
-impl ::core::cmp::PartialEq for PosPrinterFontProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterFontProperty {}
-impl ::core::fmt::Debug for PosPrinterFontProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterFontProperty").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PosPrinterFontProperty {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterFontProperty;{a7f4e93a-f8ac-5f04-84d2-29b16d8a633c})");
-}
-impl ::core::clone::Clone for PosPrinterFontProperty {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PosPrinterFontProperty {
     type Vtable = IPosPrinterFontProperty_Vtbl;
@@ -10598,6 +9306,7 @@ unsafe impl ::core::marker::Send for PosPrinterFontProperty {}
 unsafe impl ::core::marker::Sync for PosPrinterFontProperty {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PosPrinterPrintOptions(::windows_core::IUnknown);
 impl PosPrinterPrintOptions {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -10751,24 +9460,8 @@ impl PosPrinterPrintOptions {
         unsafe { (::windows_core::Interface::vtable(this).SetCharacterSet)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for PosPrinterPrintOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterPrintOptions {}
-impl ::core::fmt::Debug for PosPrinterPrintOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterPrintOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PosPrinterPrintOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterPrintOptions;{0a2e16fd-1d02-5a58-9d59-bfcde76fde86})");
-}
-impl ::core::clone::Clone for PosPrinterPrintOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PosPrinterPrintOptions {
     type Vtable = IPosPrinterPrintOptions_Vtbl;
@@ -10784,26 +9477,11 @@ unsafe impl ::core::marker::Send for PosPrinterPrintOptions {}
 unsafe impl ::core::marker::Sync for PosPrinterPrintOptions {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PosPrinterReleaseDeviceRequestedEventArgs(::windows_core::IUnknown);
 impl PosPrinterReleaseDeviceRequestedEventArgs {}
-impl ::core::cmp::PartialEq for PosPrinterReleaseDeviceRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterReleaseDeviceRequestedEventArgs {}
-impl ::core::fmt::Debug for PosPrinterReleaseDeviceRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterReleaseDeviceRequestedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PosPrinterReleaseDeviceRequestedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterReleaseDeviceRequestedEventArgs;{2bcba359-1cef-40b2-9ecb-f927f856ae3c})");
-}
-impl ::core::clone::Clone for PosPrinterReleaseDeviceRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PosPrinterReleaseDeviceRequestedEventArgs {
     type Vtable = IPosPrinterReleaseDeviceRequestedEventArgs_Vtbl;
@@ -10819,6 +9497,7 @@ unsafe impl ::core::marker::Send for PosPrinterReleaseDeviceRequestedEventArgs {
 unsafe impl ::core::marker::Sync for PosPrinterReleaseDeviceRequestedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PosPrinterStatus(::windows_core::IUnknown);
 impl PosPrinterStatus {
     pub fn StatusKind(&self) -> ::windows_core::Result<PosPrinterStatusKind> {
@@ -10836,24 +9515,8 @@ impl PosPrinterStatus {
         }
     }
 }
-impl ::core::cmp::PartialEq for PosPrinterStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterStatus {}
-impl ::core::fmt::Debug for PosPrinterStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterStatus").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PosPrinterStatus {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterStatus;{d1f0c730-da40-4328-bf76-5156fa33b747})");
-}
-impl ::core::clone::Clone for PosPrinterStatus {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PosPrinterStatus {
     type Vtable = IPosPrinterStatus_Vtbl;
@@ -10869,6 +9532,7 @@ unsafe impl ::core::marker::Send for PosPrinterStatus {}
 unsafe impl ::core::marker::Sync for PosPrinterStatus {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PosPrinterStatusUpdatedEventArgs(::windows_core::IUnknown);
 impl PosPrinterStatusUpdatedEventArgs {
     pub fn Status(&self) -> ::windows_core::Result<PosPrinterStatus> {
@@ -10879,24 +9543,8 @@ impl PosPrinterStatusUpdatedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for PosPrinterStatusUpdatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterStatusUpdatedEventArgs {}
-impl ::core::fmt::Debug for PosPrinterStatusUpdatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PosPrinterStatusUpdatedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PosPrinterStatusUpdatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterStatusUpdatedEventArgs;{2edb87df-13a6-428d-ba81-b0e7c3e5a3cd})");
-}
-impl ::core::clone::Clone for PosPrinterStatusUpdatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PosPrinterStatusUpdatedEventArgs {
     type Vtable = IPosPrinterStatusUpdatedEventArgs_Vtbl;
@@ -10912,6 +9560,7 @@ unsafe impl ::core::marker::Send for PosPrinterStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for PosPrinterStatusUpdatedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ReceiptPrintJob(::windows_core::IUnknown);
 impl ReceiptPrintJob {
     pub fn Print(&self, data: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -11069,24 +9718,8 @@ impl ReceiptPrintJob {
         unsafe { (::windows_core::Interface::vtable(this).FeedPaperByMapModeUnit)(::windows_core::Interface::as_raw(this), distance).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ReceiptPrintJob {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ReceiptPrintJob {}
-impl ::core::fmt::Debug for ReceiptPrintJob {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ReceiptPrintJob").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ReceiptPrintJob {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ReceiptPrintJob;{aa96066e-acad-4b79-9d0f-c0cfc08dc77b})");
-}
-impl ::core::clone::Clone for ReceiptPrintJob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ReceiptPrintJob {
     type Vtable = IReceiptPrintJob_Vtbl;
@@ -11104,6 +9737,7 @@ unsafe impl ::core::marker::Send for ReceiptPrintJob {}
 unsafe impl ::core::marker::Sync for ReceiptPrintJob {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ReceiptPrinterCapabilities(::windows_core::IUnknown);
 impl ReceiptPrinterCapabilities {
     pub fn IsPrinterPresent(&self) -> ::windows_core::Result<bool> {
@@ -11330,24 +9964,8 @@ impl ReceiptPrinterCapabilities {
         }
     }
 }
-impl ::core::cmp::PartialEq for ReceiptPrinterCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ReceiptPrinterCapabilities {}
-impl ::core::fmt::Debug for ReceiptPrinterCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ReceiptPrinterCapabilities").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ReceiptPrinterCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ReceiptPrinterCapabilities;{b8f0b58f-51a8-43fc-9bd5-8de272a6415b})");
-}
-impl ::core::clone::Clone for ReceiptPrinterCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ReceiptPrinterCapabilities {
     type Vtable = IReceiptPrinterCapabilities_Vtbl;
@@ -11365,6 +9983,7 @@ unsafe impl ::core::marker::Send for ReceiptPrinterCapabilities {}
 unsafe impl ::core::marker::Sync for ReceiptPrinterCapabilities {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SlipPrintJob(::windows_core::IUnknown);
 impl SlipPrintJob {
     pub fn Print(&self, data: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -11506,24 +10125,8 @@ impl SlipPrintJob {
         unsafe { (::windows_core::Interface::vtable(this).FeedPaperByMapModeUnit)(::windows_core::Interface::as_raw(this), distance).ok() }
     }
 }
-impl ::core::cmp::PartialEq for SlipPrintJob {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SlipPrintJob {}
-impl ::core::fmt::Debug for SlipPrintJob {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SlipPrintJob").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SlipPrintJob {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.SlipPrintJob;{532199be-c8c3-4dc2-89e9-5c4a37b34ddc})");
-}
-impl ::core::clone::Clone for SlipPrintJob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SlipPrintJob {
     type Vtable = IReceiptOrSlipJob_Vtbl;
@@ -11541,6 +10144,7 @@ unsafe impl ::core::marker::Send for SlipPrintJob {}
 unsafe impl ::core::marker::Sync for SlipPrintJob {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SlipPrinterCapabilities(::windows_core::IUnknown);
 impl SlipPrinterCapabilities {
     pub fn IsPrinterPresent(&self) -> ::windows_core::Result<bool> {
@@ -11760,24 +10364,8 @@ impl SlipPrinterCapabilities {
         }
     }
 }
-impl ::core::cmp::PartialEq for SlipPrinterCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SlipPrinterCapabilities {}
-impl ::core::fmt::Debug for SlipPrinterCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SlipPrinterCapabilities").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SlipPrinterCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.SlipPrinterCapabilities;{99b16399-488c-4157-8ac2-9f57f708d3db})");
-}
-impl ::core::clone::Clone for SlipPrinterCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SlipPrinterCapabilities {
     type Vtable = ISlipPrinterCapabilities_Vtbl;
@@ -11795,6 +10383,7 @@ unsafe impl ::core::marker::Send for SlipPrinterCapabilities {}
 unsafe impl ::core::marker::Sync for SlipPrinterCapabilities {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UnifiedPosErrorData(::windows_core::IUnknown);
 impl UnifiedPosErrorData {
     pub fn Message(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -11837,24 +10426,8 @@ impl UnifiedPosErrorData {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for UnifiedPosErrorData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UnifiedPosErrorData {}
-impl ::core::fmt::Debug for UnifiedPosErrorData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnifiedPosErrorData").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UnifiedPosErrorData {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.UnifiedPosErrorData;{2b998c3a-555c-4889-8ed8-c599bb3a712a})");
-}
-impl ::core::clone::Clone for UnifiedPosErrorData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UnifiedPosErrorData {
     type Vtable = IUnifiedPosErrorData_Vtbl;

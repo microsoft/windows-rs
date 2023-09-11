@@ -41,6 +41,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFilter(::windows_core::IUnknown);
 impl IFilter {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -66,24 +67,8 @@ impl IFilter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IFilter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFilter {}
-impl ::core::fmt::Debug for IFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IFilter {
     type Vtable = IFilter_Vtbl;
-}
-impl ::core::clone::Clone for IFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x89bcb740_6119_101a_bcb7_00dd010655af);
@@ -109,6 +94,7 @@ pub struct IFilter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhraseSink(::windows_core::IUnknown);
 impl IPhraseSink {
     pub unsafe fn PutSmallPhrase<P0, P1>(&self, pwcnoun: P0, cwcnoun: u32, pwcmodifier: P1, cwcmodifier: u32, ulattachmenttype: u32) -> ::windows_core::Result<()>
@@ -126,24 +112,8 @@ impl IPhraseSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPhraseSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPhraseSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPhraseSink {}
-impl ::core::fmt::Debug for IPhraseSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPhraseSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPhraseSink {
     type Vtable = IPhraseSink_Vtbl;
-}
-impl ::core::clone::Clone for IPhraseSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhraseSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc906ff0_c058_101a_b554_08002b33b0e6);

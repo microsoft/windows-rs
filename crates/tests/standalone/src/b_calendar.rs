@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Calendar(::windows_core::IUnknown);
 impl Calendar {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1262,27 +1263,11 @@ impl Calendar {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for Calendar {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Calendar {}
-impl ::core::fmt::Debug for Calendar {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Calendar").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Calendar {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
         ::windows_core::imp::ConstBuffer::from_slice(
             b"rc(Windows.Globalization.Calendar;{ca30221d-86d9-40fb-a26b-d44eb7cf08ea})",
         );
-}
-impl ::core::clone::Clone for Calendar {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Calendar {
     type Vtable = ICalendar_Vtbl;
@@ -1372,14 +1357,10 @@ impl ::windows_core::RuntimeType for DayOfWeek {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICalendar(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICalendar {
     type Vtable = ICalendar_Vtbl;
-}
-impl ::core::clone::Clone for ICalendar {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICalendar {
     const IID: ::windows_core::GUID =
@@ -1794,14 +1775,10 @@ pub struct ICalendar_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICalendarFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICalendarFactory {
     type Vtable = ICalendarFactory_Vtbl;
-}
-impl ::core::clone::Clone for ICalendarFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICalendarFactory {
     const IID: ::windows_core::GUID =
@@ -1827,14 +1804,10 @@ pub struct ICalendarFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICalendarFactory2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICalendarFactory2 {
     type Vtable = ICalendarFactory2_Vtbl;
-}
-impl ::core::clone::Clone for ICalendarFactory2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICalendarFactory2 {
     const IID: ::windows_core::GUID =
@@ -1854,6 +1827,7 @@ pub struct ICalendarFactory2_Vtbl {
     ) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIterable<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
 where
     T: ::windows_core::RuntimeType + 'static;
@@ -1877,17 +1851,6 @@ impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable>
     for IIterable<T>
 {
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::cmp::PartialEq for IIterable<T> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::cmp::Eq for IIterable<T> {}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::fmt::Debug for IIterable<T> {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIterable").field(&self.0).finish()
-    }
 }
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IIterable<T> {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = {
@@ -1916,11 +1879,6 @@ impl<T: ::windows_core::RuntimeType> ::core::iter::IntoIterator for &IIterable<T
 unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface for IIterable<T> {
     type Vtable = IIterable_Vtbl<T>;
 }
-impl<T: ::windows_core::RuntimeType + 'static> ::core::clone::Clone for IIterable<T> {
-    fn clone(&self) -> Self {
-        Self(self.0.clone(), ::core::marker::PhantomData::<T>)
-    }
-}
 unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::ComInterface
     for IIterable<T>
 {
@@ -1941,6 +1899,7 @@ where
     pub T: ::core::marker::PhantomData<T>,
 }
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIterator<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
 where
     T: ::windows_core::RuntimeType + 'static;
@@ -2003,17 +1962,6 @@ impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows
     for IIterator<T>
 {
 }
-impl<T: ::windows_core::RuntimeType + 'static> ::core::cmp::PartialEq for IIterator<T> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::cmp::Eq for IIterator<T> {}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::fmt::Debug for IIterator<T> {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIterator").field(&self.0).finish()
-    }
-}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IIterator<T> {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = {
         ::windows_core::imp::ConstBuffer::new()
@@ -2036,11 +1984,6 @@ impl<T: ::windows_core::RuntimeType> ::core::iter::Iterator for IIterator<T> {
 }
 unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface for IIterator<T> {
     type Vtable = IIterator_Vtbl<T>;
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::clone::Clone for IIterator<T> {
-    fn clone(&self) -> Self {
-        Self(self.0.clone(), ::core::marker::PhantomData::<T>)
-    }
 }
 unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::ComInterface
     for IIterator<T>
@@ -2077,14 +2020,10 @@ where
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITimeZoneOnCalendar(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITimeZoneOnCalendar {
     type Vtable = ITimeZoneOnCalendar_Vtbl;
-}
-impl ::core::clone::Clone for ITimeZoneOnCalendar {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITimeZoneOnCalendar {
     const IID: ::windows_core::GUID =
@@ -2113,6 +2052,7 @@ pub struct ITimeZoneOnCalendar_Vtbl {
     ) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVectorView<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
 where
     T: ::windows_core::RuntimeType + 'static;
@@ -2198,17 +2138,6 @@ impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanTryInto<IItera
     for IVectorView<T>
 {
 }
-impl<T: ::windows_core::RuntimeType + 'static> ::core::cmp::PartialEq for IVectorView<T> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::cmp::Eq for IVectorView<T> {}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::fmt::Debug for IVectorView<T> {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVectorView").field(&self.0).finish()
-    }
-}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IVectorView<T> {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = {
         ::windows_core::imp::ConstBuffer::new()
@@ -2258,11 +2187,6 @@ impl<T: ::windows_core::RuntimeType> ::core::iter::IntoIterator for &IVectorView
 }
 unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface for IVectorView<T> {
     type Vtable = IVectorView_Vtbl<T>;
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::clone::Clone for IVectorView<T> {
-    fn clone(&self) -> Self {
-        Self(self.0.clone(), ::core::marker::PhantomData::<T>)
-    }
 }
 unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::ComInterface
     for IVectorView<T>

@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDateTimeFormatter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDateTimeFormatter {
     type Vtable = IDateTimeFormatter_Vtbl;
-}
-impl ::core::clone::Clone for IDateTimeFormatter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDateTimeFormatter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95eeca10_73e0_4e4b_a183_3d6ad0ba35ec);
@@ -46,14 +42,10 @@ pub struct IDateTimeFormatter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDateTimeFormatter2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDateTimeFormatter2 {
     type Vtable = IDateTimeFormatter2_Vtbl;
-}
-impl ::core::clone::Clone for IDateTimeFormatter2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDateTimeFormatter2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27c91a86_bdaa_4fd0_9e36_671d5aa5ee03);
@@ -69,14 +61,10 @@ pub struct IDateTimeFormatter2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDateTimeFormatterFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDateTimeFormatterFactory {
     type Vtable = IDateTimeFormatterFactory_Vtbl;
-}
-impl ::core::clone::Clone for IDateTimeFormatterFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDateTimeFormatterFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xec8d8a53_1a2e_412d_8815_3b745fb1a2a0);
@@ -107,14 +95,10 @@ pub struct IDateTimeFormatterFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDateTimeFormatterStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDateTimeFormatterStatics {
     type Vtable = IDateTimeFormatterStatics_Vtbl;
-}
-impl ::core::clone::Clone for IDateTimeFormatterStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDateTimeFormatterStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfcde7c0_df4c_4a2e_9012_f47daf3f1212);
@@ -130,6 +114,7 @@ pub struct IDateTimeFormatterStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DateTimeFormatter(::windows_core::IUnknown);
 impl DateTimeFormatter {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -367,24 +352,8 @@ impl DateTimeFormatter {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for DateTimeFormatter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DateTimeFormatter {}
-impl ::core::fmt::Debug for DateTimeFormatter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DateTimeFormatter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DateTimeFormatter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.DateTimeFormatting.DateTimeFormatter;{95eeca10-73e0-4e4b-a183-3d6ad0ba35ec})");
-}
-impl ::core::clone::Clone for DateTimeFormatter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DateTimeFormatter {
     type Vtable = IDateTimeFormatter_Vtbl;

@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumWIA_DEV_CAPS(::windows_core::IUnknown);
 impl IEnumWIA_DEV_CAPS {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut WIA_DEV_CAP, pceltfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -21,24 +22,8 @@ impl IEnumWIA_DEV_CAPS {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumWIA_DEV_CAPS, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumWIA_DEV_CAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumWIA_DEV_CAPS {}
-impl ::core::fmt::Debug for IEnumWIA_DEV_CAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumWIA_DEV_CAPS").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumWIA_DEV_CAPS {
     type Vtable = IEnumWIA_DEV_CAPS_Vtbl;
-}
-impl ::core::clone::Clone for IEnumWIA_DEV_CAPS {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumWIA_DEV_CAPS {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1fcc4287_aca6_11d2_a093_00c04f72dc3c);
@@ -55,6 +40,7 @@ pub struct IEnumWIA_DEV_CAPS_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumWIA_DEV_INFO(::windows_core::IUnknown);
 impl IEnumWIA_DEV_INFO {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::core::option::Option<IWiaPropertyStorage>, pceltfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -76,24 +62,8 @@ impl IEnumWIA_DEV_INFO {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumWIA_DEV_INFO, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumWIA_DEV_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumWIA_DEV_INFO {}
-impl ::core::fmt::Debug for IEnumWIA_DEV_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumWIA_DEV_INFO").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumWIA_DEV_INFO {
     type Vtable = IEnumWIA_DEV_INFO_Vtbl;
-}
-impl ::core::clone::Clone for IEnumWIA_DEV_INFO {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumWIA_DEV_INFO {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e38b83c_8cf1_11d1_bf92_0060081ed811);
@@ -110,6 +80,7 @@ pub struct IEnumWIA_DEV_INFO_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumWIA_FORMAT_INFO(::windows_core::IUnknown);
 impl IEnumWIA_FORMAT_INFO {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut WIA_FORMAT_INFO, pceltfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -131,24 +102,8 @@ impl IEnumWIA_FORMAT_INFO {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumWIA_FORMAT_INFO, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumWIA_FORMAT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumWIA_FORMAT_INFO {}
-impl ::core::fmt::Debug for IEnumWIA_FORMAT_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumWIA_FORMAT_INFO").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumWIA_FORMAT_INFO {
     type Vtable = IEnumWIA_FORMAT_INFO_Vtbl;
-}
-impl ::core::clone::Clone for IEnumWIA_FORMAT_INFO {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumWIA_FORMAT_INFO {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x81befc5b_656d_44f1_b24c_d41d51b4dc81);
@@ -165,6 +120,7 @@ pub struct IEnumWIA_FORMAT_INFO_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumWiaItem(::windows_core::IUnknown);
 impl IEnumWiaItem {
     pub unsafe fn Next(&self, celt: u32, ppiwiaitem: *mut ::core::option::Option<IWiaItem>, pceltfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -186,24 +142,8 @@ impl IEnumWiaItem {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumWiaItem, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumWiaItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumWiaItem {}
-impl ::core::fmt::Debug for IEnumWiaItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumWiaItem").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumWiaItem {
     type Vtable = IEnumWiaItem_Vtbl;
-}
-impl ::core::clone::Clone for IEnumWiaItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumWiaItem {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e8383fc_3391_11d2_9a33_00c04fa36145);
@@ -220,6 +160,7 @@ pub struct IEnumWiaItem_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumWiaItem2(::windows_core::IUnknown);
 impl IEnumWiaItem2 {
     pub unsafe fn Next(&self, celt: u32, ppiwiaitem2: *mut ::core::option::Option<IWiaItem2>, pceltfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -241,24 +182,8 @@ impl IEnumWiaItem2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumWiaItem2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumWiaItem2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumWiaItem2 {}
-impl ::core::fmt::Debug for IEnumWiaItem2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumWiaItem2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumWiaItem2 {
     type Vtable = IEnumWiaItem2_Vtbl;
-}
-impl ::core::clone::Clone for IEnumWiaItem2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumWiaItem2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x59970af4_cd0d_44d9_ab24_52295630e582);
@@ -275,6 +200,7 @@ pub struct IEnumWiaItem2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaAppErrorHandler(::windows_core::IUnknown);
 impl IWiaAppErrorHandler {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -291,24 +217,8 @@ impl IWiaAppErrorHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaAppErrorHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaAppErrorHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaAppErrorHandler {}
-impl ::core::fmt::Debug for IWiaAppErrorHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaAppErrorHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaAppErrorHandler {
     type Vtable = IWiaAppErrorHandler_Vtbl;
-}
-impl ::core::clone::Clone for IWiaAppErrorHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaAppErrorHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c16186c_d0a6_400c_80f4_d26986a0e734);
@@ -325,6 +235,7 @@ pub struct IWiaAppErrorHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaDataCallback(::windows_core::IUnknown);
 impl IWiaDataCallback {
     pub unsafe fn BandedDataCallback(&self, lmessage: i32, lstatus: i32, lpercentcomplete: i32, loffset: i32, llength: i32, lreserved: i32, lreslength: i32, pbbuffer: *mut u8) -> ::windows_core::Result<()> {
@@ -332,24 +243,8 @@ impl IWiaDataCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaDataCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaDataCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaDataCallback {}
-impl ::core::fmt::Debug for IWiaDataCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaDataCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaDataCallback {
     type Vtable = IWiaDataCallback_Vtbl;
-}
-impl ::core::clone::Clone for IWiaDataCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaDataCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa558a866_a5b0_11d2_a08f_00c04f72dc3c);
@@ -362,6 +257,7 @@ pub struct IWiaDataCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaDataTransfer(::windows_core::IUnknown);
 impl IWiaDataTransfer {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -392,24 +288,8 @@ impl IWiaDataTransfer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaDataTransfer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaDataTransfer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaDataTransfer {}
-impl ::core::fmt::Debug for IWiaDataTransfer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaDataTransfer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaDataTransfer {
     type Vtable = IWiaDataTransfer_Vtbl;
-}
-impl ::core::clone::Clone for IWiaDataTransfer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaDataTransfer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa6cef998_a5b0_11d2_a08f_00c04f72dc3c);
@@ -432,6 +312,7 @@ pub struct IWiaDataTransfer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaDevMgr(::windows_core::IUnknown);
 impl IWiaDevMgr {
     pub unsafe fn EnumDeviceInfo(&self, lflag: i32) -> ::windows_core::Result<IEnumWIA_DEV_INFO> {
@@ -508,24 +389,8 @@ impl IWiaDevMgr {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaDevMgr, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaDevMgr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaDevMgr {}
-impl ::core::fmt::Debug for IWiaDevMgr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaDevMgr").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaDevMgr {
     type Vtable = IWiaDevMgr_Vtbl;
-}
-impl ::core::clone::Clone for IWiaDevMgr {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaDevMgr {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5eb2502a_8cf1_11d1_bf92_0060081ed811);
@@ -558,6 +423,7 @@ pub struct IWiaDevMgr_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaDevMgr2(::windows_core::IUnknown);
 impl IWiaDevMgr2 {
     pub unsafe fn EnumDeviceInfo(&self, lflags: i32) -> ::windows_core::Result<IEnumWIA_DEV_INFO> {
@@ -628,24 +494,8 @@ impl IWiaDevMgr2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaDevMgr2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaDevMgr2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaDevMgr2 {}
-impl ::core::fmt::Debug for IWiaDevMgr2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaDevMgr2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaDevMgr2 {
     type Vtable = IWiaDevMgr2_Vtbl;
-}
-impl ::core::clone::Clone for IWiaDevMgr2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaDevMgr2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79c07cf1_cbdd_41ee_8ec3_f00080cada7a);
@@ -674,6 +524,7 @@ pub struct IWiaDevMgr2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaDrvItem(::windows_core::IUnknown);
 impl IWiaDrvItem {
     pub unsafe fn GetItemFlags(&self) -> ::windows_core::Result<i32> {
@@ -736,24 +587,8 @@ impl IWiaDrvItem {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaDrvItem, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaDrvItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaDrvItem {}
-impl ::core::fmt::Debug for IWiaDrvItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaDrvItem").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaDrvItem {
     type Vtable = IWiaDrvItem_Vtbl;
-}
-impl ::core::clone::Clone for IWiaDrvItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaDrvItem {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1f02b5c5_b00c_11d2_a094_00c04f72dc3c);
@@ -778,6 +613,7 @@ pub struct IWiaDrvItem_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaErrorHandler(::windows_core::IUnknown);
 impl IWiaErrorHandler {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -798,24 +634,8 @@ impl IWiaErrorHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaErrorHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaErrorHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaErrorHandler {}
-impl ::core::fmt::Debug for IWiaErrorHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaErrorHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaErrorHandler {
     type Vtable = IWiaErrorHandler_Vtbl;
-}
-impl ::core::clone::Clone for IWiaErrorHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaErrorHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0e4a51b1_bc1f_443d_a835_72e890759ef3);
@@ -832,6 +652,7 @@ pub struct IWiaErrorHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaEventCallback(::windows_core::IUnknown);
 impl IWiaEventCallback {
     pub unsafe fn ImageEventCallback<P0, P1, P2, P3>(&self, peventguid: *const ::windows_core::GUID, bstreventdescription: P0, bstrdeviceid: P1, bstrdevicedescription: P2, dwdevicetype: u32, bstrfullitemname: P3, puleventtype: *mut u32, ulreserved: u32) -> ::windows_core::Result<()>
@@ -845,24 +666,8 @@ impl IWiaEventCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaEventCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaEventCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaEventCallback {}
-impl ::core::fmt::Debug for IWiaEventCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaEventCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaEventCallback {
     type Vtable = IWiaEventCallback_Vtbl;
-}
-impl ::core::clone::Clone for IWiaEventCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaEventCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae6287b0_0084_11d2_973b_00a0c9068f2e);
@@ -875,6 +680,7 @@ pub struct IWiaEventCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaImageFilter(::windows_core::IUnknown);
 impl IWiaImageFilter {
     pub unsafe fn InitializeFilter<P0, P1>(&self, pwiaitem2: P0, pwiatransfercallback: P1) -> ::windows_core::Result<()>
@@ -907,24 +713,8 @@ impl IWiaImageFilter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaImageFilter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaImageFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaImageFilter {}
-impl ::core::fmt::Debug for IWiaImageFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaImageFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaImageFilter {
     type Vtable = IWiaImageFilter_Vtbl;
-}
-impl ::core::clone::Clone for IWiaImageFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaImageFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8a79ffa_450b_41f1_8f87_849ccd94ebf6);
@@ -943,6 +733,7 @@ pub struct IWiaImageFilter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaItem(::windows_core::IUnknown);
 impl IWiaItem {
     pub unsafe fn GetItemType(&self) -> ::windows_core::Result<i32> {
@@ -1014,24 +805,8 @@ impl IWiaItem {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaItem, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaItem {}
-impl ::core::fmt::Debug for IWiaItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaItem").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaItem {
     type Vtable = IWiaItem_Vtbl;
-}
-impl ::core::clone::Clone for IWiaItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaItem {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4db1ad10_3391_11d2_9a33_00c04fa36145);
@@ -1061,6 +836,7 @@ pub struct IWiaItem_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaItem2(::windows_core::IUnknown);
 impl IWiaItem2 {
     pub unsafe fn CreateChildItem<P0>(&self, litemflags: i32, lcreationflags: i32, bstritemname: P0) -> ::windows_core::Result<IWiaItem2>
@@ -1144,24 +920,8 @@ impl IWiaItem2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaItem2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaItem2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaItem2 {}
-impl ::core::fmt::Debug for IWiaItem2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaItem2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaItem2 {
     type Vtable = IWiaItem2_Vtbl;
-}
-impl ::core::clone::Clone for IWiaItem2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaItem2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6cba0075_1287_407d_9b77_cf0e030435cc);
@@ -1195,6 +955,7 @@ pub struct IWiaItem2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaItemExtras(::windows_core::IUnknown);
 impl IWiaItemExtras {
     pub unsafe fn GetExtendedErrorInfo(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -1209,24 +970,8 @@ impl IWiaItemExtras {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaItemExtras, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaItemExtras {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaItemExtras {}
-impl ::core::fmt::Debug for IWiaItemExtras {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaItemExtras").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaItemExtras {
     type Vtable = IWiaItemExtras_Vtbl;
-}
-impl ::core::clone::Clone for IWiaItemExtras {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaItemExtras {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6291ef2c_36ef_4532_876a_8e132593778d);
@@ -1241,6 +986,7 @@ pub struct IWiaItemExtras_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaLog(::windows_core::IUnknown);
 impl IWiaLog {
     pub unsafe fn InitializeLog(&self, hinstance: i32) -> ::windows_core::Result<()> {
@@ -1257,24 +1003,8 @@ impl IWiaLog {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaLog, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaLog {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaLog {}
-impl ::core::fmt::Debug for IWiaLog {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaLog").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaLog {
     type Vtable = IWiaLog_Vtbl;
-}
-impl ::core::clone::Clone for IWiaLog {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaLog {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa00c10b6_82a1_452f_8b6c_86062aad6890);
@@ -1289,6 +1019,7 @@ pub struct IWiaLog_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaLogEx(::windows_core::IUnknown);
 impl IWiaLogEx {
     pub unsafe fn InitializeLogEx(&self, hinstance: *const u8) -> ::windows_core::Result<()> {
@@ -1314,24 +1045,8 @@ impl IWiaLogEx {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaLogEx, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaLogEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaLogEx {}
-impl ::core::fmt::Debug for IWiaLogEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaLogEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaLogEx {
     type Vtable = IWiaLogEx_Vtbl;
-}
-impl ::core::clone::Clone for IWiaLogEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaLogEx {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaf1f22ac_7a40_4787_b421_aeb47a1fbd0b);
@@ -1348,6 +1063,7 @@ pub struct IWiaLogEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaMiniDrv(::windows_core::IUnknown);
 impl IWiaMiniDrv {
     pub unsafe fn drvInitializeWia<P0, P1, P2, P3>(&self, __midl__iwiaminidrv0000: *const u8, __midl__iwiaminidrv0001: i32, __midl__iwiaminidrv0002: P0, __midl__iwiaminidrv0003: P1, __midl__iwiaminidrv0004: P2, __midl__iwiaminidrv0005: P3, __midl__iwiaminidrv0006: *mut ::core::option::Option<IWiaDrvItem>, __midl__iwiaminidrv0007: *mut ::core::option::Option<::windows_core::IUnknown>, __midl__iwiaminidrv0008: *mut i32) -> ::windows_core::Result<()>
@@ -1428,24 +1144,8 @@ impl IWiaMiniDrv {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaMiniDrv, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaMiniDrv {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaMiniDrv {}
-impl ::core::fmt::Debug for IWiaMiniDrv {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaMiniDrv").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaMiniDrv {
     type Vtable = IWiaMiniDrv_Vtbl;
-}
-impl ::core::clone::Clone for IWiaMiniDrv {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaMiniDrv {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd8cdee14_3c6c_11d2_9a35_00c04fa36145);
@@ -1486,6 +1186,7 @@ pub struct IWiaMiniDrv_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaMiniDrvCallBack(::windows_core::IUnknown);
 impl IWiaMiniDrvCallBack {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1495,24 +1196,8 @@ impl IWiaMiniDrvCallBack {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaMiniDrvCallBack, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaMiniDrvCallBack {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaMiniDrvCallBack {}
-impl ::core::fmt::Debug for IWiaMiniDrvCallBack {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaMiniDrvCallBack").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaMiniDrvCallBack {
     type Vtable = IWiaMiniDrvCallBack_Vtbl;
-}
-impl ::core::clone::Clone for IWiaMiniDrvCallBack {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaMiniDrvCallBack {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33a57d5a_3de8_11d2_9a36_00c04fa36145);
@@ -1528,6 +1213,7 @@ pub struct IWiaMiniDrvCallBack_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaMiniDrvTransferCallback(::windows_core::IUnknown);
 impl IWiaMiniDrvTransferCallback {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1545,24 +1231,8 @@ impl IWiaMiniDrvTransferCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaMiniDrvTransferCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaMiniDrvTransferCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaMiniDrvTransferCallback {}
-impl ::core::fmt::Debug for IWiaMiniDrvTransferCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaMiniDrvTransferCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaMiniDrvTransferCallback {
     type Vtable = IWiaMiniDrvTransferCallback_Vtbl;
-}
-impl ::core::clone::Clone for IWiaMiniDrvTransferCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaMiniDrvTransferCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9d2ee89_2ce5_4ff0_8adb_c961d1d774ca);
@@ -1579,6 +1249,7 @@ pub struct IWiaMiniDrvTransferCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaNotifyDevMgr(::windows_core::IUnknown);
 impl IWiaNotifyDevMgr {
     pub unsafe fn NewDeviceArrival(&self) -> ::windows_core::Result<()> {
@@ -1586,24 +1257,8 @@ impl IWiaNotifyDevMgr {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaNotifyDevMgr, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaNotifyDevMgr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaNotifyDevMgr {}
-impl ::core::fmt::Debug for IWiaNotifyDevMgr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaNotifyDevMgr").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaNotifyDevMgr {
     type Vtable = IWiaNotifyDevMgr_Vtbl;
-}
-impl ::core::clone::Clone for IWiaNotifyDevMgr {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaNotifyDevMgr {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x70681ea0_e7bf_4291_9fb1_4e8813a3f78e);
@@ -1616,6 +1271,7 @@ pub struct IWiaNotifyDevMgr_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaPreview(::windows_core::IUnknown);
 impl IWiaPreview {
     pub unsafe fn GetNewPreview<P0, P1>(&self, lflags: i32, pwiaitem2: P0, pwiatransfercallback: P1) -> ::windows_core::Result<()>
@@ -1640,24 +1296,8 @@ impl IWiaPreview {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaPreview, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaPreview {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaPreview {}
-impl ::core::fmt::Debug for IWiaPreview {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaPreview").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaPreview {
     type Vtable = IWiaPreview_Vtbl;
-}
-impl ::core::clone::Clone for IWiaPreview {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaPreview {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95c2b4fd_33f2_4d86_ad40_9431f0df08f7);
@@ -1673,6 +1313,7 @@ pub struct IWiaPreview_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaPropertyStorage(::windows_core::IUnknown);
 impl IWiaPropertyStorage {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
@@ -1748,24 +1389,8 @@ impl IWiaPropertyStorage {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaPropertyStorage, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaPropertyStorage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaPropertyStorage {}
-impl ::core::fmt::Debug for IWiaPropertyStorage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaPropertyStorage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaPropertyStorage {
     type Vtable = IWiaPropertyStorage_Vtbl;
-}
-impl ::core::clone::Clone for IWiaPropertyStorage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaPropertyStorage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98b5e8a0_29cc_491a_aac0_e6db4fdcceb6);
@@ -1820,6 +1445,7 @@ pub struct IWiaPropertyStorage_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaSegmentationFilter(::windows_core::IUnknown);
 impl IWiaSegmentationFilter {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1833,24 +1459,8 @@ impl IWiaSegmentationFilter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaSegmentationFilter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaSegmentationFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaSegmentationFilter {}
-impl ::core::fmt::Debug for IWiaSegmentationFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaSegmentationFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaSegmentationFilter {
     type Vtable = IWiaSegmentationFilter_Vtbl;
-}
-impl ::core::clone::Clone for IWiaSegmentationFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaSegmentationFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xec46a697_ac04_4447_8f65_ff63d5154b21);
@@ -1866,6 +1476,7 @@ pub struct IWiaSegmentationFilter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaTransfer(::windows_core::IUnknown);
 impl IWiaTransfer {
     pub unsafe fn Download<P0>(&self, lflags: i32, piwiatransfercallback: P0) -> ::windows_core::Result<()>
@@ -1892,24 +1503,8 @@ impl IWiaTransfer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaTransfer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaTransfer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaTransfer {}
-impl ::core::fmt::Debug for IWiaTransfer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaTransfer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaTransfer {
     type Vtable = IWiaTransfer_Vtbl;
-}
-impl ::core::clone::Clone for IWiaTransfer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaTransfer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc39d6942_2f4e_4d04_92fe_4ef4d3a1de5a);
@@ -1928,6 +1523,7 @@ pub struct IWiaTransfer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaTransferCallback(::windows_core::IUnknown);
 impl IWiaTransferCallback {
     pub unsafe fn TransferCallback(&self, lflags: i32, pwiatransferparams: *const WiaTransferParams) -> ::windows_core::Result<()> {
@@ -1945,24 +1541,8 @@ impl IWiaTransferCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaTransferCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaTransferCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaTransferCallback {}
-impl ::core::fmt::Debug for IWiaTransferCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaTransferCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaTransferCallback {
     type Vtable = IWiaTransferCallback_Vtbl;
-}
-impl ::core::clone::Clone for IWiaTransferCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaTransferCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27d4eaaf_28a6_4ca5_9aab_e678168b9527);
@@ -1979,6 +1559,7 @@ pub struct IWiaTransferCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaUIExtension(::windows_core::IUnknown);
 impl IWiaUIExtension {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2004,24 +1585,8 @@ impl IWiaUIExtension {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaUIExtension, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaUIExtension {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaUIExtension {}
-impl ::core::fmt::Debug for IWiaUIExtension {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaUIExtension").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaUIExtension {
     type Vtable = IWiaUIExtension_Vtbl;
-}
-impl ::core::clone::Clone for IWiaUIExtension {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaUIExtension {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda319113_50ee_4c80_b460_57d005d44a2c);
@@ -2045,6 +1610,7 @@ pub struct IWiaUIExtension_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaUIExtension2(::windows_core::IUnknown);
 impl IWiaUIExtension2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2062,24 +1628,8 @@ impl IWiaUIExtension2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaUIExtension2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaUIExtension2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaUIExtension2 {}
-impl ::core::fmt::Debug for IWiaUIExtension2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaUIExtension2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaUIExtension2 {
     type Vtable = IWiaUIExtension2_Vtbl;
-}
-impl ::core::clone::Clone for IWiaUIExtension2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaUIExtension2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x305600d7_5088_46d7_9a15_b77b09cdba7a);
@@ -2099,6 +1649,7 @@ pub struct IWiaUIExtension2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWiaVideo(::windows_core::IUnknown);
 impl IWiaVideo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2184,24 +1735,8 @@ impl IWiaVideo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWiaVideo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWiaVideo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWiaVideo {}
-impl ::core::fmt::Debug for IWiaVideo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWiaVideo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWiaVideo {
     type Vtable = IWiaVideo_Vtbl;
-}
-impl ::core::clone::Clone for IWiaVideo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWiaVideo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd52920aa_db88_41f0_946c_e00dc0a19cfa);

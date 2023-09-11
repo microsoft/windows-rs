@@ -150,6 +150,7 @@ pub unsafe fn ReplaceTextW(param0: *mut FINDREPLACEW) -> super::super::super::Fo
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintDialogCallback(::windows_core::IUnknown);
 impl IPrintDialogCallback {
     pub unsafe fn InitDone(&self) -> ::windows_core::Result<()> {
@@ -170,24 +171,8 @@ impl IPrintDialogCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintDialogCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintDialogCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintDialogCallback {}
-impl ::core::fmt::Debug for IPrintDialogCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintDialogCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintDialogCallback {
     type Vtable = IPrintDialogCallback_Vtbl;
-}
-impl ::core::clone::Clone for IPrintDialogCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintDialogCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5852a2c3_6530_11d1_b6a3_0000f8757bf9);
@@ -205,6 +190,7 @@ pub struct IPrintDialogCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintDialogServices(::windows_core::IUnknown);
 impl IPrintDialogServices {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -220,24 +206,8 @@ impl IPrintDialogServices {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintDialogServices, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintDialogServices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintDialogServices {}
-impl ::core::fmt::Debug for IPrintDialogServices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintDialogServices").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintDialogServices {
     type Vtable = IPrintDialogServices_Vtbl;
-}
-impl ::core::clone::Clone for IPrintDialogServices {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintDialogServices {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x509aaeda_5639_11d1_b6a1_0000f8757bf9);

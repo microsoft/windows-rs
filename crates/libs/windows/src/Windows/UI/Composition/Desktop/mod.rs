@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDesktopWindowTarget(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDesktopWindowTarget {
     type Vtable = IDesktopWindowTarget_Vtbl;
-}
-impl ::core::clone::Clone for IDesktopWindowTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDesktopWindowTarget {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6329d6ca_3366_490e_9db3_25312929ac51);
@@ -20,6 +16,7 @@ pub struct IDesktopWindowTarget_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Composition_Desktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DesktopWindowTarget(::windows_core::IUnknown);
 impl DesktopWindowTarget {
     pub fn PopulatePropertyInfo<P0>(&self, propertyname: &::windows_core::HSTRING, propertyinfo: P0) -> ::windows_core::Result<()>
@@ -154,24 +151,8 @@ impl DesktopWindowTarget {
         }
     }
 }
-impl ::core::cmp::PartialEq for DesktopWindowTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DesktopWindowTarget {}
-impl ::core::fmt::Debug for DesktopWindowTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DesktopWindowTarget").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DesktopWindowTarget {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Desktop.DesktopWindowTarget;{6329d6ca-3366-490e-9db3-25312929ac51})");
-}
-impl ::core::clone::Clone for DesktopWindowTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DesktopWindowTarget {
     type Vtable = IDesktopWindowTarget_Vtbl;

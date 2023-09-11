@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWPCGamesSettings(::windows_core::IUnknown);
 impl IWPCGamesSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -24,24 +25,8 @@ impl IWPCGamesSettings {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWPCGamesSettings, ::windows_core::IUnknown, IWPCSettings);
-impl ::core::cmp::PartialEq for IWPCGamesSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWPCGamesSettings {}
-impl ::core::fmt::Debug for IWPCGamesSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWPCGamesSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWPCGamesSettings {
     type Vtable = IWPCGamesSettings_Vtbl;
-}
-impl ::core::clone::Clone for IWPCGamesSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWPCGamesSettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95e87780_e158_489e_b452_bbb850790715);
@@ -54,6 +39,7 @@ pub struct IWPCGamesSettings_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWPCProviderConfig(::windows_core::IUnknown);
 impl IWPCProviderConfig {
     pub unsafe fn GetUserSummary<P0>(&self, bstrsid: P0) -> ::windows_core::Result<::windows_core::BSTR>
@@ -83,24 +69,8 @@ impl IWPCProviderConfig {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWPCProviderConfig, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWPCProviderConfig {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWPCProviderConfig {}
-impl ::core::fmt::Debug for IWPCProviderConfig {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWPCProviderConfig").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWPCProviderConfig {
     type Vtable = IWPCProviderConfig_Vtbl;
-}
-impl ::core::clone::Clone for IWPCProviderConfig {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWPCProviderConfig {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbef54196_2d02_4a26_b6e5_d65af295d0f1);
@@ -121,6 +91,7 @@ pub struct IWPCProviderConfig_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWPCProviderState(::windows_core::IUnknown);
 impl IWPCProviderState {
     pub unsafe fn Enable(&self) -> ::windows_core::Result<()> {
@@ -131,24 +102,8 @@ impl IWPCProviderState {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWPCProviderState, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWPCProviderState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWPCProviderState {}
-impl ::core::fmt::Debug for IWPCProviderState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWPCProviderState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWPCProviderState {
     type Vtable = IWPCProviderState_Vtbl;
-}
-impl ::core::clone::Clone for IWPCProviderState {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWPCProviderState {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x50b6a267_c4bd_450b_adb5_759073837c9e);
@@ -162,6 +117,7 @@ pub struct IWPCProviderState_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWPCProviderSupport(::windows_core::IUnknown);
 impl IWPCProviderSupport {
     pub unsafe fn GetCurrent(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -170,24 +126,8 @@ impl IWPCProviderSupport {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWPCProviderSupport, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWPCProviderSupport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWPCProviderSupport {}
-impl ::core::fmt::Debug for IWPCProviderSupport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWPCProviderSupport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWPCProviderSupport {
     type Vtable = IWPCProviderSupport_Vtbl;
-}
-impl ::core::clone::Clone for IWPCProviderSupport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWPCProviderSupport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x41eba572_23ed_4779_bec1_8df96206c44c);
@@ -200,6 +140,7 @@ pub struct IWPCProviderSupport_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWPCSettings(::windows_core::IUnknown);
 impl IWPCSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -220,24 +161,8 @@ impl IWPCSettings {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWPCSettings, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWPCSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWPCSettings {}
-impl ::core::fmt::Debug for IWPCSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWPCSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWPCSettings {
     type Vtable = IWPCSettings_Vtbl;
-}
-impl ::core::clone::Clone for IWPCSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWPCSettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8fdf6ca1_0189_47e4_b670_1a8a4636e340);
@@ -258,6 +183,7 @@ pub struct IWPCSettings_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWPCWebSettings(::windows_core::IUnknown);
 impl IWPCWebSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -292,24 +218,8 @@ impl IWPCWebSettings {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWPCWebSettings, ::windows_core::IUnknown, IWPCSettings);
-impl ::core::cmp::PartialEq for IWPCWebSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWPCWebSettings {}
-impl ::core::fmt::Debug for IWPCWebSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWPCWebSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWPCWebSettings {
     type Vtable = IWPCWebSettings_Vtbl;
-}
-impl ::core::clone::Clone for IWPCWebSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWPCWebSettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xffccbdb8_0992_4c30_b0f1_1cbb09c240aa);
@@ -326,6 +236,7 @@ pub struct IWPCWebSettings_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowsParentalControls(::windows_core::IUnknown);
 impl IWindowsParentalControls {
     pub unsafe fn GetVisibility(&self) -> ::windows_core::Result<WPCFLAG_VISIBILITY> {
@@ -358,24 +269,8 @@ impl IWindowsParentalControls {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWindowsParentalControls, ::windows_core::IUnknown, IWindowsParentalControlsCore);
-impl ::core::cmp::PartialEq for IWindowsParentalControls {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWindowsParentalControls {}
-impl ::core::fmt::Debug for IWindowsParentalControls {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsParentalControls").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWindowsParentalControls {
     type Vtable = IWindowsParentalControls_Vtbl;
-}
-impl ::core::clone::Clone for IWindowsParentalControls {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWindowsParentalControls {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28b4d88b_e072_49e6_804d_26edbe21a7b9);
@@ -388,6 +283,7 @@ pub struct IWindowsParentalControls_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ParentalControls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowsParentalControlsCore(::windows_core::IUnknown);
 impl IWindowsParentalControlsCore {
     pub unsafe fn GetVisibility(&self) -> ::windows_core::Result<WPCFLAG_VISIBILITY> {
@@ -413,24 +309,8 @@ impl IWindowsParentalControlsCore {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWindowsParentalControlsCore, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWindowsParentalControlsCore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWindowsParentalControlsCore {}
-impl ::core::fmt::Debug for IWindowsParentalControlsCore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsParentalControlsCore").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWindowsParentalControlsCore {
     type Vtable = IWindowsParentalControlsCore_Vtbl;
-}
-impl ::core::clone::Clone for IWindowsParentalControlsCore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWindowsParentalControlsCore {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4ff40a0f_3f3b_4d7c_a41b_4f39d7b44d05);

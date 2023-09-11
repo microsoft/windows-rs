@@ -22,6 +22,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDMLBindingTable(::windows_core::IUnknown);
 impl IDMLBindingTable {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -68,24 +69,8 @@ impl IDMLBindingTable {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDMLBindingTable, ::windows_core::IUnknown, IDMLObject, IDMLDeviceChild);
-impl ::core::cmp::PartialEq for IDMLBindingTable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDMLBindingTable {}
-impl ::core::fmt::Debug for IDMLBindingTable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDMLBindingTable").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDMLBindingTable {
     type Vtable = IDMLBindingTable_Vtbl;
-}
-impl ::core::clone::Clone for IDMLBindingTable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDMLBindingTable {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x29c687dc_de74_4e3b_ab00_1168f2fc3cfc);
@@ -105,6 +90,7 @@ pub struct IDMLBindingTable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDMLCommandRecorder(::windows_core::IUnknown);
 impl IDMLCommandRecorder {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -144,24 +130,8 @@ impl IDMLCommandRecorder {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDMLCommandRecorder, ::windows_core::IUnknown, IDMLObject, IDMLDeviceChild);
-impl ::core::cmp::PartialEq for IDMLCommandRecorder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDMLCommandRecorder {}
-impl ::core::fmt::Debug for IDMLCommandRecorder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDMLCommandRecorder").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDMLCommandRecorder {
     type Vtable = IDMLCommandRecorder_Vtbl;
-}
-impl ::core::clone::Clone for IDMLCommandRecorder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDMLCommandRecorder {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe6857a76_2e3e_4fdd_bff4_5d2ba10fb453);
@@ -177,6 +147,7 @@ pub struct IDMLCommandRecorder_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDMLCompiledOperator(::windows_core::IUnknown);
 impl IDMLCompiledOperator {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -211,24 +182,8 @@ impl IDMLCompiledOperator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDMLCompiledOperator, ::windows_core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable, IDMLDispatchable);
-impl ::core::cmp::PartialEq for IDMLCompiledOperator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDMLCompiledOperator {}
-impl ::core::fmt::Debug for IDMLCompiledOperator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDMLCompiledOperator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDMLCompiledOperator {
     type Vtable = IDMLCompiledOperator_Vtbl;
-}
-impl ::core::clone::Clone for IDMLCompiledOperator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDMLCompiledOperator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b15e56a_bf5c_4902_92d8_da3a650afea4);
@@ -240,6 +195,7 @@ pub struct IDMLCompiledOperator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDMLDebugDevice(::windows_core::IUnknown);
 impl IDMLDebugDevice {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -252,24 +208,8 @@ impl IDMLDebugDevice {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDMLDebugDevice, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDMLDebugDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDMLDebugDevice {}
-impl ::core::fmt::Debug for IDMLDebugDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDMLDebugDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDMLDebugDevice {
     type Vtable = IDMLDebugDevice_Vtbl;
-}
-impl ::core::clone::Clone for IDMLDebugDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDMLDebugDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d6f3ac9_394a_4ac3_92a7_390cc57a8217);
@@ -285,6 +225,7 @@ pub struct IDMLDebugDevice_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDMLDevice(::windows_core::IUnknown);
 impl IDMLDevice {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -362,24 +303,8 @@ impl IDMLDevice {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDMLDevice, ::windows_core::IUnknown, IDMLObject);
-impl ::core::cmp::PartialEq for IDMLDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDMLDevice {}
-impl ::core::fmt::Debug for IDMLDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDMLDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDMLDevice {
     type Vtable = IDMLDevice_Vtbl;
-}
-impl ::core::clone::Clone for IDMLDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDMLDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6dbd6437_96fd_423f_a98c_ae5e7c2a573f);
@@ -404,6 +329,7 @@ pub struct IDMLDevice_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDMLDevice1(::windows_core::IUnknown);
 impl IDMLDevice1 {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -487,24 +413,8 @@ impl IDMLDevice1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDMLDevice1, ::windows_core::IUnknown, IDMLObject, IDMLDevice);
-impl ::core::cmp::PartialEq for IDMLDevice1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDMLDevice1 {}
-impl ::core::fmt::Debug for IDMLDevice1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDMLDevice1").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDMLDevice1 {
     type Vtable = IDMLDevice1_Vtbl;
-}
-impl ::core::clone::Clone for IDMLDevice1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDMLDevice1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa0884f9a_d2be_4355_aa5d_5901281ad1d2);
@@ -517,6 +427,7 @@ pub struct IDMLDevice1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDMLDeviceChild(::windows_core::IUnknown);
 impl IDMLDeviceChild {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -546,24 +457,8 @@ impl IDMLDeviceChild {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDMLDeviceChild, ::windows_core::IUnknown, IDMLObject);
-impl ::core::cmp::PartialEq for IDMLDeviceChild {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDMLDeviceChild {}
-impl ::core::fmt::Debug for IDMLDeviceChild {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDMLDeviceChild").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDMLDeviceChild {
     type Vtable = IDMLDeviceChild_Vtbl;
-}
-impl ::core::clone::Clone for IDMLDeviceChild {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDMLDeviceChild {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27e83142_8165_49e3_974e_2fd66e4cb69d);
@@ -576,6 +471,7 @@ pub struct IDMLDeviceChild_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDMLDispatchable(::windows_core::IUnknown);
 impl IDMLDispatchable {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -610,24 +506,8 @@ impl IDMLDispatchable {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDMLDispatchable, ::windows_core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable);
-impl ::core::cmp::PartialEq for IDMLDispatchable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDMLDispatchable {}
-impl ::core::fmt::Debug for IDMLDispatchable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDMLDispatchable").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDMLDispatchable {
     type Vtable = IDMLDispatchable_Vtbl;
-}
-impl ::core::clone::Clone for IDMLDispatchable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDMLDispatchable {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcb821a8_1039_441e_9f1c_b1759c2f3cec);
@@ -640,6 +520,7 @@ pub struct IDMLDispatchable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDMLObject(::windows_core::IUnknown);
 impl IDMLObject {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -662,24 +543,8 @@ impl IDMLObject {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDMLObject, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDMLObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDMLObject {}
-impl ::core::fmt::Debug for IDMLObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDMLObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDMLObject {
     type Vtable = IDMLObject_Vtbl;
-}
-impl ::core::clone::Clone for IDMLObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDMLObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc8263aac_9e0c_4a2d_9b8e_007521a3317c);
@@ -695,6 +560,7 @@ pub struct IDMLObject_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDMLOperator(::windows_core::IUnknown);
 impl IDMLOperator {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -724,24 +590,8 @@ impl IDMLOperator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDMLOperator, ::windows_core::IUnknown, IDMLObject, IDMLDeviceChild);
-impl ::core::cmp::PartialEq for IDMLOperator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDMLOperator {}
-impl ::core::fmt::Debug for IDMLOperator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDMLOperator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDMLOperator {
     type Vtable = IDMLOperator_Vtbl;
-}
-impl ::core::clone::Clone for IDMLOperator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDMLOperator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x26caae7a_3081_4633_9581_226fbe57695d);
@@ -753,6 +603,7 @@ pub struct IDMLOperator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDMLOperatorInitializer(::windows_core::IUnknown);
 impl IDMLOperatorInitializer {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -790,24 +641,8 @@ impl IDMLOperatorInitializer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDMLOperatorInitializer, ::windows_core::IUnknown, IDMLObject, IDMLDeviceChild, IDMLPageable, IDMLDispatchable);
-impl ::core::cmp::PartialEq for IDMLOperatorInitializer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDMLOperatorInitializer {}
-impl ::core::fmt::Debug for IDMLOperatorInitializer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDMLOperatorInitializer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDMLOperatorInitializer {
     type Vtable = IDMLOperatorInitializer_Vtbl;
-}
-impl ::core::clone::Clone for IDMLOperatorInitializer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDMLOperatorInitializer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x427c1113_435c_469c_8676_4d5dd072f813);
@@ -820,6 +655,7 @@ pub struct IDMLOperatorInitializer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_AI_MachineLearning_DirectML\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDMLPageable(::windows_core::IUnknown);
 impl IDMLPageable {
     pub unsafe fn GetPrivateData(&self, guid: *const ::windows_core::GUID, datasize: *mut u32, data: ::core::option::Option<*mut ::core::ffi::c_void>) -> ::windows_core::Result<()> {
@@ -849,24 +685,8 @@ impl IDMLPageable {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDMLPageable, ::windows_core::IUnknown, IDMLObject, IDMLDeviceChild);
-impl ::core::cmp::PartialEq for IDMLPageable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDMLPageable {}
-impl ::core::fmt::Debug for IDMLPageable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDMLPageable").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDMLPageable {
     type Vtable = IDMLPageable_Vtbl;
-}
-impl ::core::clone::Clone for IDMLPageable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDMLPageable {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb1ab0825_4542_4a4b_8617_6dde6e8f6201);

@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISideShowBulkCapabilities(::windows_core::IUnknown);
 impl ISideShowBulkCapabilities {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -15,24 +16,8 @@ impl ISideShowBulkCapabilities {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISideShowBulkCapabilities, ::windows_core::IUnknown, ISideShowCapabilities);
-impl ::core::cmp::PartialEq for ISideShowBulkCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowBulkCapabilities {}
-impl ::core::fmt::Debug for ISideShowBulkCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowBulkCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISideShowBulkCapabilities {
     type Vtable = ISideShowBulkCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for ISideShowBulkCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISideShowBulkCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a2b7fbc_3ad5_48bd_bbf1_0e6cfbd10807);
@@ -45,6 +30,7 @@ pub struct ISideShowBulkCapabilities_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISideShowCapabilities(::windows_core::IUnknown);
 impl ISideShowCapabilities {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -54,24 +40,8 @@ impl ISideShowCapabilities {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISideShowCapabilities, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISideShowCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowCapabilities {}
-impl ::core::fmt::Debug for ISideShowCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowCapabilities").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISideShowCapabilities {
     type Vtable = ISideShowCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for ISideShowCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISideShowCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x535e1379_c09e_4a54_a511_597bab3a72b8);
@@ -87,6 +57,7 @@ pub struct ISideShowCapabilities_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISideShowCapabilitiesCollection(::windows_core::IUnknown);
 impl ISideShowCapabilitiesCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -99,24 +70,8 @@ impl ISideShowCapabilitiesCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISideShowCapabilitiesCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISideShowCapabilitiesCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowCapabilitiesCollection {}
-impl ::core::fmt::Debug for ISideShowCapabilitiesCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowCapabilitiesCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISideShowCapabilitiesCollection {
     type Vtable = ISideShowCapabilitiesCollection_Vtbl;
-}
-impl ::core::clone::Clone for ISideShowCapabilitiesCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISideShowCapabilitiesCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x50305597_5e0d_4ff7_b3af_33d0d9bd52dd);
@@ -130,6 +85,7 @@ pub struct ISideShowCapabilitiesCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISideShowContent(::windows_core::IUnknown);
 impl ISideShowContent {
     pub unsafe fn GetContent<P0>(&self, in_picapabilities: P0, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows_core::Result<()>
@@ -150,24 +106,8 @@ impl ISideShowContent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISideShowContent, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISideShowContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowContent {}
-impl ::core::fmt::Debug for ISideShowContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowContent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISideShowContent {
     type Vtable = ISideShowContent_Vtbl;
-}
-impl ::core::clone::Clone for ISideShowContent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISideShowContent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc18552ed_74ff_4fec_be07_4cfed29d4887);
@@ -185,6 +125,7 @@ pub struct ISideShowContent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISideShowContentManager(::windows_core::IUnknown);
 impl ISideShowContentManager {
     pub unsafe fn Add<P0>(&self, in_picontent: P0) -> ::windows_core::Result<()>
@@ -211,24 +152,8 @@ impl ISideShowContentManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISideShowContentManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISideShowContentManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowContentManager {}
-impl ::core::fmt::Debug for ISideShowContentManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowContentManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISideShowContentManager {
     type Vtable = ISideShowContentManager_Vtbl;
-}
-impl ::core::clone::Clone for ISideShowContentManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISideShowContentManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa5d5b66b_eef9_41db_8d7e_e17c33ab10b0);
@@ -245,6 +170,7 @@ pub struct ISideShowContentManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISideShowEvents(::windows_core::IUnknown);
 impl ISideShowEvents {
     pub unsafe fn ContentMissing(&self, in_contentid: u32) -> ::windows_core::Result<ISideShowContent> {
@@ -271,24 +197,8 @@ impl ISideShowEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISideShowEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISideShowEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowEvents {}
-impl ::core::fmt::Debug for ISideShowEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISideShowEvents {
     type Vtable = ISideShowEvents_Vtbl;
-}
-impl ::core::clone::Clone for ISideShowEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISideShowEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x61feca4c_deb4_4a7e_8d75_51f1132d615b);
@@ -304,6 +214,7 @@ pub struct ISideShowEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISideShowKeyCollection(::windows_core::IUnknown);
 impl ISideShowKeyCollection {
     #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
@@ -327,24 +238,8 @@ impl ISideShowKeyCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISideShowKeyCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISideShowKeyCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowKeyCollection {}
-impl ::core::fmt::Debug for ISideShowKeyCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowKeyCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISideShowKeyCollection {
     type Vtable = ISideShowKeyCollection_Vtbl;
-}
-impl ::core::clone::Clone for ISideShowKeyCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISideShowKeyCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x045473bc_a37b_4957_b144_68105411ed8e);
@@ -367,6 +262,7 @@ pub struct ISideShowKeyCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISideShowNotification(::windows_core::IUnknown);
 impl ISideShowNotification {
     pub unsafe fn NotificationId(&self) -> ::windows_core::Result<u32> {
@@ -423,24 +319,8 @@ impl ISideShowNotification {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISideShowNotification, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISideShowNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowNotification {}
-impl ::core::fmt::Debug for ISideShowNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowNotification").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISideShowNotification {
     type Vtable = ISideShowNotification_Vtbl;
-}
-impl ::core::clone::Clone for ISideShowNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISideShowNotification {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03c93300_8ab2_41c5_9b79_46127a30e148);
@@ -474,6 +354,7 @@ pub struct ISideShowNotification_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISideShowNotificationManager(::windows_core::IUnknown);
 impl ISideShowNotificationManager {
     pub unsafe fn Show<P0>(&self, in_pinotification: P0) -> ::windows_core::Result<()>
@@ -490,24 +371,8 @@ impl ISideShowNotificationManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISideShowNotificationManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISideShowNotificationManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowNotificationManager {}
-impl ::core::fmt::Debug for ISideShowNotificationManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowNotificationManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISideShowNotificationManager {
     type Vtable = ISideShowNotificationManager_Vtbl;
-}
-impl ::core::clone::Clone for ISideShowNotificationManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISideShowNotificationManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x63cea909_f2b9_4302_b5e1_c68e6d9ab833);
@@ -522,6 +387,7 @@ pub struct ISideShowNotificationManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISideShowPropVariantCollection(::windows_core::IUnknown);
 impl ISideShowPropVariantCollection {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
@@ -545,24 +411,8 @@ impl ISideShowPropVariantCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISideShowPropVariantCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISideShowPropVariantCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowPropVariantCollection {}
-impl ::core::fmt::Debug for ISideShowPropVariantCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowPropVariantCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISideShowPropVariantCollection {
     type Vtable = ISideShowPropVariantCollection_Vtbl;
-}
-impl ::core::clone::Clone for ISideShowPropVariantCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISideShowPropVariantCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2ea7a549_7bff_4aae_bab0_22d43111de49);
@@ -585,6 +435,7 @@ pub struct ISideShowPropVariantCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_SideShow\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISideShowSession(::windows_core::IUnknown);
 impl ISideShowSession {
     pub unsafe fn RegisterContent(&self, in_applicationid: *const ::windows_core::GUID, in_endpointid: *const ::windows_core::GUID) -> ::windows_core::Result<ISideShowContentManager> {
@@ -597,24 +448,8 @@ impl ISideShowSession {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISideShowSession, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISideShowSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISideShowSession {}
-impl ::core::fmt::Debug for ISideShowSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISideShowSession").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISideShowSession {
     type Vtable = ISideShowSession_Vtbl;
-}
-impl ::core::clone::Clone for ISideShowSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISideShowSession {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe22331ee_9e7d_4922_9fc2_ab7aa41ce491);

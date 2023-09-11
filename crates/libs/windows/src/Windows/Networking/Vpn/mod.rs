@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnAppId(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnAppId {
     type Vtable = IVpnAppId_Vtbl;
-}
-impl ::core::clone::Clone for IVpnAppId {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnAppId {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b06a635_5c58_41d9_94a7_bfbcf1d8ca54);
@@ -23,14 +19,10 @@ pub struct IVpnAppId_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnAppIdFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnAppIdFactory {
     type Vtable = IVpnAppIdFactory_Vtbl;
-}
-impl ::core::clone::Clone for IVpnAppIdFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnAppIdFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x46adfd2a_0aab_4fdb_821d_d3ddc919788b);
@@ -43,14 +35,10 @@ pub struct IVpnAppIdFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnChannel(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnChannel {
     type Vtable = IVpnChannel_Vtbl;
-}
-impl ::core::clone::Clone for IVpnChannel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnChannel {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4ac78d07_d1a8_4303_a091_c8d2e0915bc3);
@@ -93,14 +81,10 @@ pub struct IVpnChannel_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnChannel2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnChannel2 {
     type Vtable = IVpnChannel2_Vtbl;
-}
-impl ::core::clone::Clone for IVpnChannel2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnChannel2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2255d165_993b_4629_ad60_f1c3f3537f50);
@@ -151,14 +135,10 @@ pub struct IVpnChannel2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnChannel4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnChannel4 {
     type Vtable = IVpnChannel4_Vtbl;
-}
-impl ::core::clone::Clone for IVpnChannel4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnChannel4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7266ede_2937_419d_9570_486aebb81803);
@@ -182,14 +162,10 @@ pub struct IVpnChannel4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnChannel5(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnChannel5 {
     type Vtable = IVpnChannel5_Vtbl;
-}
-impl ::core::clone::Clone for IVpnChannel5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnChannel5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xde7a0992_8384_4fbc_882c_1fd23124cd3b);
@@ -205,14 +181,10 @@ pub struct IVpnChannel5_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnChannel6(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnChannel6 {
     type Vtable = IVpnChannel6_Vtbl;
-}
-impl ::core::clone::Clone for IVpnChannel6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnChannel6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x55843696_bd63_49c5_abca_5da77885551a);
@@ -228,14 +200,10 @@ pub struct IVpnChannel6_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnChannelActivityEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnChannelActivityEventArgs {
     type Vtable = IVpnChannelActivityEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IVpnChannelActivityEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnChannelActivityEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa36c88f2_afdc_4775_855d_d4ac0a35fc55);
@@ -248,14 +216,10 @@ pub struct IVpnChannelActivityEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnChannelActivityStateChangedArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnChannelActivityStateChangedArgs {
     type Vtable = IVpnChannelActivityStateChangedArgs_Vtbl;
-}
-impl ::core::clone::Clone for IVpnChannelActivityStateChangedArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnChannelActivityStateChangedArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d750565_fdc0_4bbe_a23b_45fffc6d97a1);
@@ -268,14 +232,10 @@ pub struct IVpnChannelActivityStateChangedArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnChannelConfiguration(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnChannelConfiguration {
     type Vtable = IVpnChannelConfiguration_Vtbl;
-}
-impl ::core::clone::Clone for IVpnChannelConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnChannelConfiguration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0e2ddca2_2012_4fe4_b179_8c652c6d107e);
@@ -293,14 +253,10 @@ pub struct IVpnChannelConfiguration_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnChannelConfiguration2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnChannelConfiguration2 {
     type Vtable = IVpnChannelConfiguration2_Vtbl;
-}
-impl ::core::clone::Clone for IVpnChannelConfiguration2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnChannelConfiguration2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf30b574c_7824_471c_a118_63dbc93ae4c7);
@@ -316,6 +272,7 @@ pub struct IVpnChannelConfiguration2_Vtbl {
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnChannelStatics(::windows_core::IUnknown);
 impl IVpnChannelStatics {
     pub fn ProcessEventAsync<P0, P1>(&self, thirdpartyplugin: P0, event: P1) -> ::windows_core::Result<()>
@@ -328,27 +285,11 @@ impl IVpnChannelStatics {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVpnChannelStatics, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IVpnChannelStatics {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVpnChannelStatics {}
-impl ::core::fmt::Debug for IVpnChannelStatics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVpnChannelStatics").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IVpnChannelStatics {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{88eb062d-e818-4ffd-98a6-363e3736c95d}");
 }
 unsafe impl ::windows_core::Interface for IVpnChannelStatics {
     type Vtable = IVpnChannelStatics_Vtbl;
-}
-impl ::core::clone::Clone for IVpnChannelStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnChannelStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88eb062d_e818_4ffd_98a6_363e3736c95d);
@@ -361,6 +302,7 @@ pub struct IVpnChannelStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnCredential(::windows_core::IUnknown);
 impl IVpnCredential {
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -399,27 +341,11 @@ impl IVpnCredential {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVpnCredential, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IVpnCredential {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVpnCredential {}
-impl ::core::fmt::Debug for IVpnCredential {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVpnCredential").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IVpnCredential {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{b7e78af3-a46d-404b-8729-1832522853ac}");
 }
 unsafe impl ::windows_core::Interface for IVpnCredential {
     type Vtable = IVpnCredential_Vtbl;
-}
-impl ::core::clone::Clone for IVpnCredential {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnCredential {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb7e78af3_a46d_404b_8729_1832522853ac);
@@ -444,14 +370,10 @@ pub struct IVpnCredential_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnCustomCheckBox(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnCustomCheckBox {
     type Vtable = IVpnCustomCheckBox_Vtbl;
-}
-impl ::core::clone::Clone for IVpnCustomCheckBox {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnCustomCheckBox {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43878753_03c5_4e61_93d7_a957714c4282);
@@ -466,14 +388,10 @@ pub struct IVpnCustomCheckBox_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnCustomComboBox(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnCustomComboBox {
     type Vtable = IVpnCustomComboBox_Vtbl;
-}
-impl ::core::clone::Clone for IVpnCustomComboBox {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnCustomComboBox {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a24158e_dba1_4c6f_8270_dcf3c9761c4c);
@@ -494,14 +412,10 @@ pub struct IVpnCustomComboBox_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnCustomEditBox(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnCustomEditBox {
     type Vtable = IVpnCustomEditBox_Vtbl;
-}
-impl ::core::clone::Clone for IVpnCustomEditBox {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnCustomEditBox {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3002d9a0_cfbf_4c0b_8f3c_66f503c20b39);
@@ -518,14 +432,10 @@ pub struct IVpnCustomEditBox_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnCustomErrorBox(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnCustomErrorBox {
     type Vtable = IVpnCustomErrorBox_Vtbl;
-}
-impl ::core::clone::Clone for IVpnCustomErrorBox {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnCustomErrorBox {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9ec4efb2_c942_42af_b223_588b48328721);
@@ -537,6 +447,7 @@ pub struct IVpnCustomErrorBox_Vtbl {
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnCustomPrompt(::windows_core::IUnknown);
 impl IVpnCustomPrompt {
     pub fn SetLabel(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -574,27 +485,11 @@ impl IVpnCustomPrompt {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVpnCustomPrompt, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IVpnCustomPrompt {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVpnCustomPrompt {}
-impl ::core::fmt::Debug for IVpnCustomPrompt {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVpnCustomPrompt").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IVpnCustomPrompt {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{9b2ebe7b-87d5-433c-b4f6-eee6aa68a244}");
 }
 unsafe impl ::windows_core::Interface for IVpnCustomPrompt {
     type Vtable = IVpnCustomPrompt_Vtbl;
-}
-impl ::core::clone::Clone for IVpnCustomPrompt {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnCustomPrompt {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b2ebe7b_87d5_433c_b4f6_eee6aa68a244);
@@ -612,14 +507,10 @@ pub struct IVpnCustomPrompt_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnCustomPromptBooleanInput(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnCustomPromptBooleanInput {
     type Vtable = IVpnCustomPromptBooleanInput_Vtbl;
-}
-impl ::core::clone::Clone for IVpnCustomPromptBooleanInput {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnCustomPromptBooleanInput {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4c9a69e_ff47_4527_9f27_a49292019979);
@@ -634,6 +525,7 @@ pub struct IVpnCustomPromptBooleanInput_Vtbl {
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnCustomPromptElement(::windows_core::IUnknown);
 impl IVpnCustomPromptElement {
     pub fn SetDisplayName(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -671,27 +563,11 @@ impl IVpnCustomPromptElement {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVpnCustomPromptElement, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IVpnCustomPromptElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVpnCustomPromptElement {}
-impl ::core::fmt::Debug for IVpnCustomPromptElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVpnCustomPromptElement").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IVpnCustomPromptElement {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{73bd5638-6f04-404d-93dd-50a44924a38b}");
 }
 unsafe impl ::windows_core::Interface for IVpnCustomPromptElement {
     type Vtable = IVpnCustomPromptElement_Vtbl;
-}
-impl ::core::clone::Clone for IVpnCustomPromptElement {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnCustomPromptElement {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73bd5638_6f04_404d_93dd_50a44924a38b);
@@ -709,14 +585,10 @@ pub struct IVpnCustomPromptElement_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnCustomPromptOptionSelector(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnCustomPromptOptionSelector {
     type Vtable = IVpnCustomPromptOptionSelector_Vtbl;
-}
-impl ::core::clone::Clone for IVpnCustomPromptOptionSelector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnCustomPromptOptionSelector {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3b8f34d9_8ec1_4e95_9a4e_7ba64d38f330);
@@ -733,14 +605,10 @@ pub struct IVpnCustomPromptOptionSelector_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnCustomPromptText(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnCustomPromptText {
     type Vtable = IVpnCustomPromptText_Vtbl;
-}
-impl ::core::clone::Clone for IVpnCustomPromptText {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnCustomPromptText {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3bc8bdee_3a42_49a3_abdd_07b2edea752d);
@@ -754,14 +622,10 @@ pub struct IVpnCustomPromptText_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnCustomPromptTextInput(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnCustomPromptTextInput {
     type Vtable = IVpnCustomPromptTextInput_Vtbl;
-}
-impl ::core::clone::Clone for IVpnCustomPromptTextInput {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnCustomPromptTextInput {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc9da9c75_913c_47d5_88ba_48fc48930235);
@@ -778,14 +642,10 @@ pub struct IVpnCustomPromptTextInput_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnCustomTextBox(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnCustomTextBox {
     type Vtable = IVpnCustomTextBox_Vtbl;
-}
-impl ::core::clone::Clone for IVpnCustomTextBox {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnCustomTextBox {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdaa4c3ca_8f23_4d36_91f1_76d937827942);
@@ -799,14 +659,10 @@ pub struct IVpnCustomTextBox_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnDomainNameAssignment(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnDomainNameAssignment {
     type Vtable = IVpnDomainNameAssignment_Vtbl;
-}
-impl ::core::clone::Clone for IVpnDomainNameAssignment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnDomainNameAssignment {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4135b141_ccdb_49b5_9401_039a8ae767e9);
@@ -830,14 +686,10 @@ pub struct IVpnDomainNameAssignment_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnDomainNameInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnDomainNameInfo {
     type Vtable = IVpnDomainNameInfo_Vtbl;
-}
-impl ::core::clone::Clone for IVpnDomainNameInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnDomainNameInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad2eb82f_ea8e_4f7a_843e_1a87e32e1b9a);
@@ -861,14 +713,10 @@ pub struct IVpnDomainNameInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnDomainNameInfo2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnDomainNameInfo2 {
     type Vtable = IVpnDomainNameInfo2_Vtbl;
-}
-impl ::core::clone::Clone for IVpnDomainNameInfo2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnDomainNameInfo2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab871151_6c53_4828_9883_d886de104407);
@@ -884,6 +732,7 @@ pub struct IVpnDomainNameInfo2_Vtbl {
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnDomainNameInfoFactory(::windows_core::IUnknown);
 impl IVpnDomainNameInfoFactory {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -901,27 +750,11 @@ impl IVpnDomainNameInfoFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVpnDomainNameInfoFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IVpnDomainNameInfoFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVpnDomainNameInfoFactory {}
-impl ::core::fmt::Debug for IVpnDomainNameInfoFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVpnDomainNameInfoFactory").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IVpnDomainNameInfoFactory {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{2507bb75-028f-4688-8d3a-c4531df37da8}");
 }
 unsafe impl ::windows_core::Interface for IVpnDomainNameInfoFactory {
     type Vtable = IVpnDomainNameInfoFactory_Vtbl;
-}
-impl ::core::clone::Clone for IVpnDomainNameInfoFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnDomainNameInfoFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2507bb75_028f_4688_8d3a_c4531df37da8);
@@ -937,14 +770,10 @@ pub struct IVpnDomainNameInfoFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnForegroundActivatedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnForegroundActivatedEventArgs {
     type Vtable = IVpnForegroundActivatedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IVpnForegroundActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnForegroundActivatedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x85b465b0_cadb_4d70_ac92_543a24dc9ebc);
@@ -962,14 +791,10 @@ pub struct IVpnForegroundActivatedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnForegroundActivationOperation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnForegroundActivationOperation {
     type Vtable = IVpnForegroundActivationOperation_Vtbl;
-}
-impl ::core::clone::Clone for IVpnForegroundActivationOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnForegroundActivationOperation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e010d57_f17a_4bd5_9b6d_f984f1297d3c);
@@ -985,14 +810,10 @@ pub struct IVpnForegroundActivationOperation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnInterfaceId(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnInterfaceId {
     type Vtable = IVpnInterfaceId_Vtbl;
-}
-impl ::core::clone::Clone for IVpnInterfaceId {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnInterfaceId {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e2ddca2_1712_4ce4_b179_8c652c6d1011);
@@ -1005,6 +826,7 @@ pub struct IVpnInterfaceId_Vtbl {
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnInterfaceIdFactory(::windows_core::IUnknown);
 impl IVpnInterfaceIdFactory {
     pub fn CreateVpnInterfaceId(&self, address: &[u8]) -> ::windows_core::Result<VpnInterfaceId> {
@@ -1016,27 +838,11 @@ impl IVpnInterfaceIdFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVpnInterfaceIdFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IVpnInterfaceIdFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVpnInterfaceIdFactory {}
-impl ::core::fmt::Debug for IVpnInterfaceIdFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVpnInterfaceIdFactory").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IVpnInterfaceIdFactory {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{9e2ddca2-1712-4ce4-b179-8c652c6d1000}");
 }
 unsafe impl ::windows_core::Interface for IVpnInterfaceIdFactory {
     type Vtable = IVpnInterfaceIdFactory_Vtbl;
-}
-impl ::core::clone::Clone for IVpnInterfaceIdFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnInterfaceIdFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e2ddca2_1712_4ce4_b179_8c652c6d1000);
@@ -1049,14 +855,10 @@ pub struct IVpnInterfaceIdFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnManagementAgent(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnManagementAgent {
     type Vtable = IVpnManagementAgent_Vtbl;
-}
-impl ::core::clone::Clone for IVpnManagementAgent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnManagementAgent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x193696cd_a5c4_4abe_852b_785be4cb3e34);
@@ -1104,14 +906,10 @@ pub struct IVpnManagementAgent_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnNamespaceAssignment(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnNamespaceAssignment {
     type Vtable = IVpnNamespaceAssignment_Vtbl;
-}
-impl ::core::clone::Clone for IVpnNamespaceAssignment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnNamespaceAssignment {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7f7db18_307d_4c0e_bd62_8fa270bbadd6);
@@ -1139,14 +937,10 @@ pub struct IVpnNamespaceAssignment_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnNamespaceInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnNamespaceInfo {
     type Vtable = IVpnNamespaceInfo_Vtbl;
-}
-impl ::core::clone::Clone for IVpnNamespaceInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnNamespaceInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30edfb43_444f_44c5_8167_a35a91f1af94);
@@ -1176,6 +970,7 @@ pub struct IVpnNamespaceInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnNamespaceInfoFactory(::windows_core::IUnknown);
 impl IVpnNamespaceInfoFactory {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1193,27 +988,11 @@ impl IVpnNamespaceInfoFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVpnNamespaceInfoFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IVpnNamespaceInfoFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVpnNamespaceInfoFactory {}
-impl ::core::fmt::Debug for IVpnNamespaceInfoFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVpnNamespaceInfoFactory").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IVpnNamespaceInfoFactory {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{cb3e951a-b0ce-442b-acbb-5f99b202c31c}");
 }
 unsafe impl ::windows_core::Interface for IVpnNamespaceInfoFactory {
     type Vtable = IVpnNamespaceInfoFactory_Vtbl;
-}
-impl ::core::clone::Clone for IVpnNamespaceInfoFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnNamespaceInfoFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb3e951a_b0ce_442b_acbb_5f99b202c31c);
@@ -1229,14 +1008,10 @@ pub struct IVpnNamespaceInfoFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnNativeProfile(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnNativeProfile {
     type Vtable = IVpnNativeProfile_Vtbl;
-}
-impl ::core::clone::Clone for IVpnNativeProfile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnNativeProfile {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa4aee29e_6417_4333_9842_f0a66db69802);
@@ -1262,14 +1037,10 @@ pub struct IVpnNativeProfile_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnNativeProfile2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnNativeProfile2 {
     type Vtable = IVpnNativeProfile2_Vtbl;
-}
-impl ::core::clone::Clone for IVpnNativeProfile2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnNativeProfile2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0fec2467_cdb5_4ac7_b5a3_0afb5ec47682);
@@ -1284,14 +1055,10 @@ pub struct IVpnNativeProfile2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnPacketBuffer(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnPacketBuffer {
     type Vtable = IVpnPacketBuffer_Vtbl;
-}
-impl ::core::clone::Clone for IVpnPacketBuffer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnPacketBuffer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2f891fc_4d5c_4a63_b70d_4e307eacce55);
@@ -1311,14 +1078,10 @@ pub struct IVpnPacketBuffer_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnPacketBuffer2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnPacketBuffer2 {
     type Vtable = IVpnPacketBuffer2_Vtbl;
-}
-impl ::core::clone::Clone for IVpnPacketBuffer2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnPacketBuffer2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x665e91f0_8805_4bf5_a619_2e84882e6b4f);
@@ -1331,14 +1094,10 @@ pub struct IVpnPacketBuffer2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnPacketBuffer3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnPacketBuffer3 {
     type Vtable = IVpnPacketBuffer3_Vtbl;
-}
-impl ::core::clone::Clone for IVpnPacketBuffer3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnPacketBuffer3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe256072f_107b_4c40_b127_5bc53e0ad960);
@@ -1352,6 +1111,7 @@ pub struct IVpnPacketBuffer3_Vtbl {
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnPacketBufferFactory(::windows_core::IUnknown);
 impl IVpnPacketBufferFactory {
     pub fn CreateVpnPacketBuffer<P0>(&self, parentbuffer: P0, offset: u32, length: u32) -> ::windows_core::Result<VpnPacketBuffer>
@@ -1366,27 +1126,11 @@ impl IVpnPacketBufferFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVpnPacketBufferFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IVpnPacketBufferFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVpnPacketBufferFactory {}
-impl ::core::fmt::Debug for IVpnPacketBufferFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVpnPacketBufferFactory").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IVpnPacketBufferFactory {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{9e2ddca2-1712-4ce4-b179-8c652c6d9999}");
 }
 unsafe impl ::windows_core::Interface for IVpnPacketBufferFactory {
     type Vtable = IVpnPacketBufferFactory_Vtbl;
-}
-impl ::core::clone::Clone for IVpnPacketBufferFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnPacketBufferFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e2ddca2_1712_4ce4_b179_8c652c6d9999);
@@ -1399,14 +1143,10 @@ pub struct IVpnPacketBufferFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnPacketBufferList(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnPacketBufferList {
     type Vtable = IVpnPacketBufferList_Vtbl;
-}
-impl ::core::clone::Clone for IVpnPacketBufferList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnPacketBufferList {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2f891fc_4d5c_4a63_b70d_4e307eacce77);
@@ -1426,14 +1166,10 @@ pub struct IVpnPacketBufferList_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnPacketBufferList2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnPacketBufferList2 {
     type Vtable = IVpnPacketBufferList2_Vtbl;
-}
-impl ::core::clone::Clone for IVpnPacketBufferList2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnPacketBufferList2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3e7acfe5_ea1e_482a_8d98_c065f57d89ea);
@@ -1449,14 +1185,10 @@ pub struct IVpnPacketBufferList2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnPickedCredential(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnPickedCredential {
     type Vtable = IVpnPickedCredential_Vtbl;
-}
-impl ::core::clone::Clone for IVpnPickedCredential {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnPickedCredential {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a793ac7_8854_4e52_ad97_24dd9a842bce);
@@ -1477,6 +1209,7 @@ pub struct IVpnPickedCredential_Vtbl {
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnPlugIn(::windows_core::IUnknown);
 impl IVpnPlugIn {
     pub fn Connect<P0>(&self, channel: P0) -> ::windows_core::Result<()>
@@ -1521,27 +1254,11 @@ impl IVpnPlugIn {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVpnPlugIn, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IVpnPlugIn {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVpnPlugIn {}
-impl ::core::fmt::Debug for IVpnPlugIn {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVpnPlugIn").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IVpnPlugIn {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{ceb78d07-d0a8-4703-a091-c8c2c0915bc4}");
 }
 unsafe impl ::windows_core::Interface for IVpnPlugIn {
     type Vtable = IVpnPlugIn_Vtbl;
-}
-impl ::core::clone::Clone for IVpnPlugIn {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnPlugIn {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xceb78d07_d0a8_4703_a091_c8c2c0915bc4);
@@ -1558,14 +1275,10 @@ pub struct IVpnPlugIn_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnPlugInProfile(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnPlugInProfile {
     type Vtable = IVpnPlugInProfile_Vtbl;
-}
-impl ::core::clone::Clone for IVpnPlugInProfile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnPlugInProfile {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0edf0da4_4f00_4589_8d7b_4bf988f6542c);
@@ -1585,14 +1298,10 @@ pub struct IVpnPlugInProfile_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnPlugInProfile2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnPlugInProfile2 {
     type Vtable = IVpnPlugInProfile2_Vtbl;
-}
-impl ::core::clone::Clone for IVpnPlugInProfile2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnPlugInProfile2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x611c4892_cf94_4ad6_ba99_00f4ff34565e);
@@ -1607,6 +1316,7 @@ pub struct IVpnPlugInProfile2_Vtbl {
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnProfile(::windows_core::IUnknown);
 impl IVpnProfile {
     pub fn ProfileName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1680,27 +1390,11 @@ impl IVpnProfile {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVpnProfile, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IVpnProfile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVpnProfile {}
-impl ::core::fmt::Debug for IVpnProfile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVpnProfile").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IVpnProfile {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{7875b751-b0d7-43db-8a93-d3fe2479e56a}");
 }
 unsafe impl ::windows_core::Interface for IVpnProfile {
     type Vtable = IVpnProfile_Vtbl;
-}
-impl ::core::clone::Clone for IVpnProfile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnProfile {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7875b751_b0d7_43db_8a93_d3fe2479e56a);
@@ -1734,14 +1428,10 @@ pub struct IVpnProfile_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnRoute(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnRoute {
     type Vtable = IVpnRoute_Vtbl;
-}
-impl ::core::clone::Clone for IVpnRoute {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnRoute {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5731b83_0969_4699_938e_7776db29cfb3);
@@ -1757,14 +1447,10 @@ pub struct IVpnRoute_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnRouteAssignment(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnRouteAssignment {
     type Vtable = IVpnRouteAssignment_Vtbl;
-}
-impl ::core::clone::Clone for IVpnRouteAssignment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnRouteAssignment {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdb64de22_ce39_4a76_9550_f61039f80e48);
@@ -1810,6 +1496,7 @@ pub struct IVpnRouteAssignment_Vtbl {
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnRouteFactory(::windows_core::IUnknown);
 impl IVpnRouteFactory {
     pub fn CreateVpnRoute<P0>(&self, address: P0, prefixsize: u8) -> ::windows_core::Result<VpnRoute>
@@ -1824,27 +1511,11 @@ impl IVpnRouteFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IVpnRouteFactory, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IVpnRouteFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IVpnRouteFactory {}
-impl ::core::fmt::Debug for IVpnRouteFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVpnRouteFactory").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IVpnRouteFactory {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{bdeab5ff-45cf-4b99-83fb-db3bc2672b02}");
 }
 unsafe impl ::windows_core::Interface for IVpnRouteFactory {
     type Vtable = IVpnRouteFactory_Vtbl;
-}
-impl ::core::clone::Clone for IVpnRouteFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnRouteFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbdeab5ff_45cf_4b99_83fb_db3bc2672b02);
@@ -1857,14 +1528,10 @@ pub struct IVpnRouteFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnSystemHealth(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnSystemHealth {
     type Vtable = IVpnSystemHealth_Vtbl;
-}
-impl ::core::clone::Clone for IVpnSystemHealth {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnSystemHealth {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x99a8f8af_c0ee_4e75_817a_f231aee5123d);
@@ -1880,14 +1547,10 @@ pub struct IVpnSystemHealth_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnTrafficFilter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnTrafficFilter {
     type Vtable = IVpnTrafficFilter_Vtbl;
-}
-impl ::core::clone::Clone for IVpnTrafficFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnTrafficFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2f691b60_6c9f_47f5_ac36_bb1b042e2c50);
@@ -1925,14 +1588,10 @@ pub struct IVpnTrafficFilter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnTrafficFilterAssignment(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnTrafficFilterAssignment {
     type Vtable = IVpnTrafficFilterAssignment_Vtbl;
-}
-impl ::core::clone::Clone for IVpnTrafficFilterAssignment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnTrafficFilterAssignment {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x56ccd45c_e664_471e_89cd_601603b9e0f3);
@@ -1952,14 +1611,10 @@ pub struct IVpnTrafficFilterAssignment_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVpnTrafficFilterFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVpnTrafficFilterFactory {
     type Vtable = IVpnTrafficFilterFactory_Vtbl;
-}
-impl ::core::clone::Clone for IVpnTrafficFilterFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVpnTrafficFilterFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x480d41d5_7f99_474c_86ee_96df168318f1);
@@ -1972,6 +1627,7 @@ pub struct IVpnTrafficFilterFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnAppId(::windows_core::IUnknown);
 impl VpnAppId {
     pub fn Type(&self) -> ::windows_core::Result<VpnAppIdType> {
@@ -2008,24 +1664,8 @@ impl VpnAppId {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for VpnAppId {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnAppId {}
-impl ::core::fmt::Debug for VpnAppId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnAppId").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnAppId {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnAppId;{7b06a635-5c58-41d9-94a7-bfbcf1d8ca54})");
-}
-impl ::core::clone::Clone for VpnAppId {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnAppId {
     type Vtable = IVpnAppId_Vtbl;
@@ -2041,6 +1681,7 @@ unsafe impl ::core::marker::Send for VpnAppId {}
 unsafe impl ::core::marker::Sync for VpnAppId {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnChannel(::windows_core::IUnknown);
 impl VpnChannel {
     pub fn AssociateTransport<P0, P1>(&self, mainoutertunneltransport: P0, optionaloutertunneltransport: P1) -> ::windows_core::Result<()>
@@ -2389,24 +2030,8 @@ impl VpnChannel {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for VpnChannel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnChannel {}
-impl ::core::fmt::Debug for VpnChannel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnChannel").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnChannel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnChannel;{4ac78d07-d1a8-4303-a091-c8d2e0915bc3})");
-}
-impl ::core::clone::Clone for VpnChannel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnChannel {
     type Vtable = IVpnChannel_Vtbl;
@@ -2422,6 +2047,7 @@ unsafe impl ::core::marker::Send for VpnChannel {}
 unsafe impl ::core::marker::Sync for VpnChannel {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnChannelActivityEventArgs(::windows_core::IUnknown);
 impl VpnChannelActivityEventArgs {
     pub fn Type(&self) -> ::windows_core::Result<VpnChannelActivityEventType> {
@@ -2432,24 +2058,8 @@ impl VpnChannelActivityEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for VpnChannelActivityEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnChannelActivityEventArgs {}
-impl ::core::fmt::Debug for VpnChannelActivityEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnChannelActivityEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnChannelActivityEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnChannelActivityEventArgs;{a36c88f2-afdc-4775-855d-d4ac0a35fc55})");
-}
-impl ::core::clone::Clone for VpnChannelActivityEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnChannelActivityEventArgs {
     type Vtable = IVpnChannelActivityEventArgs_Vtbl;
@@ -2465,6 +2075,7 @@ unsafe impl ::core::marker::Send for VpnChannelActivityEventArgs {}
 unsafe impl ::core::marker::Sync for VpnChannelActivityEventArgs {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnChannelActivityStateChangedArgs(::windows_core::IUnknown);
 impl VpnChannelActivityStateChangedArgs {
     pub fn ActivityState(&self) -> ::windows_core::Result<VpnChannelActivityEventType> {
@@ -2475,24 +2086,8 @@ impl VpnChannelActivityStateChangedArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for VpnChannelActivityStateChangedArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnChannelActivityStateChangedArgs {}
-impl ::core::fmt::Debug for VpnChannelActivityStateChangedArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnChannelActivityStateChangedArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnChannelActivityStateChangedArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnChannelActivityStateChangedArgs;{3d750565-fdc0-4bbe-a23b-45fffc6d97a1})");
-}
-impl ::core::clone::Clone for VpnChannelActivityStateChangedArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnChannelActivityStateChangedArgs {
     type Vtable = IVpnChannelActivityStateChangedArgs_Vtbl;
@@ -2508,6 +2103,7 @@ unsafe impl ::core::marker::Send for VpnChannelActivityStateChangedArgs {}
 unsafe impl ::core::marker::Sync for VpnChannelActivityStateChangedArgs {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnChannelConfiguration(::windows_core::IUnknown);
 impl VpnChannelConfiguration {
     pub fn ServerServiceName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2543,24 +2139,8 @@ impl VpnChannelConfiguration {
         }
     }
 }
-impl ::core::cmp::PartialEq for VpnChannelConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnChannelConfiguration {}
-impl ::core::fmt::Debug for VpnChannelConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnChannelConfiguration").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnChannelConfiguration {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnChannelConfiguration;{0e2ddca2-2012-4fe4-b179-8c652c6d107e})");
-}
-impl ::core::clone::Clone for VpnChannelConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnChannelConfiguration {
     type Vtable = IVpnChannelConfiguration_Vtbl;
@@ -2576,6 +2156,7 @@ unsafe impl ::core::marker::Send for VpnChannelConfiguration {}
 unsafe impl ::core::marker::Sync for VpnChannelConfiguration {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnCredential(::windows_core::IUnknown);
 impl VpnCredential {
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -2613,24 +2194,8 @@ impl VpnCredential {
         }
     }
 }
-impl ::core::cmp::PartialEq for VpnCredential {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnCredential {}
-impl ::core::fmt::Debug for VpnCredential {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnCredential").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnCredential {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCredential;{b7e78af3-a46d-404b-8729-1832522853ac})");
-}
-impl ::core::clone::Clone for VpnCredential {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnCredential {
     type Vtable = IVpnCredential_Vtbl;
@@ -2647,6 +2212,7 @@ unsafe impl ::core::marker::Send for VpnCredential {}
 unsafe impl ::core::marker::Sync for VpnCredential {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnCustomCheckBox(::windows_core::IUnknown);
 impl VpnCustomCheckBox {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2708,24 +2274,8 @@ impl VpnCustomCheckBox {
         }
     }
 }
-impl ::core::cmp::PartialEq for VpnCustomCheckBox {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnCustomCheckBox {}
-impl ::core::fmt::Debug for VpnCustomCheckBox {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnCustomCheckBox").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnCustomCheckBox {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomCheckBox;{43878753-03c5-4e61-93d7-a957714c4282})");
-}
-impl ::core::clone::Clone for VpnCustomCheckBox {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnCustomCheckBox {
     type Vtable = IVpnCustomCheckBox_Vtbl;
@@ -2742,6 +2292,7 @@ unsafe impl ::core::marker::Send for VpnCustomCheckBox {}
 unsafe impl ::core::marker::Sync for VpnCustomCheckBox {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnCustomComboBox(::windows_core::IUnknown);
 impl VpnCustomComboBox {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2810,24 +2361,8 @@ impl VpnCustomComboBox {
         }
     }
 }
-impl ::core::cmp::PartialEq for VpnCustomComboBox {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnCustomComboBox {}
-impl ::core::fmt::Debug for VpnCustomComboBox {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnCustomComboBox").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnCustomComboBox {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomComboBox;{9a24158e-dba1-4c6f-8270-dcf3c9761c4c})");
-}
-impl ::core::clone::Clone for VpnCustomComboBox {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnCustomComboBox {
     type Vtable = IVpnCustomComboBox_Vtbl;
@@ -2844,6 +2379,7 @@ unsafe impl ::core::marker::Send for VpnCustomComboBox {}
 unsafe impl ::core::marker::Sync for VpnCustomComboBox {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnCustomEditBox(::windows_core::IUnknown);
 impl VpnCustomEditBox {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2916,24 +2452,8 @@ impl VpnCustomEditBox {
         }
     }
 }
-impl ::core::cmp::PartialEq for VpnCustomEditBox {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnCustomEditBox {}
-impl ::core::fmt::Debug for VpnCustomEditBox {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnCustomEditBox").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnCustomEditBox {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomEditBox;{3002d9a0-cfbf-4c0b-8f3c-66f503c20b39})");
-}
-impl ::core::clone::Clone for VpnCustomEditBox {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnCustomEditBox {
     type Vtable = IVpnCustomEditBox_Vtbl;
@@ -2950,6 +2470,7 @@ unsafe impl ::core::marker::Send for VpnCustomEditBox {}
 unsafe impl ::core::marker::Sync for VpnCustomEditBox {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnCustomErrorBox(::windows_core::IUnknown);
 impl VpnCustomErrorBox {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2993,24 +2514,8 @@ impl VpnCustomErrorBox {
         }
     }
 }
-impl ::core::cmp::PartialEq for VpnCustomErrorBox {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnCustomErrorBox {}
-impl ::core::fmt::Debug for VpnCustomErrorBox {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnCustomErrorBox").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnCustomErrorBox {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomErrorBox;{9ec4efb2-c942-42af-b223-588b48328721})");
-}
-impl ::core::clone::Clone for VpnCustomErrorBox {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnCustomErrorBox {
     type Vtable = IVpnCustomErrorBox_Vtbl;
@@ -3027,6 +2532,7 @@ unsafe impl ::core::marker::Send for VpnCustomErrorBox {}
 unsafe impl ::core::marker::Sync for VpnCustomErrorBox {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnCustomPromptBooleanInput(::windows_core::IUnknown);
 impl VpnCustomPromptBooleanInput {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -3088,24 +2594,8 @@ impl VpnCustomPromptBooleanInput {
         }
     }
 }
-impl ::core::cmp::PartialEq for VpnCustomPromptBooleanInput {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnCustomPromptBooleanInput {}
-impl ::core::fmt::Debug for VpnCustomPromptBooleanInput {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnCustomPromptBooleanInput").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnCustomPromptBooleanInput {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomPromptBooleanInput;{c4c9a69e-ff47-4527-9f27-a49292019979})");
-}
-impl ::core::clone::Clone for VpnCustomPromptBooleanInput {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnCustomPromptBooleanInput {
     type Vtable = IVpnCustomPromptBooleanInput_Vtbl;
@@ -3122,6 +2612,7 @@ unsafe impl ::core::marker::Send for VpnCustomPromptBooleanInput {}
 unsafe impl ::core::marker::Sync for VpnCustomPromptBooleanInput {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnCustomPromptOptionSelector(::windows_core::IUnknown);
 impl VpnCustomPromptOptionSelector {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -3181,24 +2672,8 @@ impl VpnCustomPromptOptionSelector {
         }
     }
 }
-impl ::core::cmp::PartialEq for VpnCustomPromptOptionSelector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnCustomPromptOptionSelector {}
-impl ::core::fmt::Debug for VpnCustomPromptOptionSelector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnCustomPromptOptionSelector").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnCustomPromptOptionSelector {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomPromptOptionSelector;{3b8f34d9-8ec1-4e95-9a4e-7ba64d38f330})");
-}
-impl ::core::clone::Clone for VpnCustomPromptOptionSelector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnCustomPromptOptionSelector {
     type Vtable = IVpnCustomPromptOptionSelector_Vtbl;
@@ -3215,6 +2690,7 @@ unsafe impl ::core::marker::Send for VpnCustomPromptOptionSelector {}
 unsafe impl ::core::marker::Sync for VpnCustomPromptOptionSelector {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnCustomPromptText(::windows_core::IUnknown);
 impl VpnCustomPromptText {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -3269,24 +2745,8 @@ impl VpnCustomPromptText {
         }
     }
 }
-impl ::core::cmp::PartialEq for VpnCustomPromptText {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnCustomPromptText {}
-impl ::core::fmt::Debug for VpnCustomPromptText {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnCustomPromptText").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnCustomPromptText {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomPromptText;{3bc8bdee-3a42-49a3-abdd-07b2edea752d})");
-}
-impl ::core::clone::Clone for VpnCustomPromptText {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnCustomPromptText {
     type Vtable = IVpnCustomPromptText_Vtbl;
@@ -3303,6 +2763,7 @@ unsafe impl ::core::marker::Send for VpnCustomPromptText {}
 unsafe impl ::core::marker::Sync for VpnCustomPromptText {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnCustomPromptTextInput(::windows_core::IUnknown);
 impl VpnCustomPromptTextInput {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -3375,24 +2836,8 @@ impl VpnCustomPromptTextInput {
         }
     }
 }
-impl ::core::cmp::PartialEq for VpnCustomPromptTextInput {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnCustomPromptTextInput {}
-impl ::core::fmt::Debug for VpnCustomPromptTextInput {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnCustomPromptTextInput").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnCustomPromptTextInput {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomPromptTextInput;{c9da9c75-913c-47d5-88ba-48fc48930235})");
-}
-impl ::core::clone::Clone for VpnCustomPromptTextInput {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnCustomPromptTextInput {
     type Vtable = IVpnCustomPromptTextInput_Vtbl;
@@ -3409,6 +2854,7 @@ unsafe impl ::core::marker::Send for VpnCustomPromptTextInput {}
 unsafe impl ::core::marker::Sync for VpnCustomPromptTextInput {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnCustomTextBox(::windows_core::IUnknown);
 impl VpnCustomTextBox {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -3463,24 +2909,8 @@ impl VpnCustomTextBox {
         }
     }
 }
-impl ::core::cmp::PartialEq for VpnCustomTextBox {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnCustomTextBox {}
-impl ::core::fmt::Debug for VpnCustomTextBox {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnCustomTextBox").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnCustomTextBox {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomTextBox;{daa4c3ca-8f23-4d36-91f1-76d937827942})");
-}
-impl ::core::clone::Clone for VpnCustomTextBox {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnCustomTextBox {
     type Vtable = IVpnCustomTextBox_Vtbl;
@@ -3497,6 +2927,7 @@ unsafe impl ::core::marker::Send for VpnCustomTextBox {}
 unsafe impl ::core::marker::Sync for VpnCustomTextBox {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnDomainNameAssignment(::windows_core::IUnknown);
 impl VpnDomainNameAssignment {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -3534,24 +2965,8 @@ impl VpnDomainNameAssignment {
         }
     }
 }
-impl ::core::cmp::PartialEq for VpnDomainNameAssignment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnDomainNameAssignment {}
-impl ::core::fmt::Debug for VpnDomainNameAssignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnDomainNameAssignment").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnDomainNameAssignment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnDomainNameAssignment;{4135b141-ccdb-49b5-9401-039a8ae767e9})");
-}
-impl ::core::clone::Clone for VpnDomainNameAssignment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnDomainNameAssignment {
     type Vtable = IVpnDomainNameAssignment_Vtbl;
@@ -3567,6 +2982,7 @@ unsafe impl ::core::marker::Send for VpnDomainNameAssignment {}
 unsafe impl ::core::marker::Sync for VpnDomainNameAssignment {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnDomainNameInfo(::windows_core::IUnknown);
 impl VpnDomainNameInfo {
     pub fn SetDomainName<P0>(&self, value: P0) -> ::windows_core::Result<()>
@@ -3639,24 +3055,8 @@ impl VpnDomainNameInfo {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for VpnDomainNameInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnDomainNameInfo {}
-impl ::core::fmt::Debug for VpnDomainNameInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnDomainNameInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnDomainNameInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnDomainNameInfo;{ad2eb82f-ea8e-4f7a-843e-1a87e32e1b9a})");
-}
-impl ::core::clone::Clone for VpnDomainNameInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnDomainNameInfo {
     type Vtable = IVpnDomainNameInfo_Vtbl;
@@ -3672,6 +3072,7 @@ unsafe impl ::core::marker::Send for VpnDomainNameInfo {}
 unsafe impl ::core::marker::Sync for VpnDomainNameInfo {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnForegroundActivatedEventArgs(::windows_core::IUnknown);
 impl VpnForegroundActivatedEventArgs {
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -3734,24 +3135,8 @@ impl VpnForegroundActivatedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for VpnForegroundActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnForegroundActivatedEventArgs {}
-impl ::core::fmt::Debug for VpnForegroundActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnForegroundActivatedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnForegroundActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnForegroundActivatedEventArgs;{85b465b0-cadb-4d70-ac92-543a24dc9ebc})");
-}
-impl ::core::clone::Clone for VpnForegroundActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnForegroundActivatedEventArgs {
     type Vtable = IVpnForegroundActivatedEventArgs_Vtbl;
@@ -3771,6 +3156,7 @@ unsafe impl ::core::marker::Send for VpnForegroundActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for VpnForegroundActivatedEventArgs {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnForegroundActivationOperation(::windows_core::IUnknown);
 impl VpnForegroundActivationOperation {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3783,24 +3169,8 @@ impl VpnForegroundActivationOperation {
         unsafe { (::windows_core::Interface::vtable(this).Complete)(::windows_core::Interface::as_raw(this), result.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for VpnForegroundActivationOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnForegroundActivationOperation {}
-impl ::core::fmt::Debug for VpnForegroundActivationOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnForegroundActivationOperation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnForegroundActivationOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnForegroundActivationOperation;{9e010d57-f17a-4bd5-9b6d-f984f1297d3c})");
-}
-impl ::core::clone::Clone for VpnForegroundActivationOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnForegroundActivationOperation {
     type Vtable = IVpnForegroundActivationOperation_Vtbl;
@@ -3816,6 +3186,7 @@ unsafe impl ::core::marker::Send for VpnForegroundActivationOperation {}
 unsafe impl ::core::marker::Sync for VpnForegroundActivationOperation {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnInterfaceId(::windows_core::IUnknown);
 impl VpnInterfaceId {
     pub fn GetAddressInfo(&self, id: &mut ::windows_core::Array<u8>) -> ::windows_core::Result<()> {
@@ -3834,24 +3205,8 @@ impl VpnInterfaceId {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for VpnInterfaceId {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnInterfaceId {}
-impl ::core::fmt::Debug for VpnInterfaceId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnInterfaceId").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnInterfaceId {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnInterfaceId;{9e2ddca2-1712-4ce4-b179-8c652c6d1011})");
-}
-impl ::core::clone::Clone for VpnInterfaceId {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnInterfaceId {
     type Vtable = IVpnInterfaceId_Vtbl;
@@ -3867,6 +3222,7 @@ unsafe impl ::core::marker::Send for VpnInterfaceId {}
 unsafe impl ::core::marker::Sync for VpnInterfaceId {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnManagementAgent(::windows_core::IUnknown);
 impl VpnManagementAgent {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -3977,24 +3333,8 @@ impl VpnManagementAgent {
         }
     }
 }
-impl ::core::cmp::PartialEq for VpnManagementAgent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnManagementAgent {}
-impl ::core::fmt::Debug for VpnManagementAgent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnManagementAgent").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnManagementAgent {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnManagementAgent;{193696cd-a5c4-4abe-852b-785be4cb3e34})");
-}
-impl ::core::clone::Clone for VpnManagementAgent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnManagementAgent {
     type Vtable = IVpnManagementAgent_Vtbl;
@@ -4010,6 +3350,7 @@ unsafe impl ::core::marker::Send for VpnManagementAgent {}
 unsafe impl ::core::marker::Sync for VpnManagementAgent {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnNamespaceAssignment(::windows_core::IUnknown);
 impl VpnNamespaceAssignment {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -4056,24 +3397,8 @@ impl VpnNamespaceAssignment {
         }
     }
 }
-impl ::core::cmp::PartialEq for VpnNamespaceAssignment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnNamespaceAssignment {}
-impl ::core::fmt::Debug for VpnNamespaceAssignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnNamespaceAssignment").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnNamespaceAssignment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnNamespaceAssignment;{d7f7db18-307d-4c0e-bd62-8fa270bbadd6})");
-}
-impl ::core::clone::Clone for VpnNamespaceAssignment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnNamespaceAssignment {
     type Vtable = IVpnNamespaceAssignment_Vtbl;
@@ -4089,6 +3414,7 @@ unsafe impl ::core::marker::Send for VpnNamespaceAssignment {}
 unsafe impl ::core::marker::Sync for VpnNamespaceAssignment {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnNamespaceInfo(::windows_core::IUnknown);
 impl VpnNamespaceInfo {
     pub fn SetNamespace(&self, value: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -4156,24 +3482,8 @@ impl VpnNamespaceInfo {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for VpnNamespaceInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnNamespaceInfo {}
-impl ::core::fmt::Debug for VpnNamespaceInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnNamespaceInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnNamespaceInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnNamespaceInfo;{30edfb43-444f-44c5-8167-a35a91f1af94})");
-}
-impl ::core::clone::Clone for VpnNamespaceInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnNamespaceInfo {
     type Vtable = IVpnNamespaceInfo_Vtbl;
@@ -4189,6 +3499,7 @@ unsafe impl ::core::marker::Send for VpnNamespaceInfo {}
 unsafe impl ::core::marker::Sync for VpnNamespaceInfo {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnNativeProfile(::windows_core::IUnknown);
 impl VpnNativeProfile {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -4350,24 +3661,8 @@ impl VpnNativeProfile {
         unsafe { (::windows_core::Interface::vtable(this).SetAlwaysOn)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for VpnNativeProfile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnNativeProfile {}
-impl ::core::fmt::Debug for VpnNativeProfile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnNativeProfile").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnNativeProfile {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnNativeProfile;{a4aee29e-6417-4333-9842-f0a66db69802})");
-}
-impl ::core::clone::Clone for VpnNativeProfile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnNativeProfile {
     type Vtable = IVpnNativeProfile_Vtbl;
@@ -4384,6 +3679,7 @@ unsafe impl ::core::marker::Send for VpnNativeProfile {}
 unsafe impl ::core::marker::Sync for VpnNativeProfile {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnPacketBuffer(::windows_core::IUnknown);
 impl VpnPacketBuffer {
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -4453,24 +3749,8 @@ impl VpnPacketBuffer {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for VpnPacketBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnPacketBuffer {}
-impl ::core::fmt::Debug for VpnPacketBuffer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnPacketBuffer").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnPacketBuffer {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnPacketBuffer;{c2f891fc-4d5c-4a63-b70d-4e307eacce55})");
-}
-impl ::core::clone::Clone for VpnPacketBuffer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnPacketBuffer {
     type Vtable = IVpnPacketBuffer_Vtbl;
@@ -4486,6 +3766,7 @@ unsafe impl ::core::marker::Send for VpnPacketBuffer {}
 unsafe impl ::core::marker::Sync for VpnPacketBuffer {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnPacketBufferList(::windows_core::IUnknown);
 impl VpnPacketBufferList {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4548,24 +3829,8 @@ impl VpnPacketBufferList {
         }
     }
 }
-impl ::core::cmp::PartialEq for VpnPacketBufferList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnPacketBufferList {}
-impl ::core::fmt::Debug for VpnPacketBufferList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnPacketBufferList").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnPacketBufferList {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnPacketBufferList;{c2f891fc-4d5c-4a63-b70d-4e307eacce77})");
-}
-impl ::core::clone::Clone for VpnPacketBufferList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnPacketBufferList {
     type Vtable = IVpnPacketBufferList_Vtbl;
@@ -4599,6 +3864,7 @@ unsafe impl ::core::marker::Send for VpnPacketBufferList {}
 unsafe impl ::core::marker::Sync for VpnPacketBufferList {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnPickedCredential(::windows_core::IUnknown);
 impl VpnPickedCredential {
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -4627,24 +3893,8 @@ impl VpnPickedCredential {
         }
     }
 }
-impl ::core::cmp::PartialEq for VpnPickedCredential {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnPickedCredential {}
-impl ::core::fmt::Debug for VpnPickedCredential {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnPickedCredential").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnPickedCredential {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnPickedCredential;{9a793ac7-8854-4e52-ad97-24dd9a842bce})");
-}
-impl ::core::clone::Clone for VpnPickedCredential {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnPickedCredential {
     type Vtable = IVpnPickedCredential_Vtbl;
@@ -4660,6 +3910,7 @@ unsafe impl ::core::marker::Send for VpnPickedCredential {}
 unsafe impl ::core::marker::Sync for VpnPickedCredential {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnPlugInProfile(::windows_core::IUnknown);
 impl VpnPlugInProfile {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -4788,24 +4039,8 @@ impl VpnPlugInProfile {
         unsafe { (::windows_core::Interface::vtable(this).SetAlwaysOn)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for VpnPlugInProfile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnPlugInProfile {}
-impl ::core::fmt::Debug for VpnPlugInProfile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnPlugInProfile").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnPlugInProfile {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnPlugInProfile;{0edf0da4-4f00-4589-8d7b-4bf988f6542c})");
-}
-impl ::core::clone::Clone for VpnPlugInProfile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnPlugInProfile {
     type Vtable = IVpnPlugInProfile_Vtbl;
@@ -4822,6 +4057,7 @@ unsafe impl ::core::marker::Send for VpnPlugInProfile {}
 unsafe impl ::core::marker::Sync for VpnPlugInProfile {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnRoute(::windows_core::IUnknown);
 impl VpnRoute {
     pub fn SetAddress<P0>(&self, value: P0) -> ::windows_core::Result<()>
@@ -4864,24 +4100,8 @@ impl VpnRoute {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for VpnRoute {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnRoute {}
-impl ::core::fmt::Debug for VpnRoute {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnRoute").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnRoute {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnRoute;{b5731b83-0969-4699-938e-7776db29cfb3})");
-}
-impl ::core::clone::Clone for VpnRoute {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnRoute {
     type Vtable = IVpnRoute_Vtbl;
@@ -4897,6 +4117,7 @@ unsafe impl ::core::marker::Send for VpnRoute {}
 unsafe impl ::core::marker::Sync for VpnRoute {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnRouteAssignment(::windows_core::IUnknown);
 impl VpnRouteAssignment {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -4990,24 +4211,8 @@ impl VpnRouteAssignment {
         }
     }
 }
-impl ::core::cmp::PartialEq for VpnRouteAssignment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnRouteAssignment {}
-impl ::core::fmt::Debug for VpnRouteAssignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnRouteAssignment").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnRouteAssignment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnRouteAssignment;{db64de22-ce39-4a76-9550-f61039f80e48})");
-}
-impl ::core::clone::Clone for VpnRouteAssignment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnRouteAssignment {
     type Vtable = IVpnRouteAssignment_Vtbl;
@@ -5023,6 +4228,7 @@ unsafe impl ::core::marker::Send for VpnRouteAssignment {}
 unsafe impl ::core::marker::Sync for VpnRouteAssignment {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnSystemHealth(::windows_core::IUnknown);
 impl VpnSystemHealth {
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -5035,24 +4241,8 @@ impl VpnSystemHealth {
         }
     }
 }
-impl ::core::cmp::PartialEq for VpnSystemHealth {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnSystemHealth {}
-impl ::core::fmt::Debug for VpnSystemHealth {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnSystemHealth").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnSystemHealth {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnSystemHealth;{99a8f8af-c0ee-4e75-817a-f231aee5123d})");
-}
-impl ::core::clone::Clone for VpnSystemHealth {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnSystemHealth {
     type Vtable = IVpnSystemHealth_Vtbl;
@@ -5068,6 +4258,7 @@ unsafe impl ::core::marker::Send for VpnSystemHealth {}
 unsafe impl ::core::marker::Sync for VpnSystemHealth {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnTrafficFilter(::windows_core::IUnknown);
 impl VpnTrafficFilter {
     pub fn AppId(&self) -> ::windows_core::Result<VpnAppId> {
@@ -5166,24 +4357,8 @@ impl VpnTrafficFilter {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for VpnTrafficFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnTrafficFilter {}
-impl ::core::fmt::Debug for VpnTrafficFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnTrafficFilter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnTrafficFilter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnTrafficFilter;{2f691b60-6c9f-47f5-ac36-bb1b042e2c50})");
-}
-impl ::core::clone::Clone for VpnTrafficFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnTrafficFilter {
     type Vtable = IVpnTrafficFilter_Vtbl;
@@ -5199,6 +4374,7 @@ unsafe impl ::core::marker::Send for VpnTrafficFilter {}
 unsafe impl ::core::marker::Sync for VpnTrafficFilter {}
 #[doc = "*Required features: `\"Networking_Vpn\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VpnTrafficFilterAssignment(::windows_core::IUnknown);
 impl VpnTrafficFilterAssignment {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -5240,24 +4416,8 @@ impl VpnTrafficFilterAssignment {
         unsafe { (::windows_core::Interface::vtable(this).SetAllowInbound)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for VpnTrafficFilterAssignment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnTrafficFilterAssignment {}
-impl ::core::fmt::Debug for VpnTrafficFilterAssignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VpnTrafficFilterAssignment").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VpnTrafficFilterAssignment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnTrafficFilterAssignment;{56ccd45c-e664-471e-89cd-601603b9e0f3})");
-}
-impl ::core::clone::Clone for VpnTrafficFilterAssignment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VpnTrafficFilterAssignment {
     type Vtable = IVpnTrafficFilterAssignment_Vtbl;

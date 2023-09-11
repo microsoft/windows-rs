@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_Security_Tpm\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITpmVirtualSmartCardManager(::windows_core::IUnknown);
 impl ITpmVirtualSmartCardManager {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -24,24 +25,8 @@ impl ITpmVirtualSmartCardManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITpmVirtualSmartCardManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITpmVirtualSmartCardManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITpmVirtualSmartCardManager {}
-impl ::core::fmt::Debug for ITpmVirtualSmartCardManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITpmVirtualSmartCardManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITpmVirtualSmartCardManager {
     type Vtable = ITpmVirtualSmartCardManager_Vtbl;
-}
-impl ::core::clone::Clone for ITpmVirtualSmartCardManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITpmVirtualSmartCardManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x112b1dff_d9dc_41f7_869f_d67fee7cb591);
@@ -61,6 +46,7 @@ pub struct ITpmVirtualSmartCardManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Tpm\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITpmVirtualSmartCardManager2(::windows_core::IUnknown);
 impl ITpmVirtualSmartCardManager2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -114,24 +100,8 @@ impl ITpmVirtualSmartCardManager2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITpmVirtualSmartCardManager2, ::windows_core::IUnknown, ITpmVirtualSmartCardManager);
-impl ::core::cmp::PartialEq for ITpmVirtualSmartCardManager2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITpmVirtualSmartCardManager2 {}
-impl ::core::fmt::Debug for ITpmVirtualSmartCardManager2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITpmVirtualSmartCardManager2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITpmVirtualSmartCardManager2 {
     type Vtable = ITpmVirtualSmartCardManager2_Vtbl;
-}
-impl ::core::clone::Clone for ITpmVirtualSmartCardManager2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITpmVirtualSmartCardManager2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfdf8a2b9_02de_47f4_bc26_aa85ab5e5267);
@@ -147,6 +117,7 @@ pub struct ITpmVirtualSmartCardManager2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Tpm\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITpmVirtualSmartCardManager3(::windows_core::IUnknown);
 impl ITpmVirtualSmartCardManager3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -230,24 +201,8 @@ impl ITpmVirtualSmartCardManager3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITpmVirtualSmartCardManager3, ::windows_core::IUnknown, ITpmVirtualSmartCardManager, ITpmVirtualSmartCardManager2);
-impl ::core::cmp::PartialEq for ITpmVirtualSmartCardManager3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITpmVirtualSmartCardManager3 {}
-impl ::core::fmt::Debug for ITpmVirtualSmartCardManager3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITpmVirtualSmartCardManager3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITpmVirtualSmartCardManager3 {
     type Vtable = ITpmVirtualSmartCardManager3_Vtbl;
-}
-impl ::core::clone::Clone for ITpmVirtualSmartCardManager3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITpmVirtualSmartCardManager3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3c745a97_f375_4150_be17_5950f694c699);
@@ -263,6 +218,7 @@ pub struct ITpmVirtualSmartCardManager3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Tpm\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITpmVirtualSmartCardManagerStatusCallback(::windows_core::IUnknown);
 impl ITpmVirtualSmartCardManagerStatusCallback {
     pub unsafe fn ReportProgress(&self, status: TPMVSCMGR_STATUS) -> ::windows_core::Result<()> {
@@ -273,24 +229,8 @@ impl ITpmVirtualSmartCardManagerStatusCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITpmVirtualSmartCardManagerStatusCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITpmVirtualSmartCardManagerStatusCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITpmVirtualSmartCardManagerStatusCallback {}
-impl ::core::fmt::Debug for ITpmVirtualSmartCardManagerStatusCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITpmVirtualSmartCardManagerStatusCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITpmVirtualSmartCardManagerStatusCallback {
     type Vtable = ITpmVirtualSmartCardManagerStatusCallback_Vtbl;
-}
-impl ::core::clone::Clone for ITpmVirtualSmartCardManagerStatusCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITpmVirtualSmartCardManagerStatusCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1a1bb35f_abb8_451c_a1ae_33d98f1bef4a);

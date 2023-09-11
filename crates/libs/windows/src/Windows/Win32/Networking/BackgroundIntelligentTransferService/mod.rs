@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AsyncIBackgroundCopyCallback(::windows_core::IUnknown);
 impl AsyncIBackgroundCopyCallback {
     pub unsafe fn Begin_JobTransferred<P0>(&self, pjob: P0) -> ::windows_core::Result<()>
@@ -32,24 +33,8 @@ impl AsyncIBackgroundCopyCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(AsyncIBackgroundCopyCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for AsyncIBackgroundCopyCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIBackgroundCopyCallback {}
-impl ::core::fmt::Debug for AsyncIBackgroundCopyCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIBackgroundCopyCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for AsyncIBackgroundCopyCallback {
     type Vtable = AsyncIBackgroundCopyCallback_Vtbl;
-}
-impl ::core::clone::Clone for AsyncIBackgroundCopyCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for AsyncIBackgroundCopyCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xca29d251_b4bb_4679_a3d9_ae8006119d54);
@@ -68,6 +53,7 @@ pub struct AsyncIBackgroundCopyCallback_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBITSExtensionSetup(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IBITSExtensionSetup {
@@ -89,28 +75,8 @@ impl IBITSExtensionSetup {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IBITSExtensionSetup, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IBITSExtensionSetup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IBITSExtensionSetup {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IBITSExtensionSetup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBITSExtensionSetup").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IBITSExtensionSetup {
     type Vtable = IBITSExtensionSetup_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IBITSExtensionSetup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IBITSExtensionSetup {
@@ -129,6 +95,7 @@ pub struct IBITSExtensionSetup_Vtbl {
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBITSExtensionSetupFactory(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IBITSExtensionSetupFactory {
@@ -145,28 +112,8 @@ impl IBITSExtensionSetupFactory {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IBITSExtensionSetupFactory, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IBITSExtensionSetupFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IBITSExtensionSetupFactory {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IBITSExtensionSetupFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBITSExtensionSetupFactory").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IBITSExtensionSetupFactory {
     type Vtable = IBITSExtensionSetupFactory_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IBITSExtensionSetupFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IBITSExtensionSetupFactory {
@@ -184,6 +131,7 @@ pub struct IBITSExtensionSetupFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyCallback(::windows_core::IUnknown);
 impl IBackgroundCopyCallback {
     pub unsafe fn JobTransferred<P0>(&self, pjob: P0) -> ::windows_core::Result<()>
@@ -207,24 +155,8 @@ impl IBackgroundCopyCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBackgroundCopyCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyCallback {}
-impl ::core::fmt::Debug for IBackgroundCopyCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyCallback {
     type Vtable = IBackgroundCopyCallback_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97ea99c7_0186_4ad4_8df9_c5b4e0ed6b22);
@@ -239,6 +171,7 @@ pub struct IBackgroundCopyCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyCallback1(::windows_core::IUnknown);
 impl IBackgroundCopyCallback1 {
     pub unsafe fn OnStatus<P0, P1>(&self, pgroup: P0, pjob: P1, dwfileindex: u32, dwstatus: u32, dwnumofretries: u32, dwwin32result: u32, dwtransportresult: u32) -> ::windows_core::Result<()>
@@ -264,24 +197,8 @@ impl IBackgroundCopyCallback1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyCallback1, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBackgroundCopyCallback1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyCallback1 {}
-impl ::core::fmt::Debug for IBackgroundCopyCallback1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyCallback1").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyCallback1 {
     type Vtable = IBackgroundCopyCallback1_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyCallback1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyCallback1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x084f6593_3800_4e08_9b59_99fa59addf82);
@@ -296,6 +213,7 @@ pub struct IBackgroundCopyCallback1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyCallback2(::windows_core::IUnknown);
 impl IBackgroundCopyCallback2 {
     pub unsafe fn JobTransferred<P0>(&self, pjob: P0) -> ::windows_core::Result<()>
@@ -326,24 +244,8 @@ impl IBackgroundCopyCallback2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyCallback2, ::windows_core::IUnknown, IBackgroundCopyCallback);
-impl ::core::cmp::PartialEq for IBackgroundCopyCallback2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyCallback2 {}
-impl ::core::fmt::Debug for IBackgroundCopyCallback2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyCallback2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyCallback2 {
     type Vtable = IBackgroundCopyCallback2_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyCallback2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyCallback2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x659cdeac_489e_11d9_a9cd_000d56965251);
@@ -356,6 +258,7 @@ pub struct IBackgroundCopyCallback2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyCallback3(::windows_core::IUnknown);
 impl IBackgroundCopyCallback3 {
     pub unsafe fn JobTransferred<P0>(&self, pjob: P0) -> ::windows_core::Result<()>
@@ -393,24 +296,8 @@ impl IBackgroundCopyCallback3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyCallback3, ::windows_core::IUnknown, IBackgroundCopyCallback, IBackgroundCopyCallback2);
-impl ::core::cmp::PartialEq for IBackgroundCopyCallback3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyCallback3 {}
-impl ::core::fmt::Debug for IBackgroundCopyCallback3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyCallback3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyCallback3 {
     type Vtable = IBackgroundCopyCallback3_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyCallback3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyCallback3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98c97bd2_e32b_4ad8_a528_95fd8b16bd42);
@@ -423,6 +310,7 @@ pub struct IBackgroundCopyCallback3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyError(::windows_core::IUnknown);
 impl IBackgroundCopyError {
     pub unsafe fn GetError(&self, pcontext: *mut BG_ERROR_CONTEXT, pcode: *mut ::windows_core::HRESULT) -> ::windows_core::Result<()> {
@@ -446,24 +334,8 @@ impl IBackgroundCopyError {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyError, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBackgroundCopyError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyError {}
-impl ::core::fmt::Debug for IBackgroundCopyError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyError").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyError {
     type Vtable = IBackgroundCopyError_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyError {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyError {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x19c613a0_fcb8_4f28_81ae_897c3d078f81);
@@ -480,6 +352,7 @@ pub struct IBackgroundCopyError_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyFile(::windows_core::IUnknown);
 impl IBackgroundCopyFile {
     pub unsafe fn GetRemoteName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -497,24 +370,8 @@ impl IBackgroundCopyFile {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyFile, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBackgroundCopyFile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyFile {}
-impl ::core::fmt::Debug for IBackgroundCopyFile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyFile").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyFile {
     type Vtable = IBackgroundCopyFile_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyFile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyFile {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x01b7bd23_fb88_4a77_8490_5891d3e4653a);
@@ -532,6 +389,7 @@ pub struct IBackgroundCopyFile_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyFile2(::windows_core::IUnknown);
 impl IBackgroundCopyFile2 {
     pub unsafe fn GetRemoteName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -558,24 +416,8 @@ impl IBackgroundCopyFile2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyFile2, ::windows_core::IUnknown, IBackgroundCopyFile);
-impl ::core::cmp::PartialEq for IBackgroundCopyFile2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyFile2 {}
-impl ::core::fmt::Debug for IBackgroundCopyFile2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyFile2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyFile2 {
     type Vtable = IBackgroundCopyFile2_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyFile2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyFile2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x83e81b93_0873_474d_8a8c_f2018b1a939c);
@@ -589,6 +431,7 @@ pub struct IBackgroundCopyFile2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyFile3(::windows_core::IUnknown);
 impl IBackgroundCopyFile3 {
     pub unsafe fn GetRemoteName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -639,24 +482,8 @@ impl IBackgroundCopyFile3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyFile3, ::windows_core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2);
-impl ::core::cmp::PartialEq for IBackgroundCopyFile3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyFile3 {}
-impl ::core::fmt::Debug for IBackgroundCopyFile3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyFile3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyFile3 {
     type Vtable = IBackgroundCopyFile3_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyFile3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyFile3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x659cdeaa_489e_11d9_a9cd_000d56965251);
@@ -681,6 +508,7 @@ pub struct IBackgroundCopyFile3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyFile4(::windows_core::IUnknown);
 impl IBackgroundCopyFile4 {
     pub unsafe fn GetRemoteName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -734,24 +562,8 @@ impl IBackgroundCopyFile4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyFile4, ::windows_core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3);
-impl ::core::cmp::PartialEq for IBackgroundCopyFile4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyFile4 {}
-impl ::core::fmt::Debug for IBackgroundCopyFile4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyFile4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyFile4 {
     type Vtable = IBackgroundCopyFile4_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyFile4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyFile4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef7e0655_7888_4960_b0e5_730846e03492);
@@ -764,6 +576,7 @@ pub struct IBackgroundCopyFile4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyFile5(::windows_core::IUnknown);
 impl IBackgroundCopyFile5 {
     pub unsafe fn GetRemoteName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -824,24 +637,8 @@ impl IBackgroundCopyFile5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyFile5, ::windows_core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3, IBackgroundCopyFile4);
-impl ::core::cmp::PartialEq for IBackgroundCopyFile5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyFile5 {}
-impl ::core::fmt::Debug for IBackgroundCopyFile5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyFile5").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyFile5 {
     type Vtable = IBackgroundCopyFile5_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyFile5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyFile5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x85c1657f_dafc_40e8_8834_df18ea25717e);
@@ -855,6 +652,7 @@ pub struct IBackgroundCopyFile5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyFile6(::windows_core::IUnknown);
 impl IBackgroundCopyFile6 {
     pub unsafe fn GetRemoteName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -924,24 +722,8 @@ impl IBackgroundCopyFile6 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyFile6, ::windows_core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3, IBackgroundCopyFile4, IBackgroundCopyFile5);
-impl ::core::cmp::PartialEq for IBackgroundCopyFile6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyFile6 {}
-impl ::core::fmt::Debug for IBackgroundCopyFile6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyFile6").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyFile6 {
     type Vtable = IBackgroundCopyFile6_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyFile6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyFile6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf6784f7_d677_49fd_9368_cb47aee9d1ad);
@@ -956,6 +738,7 @@ pub struct IBackgroundCopyFile6_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyGroup(::windows_core::IUnknown);
 impl IBackgroundCopyGroup {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -1020,24 +803,8 @@ impl IBackgroundCopyGroup {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyGroup, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBackgroundCopyGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyGroup {}
-impl ::core::fmt::Debug for IBackgroundCopyGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyGroup").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyGroup {
     type Vtable = IBackgroundCopyGroup_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyGroup {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1ded80a7_53ea_424f_8a04_17fea9adc4f5);
@@ -1070,6 +837,7 @@ pub struct IBackgroundCopyGroup_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyJob(::windows_core::IUnknown);
 impl IBackgroundCopyJob {
     pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> ::windows_core::Result<()> {
@@ -1203,24 +971,8 @@ impl IBackgroundCopyJob {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyJob, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBackgroundCopyJob {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyJob {}
-impl ::core::fmt::Debug for IBackgroundCopyJob {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyJob").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyJob {
     type Vtable = IBackgroundCopyJob_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyJob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyJob {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x37668d37_507e_4160_9316_26306d150b12);
@@ -1267,6 +1019,7 @@ pub struct IBackgroundCopyJob_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyJob1(::windows_core::IUnknown);
 impl IBackgroundCopyJob1 {
     pub unsafe fn CancelJob(&self) -> ::windows_core::Result<()> {
@@ -1299,24 +1052,8 @@ impl IBackgroundCopyJob1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyJob1, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBackgroundCopyJob1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyJob1 {}
-impl ::core::fmt::Debug for IBackgroundCopyJob1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyJob1").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyJob1 {
     type Vtable = IBackgroundCopyJob1_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyJob1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyJob1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x59f5553c_2031_4629_bb18_2645a6970947);
@@ -1336,6 +1073,7 @@ pub struct IBackgroundCopyJob1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyJob2(::windows_core::IUnknown);
 impl IBackgroundCopyJob2 {
     pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> ::windows_core::Result<()> {
@@ -1501,24 +1239,8 @@ impl IBackgroundCopyJob2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyJob2, ::windows_core::IUnknown, IBackgroundCopyJob);
-impl ::core::cmp::PartialEq for IBackgroundCopyJob2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyJob2 {}
-impl ::core::fmt::Debug for IBackgroundCopyJob2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyJob2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyJob2 {
     type Vtable = IBackgroundCopyJob2_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyJob2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyJob2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54b50739_686f_45eb_9dff_d6a9a0faa9af);
@@ -1538,6 +1260,7 @@ pub struct IBackgroundCopyJob2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyJob3(::windows_core::IUnknown);
 impl IBackgroundCopyJob3 {
     pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> ::windows_core::Result<()> {
@@ -1724,24 +1447,8 @@ impl IBackgroundCopyJob3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyJob3, ::windows_core::IUnknown, IBackgroundCopyJob, IBackgroundCopyJob2);
-impl ::core::cmp::PartialEq for IBackgroundCopyJob3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyJob3 {}
-impl ::core::fmt::Debug for IBackgroundCopyJob3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyJob3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyJob3 {
     type Vtable = IBackgroundCopyJob3_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyJob3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyJob3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x443c8934_90ff_48ed_bcde_26f5c7450042);
@@ -1757,6 +1464,7 @@ pub struct IBackgroundCopyJob3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyJob4(::windows_core::IUnknown);
 impl IBackgroundCopyJob4 {
     pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> ::windows_core::Result<()> {
@@ -1967,24 +1675,8 @@ impl IBackgroundCopyJob4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyJob4, ::windows_core::IUnknown, IBackgroundCopyJob, IBackgroundCopyJob2, IBackgroundCopyJob3);
-impl ::core::cmp::PartialEq for IBackgroundCopyJob4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyJob4 {}
-impl ::core::fmt::Debug for IBackgroundCopyJob4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyJob4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyJob4 {
     type Vtable = IBackgroundCopyJob4_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyJob4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyJob4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x659cdeae_489e_11d9_a9cd_000d56965251);
@@ -2005,6 +1697,7 @@ pub struct IBackgroundCopyJob4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyJob5(::windows_core::IUnknown);
 impl IBackgroundCopyJob5 {
     pub unsafe fn AddFileSet(&self, pfileset: &[BG_FILE_INFO]) -> ::windows_core::Result<()> {
@@ -2226,24 +1919,8 @@ impl IBackgroundCopyJob5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyJob5, ::windows_core::IUnknown, IBackgroundCopyJob, IBackgroundCopyJob2, IBackgroundCopyJob3, IBackgroundCopyJob4);
-impl ::core::cmp::PartialEq for IBackgroundCopyJob5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyJob5 {}
-impl ::core::fmt::Debug for IBackgroundCopyJob5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyJob5").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyJob5 {
     type Vtable = IBackgroundCopyJob5_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyJob5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyJob5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe847030c_bbba_4657_af6d_484aa42bf1fe);
@@ -2263,6 +1940,7 @@ pub struct IBackgroundCopyJob5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyJobHttpOptions(::windows_core::IUnknown);
 impl IBackgroundCopyJobHttpOptions {
     pub unsafe fn SetClientCertificateByID<P0>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P0, pcerthashblob: &[u8; 20]) -> ::windows_core::Result<()>
@@ -2303,24 +1981,8 @@ impl IBackgroundCopyJobHttpOptions {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyJobHttpOptions, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBackgroundCopyJobHttpOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyJobHttpOptions {}
-impl ::core::fmt::Debug for IBackgroundCopyJobHttpOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyJobHttpOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyJobHttpOptions {
     type Vtable = IBackgroundCopyJobHttpOptions_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyJobHttpOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyJobHttpOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf1bd1079_9f01_4bdc_8036_f09b70095066);
@@ -2340,6 +2002,7 @@ pub struct IBackgroundCopyJobHttpOptions_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyJobHttpOptions2(::windows_core::IUnknown);
 impl IBackgroundCopyJobHttpOptions2 {
     pub unsafe fn SetClientCertificateByID<P0>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P0, pcerthashblob: &[u8; 20]) -> ::windows_core::Result<()>
@@ -2390,24 +2053,8 @@ impl IBackgroundCopyJobHttpOptions2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyJobHttpOptions2, ::windows_core::IUnknown, IBackgroundCopyJobHttpOptions);
-impl ::core::cmp::PartialEq for IBackgroundCopyJobHttpOptions2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyJobHttpOptions2 {}
-impl ::core::fmt::Debug for IBackgroundCopyJobHttpOptions2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyJobHttpOptions2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyJobHttpOptions2 {
     type Vtable = IBackgroundCopyJobHttpOptions2_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyJobHttpOptions2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyJobHttpOptions2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb591a192_a405_4fc3_8323_4c5c542578fc);
@@ -2421,6 +2068,7 @@ pub struct IBackgroundCopyJobHttpOptions2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyJobHttpOptions3(::windows_core::IUnknown);
 impl IBackgroundCopyJobHttpOptions3 {
     pub unsafe fn SetClientCertificateByID<P0>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: P0, pcerthashblob: &[u8; 20]) -> ::windows_core::Result<()>
@@ -2480,24 +2128,8 @@ impl IBackgroundCopyJobHttpOptions3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyJobHttpOptions3, ::windows_core::IUnknown, IBackgroundCopyJobHttpOptions, IBackgroundCopyJobHttpOptions2);
-impl ::core::cmp::PartialEq for IBackgroundCopyJobHttpOptions3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyJobHttpOptions3 {}
-impl ::core::fmt::Debug for IBackgroundCopyJobHttpOptions3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyJobHttpOptions3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyJobHttpOptions3 {
     type Vtable = IBackgroundCopyJobHttpOptions3_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyJobHttpOptions3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyJobHttpOptions3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a9263d3_fd4c_4eda_9b28_30132a4d4e3c);
@@ -2511,6 +2143,7 @@ pub struct IBackgroundCopyJobHttpOptions3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyManager(::windows_core::IUnknown);
 impl IBackgroundCopyManager {
     pub unsafe fn CreateJob<P0>(&self, displayname: P0, r#type: BG_JOB_TYPE, pjobid: *mut ::windows_core::GUID, ppjob: *mut ::core::option::Option<IBackgroundCopyJob>) -> ::windows_core::Result<()>
@@ -2533,24 +2166,8 @@ impl IBackgroundCopyManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBackgroundCopyManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyManager {}
-impl ::core::fmt::Debug for IBackgroundCopyManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyManager {
     type Vtable = IBackgroundCopyManager_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ce34c0d_0dc9_4c1f_897c_daa1b78cee7c);
@@ -2566,6 +2183,7 @@ pub struct IBackgroundCopyManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyQMgr(::windows_core::IUnknown);
 impl IBackgroundCopyQMgr {
     pub unsafe fn CreateGroup(&self, guidgroupid: ::windows_core::GUID) -> ::windows_core::Result<IBackgroundCopyGroup> {
@@ -2582,24 +2200,8 @@ impl IBackgroundCopyQMgr {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyQMgr, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBackgroundCopyQMgr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyQMgr {}
-impl ::core::fmt::Debug for IBackgroundCopyQMgr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyQMgr").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyQMgr {
     type Vtable = IBackgroundCopyQMgr_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyQMgr {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyQMgr {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x16f41c69_09f5_41d2_8cd8_3c08c47bc8a8);
@@ -2614,6 +2216,7 @@ pub struct IBackgroundCopyQMgr_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundCopyServerCertificateValidationCallback(::windows_core::IUnknown);
 impl IBackgroundCopyServerCertificateValidationCallback {
     pub unsafe fn ValidateServerCertificate<P0, P1>(&self, job: P0, file: P1, certdata: &[u8], certencodingtype: u32, certstoredata: &[u8]) -> ::windows_core::Result<()>
@@ -2625,24 +2228,8 @@ impl IBackgroundCopyServerCertificateValidationCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBackgroundCopyServerCertificateValidationCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBackgroundCopyServerCertificateValidationCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBackgroundCopyServerCertificateValidationCallback {}
-impl ::core::fmt::Debug for IBackgroundCopyServerCertificateValidationCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBackgroundCopyServerCertificateValidationCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBackgroundCopyServerCertificateValidationCallback {
     type Vtable = IBackgroundCopyServerCertificateValidationCallback_Vtbl;
-}
-impl ::core::clone::Clone for IBackgroundCopyServerCertificateValidationCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBackgroundCopyServerCertificateValidationCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4cec0d02_def7_4158_813a_c32a46945ff7);
@@ -2655,6 +2242,7 @@ pub struct IBackgroundCopyServerCertificateValidationCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBitsPeer(::windows_core::IUnknown);
 impl IBitsPeer {
     pub unsafe fn GetPeerName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -2675,24 +2263,8 @@ impl IBitsPeer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBitsPeer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBitsPeer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBitsPeer {}
-impl ::core::fmt::Debug for IBitsPeer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBitsPeer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBitsPeer {
     type Vtable = IBitsPeer_Vtbl;
-}
-impl ::core::clone::Clone for IBitsPeer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBitsPeer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x659cdea2_489e_11d9_a9cd_000d56965251);
@@ -2713,6 +2285,7 @@ pub struct IBitsPeer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBitsPeerCacheAdministration(::windows_core::IUnknown);
 impl IBitsPeerCacheAdministration {
     pub unsafe fn GetMaximumCacheSize(&self) -> ::windows_core::Result<u32> {
@@ -2768,24 +2341,8 @@ impl IBitsPeerCacheAdministration {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBitsPeerCacheAdministration, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBitsPeerCacheAdministration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBitsPeerCacheAdministration {}
-impl ::core::fmt::Debug for IBitsPeerCacheAdministration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBitsPeerCacheAdministration").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBitsPeerCacheAdministration {
     type Vtable = IBitsPeerCacheAdministration_Vtbl;
-}
-impl ::core::clone::Clone for IBitsPeerCacheAdministration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBitsPeerCacheAdministration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x659cdead_489e_11d9_a9cd_000d56965251);
@@ -2811,6 +2368,7 @@ pub struct IBitsPeerCacheAdministration_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBitsPeerCacheRecord(::windows_core::IUnknown);
 impl IBitsPeerCacheRecord {
     pub unsafe fn GetId(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -2845,24 +2403,8 @@ impl IBitsPeerCacheRecord {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBitsPeerCacheRecord, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBitsPeerCacheRecord {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBitsPeerCacheRecord {}
-impl ::core::fmt::Debug for IBitsPeerCacheRecord {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBitsPeerCacheRecord").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBitsPeerCacheRecord {
     type Vtable = IBitsPeerCacheRecord_Vtbl;
-}
-impl ::core::clone::Clone for IBitsPeerCacheRecord {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBitsPeerCacheRecord {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x659cdeaf_489e_11d9_a9cd_000d56965251);
@@ -2887,6 +2429,7 @@ pub struct IBitsPeerCacheRecord_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBitsTokenOptions(::windows_core::IUnknown);
 impl IBitsTokenOptions {
     pub unsafe fn SetHelperTokenFlags(&self, usageflags: BG_TOKEN) -> ::windows_core::Result<()> {
@@ -2908,24 +2451,8 @@ impl IBitsTokenOptions {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBitsTokenOptions, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBitsTokenOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBitsTokenOptions {}
-impl ::core::fmt::Debug for IBitsTokenOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBitsTokenOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBitsTokenOptions {
     type Vtable = IBitsTokenOptions_Vtbl;
-}
-impl ::core::clone::Clone for IBitsTokenOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBitsTokenOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a2584c3_f7d2_457a_9a5e_22b67bffc7d2);
@@ -2942,6 +2469,7 @@ pub struct IBitsTokenOptions_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumBackgroundCopyFiles(::windows_core::IUnknown);
 impl IEnumBackgroundCopyFiles {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IBackgroundCopyFile>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -2963,24 +2491,8 @@ impl IEnumBackgroundCopyFiles {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumBackgroundCopyFiles, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumBackgroundCopyFiles {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumBackgroundCopyFiles {}
-impl ::core::fmt::Debug for IEnumBackgroundCopyFiles {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumBackgroundCopyFiles").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumBackgroundCopyFiles {
     type Vtable = IEnumBackgroundCopyFiles_Vtbl;
-}
-impl ::core::clone::Clone for IEnumBackgroundCopyFiles {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumBackgroundCopyFiles {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xca51e165_c365_424c_8d41_24aaa4ff3c40);
@@ -2997,6 +2509,7 @@ pub struct IEnumBackgroundCopyFiles_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumBackgroundCopyGroups(::windows_core::IUnknown);
 impl IEnumBackgroundCopyGroups {
     pub unsafe fn Next(&self, rgelt: &mut [::windows_core::GUID], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -3018,24 +2531,8 @@ impl IEnumBackgroundCopyGroups {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumBackgroundCopyGroups, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumBackgroundCopyGroups {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumBackgroundCopyGroups {}
-impl ::core::fmt::Debug for IEnumBackgroundCopyGroups {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumBackgroundCopyGroups").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumBackgroundCopyGroups {
     type Vtable = IEnumBackgroundCopyGroups_Vtbl;
-}
-impl ::core::clone::Clone for IEnumBackgroundCopyGroups {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumBackgroundCopyGroups {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd993e603_4aa4_47c5_8665_c20d39c2ba4f);
@@ -3052,6 +2549,7 @@ pub struct IEnumBackgroundCopyGroups_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumBackgroundCopyJobs(::windows_core::IUnknown);
 impl IEnumBackgroundCopyJobs {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IBackgroundCopyJob>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -3073,24 +2571,8 @@ impl IEnumBackgroundCopyJobs {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumBackgroundCopyJobs, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumBackgroundCopyJobs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumBackgroundCopyJobs {}
-impl ::core::fmt::Debug for IEnumBackgroundCopyJobs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumBackgroundCopyJobs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumBackgroundCopyJobs {
     type Vtable = IEnumBackgroundCopyJobs_Vtbl;
-}
-impl ::core::clone::Clone for IEnumBackgroundCopyJobs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumBackgroundCopyJobs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1af4f612_3b71_466f_8f58_7b6f73ac57ad);
@@ -3107,6 +2589,7 @@ pub struct IEnumBackgroundCopyJobs_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumBackgroundCopyJobs1(::windows_core::IUnknown);
 impl IEnumBackgroundCopyJobs1 {
     pub unsafe fn Next(&self, rgelt: &mut [::windows_core::GUID], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -3128,24 +2611,8 @@ impl IEnumBackgroundCopyJobs1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumBackgroundCopyJobs1, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumBackgroundCopyJobs1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumBackgroundCopyJobs1 {}
-impl ::core::fmt::Debug for IEnumBackgroundCopyJobs1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumBackgroundCopyJobs1").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumBackgroundCopyJobs1 {
     type Vtable = IEnumBackgroundCopyJobs1_Vtbl;
-}
-impl ::core::clone::Clone for IEnumBackgroundCopyJobs1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumBackgroundCopyJobs1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8baeba9d_8f1c_42c4_b82c_09ae79980d25);
@@ -3162,6 +2629,7 @@ pub struct IEnumBackgroundCopyJobs1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumBitsPeerCacheRecords(::windows_core::IUnknown);
 impl IEnumBitsPeerCacheRecords {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IBitsPeerCacheRecord>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -3183,24 +2651,8 @@ impl IEnumBitsPeerCacheRecords {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumBitsPeerCacheRecords, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumBitsPeerCacheRecords {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumBitsPeerCacheRecords {}
-impl ::core::fmt::Debug for IEnumBitsPeerCacheRecords {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumBitsPeerCacheRecords").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumBitsPeerCacheRecords {
     type Vtable = IEnumBitsPeerCacheRecords_Vtbl;
-}
-impl ::core::clone::Clone for IEnumBitsPeerCacheRecords {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumBitsPeerCacheRecords {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x659cdea4_489e_11d9_a9cd_000d56965251);
@@ -3217,6 +2669,7 @@ pub struct IEnumBitsPeerCacheRecords_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumBitsPeers(::windows_core::IUnknown);
 impl IEnumBitsPeers {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IBitsPeer>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -3238,24 +2691,8 @@ impl IEnumBitsPeers {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumBitsPeers, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumBitsPeers {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumBitsPeers {}
-impl ::core::fmt::Debug for IEnumBitsPeers {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumBitsPeers").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumBitsPeers {
     type Vtable = IEnumBitsPeers_Vtbl;
-}
-impl ::core::clone::Clone for IEnumBitsPeers {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumBitsPeers {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x659cdea5_489e_11d9_a9cd_000d56965251);

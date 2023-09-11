@@ -2925,6 +2925,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRtwqAsyncCallback(::windows_core::IUnknown);
 impl IRtwqAsyncCallback {
     pub unsafe fn GetParameters(&self, pdwflags: *mut u32, pdwqueue: *mut u32) -> ::windows_core::Result<()> {
@@ -2938,24 +2939,8 @@ impl IRtwqAsyncCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRtwqAsyncCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRtwqAsyncCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRtwqAsyncCallback {}
-impl ::core::fmt::Debug for IRtwqAsyncCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRtwqAsyncCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRtwqAsyncCallback {
     type Vtable = IRtwqAsyncCallback_Vtbl;
-}
-impl ::core::clone::Clone for IRtwqAsyncCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRtwqAsyncCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa27003cf_2354_4f2a_8d6a_ab7cff15437e);
@@ -2969,6 +2954,7 @@ pub struct IRtwqAsyncCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRtwqAsyncResult(::windows_core::IUnknown);
 impl IRtwqAsyncResult {
     pub unsafe fn GetState(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -2990,24 +2976,8 @@ impl IRtwqAsyncResult {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRtwqAsyncResult, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRtwqAsyncResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRtwqAsyncResult {}
-impl ::core::fmt::Debug for IRtwqAsyncResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRtwqAsyncResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRtwqAsyncResult {
     type Vtable = IRtwqAsyncResult_Vtbl;
-}
-impl ::core::clone::Clone for IRtwqAsyncResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRtwqAsyncResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xac6b7889_0740_4d51_8619_905994a55cc6);
@@ -3024,6 +2994,7 @@ pub struct IRtwqAsyncResult_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRtwqPlatformEvents(::windows_core::IUnknown);
 impl IRtwqPlatformEvents {
     pub unsafe fn InitializationComplete(&self) -> ::windows_core::Result<()> {
@@ -3037,24 +3008,8 @@ impl IRtwqPlatformEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRtwqPlatformEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRtwqPlatformEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRtwqPlatformEvents {}
-impl ::core::fmt::Debug for IRtwqPlatformEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRtwqPlatformEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRtwqPlatformEvents {
     type Vtable = IRtwqPlatformEvents_Vtbl;
-}
-impl ::core::clone::Clone for IRtwqPlatformEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRtwqPlatformEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x63d9255a_7ff1_4b61_8faf_ed6460dacf2b);
@@ -3069,6 +3024,7 @@ pub struct IRtwqPlatformEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RTWQASYNCRESULT(::windows_core::IUnknown);
 impl RTWQASYNCRESULT {
     pub unsafe fn GetState(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -3090,24 +3046,8 @@ impl RTWQASYNCRESULT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(RTWQASYNCRESULT, ::windows_core::IUnknown, IRtwqAsyncResult);
-impl ::core::cmp::PartialEq for RTWQASYNCRESULT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RTWQASYNCRESULT {}
-impl ::core::fmt::Debug for RTWQASYNCRESULT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RTWQASYNCRESULT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for RTWQASYNCRESULT {
     type Vtable = RTWQASYNCRESULT_Vtbl;
-}
-impl ::core::clone::Clone for RTWQASYNCRESULT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for RTWQASYNCRESULT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();

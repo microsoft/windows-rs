@@ -2660,6 +2660,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDialBranding(::windows_core::IUnknown);
 impl IDialBranding {
     pub unsafe fn Initialize<P0>(&self, pwzconnectoid: P0) -> ::windows_core::Result<()>
@@ -2676,24 +2677,8 @@ impl IDialBranding {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDialBranding, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDialBranding {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDialBranding {}
-impl ::core::fmt::Debug for IDialBranding {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDialBranding").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDialBranding {
     type Vtable = IDialBranding_Vtbl;
-}
-impl ::core::clone::Clone for IDialBranding {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDialBranding {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8aecafa9_4306_43cc_8c5a_765f2979cc16);
@@ -2710,6 +2695,7 @@ pub struct IDialBranding_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDialEngine(::windows_core::IUnknown);
 impl IDialEngine {
     pub unsafe fn Initialize<P0, P1>(&self, pwzconnectoid: P0, pides: P1) -> ::windows_core::Result<()>
@@ -2749,24 +2735,8 @@ impl IDialEngine {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDialEngine, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDialEngine {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDialEngine {}
-impl ::core::fmt::Debug for IDialEngine {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDialEngine").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDialEngine {
     type Vtable = IDialEngine_Vtbl;
-}
-impl ::core::clone::Clone for IDialEngine {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDialEngine {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x39fd782b_7905_40d5_9148_3c9b190423d5);
@@ -2785,6 +2755,7 @@ pub struct IDialEngine_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDialEventSink(::windows_core::IUnknown);
 impl IDialEventSink {
     pub unsafe fn OnEvent(&self, dwevent: u32, dwstatus: u32) -> ::windows_core::Result<()> {
@@ -2792,24 +2763,8 @@ impl IDialEventSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDialEventSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDialEventSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDialEventSink {}
-impl ::core::fmt::Debug for IDialEventSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDialEventSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDialEventSink {
     type Vtable = IDialEventSink_Vtbl;
-}
-impl ::core::clone::Clone for IDialEventSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDialEventSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2d86f4ff_6e2d_4488_b2e9_6934afd41bea);
@@ -2822,6 +2777,7 @@ pub struct IDialEventSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProofOfPossessionCookieInfoManager(::windows_core::IUnknown);
 impl IProofOfPossessionCookieInfoManager {
     pub unsafe fn GetCookieInfoForUri<P0>(&self, uri: P0, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows_core::Result<()>
@@ -2832,24 +2788,8 @@ impl IProofOfPossessionCookieInfoManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IProofOfPossessionCookieInfoManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IProofOfPossessionCookieInfoManager {}
-impl ::core::fmt::Debug for IProofOfPossessionCookieInfoManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProofOfPossessionCookieInfoManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IProofOfPossessionCookieInfoManager {
     type Vtable = IProofOfPossessionCookieInfoManager_Vtbl;
-}
-impl ::core::clone::Clone for IProofOfPossessionCookieInfoManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProofOfPossessionCookieInfoManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcdaece56_4edf_43df_b113_88e4556fa1bb);
@@ -2862,6 +2802,7 @@ pub struct IProofOfPossessionCookieInfoManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Networking_WinInet\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProofOfPossessionCookieInfoManager2(::windows_core::IUnknown);
 impl IProofOfPossessionCookieInfoManager2 {
     pub unsafe fn GetCookieInfoWithUriForAccount<P0, P1>(&self, webaccount: P0, uri: P1, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> ::windows_core::Result<()>
@@ -2873,24 +2814,8 @@ impl IProofOfPossessionCookieInfoManager2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IProofOfPossessionCookieInfoManager2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IProofOfPossessionCookieInfoManager2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IProofOfPossessionCookieInfoManager2 {}
-impl ::core::fmt::Debug for IProofOfPossessionCookieInfoManager2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProofOfPossessionCookieInfoManager2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IProofOfPossessionCookieInfoManager2 {
     type Vtable = IProofOfPossessionCookieInfoManager2_Vtbl;
-}
-impl ::core::clone::Clone for IProofOfPossessionCookieInfoManager2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProofOfPossessionCookieInfoManager2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x15e41407_b42f_4ae7_9966_34a087b2d713);

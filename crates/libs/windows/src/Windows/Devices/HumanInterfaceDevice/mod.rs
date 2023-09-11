@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHidBooleanControl(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHidBooleanControl {
     type Vtable = IHidBooleanControl_Vtbl;
-}
-impl ::core::clone::Clone for IHidBooleanControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHidBooleanControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x524df48a_3695_408c_bba2_e2eb5abfbc20);
@@ -25,14 +21,10 @@ pub struct IHidBooleanControl_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHidBooleanControlDescription(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHidBooleanControlDescription {
     type Vtable = IHidBooleanControlDescription_Vtbl;
-}
-impl ::core::clone::Clone for IHidBooleanControlDescription {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHidBooleanControlDescription {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6196e543_29d8_4a2a_8683_849e207bbe31);
@@ -53,14 +45,10 @@ pub struct IHidBooleanControlDescription_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHidBooleanControlDescription2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHidBooleanControlDescription2 {
     type Vtable = IHidBooleanControlDescription2_Vtbl;
-}
-impl ::core::clone::Clone for IHidBooleanControlDescription2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHidBooleanControlDescription2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc8eed2ea_8a77_4c36_aa00_5ff0449d3e73);
@@ -73,14 +61,10 @@ pub struct IHidBooleanControlDescription2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHidCollection(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHidCollection {
     type Vtable = IHidCollection_Vtbl;
-}
-impl ::core::clone::Clone for IHidCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHidCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7189f5a3_32f1_46e3_befd_44d2663b7e6a);
@@ -96,14 +80,10 @@ pub struct IHidCollection_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHidDevice(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHidDevice {
     type Vtable = IHidDevice_Vtbl;
-}
-impl ::core::clone::Clone for IHidDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHidDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5f8a14e7_2200_432e_95da_d09b87d574a8);
@@ -164,14 +144,10 @@ pub struct IHidDevice_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHidDeviceStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHidDeviceStatics {
     type Vtable = IHidDeviceStatics_Vtbl;
-}
-impl ::core::clone::Clone for IHidDeviceStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHidDeviceStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e5981e4_9856_418c_9f73_77de0cd85754);
@@ -189,14 +165,10 @@ pub struct IHidDeviceStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHidFeatureReport(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHidFeatureReport {
     type Vtable = IHidFeatureReport_Vtbl;
-}
-impl ::core::clone::Clone for IHidFeatureReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHidFeatureReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x841d9b79_5ae5_46e3_82ef_1fec5c8942f4);
@@ -221,14 +193,10 @@ pub struct IHidFeatureReport_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHidInputReport(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHidInputReport {
     type Vtable = IHidInputReport_Vtbl;
-}
-impl ::core::clone::Clone for IHidInputReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHidInputReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc35d0e50_f7e7_4e8d_b23e_cabbe56b90e9);
@@ -257,14 +225,10 @@ pub struct IHidInputReport_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHidInputReportReceivedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHidInputReportReceivedEventArgs {
     type Vtable = IHidInputReportReceivedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IHidInputReportReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHidInputReportReceivedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7059c5cb_59b2_4dc2_985c_0adc6136fa2d);
@@ -277,14 +241,10 @@ pub struct IHidInputReportReceivedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHidNumericControl(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHidNumericControl {
     type Vtable = IHidNumericControl_Vtbl;
-}
-impl ::core::clone::Clone for IHidNumericControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHidNumericControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe38a12a5_35a7_4b75_89c8_fb1f28b10823);
@@ -305,14 +265,10 @@ pub struct IHidNumericControl_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHidNumericControlDescription(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHidNumericControlDescription {
     type Vtable = IHidNumericControlDescription_Vtbl;
-}
-impl ::core::clone::Clone for IHidNumericControlDescription {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHidNumericControlDescription {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x638d5e86_1d97_4c75_927f_5ff58ba05e32);
@@ -343,14 +299,10 @@ pub struct IHidNumericControlDescription_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHidOutputReport(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHidOutputReport {
     type Vtable = IHidOutputReport_Vtbl;
-}
-impl ::core::clone::Clone for IHidOutputReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHidOutputReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x62cb2544_c896_4463_93c1_df9db053c450);
@@ -375,6 +327,7 @@ pub struct IHidOutputReport_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HidBooleanControl(::windows_core::IUnknown);
 impl HidBooleanControl {
     pub fn Id(&self) -> ::windows_core::Result<u32> {
@@ -417,24 +370,8 @@ impl HidBooleanControl {
         }
     }
 }
-impl ::core::cmp::PartialEq for HidBooleanControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HidBooleanControl {}
-impl ::core::fmt::Debug for HidBooleanControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HidBooleanControl").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HidBooleanControl {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidBooleanControl;{524df48a-3695-408c-bba2-e2eb5abfbc20})");
-}
-impl ::core::clone::Clone for HidBooleanControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HidBooleanControl {
     type Vtable = IHidBooleanControl_Vtbl;
@@ -450,6 +387,7 @@ unsafe impl ::core::marker::Send for HidBooleanControl {}
 unsafe impl ::core::marker::Sync for HidBooleanControl {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HidBooleanControlDescription(::windows_core::IUnknown);
 impl HidBooleanControlDescription {
     pub fn Id(&self) -> ::windows_core::Result<u32> {
@@ -504,24 +442,8 @@ impl HidBooleanControlDescription {
         }
     }
 }
-impl ::core::cmp::PartialEq for HidBooleanControlDescription {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HidBooleanControlDescription {}
-impl ::core::fmt::Debug for HidBooleanControlDescription {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HidBooleanControlDescription").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HidBooleanControlDescription {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription;{6196e543-29d8-4a2a-8683-849e207bbe31})");
-}
-impl ::core::clone::Clone for HidBooleanControlDescription {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HidBooleanControlDescription {
     type Vtable = IHidBooleanControlDescription_Vtbl;
@@ -537,6 +459,7 @@ unsafe impl ::core::marker::Send for HidBooleanControlDescription {}
 unsafe impl ::core::marker::Sync for HidBooleanControlDescription {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HidCollection(::windows_core::IUnknown);
 impl HidCollection {
     pub fn Id(&self) -> ::windows_core::Result<u32> {
@@ -568,24 +491,8 @@ impl HidCollection {
         }
     }
 }
-impl ::core::cmp::PartialEq for HidCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HidCollection {}
-impl ::core::fmt::Debug for HidCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HidCollection").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HidCollection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidCollection;{7189f5a3-32f1-46e3-befd-44d2663b7e6a})");
-}
-impl ::core::clone::Clone for HidCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HidCollection {
     type Vtable = IHidCollection_Vtbl;
@@ -601,6 +508,7 @@ unsafe impl ::core::marker::Send for HidCollection {}
 unsafe impl ::core::marker::Sync for HidCollection {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HidDevice(::windows_core::IUnknown);
 impl HidDevice {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -794,24 +702,8 @@ impl HidDevice {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for HidDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HidDevice {}
-impl ::core::fmt::Debug for HidDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HidDevice").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HidDevice {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidDevice;{5f8a14e7-2200-432e-95da-d09b87d574a8})");
-}
-impl ::core::clone::Clone for HidDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HidDevice {
     type Vtable = IHidDevice_Vtbl;
@@ -829,6 +721,7 @@ unsafe impl ::core::marker::Send for HidDevice {}
 unsafe impl ::core::marker::Sync for HidDevice {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HidFeatureReport(::windows_core::IUnknown);
 impl HidFeatureReport {
     pub fn Id(&self) -> ::windows_core::Result<u16> {
@@ -891,24 +784,8 @@ impl HidFeatureReport {
         }
     }
 }
-impl ::core::cmp::PartialEq for HidFeatureReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HidFeatureReport {}
-impl ::core::fmt::Debug for HidFeatureReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HidFeatureReport").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HidFeatureReport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidFeatureReport;{841d9b79-5ae5-46e3-82ef-1fec5c8942f4})");
-}
-impl ::core::clone::Clone for HidFeatureReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HidFeatureReport {
     type Vtable = IHidFeatureReport_Vtbl;
@@ -924,6 +801,7 @@ unsafe impl ::core::marker::Send for HidFeatureReport {}
 unsafe impl ::core::marker::Sync for HidFeatureReport {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HidInputReport(::windows_core::IUnknown);
 impl HidInputReport {
     pub fn Id(&self) -> ::windows_core::Result<u16> {
@@ -995,24 +873,8 @@ impl HidInputReport {
         }
     }
 }
-impl ::core::cmp::PartialEq for HidInputReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HidInputReport {}
-impl ::core::fmt::Debug for HidInputReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HidInputReport").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HidInputReport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidInputReport;{c35d0e50-f7e7-4e8d-b23e-cabbe56b90e9})");
-}
-impl ::core::clone::Clone for HidInputReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HidInputReport {
     type Vtable = IHidInputReport_Vtbl;
@@ -1028,6 +890,7 @@ unsafe impl ::core::marker::Send for HidInputReport {}
 unsafe impl ::core::marker::Sync for HidInputReport {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HidInputReportReceivedEventArgs(::windows_core::IUnknown);
 impl HidInputReportReceivedEventArgs {
     pub fn Report(&self) -> ::windows_core::Result<HidInputReport> {
@@ -1038,24 +901,8 @@ impl HidInputReportReceivedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for HidInputReportReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HidInputReportReceivedEventArgs {}
-impl ::core::fmt::Debug for HidInputReportReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HidInputReportReceivedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HidInputReportReceivedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidInputReportReceivedEventArgs;{7059c5cb-59b2-4dc2-985c-0adc6136fa2d})");
-}
-impl ::core::clone::Clone for HidInputReportReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HidInputReportReceivedEventArgs {
     type Vtable = IHidInputReportReceivedEventArgs_Vtbl;
@@ -1071,6 +918,7 @@ unsafe impl ::core::marker::Send for HidInputReportReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for HidInputReportReceivedEventArgs {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HidNumericControl(::windows_core::IUnknown);
 impl HidNumericControl {
     pub fn Id(&self) -> ::windows_core::Result<u32> {
@@ -1131,24 +979,8 @@ impl HidNumericControl {
         }
     }
 }
-impl ::core::cmp::PartialEq for HidNumericControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HidNumericControl {}
-impl ::core::fmt::Debug for HidNumericControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HidNumericControl").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HidNumericControl {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidNumericControl;{e38a12a5-35a7-4b75-89c8-fb1f28b10823})");
-}
-impl ::core::clone::Clone for HidNumericControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HidNumericControl {
     type Vtable = IHidNumericControl_Vtbl;
@@ -1164,6 +996,7 @@ unsafe impl ::core::marker::Send for HidNumericControl {}
 unsafe impl ::core::marker::Sync for HidNumericControl {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HidNumericControlDescription(::windows_core::IUnknown);
 impl HidNumericControlDescription {
     pub fn Id(&self) -> ::windows_core::Result<u32> {
@@ -1281,24 +1114,8 @@ impl HidNumericControlDescription {
         }
     }
 }
-impl ::core::cmp::PartialEq for HidNumericControlDescription {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HidNumericControlDescription {}
-impl ::core::fmt::Debug for HidNumericControlDescription {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HidNumericControlDescription").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HidNumericControlDescription {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription;{638d5e86-1d97-4c75-927f-5ff58ba05e32})");
-}
-impl ::core::clone::Clone for HidNumericControlDescription {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HidNumericControlDescription {
     type Vtable = IHidNumericControlDescription_Vtbl;
@@ -1314,6 +1131,7 @@ unsafe impl ::core::marker::Send for HidNumericControlDescription {}
 unsafe impl ::core::marker::Sync for HidNumericControlDescription {}
 #[doc = "*Required features: `\"Devices_HumanInterfaceDevice\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HidOutputReport(::windows_core::IUnknown);
 impl HidOutputReport {
     pub fn Id(&self) -> ::windows_core::Result<u16> {
@@ -1376,24 +1194,8 @@ impl HidOutputReport {
         }
     }
 }
-impl ::core::cmp::PartialEq for HidOutputReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HidOutputReport {}
-impl ::core::fmt::Debug for HidOutputReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HidOutputReport").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HidOutputReport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.HumanInterfaceDevice.HidOutputReport;{62cb2544-c896-4463-93c1-df9db053c450})");
-}
-impl ::core::clone::Clone for HidOutputReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HidOutputReport {
     type Vtable = IHidOutputReport_Vtbl;

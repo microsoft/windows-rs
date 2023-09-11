@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPowerManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPowerManagerStatics {
     type Vtable = IPowerManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPowerManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPowerManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x25de8fd0_1c5b_11e1_bddb_0800200c9a66);
@@ -28,14 +24,10 @@ pub struct IPowerManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPowerManagerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPowerManagerStatics2 {
     type Vtable = IPowerManagerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IPowerManagerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPowerManagerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x596236cf_1918_4551_a466_c51aae373bf8);

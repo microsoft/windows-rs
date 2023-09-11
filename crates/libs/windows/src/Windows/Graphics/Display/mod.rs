@@ -2,14 +2,10 @@
 pub mod Core;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdvancedColorInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdvancedColorInfo {
     type Vtable = IAdvancedColorInfo_Vtbl;
-}
-impl ::core::clone::Clone for IAdvancedColorInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdvancedColorInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8797dcfb_b229_4081_ae9a_2cc85e34ad6a);
@@ -44,14 +40,10 @@ pub struct IAdvancedColorInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBrightnessOverride(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBrightnessOverride {
     type Vtable = IBrightnessOverride_Vtbl;
-}
-impl ::core::clone::Clone for IBrightnessOverride {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBrightnessOverride {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96c9621a_c143_4392_bedd_4a7e9574c8fd);
@@ -95,14 +87,10 @@ pub struct IBrightnessOverride_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBrightnessOverrideSettings(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBrightnessOverrideSettings {
     type Vtable = IBrightnessOverrideSettings_Vtbl;
-}
-impl ::core::clone::Clone for IBrightnessOverrideSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBrightnessOverrideSettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd112ab2a_7604_4dba_bcf8_4b6f49502cb0);
@@ -116,14 +104,10 @@ pub struct IBrightnessOverrideSettings_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBrightnessOverrideSettingsStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBrightnessOverrideSettingsStatics {
     type Vtable = IBrightnessOverrideSettingsStatics_Vtbl;
-}
-impl ::core::clone::Clone for IBrightnessOverrideSettingsStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBrightnessOverrideSettingsStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd487dc90_6f74_440b_b383_5fe96cf00b0f);
@@ -138,14 +122,10 @@ pub struct IBrightnessOverrideSettingsStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBrightnessOverrideStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBrightnessOverrideStatics {
     type Vtable = IBrightnessOverrideStatics_Vtbl;
-}
-impl ::core::clone::Clone for IBrightnessOverrideStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBrightnessOverrideStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03a7b9ed_e1f1_4a68_a11f_946ad8ce5393);
@@ -163,14 +143,10 @@ pub struct IBrightnessOverrideStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IColorOverrideSettings(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IColorOverrideSettings {
     type Vtable = IColorOverrideSettings_Vtbl;
-}
-impl ::core::clone::Clone for IColorOverrideSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IColorOverrideSettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfbefa134_4a81_4c4d_a5b6_7d1b5c4bd00b);
@@ -183,14 +159,10 @@ pub struct IColorOverrideSettings_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IColorOverrideSettingsStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IColorOverrideSettingsStatics {
     type Vtable = IColorOverrideSettingsStatics_Vtbl;
-}
-impl ::core::clone::Clone for IColorOverrideSettingsStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IColorOverrideSettingsStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb068e05f_c41f_4ac9_afab_827ab6248f9a);
@@ -203,14 +175,10 @@ pub struct IColorOverrideSettingsStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDisplayEnhancementOverride(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDisplayEnhancementOverride {
     type Vtable = IDisplayEnhancementOverride_Vtbl;
-}
-impl ::core::clone::Clone for IDisplayEnhancementOverride {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDisplayEnhancementOverride {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x429594cf_d97a_4b02_a428_5c4292f7f522);
@@ -255,14 +223,10 @@ pub struct IDisplayEnhancementOverride_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDisplayEnhancementOverrideCapabilities(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDisplayEnhancementOverrideCapabilities {
     type Vtable = IDisplayEnhancementOverrideCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for IDisplayEnhancementOverrideCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDisplayEnhancementOverrideCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x457060de_ee5a_47b7_9918_1e51e812ccc8);
@@ -280,14 +244,10 @@ pub struct IDisplayEnhancementOverrideCapabilities_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDisplayEnhancementOverrideCapabilitiesChangedEventArgs {
     type Vtable = IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IDisplayEnhancementOverrideCapabilitiesChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDisplayEnhancementOverrideCapabilitiesChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdb61e664_15fa_49da_8b77_07dbd2af585d);
@@ -300,14 +260,10 @@ pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDisplayEnhancementOverrideStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDisplayEnhancementOverrideStatics {
     type Vtable = IDisplayEnhancementOverrideStatics_Vtbl;
-}
-impl ::core::clone::Clone for IDisplayEnhancementOverrideStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDisplayEnhancementOverrideStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf5b7ec1_9791_4453_b013_29b6f778e519);
@@ -320,14 +276,10 @@ pub struct IDisplayEnhancementOverrideStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDisplayInformation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDisplayInformation {
     type Vtable = IDisplayInformation_Vtbl;
-}
-impl ::core::clone::Clone for IDisplayInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDisplayInformation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbed112ae_adc3_4dc9_ae65_851f4d7d4799);
@@ -382,14 +334,10 @@ pub struct IDisplayInformation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDisplayInformation2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDisplayInformation2 {
     type Vtable = IDisplayInformation2_Vtbl;
-}
-impl ::core::clone::Clone for IDisplayInformation2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDisplayInformation2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4dcd0021_fad1_4b8e_8edf_775887b8bf19);
@@ -402,14 +350,10 @@ pub struct IDisplayInformation2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDisplayInformation3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDisplayInformation3 {
     type Vtable = IDisplayInformation3_Vtbl;
-}
-impl ::core::clone::Clone for IDisplayInformation3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDisplayInformation3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdb15011d_0f09_4466_8ff3_11de9a3c929a);
@@ -425,14 +369,10 @@ pub struct IDisplayInformation3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDisplayInformation4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDisplayInformation4 {
     type Vtable = IDisplayInformation4_Vtbl;
-}
-impl ::core::clone::Clone for IDisplayInformation4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDisplayInformation4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc972ce2f_1242_46be_b536_e1aafe9e7acf);
@@ -446,14 +386,10 @@ pub struct IDisplayInformation4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDisplayInformation5(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDisplayInformation5 {
     type Vtable = IDisplayInformation5_Vtbl;
-}
-impl ::core::clone::Clone for IDisplayInformation5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDisplayInformation5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a5442dc_2cde_4a8d_80d1_21dc5adcc1aa);
@@ -474,14 +410,10 @@ pub struct IDisplayInformation5_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDisplayInformationStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDisplayInformationStatics {
     type Vtable = IDisplayInformationStatics_Vtbl;
-}
-impl ::core::clone::Clone for IDisplayInformationStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDisplayInformationStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6a02a6c_d452_44dc_ba07_96f3c6adf9d1);
@@ -505,16 +437,11 @@ pub struct IDisplayInformationStatics_Vtbl {
 #[doc(hidden)]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDisplayPropertiesStatics(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for IDisplayPropertiesStatics {
     type Vtable = IDisplayPropertiesStatics_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for IDisplayPropertiesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::ComInterface for IDisplayPropertiesStatics {
@@ -600,14 +527,10 @@ pub struct IDisplayPropertiesStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDisplayServices(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDisplayServices {
     type Vtable = IDisplayServices_Vtbl;
-}
-impl ::core::clone::Clone for IDisplayServices {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDisplayServices {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b54f32b_890d_5747_bd26_fdbdeb0c8a71);
@@ -619,14 +542,10 @@ pub struct IDisplayServices_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDisplayServicesStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDisplayServicesStatics {
     type Vtable = IDisplayServicesStatics_Vtbl;
-}
-impl ::core::clone::Clone for IDisplayServicesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDisplayServicesStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdc2096bf_730a_5560_b461_91c13d692e0c);
@@ -639,6 +558,7 @@ pub struct IDisplayServicesStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdvancedColorInfo(::windows_core::IUnknown);
 impl AdvancedColorInfo {
     pub fn CurrentAdvancedColorKind(&self) -> ::windows_core::Result<AdvancedColorKind> {
@@ -727,24 +647,8 @@ impl AdvancedColorInfo {
         }
     }
 }
-impl ::core::cmp::PartialEq for AdvancedColorInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdvancedColorInfo {}
-impl ::core::fmt::Debug for AdvancedColorInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdvancedColorInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AdvancedColorInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.AdvancedColorInfo;{8797dcfb-b229-4081-ae9a-2cc85e34ad6a})");
-}
-impl ::core::clone::Clone for AdvancedColorInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AdvancedColorInfo {
     type Vtable = IAdvancedColorInfo_Vtbl;
@@ -760,6 +664,7 @@ unsafe impl ::core::marker::Send for AdvancedColorInfo {}
 unsafe impl ::core::marker::Sync for AdvancedColorInfo {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BrightnessOverride(::windows_core::IUnknown);
 impl BrightnessOverride {
     pub fn IsSupported(&self) -> ::windows_core::Result<bool> {
@@ -889,24 +794,8 @@ impl BrightnessOverride {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for BrightnessOverride {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BrightnessOverride {}
-impl ::core::fmt::Debug for BrightnessOverride {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BrightnessOverride").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BrightnessOverride {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.BrightnessOverride;{96c9621a-c143-4392-bedd-4a7e9574c8fd})");
-}
-impl ::core::clone::Clone for BrightnessOverride {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BrightnessOverride {
     type Vtable = IBrightnessOverride_Vtbl;
@@ -922,6 +811,7 @@ unsafe impl ::core::marker::Send for BrightnessOverride {}
 unsafe impl ::core::marker::Sync for BrightnessOverride {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BrightnessOverrideSettings(::windows_core::IUnknown);
 impl BrightnessOverrideSettings {
     pub fn DesiredLevel(&self) -> ::windows_core::Result<f64> {
@@ -962,24 +852,8 @@ impl BrightnessOverrideSettings {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for BrightnessOverrideSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BrightnessOverrideSettings {}
-impl ::core::fmt::Debug for BrightnessOverrideSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BrightnessOverrideSettings").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BrightnessOverrideSettings {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.BrightnessOverrideSettings;{d112ab2a-7604-4dba-bcf8-4b6f49502cb0})");
-}
-impl ::core::clone::Clone for BrightnessOverrideSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BrightnessOverrideSettings {
     type Vtable = IBrightnessOverrideSettings_Vtbl;
@@ -995,6 +869,7 @@ unsafe impl ::core::marker::Send for BrightnessOverrideSettings {}
 unsafe impl ::core::marker::Sync for BrightnessOverrideSettings {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ColorOverrideSettings(::windows_core::IUnknown);
 impl ColorOverrideSettings {
     pub fn DesiredDisplayColorOverrideScenario(&self) -> ::windows_core::Result<DisplayColorOverrideScenario> {
@@ -1016,24 +891,8 @@ impl ColorOverrideSettings {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for ColorOverrideSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ColorOverrideSettings {}
-impl ::core::fmt::Debug for ColorOverrideSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ColorOverrideSettings").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ColorOverrideSettings {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.ColorOverrideSettings;{fbefa134-4a81-4c4d-a5b6-7d1b5c4bd00b})");
-}
-impl ::core::clone::Clone for ColorOverrideSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ColorOverrideSettings {
     type Vtable = IColorOverrideSettings_Vtbl;
@@ -1049,6 +908,7 @@ unsafe impl ::core::marker::Send for ColorOverrideSettings {}
 unsafe impl ::core::marker::Sync for ColorOverrideSettings {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DisplayEnhancementOverride(::windows_core::IUnknown);
 impl DisplayEnhancementOverride {
     pub fn ColorOverrideSettings(&self) -> ::windows_core::Result<ColorOverrideSettings> {
@@ -1174,24 +1034,8 @@ impl DisplayEnhancementOverride {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for DisplayEnhancementOverride {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayEnhancementOverride {}
-impl ::core::fmt::Debug for DisplayEnhancementOverride {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayEnhancementOverride").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DisplayEnhancementOverride {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayEnhancementOverride;{429594cf-d97a-4b02-a428-5c4292f7f522})");
-}
-impl ::core::clone::Clone for DisplayEnhancementOverride {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DisplayEnhancementOverride {
     type Vtable = IDisplayEnhancementOverride_Vtbl;
@@ -1207,6 +1051,7 @@ unsafe impl ::core::marker::Send for DisplayEnhancementOverride {}
 unsafe impl ::core::marker::Sync for DisplayEnhancementOverride {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DisplayEnhancementOverrideCapabilities(::windows_core::IUnknown);
 impl DisplayEnhancementOverrideCapabilities {
     pub fn IsBrightnessControlSupported(&self) -> ::windows_core::Result<bool> {
@@ -1233,24 +1078,8 @@ impl DisplayEnhancementOverrideCapabilities {
         }
     }
 }
-impl ::core::cmp::PartialEq for DisplayEnhancementOverrideCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayEnhancementOverrideCapabilities {}
-impl ::core::fmt::Debug for DisplayEnhancementOverrideCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayEnhancementOverrideCapabilities").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DisplayEnhancementOverrideCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayEnhancementOverrideCapabilities;{457060de-ee5a-47b7-9918-1e51e812ccc8})");
-}
-impl ::core::clone::Clone for DisplayEnhancementOverrideCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DisplayEnhancementOverrideCapabilities {
     type Vtable = IDisplayEnhancementOverrideCapabilities_Vtbl;
@@ -1266,6 +1095,7 @@ unsafe impl ::core::marker::Send for DisplayEnhancementOverrideCapabilities {}
 unsafe impl ::core::marker::Sync for DisplayEnhancementOverrideCapabilities {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DisplayEnhancementOverrideCapabilitiesChangedEventArgs(::windows_core::IUnknown);
 impl DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
     pub fn Capabilities(&self) -> ::windows_core::Result<DisplayEnhancementOverrideCapabilities> {
@@ -1276,24 +1106,8 @@ impl DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
-impl ::core::fmt::Debug for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayEnhancementOverrideCapabilitiesChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayEnhancementOverrideCapabilitiesChangedEventArgs;{db61e664-15fa-49da-8b77-07dbd2af585d})");
-}
-impl ::core::clone::Clone for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
     type Vtable = IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_Vtbl;
@@ -1309,6 +1123,7 @@ unsafe impl ::core::marker::Send for DisplayEnhancementOverrideCapabilitiesChang
 unsafe impl ::core::marker::Sync for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DisplayInformation(::windows_core::IUnknown);
 impl DisplayInformation {
     pub fn CurrentOrientation(&self) -> ::windows_core::Result<DisplayOrientations> {
@@ -1533,24 +1348,8 @@ impl DisplayInformation {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for DisplayInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayInformation {}
-impl ::core::fmt::Debug for DisplayInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayInformation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DisplayInformation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayInformation;{bed112ae-adc3-4dc9-ae65-851f4d7d4799})");
-}
-impl ::core::clone::Clone for DisplayInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DisplayInformation {
     type Vtable = IDisplayInformation_Vtbl;
@@ -1723,6 +1522,7 @@ impl ::windows_core::RuntimeName for DisplayProperties {
 }
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DisplayServices(::windows_core::IUnknown);
 impl DisplayServices {
     pub fn FindAll() -> ::windows_core::Result<::windows_core::Array<super::DisplayId>> {
@@ -1737,24 +1537,8 @@ impl DisplayServices {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for DisplayServices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayServices {}
-impl ::core::fmt::Debug for DisplayServices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayServices").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DisplayServices {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayServices;{1b54f32b-890d-5747-bd26-fdbdeb0c8a71})");
-}
-impl ::core::clone::Clone for DisplayServices {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DisplayServices {
     type Vtable = IDisplayServices_Vtbl;
@@ -2133,6 +1917,7 @@ impl ::core::default::Default for NitRange {
 #[doc = "*Required features: `\"Graphics_Display\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DisplayPropertiesEventHandler(pub ::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl DisplayPropertiesEventHandler {
@@ -2191,28 +1976,8 @@ impl<F: FnMut(::core::option::Option<&::windows_core::IInspectable>) -> ::window
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for DisplayPropertiesEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for DisplayPropertiesEventHandler {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for DisplayPropertiesEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayPropertiesEventHandler").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for DisplayPropertiesEventHandler {
     type Vtable = DisplayPropertiesEventHandler_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for DisplayPropertiesEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::ComInterface for DisplayPropertiesEventHandler {

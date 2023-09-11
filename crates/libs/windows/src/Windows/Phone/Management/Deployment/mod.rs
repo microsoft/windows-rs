@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnterprise(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEnterprise {
     type Vtable = IEnterprise_Vtbl;
-}
-impl ::core::clone::Clone for IEnterprise {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnterprise {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96592f8d_856c_4426_a947_b06307718078);
@@ -31,14 +27,10 @@ pub struct IEnterprise_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnterpriseEnrollmentManager(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEnterpriseEnrollmentManager {
     type Vtable = IEnterpriseEnrollmentManager_Vtbl;
-}
-impl ::core::clone::Clone for IEnterpriseEnrollmentManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnterpriseEnrollmentManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20f9f390_2c69_41d8_88e6_e4b3884026cb);
@@ -67,14 +59,10 @@ pub struct IEnterpriseEnrollmentManager_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnterpriseEnrollmentResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEnterpriseEnrollmentResult {
     type Vtable = IEnterpriseEnrollmentResult_Vtbl;
-}
-impl ::core::clone::Clone for IEnterpriseEnrollmentResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnterpriseEnrollmentResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9ff71ce6_90db_4342_b326_1729aa91301c);
@@ -88,14 +76,10 @@ pub struct IEnterpriseEnrollmentResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInstallationManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IInstallationManagerStatics {
     type Vtable = IInstallationManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IInstallationManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInstallationManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x929aa738_8d49_42ac_80c9_b4ad793c43f2);
@@ -127,14 +111,10 @@ pub struct IInstallationManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInstallationManagerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IInstallationManagerStatics2 {
     type Vtable = IInstallationManagerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IInstallationManagerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInstallationManagerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7c6c2cbd_fa4a_4c8e_ab97_d959452f19e5);
@@ -158,14 +138,10 @@ pub struct IInstallationManagerStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPackageInstallResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPackageInstallResult {
     type Vtable = IPackageInstallResult_Vtbl;
-}
-impl ::core::clone::Clone for IPackageInstallResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPackageInstallResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33e8eed5_0f7e_4473_967c_7d6e1c0e7de1);
@@ -182,14 +158,10 @@ pub struct IPackageInstallResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPackageInstallResult2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPackageInstallResult2 {
     type Vtable = IPackageInstallResult2_Vtbl;
-}
-impl ::core::clone::Clone for IPackageInstallResult2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPackageInstallResult2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7149d909_3ff9_41ed_a717_2bc65ffc61d2);
@@ -202,6 +174,7 @@ pub struct IPackageInstallResult2_Vtbl {
 }
 #[doc = "*Required features: `\"Phone_Management_Deployment\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Enterprise(::windows_core::IUnknown);
 impl Enterprise {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -251,24 +224,8 @@ impl Enterprise {
         }
     }
 }
-impl ::core::cmp::PartialEq for Enterprise {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Enterprise {}
-impl ::core::fmt::Debug for Enterprise {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Enterprise").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Enterprise {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Management.Deployment.Enterprise;{96592f8d-856c-4426-a947-b06307718078})");
-}
-impl ::core::clone::Clone for Enterprise {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Enterprise {
     type Vtable = IEnterprise_Vtbl;
@@ -337,6 +294,7 @@ impl ::windows_core::RuntimeName for EnterpriseEnrollmentManager {
 }
 #[doc = "*Required features: `\"Phone_Management_Deployment\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EnterpriseEnrollmentResult(::windows_core::IUnknown);
 impl EnterpriseEnrollmentResult {
     pub fn EnrolledEnterprise(&self) -> ::windows_core::Result<Enterprise> {
@@ -354,24 +312,8 @@ impl EnterpriseEnrollmentResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for EnterpriseEnrollmentResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EnterpriseEnrollmentResult {}
-impl ::core::fmt::Debug for EnterpriseEnrollmentResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EnterpriseEnrollmentResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EnterpriseEnrollmentResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Management.Deployment.EnterpriseEnrollmentResult;{9ff71ce6-90db-4342-b326-1729aa91301c})");
-}
-impl ::core::clone::Clone for EnterpriseEnrollmentResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EnterpriseEnrollmentResult {
     type Vtable = IEnterpriseEnrollmentResult_Vtbl;
@@ -477,6 +419,7 @@ impl ::windows_core::RuntimeName for InstallationManager {
 }
 #[doc = "*Required features: `\"Phone_Management_Deployment\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PackageInstallResult(::windows_core::IUnknown);
 impl PackageInstallResult {
     pub fn ProductId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -503,24 +446,8 @@ impl PackageInstallResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for PackageInstallResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageInstallResult {}
-impl ::core::fmt::Debug for PackageInstallResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PackageInstallResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PackageInstallResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.Management.Deployment.PackageInstallResult;{33e8eed5-0f7e-4473-967c-7d6e1c0e7de1})");
-}
-impl ::core::clone::Clone for PackageInstallResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PackageInstallResult {
     type Vtable = IPackageInstallResult_Vtbl;

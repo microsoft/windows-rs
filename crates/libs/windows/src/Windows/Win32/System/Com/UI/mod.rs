@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_Com_UI\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDummyHICONIncluder(::windows_core::IUnknown);
 impl IDummyHICONIncluder {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -13,24 +14,8 @@ impl IDummyHICONIncluder {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDummyHICONIncluder, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDummyHICONIncluder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDummyHICONIncluder {}
-impl ::core::fmt::Debug for IDummyHICONIncluder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDummyHICONIncluder").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDummyHICONIncluder {
     type Vtable = IDummyHICONIncluder_Vtbl;
-}
-impl ::core::clone::Clone for IDummyHICONIncluder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDummyHICONIncluder {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x947990de_cc28_11d2_a0f7_00805f858fb1);
@@ -46,6 +31,7 @@ pub struct IDummyHICONIncluder_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_UI\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IThumbnailExtractor(::windows_core::IUnknown);
 impl IThumbnailExtractor {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -66,24 +52,8 @@ impl IThumbnailExtractor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IThumbnailExtractor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IThumbnailExtractor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IThumbnailExtractor {}
-impl ::core::fmt::Debug for IThumbnailExtractor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IThumbnailExtractor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IThumbnailExtractor {
     type Vtable = IThumbnailExtractor_Vtbl;
-}
-impl ::core::clone::Clone for IThumbnailExtractor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IThumbnailExtractor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x969dc708_5c76_11d1_8d86_0000f804b057);

@@ -582,6 +582,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxAppInstallerReader(::windows_core::IUnknown);
 impl IAppxAppInstallerReader {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
@@ -592,24 +593,8 @@ impl IAppxAppInstallerReader {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxAppInstallerReader, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxAppInstallerReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxAppInstallerReader {}
-impl ::core::fmt::Debug for IAppxAppInstallerReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxAppInstallerReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxAppInstallerReader {
     type Vtable = IAppxAppInstallerReader_Vtbl;
-}
-impl ::core::clone::Clone for IAppxAppInstallerReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxAppInstallerReader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf35bc38c_1d2f_43db_a1f4_586430d1fed2);
@@ -625,6 +610,7 @@ pub struct IAppxAppInstallerReader_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBlockMapBlock(::windows_core::IUnknown);
 impl IAppxBlockMapBlock {
     pub unsafe fn GetHash(&self, buffersize: *mut u32, buffer: *mut *mut u8) -> ::windows_core::Result<()> {
@@ -636,24 +622,8 @@ impl IAppxBlockMapBlock {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxBlockMapBlock, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxBlockMapBlock {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBlockMapBlock {}
-impl ::core::fmt::Debug for IAppxBlockMapBlock {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBlockMapBlock").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxBlockMapBlock {
     type Vtable = IAppxBlockMapBlock_Vtbl;
-}
-impl ::core::clone::Clone for IAppxBlockMapBlock {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxBlockMapBlock {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75cf3930_3244_4fe0_a8c8_e0bcb270b889);
@@ -667,6 +637,7 @@ pub struct IAppxBlockMapBlock_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBlockMapBlocksEnumerator(::windows_core::IUnknown);
 impl IAppxBlockMapBlocksEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows_core::Result<IAppxBlockMapBlock> {
@@ -687,24 +658,8 @@ impl IAppxBlockMapBlocksEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxBlockMapBlocksEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxBlockMapBlocksEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBlockMapBlocksEnumerator {}
-impl ::core::fmt::Debug for IAppxBlockMapBlocksEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBlockMapBlocksEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxBlockMapBlocksEnumerator {
     type Vtable = IAppxBlockMapBlocksEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IAppxBlockMapBlocksEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxBlockMapBlocksEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b429b5b_36ef_479e_b9eb_0c1482b49e16);
@@ -725,6 +680,7 @@ pub struct IAppxBlockMapBlocksEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBlockMapFile(::windows_core::IUnknown);
 impl IAppxBlockMapFile {
     pub unsafe fn GetBlocks(&self) -> ::windows_core::Result<IAppxBlockMapBlocksEnumerator> {
@@ -754,24 +710,8 @@ impl IAppxBlockMapFile {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxBlockMapFile, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxBlockMapFile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBlockMapFile {}
-impl ::core::fmt::Debug for IAppxBlockMapFile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBlockMapFile").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxBlockMapFile {
     type Vtable = IAppxBlockMapFile_Vtbl;
-}
-impl ::core::clone::Clone for IAppxBlockMapFile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxBlockMapFile {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x277672ac_4f63_42c1_8abc_beae3600eb59);
@@ -791,6 +731,7 @@ pub struct IAppxBlockMapFile_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBlockMapFilesEnumerator(::windows_core::IUnknown);
 impl IAppxBlockMapFilesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows_core::Result<IAppxBlockMapFile> {
@@ -811,24 +752,8 @@ impl IAppxBlockMapFilesEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxBlockMapFilesEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxBlockMapFilesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBlockMapFilesEnumerator {}
-impl ::core::fmt::Debug for IAppxBlockMapFilesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBlockMapFilesEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxBlockMapFilesEnumerator {
     type Vtable = IAppxBlockMapFilesEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IAppxBlockMapFilesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxBlockMapFilesEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x02b856a2_4262_4070_bacb_1a8cbbc42305);
@@ -849,6 +774,7 @@ pub struct IAppxBlockMapFilesEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBlockMapReader(::windows_core::IUnknown);
 impl IAppxBlockMapReader {
     pub unsafe fn GetFile<P0>(&self, filename: P0) -> ::windows_core::Result<IAppxBlockMapFile>
@@ -876,24 +802,8 @@ impl IAppxBlockMapReader {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxBlockMapReader, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxBlockMapReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBlockMapReader {}
-impl ::core::fmt::Debug for IAppxBlockMapReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBlockMapReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxBlockMapReader {
     type Vtable = IAppxBlockMapReader_Vtbl;
-}
-impl ::core::clone::Clone for IAppxBlockMapReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxBlockMapReader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5efec991_bca3_42d1_9ec2_e92d609ec22a);
@@ -915,6 +825,7 @@ pub struct IAppxBlockMapReader_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleFactory(::windows_core::IUnknown);
 impl IAppxBundleFactory {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -946,24 +857,8 @@ impl IAppxBundleFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxBundleFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxBundleFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleFactory {}
-impl ::core::fmt::Debug for IAppxBundleFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxBundleFactory {
     type Vtable = IAppxBundleFactory_Vtbl;
-}
-impl ::core::clone::Clone for IAppxBundleFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxBundleFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbba65864_965f_4a5f_855f_f074bdbf3a7b);
@@ -987,6 +882,7 @@ pub struct IAppxBundleFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleFactory2(::windows_core::IUnknown);
 impl IAppxBundleFactory2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1001,24 +897,8 @@ impl IAppxBundleFactory2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxBundleFactory2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxBundleFactory2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleFactory2 {}
-impl ::core::fmt::Debug for IAppxBundleFactory2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleFactory2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxBundleFactory2 {
     type Vtable = IAppxBundleFactory2_Vtbl;
-}
-impl ::core::clone::Clone for IAppxBundleFactory2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxBundleFactory2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7325b83d_0185_42c4_82ac_be34ab1a2a8a);
@@ -1034,6 +914,7 @@ pub struct IAppxBundleFactory2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleManifestOptionalBundleInfo(::windows_core::IUnknown);
 impl IAppxBundleManifestOptionalBundleInfo {
     pub unsafe fn GetPackageId(&self) -> ::windows_core::Result<IAppxManifestPackageId> {
@@ -1050,24 +931,8 @@ impl IAppxBundleManifestOptionalBundleInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxBundleManifestOptionalBundleInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxBundleManifestOptionalBundleInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleManifestOptionalBundleInfo {}
-impl ::core::fmt::Debug for IAppxBundleManifestOptionalBundleInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleManifestOptionalBundleInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxBundleManifestOptionalBundleInfo {
     type Vtable = IAppxBundleManifestOptionalBundleInfo_Vtbl;
-}
-impl ::core::clone::Clone for IAppxBundleManifestOptionalBundleInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxBundleManifestOptionalBundleInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x515bf2e8_bcb0_4d69_8c48_e383147b6e12);
@@ -1082,6 +947,7 @@ pub struct IAppxBundleManifestOptionalBundleInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleManifestOptionalBundleInfoEnumerator(::windows_core::IUnknown);
 impl IAppxBundleManifestOptionalBundleInfoEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows_core::Result<IAppxBundleManifestOptionalBundleInfo> {
@@ -1102,24 +968,8 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxBundleManifestOptionalBundleInfoEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxBundleManifestOptionalBundleInfoEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleManifestOptionalBundleInfoEnumerator {}
-impl ::core::fmt::Debug for IAppxBundleManifestOptionalBundleInfoEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleManifestOptionalBundleInfoEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxBundleManifestOptionalBundleInfoEnumerator {
     type Vtable = IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IAppxBundleManifestOptionalBundleInfoEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxBundleManifestOptionalBundleInfoEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a178793_f97e_46ac_aaca_dd5ba4c177c8);
@@ -1140,6 +990,7 @@ pub struct IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleManifestPackageInfo(::windows_core::IUnknown);
 impl IAppxBundleManifestPackageInfo {
     pub unsafe fn GetPackageType(&self) -> ::windows_core::Result<APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE> {
@@ -1168,24 +1019,8 @@ impl IAppxBundleManifestPackageInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxBundleManifestPackageInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleManifestPackageInfo {}
-impl ::core::fmt::Debug for IAppxBundleManifestPackageInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleManifestPackageInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxBundleManifestPackageInfo {
     type Vtable = IAppxBundleManifestPackageInfo_Vtbl;
-}
-impl ::core::clone::Clone for IAppxBundleManifestPackageInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxBundleManifestPackageInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54cd06c1_268f_40bb_8ed2_757a9ebaec8d);
@@ -1203,6 +1038,7 @@ pub struct IAppxBundleManifestPackageInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleManifestPackageInfo2(::windows_core::IUnknown);
 impl IAppxBundleManifestPackageInfo2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1225,24 +1061,8 @@ impl IAppxBundleManifestPackageInfo2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxBundleManifestPackageInfo2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfo2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleManifestPackageInfo2 {}
-impl ::core::fmt::Debug for IAppxBundleManifestPackageInfo2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleManifestPackageInfo2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxBundleManifestPackageInfo2 {
     type Vtable = IAppxBundleManifestPackageInfo2_Vtbl;
-}
-impl ::core::clone::Clone for IAppxBundleManifestPackageInfo2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxBundleManifestPackageInfo2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x44c2acbc_b2cf_4ccb_bbdb_9c6da8c3bc9e);
@@ -1266,6 +1086,7 @@ pub struct IAppxBundleManifestPackageInfo2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleManifestPackageInfo3(::windows_core::IUnknown);
 impl IAppxBundleManifestPackageInfo3 {
     pub unsafe fn GetTargetDeviceFamilies(&self) -> ::windows_core::Result<IAppxManifestTargetDeviceFamiliesEnumerator> {
@@ -1274,24 +1095,8 @@ impl IAppxBundleManifestPackageInfo3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxBundleManifestPackageInfo3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfo3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleManifestPackageInfo3 {}
-impl ::core::fmt::Debug for IAppxBundleManifestPackageInfo3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleManifestPackageInfo3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxBundleManifestPackageInfo3 {
     type Vtable = IAppxBundleManifestPackageInfo3_Vtbl;
-}
-impl ::core::clone::Clone for IAppxBundleManifestPackageInfo3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxBundleManifestPackageInfo3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6ba74b98_bb74_4296_80d0_5f4256a99675);
@@ -1304,6 +1109,7 @@ pub struct IAppxBundleManifestPackageInfo3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleManifestPackageInfo4(::windows_core::IUnknown);
 impl IAppxBundleManifestPackageInfo4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1314,24 +1120,8 @@ impl IAppxBundleManifestPackageInfo4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxBundleManifestPackageInfo4, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfo4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleManifestPackageInfo4 {}
-impl ::core::fmt::Debug for IAppxBundleManifestPackageInfo4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleManifestPackageInfo4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxBundleManifestPackageInfo4 {
     type Vtable = IAppxBundleManifestPackageInfo4_Vtbl;
-}
-impl ::core::clone::Clone for IAppxBundleManifestPackageInfo4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxBundleManifestPackageInfo4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5da6f13d_a8a7_4532_857c_1393d659371d);
@@ -1347,6 +1137,7 @@ pub struct IAppxBundleManifestPackageInfo4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleManifestPackageInfoEnumerator(::windows_core::IUnknown);
 impl IAppxBundleManifestPackageInfoEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows_core::Result<IAppxBundleManifestPackageInfo> {
@@ -1367,24 +1158,8 @@ impl IAppxBundleManifestPackageInfoEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxBundleManifestPackageInfoEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfoEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleManifestPackageInfoEnumerator {}
-impl ::core::fmt::Debug for IAppxBundleManifestPackageInfoEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleManifestPackageInfoEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxBundleManifestPackageInfoEnumerator {
     type Vtable = IAppxBundleManifestPackageInfoEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IAppxBundleManifestPackageInfoEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxBundleManifestPackageInfoEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf9b856ee_49a6_4e19_b2b0_6a2406d63a32);
@@ -1405,6 +1180,7 @@ pub struct IAppxBundleManifestPackageInfoEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleManifestReader(::windows_core::IUnknown);
 impl IAppxBundleManifestReader {
     pub unsafe fn GetPackageId(&self) -> ::windows_core::Result<IAppxManifestPackageId> {
@@ -1423,24 +1199,8 @@ impl IAppxBundleManifestReader {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxBundleManifestReader, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxBundleManifestReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleManifestReader {}
-impl ::core::fmt::Debug for IAppxBundleManifestReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleManifestReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxBundleManifestReader {
     type Vtable = IAppxBundleManifestReader_Vtbl;
-}
-impl ::core::clone::Clone for IAppxBundleManifestReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxBundleManifestReader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf0ebbc1_cc99_4106_91eb_e67462e04fb0);
@@ -1458,6 +1218,7 @@ pub struct IAppxBundleManifestReader_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleManifestReader2(::windows_core::IUnknown);
 impl IAppxBundleManifestReader2 {
     pub unsafe fn GetOptionalBundles(&self) -> ::windows_core::Result<IAppxBundleManifestOptionalBundleInfoEnumerator> {
@@ -1466,24 +1227,8 @@ impl IAppxBundleManifestReader2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxBundleManifestReader2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxBundleManifestReader2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleManifestReader2 {}
-impl ::core::fmt::Debug for IAppxBundleManifestReader2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleManifestReader2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxBundleManifestReader2 {
     type Vtable = IAppxBundleManifestReader2_Vtbl;
-}
-impl ::core::clone::Clone for IAppxBundleManifestReader2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxBundleManifestReader2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5517df70_033f_4af2_8213_87d766805c02);
@@ -1496,6 +1241,7 @@ pub struct IAppxBundleManifestReader2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleReader(::windows_core::IUnknown);
 impl IAppxBundleReader {
     pub unsafe fn GetFootprintFile(&self, filetype: APPX_BUNDLE_FOOTPRINT_FILE_TYPE) -> ::windows_core::Result<IAppxFile> {
@@ -1523,24 +1269,8 @@ impl IAppxBundleReader {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxBundleReader, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxBundleReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleReader {}
-impl ::core::fmt::Debug for IAppxBundleReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxBundleReader {
     type Vtable = IAppxBundleReader_Vtbl;
-}
-impl ::core::clone::Clone for IAppxBundleReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxBundleReader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd75b8c0_ba76_43b0_ae0f_68656a1dc5c8);
@@ -1557,6 +1287,7 @@ pub struct IAppxBundleReader_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleWriter(::windows_core::IUnknown);
 impl IAppxBundleWriter {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1573,24 +1304,8 @@ impl IAppxBundleWriter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxBundleWriter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxBundleWriter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleWriter {}
-impl ::core::fmt::Debug for IAppxBundleWriter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleWriter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxBundleWriter {
     type Vtable = IAppxBundleWriter_Vtbl;
-}
-impl ::core::clone::Clone for IAppxBundleWriter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxBundleWriter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xec446fe8_bfec_4c64_ab4f_49f038f0c6d2);
@@ -1607,6 +1322,7 @@ pub struct IAppxBundleWriter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleWriter2(::windows_core::IUnknown);
 impl IAppxBundleWriter2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1620,24 +1336,8 @@ impl IAppxBundleWriter2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxBundleWriter2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxBundleWriter2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleWriter2 {}
-impl ::core::fmt::Debug for IAppxBundleWriter2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleWriter2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxBundleWriter2 {
     type Vtable = IAppxBundleWriter2_Vtbl;
-}
-impl ::core::clone::Clone for IAppxBundleWriter2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxBundleWriter2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d8fe971_01cc_49a0_b685_233851279962);
@@ -1653,6 +1353,7 @@ pub struct IAppxBundleWriter2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleWriter3(::windows_core::IUnknown);
 impl IAppxBundleWriter3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1672,24 +1373,8 @@ impl IAppxBundleWriter3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxBundleWriter3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxBundleWriter3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleWriter3 {}
-impl ::core::fmt::Debug for IAppxBundleWriter3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleWriter3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxBundleWriter3 {
     type Vtable = IAppxBundleWriter3_Vtbl;
-}
-impl ::core::clone::Clone for IAppxBundleWriter3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxBundleWriter3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad711152_f969_4193_82d5_9ddf2786d21a);
@@ -1706,6 +1391,7 @@ pub struct IAppxBundleWriter3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxBundleWriter4(::windows_core::IUnknown);
 impl IAppxBundleWriter4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -1740,24 +1426,8 @@ impl IAppxBundleWriter4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxBundleWriter4, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxBundleWriter4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxBundleWriter4 {}
-impl ::core::fmt::Debug for IAppxBundleWriter4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxBundleWriter4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxBundleWriter4 {
     type Vtable = IAppxBundleWriter4_Vtbl;
-}
-impl ::core::clone::Clone for IAppxBundleWriter4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxBundleWriter4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9cd9d523_5009_4c01_9882_dc029fbd47a3);
@@ -1781,6 +1451,7 @@ pub struct IAppxBundleWriter4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxContentGroup(::windows_core::IUnknown);
 impl IAppxContentGroup {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -1793,24 +1464,8 @@ impl IAppxContentGroup {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxContentGroup, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxContentGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxContentGroup {}
-impl ::core::fmt::Debug for IAppxContentGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxContentGroup").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxContentGroup {
     type Vtable = IAppxContentGroup_Vtbl;
-}
-impl ::core::clone::Clone for IAppxContentGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxContentGroup {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x328f6468_c04f_4e3c_b6fa_6b8d27f3003a);
@@ -1824,6 +1479,7 @@ pub struct IAppxContentGroup_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxContentGroupFilesEnumerator(::windows_core::IUnknown);
 impl IAppxContentGroupFilesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -1844,24 +1500,8 @@ impl IAppxContentGroupFilesEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxContentGroupFilesEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxContentGroupFilesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxContentGroupFilesEnumerator {}
-impl ::core::fmt::Debug for IAppxContentGroupFilesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxContentGroupFilesEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxContentGroupFilesEnumerator {
     type Vtable = IAppxContentGroupFilesEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IAppxContentGroupFilesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxContentGroupFilesEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1a09a2fd_7440_44eb_8c84_848205a6a1cc);
@@ -1882,6 +1522,7 @@ pub struct IAppxContentGroupFilesEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxContentGroupMapReader(::windows_core::IUnknown);
 impl IAppxContentGroupMapReader {
     pub unsafe fn GetRequiredGroup(&self) -> ::windows_core::Result<IAppxContentGroup> {
@@ -1894,24 +1535,8 @@ impl IAppxContentGroupMapReader {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxContentGroupMapReader, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxContentGroupMapReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxContentGroupMapReader {}
-impl ::core::fmt::Debug for IAppxContentGroupMapReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxContentGroupMapReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxContentGroupMapReader {
     type Vtable = IAppxContentGroupMapReader_Vtbl;
-}
-impl ::core::clone::Clone for IAppxContentGroupMapReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxContentGroupMapReader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x418726d8_dd99_4f5d_9886_157add20de01);
@@ -1925,6 +1550,7 @@ pub struct IAppxContentGroupMapReader_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxContentGroupMapWriter(::windows_core::IUnknown);
 impl IAppxContentGroupMapWriter {
     pub unsafe fn AddAutomaticGroup<P0>(&self, groupname: P0) -> ::windows_core::Result<()>
@@ -1944,24 +1570,8 @@ impl IAppxContentGroupMapWriter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxContentGroupMapWriter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxContentGroupMapWriter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxContentGroupMapWriter {}
-impl ::core::fmt::Debug for IAppxContentGroupMapWriter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxContentGroupMapWriter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxContentGroupMapWriter {
     type Vtable = IAppxContentGroupMapWriter_Vtbl;
-}
-impl ::core::clone::Clone for IAppxContentGroupMapWriter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxContentGroupMapWriter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd07ab776_a9de_4798_8c14_3db31e687c78);
@@ -1976,6 +1586,7 @@ pub struct IAppxContentGroupMapWriter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxContentGroupsEnumerator(::windows_core::IUnknown);
 impl IAppxContentGroupsEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows_core::Result<IAppxContentGroup> {
@@ -1996,24 +1607,8 @@ impl IAppxContentGroupsEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxContentGroupsEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxContentGroupsEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxContentGroupsEnumerator {}
-impl ::core::fmt::Debug for IAppxContentGroupsEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxContentGroupsEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxContentGroupsEnumerator {
     type Vtable = IAppxContentGroupsEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IAppxContentGroupsEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxContentGroupsEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3264e477_16d1_4d63_823e_7d2984696634);
@@ -2034,6 +1629,7 @@ pub struct IAppxContentGroupsEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxDigestProvider(::windows_core::IUnknown);
 impl IAppxDigestProvider {
     pub unsafe fn GetDigest(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -2042,24 +1638,8 @@ impl IAppxDigestProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxDigestProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxDigestProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxDigestProvider {}
-impl ::core::fmt::Debug for IAppxDigestProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxDigestProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxDigestProvider {
     type Vtable = IAppxDigestProvider_Vtbl;
-}
-impl ::core::clone::Clone for IAppxDigestProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxDigestProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9fe2702b_7640_4659_8e6c_349e43c4cdbd);
@@ -2072,6 +1652,7 @@ pub struct IAppxDigestProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxEncryptedBundleWriter(::windows_core::IUnknown);
 impl IAppxEncryptedBundleWriter {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2088,24 +1669,8 @@ impl IAppxEncryptedBundleWriter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxEncryptedBundleWriter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxEncryptedBundleWriter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxEncryptedBundleWriter {}
-impl ::core::fmt::Debug for IAppxEncryptedBundleWriter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxEncryptedBundleWriter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxEncryptedBundleWriter {
     type Vtable = IAppxEncryptedBundleWriter_Vtbl;
-}
-impl ::core::clone::Clone for IAppxEncryptedBundleWriter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxEncryptedBundleWriter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x80b0902f_7bf0_4117_b8c6_4279ef81ee77);
@@ -2122,6 +1687,7 @@ pub struct IAppxEncryptedBundleWriter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxEncryptedBundleWriter2(::windows_core::IUnknown);
 impl IAppxEncryptedBundleWriter2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2135,24 +1701,8 @@ impl IAppxEncryptedBundleWriter2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxEncryptedBundleWriter2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxEncryptedBundleWriter2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxEncryptedBundleWriter2 {}
-impl ::core::fmt::Debug for IAppxEncryptedBundleWriter2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxEncryptedBundleWriter2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxEncryptedBundleWriter2 {
     type Vtable = IAppxEncryptedBundleWriter2_Vtbl;
-}
-impl ::core::clone::Clone for IAppxEncryptedBundleWriter2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxEncryptedBundleWriter2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe644be82_f0fa_42b8_a956_8d1cb48ee379);
@@ -2168,6 +1718,7 @@ pub struct IAppxEncryptedBundleWriter2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxEncryptedBundleWriter3(::windows_core::IUnknown);
 impl IAppxEncryptedBundleWriter3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -2192,24 +1743,8 @@ impl IAppxEncryptedBundleWriter3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxEncryptedBundleWriter3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxEncryptedBundleWriter3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxEncryptedBundleWriter3 {}
-impl ::core::fmt::Debug for IAppxEncryptedBundleWriter3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxEncryptedBundleWriter3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxEncryptedBundleWriter3 {
     type Vtable = IAppxEncryptedBundleWriter3_Vtbl;
-}
-impl ::core::clone::Clone for IAppxEncryptedBundleWriter3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxEncryptedBundleWriter3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d34deb3_5cae_4dd3_977c_504932a51d31);
@@ -2229,6 +1764,7 @@ pub struct IAppxEncryptedBundleWriter3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxEncryptedPackageWriter(::windows_core::IUnknown);
 impl IAppxEncryptedPackageWriter {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2245,24 +1781,8 @@ impl IAppxEncryptedPackageWriter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxEncryptedPackageWriter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxEncryptedPackageWriter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxEncryptedPackageWriter {}
-impl ::core::fmt::Debug for IAppxEncryptedPackageWriter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxEncryptedPackageWriter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxEncryptedPackageWriter {
     type Vtable = IAppxEncryptedPackageWriter_Vtbl;
-}
-impl ::core::clone::Clone for IAppxEncryptedPackageWriter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxEncryptedPackageWriter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf43d0b0b_1379_40e2_9b29_682ea2bf42af);
@@ -2279,6 +1799,7 @@ pub struct IAppxEncryptedPackageWriter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxEncryptedPackageWriter2(::windows_core::IUnknown);
 impl IAppxEncryptedPackageWriter2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2288,24 +1809,8 @@ impl IAppxEncryptedPackageWriter2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxEncryptedPackageWriter2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxEncryptedPackageWriter2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxEncryptedPackageWriter2 {}
-impl ::core::fmt::Debug for IAppxEncryptedPackageWriter2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxEncryptedPackageWriter2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxEncryptedPackageWriter2 {
     type Vtable = IAppxEncryptedPackageWriter2_Vtbl;
-}
-impl ::core::clone::Clone for IAppxEncryptedPackageWriter2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxEncryptedPackageWriter2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3e475447_3a25_40b5_8ad2_f953ae50c92d);
@@ -2321,6 +1826,7 @@ pub struct IAppxEncryptedPackageWriter2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxEncryptionFactory(::windows_core::IUnknown);
 impl IAppxEncryptionFactory {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -2398,24 +1904,8 @@ impl IAppxEncryptionFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxEncryptionFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxEncryptionFactory {}
-impl ::core::fmt::Debug for IAppxEncryptionFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxEncryptionFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxEncryptionFactory {
     type Vtable = IAppxEncryptionFactory_Vtbl;
-}
-impl ::core::clone::Clone for IAppxEncryptionFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxEncryptionFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x80e8e04d_8c88_44ae_a011_7cadf6fb2e72);
@@ -2459,6 +1949,7 @@ pub struct IAppxEncryptionFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxEncryptionFactory2(::windows_core::IUnknown);
 impl IAppxEncryptionFactory2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -2474,24 +1965,8 @@ impl IAppxEncryptionFactory2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxEncryptionFactory2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxEncryptionFactory2 {}
-impl ::core::fmt::Debug for IAppxEncryptionFactory2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxEncryptionFactory2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxEncryptionFactory2 {
     type Vtable = IAppxEncryptionFactory2_Vtbl;
-}
-impl ::core::clone::Clone for IAppxEncryptionFactory2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxEncryptionFactory2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc1b11eee_c4ba_4ab2_a55d_d015fe8ff64f);
@@ -2507,6 +1982,7 @@ pub struct IAppxEncryptionFactory2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxEncryptionFactory3(::windows_core::IUnknown);
 impl IAppxEncryptionFactory3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2549,24 +2025,8 @@ impl IAppxEncryptionFactory3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxEncryptionFactory3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxEncryptionFactory3 {}
-impl ::core::fmt::Debug for IAppxEncryptionFactory3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxEncryptionFactory3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxEncryptionFactory3 {
     type Vtable = IAppxEncryptionFactory3_Vtbl;
-}
-impl ::core::clone::Clone for IAppxEncryptionFactory3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxEncryptionFactory3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x09edca37_cd64_47d6_b7e8_1cb11d4f7e05);
@@ -2594,6 +2054,7 @@ pub struct IAppxEncryptionFactory3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxEncryptionFactory4(::windows_core::IUnknown);
 impl IAppxEncryptionFactory4 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2607,24 +2068,8 @@ impl IAppxEncryptionFactory4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory4, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxEncryptionFactory4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxEncryptionFactory4 {}
-impl ::core::fmt::Debug for IAppxEncryptionFactory4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxEncryptionFactory4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxEncryptionFactory4 {
     type Vtable = IAppxEncryptionFactory4_Vtbl;
-}
-impl ::core::clone::Clone for IAppxEncryptionFactory4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxEncryptionFactory4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa879611f_12fd_41fe_85d5_06ae779bbaf5);
@@ -2640,6 +2085,7 @@ pub struct IAppxEncryptionFactory4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxEncryptionFactory5(::windows_core::IUnknown);
 impl IAppxEncryptionFactory5 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2664,24 +2110,8 @@ impl IAppxEncryptionFactory5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxEncryptionFactory5, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxEncryptionFactory5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxEncryptionFactory5 {}
-impl ::core::fmt::Debug for IAppxEncryptionFactory5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxEncryptionFactory5").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxEncryptionFactory5 {
     type Vtable = IAppxEncryptionFactory5_Vtbl;
-}
-impl ::core::clone::Clone for IAppxEncryptionFactory5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxEncryptionFactory5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x68d6e77a_f446_480f_b0f0_d91a24c60746);
@@ -2701,6 +2131,7 @@ pub struct IAppxEncryptionFactory5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxFactory(::windows_core::IUnknown);
 impl IAppxFactory {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -2751,24 +2182,8 @@ impl IAppxFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxFactory {}
-impl ::core::fmt::Debug for IAppxFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxFactory {
     type Vtable = IAppxFactory_Vtbl;
-}
-impl ::core::clone::Clone for IAppxFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbeb94909_e451_438b_b5a7_d79e767b75d8);
@@ -2800,6 +2215,7 @@ pub struct IAppxFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxFactory2(::windows_core::IUnknown);
 impl IAppxFactory2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2831,24 +2247,8 @@ impl IAppxFactory2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxFactory2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxFactory2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxFactory2 {}
-impl ::core::fmt::Debug for IAppxFactory2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxFactory2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxFactory2 {
     type Vtable = IAppxFactory2_Vtbl;
-}
-impl ::core::clone::Clone for IAppxFactory2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxFactory2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf1346df2_c282_4e22_b918_743a929a8d55);
@@ -2872,6 +2272,7 @@ pub struct IAppxFactory2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxFactory3(::windows_core::IUnknown);
 impl IAppxFactory3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2906,24 +2307,8 @@ impl IAppxFactory3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxFactory3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxFactory3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxFactory3 {}
-impl ::core::fmt::Debug for IAppxFactory3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxFactory3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxFactory3 {
     type Vtable = IAppxFactory3_Vtbl;
-}
-impl ::core::clone::Clone for IAppxFactory3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxFactory3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x776b2c05_e21d_4e24_ba1a_cd529a8bfdbb);
@@ -2947,6 +2332,7 @@ pub struct IAppxFactory3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxFile(::windows_core::IUnknown);
 impl IAppxFile {
     pub unsafe fn GetCompressionOption(&self) -> ::windows_core::Result<APPX_COMPRESSION_OPTION> {
@@ -2973,24 +2359,8 @@ impl IAppxFile {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxFile, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxFile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxFile {}
-impl ::core::fmt::Debug for IAppxFile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxFile").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxFile {
     type Vtable = IAppxFile_Vtbl;
-}
-impl ::core::clone::Clone for IAppxFile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxFile {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x91df827b_94fd_468f_827b_57f41b2f6f2e);
@@ -3010,6 +2380,7 @@ pub struct IAppxFile_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxFilesEnumerator(::windows_core::IUnknown);
 impl IAppxFilesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows_core::Result<IAppxFile> {
@@ -3030,24 +2401,8 @@ impl IAppxFilesEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxFilesEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxFilesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxFilesEnumerator {}
-impl ::core::fmt::Debug for IAppxFilesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxFilesEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxFilesEnumerator {
     type Vtable = IAppxFilesEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IAppxFilesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxFilesEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf007eeaf_9831_411c_9847_917cdc62d1fe);
@@ -3068,6 +2423,7 @@ pub struct IAppxFilesEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestApplication(::windows_core::IUnknown);
 impl IAppxManifestApplication {
     pub unsafe fn GetStringValue<P0>(&self, name: P0) -> ::windows_core::Result<::windows_core::PWSTR>
@@ -3083,24 +2439,8 @@ impl IAppxManifestApplication {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestApplication, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestApplication {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestApplication {}
-impl ::core::fmt::Debug for IAppxManifestApplication {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestApplication").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestApplication {
     type Vtable = IAppxManifestApplication_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestApplication {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestApplication {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5da89bf4_3773_46be_b650_7e744863b7e8);
@@ -3114,6 +2454,7 @@ pub struct IAppxManifestApplication_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestApplicationsEnumerator(::windows_core::IUnknown);
 impl IAppxManifestApplicationsEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows_core::Result<IAppxManifestApplication> {
@@ -3134,24 +2475,8 @@ impl IAppxManifestApplicationsEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestApplicationsEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestApplicationsEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestApplicationsEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestApplicationsEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestApplicationsEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestApplicationsEnumerator {
     type Vtable = IAppxManifestApplicationsEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestApplicationsEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestApplicationsEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9eb8a55a_f04b_4d0d_808d_686185d4847a);
@@ -3172,6 +2497,7 @@ pub struct IAppxManifestApplicationsEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestCapabilitiesEnumerator(::windows_core::IUnknown);
 impl IAppxManifestCapabilitiesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -3192,24 +2518,8 @@ impl IAppxManifestCapabilitiesEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestCapabilitiesEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestCapabilitiesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestCapabilitiesEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestCapabilitiesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestCapabilitiesEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestCapabilitiesEnumerator {
     type Vtable = IAppxManifestCapabilitiesEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestCapabilitiesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestCapabilitiesEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x11d22258_f470_42c1_b291_8361c5437e41);
@@ -3230,6 +2540,7 @@ pub struct IAppxManifestCapabilitiesEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestDeviceCapabilitiesEnumerator(::windows_core::IUnknown);
 impl IAppxManifestDeviceCapabilitiesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -3250,24 +2561,8 @@ impl IAppxManifestDeviceCapabilitiesEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestDeviceCapabilitiesEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestDeviceCapabilitiesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestDeviceCapabilitiesEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestDeviceCapabilitiesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestDeviceCapabilitiesEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestDeviceCapabilitiesEnumerator {
     type Vtable = IAppxManifestDeviceCapabilitiesEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestDeviceCapabilitiesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestDeviceCapabilitiesEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30204541_427b_4a1c_bacf_655bf463a540);
@@ -3288,6 +2583,7 @@ pub struct IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestDriverConstraint(::windows_core::IUnknown);
 impl IAppxManifestDriverConstraint {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -3304,24 +2600,8 @@ impl IAppxManifestDriverConstraint {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestDriverConstraint, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestDriverConstraint {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestDriverConstraint {}
-impl ::core::fmt::Debug for IAppxManifestDriverConstraint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestDriverConstraint").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestDriverConstraint {
     type Vtable = IAppxManifestDriverConstraint_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestDriverConstraint {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestDriverConstraint {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc031bee4_bbcc_48ea_a237_c34045c80a07);
@@ -3336,6 +2616,7 @@ pub struct IAppxManifestDriverConstraint_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestDriverConstraintsEnumerator(::windows_core::IUnknown);
 impl IAppxManifestDriverConstraintsEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows_core::Result<IAppxManifestDriverConstraint> {
@@ -3356,24 +2637,8 @@ impl IAppxManifestDriverConstraintsEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestDriverConstraintsEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestDriverConstraintsEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestDriverConstraintsEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestDriverConstraintsEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestDriverConstraintsEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestDriverConstraintsEnumerator {
     type Vtable = IAppxManifestDriverConstraintsEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestDriverConstraintsEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestDriverConstraintsEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd402b2d1_f600_49e0_95e6_975d8da13d89);
@@ -3394,6 +2659,7 @@ pub struct IAppxManifestDriverConstraintsEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestDriverDependenciesEnumerator(::windows_core::IUnknown);
 impl IAppxManifestDriverDependenciesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows_core::Result<IAppxManifestDriverDependency> {
@@ -3414,24 +2680,8 @@ impl IAppxManifestDriverDependenciesEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestDriverDependenciesEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestDriverDependenciesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestDriverDependenciesEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestDriverDependenciesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestDriverDependenciesEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestDriverDependenciesEnumerator {
     type Vtable = IAppxManifestDriverDependenciesEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestDriverDependenciesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestDriverDependenciesEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfe039db2_467f_4755_8404_8f5eb6865b33);
@@ -3452,6 +2702,7 @@ pub struct IAppxManifestDriverDependenciesEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestDriverDependency(::windows_core::IUnknown);
 impl IAppxManifestDriverDependency {
     pub unsafe fn GetDriverConstraints(&self) -> ::windows_core::Result<IAppxManifestDriverConstraintsEnumerator> {
@@ -3460,24 +2711,8 @@ impl IAppxManifestDriverDependency {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestDriverDependency, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestDriverDependency {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestDriverDependency {}
-impl ::core::fmt::Debug for IAppxManifestDriverDependency {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestDriverDependency").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestDriverDependency {
     type Vtable = IAppxManifestDriverDependency_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestDriverDependency {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestDriverDependency {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1210cb94_5a92_4602_be24_79f318af4af9);
@@ -3490,6 +2725,7 @@ pub struct IAppxManifestDriverDependency_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestHostRuntimeDependenciesEnumerator(::windows_core::IUnknown);
 impl IAppxManifestHostRuntimeDependenciesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows_core::Result<IAppxManifestHostRuntimeDependency> {
@@ -3510,24 +2746,8 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestHostRuntimeDependenciesEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestHostRuntimeDependenciesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestHostRuntimeDependenciesEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestHostRuntimeDependenciesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestHostRuntimeDependenciesEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestHostRuntimeDependenciesEnumerator {
     type Vtable = IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestHostRuntimeDependenciesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestHostRuntimeDependenciesEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6427a646_7f49_433e_b1a6_0da309f6885a);
@@ -3548,6 +2768,7 @@ pub struct IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestHostRuntimeDependency(::windows_core::IUnknown);
 impl IAppxManifestHostRuntimeDependency {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -3564,24 +2785,8 @@ impl IAppxManifestHostRuntimeDependency {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestHostRuntimeDependency, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestHostRuntimeDependency {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestHostRuntimeDependency {}
-impl ::core::fmt::Debug for IAppxManifestHostRuntimeDependency {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestHostRuntimeDependency").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestHostRuntimeDependency {
     type Vtable = IAppxManifestHostRuntimeDependency_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestHostRuntimeDependency {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestHostRuntimeDependency {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3455d234_8414_410d_95c7_7b35255b8391);
@@ -3596,6 +2801,7 @@ pub struct IAppxManifestHostRuntimeDependency_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestHostRuntimeDependency2(::windows_core::IUnknown);
 impl IAppxManifestHostRuntimeDependency2 {
     pub unsafe fn GetPackageFamilyName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -3604,24 +2810,8 @@ impl IAppxManifestHostRuntimeDependency2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestHostRuntimeDependency2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestHostRuntimeDependency2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestHostRuntimeDependency2 {}
-impl ::core::fmt::Debug for IAppxManifestHostRuntimeDependency2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestHostRuntimeDependency2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestHostRuntimeDependency2 {
     type Vtable = IAppxManifestHostRuntimeDependency2_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestHostRuntimeDependency2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestHostRuntimeDependency2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc26f23a8_ee10_4ad6_b898_2b4d7aebfe6a);
@@ -3634,6 +2824,7 @@ pub struct IAppxManifestHostRuntimeDependency2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestMainPackageDependenciesEnumerator(::windows_core::IUnknown);
 impl IAppxManifestMainPackageDependenciesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows_core::Result<IAppxManifestMainPackageDependency> {
@@ -3654,24 +2845,8 @@ impl IAppxManifestMainPackageDependenciesEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestMainPackageDependenciesEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestMainPackageDependenciesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestMainPackageDependenciesEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestMainPackageDependenciesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestMainPackageDependenciesEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestMainPackageDependenciesEnumerator {
     type Vtable = IAppxManifestMainPackageDependenciesEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestMainPackageDependenciesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestMainPackageDependenciesEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa99c4f00_51d2_4f0f_ba46_7ed5255ebdff);
@@ -3692,6 +2867,7 @@ pub struct IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestMainPackageDependency(::windows_core::IUnknown);
 impl IAppxManifestMainPackageDependency {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -3708,24 +2884,8 @@ impl IAppxManifestMainPackageDependency {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestMainPackageDependency, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestMainPackageDependency {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestMainPackageDependency {}
-impl ::core::fmt::Debug for IAppxManifestMainPackageDependency {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestMainPackageDependency").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestMainPackageDependency {
     type Vtable = IAppxManifestMainPackageDependency_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestMainPackageDependency {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestMainPackageDependency {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05d0611c_bc29_46d5_97e2_84b9c79bd8ae);
@@ -3740,6 +2900,7 @@ pub struct IAppxManifestMainPackageDependency_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestOSPackageDependenciesEnumerator(::windows_core::IUnknown);
 impl IAppxManifestOSPackageDependenciesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows_core::Result<IAppxManifestOSPackageDependency> {
@@ -3760,24 +2921,8 @@ impl IAppxManifestOSPackageDependenciesEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestOSPackageDependenciesEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestOSPackageDependenciesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestOSPackageDependenciesEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestOSPackageDependenciesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestOSPackageDependenciesEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestOSPackageDependenciesEnumerator {
     type Vtable = IAppxManifestOSPackageDependenciesEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestOSPackageDependenciesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestOSPackageDependenciesEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb84e2fc3_f8ec_4bc1_8ae2_156346f5ffea);
@@ -3798,6 +2943,7 @@ pub struct IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestOSPackageDependency(::windows_core::IUnknown);
 impl IAppxManifestOSPackageDependency {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -3810,24 +2956,8 @@ impl IAppxManifestOSPackageDependency {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestOSPackageDependency, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestOSPackageDependency {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestOSPackageDependency {}
-impl ::core::fmt::Debug for IAppxManifestOSPackageDependency {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestOSPackageDependency").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestOSPackageDependency {
     type Vtable = IAppxManifestOSPackageDependency_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestOSPackageDependency {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestOSPackageDependency {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x154995ee_54a6_4f14_ac97_d8cf0519644b);
@@ -3841,6 +2971,7 @@ pub struct IAppxManifestOSPackageDependency_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestOptionalPackageInfo(::windows_core::IUnknown);
 impl IAppxManifestOptionalPackageInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3855,24 +2986,8 @@ impl IAppxManifestOptionalPackageInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestOptionalPackageInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestOptionalPackageInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestOptionalPackageInfo {}
-impl ::core::fmt::Debug for IAppxManifestOptionalPackageInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestOptionalPackageInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestOptionalPackageInfo {
     type Vtable = IAppxManifestOptionalPackageInfo_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestOptionalPackageInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestOptionalPackageInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2634847d_5b5d_4fe5_a243_002ff95edc7e);
@@ -3889,6 +3004,7 @@ pub struct IAppxManifestOptionalPackageInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestPackageDependenciesEnumerator(::windows_core::IUnknown);
 impl IAppxManifestPackageDependenciesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows_core::Result<IAppxManifestPackageDependency> {
@@ -3909,24 +3025,8 @@ impl IAppxManifestPackageDependenciesEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestPackageDependenciesEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestPackageDependenciesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestPackageDependenciesEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestPackageDependenciesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestPackageDependenciesEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestPackageDependenciesEnumerator {
     type Vtable = IAppxManifestPackageDependenciesEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestPackageDependenciesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestPackageDependenciesEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb43bbcf9_65a6_42dd_bac0_8c6741e7f5a4);
@@ -3947,6 +3047,7 @@ pub struct IAppxManifestPackageDependenciesEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestPackageDependency(::windows_core::IUnknown);
 impl IAppxManifestPackageDependency {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -3963,24 +3064,8 @@ impl IAppxManifestPackageDependency {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestPackageDependency, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestPackageDependency {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestPackageDependency {}
-impl ::core::fmt::Debug for IAppxManifestPackageDependency {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestPackageDependency").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestPackageDependency {
     type Vtable = IAppxManifestPackageDependency_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestPackageDependency {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestPackageDependency {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe4946b59_733e_43f0_a724_3bde4c1285a0);
@@ -3995,6 +3080,7 @@ pub struct IAppxManifestPackageDependency_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestPackageDependency2(::windows_core::IUnknown);
 impl IAppxManifestPackageDependency2 {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -4015,24 +3101,8 @@ impl IAppxManifestPackageDependency2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestPackageDependency2, ::windows_core::IUnknown, IAppxManifestPackageDependency);
-impl ::core::cmp::PartialEq for IAppxManifestPackageDependency2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestPackageDependency2 {}
-impl ::core::fmt::Debug for IAppxManifestPackageDependency2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestPackageDependency2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestPackageDependency2 {
     type Vtable = IAppxManifestPackageDependency2_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestPackageDependency2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestPackageDependency2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdda0b713_f3ff_49d3_898a_2786780c5d98);
@@ -4045,6 +3115,7 @@ pub struct IAppxManifestPackageDependency2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestPackageDependency3(::windows_core::IUnknown);
 impl IAppxManifestPackageDependency3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4055,24 +3126,8 @@ impl IAppxManifestPackageDependency3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestPackageDependency3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestPackageDependency3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestPackageDependency3 {}
-impl ::core::fmt::Debug for IAppxManifestPackageDependency3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestPackageDependency3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestPackageDependency3 {
     type Vtable = IAppxManifestPackageDependency3_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestPackageDependency3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestPackageDependency3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1ac56374_6198_4d6b_92e4_749d5ab8a895);
@@ -4088,6 +3143,7 @@ pub struct IAppxManifestPackageDependency3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestPackageId(::windows_core::IUnknown);
 impl IAppxManifestPackageId {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -4129,24 +3185,8 @@ impl IAppxManifestPackageId {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestPackageId, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestPackageId {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestPackageId {}
-impl ::core::fmt::Debug for IAppxManifestPackageId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestPackageId").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestPackageId {
     type Vtable = IAppxManifestPackageId_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestPackageId {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestPackageId {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x283ce2d7_7153_4a91_9649_7a0f7240945f);
@@ -4169,6 +3209,7 @@ pub struct IAppxManifestPackageId_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestPackageId2(::windows_core::IUnknown);
 impl IAppxManifestPackageId2 {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -4214,24 +3255,8 @@ impl IAppxManifestPackageId2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestPackageId2, ::windows_core::IUnknown, IAppxManifestPackageId);
-impl ::core::cmp::PartialEq for IAppxManifestPackageId2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestPackageId2 {}
-impl ::core::fmt::Debug for IAppxManifestPackageId2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestPackageId2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestPackageId2 {
     type Vtable = IAppxManifestPackageId2_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestPackageId2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestPackageId2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2256999d_d617_42f1_880e_0ba4542319d5);
@@ -4244,6 +3269,7 @@ pub struct IAppxManifestPackageId2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestProperties(::windows_core::IUnknown);
 impl IAppxManifestProperties {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4264,24 +3290,8 @@ impl IAppxManifestProperties {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestProperties, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestProperties {}
-impl ::core::fmt::Debug for IAppxManifestProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestProperties {
     type Vtable = IAppxManifestProperties_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03faf64d_f26f_4b2c_aaf7_8fe7789b8bca);
@@ -4298,6 +3308,7 @@ pub struct IAppxManifestProperties_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestQualifiedResource(::windows_core::IUnknown);
 impl IAppxManifestQualifiedResource {
     pub unsafe fn GetLanguage(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -4314,24 +3325,8 @@ impl IAppxManifestQualifiedResource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestQualifiedResource, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestQualifiedResource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestQualifiedResource {}
-impl ::core::fmt::Debug for IAppxManifestQualifiedResource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestQualifiedResource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestQualifiedResource {
     type Vtable = IAppxManifestQualifiedResource_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestQualifiedResource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestQualifiedResource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3b53a497_3c5c_48d1_9ea3_bb7eac8cd7d4);
@@ -4346,6 +3341,7 @@ pub struct IAppxManifestQualifiedResource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestQualifiedResourcesEnumerator(::windows_core::IUnknown);
 impl IAppxManifestQualifiedResourcesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows_core::Result<IAppxManifestQualifiedResource> {
@@ -4366,24 +3362,8 @@ impl IAppxManifestQualifiedResourcesEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestQualifiedResourcesEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestQualifiedResourcesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestQualifiedResourcesEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestQualifiedResourcesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestQualifiedResourcesEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestQualifiedResourcesEnumerator {
     type Vtable = IAppxManifestQualifiedResourcesEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestQualifiedResourcesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestQualifiedResourcesEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8ef6adfe_3762_4a8f_9373_2fc5d444c8d2);
@@ -4404,6 +3384,7 @@ pub struct IAppxManifestQualifiedResourcesEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestReader(::windows_core::IUnknown);
 impl IAppxManifestReader {
     pub unsafe fn GetPackageId(&self) -> ::windows_core::Result<IAppxManifestPackageId> {
@@ -4449,24 +3430,8 @@ impl IAppxManifestReader {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestReader, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestReader {}
-impl ::core::fmt::Debug for IAppxManifestReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestReader {
     type Vtable = IAppxManifestReader_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestReader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e1bd148_55a0_4480_a3d1_15544710637c);
@@ -4490,6 +3455,7 @@ pub struct IAppxManifestReader_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestReader2(::windows_core::IUnknown);
 impl IAppxManifestReader2 {
     pub unsafe fn GetPackageId(&self) -> ::windows_core::Result<IAppxManifestPackageId> {
@@ -4539,24 +3505,8 @@ impl IAppxManifestReader2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestReader2, ::windows_core::IUnknown, IAppxManifestReader);
-impl ::core::cmp::PartialEq for IAppxManifestReader2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestReader2 {}
-impl ::core::fmt::Debug for IAppxManifestReader2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestReader2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestReader2 {
     type Vtable = IAppxManifestReader2_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestReader2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestReader2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd06f67bc_b31d_4eba_a8af_638e73e77b4d);
@@ -4569,6 +3519,7 @@ pub struct IAppxManifestReader2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestReader3(::windows_core::IUnknown);
 impl IAppxManifestReader3 {
     pub unsafe fn GetPackageId(&self) -> ::windows_core::Result<IAppxManifestPackageId> {
@@ -4626,24 +3577,8 @@ impl IAppxManifestReader3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestReader3, ::windows_core::IUnknown, IAppxManifestReader, IAppxManifestReader2);
-impl ::core::cmp::PartialEq for IAppxManifestReader3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestReader3 {}
-impl ::core::fmt::Debug for IAppxManifestReader3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestReader3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestReader3 {
     type Vtable = IAppxManifestReader3_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestReader3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestReader3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc43825ab_69b7_400a_9709_cc37f5a72d24);
@@ -4657,6 +3592,7 @@ pub struct IAppxManifestReader3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestReader4(::windows_core::IUnknown);
 impl IAppxManifestReader4 {
     pub unsafe fn GetPackageId(&self) -> ::windows_core::Result<IAppxManifestPackageId> {
@@ -4718,24 +3654,8 @@ impl IAppxManifestReader4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestReader4, ::windows_core::IUnknown, IAppxManifestReader, IAppxManifestReader2, IAppxManifestReader3);
-impl ::core::cmp::PartialEq for IAppxManifestReader4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestReader4 {}
-impl ::core::fmt::Debug for IAppxManifestReader4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestReader4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestReader4 {
     type Vtable = IAppxManifestReader4_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestReader4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestReader4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4579bb7c_741d_4161_b5a1_47bd3b78ad9b);
@@ -4748,6 +3668,7 @@ pub struct IAppxManifestReader4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestReader5(::windows_core::IUnknown);
 impl IAppxManifestReader5 {
     pub unsafe fn GetMainPackageDependencies(&self) -> ::windows_core::Result<IAppxManifestMainPackageDependenciesEnumerator> {
@@ -4756,24 +3677,8 @@ impl IAppxManifestReader5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestReader5, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestReader5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestReader5 {}
-impl ::core::fmt::Debug for IAppxManifestReader5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestReader5").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestReader5 {
     type Vtable = IAppxManifestReader5_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestReader5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestReader5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d7ae132_a690_4c00_b75a_6aae1feaac80);
@@ -4786,6 +3691,7 @@ pub struct IAppxManifestReader5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestReader6(::windows_core::IUnknown);
 impl IAppxManifestReader6 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4796,24 +3702,8 @@ impl IAppxManifestReader6 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestReader6, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestReader6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestReader6 {}
-impl ::core::fmt::Debug for IAppxManifestReader6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestReader6").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestReader6 {
     type Vtable = IAppxManifestReader6_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestReader6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestReader6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x34deaca4_d3c0_4e3e_b312_e42625e3807e);
@@ -4829,6 +3719,7 @@ pub struct IAppxManifestReader6_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestReader7(::windows_core::IUnknown);
 impl IAppxManifestReader7 {
     pub unsafe fn GetDriverDependencies(&self) -> ::windows_core::Result<IAppxManifestDriverDependenciesEnumerator> {
@@ -4845,24 +3736,8 @@ impl IAppxManifestReader7 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestReader7, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestReader7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestReader7 {}
-impl ::core::fmt::Debug for IAppxManifestReader7 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestReader7").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestReader7 {
     type Vtable = IAppxManifestReader7_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestReader7 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestReader7 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8efe6f27_0ce0_4988_b32d_738eb63db3b7);
@@ -4877,6 +3752,7 @@ pub struct IAppxManifestReader7_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestResourcesEnumerator(::windows_core::IUnknown);
 impl IAppxManifestResourcesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -4897,24 +3773,8 @@ impl IAppxManifestResourcesEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestResourcesEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestResourcesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestResourcesEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestResourcesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestResourcesEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestResourcesEnumerator {
     type Vtable = IAppxManifestResourcesEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestResourcesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestResourcesEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xde4dfbbd_881a_48bb_858c_d6f2baeae6ed);
@@ -4935,6 +3795,7 @@ pub struct IAppxManifestResourcesEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestTargetDeviceFamiliesEnumerator(::windows_core::IUnknown);
 impl IAppxManifestTargetDeviceFamiliesEnumerator {
     pub unsafe fn GetCurrent(&self) -> ::windows_core::Result<IAppxManifestTargetDeviceFamily> {
@@ -4955,24 +3816,8 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestTargetDeviceFamiliesEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestTargetDeviceFamiliesEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestTargetDeviceFamiliesEnumerator {}
-impl ::core::fmt::Debug for IAppxManifestTargetDeviceFamiliesEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestTargetDeviceFamiliesEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestTargetDeviceFamiliesEnumerator {
     type Vtable = IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestTargetDeviceFamiliesEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestTargetDeviceFamiliesEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36537f36_27a4_4788_88c0_733819575017);
@@ -4993,6 +3838,7 @@ pub struct IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxManifestTargetDeviceFamily(::windows_core::IUnknown);
 impl IAppxManifestTargetDeviceFamily {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -5009,24 +3855,8 @@ impl IAppxManifestTargetDeviceFamily {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxManifestTargetDeviceFamily, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxManifestTargetDeviceFamily {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxManifestTargetDeviceFamily {}
-impl ::core::fmt::Debug for IAppxManifestTargetDeviceFamily {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxManifestTargetDeviceFamily").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxManifestTargetDeviceFamily {
     type Vtable = IAppxManifestTargetDeviceFamily_Vtbl;
-}
-impl ::core::clone::Clone for IAppxManifestTargetDeviceFamily {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxManifestTargetDeviceFamily {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9091b09b_c8d5_4f31_8687_a338259faefb);
@@ -5041,6 +3871,7 @@ pub struct IAppxManifestTargetDeviceFamily_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxPackageEditor(::windows_core::IUnknown);
 impl IAppxPackageEditor {
     pub unsafe fn SetWorkingDirectory<P0>(&self, workingdirectory: P0) -> ::windows_core::Result<()>
@@ -5100,24 +3931,8 @@ impl IAppxPackageEditor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxPackageEditor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxPackageEditor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxPackageEditor {}
-impl ::core::fmt::Debug for IAppxPackageEditor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxPackageEditor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxPackageEditor {
     type Vtable = IAppxPackageEditor_Vtbl;
-}
-impl ::core::clone::Clone for IAppxPackageEditor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxPackageEditor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2adb6dc_5e71_4416_86b6_86e5f5291a6b);
@@ -5150,6 +3965,7 @@ pub struct IAppxPackageEditor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxPackageReader(::windows_core::IUnknown);
 impl IAppxPackageReader {
     pub unsafe fn GetBlockMap(&self) -> ::windows_core::Result<IAppxBlockMapReader> {
@@ -5177,24 +3993,8 @@ impl IAppxPackageReader {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxPackageReader, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxPackageReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxPackageReader {}
-impl ::core::fmt::Debug for IAppxPackageReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxPackageReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxPackageReader {
     type Vtable = IAppxPackageReader_Vtbl;
-}
-impl ::core::clone::Clone for IAppxPackageReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxPackageReader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5c49650_99bc_481c_9a34_3d53a4106708);
@@ -5211,6 +4011,7 @@ pub struct IAppxPackageReader_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxPackageWriter(::windows_core::IUnknown);
 impl IAppxPackageWriter {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5233,24 +4034,8 @@ impl IAppxPackageWriter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxPackageWriter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxPackageWriter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxPackageWriter {}
-impl ::core::fmt::Debug for IAppxPackageWriter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxPackageWriter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxPackageWriter {
     type Vtable = IAppxPackageWriter_Vtbl;
-}
-impl ::core::clone::Clone for IAppxPackageWriter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxPackageWriter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9099e33b_246f_41e4_881a_008eb613f858);
@@ -5270,6 +4055,7 @@ pub struct IAppxPackageWriter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxPackageWriter2(::windows_core::IUnknown);
 impl IAppxPackageWriter2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5283,24 +4069,8 @@ impl IAppxPackageWriter2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxPackageWriter2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxPackageWriter2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxPackageWriter2 {}
-impl ::core::fmt::Debug for IAppxPackageWriter2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxPackageWriter2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxPackageWriter2 {
     type Vtable = IAppxPackageWriter2_Vtbl;
-}
-impl ::core::clone::Clone for IAppxPackageWriter2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxPackageWriter2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cf5c4fd_e54c_4ea5_ba4e_f8c4b105a8c8);
@@ -5316,6 +4086,7 @@ pub struct IAppxPackageWriter2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxPackageWriter3(::windows_core::IUnknown);
 impl IAppxPackageWriter3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5325,24 +4096,8 @@ impl IAppxPackageWriter3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxPackageWriter3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxPackageWriter3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxPackageWriter3 {}
-impl ::core::fmt::Debug for IAppxPackageWriter3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxPackageWriter3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxPackageWriter3 {
     type Vtable = IAppxPackageWriter3_Vtbl;
-}
-impl ::core::clone::Clone for IAppxPackageWriter3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxPackageWriter3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa83aacd3_41c0_4501_b8a3_74164f50b2fd);
@@ -5358,6 +4113,7 @@ pub struct IAppxPackageWriter3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxPackagingDiagnosticEventSink(::windows_core::IUnknown);
 impl IAppxPackagingDiagnosticEventSink {
     pub unsafe fn ReportContextChange<P0, P1, P2>(&self, changetype: APPX_PACKAGING_CONTEXT_CHANGE_TYPE, contextid: i32, contextname: P0, contextmessage: P1, detailsmessage: P2) -> ::windows_core::Result<()>
@@ -5376,24 +4132,8 @@ impl IAppxPackagingDiagnosticEventSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxPackagingDiagnosticEventSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxPackagingDiagnosticEventSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxPackagingDiagnosticEventSink {}
-impl ::core::fmt::Debug for IAppxPackagingDiagnosticEventSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxPackagingDiagnosticEventSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxPackagingDiagnosticEventSink {
     type Vtable = IAppxPackagingDiagnosticEventSink_Vtbl;
-}
-impl ::core::clone::Clone for IAppxPackagingDiagnosticEventSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxPackagingDiagnosticEventSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x17239d47_6adb_45d2_80f6_f9cbc3bf059d);
@@ -5407,6 +4147,7 @@ pub struct IAppxPackagingDiagnosticEventSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxPackagingDiagnosticEventSinkManager(::windows_core::IUnknown);
 impl IAppxPackagingDiagnosticEventSinkManager {
     pub unsafe fn SetSinkForProcess<P0>(&self, sink: P0) -> ::windows_core::Result<()>
@@ -5417,24 +4158,8 @@ impl IAppxPackagingDiagnosticEventSinkManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxPackagingDiagnosticEventSinkManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxPackagingDiagnosticEventSinkManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxPackagingDiagnosticEventSinkManager {}
-impl ::core::fmt::Debug for IAppxPackagingDiagnosticEventSinkManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxPackagingDiagnosticEventSinkManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxPackagingDiagnosticEventSinkManager {
     type Vtable = IAppxPackagingDiagnosticEventSinkManager_Vtbl;
-}
-impl ::core::clone::Clone for IAppxPackagingDiagnosticEventSinkManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxPackagingDiagnosticEventSinkManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x369648fa_a7eb_4909_a15d_6954a078f18a);
@@ -5447,6 +4172,7 @@ pub struct IAppxPackagingDiagnosticEventSinkManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Appx\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppxSourceContentGroupMapReader(::windows_core::IUnknown);
 impl IAppxSourceContentGroupMapReader {
     pub unsafe fn GetRequiredGroup(&self) -> ::windows_core::Result<IAppxContentGroup> {
@@ -5459,24 +4185,8 @@ impl IAppxSourceContentGroupMapReader {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppxSourceContentGroupMapReader, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppxSourceContentGroupMapReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppxSourceContentGroupMapReader {}
-impl ::core::fmt::Debug for IAppxSourceContentGroupMapReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppxSourceContentGroupMapReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppxSourceContentGroupMapReader {
     type Vtable = IAppxSourceContentGroupMapReader_Vtbl;
-}
-impl ::core::clone::Clone for IAppxSourceContentGroupMapReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppxSourceContentGroupMapReader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf329791d_540b_4a9f_bc75_3282b7d73193);

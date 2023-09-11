@@ -6,14 +6,10 @@ pub mod Core;
 pub mod DataProtection;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICryptographicBufferStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICryptographicBufferStatics {
     type Vtable = ICryptographicBufferStatics_Vtbl;
-}
-impl ::core::clone::Clone for ICryptographicBufferStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICryptographicBufferStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x320b7e22_3cb0_4cdf_8663_1d28910065eb);

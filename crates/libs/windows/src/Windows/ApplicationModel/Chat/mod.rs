@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatCapabilities(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatCapabilities {
     type Vtable = IChatCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for IChatCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3aff77bc_39c9_4dd1_ad2d_3964dd9d403f);
@@ -24,14 +20,10 @@ pub struct IChatCapabilities_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatCapabilitiesManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatCapabilitiesManagerStatics {
     type Vtable = IChatCapabilitiesManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IChatCapabilitiesManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatCapabilitiesManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb57a2f30_7041_458e_b0cf_7c0d9fea333a);
@@ -51,14 +43,10 @@ pub struct IChatCapabilitiesManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatCapabilitiesManagerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatCapabilitiesManagerStatics2 {
     type Vtable = IChatCapabilitiesManagerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IChatCapabilitiesManagerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatCapabilitiesManagerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe30d4274_d5c1_4ac9_9ffc_40e69184fec8);
@@ -78,14 +66,10 @@ pub struct IChatCapabilitiesManagerStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatConversation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatConversation {
     type Vtable = IChatConversation_Vtbl;
-}
-impl ::core::clone::Clone for IChatConversation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatConversation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa58c080d_1a6f_46dc_8f3d_f5028660b6ee);
@@ -136,14 +120,10 @@ pub struct IChatConversation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatConversation2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatConversation2 {
     type Vtable = IChatConversation2_Vtbl;
-}
-impl ::core::clone::Clone for IChatConversation2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatConversation2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a030cd1_983a_47aa_9a90_ee48ee997b59);
@@ -157,14 +137,10 @@ pub struct IChatConversation2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatConversationReader(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatConversationReader {
     type Vtable = IChatConversationReader_Vtbl;
-}
-impl ::core::clone::Clone for IChatConversationReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatConversationReader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x055136d2_de32_4a47_a93a_b3dc0833852b);
@@ -184,14 +160,10 @@ pub struct IChatConversationReader_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatConversationThreadingInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatConversationThreadingInfo {
     type Vtable = IChatConversationThreadingInfo_Vtbl;
-}
-impl ::core::clone::Clone for IChatConversationThreadingInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatConversationThreadingInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x331c21dc_7a07_4422_a32c_24be7c6dab24);
@@ -215,6 +187,7 @@ pub struct IChatConversationThreadingInfo_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatItem(::windows_core::IUnknown);
 impl IChatItem {
     pub fn ItemKind(&self) -> ::windows_core::Result<ChatItemKind> {
@@ -226,27 +199,11 @@ impl IChatItem {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IChatItem, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IChatItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IChatItem {}
-impl ::core::fmt::Debug for IChatItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IChatItem").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IChatItem {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{8751d000-ceb1-4243-b803-15d45a1dd428}");
 }
 unsafe impl ::windows_core::Interface for IChatItem {
     type Vtable = IChatItem_Vtbl;
-}
-impl ::core::clone::Clone for IChatItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatItem {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8751d000_ceb1_4243_b803_15d45a1dd428);
@@ -259,14 +216,10 @@ pub struct IChatItem_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessage(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessage {
     type Vtable = IChatMessage_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4b39052a_1142_5089_76da_f2db3d17cd05);
@@ -310,14 +263,10 @@ pub struct IChatMessage_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessage2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessage2 {
     type Vtable = IChatMessage2_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessage2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessage2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x86668332_543f_49f5_ac71_6c2afc6565fd);
@@ -366,14 +315,10 @@ pub struct IChatMessage2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessage3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessage3 {
     type Vtable = IChatMessage3_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessage3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessage3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x74eb2fb0_3ba7_459f_8e0b_e8af0febd9ad);
@@ -386,14 +331,10 @@ pub struct IChatMessage3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessage4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessage4 {
     type Vtable = IChatMessage4_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessage4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessage4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2d144b0f_d2bf_460c_aa68_6d3f8483c9bf);
@@ -407,14 +348,10 @@ pub struct IChatMessage4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageAttachment(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageAttachment {
     type Vtable = IChatMessageAttachment_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageAttachment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageAttachment {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc7c4fd74_bf63_58eb_508c_8b863ff16b67);
@@ -440,14 +377,10 @@ pub struct IChatMessageAttachment_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageAttachment2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageAttachment2 {
     type Vtable = IChatMessageAttachment2_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageAttachment2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageAttachment2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ed99270_7dd1_4a87_a8ce_acdd87d80dc8);
@@ -471,14 +404,10 @@ pub struct IChatMessageAttachment2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageAttachmentFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageAttachmentFactory {
     type Vtable = IChatMessageAttachmentFactory_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageAttachmentFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageAttachmentFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x205852a2_a356_5b71_6ca9_66c985b7d0d5);
@@ -494,14 +423,10 @@ pub struct IChatMessageAttachmentFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageBlockingStatic(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageBlockingStatic {
     type Vtable = IChatMessageBlockingStatic_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageBlockingStatic {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageBlockingStatic {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6b9a380_cdea_11e4_8830_0800200c9a66);
@@ -517,14 +442,10 @@ pub struct IChatMessageBlockingStatic_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageChange(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageChange {
     type Vtable = IChatMessageChange_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageChange {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageChange {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1c18c355_421e_54b8_6d38_6b3a6c82fccc);
@@ -538,14 +459,10 @@ pub struct IChatMessageChange_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageChangeReader(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageChangeReader {
     type Vtable = IChatMessageChangeReader_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageChangeReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageChangeReader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x14267020_28ce_5f26_7b05_9a5c7cce87ca);
@@ -563,14 +480,10 @@ pub struct IChatMessageChangeReader_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageChangeTracker(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageChangeTracker {
     type Vtable = IChatMessageChangeTracker_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageChangeTracker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageChangeTracker {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x60b7f066_70a0_5224_508c_242ef7c1d06f);
@@ -585,14 +498,10 @@ pub struct IChatMessageChangeTracker_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageChangedDeferral(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageChangedDeferral {
     type Vtable = IChatMessageChangedDeferral_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageChangedDeferral {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageChangedDeferral {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfbc6b30c_788c_4dcc_ace7_6282382968cf);
@@ -605,14 +514,10 @@ pub struct IChatMessageChangedDeferral_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageChangedEventArgs {
     type Vtable = IChatMessageChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb6b73e2d_691c_4edf_8660_6eb9896892e3);
@@ -625,14 +530,10 @@ pub struct IChatMessageChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageManager2Statics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageManager2Statics {
     type Vtable = IChatMessageManager2Statics_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageManager2Statics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageManager2Statics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1d45390f_9f4f_4e35_964e_1b9ca61ac044);
@@ -652,14 +553,10 @@ pub struct IChatMessageManager2Statics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageManagerStatic(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageManagerStatic {
     type Vtable = IChatMessageManagerStatic_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageManagerStatic {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageManagerStatic {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf15c60f7_d5e8_5e92_556d_e03b60253104);
@@ -684,14 +581,10 @@ pub struct IChatMessageManagerStatic_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageManagerStatics3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageManagerStatics3 {
     type Vtable = IChatMessageManagerStatics3_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageManagerStatics3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageManagerStatics3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x208b830d_6755_48cc_9ab3_fd03c463fc92);
@@ -707,14 +600,10 @@ pub struct IChatMessageManagerStatics3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageNotificationTriggerDetails(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageNotificationTriggerDetails {
     type Vtable = IChatMessageNotificationTriggerDetails_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageNotificationTriggerDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageNotificationTriggerDetails {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd344dfb_3063_4e17_8586_c6c08262e6c0);
@@ -727,14 +616,10 @@ pub struct IChatMessageNotificationTriggerDetails_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageNotificationTriggerDetails2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageNotificationTriggerDetails2 {
     type Vtable = IChatMessageNotificationTriggerDetails2_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageNotificationTriggerDetails2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageNotificationTriggerDetails2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6bb522e0_aa07_4fd1_9471_77934fb75ee6);
@@ -750,14 +635,10 @@ pub struct IChatMessageNotificationTriggerDetails2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageReader(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageReader {
     type Vtable = IChatMessageReader_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageReader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb6ea78ce_4489_56f9_76aa_e204682514cf);
@@ -773,14 +654,10 @@ pub struct IChatMessageReader_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageReader2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageReader2 {
     type Vtable = IChatMessageReader2_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageReader2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageReader2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x89643683_64bb_470d_9df4_0de8be1a05bf);
@@ -796,14 +673,10 @@ pub struct IChatMessageReader2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageStore(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageStore {
     type Vtable = IChatMessageStore_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageStore {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x31f2fd01_ccf6_580b_4976_0a07dd5d3b47);
@@ -854,14 +727,10 @@ pub struct IChatMessageStore_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageStore2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageStore2 {
     type Vtable = IChatMessageStore2_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageStore2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageStore2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad4dc4ee_3ad4_491b_b311_abdf9bb22768);
@@ -935,14 +804,10 @@ pub struct IChatMessageStore2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageStore3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageStore3 {
     type Vtable = IChatMessageStore3_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageStore3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageStore3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9adbbb09_4345_4ec1_8b74_b7338243719c);
@@ -958,14 +823,10 @@ pub struct IChatMessageStore3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageStoreChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageStoreChangedEventArgs {
     type Vtable = IChatMessageStoreChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageStoreChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageStoreChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x65c66fac_fe8c_46d4_9119_57b8410311d5);
@@ -979,14 +840,10 @@ pub struct IChatMessageStoreChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageTransport(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageTransport {
     type Vtable = IChatMessageTransport_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageTransport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageTransport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x63a9dbf8_e6b3_5c9a_5f85_d47925b9bd18);
@@ -1006,14 +863,10 @@ pub struct IChatMessageTransport_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageTransport2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageTransport2 {
     type Vtable = IChatMessageTransport2_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageTransport2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageTransport2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x90a75622_d84a_4c22_a94d_544444edc8a1);
@@ -1027,14 +880,10 @@ pub struct IChatMessageTransport2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageTransportConfiguration(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageTransportConfiguration {
     type Vtable = IChatMessageTransportConfiguration_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageTransportConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageTransportConfiguration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x879ff725_1a08_4aca_a075_3355126312e6);
@@ -1057,14 +906,10 @@ pub struct IChatMessageTransportConfiguration_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatMessageValidationResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatMessageValidationResult {
     type Vtable = IChatMessageValidationResult_Vtbl;
-}
-impl ::core::clone::Clone for IChatMessageValidationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatMessageValidationResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x25e93a03_28ec_5889_569b_7e486b126f18);
@@ -1089,14 +934,10 @@ pub struct IChatMessageValidationResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatQueryOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatQueryOptions {
     type Vtable = IChatQueryOptions_Vtbl;
-}
-impl ::core::clone::Clone for IChatQueryOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatQueryOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2fd364a6_bf36_42f7_b7e7_923c0aabfe16);
@@ -1110,14 +951,10 @@ pub struct IChatQueryOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatRecipientDeliveryInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatRecipientDeliveryInfo {
     type Vtable = IChatRecipientDeliveryInfo_Vtbl;
-}
-impl ::core::clone::Clone for IChatRecipientDeliveryInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatRecipientDeliveryInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xffc7b2a2_283c_4c0a_8a0e_8c33bdbf0545);
@@ -1152,14 +989,10 @@ pub struct IChatRecipientDeliveryInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatSearchReader(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatSearchReader {
     type Vtable = IChatSearchReader_Vtbl;
-}
-impl ::core::clone::Clone for IChatSearchReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatSearchReader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4665fe49_9020_4752_980d_39612325f589);
@@ -1179,14 +1012,10 @@ pub struct IChatSearchReader_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatSyncConfiguration(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatSyncConfiguration {
     type Vtable = IChatSyncConfiguration_Vtbl;
-}
-impl ::core::clone::Clone for IChatSyncConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatSyncConfiguration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x09f869b2_69f4_4aff_82b6_06992ff402d2);
@@ -1202,14 +1031,10 @@ pub struct IChatSyncConfiguration_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChatSyncManager(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IChatSyncManager {
     type Vtable = IChatSyncManager_Vtbl;
-}
-impl ::core::clone::Clone for IChatSyncManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChatSyncManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7ba52c63_2650_486f_b4b4_6bd9d3d63c84);
@@ -1239,14 +1064,10 @@ pub struct IChatSyncManager_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRcsEndUserMessage(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRcsEndUserMessage {
     type Vtable = IRcsEndUserMessage_Vtbl;
-}
-impl ::core::clone::Clone for IRcsEndUserMessage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRcsEndUserMessage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd7cda5eb_cbd7_4f3b_8526_b506dec35c53);
@@ -1274,14 +1095,10 @@ pub struct IRcsEndUserMessage_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRcsEndUserMessageAction(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRcsEndUserMessageAction {
     type Vtable = IRcsEndUserMessageAction_Vtbl;
-}
-impl ::core::clone::Clone for IRcsEndUserMessageAction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRcsEndUserMessageAction {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92378737_9b42_46d3_9d5e_3c1b2dae7cb8);
@@ -1294,14 +1111,10 @@ pub struct IRcsEndUserMessageAction_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRcsEndUserMessageAvailableEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRcsEndUserMessageAvailableEventArgs {
     type Vtable = IRcsEndUserMessageAvailableEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IRcsEndUserMessageAvailableEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRcsEndUserMessageAvailableEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2d45ae01_3f89_41ea_9702_9e9ed411aa98);
@@ -1315,14 +1128,10 @@ pub struct IRcsEndUserMessageAvailableEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRcsEndUserMessageAvailableTriggerDetails(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRcsEndUserMessageAvailableTriggerDetails {
     type Vtable = IRcsEndUserMessageAvailableTriggerDetails_Vtbl;
-}
-impl ::core::clone::Clone for IRcsEndUserMessageAvailableTriggerDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRcsEndUserMessageAvailableTriggerDetails {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b97742d_351f_4692_b41e_1b035dc18986);
@@ -1336,14 +1145,10 @@ pub struct IRcsEndUserMessageAvailableTriggerDetails_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRcsEndUserMessageManager(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRcsEndUserMessageManager {
     type Vtable = IRcsEndUserMessageManager_Vtbl;
-}
-impl ::core::clone::Clone for IRcsEndUserMessageManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRcsEndUserMessageManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3054ae5a_4d1f_4b59_9433_126c734e86a6);
@@ -1363,14 +1168,10 @@ pub struct IRcsEndUserMessageManager_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRcsManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRcsManagerStatics {
     type Vtable = IRcsManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IRcsManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRcsManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d270ac5_0abd_4f31_9b99_a59e71a7b731);
@@ -1395,14 +1196,10 @@ pub struct IRcsManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRcsManagerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRcsManagerStatics2 {
     type Vtable = IRcsManagerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IRcsManagerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRcsManagerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcd49ad18_ad8a_42aa_8eeb_a798a8808959);
@@ -1422,14 +1219,10 @@ pub struct IRcsManagerStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRcsServiceKindSupportedChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRcsServiceKindSupportedChangedEventArgs {
     type Vtable = IRcsServiceKindSupportedChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IRcsServiceKindSupportedChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRcsServiceKindSupportedChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf47ea244_e783_4866_b3a7_4e5ccf023070);
@@ -1442,14 +1235,10 @@ pub struct IRcsServiceKindSupportedChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRcsTransport(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRcsTransport {
     type Vtable = IRcsTransport_Vtbl;
-}
-impl ::core::clone::Clone for IRcsTransport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRcsTransport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfea34759_f37c_4319_8546_ec84d21d30ff);
@@ -1479,14 +1268,10 @@ pub struct IRcsTransport_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRcsTransportConfiguration(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRcsTransportConfiguration {
     type Vtable = IRcsTransportConfiguration_Vtbl;
-}
-impl ::core::clone::Clone for IRcsTransportConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRcsTransportConfiguration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1fccb102_2472_4bb9_9988_c1211c83e8a9);
@@ -1504,14 +1289,10 @@ pub struct IRcsTransportConfiguration_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteParticipantComposingChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteParticipantComposingChangedEventArgs {
     type Vtable = IRemoteParticipantComposingChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteParticipantComposingChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteParticipantComposingChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1ec045a7_cfc9_45c9_9876_449f2bc180f5);
@@ -1526,6 +1307,7 @@ pub struct IRemoteParticipantComposingChangedEventArgs_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatCapabilities(::windows_core::IUnknown);
 impl ChatCapabilities {
     pub fn IsOnline(&self) -> ::windows_core::Result<bool> {
@@ -1564,24 +1346,8 @@ impl ChatCapabilities {
         }
     }
 }
-impl ::core::cmp::PartialEq for ChatCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatCapabilities {}
-impl ::core::fmt::Debug for ChatCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatCapabilities").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatCapabilities;{3aff77bc-39c9-4dd1-ad2d-3964dd9d403f})");
-}
-impl ::core::clone::Clone for ChatCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatCapabilities {
     type Vtable = IChatCapabilities_Vtbl;
@@ -1646,6 +1412,7 @@ impl ::windows_core::RuntimeName for ChatCapabilitiesManager {
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatConversation(::windows_core::IUnknown);
 impl ChatConversation {
     pub fn HasUnreadMessages(&self) -> ::windows_core::Result<bool> {
@@ -1795,24 +1562,8 @@ impl ChatConversation {
         }
     }
 }
-impl ::core::cmp::PartialEq for ChatConversation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatConversation {}
-impl ::core::fmt::Debug for ChatConversation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatConversation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatConversation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatConversation;{a58c080d-1a6f-46dc-8f3d-f5028660b6ee})");
-}
-impl ::core::clone::Clone for ChatConversation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatConversation {
     type Vtable = IChatConversation_Vtbl;
@@ -1829,6 +1580,7 @@ unsafe impl ::core::marker::Send for ChatConversation {}
 unsafe impl ::core::marker::Sync for ChatConversation {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatConversationReader(::windows_core::IUnknown);
 impl ChatConversationReader {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1850,24 +1602,8 @@ impl ChatConversationReader {
         }
     }
 }
-impl ::core::cmp::PartialEq for ChatConversationReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatConversationReader {}
-impl ::core::fmt::Debug for ChatConversationReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatConversationReader").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatConversationReader {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatConversationReader;{055136d2-de32-4a47-a93a-b3dc0833852b})");
-}
-impl ::core::clone::Clone for ChatConversationReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatConversationReader {
     type Vtable = IChatConversationReader_Vtbl;
@@ -1883,6 +1619,7 @@ unsafe impl ::core::marker::Send for ChatConversationReader {}
 unsafe impl ::core::marker::Sync for ChatConversationReader {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatConversationThreadingInfo(::windows_core::IUnknown);
 impl ChatConversationThreadingInfo {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1946,24 +1683,8 @@ impl ChatConversationThreadingInfo {
         unsafe { (::windows_core::Interface::vtable(this).SetKind)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ChatConversationThreadingInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatConversationThreadingInfo {}
-impl ::core::fmt::Debug for ChatConversationThreadingInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatConversationThreadingInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatConversationThreadingInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatConversationThreadingInfo;{331c21dc-7a07-4422-a32c-24be7c6dab24})");
-}
-impl ::core::clone::Clone for ChatConversationThreadingInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatConversationThreadingInfo {
     type Vtable = IChatConversationThreadingInfo_Vtbl;
@@ -1979,6 +1700,7 @@ unsafe impl ::core::marker::Send for ChatConversationThreadingInfo {}
 unsafe impl ::core::marker::Sync for ChatConversationThreadingInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatMessage(::windows_core::IUnknown);
 impl ChatMessage {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2291,24 +2013,8 @@ impl ChatMessage {
         unsafe { (::windows_core::Interface::vtable(this).SetSyncId)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ChatMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessage {}
-impl ::core::fmt::Debug for ChatMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessage").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatMessage {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessage;{4b39052a-1142-5089-76da-f2db3d17cd05})");
-}
-impl ::core::clone::Clone for ChatMessage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatMessage {
     type Vtable = IChatMessage_Vtbl;
@@ -2325,6 +2031,7 @@ unsafe impl ::core::marker::Send for ChatMessage {}
 unsafe impl ::core::marker::Sync for ChatMessage {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatMessageAttachment(::windows_core::IUnknown);
 impl ChatMessageAttachment {
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -2435,24 +2142,8 @@ impl ChatMessageAttachment {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for ChatMessageAttachment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessageAttachment {}
-impl ::core::fmt::Debug for ChatMessageAttachment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessageAttachment").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatMessageAttachment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageAttachment;{c7c4fd74-bf63-58eb-508c-8b863ff16b67})");
-}
-impl ::core::clone::Clone for ChatMessageAttachment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatMessageAttachment {
     type Vtable = IChatMessageAttachment_Vtbl;
@@ -2488,6 +2179,7 @@ impl ::windows_core::RuntimeName for ChatMessageBlocking {
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatMessageChange(::windows_core::IUnknown);
 impl ChatMessageChange {
     pub fn ChangeType(&self) -> ::windows_core::Result<ChatMessageChangeType> {
@@ -2505,24 +2197,8 @@ impl ChatMessageChange {
         }
     }
 }
-impl ::core::cmp::PartialEq for ChatMessageChange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessageChange {}
-impl ::core::fmt::Debug for ChatMessageChange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessageChange").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatMessageChange {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChange;{1c18c355-421e-54b8-6d38-6b3a6c82fccc})");
-}
-impl ::core::clone::Clone for ChatMessageChange {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatMessageChange {
     type Vtable = IChatMessageChange_Vtbl;
@@ -2538,6 +2214,7 @@ unsafe impl ::core::marker::Send for ChatMessageChange {}
 unsafe impl ::core::marker::Sync for ChatMessageChange {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatMessageChangeReader(::windows_core::IUnknown);
 impl ChatMessageChangeReader {
     pub fn AcceptChanges(&self) -> ::windows_core::Result<()> {
@@ -2561,24 +2238,8 @@ impl ChatMessageChangeReader {
         }
     }
 }
-impl ::core::cmp::PartialEq for ChatMessageChangeReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessageChangeReader {}
-impl ::core::fmt::Debug for ChatMessageChangeReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessageChangeReader").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatMessageChangeReader {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangeReader;{14267020-28ce-5f26-7b05-9a5c7cce87ca})");
-}
-impl ::core::clone::Clone for ChatMessageChangeReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatMessageChangeReader {
     type Vtable = IChatMessageChangeReader_Vtbl;
@@ -2594,6 +2255,7 @@ unsafe impl ::core::marker::Send for ChatMessageChangeReader {}
 unsafe impl ::core::marker::Sync for ChatMessageChangeReader {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatMessageChangeTracker(::windows_core::IUnknown);
 impl ChatMessageChangeTracker {
     pub fn Enable(&self) -> ::windows_core::Result<()> {
@@ -2612,24 +2274,8 @@ impl ChatMessageChangeTracker {
         unsafe { (::windows_core::Interface::vtable(this).Reset)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ChatMessageChangeTracker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessageChangeTracker {}
-impl ::core::fmt::Debug for ChatMessageChangeTracker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessageChangeTracker").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatMessageChangeTracker {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangeTracker;{60b7f066-70a0-5224-508c-242ef7c1d06f})");
-}
-impl ::core::clone::Clone for ChatMessageChangeTracker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatMessageChangeTracker {
     type Vtable = IChatMessageChangeTracker_Vtbl;
@@ -2645,6 +2291,7 @@ unsafe impl ::core::marker::Send for ChatMessageChangeTracker {}
 unsafe impl ::core::marker::Sync for ChatMessageChangeTracker {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatMessageChangedDeferral(::windows_core::IUnknown);
 impl ChatMessageChangedDeferral {
     pub fn Complete(&self) -> ::windows_core::Result<()> {
@@ -2652,24 +2299,8 @@ impl ChatMessageChangedDeferral {
         unsafe { (::windows_core::Interface::vtable(this).Complete)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ChatMessageChangedDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessageChangedDeferral {}
-impl ::core::fmt::Debug for ChatMessageChangedDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessageChangedDeferral").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatMessageChangedDeferral {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangedDeferral;{fbc6b30c-788c-4dcc-ace7-6282382968cf})");
-}
-impl ::core::clone::Clone for ChatMessageChangedDeferral {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatMessageChangedDeferral {
     type Vtable = IChatMessageChangedDeferral_Vtbl;
@@ -2685,6 +2316,7 @@ unsafe impl ::core::marker::Send for ChatMessageChangedDeferral {}
 unsafe impl ::core::marker::Sync for ChatMessageChangedDeferral {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatMessageChangedEventArgs(::windows_core::IUnknown);
 impl ChatMessageChangedEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<ChatMessageChangedDeferral> {
@@ -2695,24 +2327,8 @@ impl ChatMessageChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for ChatMessageChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessageChangedEventArgs {}
-impl ::core::fmt::Debug for ChatMessageChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessageChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatMessageChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageChangedEventArgs;{b6b73e2d-691c-4edf-8660-6eb9896892e3})");
-}
-impl ::core::clone::Clone for ChatMessageChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatMessageChangedEventArgs {
     type Vtable = IChatMessageChangedEventArgs_Vtbl;
@@ -2804,6 +2420,7 @@ impl ::windows_core::RuntimeName for ChatMessageManager {
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatMessageNotificationTriggerDetails(::windows_core::IUnknown);
 impl ChatMessageNotificationTriggerDetails {
     pub fn ChatMessage(&self) -> ::windows_core::Result<ChatMessage> {
@@ -2842,24 +2459,8 @@ impl ChatMessageNotificationTriggerDetails {
         }
     }
 }
-impl ::core::cmp::PartialEq for ChatMessageNotificationTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessageNotificationTriggerDetails {}
-impl ::core::fmt::Debug for ChatMessageNotificationTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessageNotificationTriggerDetails").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatMessageNotificationTriggerDetails {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageNotificationTriggerDetails;{fd344dfb-3063-4e17-8586-c6c08262e6c0})");
-}
-impl ::core::clone::Clone for ChatMessageNotificationTriggerDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatMessageNotificationTriggerDetails {
     type Vtable = IChatMessageNotificationTriggerDetails_Vtbl;
@@ -2875,6 +2476,7 @@ unsafe impl ::core::marker::Send for ChatMessageNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for ChatMessageNotificationTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatMessageReader(::windows_core::IUnknown);
 impl ChatMessageReader {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2896,24 +2498,8 @@ impl ChatMessageReader {
         }
     }
 }
-impl ::core::cmp::PartialEq for ChatMessageReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessageReader {}
-impl ::core::fmt::Debug for ChatMessageReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessageReader").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatMessageReader {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageReader;{b6ea78ce-4489-56f9-76aa-e204682514cf})");
-}
-impl ::core::clone::Clone for ChatMessageReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatMessageReader {
     type Vtable = IChatMessageReader_Vtbl;
@@ -2929,6 +2515,7 @@ unsafe impl ::core::marker::Send for ChatMessageReader {}
 unsafe impl ::core::marker::Sync for ChatMessageReader {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatMessageStore(::windows_core::IUnknown);
 impl ChatMessageStore {
     pub fn ChangeTracker(&self) -> ::windows_core::Result<ChatMessageChangeTracker> {
@@ -3222,24 +2809,8 @@ impl ChatMessageStore {
         }
     }
 }
-impl ::core::cmp::PartialEq for ChatMessageStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessageStore {}
-impl ::core::fmt::Debug for ChatMessageStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessageStore").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatMessageStore {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageStore;{31f2fd01-ccf6-580b-4976-0a07dd5d3b47})");
-}
-impl ::core::clone::Clone for ChatMessageStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatMessageStore {
     type Vtable = IChatMessageStore_Vtbl;
@@ -3255,6 +2826,7 @@ unsafe impl ::core::marker::Send for ChatMessageStore {}
 unsafe impl ::core::marker::Sync for ChatMessageStore {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatMessageStoreChangedEventArgs(::windows_core::IUnknown);
 impl ChatMessageStoreChangedEventArgs {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -3272,24 +2844,8 @@ impl ChatMessageStoreChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for ChatMessageStoreChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessageStoreChangedEventArgs {}
-impl ::core::fmt::Debug for ChatMessageStoreChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessageStoreChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatMessageStoreChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageStoreChangedEventArgs;{65c66fac-fe8c-46d4-9119-57b8410311d5})");
-}
-impl ::core::clone::Clone for ChatMessageStoreChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatMessageStoreChangedEventArgs {
     type Vtable = IChatMessageStoreChangedEventArgs_Vtbl;
@@ -3305,6 +2861,7 @@ unsafe impl ::core::marker::Send for ChatMessageStoreChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ChatMessageStoreChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatMessageTransport(::windows_core::IUnknown);
 impl ChatMessageTransport {
     pub fn IsAppSetAsNotificationProvider(&self) -> ::windows_core::Result<bool> {
@@ -3359,24 +2916,8 @@ impl ChatMessageTransport {
         }
     }
 }
-impl ::core::cmp::PartialEq for ChatMessageTransport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessageTransport {}
-impl ::core::fmt::Debug for ChatMessageTransport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessageTransport").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatMessageTransport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageTransport;{63a9dbf8-e6b3-5c9a-5f85-d47925b9bd18})");
-}
-impl ::core::clone::Clone for ChatMessageTransport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatMessageTransport {
     type Vtable = IChatMessageTransport_Vtbl;
@@ -3392,6 +2933,7 @@ unsafe impl ::core::marker::Send for ChatMessageTransport {}
 unsafe impl ::core::marker::Sync for ChatMessageTransport {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatMessageTransportConfiguration(::windows_core::IUnknown);
 impl ChatMessageTransportConfiguration {
     pub fn MaxAttachmentCount(&self) -> ::windows_core::Result<i32> {
@@ -3434,24 +2976,8 @@ impl ChatMessageTransportConfiguration {
         }
     }
 }
-impl ::core::cmp::PartialEq for ChatMessageTransportConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessageTransportConfiguration {}
-impl ::core::fmt::Debug for ChatMessageTransportConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessageTransportConfiguration").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatMessageTransportConfiguration {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageTransportConfiguration;{879ff725-1a08-4aca-a075-3355126312e6})");
-}
-impl ::core::clone::Clone for ChatMessageTransportConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatMessageTransportConfiguration {
     type Vtable = IChatMessageTransportConfiguration_Vtbl;
@@ -3467,6 +2993,7 @@ unsafe impl ::core::marker::Send for ChatMessageTransportConfiguration {}
 unsafe impl ::core::marker::Sync for ChatMessageTransportConfiguration {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatMessageValidationResult(::windows_core::IUnknown);
 impl ChatMessageValidationResult {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3504,24 +3031,8 @@ impl ChatMessageValidationResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for ChatMessageValidationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessageValidationResult {}
-impl ::core::fmt::Debug for ChatMessageValidationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatMessageValidationResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatMessageValidationResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatMessageValidationResult;{25e93a03-28ec-5889-569b-7e486b126f18})");
-}
-impl ::core::clone::Clone for ChatMessageValidationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatMessageValidationResult {
     type Vtable = IChatMessageValidationResult_Vtbl;
@@ -3537,6 +3048,7 @@ unsafe impl ::core::marker::Send for ChatMessageValidationResult {}
 unsafe impl ::core::marker::Sync for ChatMessageValidationResult {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatQueryOptions(::windows_core::IUnknown);
 impl ChatQueryOptions {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -3558,24 +3070,8 @@ impl ChatQueryOptions {
         unsafe { (::windows_core::Interface::vtable(this).SetSearchString)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ChatQueryOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatQueryOptions {}
-impl ::core::fmt::Debug for ChatQueryOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatQueryOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatQueryOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatQueryOptions;{2fd364a6-bf36-42f7-b7e7-923c0aabfe16})");
-}
-impl ::core::clone::Clone for ChatQueryOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatQueryOptions {
     type Vtable = IChatQueryOptions_Vtbl;
@@ -3591,6 +3087,7 @@ unsafe impl ::core::marker::Send for ChatQueryOptions {}
 unsafe impl ::core::marker::Sync for ChatQueryOptions {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatRecipientDeliveryInfo(::windows_core::IUnknown);
 impl ChatRecipientDeliveryInfo {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -3683,24 +3180,8 @@ impl ChatRecipientDeliveryInfo {
         }
     }
 }
-impl ::core::cmp::PartialEq for ChatRecipientDeliveryInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatRecipientDeliveryInfo {}
-impl ::core::fmt::Debug for ChatRecipientDeliveryInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatRecipientDeliveryInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatRecipientDeliveryInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo;{ffc7b2a2-283c-4c0a-8a0e-8c33bdbf0545})");
-}
-impl ::core::clone::Clone for ChatRecipientDeliveryInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatRecipientDeliveryInfo {
     type Vtable = IChatRecipientDeliveryInfo_Vtbl;
@@ -3716,6 +3197,7 @@ unsafe impl ::core::marker::Send for ChatRecipientDeliveryInfo {}
 unsafe impl ::core::marker::Sync for ChatRecipientDeliveryInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatSearchReader(::windows_core::IUnknown);
 impl ChatSearchReader {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -3737,24 +3219,8 @@ impl ChatSearchReader {
         }
     }
 }
-impl ::core::cmp::PartialEq for ChatSearchReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatSearchReader {}
-impl ::core::fmt::Debug for ChatSearchReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatSearchReader").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatSearchReader {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatSearchReader;{4665fe49-9020-4752-980d-39612325f589})");
-}
-impl ::core::clone::Clone for ChatSearchReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatSearchReader {
     type Vtable = IChatSearchReader_Vtbl;
@@ -3770,6 +3236,7 @@ unsafe impl ::core::marker::Send for ChatSearchReader {}
 unsafe impl ::core::marker::Sync for ChatSearchReader {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatSyncConfiguration(::windows_core::IUnknown);
 impl ChatSyncConfiguration {
     pub fn IsSyncEnabled(&self) -> ::windows_core::Result<bool> {
@@ -3795,24 +3262,8 @@ impl ChatSyncConfiguration {
         unsafe { (::windows_core::Interface::vtable(this).SetRestoreHistorySpan)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ChatSyncConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatSyncConfiguration {}
-impl ::core::fmt::Debug for ChatSyncConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatSyncConfiguration").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatSyncConfiguration {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatSyncConfiguration;{09f869b2-69f4-4aff-82b6-06992ff402d2})");
-}
-impl ::core::clone::Clone for ChatSyncConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatSyncConfiguration {
     type Vtable = IChatSyncConfiguration_Vtbl;
@@ -3828,6 +3279,7 @@ unsafe impl ::core::marker::Send for ChatSyncConfiguration {}
 unsafe impl ::core::marker::Sync for ChatSyncConfiguration {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ChatSyncManager(::windows_core::IUnknown);
 impl ChatSyncManager {
     pub fn Configuration(&self) -> ::windows_core::Result<ChatSyncConfiguration> {
@@ -3887,24 +3339,8 @@ impl ChatSyncManager {
         }
     }
 }
-impl ::core::cmp::PartialEq for ChatSyncManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatSyncManager {}
-impl ::core::fmt::Debug for ChatSyncManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ChatSyncManager").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ChatSyncManager {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.ChatSyncManager;{7ba52c63-2650-486f-b4b4-6bd9d3d63c84})");
-}
-impl ::core::clone::Clone for ChatSyncManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ChatSyncManager {
     type Vtable = IChatSyncManager_Vtbl;
@@ -3920,6 +3356,7 @@ unsafe impl ::core::marker::Send for ChatSyncManager {}
 unsafe impl ::core::marker::Sync for ChatSyncManager {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RcsEndUserMessage(::windows_core::IUnknown);
 impl RcsEndUserMessage {
     pub fn TransportId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -3984,24 +3421,8 @@ impl RcsEndUserMessage {
         }
     }
 }
-impl ::core::cmp::PartialEq for RcsEndUserMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RcsEndUserMessage {}
-impl ::core::fmt::Debug for RcsEndUserMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RcsEndUserMessage").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RcsEndUserMessage {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessage;{d7cda5eb-cbd7-4f3b-8526-b506dec35c53})");
-}
-impl ::core::clone::Clone for RcsEndUserMessage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RcsEndUserMessage {
     type Vtable = IRcsEndUserMessage_Vtbl;
@@ -4017,6 +3438,7 @@ unsafe impl ::core::marker::Send for RcsEndUserMessage {}
 unsafe impl ::core::marker::Sync for RcsEndUserMessage {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RcsEndUserMessageAction(::windows_core::IUnknown);
 impl RcsEndUserMessageAction {
     pub fn Label(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -4027,24 +3449,8 @@ impl RcsEndUserMessageAction {
         }
     }
 }
-impl ::core::cmp::PartialEq for RcsEndUserMessageAction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RcsEndUserMessageAction {}
-impl ::core::fmt::Debug for RcsEndUserMessageAction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RcsEndUserMessageAction").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RcsEndUserMessageAction {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageAction;{92378737-9b42-46d3-9d5e-3c1b2dae7cb8})");
-}
-impl ::core::clone::Clone for RcsEndUserMessageAction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RcsEndUserMessageAction {
     type Vtable = IRcsEndUserMessageAction_Vtbl;
@@ -4060,6 +3466,7 @@ unsafe impl ::core::marker::Send for RcsEndUserMessageAction {}
 unsafe impl ::core::marker::Sync for RcsEndUserMessageAction {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RcsEndUserMessageAvailableEventArgs(::windows_core::IUnknown);
 impl RcsEndUserMessageAvailableEventArgs {
     pub fn IsMessageAvailable(&self) -> ::windows_core::Result<bool> {
@@ -4077,24 +3484,8 @@ impl RcsEndUserMessageAvailableEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for RcsEndUserMessageAvailableEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RcsEndUserMessageAvailableEventArgs {}
-impl ::core::fmt::Debug for RcsEndUserMessageAvailableEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RcsEndUserMessageAvailableEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RcsEndUserMessageAvailableEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableEventArgs;{2d45ae01-3f89-41ea-9702-9e9ed411aa98})");
-}
-impl ::core::clone::Clone for RcsEndUserMessageAvailableEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RcsEndUserMessageAvailableEventArgs {
     type Vtable = IRcsEndUserMessageAvailableEventArgs_Vtbl;
@@ -4110,6 +3501,7 @@ unsafe impl ::core::marker::Send for RcsEndUserMessageAvailableEventArgs {}
 unsafe impl ::core::marker::Sync for RcsEndUserMessageAvailableEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RcsEndUserMessageAvailableTriggerDetails(::windows_core::IUnknown);
 impl RcsEndUserMessageAvailableTriggerDetails {
     pub fn Title(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -4127,24 +3519,8 @@ impl RcsEndUserMessageAvailableTriggerDetails {
         }
     }
 }
-impl ::core::cmp::PartialEq for RcsEndUserMessageAvailableTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RcsEndUserMessageAvailableTriggerDetails {}
-impl ::core::fmt::Debug for RcsEndUserMessageAvailableTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RcsEndUserMessageAvailableTriggerDetails").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RcsEndUserMessageAvailableTriggerDetails {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableTriggerDetails;{5b97742d-351f-4692-b41e-1b035dc18986})");
-}
-impl ::core::clone::Clone for RcsEndUserMessageAvailableTriggerDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RcsEndUserMessageAvailableTriggerDetails {
     type Vtable = IRcsEndUserMessageAvailableTriggerDetails_Vtbl;
@@ -4160,6 +3536,7 @@ unsafe impl ::core::marker::Send for RcsEndUserMessageAvailableTriggerDetails {}
 unsafe impl ::core::marker::Sync for RcsEndUserMessageAvailableTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RcsEndUserMessageManager(::windows_core::IUnknown);
 impl RcsEndUserMessageManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4181,24 +3558,8 @@ impl RcsEndUserMessageManager {
         unsafe { (::windows_core::Interface::vtable(this).RemoveMessageAvailableChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl ::core::cmp::PartialEq for RcsEndUserMessageManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RcsEndUserMessageManager {}
-impl ::core::fmt::Debug for RcsEndUserMessageManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RcsEndUserMessageManager").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RcsEndUserMessageManager {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsEndUserMessageManager;{3054ae5a-4d1f-4b59-9433-126c734e86a6})");
-}
-impl ::core::clone::Clone for RcsEndUserMessageManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RcsEndUserMessageManager {
     type Vtable = IRcsEndUserMessageManager_Vtbl;
@@ -4280,6 +3641,7 @@ impl ::windows_core::RuntimeName for RcsManager {
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RcsServiceKindSupportedChangedEventArgs(::windows_core::IUnknown);
 impl RcsServiceKindSupportedChangedEventArgs {
     pub fn ServiceKind(&self) -> ::windows_core::Result<RcsServiceKind> {
@@ -4290,24 +3652,8 @@ impl RcsServiceKindSupportedChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for RcsServiceKindSupportedChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RcsServiceKindSupportedChangedEventArgs {}
-impl ::core::fmt::Debug for RcsServiceKindSupportedChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RcsServiceKindSupportedChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RcsServiceKindSupportedChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsServiceKindSupportedChangedEventArgs;{f47ea244-e783-4866-b3a7-4e5ccf023070})");
-}
-impl ::core::clone::Clone for RcsServiceKindSupportedChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RcsServiceKindSupportedChangedEventArgs {
     type Vtable = IRcsServiceKindSupportedChangedEventArgs_Vtbl;
@@ -4323,6 +3669,7 @@ unsafe impl ::core::marker::Send for RcsServiceKindSupportedChangedEventArgs {}
 unsafe impl ::core::marker::Sync for RcsServiceKindSupportedChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RcsTransport(::windows_core::IUnknown);
 impl RcsTransport {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4395,24 +3742,8 @@ impl RcsTransport {
         unsafe { (::windows_core::Interface::vtable(this).RemoveServiceKindSupportedChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl ::core::cmp::PartialEq for RcsTransport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RcsTransport {}
-impl ::core::fmt::Debug for RcsTransport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RcsTransport").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RcsTransport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsTransport;{fea34759-f37c-4319-8546-ec84d21d30ff})");
-}
-impl ::core::clone::Clone for RcsTransport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RcsTransport {
     type Vtable = IRcsTransport_Vtbl;
@@ -4428,6 +3759,7 @@ unsafe impl ::core::marker::Send for RcsTransport {}
 unsafe impl ::core::marker::Sync for RcsTransport {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RcsTransportConfiguration(::windows_core::IUnknown);
 impl RcsTransportConfiguration {
     pub fn MaxAttachmentCount(&self) -> ::windows_core::Result<i32> {
@@ -4473,24 +3805,8 @@ impl RcsTransportConfiguration {
         }
     }
 }
-impl ::core::cmp::PartialEq for RcsTransportConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RcsTransportConfiguration {}
-impl ::core::fmt::Debug for RcsTransportConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RcsTransportConfiguration").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RcsTransportConfiguration {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RcsTransportConfiguration;{1fccb102-2472-4bb9-9988-c1211c83e8a9})");
-}
-impl ::core::clone::Clone for RcsTransportConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RcsTransportConfiguration {
     type Vtable = IRcsTransportConfiguration_Vtbl;
@@ -4506,6 +3822,7 @@ unsafe impl ::core::marker::Send for RcsTransportConfiguration {}
 unsafe impl ::core::marker::Sync for RcsTransportConfiguration {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteParticipantComposingChangedEventArgs(::windows_core::IUnknown);
 impl RemoteParticipantComposingChangedEventArgs {
     pub fn TransportId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -4530,24 +3847,8 @@ impl RemoteParticipantComposingChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteParticipantComposingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteParticipantComposingChangedEventArgs {}
-impl ::core::fmt::Debug for RemoteParticipantComposingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteParticipantComposingChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteParticipantComposingChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Chat.RemoteParticipantComposingChangedEventArgs;{1ec045a7-cfc9-45c9-9876-449f2bc180f5})");
-}
-impl ::core::clone::Clone for RemoteParticipantComposingChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteParticipantComposingChangedEventArgs {
     type Vtable = IRemoteParticipantComposingChangedEventArgs_Vtbl;

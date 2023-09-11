@@ -272,6 +272,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDAddress(::windows_core::IUnknown);
 impl IWSDAddress {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -290,24 +291,8 @@ impl IWSDAddress {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDAddress, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDAddress {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDAddress {}
-impl ::core::fmt::Debug for IWSDAddress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDAddress").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDAddress {
     type Vtable = IWSDAddress_Vtbl;
-}
-impl ::core::clone::Clone for IWSDAddress {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDAddress {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb9574c6c_12a6_4f74_93a1_3318ff605759);
@@ -324,6 +309,7 @@ pub struct IWSDAddress_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDAsyncCallback(::windows_core::IUnknown);
 impl IWSDAsyncCallback {
     pub unsafe fn AsyncOperationComplete<P0, P1>(&self, pasyncresult: P0, pasyncstate: P1) -> ::windows_core::Result<()>
@@ -335,24 +321,8 @@ impl IWSDAsyncCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDAsyncCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDAsyncCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDAsyncCallback {}
-impl ::core::fmt::Debug for IWSDAsyncCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDAsyncCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDAsyncCallback {
     type Vtable = IWSDAsyncCallback_Vtbl;
-}
-impl ::core::clone::Clone for IWSDAsyncCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDAsyncCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa63e109d_ce72_49e2_ba98_e845f5ee1666);
@@ -365,6 +335,7 @@ pub struct IWSDAsyncCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDAsyncResult(::windows_core::IUnknown);
 impl IWSDAsyncResult {
     pub unsafe fn SetCallback<P0, P1>(&self, pcallback: P0, pasyncstate: P1) -> ::windows_core::Result<()>
@@ -401,24 +372,8 @@ impl IWSDAsyncResult {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDAsyncResult, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDAsyncResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDAsyncResult {}
-impl ::core::fmt::Debug for IWSDAsyncResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDAsyncResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDAsyncResult {
     type Vtable = IWSDAsyncResult_Vtbl;
-}
-impl ::core::clone::Clone for IWSDAsyncResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDAsyncResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x11a9852a_8dd8_423e_b537_9356db4fbfb8);
@@ -440,27 +395,12 @@ pub struct IWSDAsyncResult_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDAttachment(::windows_core::IUnknown);
 impl IWSDAttachment {}
 ::windows_core::imp::interface_hierarchy!(IWSDAttachment, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDAttachment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDAttachment {}
-impl ::core::fmt::Debug for IWSDAttachment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDAttachment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDAttachment {
     type Vtable = IWSDAttachment_Vtbl;
-}
-impl ::core::clone::Clone for IWSDAttachment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDAttachment {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d55a616_9df8_4b09_b156_9ba351a48b76);
@@ -472,6 +412,7 @@ pub struct IWSDAttachment_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDDeviceHost(::windows_core::IUnknown);
 impl IWSDDeviceHost {
     pub unsafe fn Init<P0, P1>(&self, pszlocalid: P0, pcontext: P1, pphostaddresses: ::core::option::Option<&[::core::option::Option<IWSDAddress>]>) -> ::windows_core::Result<()>
@@ -543,24 +484,8 @@ impl IWSDDeviceHost {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDDeviceHost, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDDeviceHost {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDDeviceHost {}
-impl ::core::fmt::Debug for IWSDDeviceHost {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDDeviceHost").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDDeviceHost {
     type Vtable = IWSDDeviceHost_Vtbl;
-}
-impl ::core::clone::Clone for IWSDDeviceHost {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDDeviceHost {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x917fe891_3d13_4138_9809_934c8abeb12c);
@@ -587,6 +512,7 @@ pub struct IWSDDeviceHost_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDDeviceHostNotify(::windows_core::IUnknown);
 impl IWSDDeviceHostNotify {
     pub unsafe fn GetService<P0>(&self, pszserviceid: P0) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -598,24 +524,8 @@ impl IWSDDeviceHostNotify {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDDeviceHostNotify, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDDeviceHostNotify {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDDeviceHostNotify {}
-impl ::core::fmt::Debug for IWSDDeviceHostNotify {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDDeviceHostNotify").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDDeviceHostNotify {
     type Vtable = IWSDDeviceHostNotify_Vtbl;
-}
-impl ::core::clone::Clone for IWSDDeviceHostNotify {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDDeviceHostNotify {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5bee9f9_eeda_41fe_96f7_f45e14990fb0);
@@ -628,6 +538,7 @@ pub struct IWSDDeviceHostNotify_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDDeviceProxy(::windows_core::IUnknown);
 impl IWSDDeviceProxy {
     pub unsafe fn Init<P0, P1, P2, P3, P4>(&self, pszdeviceid: P0, pdeviceaddress: P1, pszlocalid: P2, pcontext: P3, psponsor: P4) -> ::windows_core::Result<()>
@@ -683,24 +594,8 @@ impl IWSDDeviceProxy {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDDeviceProxy, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDDeviceProxy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDDeviceProxy {}
-impl ::core::fmt::Debug for IWSDDeviceProxy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDDeviceProxy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDDeviceProxy {
     type Vtable = IWSDDeviceProxy_Vtbl;
-}
-impl ::core::clone::Clone for IWSDDeviceProxy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDDeviceProxy {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeee0c031_c578_4c0e_9a3b_973c35f409db);
@@ -722,6 +617,7 @@ pub struct IWSDDeviceProxy_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDEndpointProxy(::windows_core::IUnknown);
 impl IWSDEndpointProxy {
     pub unsafe fn SendOneWayRequest(&self, pbody: *const ::core::ffi::c_void, poperation: *const WSD_OPERATION) -> ::windows_core::Result<()> {
@@ -759,24 +655,8 @@ impl IWSDEndpointProxy {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDEndpointProxy, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDEndpointProxy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDEndpointProxy {}
-impl ::core::fmt::Debug for IWSDEndpointProxy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDEndpointProxy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDEndpointProxy {
     type Vtable = IWSDEndpointProxy_Vtbl;
-}
-impl ::core::clone::Clone for IWSDEndpointProxy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDEndpointProxy {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1860d430_b24c_4975_9f90_dbb39baa24ec);
@@ -798,6 +678,7 @@ pub struct IWSDEndpointProxy_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDEventingStatus(::windows_core::IUnknown);
 impl IWSDEventingStatus {
     pub unsafe fn SubscriptionRenewed<P0>(&self, pszsubscriptionaction: P0)
@@ -820,24 +701,8 @@ impl IWSDEventingStatus {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDEventingStatus, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDEventingStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDEventingStatus {}
-impl ::core::fmt::Debug for IWSDEventingStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDEventingStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDEventingStatus {
     type Vtable = IWSDEventingStatus_Vtbl;
-}
-impl ::core::clone::Clone for IWSDEventingStatus {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDEventingStatus {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49b17f52_637a_407a_ae99_fbe82a4d38c0);
@@ -852,6 +717,7 @@ pub struct IWSDEventingStatus_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDHttpAddress(::windows_core::IUnknown);
 impl IWSDHttpAddress {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -917,24 +783,8 @@ impl IWSDHttpAddress {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDHttpAddress, ::windows_core::IUnknown, IWSDAddress, IWSDTransportAddress);
-impl ::core::cmp::PartialEq for IWSDHttpAddress {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDHttpAddress {}
-impl ::core::fmt::Debug for IWSDHttpAddress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDHttpAddress").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDHttpAddress {
     type Vtable = IWSDHttpAddress_Vtbl;
-}
-impl ::core::clone::Clone for IWSDHttpAddress {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDHttpAddress {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd09ac7bd_2a3e_4b85_8605_2737ff3e4ea0);
@@ -953,6 +803,7 @@ pub struct IWSDHttpAddress_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDHttpAuthParameters(::windows_core::IUnknown);
 impl IWSDHttpAuthParameters {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -967,24 +818,8 @@ impl IWSDHttpAuthParameters {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDHttpAuthParameters, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDHttpAuthParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDHttpAuthParameters {}
-impl ::core::fmt::Debug for IWSDHttpAuthParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDHttpAuthParameters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDHttpAuthParameters {
     type Vtable = IWSDHttpAuthParameters_Vtbl;
-}
-impl ::core::clone::Clone for IWSDHttpAuthParameters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDHttpAuthParameters {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b476df0_8dac_480d_b05c_99781a5884aa);
@@ -1001,6 +836,7 @@ pub struct IWSDHttpAuthParameters_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDHttpMessageParameters(::windows_core::IUnknown);
 impl IWSDHttpMessageParameters {
     pub unsafe fn GetLocalAddress(&self) -> ::windows_core::Result<IWSDAddress> {
@@ -1072,24 +908,8 @@ impl IWSDHttpMessageParameters {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDHttpMessageParameters, ::windows_core::IUnknown, IWSDMessageParameters);
-impl ::core::cmp::PartialEq for IWSDHttpMessageParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDHttpMessageParameters {}
-impl ::core::fmt::Debug for IWSDHttpMessageParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDHttpMessageParameters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDHttpMessageParameters {
     type Vtable = IWSDHttpMessageParameters_Vtbl;
-}
-impl ::core::clone::Clone for IWSDHttpMessageParameters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDHttpMessageParameters {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x540bd122_5c83_4dec_b396_ea62a2697fdf);
@@ -1110,6 +930,7 @@ pub struct IWSDHttpMessageParameters_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDInboundAttachment(::windows_core::IUnknown);
 impl IWSDInboundAttachment {
     pub unsafe fn Read(&self, pbuffer: &mut [u8], pdwnumberofbytesread: *mut u32) -> ::windows_core::Result<()> {
@@ -1120,24 +941,8 @@ impl IWSDInboundAttachment {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDInboundAttachment, ::windows_core::IUnknown, IWSDAttachment);
-impl ::core::cmp::PartialEq for IWSDInboundAttachment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDInboundAttachment {}
-impl ::core::fmt::Debug for IWSDInboundAttachment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDInboundAttachment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDInboundAttachment {
     type Vtable = IWSDInboundAttachment_Vtbl;
-}
-impl ::core::clone::Clone for IWSDInboundAttachment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDInboundAttachment {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5bd6ca65_233c_4fb8_9f7a_2641619655c9);
@@ -1151,6 +956,7 @@ pub struct IWSDInboundAttachment_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDMessageParameters(::windows_core::IUnknown);
 impl IWSDMessageParameters {
     pub unsafe fn GetLocalAddress(&self) -> ::windows_core::Result<IWSDAddress> {
@@ -1179,24 +985,8 @@ impl IWSDMessageParameters {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDMessageParameters, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDMessageParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDMessageParameters {}
-impl ::core::fmt::Debug for IWSDMessageParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDMessageParameters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDMessageParameters {
     type Vtable = IWSDMessageParameters_Vtbl;
-}
-impl ::core::clone::Clone for IWSDMessageParameters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDMessageParameters {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1fafe8a2_e6fc_4b80_b6cf_b7d45c416d7c);
@@ -1213,6 +1003,7 @@ pub struct IWSDMessageParameters_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDMetadataExchange(::windows_core::IUnknown);
 impl IWSDMetadataExchange {
     pub unsafe fn GetMetadata(&self) -> ::windows_core::Result<*mut WSD_METADATA_SECTION_LIST> {
@@ -1221,24 +1012,8 @@ impl IWSDMetadataExchange {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDMetadataExchange, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDMetadataExchange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDMetadataExchange {}
-impl ::core::fmt::Debug for IWSDMetadataExchange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDMetadataExchange").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDMetadataExchange {
     type Vtable = IWSDMetadataExchange_Vtbl;
-}
-impl ::core::clone::Clone for IWSDMetadataExchange {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDMetadataExchange {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x06996d57_1d67_4928_9307_3d7833fdb846);
@@ -1251,6 +1026,7 @@ pub struct IWSDMetadataExchange_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDOutboundAttachment(::windows_core::IUnknown);
 impl IWSDOutboundAttachment {
     pub unsafe fn Write(&self, pbuffer: &[u8]) -> ::windows_core::Result<u32> {
@@ -1265,24 +1041,8 @@ impl IWSDOutboundAttachment {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDOutboundAttachment, ::windows_core::IUnknown, IWSDAttachment);
-impl ::core::cmp::PartialEq for IWSDOutboundAttachment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDOutboundAttachment {}
-impl ::core::fmt::Debug for IWSDOutboundAttachment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDOutboundAttachment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDOutboundAttachment {
     type Vtable = IWSDOutboundAttachment_Vtbl;
-}
-impl ::core::clone::Clone for IWSDOutboundAttachment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDOutboundAttachment {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa302f8d_5a22_4ba5_b392_aa8486f4c15d);
@@ -1297,6 +1057,7 @@ pub struct IWSDOutboundAttachment_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDSSLClientCertificate(::windows_core::IUnknown);
 impl IWSDSSLClientCertificate {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
@@ -1313,24 +1074,8 @@ impl IWSDSSLClientCertificate {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDSSLClientCertificate, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDSSLClientCertificate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDSSLClientCertificate {}
-impl ::core::fmt::Debug for IWSDSSLClientCertificate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDSSLClientCertificate").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDSSLClientCertificate {
     type Vtable = IWSDSSLClientCertificate_Vtbl;
-}
-impl ::core::clone::Clone for IWSDSSLClientCertificate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDSSLClientCertificate {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xde105e87_a0da_418e_98ad_27b9eed87bdc);
@@ -1350,6 +1095,7 @@ pub struct IWSDSSLClientCertificate_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDScopeMatchingRule(::windows_core::IUnknown);
 impl IWSDScopeMatchingRule {
     pub unsafe fn GetScopeRule(&self) -> ::windows_core::Result<::windows_core::PCWSTR> {
@@ -1368,24 +1114,8 @@ impl IWSDScopeMatchingRule {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDScopeMatchingRule, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDScopeMatchingRule {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDScopeMatchingRule {}
-impl ::core::fmt::Debug for IWSDScopeMatchingRule {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDScopeMatchingRule").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDScopeMatchingRule {
     type Vtable = IWSDScopeMatchingRule_Vtbl;
-}
-impl ::core::clone::Clone for IWSDScopeMatchingRule {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDScopeMatchingRule {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfcafe424_fef5_481a_bd9f_33ce0574256f);
@@ -1402,6 +1132,7 @@ pub struct IWSDScopeMatchingRule_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDServiceMessaging(::windows_core::IUnknown);
 impl IWSDServiceMessaging {
     pub unsafe fn SendResponse<P0>(&self, pbody: ::core::option::Option<*const ::core::ffi::c_void>, poperation: *const WSD_OPERATION, pmessageparameters: P0) -> ::windows_core::Result<()>
@@ -1418,24 +1149,8 @@ impl IWSDServiceMessaging {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDServiceMessaging, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDServiceMessaging {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDServiceMessaging {}
-impl ::core::fmt::Debug for IWSDServiceMessaging {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDServiceMessaging").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDServiceMessaging {
     type Vtable = IWSDServiceMessaging_Vtbl;
-}
-impl ::core::clone::Clone for IWSDServiceMessaging {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDServiceMessaging {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x94974cf4_0cab_460d_a3f6_7a0ad623c0e6);
@@ -1449,6 +1164,7 @@ pub struct IWSDServiceMessaging_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDServiceProxy(::windows_core::IUnknown);
 impl IWSDServiceProxy {
     pub unsafe fn GetMetadata(&self) -> ::windows_core::Result<*mut WSD_METADATA_SECTION_LIST> {
@@ -1491,24 +1207,8 @@ impl IWSDServiceProxy {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDServiceProxy, ::windows_core::IUnknown, IWSDMetadataExchange);
-impl ::core::cmp::PartialEq for IWSDServiceProxy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDServiceProxy {}
-impl ::core::fmt::Debug for IWSDServiceProxy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDServiceProxy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDServiceProxy {
     type Vtable = IWSDServiceProxy_Vtbl;
-}
-impl ::core::clone::Clone for IWSDServiceProxy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDServiceProxy {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd4c7fb9c_03ab_4175_9d67_094fafebf487);
@@ -1527,6 +1227,7 @@ pub struct IWSDServiceProxy_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDServiceProxyEventing(::windows_core::IUnknown);
 impl IWSDServiceProxyEventing {
     pub unsafe fn GetMetadata(&self) -> ::windows_core::Result<*mut WSD_METADATA_SECTION_LIST> {
@@ -1657,24 +1358,8 @@ impl IWSDServiceProxyEventing {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDServiceProxyEventing, ::windows_core::IUnknown, IWSDMetadataExchange, IWSDServiceProxy);
-impl ::core::cmp::PartialEq for IWSDServiceProxyEventing {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDServiceProxyEventing {}
-impl ::core::fmt::Debug for IWSDServiceProxyEventing {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDServiceProxyEventing").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDServiceProxyEventing {
     type Vtable = IWSDServiceProxyEventing_Vtbl;
-}
-impl ::core::clone::Clone for IWSDServiceProxyEventing {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDServiceProxyEventing {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf9279d6d_1012_4a94_b8cc_fd35d2202bfe);
@@ -1722,6 +1407,7 @@ pub struct IWSDServiceProxyEventing_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDSignatureProperty(::windows_core::IUnknown);
 impl IWSDSignatureProperty {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1747,24 +1433,8 @@ impl IWSDSignatureProperty {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDSignatureProperty, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDSignatureProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDSignatureProperty {}
-impl ::core::fmt::Debug for IWSDSignatureProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDSignatureProperty").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDSignatureProperty {
     type Vtable = IWSDSignatureProperty_Vtbl;
-}
-impl ::core::clone::Clone for IWSDSignatureProperty {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDSignatureProperty {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03ce20aa_71c4_45e2_b32e_3766c61c790f);
@@ -1787,6 +1457,7 @@ pub struct IWSDSignatureProperty_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDTransportAddress(::windows_core::IUnknown);
 impl IWSDTransportAddress {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1831,24 +1502,8 @@ impl IWSDTransportAddress {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDTransportAddress, ::windows_core::IUnknown, IWSDAddress);
-impl ::core::cmp::PartialEq for IWSDTransportAddress {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDTransportAddress {}
-impl ::core::fmt::Debug for IWSDTransportAddress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDTransportAddress").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDTransportAddress {
     type Vtable = IWSDTransportAddress_Vtbl;
-}
-impl ::core::clone::Clone for IWSDTransportAddress {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDTransportAddress {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x70d23498_4ee6_4340_a3df_d845d2235467);
@@ -1868,6 +1523,7 @@ pub struct IWSDTransportAddress_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDUdpAddress(::windows_core::IUnknown);
 impl IWSDUdpAddress {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1954,24 +1610,8 @@ impl IWSDUdpAddress {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDUdpAddress, ::windows_core::IUnknown, IWSDAddress, IWSDTransportAddress);
-impl ::core::cmp::PartialEq for IWSDUdpAddress {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDUdpAddress {}
-impl ::core::fmt::Debug for IWSDUdpAddress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDUdpAddress").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDUdpAddress {
     type Vtable = IWSDUdpAddress_Vtbl;
-}
-impl ::core::clone::Clone for IWSDUdpAddress {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDUdpAddress {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x74d6124a_a441_4f78_a1eb_97a8d1996893);
@@ -2002,6 +1642,7 @@ pub struct IWSDUdpAddress_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDUdpMessageParameters(::windows_core::IUnknown);
 impl IWSDUdpMessageParameters {
     pub unsafe fn GetLocalAddress(&self) -> ::windows_core::Result<IWSDAddress> {
@@ -2036,24 +1677,8 @@ impl IWSDUdpMessageParameters {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDUdpMessageParameters, ::windows_core::IUnknown, IWSDMessageParameters);
-impl ::core::cmp::PartialEq for IWSDUdpMessageParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDUdpMessageParameters {}
-impl ::core::fmt::Debug for IWSDUdpMessageParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDUdpMessageParameters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDUdpMessageParameters {
     type Vtable = IWSDUdpMessageParameters_Vtbl;
-}
-impl ::core::clone::Clone for IWSDUdpMessageParameters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDUdpMessageParameters {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9934149f_8f0c_447b_aa0b_73124b0ca7f0);
@@ -2067,6 +1692,7 @@ pub struct IWSDUdpMessageParameters_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDXMLContext(::windows_core::IUnknown);
 impl IWSDXMLContext {
     pub unsafe fn AddNamespace<P0, P1>(&self, pszuri: P0, pszsuggestedprefix: P1, ppnamespace: ::core::option::Option<*mut *mut WSDXML_NAMESPACE>) -> ::windows_core::Result<()>
@@ -2091,24 +1717,8 @@ impl IWSDXMLContext {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDXMLContext, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDXMLContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDXMLContext {}
-impl ::core::fmt::Debug for IWSDXMLContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDXMLContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDXMLContext {
     type Vtable = IWSDXMLContext_Vtbl;
-}
-impl ::core::clone::Clone for IWSDXMLContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDXMLContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75d8f3ee_3e5a_43b4_a15a_bcf6887460c0);
@@ -2124,6 +1734,7 @@ pub struct IWSDXMLContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDiscoveredService(::windows_core::IUnknown);
 impl IWSDiscoveredService {
     pub unsafe fn GetEndpointReference(&self) -> ::windows_core::Result<*mut WSD_ENDPOINT_REFERENCE> {
@@ -2171,24 +1782,8 @@ impl IWSDiscoveredService {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDiscoveredService, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDiscoveredService {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDiscoveredService {}
-impl ::core::fmt::Debug for IWSDiscoveredService {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDiscoveredService").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDiscoveredService {
     type Vtable = IWSDiscoveredService_Vtbl;
-}
-impl ::core::clone::Clone for IWSDiscoveredService {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDiscoveredService {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4bad8a3b_b374_4420_9632_aac945b374aa);
@@ -2211,6 +1806,7 @@ pub struct IWSDiscoveredService_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDiscoveryProvider(::windows_core::IUnknown);
 impl IWSDiscoveryProvider {
     pub unsafe fn SetAddressFamily(&self, dwaddressfamily: u32) -> ::windows_core::Result<()> {
@@ -2252,24 +1848,8 @@ impl IWSDiscoveryProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDiscoveryProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDiscoveryProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDiscoveryProvider {}
-impl ::core::fmt::Debug for IWSDiscoveryProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDiscoveryProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDiscoveryProvider {
     type Vtable = IWSDiscoveryProvider_Vtbl;
-}
-impl ::core::clone::Clone for IWSDiscoveryProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDiscoveryProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8ffc8e55_f0eb_480f_88b7_b435dd281d45);
@@ -2288,6 +1868,7 @@ pub struct IWSDiscoveryProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDiscoveryProviderNotify(::windows_core::IUnknown);
 impl IWSDiscoveryProviderNotify {
     pub unsafe fn Add<P0>(&self, pservice: P0) -> ::windows_core::Result<()>
@@ -2316,24 +1897,8 @@ impl IWSDiscoveryProviderNotify {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDiscoveryProviderNotify, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDiscoveryProviderNotify {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDiscoveryProviderNotify {}
-impl ::core::fmt::Debug for IWSDiscoveryProviderNotify {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDiscoveryProviderNotify").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDiscoveryProviderNotify {
     type Vtable = IWSDiscoveryProviderNotify_Vtbl;
-}
-impl ::core::clone::Clone for IWSDiscoveryProviderNotify {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDiscoveryProviderNotify {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73ee3ced_b6e6_4329_a546_3e8ad46563d2);
@@ -2349,6 +1914,7 @@ pub struct IWSDiscoveryProviderNotify_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDiscoveryPublisher(::windows_core::IUnknown);
 impl IWSDiscoveryPublisher {
     pub unsafe fn SetAddressFamily(&self, dwaddressfamily: u32) -> ::windows_core::Result<()> {
@@ -2489,24 +2055,8 @@ impl IWSDiscoveryPublisher {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDiscoveryPublisher, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDiscoveryPublisher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDiscoveryPublisher {}
-impl ::core::fmt::Debug for IWSDiscoveryPublisher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDiscoveryPublisher").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDiscoveryPublisher {
     type Vtable = IWSDiscoveryPublisher_Vtbl;
-}
-impl ::core::clone::Clone for IWSDiscoveryPublisher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDiscoveryPublisher {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae01e1a8_3ff9_4148_8116_057cc616fe13);
@@ -2531,6 +2081,7 @@ pub struct IWSDiscoveryPublisher_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWSDiscoveryPublisherNotify(::windows_core::IUnknown);
 impl IWSDiscoveryPublisherNotify {
     pub unsafe fn ProbeHandler<P0>(&self, psoap: *const WSD_SOAP_MESSAGE, pmessageparameters: P0) -> ::windows_core::Result<()>
@@ -2547,24 +2098,8 @@ impl IWSDiscoveryPublisherNotify {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWSDiscoveryPublisherNotify, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWSDiscoveryPublisherNotify {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWSDiscoveryPublisherNotify {}
-impl ::core::fmt::Debug for IWSDiscoveryPublisherNotify {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWSDiscoveryPublisherNotify").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWSDiscoveryPublisherNotify {
     type Vtable = IWSDiscoveryPublisherNotify_Vtbl;
-}
-impl ::core::clone::Clone for IWSDiscoveryPublisherNotify {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWSDiscoveryPublisherNotify {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe67651b0_337a_4b3c_9758_733388568251);

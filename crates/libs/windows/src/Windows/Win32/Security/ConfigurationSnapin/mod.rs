@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISceSvcAttachmentData(::windows_core::IUnknown);
 impl ISceSvcAttachmentData {
     pub unsafe fn GetData(&self, scesvchandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> ::windows_core::Result<()> {
@@ -19,24 +20,8 @@ impl ISceSvcAttachmentData {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISceSvcAttachmentData, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISceSvcAttachmentData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISceSvcAttachmentData {}
-impl ::core::fmt::Debug for ISceSvcAttachmentData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISceSvcAttachmentData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISceSvcAttachmentData {
     type Vtable = ISceSvcAttachmentData_Vtbl;
-}
-impl ::core::clone::Clone for ISceSvcAttachmentData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISceSvcAttachmentData {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x17c35fde_200d_11d1_affb_00c04fb984f9);
@@ -52,6 +37,7 @@ pub struct ISceSvcAttachmentData_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISceSvcAttachmentPersistInfo(::windows_core::IUnknown);
 impl ISceSvcAttachmentPersistInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -67,24 +53,8 @@ impl ISceSvcAttachmentPersistInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISceSvcAttachmentPersistInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISceSvcAttachmentPersistInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISceSvcAttachmentPersistInfo {}
-impl ::core::fmt::Debug for ISceSvcAttachmentPersistInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISceSvcAttachmentPersistInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISceSvcAttachmentPersistInfo {
     type Vtable = ISceSvcAttachmentPersistInfo_Vtbl;
-}
-impl ::core::clone::Clone for ISceSvcAttachmentPersistInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISceSvcAttachmentPersistInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d90e0d0_200d_11d1_affb_00c04fb984f9);

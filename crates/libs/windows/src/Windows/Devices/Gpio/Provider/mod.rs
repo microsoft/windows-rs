@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGpioControllerProvider(::windows_core::IUnknown);
 impl IGpioControllerProvider {
     pub fn PinCount(&self) -> ::windows_core::Result<i32> {
@@ -18,27 +19,11 @@ impl IGpioControllerProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGpioControllerProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IGpioControllerProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGpioControllerProvider {}
-impl ::core::fmt::Debug for IGpioControllerProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGpioControllerProvider").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IGpioControllerProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{ad11cec7-19ea-4b21-874f-b91aed4a25db}");
 }
 unsafe impl ::windows_core::Interface for IGpioControllerProvider {
     type Vtable = IGpioControllerProvider_Vtbl;
-}
-impl ::core::clone::Clone for IGpioControllerProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGpioControllerProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad11cec7_19ea_4b21_874f_b91aed4a25db);
@@ -52,6 +37,7 @@ pub struct IGpioControllerProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGpioPinProvider(::windows_core::IUnknown);
 impl IGpioPinProvider {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -132,27 +118,11 @@ impl IGpioPinProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGpioPinProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IGpioPinProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGpioPinProvider {}
-impl ::core::fmt::Debug for IGpioPinProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGpioPinProvider").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IGpioPinProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{42344cb7-6abc-40ff-9ce7-73b85301b900}");
 }
 unsafe impl ::windows_core::Interface for IGpioPinProvider {
     type Vtable = IGpioPinProvider_Vtbl;
-}
-impl ::core::clone::Clone for IGpioPinProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGpioPinProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x42344cb7_6abc_40ff_9ce7_73b85301b900);
@@ -187,14 +157,10 @@ pub struct IGpioPinProvider_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGpioPinProviderValueChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGpioPinProviderValueChangedEventArgs {
     type Vtable = IGpioPinProviderValueChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IGpioPinProviderValueChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGpioPinProviderValueChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x32a6d6f2_3d5b_44cd_8fbe_13a69f2edb24);
@@ -207,14 +173,10 @@ pub struct IGpioPinProviderValueChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGpioPinProviderValueChangedEventArgsFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGpioPinProviderValueChangedEventArgsFactory {
     type Vtable = IGpioPinProviderValueChangedEventArgsFactory_Vtbl;
-}
-impl ::core::clone::Clone for IGpioPinProviderValueChangedEventArgsFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGpioPinProviderValueChangedEventArgsFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ecb0b59_568c_4392_b24a_8a59a902b1f1);
@@ -227,6 +189,7 @@ pub struct IGpioPinProviderValueChangedEventArgsFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGpioProvider(::windows_core::IUnknown);
 impl IGpioProvider {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -240,27 +203,11 @@ impl IGpioProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGpioProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IGpioProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGpioProvider {}
-impl ::core::fmt::Debug for IGpioProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGpioProvider").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IGpioProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{44e82707-08ca-434a-afe0-d61580446f7e}");
 }
 unsafe impl ::windows_core::Interface for IGpioProvider {
     type Vtable = IGpioProvider_Vtbl;
-}
-impl ::core::clone::Clone for IGpioProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGpioProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x44e82707_08ca_434a_afe0_d61580446f7e);
@@ -276,6 +223,7 @@ pub struct IGpioProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Gpio_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GpioPinProviderValueChangedEventArgs(::windows_core::IUnknown);
 impl GpioPinProviderValueChangedEventArgs {
     pub fn Edge(&self) -> ::windows_core::Result<ProviderGpioPinEdge> {
@@ -297,24 +245,8 @@ impl GpioPinProviderValueChangedEventArgs {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for GpioPinProviderValueChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GpioPinProviderValueChangedEventArgs {}
-impl ::core::fmt::Debug for GpioPinProviderValueChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GpioPinProviderValueChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for GpioPinProviderValueChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.Provider.GpioPinProviderValueChangedEventArgs;{32a6d6f2-3d5b-44cd-8fbe-13a69f2edb24})");
-}
-impl ::core::clone::Clone for GpioPinProviderValueChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for GpioPinProviderValueChangedEventArgs {
     type Vtable = IGpioPinProviderValueChangedEventArgs_Vtbl;

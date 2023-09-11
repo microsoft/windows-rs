@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffect(::windows_core::IUnknown);
 impl IMILBitmapEffect {
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
@@ -25,24 +26,8 @@ impl IMILBitmapEffect {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMILBitmapEffect, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMILBitmapEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMILBitmapEffect {}
-impl ::core::fmt::Debug for IMILBitmapEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMILBitmapEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMILBitmapEffect {
     type Vtable = IMILBitmapEffect_Vtbl;
-}
-impl ::core::clone::Clone for IMILBitmapEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMILBitmapEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a6ff321_c944_4a1b_9944_9954af301258);
@@ -63,6 +48,7 @@ pub struct IMILBitmapEffect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectConnections(::windows_core::IUnknown);
 impl IMILBitmapEffectConnections {
     pub unsafe fn GetInputConnector(&self, uiindex: u32) -> ::windows_core::Result<IMILBitmapEffectInputConnector> {
@@ -75,24 +61,8 @@ impl IMILBitmapEffectConnections {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMILBitmapEffectConnections, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMILBitmapEffectConnections {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMILBitmapEffectConnections {}
-impl ::core::fmt::Debug for IMILBitmapEffectConnections {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMILBitmapEffectConnections").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMILBitmapEffectConnections {
     type Vtable = IMILBitmapEffectConnections_Vtbl;
-}
-impl ::core::clone::Clone for IMILBitmapEffectConnections {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMILBitmapEffectConnections {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2b5d861_9b1a_4374_89b0_dec4874d6a81);
@@ -106,6 +76,7 @@ pub struct IMILBitmapEffectConnections_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectConnectionsInfo(::windows_core::IUnknown);
 impl IMILBitmapEffectConnectionsInfo {
     pub unsafe fn GetNumberInputs(&self) -> ::windows_core::Result<u32> {
@@ -126,24 +97,8 @@ impl IMILBitmapEffectConnectionsInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMILBitmapEffectConnectionsInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMILBitmapEffectConnectionsInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMILBitmapEffectConnectionsInfo {}
-impl ::core::fmt::Debug for IMILBitmapEffectConnectionsInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMILBitmapEffectConnectionsInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMILBitmapEffectConnectionsInfo {
     type Vtable = IMILBitmapEffectConnectionsInfo_Vtbl;
-}
-impl ::core::clone::Clone for IMILBitmapEffectConnectionsInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMILBitmapEffectConnectionsInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x476b538a_c765_4237_ba4a_d6a880ff0cfc);
@@ -159,6 +114,7 @@ pub struct IMILBitmapEffectConnectionsInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectConnector(::windows_core::IUnknown);
 impl IMILBitmapEffectConnector {
     pub unsafe fn GetIndex(&self) -> ::windows_core::Result<u32> {
@@ -189,24 +145,8 @@ impl IMILBitmapEffectConnector {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMILBitmapEffectConnector, ::windows_core::IUnknown, IMILBitmapEffectConnectorInfo);
-impl ::core::cmp::PartialEq for IMILBitmapEffectConnector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMILBitmapEffectConnector {}
-impl ::core::fmt::Debug for IMILBitmapEffectConnector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMILBitmapEffectConnector").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMILBitmapEffectConnector {
     type Vtable = IMILBitmapEffectConnector_Vtbl;
-}
-impl ::core::clone::Clone for IMILBitmapEffectConnector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMILBitmapEffectConnector {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf59567b3_76c1_4d47_ba1e_79f955e350ef);
@@ -223,6 +163,7 @@ pub struct IMILBitmapEffectConnector_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectConnectorInfo(::windows_core::IUnknown);
 impl IMILBitmapEffectConnectorInfo {
     pub unsafe fn GetIndex(&self) -> ::windows_core::Result<u32> {
@@ -243,24 +184,8 @@ impl IMILBitmapEffectConnectorInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMILBitmapEffectConnectorInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMILBitmapEffectConnectorInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMILBitmapEffectConnectorInfo {}
-impl ::core::fmt::Debug for IMILBitmapEffectConnectorInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMILBitmapEffectConnectorInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMILBitmapEffectConnectorInfo {
     type Vtable = IMILBitmapEffectConnectorInfo_Vtbl;
-}
-impl ::core::clone::Clone for IMILBitmapEffectConnectorInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMILBitmapEffectConnectorInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf66d2e4b_b46b_42fc_859e_3da0ecdb3c43);
@@ -276,6 +201,7 @@ pub struct IMILBitmapEffectConnectorInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectEvents(::windows_core::IUnknown);
 impl IMILBitmapEffectEvents {
     pub unsafe fn PropertyChange<P0, P1>(&self, peffect: P0, bstrpropertyname: P1) -> ::windows_core::Result<()>
@@ -293,24 +219,8 @@ impl IMILBitmapEffectEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMILBitmapEffectEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMILBitmapEffectEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMILBitmapEffectEvents {}
-impl ::core::fmt::Debug for IMILBitmapEffectEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMILBitmapEffectEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMILBitmapEffectEvents {
     type Vtable = IMILBitmapEffectEvents_Vtbl;
-}
-impl ::core::clone::Clone for IMILBitmapEffectEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMILBitmapEffectEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2e880dd8_f8ce_457b_8199_d60bb3d7ef98);
@@ -324,6 +234,7 @@ pub struct IMILBitmapEffectEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectFactory(::windows_core::IUnknown);
 impl IMILBitmapEffectFactory {
     pub unsafe fn CreateEffect(&self, pguideffect: *const ::windows_core::GUID) -> ::windows_core::Result<IMILBitmapEffect> {
@@ -340,24 +251,8 @@ impl IMILBitmapEffectFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMILBitmapEffectFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMILBitmapEffectFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMILBitmapEffectFactory {}
-impl ::core::fmt::Debug for IMILBitmapEffectFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMILBitmapEffectFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMILBitmapEffectFactory {
     type Vtable = IMILBitmapEffectFactory_Vtbl;
-}
-impl ::core::clone::Clone for IMILBitmapEffectFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMILBitmapEffectFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33a9df34_a403_4ec7_b07e_bc0682370845);
@@ -372,6 +267,7 @@ pub struct IMILBitmapEffectFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectGroup(::windows_core::IUnknown);
 impl IMILBitmapEffectGroup {
     pub unsafe fn GetInteriorInputConnector(&self, uiindex: u32) -> ::windows_core::Result<IMILBitmapEffectOutputConnector> {
@@ -390,24 +286,8 @@ impl IMILBitmapEffectGroup {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMILBitmapEffectGroup, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMILBitmapEffectGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMILBitmapEffectGroup {}
-impl ::core::fmt::Debug for IMILBitmapEffectGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMILBitmapEffectGroup").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMILBitmapEffectGroup {
     type Vtable = IMILBitmapEffectGroup_Vtbl;
-}
-impl ::core::clone::Clone for IMILBitmapEffectGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMILBitmapEffectGroup {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2f952360_698a_4ac6_81a1_bcfdf08eb8e8);
@@ -422,6 +302,7 @@ pub struct IMILBitmapEffectGroup_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectGroupImpl(::windows_core::IUnknown);
 impl IMILBitmapEffectGroupImpl {
     pub unsafe fn Preprocess<P0>(&self, pcontext: P0) -> ::windows_core::Result<()>
@@ -440,24 +321,8 @@ impl IMILBitmapEffectGroupImpl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMILBitmapEffectGroupImpl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMILBitmapEffectGroupImpl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMILBitmapEffectGroupImpl {}
-impl ::core::fmt::Debug for IMILBitmapEffectGroupImpl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMILBitmapEffectGroupImpl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMILBitmapEffectGroupImpl {
     type Vtable = IMILBitmapEffectGroupImpl_Vtbl;
-}
-impl ::core::clone::Clone for IMILBitmapEffectGroupImpl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMILBitmapEffectGroupImpl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x78fed518_1cfc_4807_8b85_6b6e51398f62);
@@ -472,6 +337,7 @@ pub struct IMILBitmapEffectGroupImpl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectImpl(::windows_core::IUnknown);
 impl IMILBitmapEffectImpl {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -522,24 +388,8 @@ impl IMILBitmapEffectImpl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMILBitmapEffectImpl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMILBitmapEffectImpl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMILBitmapEffectImpl {}
-impl ::core::fmt::Debug for IMILBitmapEffectImpl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMILBitmapEffectImpl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMILBitmapEffectImpl {
     type Vtable = IMILBitmapEffectImpl_Vtbl;
-}
-impl ::core::clone::Clone for IMILBitmapEffectImpl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMILBitmapEffectImpl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc2468f2_9936_47be_b4af_06b5df5dbcbb);
@@ -570,6 +420,7 @@ pub struct IMILBitmapEffectImpl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectInputConnector(::windows_core::IUnknown);
 impl IMILBitmapEffectInputConnector {
     pub unsafe fn GetIndex(&self) -> ::windows_core::Result<u32> {
@@ -610,24 +461,8 @@ impl IMILBitmapEffectInputConnector {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMILBitmapEffectInputConnector, ::windows_core::IUnknown, IMILBitmapEffectConnectorInfo, IMILBitmapEffectConnector);
-impl ::core::cmp::PartialEq for IMILBitmapEffectInputConnector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMILBitmapEffectInputConnector {}
-impl ::core::fmt::Debug for IMILBitmapEffectInputConnector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMILBitmapEffectInputConnector").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMILBitmapEffectInputConnector {
     type Vtable = IMILBitmapEffectInputConnector_Vtbl;
-}
-impl ::core::clone::Clone for IMILBitmapEffectInputConnector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMILBitmapEffectInputConnector {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9b4ecaa_7a3c_45e7_8573_f4b81b60dd6c);
@@ -641,6 +476,7 @@ pub struct IMILBitmapEffectInputConnector_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectInteriorInputConnector(::windows_core::IUnknown);
 impl IMILBitmapEffectInteriorInputConnector {
     pub unsafe fn GetInputConnector(&self) -> ::windows_core::Result<IMILBitmapEffectInputConnector> {
@@ -649,24 +485,8 @@ impl IMILBitmapEffectInteriorInputConnector {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMILBitmapEffectInteriorInputConnector, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMILBitmapEffectInteriorInputConnector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMILBitmapEffectInteriorInputConnector {}
-impl ::core::fmt::Debug for IMILBitmapEffectInteriorInputConnector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMILBitmapEffectInteriorInputConnector").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMILBitmapEffectInteriorInputConnector {
     type Vtable = IMILBitmapEffectInteriorInputConnector_Vtbl;
-}
-impl ::core::clone::Clone for IMILBitmapEffectInteriorInputConnector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMILBitmapEffectInteriorInputConnector {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20287e9e_86a2_4e15_953d_eb1438a5b842);
@@ -679,6 +499,7 @@ pub struct IMILBitmapEffectInteriorInputConnector_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectInteriorOutputConnector(::windows_core::IUnknown);
 impl IMILBitmapEffectInteriorOutputConnector {
     pub unsafe fn GetOutputConnector(&self) -> ::windows_core::Result<IMILBitmapEffectOutputConnector> {
@@ -687,24 +508,8 @@ impl IMILBitmapEffectInteriorOutputConnector {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMILBitmapEffectInteriorOutputConnector, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMILBitmapEffectInteriorOutputConnector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMILBitmapEffectInteriorOutputConnector {}
-impl ::core::fmt::Debug for IMILBitmapEffectInteriorOutputConnector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMILBitmapEffectInteriorOutputConnector").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMILBitmapEffectInteriorOutputConnector {
     type Vtable = IMILBitmapEffectInteriorOutputConnector_Vtbl;
-}
-impl ::core::clone::Clone for IMILBitmapEffectInteriorOutputConnector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMILBitmapEffectInteriorOutputConnector {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00bbb6dc_acc9_4bfc_b344_8bee383dfefa);
@@ -717,6 +522,7 @@ pub struct IMILBitmapEffectInteriorOutputConnector_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectOutputConnector(::windows_core::IUnknown);
 impl IMILBitmapEffectOutputConnector {
     pub unsafe fn GetIndex(&self) -> ::windows_core::Result<u32> {
@@ -755,24 +561,8 @@ impl IMILBitmapEffectOutputConnector {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMILBitmapEffectOutputConnector, ::windows_core::IUnknown, IMILBitmapEffectConnectorInfo, IMILBitmapEffectConnector);
-impl ::core::cmp::PartialEq for IMILBitmapEffectOutputConnector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMILBitmapEffectOutputConnector {}
-impl ::core::fmt::Debug for IMILBitmapEffectOutputConnector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMILBitmapEffectOutputConnector").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMILBitmapEffectOutputConnector {
     type Vtable = IMILBitmapEffectOutputConnector_Vtbl;
-}
-impl ::core::clone::Clone for IMILBitmapEffectOutputConnector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMILBitmapEffectOutputConnector {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92957aad_841b_4866_82ec_8752468b07fd);
@@ -786,6 +576,7 @@ pub struct IMILBitmapEffectOutputConnector_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectOutputConnectorImpl(::windows_core::IUnknown);
 impl IMILBitmapEffectOutputConnectorImpl {
     pub unsafe fn AddBackLink<P0>(&self, pconnection: P0) -> ::windows_core::Result<()>
@@ -802,24 +593,8 @@ impl IMILBitmapEffectOutputConnectorImpl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMILBitmapEffectOutputConnectorImpl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMILBitmapEffectOutputConnectorImpl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMILBitmapEffectOutputConnectorImpl {}
-impl ::core::fmt::Debug for IMILBitmapEffectOutputConnectorImpl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMILBitmapEffectOutputConnectorImpl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMILBitmapEffectOutputConnectorImpl {
     type Vtable = IMILBitmapEffectOutputConnectorImpl_Vtbl;
-}
-impl ::core::clone::Clone for IMILBitmapEffectOutputConnectorImpl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMILBitmapEffectOutputConnectorImpl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x21fae777_8b39_4bfa_9f2d_f3941ed36913);
@@ -833,6 +608,7 @@ pub struct IMILBitmapEffectOutputConnectorImpl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectPrimitive(::windows_core::IUnknown);
 impl IMILBitmapEffectPrimitive {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Imaging\"`*"]
@@ -880,24 +656,8 @@ impl IMILBitmapEffectPrimitive {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMILBitmapEffectPrimitive, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMILBitmapEffectPrimitive {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMILBitmapEffectPrimitive {}
-impl ::core::fmt::Debug for IMILBitmapEffectPrimitive {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMILBitmapEffectPrimitive").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMILBitmapEffectPrimitive {
     type Vtable = IMILBitmapEffectPrimitive_Vtbl;
-}
-impl ::core::clone::Clone for IMILBitmapEffectPrimitive {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMILBitmapEffectPrimitive {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x67e31025_3091_4dfc_98d6_dd494551461d);
@@ -933,6 +693,7 @@ pub struct IMILBitmapEffectPrimitive_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectPrimitiveImpl(::windows_core::IUnknown);
 impl IMILBitmapEffectPrimitiveImpl {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -948,24 +709,8 @@ impl IMILBitmapEffectPrimitiveImpl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMILBitmapEffectPrimitiveImpl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMILBitmapEffectPrimitiveImpl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMILBitmapEffectPrimitiveImpl {}
-impl ::core::fmt::Debug for IMILBitmapEffectPrimitiveImpl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMILBitmapEffectPrimitiveImpl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMILBitmapEffectPrimitiveImpl {
     type Vtable = IMILBitmapEffectPrimitiveImpl_Vtbl;
-}
-impl ::core::clone::Clone for IMILBitmapEffectPrimitiveImpl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMILBitmapEffectPrimitiveImpl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xce41e00b_efa6_44e7_b007_dd042e3ae126);
@@ -985,6 +730,7 @@ pub struct IMILBitmapEffectPrimitiveImpl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectRenderContext(::windows_core::IUnknown);
 impl IMILBitmapEffectRenderContext {
     pub unsafe fn SetOutputPixelFormat(&self, format: *const ::windows_core::GUID) -> ::windows_core::Result<()> {
@@ -1019,24 +765,8 @@ impl IMILBitmapEffectRenderContext {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMILBitmapEffectRenderContext, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMILBitmapEffectRenderContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMILBitmapEffectRenderContext {}
-impl ::core::fmt::Debug for IMILBitmapEffectRenderContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMILBitmapEffectRenderContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMILBitmapEffectRenderContext {
     type Vtable = IMILBitmapEffectRenderContext_Vtbl;
-}
-impl ::core::clone::Clone for IMILBitmapEffectRenderContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMILBitmapEffectRenderContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x12a2ec7e_2d33_44b2_b334_1abb7846e390);
@@ -1059,6 +789,7 @@ pub struct IMILBitmapEffectRenderContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffectRenderContextImpl(::windows_core::IUnknown);
 impl IMILBitmapEffectRenderContextImpl {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1081,24 +812,8 @@ impl IMILBitmapEffectRenderContextImpl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMILBitmapEffectRenderContextImpl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMILBitmapEffectRenderContextImpl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMILBitmapEffectRenderContextImpl {}
-impl ::core::fmt::Debug for IMILBitmapEffectRenderContextImpl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMILBitmapEffectRenderContextImpl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMILBitmapEffectRenderContextImpl {
     type Vtable = IMILBitmapEffectRenderContextImpl_Vtbl;
-}
-impl ::core::clone::Clone for IMILBitmapEffectRenderContextImpl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMILBitmapEffectRenderContextImpl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4d25accb_797d_4fd2_b128_dffeff84fcc3);
@@ -1118,6 +833,7 @@ pub struct IMILBitmapEffectRenderContextImpl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Wpf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMILBitmapEffects(::windows_core::IUnknown);
 impl IMILBitmapEffects {
     pub unsafe fn _NewEnum(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -1138,24 +854,8 @@ impl IMILBitmapEffects {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMILBitmapEffects, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMILBitmapEffects {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMILBitmapEffects {}
-impl ::core::fmt::Debug for IMILBitmapEffects {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMILBitmapEffects").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMILBitmapEffects {
     type Vtable = IMILBitmapEffects_Vtbl;
-}
-impl ::core::clone::Clone for IMILBitmapEffects {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMILBitmapEffects {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51ac3dce_67c5_448b_9180_ad3eabddd5dd);

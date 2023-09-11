@@ -688,6 +688,7 @@ pub unsafe fn WriteHitLogging(lplogginginfo: *const HIT_LOGGING_INFO) -> super::
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBindCallbackRedirect(::windows_core::IUnknown);
 impl IBindCallbackRedirect {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -701,24 +702,8 @@ impl IBindCallbackRedirect {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBindCallbackRedirect, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBindCallbackRedirect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBindCallbackRedirect {}
-impl ::core::fmt::Debug for IBindCallbackRedirect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBindCallbackRedirect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBindCallbackRedirect {
     type Vtable = IBindCallbackRedirect_Vtbl;
-}
-impl ::core::clone::Clone for IBindCallbackRedirect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBindCallbackRedirect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x11c81bc2_121e_4ed5_b9c4_b430bd54f2c0);
@@ -734,6 +719,7 @@ pub struct IBindCallbackRedirect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBindHttpSecurity(::windows_core::IUnknown);
 impl IBindHttpSecurity {
     pub unsafe fn GetIgnoreCertMask(&self) -> ::windows_core::Result<u32> {
@@ -742,24 +728,8 @@ impl IBindHttpSecurity {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBindHttpSecurity, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBindHttpSecurity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBindHttpSecurity {}
-impl ::core::fmt::Debug for IBindHttpSecurity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBindHttpSecurity").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBindHttpSecurity {
     type Vtable = IBindHttpSecurity_Vtbl;
-}
-impl ::core::clone::Clone for IBindHttpSecurity {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBindHttpSecurity {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa9eda967_f50e_4a33_b358_206f6ef3086d);
@@ -772,6 +742,7 @@ pub struct IBindHttpSecurity_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBindProtocol(::windows_core::IUnknown);
 impl IBindProtocol {
     pub unsafe fn CreateBinding<P0, P1>(&self, szurl: P0, pbc: P1) -> ::windows_core::Result<super::IBinding>
@@ -784,24 +755,8 @@ impl IBindProtocol {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBindProtocol, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBindProtocol {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBindProtocol {}
-impl ::core::fmt::Debug for IBindProtocol {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBindProtocol").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBindProtocol {
     type Vtable = IBindProtocol_Vtbl;
-}
-impl ::core::clone::Clone for IBindProtocol {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBindProtocol {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79eac9cd_baf9_11ce_8c82_00aa004ba90b);
@@ -814,6 +769,7 @@ pub struct IBindProtocol_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICatalogFileInfo(::windows_core::IUnknown);
 impl ICatalogFileInfo {
     pub unsafe fn GetCatalogFile(&self) -> ::windows_core::Result<::windows_core::PSTR> {
@@ -825,24 +781,8 @@ impl ICatalogFileInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICatalogFileInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICatalogFileInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICatalogFileInfo {}
-impl ::core::fmt::Debug for ICatalogFileInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICatalogFileInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICatalogFileInfo {
     type Vtable = ICatalogFileInfo_Vtbl;
-}
-impl ::core::clone::Clone for ICatalogFileInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICatalogFileInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x711c7600_6b48_11d1_b403_00aa00b92af1);
@@ -856,6 +796,7 @@ pub struct ICatalogFileInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICodeInstall(::windows_core::IUnknown);
 impl ICodeInstall {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -873,24 +814,8 @@ impl ICodeInstall {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICodeInstall, ::windows_core::IUnknown, IWindowForBindingUI);
-impl ::core::cmp::PartialEq for ICodeInstall {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICodeInstall {}
-impl ::core::fmt::Debug for ICodeInstall {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICodeInstall").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICodeInstall {
     type Vtable = ICodeInstall_Vtbl;
-}
-impl ::core::clone::Clone for ICodeInstall {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICodeInstall {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79eac9d1_baf9_11ce_8c82_00aa004ba90b);
@@ -903,6 +828,7 @@ pub struct ICodeInstall_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataFilter(::windows_core::IUnknown);
 impl IDataFilter {
     pub unsafe fn DoEncode(&self, dwflags: u32, pbinbuffer: &[u8], pboutbuffer: &mut [u8], linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows_core::Result<()> {
@@ -916,24 +842,8 @@ impl IDataFilter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataFilter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDataFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataFilter {}
-impl ::core::fmt::Debug for IDataFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataFilter {
     type Vtable = IDataFilter_Vtbl;
-}
-impl ::core::clone::Clone for IDataFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69d14c80_c18e_11d0_a9ce_006097942311);
@@ -948,6 +858,7 @@ pub struct IDataFilter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEncodingFilterFactory(::windows_core::IUnknown);
 impl IEncodingFilterFactory {
     pub unsafe fn FindBestFilter<P0, P1>(&self, pwzcodein: P0, pwzcodeout: P1, info: DATAINFO) -> ::windows_core::Result<IDataFilter>
@@ -968,24 +879,8 @@ impl IEncodingFilterFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEncodingFilterFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEncodingFilterFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEncodingFilterFactory {}
-impl ::core::fmt::Debug for IEncodingFilterFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEncodingFilterFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEncodingFilterFactory {
     type Vtable = IEncodingFilterFactory_Vtbl;
-}
-impl ::core::clone::Clone for IEncodingFilterFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEncodingFilterFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x70bdde00_c18e_11d0_a9ce_006097942311);
@@ -999,6 +894,7 @@ pub struct IEncodingFilterFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGetBindHandle(::windows_core::IUnknown);
 impl IGetBindHandle {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1009,24 +905,8 @@ impl IGetBindHandle {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGetBindHandle, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGetBindHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGetBindHandle {}
-impl ::core::fmt::Debug for IGetBindHandle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGetBindHandle").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGetBindHandle {
     type Vtable = IGetBindHandle_Vtbl;
-}
-impl ::core::clone::Clone for IGetBindHandle {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGetBindHandle {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaf0ff408_129d_4b20_91f0_02bd23d88352);
@@ -1042,6 +922,7 @@ pub struct IGetBindHandle_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpNegotiate(::windows_core::IUnknown);
 impl IHttpNegotiate {
     pub unsafe fn BeginningTransaction<P0, P1>(&self, szurl: P0, szheaders: P1, dwreserved: u32) -> ::windows_core::Result<::windows_core::PWSTR>
@@ -1062,24 +943,8 @@ impl IHttpNegotiate {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHttpNegotiate, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHttpNegotiate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHttpNegotiate {}
-impl ::core::fmt::Debug for IHttpNegotiate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHttpNegotiate").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHttpNegotiate {
     type Vtable = IHttpNegotiate_Vtbl;
-}
-impl ::core::clone::Clone for IHttpNegotiate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpNegotiate {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79eac9d2_baf9_11ce_8c82_00aa004ba90b);
@@ -1093,6 +958,7 @@ pub struct IHttpNegotiate_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpNegotiate2(::windows_core::IUnknown);
 impl IHttpNegotiate2 {
     pub unsafe fn BeginningTransaction<P0, P1>(&self, szurl: P0, szheaders: P1, dwreserved: u32) -> ::windows_core::Result<::windows_core::PWSTR>
@@ -1116,24 +982,8 @@ impl IHttpNegotiate2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHttpNegotiate2, ::windows_core::IUnknown, IHttpNegotiate);
-impl ::core::cmp::PartialEq for IHttpNegotiate2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHttpNegotiate2 {}
-impl ::core::fmt::Debug for IHttpNegotiate2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHttpNegotiate2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHttpNegotiate2 {
     type Vtable = IHttpNegotiate2_Vtbl;
-}
-impl ::core::clone::Clone for IHttpNegotiate2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpNegotiate2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f9f9fcb_e0f4_48eb_b7ab_fa2ea9365cb4);
@@ -1146,6 +996,7 @@ pub struct IHttpNegotiate2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpNegotiate3(::windows_core::IUnknown);
 impl IHttpNegotiate3 {
     pub unsafe fn BeginningTransaction<P0, P1>(&self, szurl: P0, szheaders: P1, dwreserved: u32) -> ::windows_core::Result<::windows_core::PWSTR>
@@ -1172,24 +1023,8 @@ impl IHttpNegotiate3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHttpNegotiate3, ::windows_core::IUnknown, IHttpNegotiate, IHttpNegotiate2);
-impl ::core::cmp::PartialEq for IHttpNegotiate3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHttpNegotiate3 {}
-impl ::core::fmt::Debug for IHttpNegotiate3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHttpNegotiate3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHttpNegotiate3 {
     type Vtable = IHttpNegotiate3_Vtbl;
-}
-impl ::core::clone::Clone for IHttpNegotiate3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpNegotiate3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x57b6c80a_34c2_4602_bc26_66a02fc57153);
@@ -1202,6 +1037,7 @@ pub struct IHttpNegotiate3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHttpSecurity(::windows_core::IUnknown);
 impl IHttpSecurity {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1215,24 +1051,8 @@ impl IHttpSecurity {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHttpSecurity, ::windows_core::IUnknown, IWindowForBindingUI);
-impl ::core::cmp::PartialEq for IHttpSecurity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHttpSecurity {}
-impl ::core::fmt::Debug for IHttpSecurity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHttpSecurity").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHttpSecurity {
     type Vtable = IHttpSecurity_Vtbl;
-}
-impl ::core::clone::Clone for IHttpSecurity {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHttpSecurity {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79eac9d7_bafa_11ce_8c82_00aa004ba90b);
@@ -1245,27 +1065,12 @@ pub struct IHttpSecurity_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternet(::windows_core::IUnknown);
 impl IInternet {}
 ::windows_core::imp::interface_hierarchy!(IInternet, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInternet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInternet {}
-impl ::core::fmt::Debug for IInternet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInternet").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInternet {
     type Vtable = IInternet_Vtbl;
-}
-impl ::core::clone::Clone for IInternet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInternet {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79eac9e0_baf9_11ce_8c82_00aa004ba90b);
@@ -1277,6 +1082,7 @@ pub struct IInternet_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetBindInfo(::windows_core::IUnknown);
 impl IInternetBindInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -1289,24 +1095,8 @@ impl IInternetBindInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInternetBindInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInternetBindInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInternetBindInfo {}
-impl ::core::fmt::Debug for IInternetBindInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInternetBindInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInternetBindInfo {
     type Vtable = IInternetBindInfo_Vtbl;
-}
-impl ::core::clone::Clone for IInternetBindInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInternetBindInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79eac9e1_baf9_11ce_8c82_00aa004ba90b);
@@ -1323,6 +1113,7 @@ pub struct IInternetBindInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetBindInfoEx(::windows_core::IUnknown);
 impl IInternetBindInfoEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -1340,24 +1131,8 @@ impl IInternetBindInfoEx {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInternetBindInfoEx, ::windows_core::IUnknown, IInternetBindInfo);
-impl ::core::cmp::PartialEq for IInternetBindInfoEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInternetBindInfoEx {}
-impl ::core::fmt::Debug for IInternetBindInfoEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInternetBindInfoEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInternetBindInfoEx {
     type Vtable = IInternetBindInfoEx_Vtbl;
-}
-impl ::core::clone::Clone for IInternetBindInfoEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInternetBindInfoEx {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa3e015b7_a82c_4dcd_a150_569aeeed36ab);
@@ -1373,6 +1148,7 @@ pub struct IInternetBindInfoEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetHostSecurityManager(::windows_core::IUnknown);
 impl IInternetHostSecurityManager {
     pub unsafe fn GetSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows_core::Result<()> {
@@ -1386,24 +1162,8 @@ impl IInternetHostSecurityManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInternetHostSecurityManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInternetHostSecurityManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInternetHostSecurityManager {}
-impl ::core::fmt::Debug for IInternetHostSecurityManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInternetHostSecurityManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInternetHostSecurityManager {
     type Vtable = IInternetHostSecurityManager_Vtbl;
-}
-impl ::core::clone::Clone for IInternetHostSecurityManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInternetHostSecurityManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3af280b6_cb3f_11d0_891e_00c04fb6bfc4);
@@ -1418,6 +1178,7 @@ pub struct IInternetHostSecurityManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetPriority(::windows_core::IUnknown);
 impl IInternetPriority {
     pub unsafe fn SetPriority(&self, npriority: i32) -> ::windows_core::Result<()> {
@@ -1429,24 +1190,8 @@ impl IInternetPriority {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInternetPriority, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInternetPriority {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInternetPriority {}
-impl ::core::fmt::Debug for IInternetPriority {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInternetPriority").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInternetPriority {
     type Vtable = IInternetPriority_Vtbl;
-}
-impl ::core::clone::Clone for IInternetPriority {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInternetPriority {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79eac9eb_baf9_11ce_8c82_00aa004ba90b);
@@ -1460,6 +1205,7 @@ pub struct IInternetPriority_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetProtocol(::windows_core::IUnknown);
 impl IInternetProtocol {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1503,24 +1249,8 @@ impl IInternetProtocol {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInternetProtocol, ::windows_core::IUnknown, IInternetProtocolRoot);
-impl ::core::cmp::PartialEq for IInternetProtocol {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInternetProtocol {}
-impl ::core::fmt::Debug for IInternetProtocol {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInternetProtocol").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInternetProtocol {
     type Vtable = IInternetProtocol_Vtbl;
-}
-impl ::core::clone::Clone for IInternetProtocol {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInternetProtocol {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79eac9e4_baf9_11ce_8c82_00aa004ba90b);
@@ -1536,6 +1266,7 @@ pub struct IInternetProtocol_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetProtocolEx(::windows_core::IUnknown);
 impl IInternetProtocolEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1590,24 +1321,8 @@ impl IInternetProtocolEx {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInternetProtocolEx, ::windows_core::IUnknown, IInternetProtocolRoot, IInternetProtocol);
-impl ::core::cmp::PartialEq for IInternetProtocolEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInternetProtocolEx {}
-impl ::core::fmt::Debug for IInternetProtocolEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInternetProtocolEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInternetProtocolEx {
     type Vtable = IInternetProtocolEx_Vtbl;
-}
-impl ::core::clone::Clone for IInternetProtocolEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInternetProtocolEx {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc7a98e66_1010_492c_a1c8_c809e1f75905);
@@ -1623,6 +1338,7 @@ pub struct IInternetProtocolEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetProtocolInfo(::windows_core::IUnknown);
 impl IInternetProtocolInfo {
     pub unsafe fn ParseUrl<P0>(&self, pwzurl: P0, parseaction: PARSEACTION, dwparseflags: u32, pwzresult: ::windows_core::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows_core::Result<()>
@@ -1654,24 +1370,8 @@ impl IInternetProtocolInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInternetProtocolInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInternetProtocolInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInternetProtocolInfo {}
-impl ::core::fmt::Debug for IInternetProtocolInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInternetProtocolInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInternetProtocolInfo {
     type Vtable = IInternetProtocolInfo_Vtbl;
-}
-impl ::core::clone::Clone for IInternetProtocolInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInternetProtocolInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79eac9ec_baf9_11ce_8c82_00aa004ba90b);
@@ -1687,6 +1387,7 @@ pub struct IInternetProtocolInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetProtocolRoot(::windows_core::IUnknown);
 impl IInternetProtocolRoot {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1717,24 +1418,8 @@ impl IInternetProtocolRoot {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInternetProtocolRoot, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInternetProtocolRoot {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInternetProtocolRoot {}
-impl ::core::fmt::Debug for IInternetProtocolRoot {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInternetProtocolRoot").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInternetProtocolRoot {
     type Vtable = IInternetProtocolRoot_Vtbl;
-}
-impl ::core::clone::Clone for IInternetProtocolRoot {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInternetProtocolRoot {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79eac9e3_baf9_11ce_8c82_00aa004ba90b);
@@ -1755,6 +1440,7 @@ pub struct IInternetProtocolRoot_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetProtocolSink(::windows_core::IUnknown);
 impl IInternetProtocolSink {
     pub unsafe fn Switch(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows_core::Result<()> {
@@ -1777,24 +1463,8 @@ impl IInternetProtocolSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInternetProtocolSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInternetProtocolSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInternetProtocolSink {}
-impl ::core::fmt::Debug for IInternetProtocolSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInternetProtocolSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInternetProtocolSink {
     type Vtable = IInternetProtocolSink_Vtbl;
-}
-impl ::core::clone::Clone for IInternetProtocolSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInternetProtocolSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79eac9e5_baf9_11ce_8c82_00aa004ba90b);
@@ -1810,6 +1480,7 @@ pub struct IInternetProtocolSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetProtocolSinkStackable(::windows_core::IUnknown);
 impl IInternetProtocolSinkStackable {
     pub unsafe fn SwitchSink<P0>(&self, poiprotsink: P0) -> ::windows_core::Result<()>
@@ -1826,24 +1497,8 @@ impl IInternetProtocolSinkStackable {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInternetProtocolSinkStackable, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInternetProtocolSinkStackable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInternetProtocolSinkStackable {}
-impl ::core::fmt::Debug for IInternetProtocolSinkStackable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInternetProtocolSinkStackable").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInternetProtocolSinkStackable {
     type Vtable = IInternetProtocolSinkStackable_Vtbl;
-}
-impl ::core::clone::Clone for IInternetProtocolSinkStackable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInternetProtocolSinkStackable {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79eac9f0_baf9_11ce_8c82_00aa004ba90b);
@@ -1858,6 +1513,7 @@ pub struct IInternetProtocolSinkStackable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetSecurityManager(::windows_core::IUnknown);
 impl IInternetSecurityManager {
     pub unsafe fn SetSecuritySite<P0>(&self, psite: P0) -> ::windows_core::Result<()>
@@ -1905,24 +1561,8 @@ impl IInternetSecurityManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInternetSecurityManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInternetSecurityManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInternetSecurityManager {}
-impl ::core::fmt::Debug for IInternetSecurityManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInternetSecurityManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInternetSecurityManager {
     type Vtable = IInternetSecurityManager_Vtbl;
-}
-impl ::core::clone::Clone for IInternetSecurityManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInternetSecurityManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79eac9ee_baf9_11ce_8c82_00aa004ba90b);
@@ -1942,6 +1582,7 @@ pub struct IInternetSecurityManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetSecurityManagerEx(::windows_core::IUnknown);
 impl IInternetSecurityManagerEx {
     pub unsafe fn SetSecuritySite<P0>(&self, psite: P0) -> ::windows_core::Result<()>
@@ -1995,24 +1636,8 @@ impl IInternetSecurityManagerEx {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInternetSecurityManagerEx, ::windows_core::IUnknown, IInternetSecurityManager);
-impl ::core::cmp::PartialEq for IInternetSecurityManagerEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInternetSecurityManagerEx {}
-impl ::core::fmt::Debug for IInternetSecurityManagerEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInternetSecurityManagerEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInternetSecurityManagerEx {
     type Vtable = IInternetSecurityManagerEx_Vtbl;
-}
-impl ::core::clone::Clone for IInternetSecurityManagerEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInternetSecurityManagerEx {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf164edf1_cc7c_4f0d_9a94_34222625c393);
@@ -2025,6 +1650,7 @@ pub struct IInternetSecurityManagerEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetSecurityManagerEx2(::windows_core::IUnknown);
 impl IInternetSecurityManagerEx2 {
     pub unsafe fn SetSecuritySite<P0>(&self, psite: P0) -> ::windows_core::Result<()>
@@ -2102,24 +1728,8 @@ impl IInternetSecurityManagerEx2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInternetSecurityManagerEx2, ::windows_core::IUnknown, IInternetSecurityManager, IInternetSecurityManagerEx);
-impl ::core::cmp::PartialEq for IInternetSecurityManagerEx2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInternetSecurityManagerEx2 {}
-impl ::core::fmt::Debug for IInternetSecurityManagerEx2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInternetSecurityManagerEx2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInternetSecurityManagerEx2 {
     type Vtable = IInternetSecurityManagerEx2_Vtbl;
-}
-impl ::core::clone::Clone for IInternetSecurityManagerEx2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInternetSecurityManagerEx2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf1e50292_a795_4117_8e09_2b560a72ac60);
@@ -2135,6 +1745,7 @@ pub struct IInternetSecurityManagerEx2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetSecurityMgrSite(::windows_core::IUnknown);
 impl IInternetSecurityMgrSite {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2153,24 +1764,8 @@ impl IInternetSecurityMgrSite {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInternetSecurityMgrSite, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInternetSecurityMgrSite {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInternetSecurityMgrSite {}
-impl ::core::fmt::Debug for IInternetSecurityMgrSite {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInternetSecurityMgrSite").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInternetSecurityMgrSite {
     type Vtable = IInternetSecurityMgrSite_Vtbl;
-}
-impl ::core::clone::Clone for IInternetSecurityMgrSite {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInternetSecurityMgrSite {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79eac9ed_baf9_11ce_8c82_00aa004ba90b);
@@ -2190,6 +1785,7 @@ pub struct IInternetSecurityMgrSite_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetSession(::windows_core::IUnknown);
 impl IInternetSession {
     pub unsafe fn RegisterNameSpace<P0, P1>(&self, pcf: P0, rclsid: *const ::windows_core::GUID, pwzprotocol: P1, cpatterns: u32, ppwzpatterns: *const ::windows_core::PCWSTR, dwreserved: u32) -> ::windows_core::Result<()>
@@ -2236,24 +1832,8 @@ impl IInternetSession {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInternetSession, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInternetSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInternetSession {}
-impl ::core::fmt::Debug for IInternetSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInternetSession").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInternetSession {
     type Vtable = IInternetSession_Vtbl;
-}
-impl ::core::clone::Clone for IInternetSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInternetSession {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79eac9e7_baf9_11ce_8c82_00aa004ba90b);
@@ -2272,6 +1852,7 @@ pub struct IInternetSession_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetThreadSwitch(::windows_core::IUnknown);
 impl IInternetThreadSwitch {
     pub unsafe fn Prepare(&self) -> ::windows_core::Result<()> {
@@ -2282,24 +1863,8 @@ impl IInternetThreadSwitch {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInternetThreadSwitch, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInternetThreadSwitch {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInternetThreadSwitch {}
-impl ::core::fmt::Debug for IInternetThreadSwitch {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInternetThreadSwitch").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInternetThreadSwitch {
     type Vtable = IInternetThreadSwitch_Vtbl;
-}
-impl ::core::clone::Clone for IInternetThreadSwitch {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInternetThreadSwitch {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79eac9e8_baf9_11ce_8c82_00aa004ba90b);
@@ -2313,6 +1878,7 @@ pub struct IInternetThreadSwitch_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetZoneManager(::windows_core::IUnknown);
 impl IInternetZoneManager {
     pub unsafe fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows_core::Result<()> {
@@ -2365,24 +1931,8 @@ impl IInternetZoneManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInternetZoneManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInternetZoneManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInternetZoneManager {}
-impl ::core::fmt::Debug for IInternetZoneManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInternetZoneManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInternetZoneManager {
     type Vtable = IInternetZoneManager_Vtbl;
-}
-impl ::core::clone::Clone for IInternetZoneManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInternetZoneManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79eac9ef_baf9_11ce_8c82_00aa004ba90b);
@@ -2409,6 +1959,7 @@ pub struct IInternetZoneManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetZoneManagerEx(::windows_core::IUnknown);
 impl IInternetZoneManagerEx {
     pub unsafe fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows_core::Result<()> {
@@ -2467,24 +2018,8 @@ impl IInternetZoneManagerEx {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInternetZoneManagerEx, ::windows_core::IUnknown, IInternetZoneManager);
-impl ::core::cmp::PartialEq for IInternetZoneManagerEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInternetZoneManagerEx {}
-impl ::core::fmt::Debug for IInternetZoneManagerEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInternetZoneManagerEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInternetZoneManagerEx {
     type Vtable = IInternetZoneManagerEx_Vtbl;
-}
-impl ::core::clone::Clone for IInternetZoneManagerEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInternetZoneManagerEx {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa4c23339_8e06_431e_9bf4_7e711c085648);
@@ -2498,6 +2033,7 @@ pub struct IInternetZoneManagerEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInternetZoneManagerEx2(::windows_core::IUnknown);
 impl IInternetZoneManagerEx2 {
     pub unsafe fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows_core::Result<()> {
@@ -2579,24 +2115,8 @@ impl IInternetZoneManagerEx2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInternetZoneManagerEx2, ::windows_core::IUnknown, IInternetZoneManager, IInternetZoneManagerEx);
-impl ::core::cmp::PartialEq for IInternetZoneManagerEx2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInternetZoneManagerEx2 {}
-impl ::core::fmt::Debug for IInternetZoneManagerEx2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInternetZoneManagerEx2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInternetZoneManagerEx2 {
     type Vtable = IInternetZoneManagerEx2_Vtbl;
-}
-impl ::core::clone::Clone for IInternetZoneManagerEx2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInternetZoneManagerEx2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xedc17559_dd5d_4846_8eef_8becba5a4abf);
@@ -2618,6 +2138,7 @@ pub struct IInternetZoneManagerEx2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMonikerProp(::windows_core::IUnknown);
 impl IMonikerProp {
     pub unsafe fn PutProperty<P0>(&self, mkp: MONIKERPROPERTY, val: P0) -> ::windows_core::Result<()>
@@ -2628,24 +2149,8 @@ impl IMonikerProp {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMonikerProp, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMonikerProp {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMonikerProp {}
-impl ::core::fmt::Debug for IMonikerProp {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMonikerProp").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMonikerProp {
     type Vtable = IMonikerProp_Vtbl;
-}
-impl ::core::clone::Clone for IMonikerProp {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMonikerProp {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa5ca5f7f_1847_4d87_9c5b_918509f7511d);
@@ -2658,6 +2163,7 @@ pub struct IMonikerProp_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPersistMoniker(::windows_core::IUnknown);
 impl IPersistMoniker {
     pub unsafe fn GetClassID(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -2700,24 +2206,8 @@ impl IPersistMoniker {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPersistMoniker, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPersistMoniker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPersistMoniker {}
-impl ::core::fmt::Debug for IPersistMoniker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPersistMoniker").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPersistMoniker {
     type Vtable = IPersistMoniker_Vtbl;
-}
-impl ::core::clone::Clone for IPersistMoniker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPersistMoniker {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79eac9c9_baf9_11ce_8c82_00aa004ba90b);
@@ -2741,6 +2231,7 @@ pub struct IPersistMoniker_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISoftDistExt(::windows_core::IUnknown);
 impl ISoftDistExt {
     #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`*"]
@@ -2766,24 +2257,8 @@ impl ISoftDistExt {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISoftDistExt, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISoftDistExt {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISoftDistExt {}
-impl ::core::fmt::Debug for ISoftDistExt {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISoftDistExt").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISoftDistExt {
     type Vtable = ISoftDistExt_Vtbl;
-}
-impl ::core::clone::Clone for ISoftDistExt {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISoftDistExt {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb15b8dc1_c7e1_11d0_8680_00aa00bdcb71);
@@ -2802,6 +2277,7 @@ pub struct ISoftDistExt_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUriBuilderFactory(::windows_core::IUnknown);
 impl IUriBuilderFactory {
     pub unsafe fn CreateIUriBuilder(&self, dwflags: u32, dwreserved: usize) -> ::windows_core::Result<super::IUriBuilder> {
@@ -2814,24 +2290,8 @@ impl IUriBuilderFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUriBuilderFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUriBuilderFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUriBuilderFactory {}
-impl ::core::fmt::Debug for IUriBuilderFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUriBuilderFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUriBuilderFactory {
     type Vtable = IUriBuilderFactory_Vtbl;
-}
-impl ::core::clone::Clone for IUriBuilderFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUriBuilderFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe982ce48_0b96_440c_bc37_0c869b27a29e);
@@ -2845,6 +2305,7 @@ pub struct IUriBuilderFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUriContainer(::windows_core::IUnknown);
 impl IUriContainer {
     pub unsafe fn GetIUri(&self) -> ::windows_core::Result<super::IUri> {
@@ -2853,24 +2314,8 @@ impl IUriContainer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUriContainer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUriContainer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUriContainer {}
-impl ::core::fmt::Debug for IUriContainer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUriContainer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUriContainer {
     type Vtable = IUriContainer_Vtbl;
-}
-impl ::core::clone::Clone for IUriContainer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUriContainer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa158a630_ed6f_45fb_b987_f68676f57752);
@@ -2883,6 +2328,7 @@ pub struct IUriContainer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWinInetCacheHints(::windows_core::IUnknown);
 impl IWinInetCacheHints {
     pub unsafe fn SetCacheExtension<P0>(&self, pwzext: P0, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows_core::Result<()>
@@ -2893,24 +2339,8 @@ impl IWinInetCacheHints {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWinInetCacheHints, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWinInetCacheHints {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWinInetCacheHints {}
-impl ::core::fmt::Debug for IWinInetCacheHints {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWinInetCacheHints").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWinInetCacheHints {
     type Vtable = IWinInetCacheHints_Vtbl;
-}
-impl ::core::clone::Clone for IWinInetCacheHints {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWinInetCacheHints {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd1ec3b3_8391_4fdb_a9e6_347c3caaa7dd);
@@ -2923,6 +2353,7 @@ pub struct IWinInetCacheHints_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWinInetCacheHints2(::windows_core::IUnknown);
 impl IWinInetCacheHints2 {
     pub unsafe fn SetCacheExtension<P0>(&self, pwzext: P0, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows_core::Result<()>
@@ -2939,24 +2370,8 @@ impl IWinInetCacheHints2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWinInetCacheHints2, ::windows_core::IUnknown, IWinInetCacheHints);
-impl ::core::cmp::PartialEq for IWinInetCacheHints2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWinInetCacheHints2 {}
-impl ::core::fmt::Debug for IWinInetCacheHints2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWinInetCacheHints2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWinInetCacheHints2 {
     type Vtable = IWinInetCacheHints2_Vtbl;
-}
-impl ::core::clone::Clone for IWinInetCacheHints2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWinInetCacheHints2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7857aeac_d31f_49bf_884e_dd46df36780a);
@@ -2969,6 +2384,7 @@ pub struct IWinInetCacheHints2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWinInetFileStream(::windows_core::IUnknown);
 impl IWinInetFileStream {
     pub unsafe fn SetHandleForUnlock(&self, hwininetlockhandle: usize, dwreserved: usize) -> ::windows_core::Result<()> {
@@ -2979,24 +2395,8 @@ impl IWinInetFileStream {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWinInetFileStream, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWinInetFileStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWinInetFileStream {}
-impl ::core::fmt::Debug for IWinInetFileStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWinInetFileStream").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWinInetFileStream {
     type Vtable = IWinInetFileStream_Vtbl;
-}
-impl ::core::clone::Clone for IWinInetFileStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWinInetFileStream {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf134c4b7_b1f8_4e75_b886_74b90943becb);
@@ -3010,6 +2410,7 @@ pub struct IWinInetFileStream_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWinInetHttpInfo(::windows_core::IUnknown);
 impl IWinInetHttpInfo {
     pub unsafe fn QueryOption(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32) -> ::windows_core::Result<()> {
@@ -3020,24 +2421,8 @@ impl IWinInetHttpInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWinInetHttpInfo, ::windows_core::IUnknown, IWinInetInfo);
-impl ::core::cmp::PartialEq for IWinInetHttpInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWinInetHttpInfo {}
-impl ::core::fmt::Debug for IWinInetHttpInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWinInetHttpInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWinInetHttpInfo {
     type Vtable = IWinInetHttpInfo_Vtbl;
-}
-impl ::core::clone::Clone for IWinInetHttpInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWinInetHttpInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79eac9d8_bafa_11ce_8c82_00aa004ba90b);
@@ -3050,6 +2435,7 @@ pub struct IWinInetHttpInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWinInetHttpTimeouts(::windows_core::IUnknown);
 impl IWinInetHttpTimeouts {
     pub unsafe fn GetRequestTimeouts(&self, pdwconnecttimeout: *mut u32, pdwsendtimeout: *mut u32, pdwreceivetimeout: *mut u32) -> ::windows_core::Result<()> {
@@ -3057,24 +2443,8 @@ impl IWinInetHttpTimeouts {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWinInetHttpTimeouts, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWinInetHttpTimeouts {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWinInetHttpTimeouts {}
-impl ::core::fmt::Debug for IWinInetHttpTimeouts {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWinInetHttpTimeouts").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWinInetHttpTimeouts {
     type Vtable = IWinInetHttpTimeouts_Vtbl;
-}
-impl ::core::clone::Clone for IWinInetHttpTimeouts {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWinInetHttpTimeouts {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf286fa56_c1fd_4270_8e67_b3eb790a81e8);
@@ -3087,6 +2457,7 @@ pub struct IWinInetHttpTimeouts_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWinInetInfo(::windows_core::IUnknown);
 impl IWinInetInfo {
     pub unsafe fn QueryOption(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32) -> ::windows_core::Result<()> {
@@ -3094,24 +2465,8 @@ impl IWinInetInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWinInetInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWinInetInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWinInetInfo {}
-impl ::core::fmt::Debug for IWinInetInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWinInetInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWinInetInfo {
     type Vtable = IWinInetInfo_Vtbl;
-}
-impl ::core::clone::Clone for IWinInetInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWinInetInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79eac9d6_bafa_11ce_8c82_00aa004ba90b);
@@ -3124,6 +2479,7 @@ pub struct IWinInetInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowForBindingUI(::windows_core::IUnknown);
 impl IWindowForBindingUI {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3134,24 +2490,8 @@ impl IWindowForBindingUI {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWindowForBindingUI, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWindowForBindingUI {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWindowForBindingUI {}
-impl ::core::fmt::Debug for IWindowForBindingUI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowForBindingUI").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWindowForBindingUI {
     type Vtable = IWindowForBindingUI_Vtbl;
-}
-impl ::core::clone::Clone for IWindowForBindingUI {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWindowForBindingUI {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79eac9d5_bafa_11ce_8c82_00aa004ba90b);
@@ -3167,6 +2507,7 @@ pub struct IWindowForBindingUI_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWrappedProtocol(::windows_core::IUnknown);
 impl IWrappedProtocol {
     pub unsafe fn GetWrapperCode(&self, pncode: *mut i32, dwreserved: usize) -> ::windows_core::Result<()> {
@@ -3174,24 +2515,8 @@ impl IWrappedProtocol {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWrappedProtocol, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWrappedProtocol {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWrappedProtocol {}
-impl ::core::fmt::Debug for IWrappedProtocol {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWrappedProtocol").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWrappedProtocol {
     type Vtable = IWrappedProtocol_Vtbl;
-}
-impl ::core::clone::Clone for IWrappedProtocol {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWrappedProtocol {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53c84785_8425_4dc5_971b_e58d9c19f9b6);
@@ -3204,6 +2529,7 @@ pub struct IWrappedProtocol_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IZoneIdentifier(::windows_core::IUnknown);
 impl IZoneIdentifier {
     pub unsafe fn GetId(&self) -> ::windows_core::Result<u32> {
@@ -3218,24 +2544,8 @@ impl IZoneIdentifier {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IZoneIdentifier, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IZoneIdentifier {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IZoneIdentifier {}
-impl ::core::fmt::Debug for IZoneIdentifier {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IZoneIdentifier").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IZoneIdentifier {
     type Vtable = IZoneIdentifier_Vtbl;
-}
-impl ::core::clone::Clone for IZoneIdentifier {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IZoneIdentifier {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcd45f185_1b21_48e2_967b_ead743a8914e);
@@ -3250,6 +2560,7 @@ pub struct IZoneIdentifier_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IZoneIdentifier2(::windows_core::IUnknown);
 impl IZoneIdentifier2 {
     pub unsafe fn GetId(&self) -> ::windows_core::Result<u32> {
@@ -3287,24 +2598,8 @@ impl IZoneIdentifier2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IZoneIdentifier2, ::windows_core::IUnknown, IZoneIdentifier);
-impl ::core::cmp::PartialEq for IZoneIdentifier2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IZoneIdentifier2 {}
-impl ::core::fmt::Debug for IZoneIdentifier2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IZoneIdentifier2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IZoneIdentifier2 {
     type Vtable = IZoneIdentifier2_Vtbl;
-}
-impl ::core::clone::Clone for IZoneIdentifier2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IZoneIdentifier2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb5e760c_09ef_45c0_b510_70830ce31e6a);

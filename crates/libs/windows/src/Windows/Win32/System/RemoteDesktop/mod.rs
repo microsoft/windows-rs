@@ -650,6 +650,7 @@ where
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IADsTSUserEx(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IADsTSUserEx {
@@ -777,28 +778,8 @@ impl IADsTSUserEx {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IADsTSUserEx, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IADsTSUserEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IADsTSUserEx {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IADsTSUserEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IADsTSUserEx").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IADsTSUserEx {
     type Vtable = IADsTSUserEx_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IADsTSUserEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IADsTSUserEx {
@@ -842,6 +823,7 @@ pub struct IADsTSUserEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioDeviceEndpoint(::windows_core::IUnknown);
 impl IAudioDeviceEndpoint {
     pub unsafe fn SetBuffer(&self, maxperiod: i64, u32latencycoefficient: u32) -> ::windows_core::Result<()> {
@@ -864,24 +846,8 @@ impl IAudioDeviceEndpoint {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioDeviceEndpoint, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioDeviceEndpoint {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioDeviceEndpoint {}
-impl ::core::fmt::Debug for IAudioDeviceEndpoint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioDeviceEndpoint").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioDeviceEndpoint {
     type Vtable = IAudioDeviceEndpoint_Vtbl;
-}
-impl ::core::clone::Clone for IAudioDeviceEndpoint {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioDeviceEndpoint {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd4952f5a_a0b2_4cc4_8b82_9358488dd8ac);
@@ -903,6 +869,7 @@ pub struct IAudioDeviceEndpoint_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioEndpoint(::windows_core::IUnknown);
 impl IAudioEndpoint {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -932,24 +899,8 @@ impl IAudioEndpoint {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioEndpoint, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioEndpoint {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioEndpoint {}
-impl ::core::fmt::Debug for IAudioEndpoint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioEndpoint").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioEndpoint {
     type Vtable = IAudioEndpoint_Vtbl;
-}
-impl ::core::clone::Clone for IAudioEndpoint {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioEndpoint {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30a99515_1527_4451_af9f_00c5f0234daf);
@@ -972,6 +923,7 @@ pub struct IAudioEndpoint_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioEndpointControl(::windows_core::IUnknown);
 impl IAudioEndpointControl {
     pub unsafe fn Start(&self) -> ::windows_core::Result<()> {
@@ -985,24 +937,8 @@ impl IAudioEndpointControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioEndpointControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioEndpointControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioEndpointControl {}
-impl ::core::fmt::Debug for IAudioEndpointControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioEndpointControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioEndpointControl {
     type Vtable = IAudioEndpointControl_Vtbl;
-}
-impl ::core::clone::Clone for IAudioEndpointControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioEndpointControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc684b72a_6df4_4774_bdf9_76b77509b653);
@@ -1017,6 +953,7 @@ pub struct IAudioEndpointControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioEndpointRT(::windows_core::IUnknown);
 impl IAudioEndpointRT {
     pub unsafe fn GetCurrentPadding(&self, ppadding: *mut i64, paecurrentposition: *mut AE_CURRENT_POSITION) {
@@ -1033,24 +970,8 @@ impl IAudioEndpointRT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioEndpointRT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioEndpointRT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioEndpointRT {}
-impl ::core::fmt::Debug for IAudioEndpointRT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioEndpointRT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioEndpointRT {
     type Vtable = IAudioEndpointRT_Vtbl;
-}
-impl ::core::clone::Clone for IAudioEndpointRT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioEndpointRT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdfd2005f_a6e5_4d39_a265_939ada9fbb4d);
@@ -1066,6 +987,7 @@ pub struct IAudioEndpointRT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioInputEndpointRT(::windows_core::IUnknown);
 impl IAudioInputEndpointRT {
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
@@ -1081,24 +1003,8 @@ impl IAudioInputEndpointRT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioInputEndpointRT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioInputEndpointRT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioInputEndpointRT {}
-impl ::core::fmt::Debug for IAudioInputEndpointRT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioInputEndpointRT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioInputEndpointRT {
     type Vtable = IAudioInputEndpointRT_Vtbl;
-}
-impl ::core::clone::Clone for IAudioInputEndpointRT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioInputEndpointRT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8026ab61_92b2_43c1_a1df_5c37ebd08d82);
@@ -1116,6 +1022,7 @@ pub struct IAudioInputEndpointRT_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAudioOutputEndpointRT(::windows_core::IUnknown);
 impl IAudioOutputEndpointRT {
     pub unsafe fn GetOutputDataPointer(&self, u32framecount: u32, paetimestamp: *const AE_CURRENT_POSITION) -> usize {
@@ -1131,24 +1038,8 @@ impl IAudioOutputEndpointRT {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAudioOutputEndpointRT, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAudioOutputEndpointRT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAudioOutputEndpointRT {}
-impl ::core::fmt::Debug for IAudioOutputEndpointRT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAudioOutputEndpointRT").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAudioOutputEndpointRT {
     type Vtable = IAudioOutputEndpointRT_Vtbl;
-}
-impl ::core::clone::Clone for IAudioOutputEndpointRT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAudioOutputEndpointRT {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8fa906e4_c31c_4e31_932e_19a66385e9aa);
@@ -1167,6 +1058,7 @@ pub struct IAudioOutputEndpointRT_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteDesktopClient(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRemoteDesktopClient {
@@ -1228,28 +1120,8 @@ impl IRemoteDesktopClient {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IRemoteDesktopClient, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IRemoteDesktopClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IRemoteDesktopClient {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IRemoteDesktopClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRemoteDesktopClient").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IRemoteDesktopClient {
     type Vtable = IRemoteDesktopClient_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IRemoteDesktopClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IRemoteDesktopClient {
@@ -1289,6 +1161,7 @@ pub struct IRemoteDesktopClient_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteDesktopClientActions(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRemoteDesktopClientActions {
@@ -1309,28 +1182,8 @@ impl IRemoteDesktopClientActions {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IRemoteDesktopClientActions, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IRemoteDesktopClientActions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IRemoteDesktopClientActions {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IRemoteDesktopClientActions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRemoteDesktopClientActions").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IRemoteDesktopClientActions {
     type Vtable = IRemoteDesktopClientActions_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IRemoteDesktopClientActions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IRemoteDesktopClientActions {
@@ -1349,6 +1202,7 @@ pub struct IRemoteDesktopClientActions_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteDesktopClientSettings(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRemoteDesktopClientSettings {
@@ -1383,28 +1237,8 @@ impl IRemoteDesktopClientSettings {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IRemoteDesktopClientSettings, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IRemoteDesktopClientSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IRemoteDesktopClientSettings {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IRemoteDesktopClientSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRemoteDesktopClientSettings").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IRemoteDesktopClientSettings {
     type Vtable = IRemoteDesktopClientSettings_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IRemoteDesktopClientSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IRemoteDesktopClientSettings {
@@ -1429,6 +1263,7 @@ pub struct IRemoteDesktopClientSettings_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteDesktopClientTouchPointer(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRemoteDesktopClientTouchPointer {
@@ -1471,28 +1306,8 @@ impl IRemoteDesktopClientTouchPointer {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IRemoteDesktopClientTouchPointer, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IRemoteDesktopClientTouchPointer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IRemoteDesktopClientTouchPointer {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IRemoteDesktopClientTouchPointer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRemoteDesktopClientTouchPointer").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IRemoteDesktopClientTouchPointer {
     type Vtable = IRemoteDesktopClientTouchPointer_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IRemoteDesktopClientTouchPointer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IRemoteDesktopClientTouchPointer {
@@ -1524,6 +1339,7 @@ pub struct IRemoteDesktopClientTouchPointer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemAdditionalInfoProvider(::windows_core::IUnknown);
 impl IRemoteSystemAdditionalInfoProvider {
     pub unsafe fn GetAdditionalInfo<T>(&self, deduplicationid: *mut ::windows_core::HSTRING) -> ::windows_core::Result<T>
@@ -1535,24 +1351,8 @@ impl IRemoteSystemAdditionalInfoProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRemoteSystemAdditionalInfoProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRemoteSystemAdditionalInfoProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRemoteSystemAdditionalInfoProvider {}
-impl ::core::fmt::Debug for IRemoteSystemAdditionalInfoProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRemoteSystemAdditionalInfoProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRemoteSystemAdditionalInfoProvider {
     type Vtable = IRemoteSystemAdditionalInfoProvider_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemAdditionalInfoProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemAdditionalInfoProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeeaa3d5f_ec63_4d27_af38_e86b1d7292cb);
@@ -1565,6 +1365,7 @@ pub struct IRemoteSystemAdditionalInfoProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITSGAccountingEngine(::windows_core::IUnknown);
 impl ITSGAccountingEngine {
     pub unsafe fn DoAccounting(&self, accountingdatatype: AAAccountingDataType, accountingdata: AAAccountingData) -> ::windows_core::Result<()> {
@@ -1572,24 +1373,8 @@ impl ITSGAccountingEngine {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITSGAccountingEngine, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITSGAccountingEngine {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITSGAccountingEngine {}
-impl ::core::fmt::Debug for ITSGAccountingEngine {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITSGAccountingEngine").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITSGAccountingEngine {
     type Vtable = ITSGAccountingEngine_Vtbl;
-}
-impl ::core::clone::Clone for ITSGAccountingEngine {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITSGAccountingEngine {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4ce2a0c9_e874_4f1a_86f4_06bbb9115338);
@@ -1602,6 +1387,7 @@ pub struct ITSGAccountingEngine_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITSGAuthenticateUserSink(::windows_core::IUnknown);
 impl ITSGAuthenticateUserSink {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1625,24 +1411,8 @@ impl ITSGAuthenticateUserSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITSGAuthenticateUserSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITSGAuthenticateUserSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITSGAuthenticateUserSink {}
-impl ::core::fmt::Debug for ITSGAuthenticateUserSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITSGAuthenticateUserSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITSGAuthenticateUserSink {
     type Vtable = ITSGAuthenticateUserSink_Vtbl;
-}
-impl ::core::clone::Clone for ITSGAuthenticateUserSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITSGAuthenticateUserSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c3e2e73_a782_47f9_8dfb_77ee1ed27a03);
@@ -1661,6 +1431,7 @@ pub struct ITSGAuthenticateUserSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITSGAuthenticationEngine(::windows_core::IUnknown);
 impl ITSGAuthenticationEngine {
     pub unsafe fn AuthenticateUser<P0>(&self, mainsessionid: ::windows_core::GUID, cookiedata: *const u8, numcookiebytes: u32, context: usize, psink: P0) -> ::windows_core::Result<()>
@@ -1674,24 +1445,8 @@ impl ITSGAuthenticationEngine {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITSGAuthenticationEngine, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITSGAuthenticationEngine {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITSGAuthenticationEngine {}
-impl ::core::fmt::Debug for ITSGAuthenticationEngine {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITSGAuthenticationEngine").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITSGAuthenticationEngine {
     type Vtable = ITSGAuthenticationEngine_Vtbl;
-}
-impl ::core::clone::Clone for ITSGAuthenticationEngine {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITSGAuthenticationEngine {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9ee3e5bf_04ab_4691_998c_d7f622321a56);
@@ -1705,6 +1460,7 @@ pub struct ITSGAuthenticationEngine_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITSGAuthorizeConnectionSink(::windows_core::IUnknown);
 impl ITSGAuthorizeConnectionSink {
     pub unsafe fn OnConnectionAuthorized(&self, hrin: ::windows_core::HRESULT, mainsessionid: ::windows_core::GUID, pbsohresponse: &[u8], idletimeout: u32, sessiontimeout: u32, sessiontimeoutaction: SESSION_TIMEOUT_ACTION_TYPE, trustclass: AATrustClassID, policyattributes: *const u32) -> ::windows_core::Result<()> {
@@ -1712,24 +1468,8 @@ impl ITSGAuthorizeConnectionSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITSGAuthorizeConnectionSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITSGAuthorizeConnectionSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITSGAuthorizeConnectionSink {}
-impl ::core::fmt::Debug for ITSGAuthorizeConnectionSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITSGAuthorizeConnectionSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITSGAuthorizeConnectionSink {
     type Vtable = ITSGAuthorizeConnectionSink_Vtbl;
-}
-impl ::core::clone::Clone for ITSGAuthorizeConnectionSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITSGAuthorizeConnectionSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc27ece33_7781_4318_98ef_1cf2da7b7005);
@@ -1742,6 +1482,7 @@ pub struct ITSGAuthorizeConnectionSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITSGAuthorizeResourceSink(::windows_core::IUnknown);
 impl ITSGAuthorizeResourceSink {
     pub unsafe fn OnChannelAuthorized(&self, hrin: ::windows_core::HRESULT, mainsessionid: ::windows_core::GUID, subsessionid: i32, allowedresourcenames: &[::windows_core::BSTR], failedresourcenames: &[::windows_core::BSTR]) -> ::windows_core::Result<()> {
@@ -1749,24 +1490,8 @@ impl ITSGAuthorizeResourceSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITSGAuthorizeResourceSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITSGAuthorizeResourceSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITSGAuthorizeResourceSink {}
-impl ::core::fmt::Debug for ITSGAuthorizeResourceSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITSGAuthorizeResourceSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITSGAuthorizeResourceSink {
     type Vtable = ITSGAuthorizeResourceSink_Vtbl;
-}
-impl ::core::clone::Clone for ITSGAuthorizeResourceSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITSGAuthorizeResourceSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfeddfcd4_fa12_4435_ae55_7ad1a9779af7);
@@ -1779,6 +1504,7 @@ pub struct ITSGAuthorizeResourceSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITSGPolicyEngine(::windows_core::IUnknown);
 impl ITSGPolicyEngine {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1812,24 +1538,8 @@ impl ITSGPolicyEngine {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITSGPolicyEngine, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITSGPolicyEngine {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITSGPolicyEngine {}
-impl ::core::fmt::Debug for ITSGPolicyEngine {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITSGPolicyEngine").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITSGPolicyEngine {
     type Vtable = ITSGPolicyEngine_Vtbl;
-}
-impl ::core::clone::Clone for ITSGPolicyEngine {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITSGPolicyEngine {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8bc24f08_6223_42f4_a5b4_8e37cd135bbd);
@@ -1851,6 +1561,7 @@ pub struct ITSGPolicyEngine_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbBaseNotifySink(::windows_core::IUnknown);
 impl ITsSbBaseNotifySink {
     pub unsafe fn OnError(&self, hrerror: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
@@ -1861,24 +1572,8 @@ impl ITsSbBaseNotifySink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbBaseNotifySink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITsSbBaseNotifySink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbBaseNotifySink {}
-impl ::core::fmt::Debug for ITsSbBaseNotifySink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbBaseNotifySink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbBaseNotifySink {
     type Vtable = ITsSbBaseNotifySink_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbBaseNotifySink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbBaseNotifySink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x808a6537_1282_4989_9e09_f43938b71722);
@@ -1892,6 +1587,7 @@ pub struct ITsSbBaseNotifySink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbClientConnection(::windows_core::IUnknown);
 impl ITsSbClientConnection {
     pub unsafe fn UserName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -1968,24 +1664,8 @@ impl ITsSbClientConnection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbClientConnection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITsSbClientConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbClientConnection {}
-impl ::core::fmt::Debug for ITsSbClientConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbClientConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbClientConnection {
     type Vtable = ITsSbClientConnection_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbClientConnection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbClientConnection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x18857499_ad61_4b1b_b7df_cbcd41fb8338);
@@ -2025,6 +1705,7 @@ pub struct ITsSbClientConnection_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbClientConnectionPropertySet(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbClientConnectionPropertySet {
@@ -2049,28 +1730,8 @@ impl ITsSbClientConnectionPropertySet {
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 ::windows_core::imp::interface_hierarchy!(ITsSbClientConnectionPropertySet, ::windows_core::IUnknown, super::Com::StructuredStorage::IPropertyBag, ITsSbPropertySet);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::cmp::PartialEq for ITsSbClientConnectionPropertySet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::cmp::Eq for ITsSbClientConnectionPropertySet {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::fmt::Debug for ITsSbClientConnectionPropertySet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbClientConnectionPropertySet").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 unsafe impl ::windows_core::Interface for ITsSbClientConnectionPropertySet {
     type Vtable = ITsSbClientConnectionPropertySet_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::clone::Clone for ITsSbClientConnectionPropertySet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 unsafe impl ::windows_core::ComInterface for ITsSbClientConnectionPropertySet {
@@ -2084,6 +1745,7 @@ pub struct ITsSbClientConnectionPropertySet_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbEnvironment(::windows_core::IUnknown);
 impl ITsSbEnvironment {
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -2110,24 +1772,8 @@ impl ITsSbEnvironment {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbEnvironment, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITsSbEnvironment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbEnvironment {}
-impl ::core::fmt::Debug for ITsSbEnvironment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbEnvironment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbEnvironment {
     type Vtable = ITsSbEnvironment_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbEnvironment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbEnvironment {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c87f7f7_bf51_4a5c_87bf_8e94fb6e2256);
@@ -2150,6 +1796,7 @@ pub struct ITsSbEnvironment_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbEnvironmentPropertySet(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbEnvironmentPropertySet {
@@ -2174,28 +1821,8 @@ impl ITsSbEnvironmentPropertySet {
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 ::windows_core::imp::interface_hierarchy!(ITsSbEnvironmentPropertySet, ::windows_core::IUnknown, super::Com::StructuredStorage::IPropertyBag, ITsSbPropertySet);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::cmp::PartialEq for ITsSbEnvironmentPropertySet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::cmp::Eq for ITsSbEnvironmentPropertySet {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::fmt::Debug for ITsSbEnvironmentPropertySet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbEnvironmentPropertySet").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 unsafe impl ::windows_core::Interface for ITsSbEnvironmentPropertySet {
     type Vtable = ITsSbEnvironmentPropertySet_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::clone::Clone for ITsSbEnvironmentPropertySet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 unsafe impl ::windows_core::ComInterface for ITsSbEnvironmentPropertySet {
@@ -2209,6 +1836,7 @@ pub struct ITsSbEnvironmentPropertySet_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbFilterPluginStore(::windows_core::IUnknown);
 impl ITsSbFilterPluginStore {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2233,24 +1861,8 @@ impl ITsSbFilterPluginStore {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbFilterPluginStore, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITsSbFilterPluginStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbFilterPluginStore {}
-impl ::core::fmt::Debug for ITsSbFilterPluginStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbFilterPluginStore").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbFilterPluginStore {
     type Vtable = ITsSbFilterPluginStore_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbFilterPluginStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbFilterPluginStore {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x85b44b0f_ed78_413f_9702_fa6d3b5ee755);
@@ -2271,6 +1883,7 @@ pub struct ITsSbFilterPluginStore_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbGenericNotifySink(::windows_core::IUnknown);
 impl ITsSbGenericNotifySink {
     pub unsafe fn OnCompleted(&self, status: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
@@ -2284,24 +1897,8 @@ impl ITsSbGenericNotifySink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbGenericNotifySink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITsSbGenericNotifySink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbGenericNotifySink {}
-impl ::core::fmt::Debug for ITsSbGenericNotifySink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbGenericNotifySink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbGenericNotifySink {
     type Vtable = ITsSbGenericNotifySink_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbGenericNotifySink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbGenericNotifySink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c4c8c4f_300b_46ad_9164_8468a7e7568c);
@@ -2318,6 +1915,7 @@ pub struct ITsSbGenericNotifySink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbGlobalStore(::windows_core::IUnknown);
 impl ITsSbGlobalStore {
     pub unsafe fn QueryTarget<P0, P1, P2>(&self, providername: P0, targetname: P1, farmname: P2) -> ::windows_core::Result<ITsSbTarget>
@@ -2381,24 +1979,8 @@ impl ITsSbGlobalStore {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbGlobalStore, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITsSbGlobalStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbGlobalStore {}
-impl ::core::fmt::Debug for ITsSbGlobalStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbGlobalStore").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbGlobalStore {
     type Vtable = ITsSbGlobalStore_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbGlobalStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbGlobalStore {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9ab60f7b_bd72_4d9f_8a3a_a0ea5574e635);
@@ -2423,6 +2005,7 @@ pub struct ITsSbGlobalStore_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbLoadBalanceResult(::windows_core::IUnknown);
 impl ITsSbLoadBalanceResult {
     pub unsafe fn TargetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -2431,24 +2014,8 @@ impl ITsSbLoadBalanceResult {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbLoadBalanceResult, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITsSbLoadBalanceResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbLoadBalanceResult {}
-impl ::core::fmt::Debug for ITsSbLoadBalanceResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbLoadBalanceResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbLoadBalanceResult {
     type Vtable = ITsSbLoadBalanceResult_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbLoadBalanceResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbLoadBalanceResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24fdb7ac_fea6_11dc_9672_9a8956d89593);
@@ -2461,6 +2028,7 @@ pub struct ITsSbLoadBalanceResult_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbLoadBalancing(::windows_core::IUnknown);
 impl ITsSbLoadBalancing {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2485,24 +2053,8 @@ impl ITsSbLoadBalancing {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbLoadBalancing, ::windows_core::IUnknown, ITsSbPlugin);
-impl ::core::cmp::PartialEq for ITsSbLoadBalancing {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbLoadBalancing {}
-impl ::core::fmt::Debug for ITsSbLoadBalancing {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbLoadBalancing").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbLoadBalancing {
     type Vtable = ITsSbLoadBalancing_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbLoadBalancing {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbLoadBalancing {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24329274_9eb7_11dc_ae98_f2b456d89593);
@@ -2515,6 +2067,7 @@ pub struct ITsSbLoadBalancing_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbLoadBalancingNotifySink(::windows_core::IUnknown);
 impl ITsSbLoadBalancingNotifySink {
     pub unsafe fn OnError(&self, hrerror: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
@@ -2534,24 +2087,8 @@ impl ITsSbLoadBalancingNotifySink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbLoadBalancingNotifySink, ::windows_core::IUnknown, ITsSbBaseNotifySink);
-impl ::core::cmp::PartialEq for ITsSbLoadBalancingNotifySink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbLoadBalancingNotifySink {}
-impl ::core::fmt::Debug for ITsSbLoadBalancingNotifySink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbLoadBalancingNotifySink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbLoadBalancingNotifySink {
     type Vtable = ITsSbLoadBalancingNotifySink_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbLoadBalancingNotifySink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbLoadBalancingNotifySink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5f8a8297_3244_4e6a_958a_27c822c1e141);
@@ -2567,6 +2104,7 @@ pub struct ITsSbLoadBalancingNotifySink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbOrchestration(::windows_core::IUnknown);
 impl ITsSbOrchestration {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2591,24 +2129,8 @@ impl ITsSbOrchestration {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbOrchestration, ::windows_core::IUnknown, ITsSbPlugin);
-impl ::core::cmp::PartialEq for ITsSbOrchestration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbOrchestration {}
-impl ::core::fmt::Debug for ITsSbOrchestration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbOrchestration").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbOrchestration {
     type Vtable = ITsSbOrchestration_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbOrchestration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbOrchestration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64fc1172_9eb7_11dc_8b00_3aba56d89593);
@@ -2621,6 +2143,7 @@ pub struct ITsSbOrchestration_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbOrchestrationNotifySink(::windows_core::IUnknown);
 impl ITsSbOrchestrationNotifySink {
     pub unsafe fn OnError(&self, hrerror: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
@@ -2637,24 +2160,8 @@ impl ITsSbOrchestrationNotifySink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbOrchestrationNotifySink, ::windows_core::IUnknown, ITsSbBaseNotifySink);
-impl ::core::cmp::PartialEq for ITsSbOrchestrationNotifySink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbOrchestrationNotifySink {}
-impl ::core::fmt::Debug for ITsSbOrchestrationNotifySink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbOrchestrationNotifySink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbOrchestrationNotifySink {
     type Vtable = ITsSbOrchestrationNotifySink_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbOrchestrationNotifySink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbOrchestrationNotifySink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36c37d61_926b_442f_bca5_118c6d50dcf2);
@@ -2667,6 +2174,7 @@ pub struct ITsSbOrchestrationNotifySink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbPlacement(::windows_core::IUnknown);
 impl ITsSbPlacement {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2691,24 +2199,8 @@ impl ITsSbPlacement {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbPlacement, ::windows_core::IUnknown, ITsSbPlugin);
-impl ::core::cmp::PartialEq for ITsSbPlacement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbPlacement {}
-impl ::core::fmt::Debug for ITsSbPlacement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbPlacement").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbPlacement {
     type Vtable = ITsSbPlacement_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbPlacement {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbPlacement {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdaadee5f_6d32_480e_9e36_ddab2329f06d);
@@ -2721,6 +2213,7 @@ pub struct ITsSbPlacement_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbPlacementNotifySink(::windows_core::IUnknown);
 impl ITsSbPlacementNotifySink {
     pub unsafe fn OnError(&self, hrerror: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
@@ -2737,24 +2230,8 @@ impl ITsSbPlacementNotifySink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbPlacementNotifySink, ::windows_core::IUnknown, ITsSbBaseNotifySink);
-impl ::core::cmp::PartialEq for ITsSbPlacementNotifySink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbPlacementNotifySink {}
-impl ::core::fmt::Debug for ITsSbPlacementNotifySink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbPlacementNotifySink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbPlacementNotifySink {
     type Vtable = ITsSbPlacementNotifySink_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbPlacementNotifySink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbPlacementNotifySink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x68a0c487_2b4f_46c2_94a1_6ce685183634);
@@ -2767,6 +2244,7 @@ pub struct ITsSbPlacementNotifySink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbPlugin(::windows_core::IUnknown);
 impl ITsSbPlugin {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -2784,24 +2262,8 @@ impl ITsSbPlugin {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbPlugin, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITsSbPlugin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbPlugin {}
-impl ::core::fmt::Debug for ITsSbPlugin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbPlugin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbPlugin {
     type Vtable = ITsSbPlugin_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbPlugin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbPlugin {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x48cd7406_caab_465f_a5d6_baa863b9ea4f);
@@ -2818,6 +2280,7 @@ pub struct ITsSbPlugin_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbPluginNotifySink(::windows_core::IUnknown);
 impl ITsSbPluginNotifySink {
     pub unsafe fn OnError(&self, hrerror: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
@@ -2834,24 +2297,8 @@ impl ITsSbPluginNotifySink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbPluginNotifySink, ::windows_core::IUnknown, ITsSbBaseNotifySink);
-impl ::core::cmp::PartialEq for ITsSbPluginNotifySink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbPluginNotifySink {}
-impl ::core::fmt::Debug for ITsSbPluginNotifySink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbPluginNotifySink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbPluginNotifySink {
     type Vtable = ITsSbPluginNotifySink_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbPluginNotifySink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbPluginNotifySink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x44dfe30b_c3be_40f5_bf82_7a95bb795adf);
@@ -2866,6 +2313,7 @@ pub struct ITsSbPluginNotifySink_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbPluginPropertySet(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbPluginPropertySet {
@@ -2890,28 +2338,8 @@ impl ITsSbPluginPropertySet {
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 ::windows_core::imp::interface_hierarchy!(ITsSbPluginPropertySet, ::windows_core::IUnknown, super::Com::StructuredStorage::IPropertyBag, ITsSbPropertySet);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::cmp::PartialEq for ITsSbPluginPropertySet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::cmp::Eq for ITsSbPluginPropertySet {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::fmt::Debug for ITsSbPluginPropertySet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbPluginPropertySet").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 unsafe impl ::windows_core::Interface for ITsSbPluginPropertySet {
     type Vtable = ITsSbPluginPropertySet_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::clone::Clone for ITsSbPluginPropertySet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 unsafe impl ::windows_core::ComInterface for ITsSbPluginPropertySet {
@@ -2926,6 +2354,7 @@ pub struct ITsSbPluginPropertySet_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbPropertySet(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbPropertySet {
@@ -2950,28 +2379,8 @@ impl ITsSbPropertySet {
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 ::windows_core::imp::interface_hierarchy!(ITsSbPropertySet, ::windows_core::IUnknown, super::Com::StructuredStorage::IPropertyBag);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::cmp::PartialEq for ITsSbPropertySet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::cmp::Eq for ITsSbPropertySet {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::fmt::Debug for ITsSbPropertySet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbPropertySet").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 unsafe impl ::windows_core::Interface for ITsSbPropertySet {
     type Vtable = ITsSbPropertySet_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::clone::Clone for ITsSbPropertySet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 unsafe impl ::windows_core::ComInterface for ITsSbPropertySet {
@@ -2985,6 +2394,7 @@ pub struct ITsSbPropertySet_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbProvider(::windows_core::IUnknown);
 impl ITsSbProvider {
     pub unsafe fn CreateTargetObject<P0, P1>(&self, targetname: P0, environmentname: P1) -> ::windows_core::Result<ITsSbTarget>
@@ -3063,24 +2473,8 @@ impl ITsSbProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITsSbProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbProvider {}
-impl ::core::fmt::Debug for ITsSbProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbProvider {
     type Vtable = ITsSbProvider_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x87a4098f_6d7b_44dd_bc17_8ce44e370d52);
@@ -3113,6 +2507,7 @@ pub struct ITsSbProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbProvisioning(::windows_core::IUnknown);
 impl ITsSbProvisioning {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -3160,24 +2555,8 @@ impl ITsSbProvisioning {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbProvisioning, ::windows_core::IUnknown, ITsSbPlugin);
-impl ::core::cmp::PartialEq for ITsSbProvisioning {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbProvisioning {}
-impl ::core::fmt::Debug for ITsSbProvisioning {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbProvisioning").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbProvisioning {
     type Vtable = ITsSbProvisioning_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbProvisioning {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbProvisioning {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2f6f0dbb_9e4f_462b_9c3f_fccc3dcb6232);
@@ -3193,6 +2572,7 @@ pub struct ITsSbProvisioning_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbProvisioningPluginNotifySink(::windows_core::IUnknown);
 impl ITsSbProvisioningPluginNotifySink {
     pub unsafe fn OnJobCreated(&self, pvmnotifyinfo: *const VM_NOTIFY_INFO) -> ::windows_core::Result<()> {
@@ -3225,24 +2605,8 @@ impl ITsSbProvisioningPluginNotifySink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbProvisioningPluginNotifySink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITsSbProvisioningPluginNotifySink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbProvisioningPluginNotifySink {}
-impl ::core::fmt::Debug for ITsSbProvisioningPluginNotifySink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbProvisioningPluginNotifySink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbProvisioningPluginNotifySink {
     type Vtable = ITsSbProvisioningPluginNotifySink_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbProvisioningPluginNotifySink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbProvisioningPluginNotifySink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaca87a8e_818b_4581_a032_49c3dfb9c701);
@@ -3260,6 +2624,7 @@ pub struct ITsSbProvisioningPluginNotifySink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbResourceNotification(::windows_core::IUnknown);
 impl ITsSbResourceNotification {
     pub unsafe fn NotifySessionChange<P0>(&self, changetype: TSSESSION_STATE, psession: P0) -> ::windows_core::Result<()>
@@ -3282,24 +2647,8 @@ impl ITsSbResourceNotification {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbResourceNotification, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITsSbResourceNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbResourceNotification {}
-impl ::core::fmt::Debug for ITsSbResourceNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbResourceNotification").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbResourceNotification {
     type Vtable = ITsSbResourceNotification_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbResourceNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbResourceNotification {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x65d3e85a_c39b_11dc_b92d_3cd255d89593);
@@ -3314,6 +2663,7 @@ pub struct ITsSbResourceNotification_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbResourceNotificationEx(::windows_core::IUnknown);
 impl ITsSbResourceNotificationEx {
     pub unsafe fn NotifySessionChangeEx<P0, P1, P2>(&self, targetname: P0, username: P1, domain: P2, sessionid: u32, sessionstate: TSSESSION_STATE) -> ::windows_core::Result<()>
@@ -3342,24 +2692,8 @@ impl ITsSbResourceNotificationEx {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbResourceNotificationEx, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITsSbResourceNotificationEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbResourceNotificationEx {}
-impl ::core::fmt::Debug for ITsSbResourceNotificationEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbResourceNotificationEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbResourceNotificationEx {
     type Vtable = ITsSbResourceNotificationEx_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbResourceNotificationEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbResourceNotificationEx {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8a47fde_ca91_44d2_b897_3aa28a43b2b7);
@@ -3374,6 +2708,7 @@ pub struct ITsSbResourceNotificationEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbResourcePlugin(::windows_core::IUnknown);
 impl ITsSbResourcePlugin {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -3391,24 +2726,8 @@ impl ITsSbResourcePlugin {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbResourcePlugin, ::windows_core::IUnknown, ITsSbPlugin);
-impl ::core::cmp::PartialEq for ITsSbResourcePlugin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbResourcePlugin {}
-impl ::core::fmt::Debug for ITsSbResourcePlugin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbResourcePlugin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbResourcePlugin {
     type Vtable = ITsSbResourcePlugin_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbResourcePlugin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbResourcePlugin {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xea8db42c_98ed_4535_a88b_2a164f35490f);
@@ -3420,6 +2739,7 @@ pub struct ITsSbResourcePlugin_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbResourcePluginStore(::windows_core::IUnknown);
 impl ITsSbResourcePluginStore {
     pub unsafe fn QueryTarget<P0, P1>(&self, targetname: P0, farmname: P1) -> ::windows_core::Result<ITsSbTarget>
@@ -3630,24 +2950,8 @@ impl ITsSbResourcePluginStore {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbResourcePluginStore, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITsSbResourcePluginStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbResourcePluginStore {}
-impl ::core::fmt::Debug for ITsSbResourcePluginStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbResourcePluginStore").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbResourcePluginStore {
     type Vtable = ITsSbResourcePluginStore_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbResourcePluginStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbResourcePluginStore {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c38f65f_bcf1_4036_a6bf_9e3cccae0b63);
@@ -3714,6 +3018,7 @@ pub struct ITsSbResourcePluginStore_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbServiceNotification(::windows_core::IUnknown);
 impl ITsSbServiceNotification {
     pub unsafe fn NotifyServiceFailure(&self) -> ::windows_core::Result<()> {
@@ -3724,24 +3029,8 @@ impl ITsSbServiceNotification {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbServiceNotification, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITsSbServiceNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbServiceNotification {}
-impl ::core::fmt::Debug for ITsSbServiceNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbServiceNotification").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbServiceNotification {
     type Vtable = ITsSbServiceNotification_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbServiceNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbServiceNotification {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x86cb68ae_86e0_4f57_8a64_bb7406bc5550);
@@ -3755,6 +3044,7 @@ pub struct ITsSbServiceNotification_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbSession(::windows_core::IUnknown);
 impl ITsSbSession {
     pub unsafe fn SessionId(&self) -> ::windows_core::Result<u32> {
@@ -3834,24 +3124,8 @@ impl ITsSbSession {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbSession, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITsSbSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbSession {}
-impl ::core::fmt::Debug for ITsSbSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbSession").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbSession {
     type Vtable = ITsSbSession_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbSession {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd453aac7_b1d8_4c5e_ba34_9afb4c8c5510);
@@ -3892,6 +3166,7 @@ pub struct ITsSbSession_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbTarget(::windows_core::IUnknown);
 impl ITsSbTarget {
     pub unsafe fn TargetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3985,24 +3260,8 @@ impl ITsSbTarget {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbTarget, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITsSbTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbTarget {}
-impl ::core::fmt::Debug for ITsSbTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbTarget").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbTarget {
     type Vtable = ITsSbTarget_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbTarget {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x16616ecc_272d_411d_b324_126893033856);
@@ -4040,6 +3299,7 @@ pub struct ITsSbTarget_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbTargetPropertySet(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl ITsSbTargetPropertySet {
@@ -4064,28 +3324,8 @@ impl ITsSbTargetPropertySet {
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 ::windows_core::imp::interface_hierarchy!(ITsSbTargetPropertySet, ::windows_core::IUnknown, super::Com::StructuredStorage::IPropertyBag, ITsSbPropertySet);
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::cmp::PartialEq for ITsSbTargetPropertySet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::cmp::Eq for ITsSbTargetPropertySet {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::fmt::Debug for ITsSbTargetPropertySet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbTargetPropertySet").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 unsafe impl ::windows_core::Interface for ITsSbTargetPropertySet {
     type Vtable = ITsSbTargetPropertySet_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::clone::Clone for ITsSbTargetPropertySet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 unsafe impl ::windows_core::ComInterface for ITsSbTargetPropertySet {
@@ -4099,6 +3339,7 @@ pub struct ITsSbTargetPropertySet_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbTaskInfo(::windows_core::IUnknown);
 impl ITsSbTaskInfo {
     pub unsafe fn TargetId(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -4147,24 +3388,8 @@ impl ITsSbTaskInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbTaskInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITsSbTaskInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbTaskInfo {}
-impl ::core::fmt::Debug for ITsSbTaskInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbTaskInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbTaskInfo {
     type Vtable = ITsSbTaskInfo_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbTaskInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbTaskInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x523d1083_89be_48dd_99ea_04e82ffa7265);
@@ -4197,6 +3422,7 @@ pub struct ITsSbTaskInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbTaskPlugin(::windows_core::IUnknown);
 impl ITsSbTaskPlugin {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -4226,24 +3452,8 @@ impl ITsSbTaskPlugin {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbTaskPlugin, ::windows_core::IUnknown, ITsSbPlugin);
-impl ::core::cmp::PartialEq for ITsSbTaskPlugin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbTaskPlugin {}
-impl ::core::fmt::Debug for ITsSbTaskPlugin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbTaskPlugin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbTaskPlugin {
     type Vtable = ITsSbTaskPlugin_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbTaskPlugin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbTaskPlugin {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfa22ef0f_8705_41be_93bc_44bdbcf1c9c4);
@@ -4257,6 +3467,7 @@ pub struct ITsSbTaskPlugin_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITsSbTaskPluginNotifySink(::windows_core::IUnknown);
 impl ITsSbTaskPluginNotifySink {
     pub unsafe fn OnError(&self, hrerror: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
@@ -4298,24 +3509,8 @@ impl ITsSbTaskPluginNotifySink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITsSbTaskPluginNotifySink, ::windows_core::IUnknown, ITsSbBaseNotifySink);
-impl ::core::cmp::PartialEq for ITsSbTaskPluginNotifySink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITsSbTaskPluginNotifySink {}
-impl ::core::fmt::Debug for ITsSbTaskPluginNotifySink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITsSbTaskPluginNotifySink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITsSbTaskPluginNotifySink {
     type Vtable = ITsSbTaskPluginNotifySink_Vtbl;
-}
-impl ::core::clone::Clone for ITsSbTaskPluginNotifySink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITsSbTaskPluginNotifySink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6aaf899e_c2ec_45ee_aa37_45e60895261a);
@@ -4334,6 +3529,7 @@ pub struct ITsSbTaskPluginNotifySink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWRdsEnhancedFastReconnectArbitrator(::windows_core::IUnknown);
 impl IWRdsEnhancedFastReconnectArbitrator {
     pub unsafe fn GetSessionForEnhancedFastReconnect(&self, psessionidarray: *const i32, dwsessioncount: u32) -> ::windows_core::Result<i32> {
@@ -4342,24 +3538,8 @@ impl IWRdsEnhancedFastReconnectArbitrator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWRdsEnhancedFastReconnectArbitrator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWRdsEnhancedFastReconnectArbitrator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWRdsEnhancedFastReconnectArbitrator {}
-impl ::core::fmt::Debug for IWRdsEnhancedFastReconnectArbitrator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWRdsEnhancedFastReconnectArbitrator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWRdsEnhancedFastReconnectArbitrator {
     type Vtable = IWRdsEnhancedFastReconnectArbitrator_Vtbl;
-}
-impl ::core::clone::Clone for IWRdsEnhancedFastReconnectArbitrator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWRdsEnhancedFastReconnectArbitrator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5718ae9b_47f2_499f_b634_d8175bd51131);
@@ -4372,6 +3552,7 @@ pub struct IWRdsEnhancedFastReconnectArbitrator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWRdsGraphicsChannel(::windows_core::IUnknown);
 impl IWRdsGraphicsChannel {
     pub unsafe fn Write<P0>(&self, cbsize: u32, pbuffer: *const u8, pcontext: P0) -> ::windows_core::Result<()>
@@ -4392,24 +3573,8 @@ impl IWRdsGraphicsChannel {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWRdsGraphicsChannel, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWRdsGraphicsChannel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWRdsGraphicsChannel {}
-impl ::core::fmt::Debug for IWRdsGraphicsChannel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWRdsGraphicsChannel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWRdsGraphicsChannel {
     type Vtable = IWRdsGraphicsChannel_Vtbl;
-}
-impl ::core::clone::Clone for IWRdsGraphicsChannel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWRdsGraphicsChannel {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x684b7a0b_edff_43ad_d5a2_4a8d5388f401);
@@ -4424,6 +3589,7 @@ pub struct IWRdsGraphicsChannel_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWRdsGraphicsChannelEvents(::windows_core::IUnknown);
 impl IWRdsGraphicsChannelEvents {
     pub unsafe fn OnDataReceived(&self, cbsize: u32, pbuffer: *const u8) -> ::windows_core::Result<()> {
@@ -4452,24 +3618,8 @@ impl IWRdsGraphicsChannelEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWRdsGraphicsChannelEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWRdsGraphicsChannelEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWRdsGraphicsChannelEvents {}
-impl ::core::fmt::Debug for IWRdsGraphicsChannelEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWRdsGraphicsChannelEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWRdsGraphicsChannelEvents {
     type Vtable = IWRdsGraphicsChannelEvents_Vtbl;
-}
-impl ::core::clone::Clone for IWRdsGraphicsChannelEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWRdsGraphicsChannelEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x67f2368c_d674_4fae_66a5_d20628a640d2);
@@ -4489,6 +3639,7 @@ pub struct IWRdsGraphicsChannelEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWRdsGraphicsChannelManager(::windows_core::IUnknown);
 impl IWRdsGraphicsChannelManager {
     pub unsafe fn CreateChannel(&self, pszchannelname: *const u8, channeltype: WRdsGraphicsChannelType) -> ::windows_core::Result<IWRdsGraphicsChannel> {
@@ -4497,24 +3648,8 @@ impl IWRdsGraphicsChannelManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWRdsGraphicsChannelManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWRdsGraphicsChannelManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWRdsGraphicsChannelManager {}
-impl ::core::fmt::Debug for IWRdsGraphicsChannelManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWRdsGraphicsChannelManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWRdsGraphicsChannelManager {
     type Vtable = IWRdsGraphicsChannelManager_Vtbl;
-}
-impl ::core::clone::Clone for IWRdsGraphicsChannelManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWRdsGraphicsChannelManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0fd57159_e83e_476a_a8b9_4a7976e71e18);
@@ -4527,6 +3662,7 @@ pub struct IWRdsGraphicsChannelManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWRdsProtocolConnection(::windows_core::IUnknown);
 impl IWRdsProtocolConnection {
     pub unsafe fn GetLogonErrorRedirector(&self) -> ::windows_core::Result<IWRdsProtocolLogonErrorRedirector> {
@@ -4646,24 +3782,8 @@ impl IWRdsProtocolConnection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWRdsProtocolConnection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWRdsProtocolConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWRdsProtocolConnection {}
-impl ::core::fmt::Debug for IWRdsProtocolConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWRdsProtocolConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWRdsProtocolConnection {
     type Vtable = IWRdsProtocolConnection_Vtbl;
-}
-impl ::core::clone::Clone for IWRdsProtocolConnection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWRdsProtocolConnection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x324ed94f_fdaf_4ff6_81a8_42abe755830b);
@@ -4723,6 +3843,7 @@ pub struct IWRdsProtocolConnection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWRdsProtocolConnectionCallback(::windows_core::IUnknown);
 impl IWRdsProtocolConnectionCallback {
     pub unsafe fn OnReady(&self) -> ::windows_core::Result<()> {
@@ -4743,24 +3864,8 @@ impl IWRdsProtocolConnectionCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWRdsProtocolConnectionCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWRdsProtocolConnectionCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWRdsProtocolConnectionCallback {}
-impl ::core::fmt::Debug for IWRdsProtocolConnectionCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWRdsProtocolConnectionCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWRdsProtocolConnectionCallback {
     type Vtable = IWRdsProtocolConnectionCallback_Vtbl;
-}
-impl ::core::clone::Clone for IWRdsProtocolConnectionCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWRdsProtocolConnectionCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf1d70332_d070_4ef1_a088_78313536c2d6);
@@ -4777,6 +3882,7 @@ pub struct IWRdsProtocolConnectionCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWRdsProtocolConnectionSettings(::windows_core::IUnknown);
 impl IWRdsProtocolConnectionSettings {
     pub unsafe fn SetConnectionSetting(&self, propertyid: ::windows_core::GUID, ppropertyentriesin: *const WTS_PROPERTY_VALUE) -> ::windows_core::Result<()> {
@@ -4787,24 +3893,8 @@ impl IWRdsProtocolConnectionSettings {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWRdsProtocolConnectionSettings, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWRdsProtocolConnectionSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWRdsProtocolConnectionSettings {}
-impl ::core::fmt::Debug for IWRdsProtocolConnectionSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWRdsProtocolConnectionSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWRdsProtocolConnectionSettings {
     type Vtable = IWRdsProtocolConnectionSettings_Vtbl;
-}
-impl ::core::clone::Clone for IWRdsProtocolConnectionSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWRdsProtocolConnectionSettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x83fcf5d3_f6f4_ea94_9cd2_32f280e1e510);
@@ -4818,6 +3908,7 @@ pub struct IWRdsProtocolConnectionSettings_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWRdsProtocolLicenseConnection(::windows_core::IUnknown);
 impl IWRdsProtocolLicenseConnection {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4836,24 +3927,8 @@ impl IWRdsProtocolLicenseConnection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWRdsProtocolLicenseConnection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWRdsProtocolLicenseConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWRdsProtocolLicenseConnection {}
-impl ::core::fmt::Debug for IWRdsProtocolLicenseConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWRdsProtocolLicenseConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWRdsProtocolLicenseConnection {
     type Vtable = IWRdsProtocolLicenseConnection_Vtbl;
-}
-impl ::core::clone::Clone for IWRdsProtocolLicenseConnection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWRdsProtocolLicenseConnection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1d6a145f_d095_4424_957a_407fae822d84);
@@ -4872,6 +3947,7 @@ pub struct IWRdsProtocolLicenseConnection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWRdsProtocolListener(::windows_core::IUnknown);
 impl IWRdsProtocolListener {
     pub unsafe fn GetSettings(&self, wrdslistenersettinglevel: WRDS_LISTENER_SETTING_LEVEL) -> ::windows_core::Result<WRDS_LISTENER_SETTINGS> {
@@ -4889,24 +3965,8 @@ impl IWRdsProtocolListener {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWRdsProtocolListener, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWRdsProtocolListener {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWRdsProtocolListener {}
-impl ::core::fmt::Debug for IWRdsProtocolListener {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWRdsProtocolListener").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWRdsProtocolListener {
     type Vtable = IWRdsProtocolListener_Vtbl;
-}
-impl ::core::clone::Clone for IWRdsProtocolListener {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWRdsProtocolListener {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfcbc131b_c686_451d_a773_e279e230f540);
@@ -4921,6 +3981,7 @@ pub struct IWRdsProtocolListener_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWRdsProtocolListenerCallback(::windows_core::IUnknown);
 impl IWRdsProtocolListenerCallback {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4934,24 +3995,8 @@ impl IWRdsProtocolListenerCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWRdsProtocolListenerCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWRdsProtocolListenerCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWRdsProtocolListenerCallback {}
-impl ::core::fmt::Debug for IWRdsProtocolListenerCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWRdsProtocolListenerCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWRdsProtocolListenerCallback {
     type Vtable = IWRdsProtocolListenerCallback_Vtbl;
-}
-impl ::core::clone::Clone for IWRdsProtocolListenerCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWRdsProtocolListenerCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ab27e5b_4449_4dc1_b74a_91621d4fe984);
@@ -4967,6 +4012,7 @@ pub struct IWRdsProtocolListenerCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWRdsProtocolLogonErrorRedirector(::windows_core::IUnknown);
 impl IWRdsProtocolLogonErrorRedirector {
     pub unsafe fn OnBeginPainting(&self) -> ::windows_core::Result<()> {
@@ -4997,24 +4043,8 @@ impl IWRdsProtocolLogonErrorRedirector {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWRdsProtocolLogonErrorRedirector, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWRdsProtocolLogonErrorRedirector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWRdsProtocolLogonErrorRedirector {}
-impl ::core::fmt::Debug for IWRdsProtocolLogonErrorRedirector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWRdsProtocolLogonErrorRedirector").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWRdsProtocolLogonErrorRedirector {
     type Vtable = IWRdsProtocolLogonErrorRedirector_Vtbl;
-}
-impl ::core::clone::Clone for IWRdsProtocolLogonErrorRedirector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWRdsProtocolLogonErrorRedirector {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x519fe83b_142a_4120_a3d5_a405d315281a);
@@ -5030,6 +4060,7 @@ pub struct IWRdsProtocolLogonErrorRedirector_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWRdsProtocolManager(::windows_core::IUnknown);
 impl IWRdsProtocolManager {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5069,24 +4100,8 @@ impl IWRdsProtocolManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWRdsProtocolManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWRdsProtocolManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWRdsProtocolManager {}
-impl ::core::fmt::Debug for IWRdsProtocolManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWRdsProtocolManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWRdsProtocolManager {
     type Vtable = IWRdsProtocolManager_Vtbl;
-}
-impl ::core::clone::Clone for IWRdsProtocolManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWRdsProtocolManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdc796967_3abb_40cd_a446_105276b58950);
@@ -5112,6 +4127,7 @@ pub struct IWRdsProtocolManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWRdsProtocolSettings(::windows_core::IUnknown);
 impl IWRdsProtocolSettings {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5126,24 +4142,8 @@ impl IWRdsProtocolSettings {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWRdsProtocolSettings, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWRdsProtocolSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWRdsProtocolSettings {}
-impl ::core::fmt::Debug for IWRdsProtocolSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWRdsProtocolSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWRdsProtocolSettings {
     type Vtable = IWRdsProtocolSettings_Vtbl;
-}
-impl ::core::clone::Clone for IWRdsProtocolSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWRdsProtocolSettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x654a5a6a_2550_47eb_b6f7_ebd637475265);
@@ -5163,6 +4163,7 @@ pub struct IWRdsProtocolSettings_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWRdsProtocolShadowCallback(::windows_core::IUnknown);
 impl IWRdsProtocolShadowCallback {
     pub unsafe fn StopShadow(&self) -> ::windows_core::Result<()> {
@@ -5177,24 +4178,8 @@ impl IWRdsProtocolShadowCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWRdsProtocolShadowCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWRdsProtocolShadowCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWRdsProtocolShadowCallback {}
-impl ::core::fmt::Debug for IWRdsProtocolShadowCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWRdsProtocolShadowCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWRdsProtocolShadowCallback {
     type Vtable = IWRdsProtocolShadowCallback_Vtbl;
-}
-impl ::core::clone::Clone for IWRdsProtocolShadowCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWRdsProtocolShadowCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe0667ce0_0372_40d6_adb2_a0f3322674d6);
@@ -5208,6 +4193,7 @@ pub struct IWRdsProtocolShadowCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWRdsProtocolShadowConnection(::windows_core::IUnknown);
 impl IWRdsProtocolShadowConnection {
     pub unsafe fn Start<P0, P1>(&self, ptargetservername: P0, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: P1) -> ::windows_core::Result<()>
@@ -5228,24 +4214,8 @@ impl IWRdsProtocolShadowConnection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWRdsProtocolShadowConnection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWRdsProtocolShadowConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWRdsProtocolShadowConnection {}
-impl ::core::fmt::Debug for IWRdsProtocolShadowConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWRdsProtocolShadowConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWRdsProtocolShadowConnection {
     type Vtable = IWRdsProtocolShadowConnection_Vtbl;
-}
-impl ::core::clone::Clone for IWRdsProtocolShadowConnection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWRdsProtocolShadowConnection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9ae85ce6_cade_4548_8feb_99016597f60a);
@@ -5260,6 +4230,7 @@ pub struct IWRdsProtocolShadowConnection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWRdsWddmIddProps(::windows_core::IUnknown);
 impl IWRdsWddmIddProps {
     pub unsafe fn GetHardwareId(&self, pdisplaydriverhardwareid: &[u16]) -> ::windows_core::Result<()> {
@@ -5286,24 +4257,8 @@ impl IWRdsWddmIddProps {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWRdsWddmIddProps, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWRdsWddmIddProps {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWRdsWddmIddProps {}
-impl ::core::fmt::Debug for IWRdsWddmIddProps {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWRdsWddmIddProps").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWRdsWddmIddProps {
     type Vtable = IWRdsWddmIddProps_Vtbl;
-}
-impl ::core::clone::Clone for IWRdsWddmIddProps {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWRdsWddmIddProps {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1382df4d_a289_43d1_a184_144726f9af90);
@@ -5325,6 +4280,7 @@ pub struct IWRdsWddmIddProps_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWTSBitmapRenderService(::windows_core::IUnknown);
 impl IWTSBitmapRenderService {
     pub unsafe fn GetMappedRenderer<P0>(&self, mappingid: u64, pmappedrenderercallback: P0) -> ::windows_core::Result<IWTSBitmapRenderer>
@@ -5336,24 +4292,8 @@ impl IWTSBitmapRenderService {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSBitmapRenderService, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWTSBitmapRenderService {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWTSBitmapRenderService {}
-impl ::core::fmt::Debug for IWTSBitmapRenderService {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWTSBitmapRenderService").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWTSBitmapRenderService {
     type Vtable = IWTSBitmapRenderService_Vtbl;
-}
-impl ::core::clone::Clone for IWTSBitmapRenderService {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWTSBitmapRenderService {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xea326091_05fe_40c1_b49c_3d2ef4626a0e);
@@ -5366,6 +4306,7 @@ pub struct IWTSBitmapRenderService_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWTSBitmapRenderer(::windows_core::IUnknown);
 impl IWTSBitmapRenderer {
     pub unsafe fn Render(&self, imageformat: ::windows_core::GUID, dwwidth: u32, dwheight: u32, cbstride: i32, pimagebuffer: &[u8]) -> ::windows_core::Result<()> {
@@ -5380,24 +4321,8 @@ impl IWTSBitmapRenderer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSBitmapRenderer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWTSBitmapRenderer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWTSBitmapRenderer {}
-impl ::core::fmt::Debug for IWTSBitmapRenderer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWTSBitmapRenderer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWTSBitmapRenderer {
     type Vtable = IWTSBitmapRenderer_Vtbl;
-}
-impl ::core::clone::Clone for IWTSBitmapRenderer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWTSBitmapRenderer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b7acc97_f3c9_46f7_8c5b_fa685d3441b1);
@@ -5412,6 +4337,7 @@ pub struct IWTSBitmapRenderer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWTSBitmapRendererCallback(::windows_core::IUnknown);
 impl IWTSBitmapRendererCallback {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5421,24 +4347,8 @@ impl IWTSBitmapRendererCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSBitmapRendererCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWTSBitmapRendererCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWTSBitmapRendererCallback {}
-impl ::core::fmt::Debug for IWTSBitmapRendererCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWTSBitmapRendererCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWTSBitmapRendererCallback {
     type Vtable = IWTSBitmapRendererCallback_Vtbl;
-}
-impl ::core::clone::Clone for IWTSBitmapRendererCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWTSBitmapRendererCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd782928e_fe4e_4e77_ae90_9cd0b3e3b353);
@@ -5454,6 +4364,7 @@ pub struct IWTSBitmapRendererCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWTSListener(::windows_core::IUnknown);
 impl IWTSListener {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
@@ -5464,24 +4375,8 @@ impl IWTSListener {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSListener, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWTSListener {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWTSListener {}
-impl ::core::fmt::Debug for IWTSListener {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWTSListener").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWTSListener {
     type Vtable = IWTSListener_Vtbl;
-}
-impl ::core::clone::Clone for IWTSListener {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWTSListener {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1230206_9a39_4d58_8674_cdb4dff4e73b);
@@ -5497,6 +4392,7 @@ pub struct IWTSListener_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWTSListenerCallback(::windows_core::IUnknown);
 impl IWTSListenerCallback {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5510,24 +4406,8 @@ impl IWTSListenerCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSListenerCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWTSListenerCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWTSListenerCallback {}
-impl ::core::fmt::Debug for IWTSListenerCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWTSListenerCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWTSListenerCallback {
     type Vtable = IWTSListenerCallback_Vtbl;
-}
-impl ::core::clone::Clone for IWTSListenerCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWTSListenerCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1230203_d6a7_11d8_b9fd_000bdbd1f198);
@@ -5543,6 +4423,7 @@ pub struct IWTSListenerCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWTSPlugin(::windows_core::IUnknown);
 impl IWTSPlugin {
     pub unsafe fn Initialize<P0>(&self, pchannelmgr: P0) -> ::windows_core::Result<()>
@@ -5562,24 +4443,8 @@ impl IWTSPlugin {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSPlugin, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWTSPlugin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWTSPlugin {}
-impl ::core::fmt::Debug for IWTSPlugin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWTSPlugin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWTSPlugin {
     type Vtable = IWTSPlugin_Vtbl;
-}
-impl ::core::clone::Clone for IWTSPlugin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWTSPlugin {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1230201_1439_4e62_a414_190d0ac3d40e);
@@ -5595,6 +4460,7 @@ pub struct IWTSPlugin_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWTSPluginServiceProvider(::windows_core::IUnknown);
 impl IWTSPluginServiceProvider {
     pub unsafe fn GetService(&self, serviceid: ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -5603,24 +4469,8 @@ impl IWTSPluginServiceProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSPluginServiceProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWTSPluginServiceProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWTSPluginServiceProvider {}
-impl ::core::fmt::Debug for IWTSPluginServiceProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWTSPluginServiceProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWTSPluginServiceProvider {
     type Vtable = IWTSPluginServiceProvider_Vtbl;
-}
-impl ::core::clone::Clone for IWTSPluginServiceProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWTSPluginServiceProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd3e07363_087c_476c_86a7_dbb15f46ddb4);
@@ -5633,6 +4483,7 @@ pub struct IWTSPluginServiceProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWTSProtocolConnection(::windows_core::IUnknown);
 impl IWTSProtocolConnection {
     pub unsafe fn GetLogonErrorRedirector(&self) -> ::windows_core::Result<IWTSProtocolLogonErrorRedirector> {
@@ -5745,24 +4596,8 @@ impl IWTSProtocolConnection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSProtocolConnection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWTSProtocolConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWTSProtocolConnection {}
-impl ::core::fmt::Debug for IWTSProtocolConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWTSProtocolConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWTSProtocolConnection {
     type Vtable = IWTSProtocolConnection_Vtbl;
-}
-impl ::core::clone::Clone for IWTSProtocolConnection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWTSProtocolConnection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x23083765_9095_4648_98bf_ef81c914032d);
@@ -5821,6 +4656,7 @@ pub struct IWTSProtocolConnection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWTSProtocolConnectionCallback(::windows_core::IUnknown);
 impl IWTSProtocolConnectionCallback {
     pub unsafe fn OnReady(&self) -> ::windows_core::Result<()> {
@@ -5840,24 +4676,8 @@ impl IWTSProtocolConnectionCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSProtocolConnectionCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWTSProtocolConnectionCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWTSProtocolConnectionCallback {}
-impl ::core::fmt::Debug for IWTSProtocolConnectionCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWTSProtocolConnectionCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWTSProtocolConnectionCallback {
     type Vtable = IWTSProtocolConnectionCallback_Vtbl;
-}
-impl ::core::clone::Clone for IWTSProtocolConnectionCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWTSProtocolConnectionCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x23083765_75eb_41fe_b4fb_e086242afa0f);
@@ -5874,6 +4694,7 @@ pub struct IWTSProtocolConnectionCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWTSProtocolLicenseConnection(::windows_core::IUnknown);
 impl IWTSProtocolLicenseConnection {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5892,24 +4713,8 @@ impl IWTSProtocolLicenseConnection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSProtocolLicenseConnection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWTSProtocolLicenseConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWTSProtocolLicenseConnection {}
-impl ::core::fmt::Debug for IWTSProtocolLicenseConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWTSProtocolLicenseConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWTSProtocolLicenseConnection {
     type Vtable = IWTSProtocolLicenseConnection_Vtbl;
-}
-impl ::core::clone::Clone for IWTSProtocolLicenseConnection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWTSProtocolLicenseConnection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x23083765_178c_4079_8e4a_fea6496a4d70);
@@ -5928,6 +4733,7 @@ pub struct IWTSProtocolLicenseConnection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWTSProtocolListener(::windows_core::IUnknown);
 impl IWTSProtocolListener {
     pub unsafe fn StartListen<P0>(&self, pcallback: P0) -> ::windows_core::Result<()>
@@ -5941,24 +4747,8 @@ impl IWTSProtocolListener {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSProtocolListener, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWTSProtocolListener {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWTSProtocolListener {}
-impl ::core::fmt::Debug for IWTSProtocolListener {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWTSProtocolListener").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWTSProtocolListener {
     type Vtable = IWTSProtocolListener_Vtbl;
-}
-impl ::core::clone::Clone for IWTSProtocolListener {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWTSProtocolListener {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x23083765_45f0_4394_8f69_32b2bc0ef4ca);
@@ -5972,6 +4762,7 @@ pub struct IWTSProtocolListener_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWTSProtocolListenerCallback(::windows_core::IUnknown);
 impl IWTSProtocolListenerCallback {
     pub unsafe fn OnConnected<P0>(&self, pconnection: P0) -> ::windows_core::Result<IWTSProtocolConnectionCallback>
@@ -5983,24 +4774,8 @@ impl IWTSProtocolListenerCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSProtocolListenerCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWTSProtocolListenerCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWTSProtocolListenerCallback {}
-impl ::core::fmt::Debug for IWTSProtocolListenerCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWTSProtocolListenerCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWTSProtocolListenerCallback {
     type Vtable = IWTSProtocolListenerCallback_Vtbl;
-}
-impl ::core::clone::Clone for IWTSProtocolListenerCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWTSProtocolListenerCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x23083765_1a2d_4de2_97de_4a35f260f0b3);
@@ -6013,6 +4788,7 @@ pub struct IWTSProtocolListenerCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWTSProtocolLogonErrorRedirector(::windows_core::IUnknown);
 impl IWTSProtocolLogonErrorRedirector {
     pub unsafe fn OnBeginPainting(&self) -> ::windows_core::Result<()> {
@@ -6043,24 +4819,8 @@ impl IWTSProtocolLogonErrorRedirector {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSProtocolLogonErrorRedirector, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWTSProtocolLogonErrorRedirector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWTSProtocolLogonErrorRedirector {}
-impl ::core::fmt::Debug for IWTSProtocolLogonErrorRedirector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWTSProtocolLogonErrorRedirector").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWTSProtocolLogonErrorRedirector {
     type Vtable = IWTSProtocolLogonErrorRedirector_Vtbl;
-}
-impl ::core::clone::Clone for IWTSProtocolLogonErrorRedirector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWTSProtocolLogonErrorRedirector {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd9b61a7_2916_4627_8dee_4328711ad6cb);
@@ -6076,6 +4836,7 @@ pub struct IWTSProtocolLogonErrorRedirector_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWTSProtocolManager(::windows_core::IUnknown);
 impl IWTSProtocolManager {
     pub unsafe fn CreateListener<P0>(&self, wszlistenername: P0) -> ::windows_core::Result<IWTSProtocolListener>
@@ -6099,24 +4860,8 @@ impl IWTSProtocolManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSProtocolManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWTSProtocolManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWTSProtocolManager {}
-impl ::core::fmt::Debug for IWTSProtocolManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWTSProtocolManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWTSProtocolManager {
     type Vtable = IWTSProtocolManager_Vtbl;
-}
-impl ::core::clone::Clone for IWTSProtocolManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWTSProtocolManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf9eaf6cc_ed79_4f01_821d_1f881b9f66cc);
@@ -6133,6 +4878,7 @@ pub struct IWTSProtocolManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWTSProtocolShadowCallback(::windows_core::IUnknown);
 impl IWTSProtocolShadowCallback {
     pub unsafe fn StopShadow(&self) -> ::windows_core::Result<()> {
@@ -6147,24 +4893,8 @@ impl IWTSProtocolShadowCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSProtocolShadowCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWTSProtocolShadowCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWTSProtocolShadowCallback {}
-impl ::core::fmt::Debug for IWTSProtocolShadowCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWTSProtocolShadowCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWTSProtocolShadowCallback {
     type Vtable = IWTSProtocolShadowCallback_Vtbl;
-}
-impl ::core::clone::Clone for IWTSProtocolShadowCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWTSProtocolShadowCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x503a2504_aae5_4ab1_93e0_6d1c4bc6f71a);
@@ -6178,6 +4908,7 @@ pub struct IWTSProtocolShadowCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWTSProtocolShadowConnection(::windows_core::IUnknown);
 impl IWTSProtocolShadowConnection {
     pub unsafe fn Start<P0, P1>(&self, ptargetservername: P0, targetsessionid: u32, hotkeyvk: u8, hotkeymodifiers: u16, pshadowcallback: P1) -> ::windows_core::Result<()>
@@ -6198,24 +4929,8 @@ impl IWTSProtocolShadowConnection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSProtocolShadowConnection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWTSProtocolShadowConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWTSProtocolShadowConnection {}
-impl ::core::fmt::Debug for IWTSProtocolShadowConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWTSProtocolShadowConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWTSProtocolShadowConnection {
     type Vtable = IWTSProtocolShadowConnection_Vtbl;
-}
-impl ::core::clone::Clone for IWTSProtocolShadowConnection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWTSProtocolShadowConnection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xee3b0c14_37fb_456b_bab3_6d6cd51e13bf);
@@ -6230,6 +4945,7 @@ pub struct IWTSProtocolShadowConnection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWTSSBPlugin(::windows_core::IUnknown);
 impl IWTSSBPlugin {
     pub unsafe fn Initialize(&self) -> ::windows_core::Result<u32> {
@@ -6266,24 +4982,8 @@ impl IWTSSBPlugin {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSSBPlugin, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWTSSBPlugin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWTSSBPlugin {}
-impl ::core::fmt::Debug for IWTSSBPlugin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWTSSBPlugin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWTSSBPlugin {
     type Vtable = IWTSSBPlugin_Vtbl;
-}
-impl ::core::clone::Clone for IWTSSBPlugin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWTSSBPlugin {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdc44be78_b18d_4399_b210_641bf67a002c);
@@ -6304,6 +5004,7 @@ pub struct IWTSSBPlugin_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWTSVirtualChannel(::windows_core::IUnknown);
 impl IWTSVirtualChannel {
     pub unsafe fn Write<P0>(&self, pbuffer: &[u8], preserved: P0) -> ::windows_core::Result<()>
@@ -6317,24 +5018,8 @@ impl IWTSVirtualChannel {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSVirtualChannel, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWTSVirtualChannel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWTSVirtualChannel {}
-impl ::core::fmt::Debug for IWTSVirtualChannel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWTSVirtualChannel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWTSVirtualChannel {
     type Vtable = IWTSVirtualChannel_Vtbl;
-}
-impl ::core::clone::Clone for IWTSVirtualChannel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWTSVirtualChannel {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1230207_d6a7_11d8_b9fd_000bdbd1f198);
@@ -6348,6 +5033,7 @@ pub struct IWTSVirtualChannel_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWTSVirtualChannelCallback(::windows_core::IUnknown);
 impl IWTSVirtualChannelCallback {
     pub unsafe fn OnDataReceived(&self, pbuffer: &[u8]) -> ::windows_core::Result<()> {
@@ -6358,24 +5044,8 @@ impl IWTSVirtualChannelCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSVirtualChannelCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWTSVirtualChannelCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWTSVirtualChannelCallback {}
-impl ::core::fmt::Debug for IWTSVirtualChannelCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWTSVirtualChannelCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWTSVirtualChannelCallback {
     type Vtable = IWTSVirtualChannelCallback_Vtbl;
-}
-impl ::core::clone::Clone for IWTSVirtualChannelCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWTSVirtualChannelCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1230204_d6a7_11d8_b9fd_000bdbd1f198);
@@ -6389,6 +5059,7 @@ pub struct IWTSVirtualChannelCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWTSVirtualChannelManager(::windows_core::IUnknown);
 impl IWTSVirtualChannelManager {
     pub unsafe fn CreateListener<P0, P1>(&self, pszchannelname: P0, uflags: u32, plistenercallback: P1) -> ::windows_core::Result<IWTSListener>
@@ -6401,24 +5072,8 @@ impl IWTSVirtualChannelManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWTSVirtualChannelManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWTSVirtualChannelManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWTSVirtualChannelManager {}
-impl ::core::fmt::Debug for IWTSVirtualChannelManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWTSVirtualChannelManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWTSVirtualChannelManager {
     type Vtable = IWTSVirtualChannelManager_Vtbl;
-}
-impl ::core::clone::Clone for IWTSVirtualChannelManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWTSVirtualChannelManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1230205_d6a7_11d8_b9fd_000bdbd1f198);
@@ -6431,6 +5086,7 @@ pub struct IWTSVirtualChannelManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWorkspace(::windows_core::IUnknown);
 impl IWorkspace {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6453,24 +5109,8 @@ impl IWorkspace {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWorkspace, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWorkspace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWorkspace {}
-impl ::core::fmt::Debug for IWorkspace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWorkspace").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWorkspace {
     type Vtable = IWorkspace_Vtbl;
-}
-impl ::core::clone::Clone for IWorkspace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWorkspace {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb922bbb8_4c55_4fea_8496_beb0b44285e5);
@@ -6491,6 +5131,7 @@ pub struct IWorkspace_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWorkspace2(::windows_core::IUnknown);
 impl IWorkspace2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6525,24 +5166,8 @@ impl IWorkspace2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWorkspace2, ::windows_core::IUnknown, IWorkspace);
-impl ::core::cmp::PartialEq for IWorkspace2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWorkspace2 {}
-impl ::core::fmt::Debug for IWorkspace2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWorkspace2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWorkspace2 {
     type Vtable = IWorkspace2_Vtbl;
-}
-impl ::core::clone::Clone for IWorkspace2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWorkspace2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96d8d7cf_783e_4286_834c_ebc0e95f783c);
@@ -6558,6 +5183,7 @@ pub struct IWorkspace2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWorkspace3(::windows_core::IUnknown);
 impl IWorkspace3 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6609,24 +5235,8 @@ impl IWorkspace3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWorkspace3, ::windows_core::IUnknown, IWorkspace, IWorkspace2);
-impl ::core::cmp::PartialEq for IWorkspace3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWorkspace3 {}
-impl ::core::fmt::Debug for IWorkspace3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWorkspace3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWorkspace3 {
     type Vtable = IWorkspace3_Vtbl;
-}
-impl ::core::clone::Clone for IWorkspace3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWorkspace3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1becbe4a_d654_423b_afeb_be8d532c13c6);
@@ -6643,6 +5253,7 @@ pub struct IWorkspace3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWorkspaceClientExt(::windows_core::IUnknown);
 impl IWorkspaceClientExt {
     pub unsafe fn GetResourceId(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -6658,24 +5269,8 @@ impl IWorkspaceClientExt {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWorkspaceClientExt, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWorkspaceClientExt {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWorkspaceClientExt {}
-impl ::core::fmt::Debug for IWorkspaceClientExt {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWorkspaceClientExt").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWorkspaceClientExt {
     type Vtable = IWorkspaceClientExt_Vtbl;
-}
-impl ::core::clone::Clone for IWorkspaceClientExt {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWorkspaceClientExt {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x12b952f4_41ca_4f21_a829_a6d07d9a16e5);
@@ -6690,6 +5285,7 @@ pub struct IWorkspaceClientExt_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWorkspaceRegistration(::windows_core::IUnknown);
 impl IWorkspaceRegistration {
     pub unsafe fn AddResource<P0>(&self, punk: P0) -> ::windows_core::Result<u32>
@@ -6704,24 +5300,8 @@ impl IWorkspaceRegistration {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWorkspaceRegistration, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWorkspaceRegistration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWorkspaceRegistration {}
-impl ::core::fmt::Debug for IWorkspaceRegistration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWorkspaceRegistration").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWorkspaceRegistration {
     type Vtable = IWorkspaceRegistration_Vtbl;
-}
-impl ::core::clone::Clone for IWorkspaceRegistration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWorkspaceRegistration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb922bbb8_4c55_4fea_8496_beb0b44285e6);
@@ -6735,6 +5315,7 @@ pub struct IWorkspaceRegistration_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWorkspaceRegistration2(::windows_core::IUnknown);
 impl IWorkspaceRegistration2 {
     pub unsafe fn AddResource<P0>(&self, punk: P0) -> ::windows_core::Result<u32>
@@ -6759,24 +5340,8 @@ impl IWorkspaceRegistration2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWorkspaceRegistration2, ::windows_core::IUnknown, IWorkspaceRegistration);
-impl ::core::cmp::PartialEq for IWorkspaceRegistration2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWorkspaceRegistration2 {}
-impl ::core::fmt::Debug for IWorkspaceRegistration2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWorkspaceRegistration2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWorkspaceRegistration2 {
     type Vtable = IWorkspaceRegistration2_Vtbl;
-}
-impl ::core::clone::Clone for IWorkspaceRegistration2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWorkspaceRegistration2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcf59f654_39bb_44d8_94d0_4635728957e9);
@@ -6790,6 +5355,7 @@ pub struct IWorkspaceRegistration2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWorkspaceReportMessage(::windows_core::IUnknown);
 impl IWorkspaceReportMessage {
     pub unsafe fn RegisterErrorLogMessage<P0>(&self, bstrmessage: P0) -> ::windows_core::Result<()>
@@ -6817,24 +5383,8 @@ impl IWorkspaceReportMessage {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWorkspaceReportMessage, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWorkspaceReportMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWorkspaceReportMessage {}
-impl ::core::fmt::Debug for IWorkspaceReportMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWorkspaceReportMessage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWorkspaceReportMessage {
     type Vtable = IWorkspaceReportMessage_Vtbl;
-}
-impl ::core::clone::Clone for IWorkspaceReportMessage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWorkspaceReportMessage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa7c06739_500f_4e8c_99a8_2bd6955899eb);
@@ -6853,6 +5403,7 @@ pub struct IWorkspaceReportMessage_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWorkspaceResTypeRegistry(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWorkspaceResTypeRegistry {
@@ -6908,28 +5459,8 @@ impl IWorkspaceResTypeRegistry {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWorkspaceResTypeRegistry, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWorkspaceResTypeRegistry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWorkspaceResTypeRegistry {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWorkspaceResTypeRegistry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWorkspaceResTypeRegistry").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWorkspaceResTypeRegistry {
     type Vtable = IWorkspaceResTypeRegistry_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWorkspaceResTypeRegistry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWorkspaceResTypeRegistry {
@@ -6964,6 +5495,7 @@ pub struct IWorkspaceResTypeRegistry_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWorkspaceScriptable(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWorkspaceScriptable {
@@ -7021,28 +5553,8 @@ impl IWorkspaceScriptable {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWorkspaceScriptable, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWorkspaceScriptable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWorkspaceScriptable {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWorkspaceScriptable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWorkspaceScriptable").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWorkspaceScriptable {
     type Vtable = IWorkspaceScriptable_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWorkspaceScriptable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWorkspaceScriptable {
@@ -7070,6 +5582,7 @@ pub struct IWorkspaceScriptable_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWorkspaceScriptable2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWorkspaceScriptable2 {
@@ -7146,28 +5659,8 @@ impl IWorkspaceScriptable2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWorkspaceScriptable2, ::windows_core::IUnknown, super::Com::IDispatch, IWorkspaceScriptable);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWorkspaceScriptable2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWorkspaceScriptable2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWorkspaceScriptable2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWorkspaceScriptable2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWorkspaceScriptable2 {
     type Vtable = IWorkspaceScriptable2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWorkspaceScriptable2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWorkspaceScriptable2 {
@@ -7184,6 +5677,7 @@ pub struct IWorkspaceScriptable2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWorkspaceScriptable3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWorkspaceScriptable3 {
@@ -7273,28 +5767,8 @@ impl IWorkspaceScriptable3 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWorkspaceScriptable3, ::windows_core::IUnknown, super::Com::IDispatch, IWorkspaceScriptable, IWorkspaceScriptable2);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWorkspaceScriptable3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWorkspaceScriptable3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWorkspaceScriptable3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWorkspaceScriptable3").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWorkspaceScriptable3 {
     type Vtable = IWorkspaceScriptable3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWorkspaceScriptable3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWorkspaceScriptable3 {
@@ -7309,6 +5783,7 @@ pub struct IWorkspaceScriptable3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ItsPubPlugin(::windows_core::IUnknown);
 impl ItsPubPlugin {
     pub unsafe fn GetResourceList<P0>(&self, userid: P0, pceapplistsize: *mut i32, resourcelist: *mut *mut pluginResource) -> ::windows_core::Result<()>
@@ -7344,24 +5819,8 @@ impl ItsPubPlugin {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ItsPubPlugin, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ItsPubPlugin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ItsPubPlugin {}
-impl ::core::fmt::Debug for ItsPubPlugin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ItsPubPlugin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ItsPubPlugin {
     type Vtable = ItsPubPlugin_Vtbl;
-}
-impl ::core::clone::Clone for ItsPubPlugin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ItsPubPlugin {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x70c04b05_f347_412b_822f_36c99c54ca45);
@@ -7379,6 +5838,7 @@ pub struct ItsPubPlugin_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ItsPubPlugin2(::windows_core::IUnknown);
 impl ItsPubPlugin2 {
     pub unsafe fn GetResourceList<P0>(&self, userid: P0, pceapplistsize: *mut i32, resourcelist: *mut *mut pluginResource) -> ::windows_core::Result<()>
@@ -7441,24 +5901,8 @@ impl ItsPubPlugin2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ItsPubPlugin2, ::windows_core::IUnknown, ItsPubPlugin);
-impl ::core::cmp::PartialEq for ItsPubPlugin2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ItsPubPlugin2 {}
-impl ::core::fmt::Debug for ItsPubPlugin2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ItsPubPlugin2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ItsPubPlugin2 {
     type Vtable = ItsPubPlugin2_Vtbl;
-}
-impl ::core::clone::Clone for ItsPubPlugin2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ItsPubPlugin2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfa4ce418_aad7_4ec6_bad1_0a321ba465d5);
@@ -7475,34 +5919,15 @@ pub struct ItsPubPlugin2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct _ITSWkspEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _ITSWkspEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(_ITSWkspEvents, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _ITSWkspEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _ITSWkspEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _ITSWkspEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_ITSWkspEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for _ITSWkspEvents {
     type Vtable = _ITSWkspEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _ITSWkspEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for _ITSWkspEvents {

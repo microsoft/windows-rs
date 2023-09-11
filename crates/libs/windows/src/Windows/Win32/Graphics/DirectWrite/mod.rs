@@ -10,6 +10,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteAsyncResult(::windows_core::IUnknown);
 impl IDWriteAsyncResult {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -22,26 +23,10 @@ impl IDWriteAsyncResult {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteAsyncResult, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteAsyncResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteAsyncResult {}
-impl ::core::fmt::Debug for IDWriteAsyncResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteAsyncResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteAsyncResult {}
 unsafe impl ::core::marker::Sync for IDWriteAsyncResult {}
 unsafe impl ::windows_core::Interface for IDWriteAsyncResult {
     type Vtable = IDWriteAsyncResult_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteAsyncResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteAsyncResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xce25f8fd_863b_4d13_9651_c1f88dc73fe2);
@@ -58,6 +43,7 @@ pub struct IDWriteAsyncResult_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteBitmapRenderTarget(::windows_core::IUnknown);
 impl IDWriteBitmapRenderTarget {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -97,26 +83,10 @@ impl IDWriteBitmapRenderTarget {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteBitmapRenderTarget, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteBitmapRenderTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteBitmapRenderTarget {}
-impl ::core::fmt::Debug for IDWriteBitmapRenderTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteBitmapRenderTarget").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteBitmapRenderTarget {}
 unsafe impl ::core::marker::Sync for IDWriteBitmapRenderTarget {}
 unsafe impl ::windows_core::Interface for IDWriteBitmapRenderTarget {
     type Vtable = IDWriteBitmapRenderTarget_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteBitmapRenderTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteBitmapRenderTarget {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e5a32a3_8dff_4773_9ff6_0696eab77267);
@@ -145,6 +115,7 @@ pub struct IDWriteBitmapRenderTarget_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteBitmapRenderTarget1(::windows_core::IUnknown);
 impl IDWriteBitmapRenderTarget1 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -190,26 +161,10 @@ impl IDWriteBitmapRenderTarget1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteBitmapRenderTarget1, ::windows_core::IUnknown, IDWriteBitmapRenderTarget);
-impl ::core::cmp::PartialEq for IDWriteBitmapRenderTarget1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteBitmapRenderTarget1 {}
-impl ::core::fmt::Debug for IDWriteBitmapRenderTarget1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteBitmapRenderTarget1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteBitmapRenderTarget1 {}
 unsafe impl ::core::marker::Sync for IDWriteBitmapRenderTarget1 {}
 unsafe impl ::windows_core::Interface for IDWriteBitmapRenderTarget1 {
     type Vtable = IDWriteBitmapRenderTarget1_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteBitmapRenderTarget1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteBitmapRenderTarget1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x791e8298_3ef3_4230_9880_c9bdecc42064);
@@ -223,6 +178,7 @@ pub struct IDWriteBitmapRenderTarget1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteColorGlyphRunEnumerator(::windows_core::IUnknown);
 impl IDWriteColorGlyphRunEnumerator {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -239,26 +195,10 @@ impl IDWriteColorGlyphRunEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteColorGlyphRunEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteColorGlyphRunEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteColorGlyphRunEnumerator {}
-impl ::core::fmt::Debug for IDWriteColorGlyphRunEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteColorGlyphRunEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteColorGlyphRunEnumerator {}
 unsafe impl ::core::marker::Sync for IDWriteColorGlyphRunEnumerator {}
 unsafe impl ::windows_core::Interface for IDWriteColorGlyphRunEnumerator {
     type Vtable = IDWriteColorGlyphRunEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteColorGlyphRunEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteColorGlyphRunEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd31fbe17_f157_41a2_8d24_cb779e0560e8);
@@ -278,6 +218,7 @@ pub struct IDWriteColorGlyphRunEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteColorGlyphRunEnumerator1(::windows_core::IUnknown);
 impl IDWriteColorGlyphRunEnumerator1 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -300,26 +241,10 @@ impl IDWriteColorGlyphRunEnumerator1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteColorGlyphRunEnumerator1, ::windows_core::IUnknown, IDWriteColorGlyphRunEnumerator);
-impl ::core::cmp::PartialEq for IDWriteColorGlyphRunEnumerator1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteColorGlyphRunEnumerator1 {}
-impl ::core::fmt::Debug for IDWriteColorGlyphRunEnumerator1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteColorGlyphRunEnumerator1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteColorGlyphRunEnumerator1 {}
 unsafe impl ::core::marker::Sync for IDWriteColorGlyphRunEnumerator1 {}
 unsafe impl ::windows_core::Interface for IDWriteColorGlyphRunEnumerator1 {
     type Vtable = IDWriteColorGlyphRunEnumerator1_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteColorGlyphRunEnumerator1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteColorGlyphRunEnumerator1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7c5f86da_c7a1_4f05_b8e1_55a179fe5a35);
@@ -335,6 +260,7 @@ pub struct IDWriteColorGlyphRunEnumerator1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFactory(::windows_core::IUnknown);
 impl IDWriteFactory {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -476,26 +402,10 @@ impl IDWriteFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFactory {}
-impl ::core::fmt::Debug for IDWriteFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFactory {}
 unsafe impl ::core::marker::Sync for IDWriteFactory {}
 unsafe impl ::windows_core::Interface for IDWriteFactory {
     type Vtable = IDWriteFactory_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb859ee5a_d838_4b5b_a2e8_1adc7d93db48);
@@ -546,6 +456,7 @@ pub struct IDWriteFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFactory1(::windows_core::IUnknown);
 impl IDWriteFactory1 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -699,26 +610,10 @@ impl IDWriteFactory1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFactory1, ::windows_core::IUnknown, IDWriteFactory);
-impl ::core::cmp::PartialEq for IDWriteFactory1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFactory1 {}
-impl ::core::fmt::Debug for IDWriteFactory1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFactory1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFactory1 {}
 unsafe impl ::core::marker::Sync for IDWriteFactory1 {}
 unsafe impl ::windows_core::Interface for IDWriteFactory1 {
     type Vtable = IDWriteFactory1_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFactory1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFactory1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30572f99_dac6_41db_a16e_0486307e606a);
@@ -735,6 +630,7 @@ pub struct IDWriteFactory1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFactory2(::windows_core::IUnknown);
 impl IDWriteFactory2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -912,26 +808,10 @@ impl IDWriteFactory2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFactory2, ::windows_core::IUnknown, IDWriteFactory, IDWriteFactory1);
-impl ::core::cmp::PartialEq for IDWriteFactory2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFactory2 {}
-impl ::core::fmt::Debug for IDWriteFactory2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFactory2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFactory2 {}
 unsafe impl ::core::marker::Sync for IDWriteFactory2 {}
 unsafe impl ::windows_core::Interface for IDWriteFactory2 {
     type Vtable = IDWriteFactory2_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFactory2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFactory2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0439fc60_ca44_4994_8dee_3a9af7b732ec);
@@ -954,6 +834,7 @@ pub struct IDWriteFactory2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFactory3(::windows_core::IUnknown);
 impl IDWriteFactory3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1185,26 +1066,10 @@ impl IDWriteFactory3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFactory3, ::windows_core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2);
-impl ::core::cmp::PartialEq for IDWriteFactory3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFactory3 {}
-impl ::core::fmt::Debug for IDWriteFactory3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFactory3").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFactory3 {}
 unsafe impl ::core::marker::Sync for IDWriteFactory3 {}
 unsafe impl ::windows_core::Interface for IDWriteFactory3 {
     type Vtable = IDWriteFactory3_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFactory3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFactory3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a1b41c3_d3bb_466a_87fc_fe67556a3b65);
@@ -1234,6 +1099,7 @@ pub struct IDWriteFactory3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFactory4(::windows_core::IUnknown);
 impl IDWriteFactory4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1483,26 +1349,10 @@ impl IDWriteFactory4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFactory4, ::windows_core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3);
-impl ::core::cmp::PartialEq for IDWriteFactory4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFactory4 {}
-impl ::core::fmt::Debug for IDWriteFactory4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFactory4").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFactory4 {}
 unsafe impl ::core::marker::Sync for IDWriteFactory4 {}
 unsafe impl ::windows_core::Interface for IDWriteFactory4 {
     type Vtable = IDWriteFactory4_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFactory4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFactory4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4b0b5bd3_0797_4549_8ac5_fe915cc53856);
@@ -1526,6 +1376,7 @@ pub struct IDWriteFactory4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFactory5(::windows_core::IUnknown);
 impl IDWriteFactory5 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1798,26 +1649,10 @@ impl IDWriteFactory5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFactory5, ::windows_core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3, IDWriteFactory4);
-impl ::core::cmp::PartialEq for IDWriteFactory5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFactory5 {}
-impl ::core::fmt::Debug for IDWriteFactory5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFactory5").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFactory5 {}
 unsafe impl ::core::marker::Sync for IDWriteFactory5 {}
 unsafe impl ::windows_core::Interface for IDWriteFactory5 {
     type Vtable = IDWriteFactory5_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFactory5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFactory5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x958db99a_be2a_4f09_af7d_65189803d1d3);
@@ -1834,6 +1669,7 @@ pub struct IDWriteFactory5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFactory6(::windows_core::IUnknown);
 impl IDWriteFactory6 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2158,26 +1994,10 @@ impl IDWriteFactory6 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFactory6, ::windows_core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3, IDWriteFactory4, IDWriteFactory5);
-impl ::core::cmp::PartialEq for IDWriteFactory6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFactory6 {}
-impl ::core::fmt::Debug for IDWriteFactory6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFactory6").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFactory6 {}
 unsafe impl ::core::marker::Sync for IDWriteFactory6 {}
 unsafe impl ::windows_core::Interface for IDWriteFactory6 {
     type Vtable = IDWriteFactory6_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFactory6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFactory6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf3744d80_21f7_42eb_b35d_995bc72fc223);
@@ -2202,6 +2022,7 @@ pub struct IDWriteFactory6_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFactory7(::windows_core::IUnknown);
 impl IDWriteFactory7 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2544,26 +2365,10 @@ impl IDWriteFactory7 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFactory7, ::windows_core::IUnknown, IDWriteFactory, IDWriteFactory1, IDWriteFactory2, IDWriteFactory3, IDWriteFactory4, IDWriteFactory5, IDWriteFactory6);
-impl ::core::cmp::PartialEq for IDWriteFactory7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFactory7 {}
-impl ::core::fmt::Debug for IDWriteFactory7 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFactory7").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFactory7 {}
 unsafe impl ::core::marker::Sync for IDWriteFactory7 {}
 unsafe impl ::windows_core::Interface for IDWriteFactory7 {
     type Vtable = IDWriteFactory7_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFactory7 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFactory7 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x35d0e0b3_9076_4d2e_a016_a91b568a06b4);
@@ -2583,6 +2388,7 @@ pub struct IDWriteFactory7_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFont(::windows_core::IUnknown);
 impl IDWriteFont {
     pub unsafe fn GetFontFamily(&self) -> ::windows_core::Result<IDWriteFontFamily> {
@@ -2630,26 +2436,10 @@ impl IDWriteFont {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFont, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteFont {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFont {}
-impl ::core::fmt::Debug for IDWriteFont {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFont").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFont {}
 unsafe impl ::core::marker::Sync for IDWriteFont {}
 unsafe impl ::windows_core::Interface for IDWriteFont {
     type Vtable = IDWriteFont_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFont {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFont {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xacd16696_8c14_4f5d_877e_fe3fc1d32737);
@@ -2681,6 +2471,7 @@ pub struct IDWriteFont_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFont1(::windows_core::IUnknown);
 impl IDWriteFont1 {
     pub unsafe fn GetFontFamily(&self) -> ::windows_core::Result<IDWriteFontFamily> {
@@ -2746,26 +2537,10 @@ impl IDWriteFont1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFont1, ::windows_core::IUnknown, IDWriteFont);
-impl ::core::cmp::PartialEq for IDWriteFont1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFont1 {}
-impl ::core::fmt::Debug for IDWriteFont1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFont1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFont1 {}
 unsafe impl ::core::marker::Sync for IDWriteFont1 {}
 unsafe impl ::windows_core::Interface for IDWriteFont1 {
     type Vtable = IDWriteFont1_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFont1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFont1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xacd16696_8c14_4f5d_877e_fe3fc1d32738);
@@ -2787,6 +2562,7 @@ pub struct IDWriteFont1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFont2(::windows_core::IUnknown);
 impl IDWriteFont2 {
     pub unsafe fn GetFontFamily(&self) -> ::windows_core::Result<IDWriteFontFamily> {
@@ -2857,26 +2633,10 @@ impl IDWriteFont2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFont2, ::windows_core::IUnknown, IDWriteFont, IDWriteFont1);
-impl ::core::cmp::PartialEq for IDWriteFont2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFont2 {}
-impl ::core::fmt::Debug for IDWriteFont2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFont2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFont2 {}
 unsafe impl ::core::marker::Sync for IDWriteFont2 {}
 unsafe impl ::windows_core::Interface for IDWriteFont2 {
     type Vtable = IDWriteFont2_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFont2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFont2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x29748ed6_8c9c_4a6a_be0b_d912e8538944);
@@ -2892,6 +2652,7 @@ pub struct IDWriteFont2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFont3(::windows_core::IUnknown);
 impl IDWriteFont3 {
     pub unsafe fn GetFontFamily(&self) -> ::windows_core::Result<IDWriteFontFamily> {
@@ -2986,26 +2747,10 @@ impl IDWriteFont3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFont3, ::windows_core::IUnknown, IDWriteFont, IDWriteFont1, IDWriteFont2);
-impl ::core::cmp::PartialEq for IDWriteFont3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFont3 {}
-impl ::core::fmt::Debug for IDWriteFont3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFont3").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFont3 {}
 unsafe impl ::core::marker::Sync for IDWriteFont3 {}
 unsafe impl ::windows_core::Interface for IDWriteFont3 {
     type Vtable = IDWriteFont3_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFont3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFont3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x29748ed6_8c9c_4a6a_be0b_d912e8538944);
@@ -3028,6 +2773,7 @@ pub struct IDWriteFont3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontCollection(::windows_core::IUnknown);
 impl IDWriteFontCollection {
     pub unsafe fn GetFontFamilyCount(&self) -> u32 {
@@ -3054,26 +2800,10 @@ impl IDWriteFontCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteFontCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontCollection {}
-impl ::core::fmt::Debug for IDWriteFontCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontCollection {}
 unsafe impl ::core::marker::Sync for IDWriteFontCollection {}
 unsafe impl ::windows_core::Interface for IDWriteFontCollection {
     type Vtable = IDWriteFontCollection_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa84cee02_3eea_4eee_a827_87c1a02a0fcc);
@@ -3092,6 +2822,7 @@ pub struct IDWriteFontCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontCollection1(::windows_core::IUnknown);
 impl IDWriteFontCollection1 {
     pub unsafe fn GetFontFamilyCount(&self) -> u32 {
@@ -3126,26 +2857,10 @@ impl IDWriteFontCollection1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontCollection1, ::windows_core::IUnknown, IDWriteFontCollection);
-impl ::core::cmp::PartialEq for IDWriteFontCollection1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontCollection1 {}
-impl ::core::fmt::Debug for IDWriteFontCollection1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontCollection1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontCollection1 {}
 unsafe impl ::core::marker::Sync for IDWriteFontCollection1 {}
 unsafe impl ::windows_core::Interface for IDWriteFontCollection1 {
     type Vtable = IDWriteFontCollection1_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontCollection1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontCollection1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53585141_d9f8_4095_8321_d73cf6bd116c);
@@ -3159,6 +2874,7 @@ pub struct IDWriteFontCollection1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontCollection2(::windows_core::IUnknown);
 impl IDWriteFontCollection2 {
     pub unsafe fn GetFontFamilyCount(&self) -> u32 {
@@ -3211,26 +2927,10 @@ impl IDWriteFontCollection2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontCollection2, ::windows_core::IUnknown, IDWriteFontCollection, IDWriteFontCollection1);
-impl ::core::cmp::PartialEq for IDWriteFontCollection2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontCollection2 {}
-impl ::core::fmt::Debug for IDWriteFontCollection2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontCollection2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontCollection2 {}
 unsafe impl ::core::marker::Sync for IDWriteFontCollection2 {}
 unsafe impl ::windows_core::Interface for IDWriteFontCollection2 {
     type Vtable = IDWriteFontCollection2_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontCollection2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontCollection2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x514039c6_4617_4064_bf8b_92ea83e506e0);
@@ -3246,6 +2946,7 @@ pub struct IDWriteFontCollection2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontCollection3(::windows_core::IUnknown);
 impl IDWriteFontCollection3 {
     pub unsafe fn GetFontFamilyCount(&self) -> u32 {
@@ -3303,26 +3004,10 @@ impl IDWriteFontCollection3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontCollection3, ::windows_core::IUnknown, IDWriteFontCollection, IDWriteFontCollection1, IDWriteFontCollection2);
-impl ::core::cmp::PartialEq for IDWriteFontCollection3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontCollection3 {}
-impl ::core::fmt::Debug for IDWriteFontCollection3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontCollection3").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontCollection3 {}
 unsafe impl ::core::marker::Sync for IDWriteFontCollection3 {}
 unsafe impl ::windows_core::Interface for IDWriteFontCollection3 {
     type Vtable = IDWriteFontCollection3_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontCollection3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontCollection3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa4d055a6_f9e3_4e25_93b7_9e309f3af8e9);
@@ -3338,6 +3023,7 @@ pub struct IDWriteFontCollection3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontCollectionLoader(::windows_core::IUnknown);
 impl IDWriteFontCollectionLoader {
     pub unsafe fn CreateEnumeratorFromKey<P0>(&self, factory: P0, collectionkey: *const ::core::ffi::c_void, collectionkeysize: u32) -> ::windows_core::Result<IDWriteFontFileEnumerator>
@@ -3349,26 +3035,10 @@ impl IDWriteFontCollectionLoader {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontCollectionLoader, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteFontCollectionLoader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontCollectionLoader {}
-impl ::core::fmt::Debug for IDWriteFontCollectionLoader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontCollectionLoader").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontCollectionLoader {}
 unsafe impl ::core::marker::Sync for IDWriteFontCollectionLoader {}
 unsafe impl ::windows_core::Interface for IDWriteFontCollectionLoader {
     type Vtable = IDWriteFontCollectionLoader_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontCollectionLoader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontCollectionLoader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcca920e4_52f0_492b_bfa8_29c72ee0a468);
@@ -3381,6 +3051,7 @@ pub struct IDWriteFontCollectionLoader_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontDownloadListener(::windows_core::IUnknown);
 impl IDWriteFontDownloadListener {
     pub unsafe fn DownloadCompleted<P0, P1>(&self, downloadqueue: P0, context: P1, downloadresult: ::windows_core::HRESULT)
@@ -3392,26 +3063,10 @@ impl IDWriteFontDownloadListener {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontDownloadListener, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteFontDownloadListener {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontDownloadListener {}
-impl ::core::fmt::Debug for IDWriteFontDownloadListener {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontDownloadListener").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontDownloadListener {}
 unsafe impl ::core::marker::Sync for IDWriteFontDownloadListener {}
 unsafe impl ::windows_core::Interface for IDWriteFontDownloadListener {
     type Vtable = IDWriteFontDownloadListener_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontDownloadListener {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontDownloadListener {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb06fe5b9_43ec_4393_881b_dbe4dc72fda7);
@@ -3424,6 +3079,7 @@ pub struct IDWriteFontDownloadListener_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontDownloadQueue(::windows_core::IUnknown);
 impl IDWriteFontDownloadQueue {
     pub unsafe fn AddListener<P0>(&self, listener: P0) -> ::windows_core::Result<u32>
@@ -3455,26 +3111,10 @@ impl IDWriteFontDownloadQueue {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontDownloadQueue, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteFontDownloadQueue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontDownloadQueue {}
-impl ::core::fmt::Debug for IDWriteFontDownloadQueue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontDownloadQueue").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontDownloadQueue {}
 unsafe impl ::core::marker::Sync for IDWriteFontDownloadQueue {}
 unsafe impl ::windows_core::Interface for IDWriteFontDownloadQueue {
     type Vtable = IDWriteFontDownloadQueue_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontDownloadQueue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontDownloadQueue {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb71e6052_5aea_4fa3_832e_f60d431f7e91);
@@ -3495,6 +3135,7 @@ pub struct IDWriteFontDownloadQueue_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontFace(::windows_core::IUnknown);
 impl IDWriteFontFace {
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -3570,26 +3211,10 @@ impl IDWriteFontFace {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontFace, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteFontFace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontFace {}
-impl ::core::fmt::Debug for IDWriteFontFace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontFace").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontFace {}
 unsafe impl ::core::marker::Sync for IDWriteFontFace {}
 unsafe impl ::windows_core::Interface for IDWriteFontFace {
     type Vtable = IDWriteFontFace_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontFace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontFace {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5f49804d_7024_4d43_bfa9_d25984f53849);
@@ -3631,6 +3256,7 @@ pub struct IDWriteFontFace_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontFace1(::windows_core::IUnknown);
 impl IDWriteFontFace1 {
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -3771,26 +3397,10 @@ impl IDWriteFontFace1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontFace1, ::windows_core::IUnknown, IDWriteFontFace);
-impl ::core::cmp::PartialEq for IDWriteFontFace1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontFace1 {}
-impl ::core::fmt::Debug for IDWriteFontFace1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontFace1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontFace1 {}
 unsafe impl ::core::marker::Sync for IDWriteFontFace1 {}
 unsafe impl ::windows_core::Interface for IDWriteFontFace1 {
     type Vtable = IDWriteFontFace1_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontFace1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontFace1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa71efdb4_9fdb_4838_ad90_cfc3be8c3daf);
@@ -3838,6 +3448,7 @@ pub struct IDWriteFontFace1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontFace2(::windows_core::IUnknown);
 impl IDWriteFontFace2 {
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -4001,26 +3612,10 @@ impl IDWriteFontFace2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontFace2, ::windows_core::IUnknown, IDWriteFontFace, IDWriteFontFace1);
-impl ::core::cmp::PartialEq for IDWriteFontFace2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontFace2 {}
-impl ::core::fmt::Debug for IDWriteFontFace2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontFace2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontFace2 {}
 unsafe impl ::core::marker::Sync for IDWriteFontFace2 {}
 unsafe impl ::windows_core::Interface for IDWriteFontFace2 {
     type Vtable = IDWriteFontFace2_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontFace2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontFace2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd8b768ff_64bc_4e66_982b_ec8e87f693f7);
@@ -4043,6 +3638,7 @@ pub struct IDWriteFontFace2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontFace3(::windows_core::IUnknown);
 impl IDWriteFontFace3 {
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -4279,26 +3875,10 @@ impl IDWriteFontFace3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontFace3, ::windows_core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2);
-impl ::core::cmp::PartialEq for IDWriteFontFace3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontFace3 {}
-impl ::core::fmt::Debug for IDWriteFontFace3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontFace3").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontFace3 {}
 unsafe impl ::core::marker::Sync for IDWriteFontFace3 {}
 unsafe impl ::windows_core::Interface for IDWriteFontFace3 {
     type Vtable = IDWriteFontFace3_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontFace3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontFace3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd37d7598_09be_4222_a236_2081341cc1f2);
@@ -4345,6 +3925,7 @@ pub struct IDWriteFontFace3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontFace4(::windows_core::IUnknown);
 impl IDWriteFontFace4 {
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -4596,26 +4177,10 @@ impl IDWriteFontFace4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontFace4, ::windows_core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2, IDWriteFontFace3);
-impl ::core::cmp::PartialEq for IDWriteFontFace4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontFace4 {}
-impl ::core::fmt::Debug for IDWriteFontFace4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontFace4").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontFace4 {}
 unsafe impl ::core::marker::Sync for IDWriteFontFace4 {}
 unsafe impl ::windows_core::Interface for IDWriteFontFace4 {
     type Vtable = IDWriteFontFace4_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontFace4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontFace4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27f2a904_4eb8_441d_9678_0563f53e3e2f);
@@ -4634,6 +4199,7 @@ pub struct IDWriteFontFace4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontFace5(::windows_core::IUnknown);
 impl IDWriteFontFace5 {
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -4908,26 +4474,10 @@ impl IDWriteFontFace5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontFace5, ::windows_core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2, IDWriteFontFace3, IDWriteFontFace4);
-impl ::core::cmp::PartialEq for IDWriteFontFace5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontFace5 {}
-impl ::core::fmt::Debug for IDWriteFontFace5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontFace5").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontFace5 {}
 unsafe impl ::core::marker::Sync for IDWriteFontFace5 {}
 unsafe impl ::windows_core::Interface for IDWriteFontFace5 {
     type Vtable = IDWriteFontFace5_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontFace5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontFace5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98eff3a5_b667_479a_b145_e2fa5b9fdc29);
@@ -4950,6 +4500,7 @@ pub struct IDWriteFontFace5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontFace6(::windows_core::IUnknown);
 impl IDWriteFontFace6 {
     pub unsafe fn GetType(&self) -> DWRITE_FONT_FACE_TYPE {
@@ -5232,26 +4783,10 @@ impl IDWriteFontFace6 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontFace6, ::windows_core::IUnknown, IDWriteFontFace, IDWriteFontFace1, IDWriteFontFace2, IDWriteFontFace3, IDWriteFontFace4, IDWriteFontFace5);
-impl ::core::cmp::PartialEq for IDWriteFontFace6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontFace6 {}
-impl ::core::fmt::Debug for IDWriteFontFace6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontFace6").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontFace6 {}
 unsafe impl ::core::marker::Sync for IDWriteFontFace6 {}
 unsafe impl ::windows_core::Interface for IDWriteFontFace6 {
     type Vtable = IDWriteFontFace6_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontFace6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontFace6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4b1fe1b_6e84_47d5_b54c_a597981b06ad);
@@ -5265,6 +4800,7 @@ pub struct IDWriteFontFace6_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontFaceReference(::windows_core::IUnknown);
 impl IDWriteFontFaceReference {
     pub unsafe fn CreateFontFace(&self) -> ::windows_core::Result<IDWriteFontFace3> {
@@ -5322,26 +4858,10 @@ impl IDWriteFontFaceReference {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontFaceReference, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteFontFaceReference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontFaceReference {}
-impl ::core::fmt::Debug for IDWriteFontFaceReference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontFaceReference").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontFaceReference {}
 unsafe impl ::core::marker::Sync for IDWriteFontFaceReference {}
 unsafe impl ::windows_core::Interface for IDWriteFontFaceReference {
     type Vtable = IDWriteFontFaceReference_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontFaceReference {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontFaceReference {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e7fa7ca_dde3_424c_89f0_9fcd6fed58cd);
@@ -5373,6 +4893,7 @@ pub struct IDWriteFontFaceReference_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontFaceReference1(::windows_core::IUnknown);
 impl IDWriteFontFaceReference1 {
     pub unsafe fn CreateFontFace(&self) -> ::windows_core::Result<IDWriteFontFace3> {
@@ -5440,26 +4961,10 @@ impl IDWriteFontFaceReference1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontFaceReference1, ::windows_core::IUnknown, IDWriteFontFaceReference);
-impl ::core::cmp::PartialEq for IDWriteFontFaceReference1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontFaceReference1 {}
-impl ::core::fmt::Debug for IDWriteFontFaceReference1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontFaceReference1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontFaceReference1 {}
 unsafe impl ::core::marker::Sync for IDWriteFontFaceReference1 {}
 unsafe impl ::windows_core::Interface for IDWriteFontFaceReference1 {
     type Vtable = IDWriteFontFaceReference1_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontFaceReference1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontFaceReference1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc081fe77_2fd1_41ac_a5a3_34983c4ba61a);
@@ -5474,6 +4979,7 @@ pub struct IDWriteFontFaceReference1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontFallback(::windows_core::IUnknown);
 impl IDWriteFontFallback {
     pub unsafe fn MapCharacters<P0, P1, P2>(&self, analysissource: P0, textposition: u32, textlength: u32, basefontcollection: P1, basefamilyname: P2, baseweight: DWRITE_FONT_WEIGHT, basestyle: DWRITE_FONT_STYLE, basestretch: DWRITE_FONT_STRETCH, mappedlength: *mut u32, mappedfont: *mut ::core::option::Option<IDWriteFont>, scale: *mut f32) -> ::windows_core::Result<()>
@@ -5486,26 +4992,10 @@ impl IDWriteFontFallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontFallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteFontFallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontFallback {}
-impl ::core::fmt::Debug for IDWriteFontFallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontFallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontFallback {}
 unsafe impl ::core::marker::Sync for IDWriteFontFallback {}
 unsafe impl ::windows_core::Interface for IDWriteFontFallback {
     type Vtable = IDWriteFontFallback_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontFallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontFallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefa008f9_f7a1_48bf_b05c_f224713cc0ff);
@@ -5518,6 +5008,7 @@ pub struct IDWriteFontFallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontFallback1(::windows_core::IUnknown);
 impl IDWriteFontFallback1 {
     pub unsafe fn MapCharacters<P0, P1, P2>(&self, analysissource: P0, textposition: u32, textlength: u32, basefontcollection: P1, basefamilyname: P2, baseweight: DWRITE_FONT_WEIGHT, basestyle: DWRITE_FONT_STYLE, basestretch: DWRITE_FONT_STRETCH, mappedlength: *mut u32, mappedfont: *mut ::core::option::Option<IDWriteFont>, scale: *mut f32) -> ::windows_core::Result<()>
@@ -5538,26 +5029,10 @@ impl IDWriteFontFallback1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontFallback1, ::windows_core::IUnknown, IDWriteFontFallback);
-impl ::core::cmp::PartialEq for IDWriteFontFallback1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontFallback1 {}
-impl ::core::fmt::Debug for IDWriteFontFallback1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontFallback1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontFallback1 {}
 unsafe impl ::core::marker::Sync for IDWriteFontFallback1 {}
 unsafe impl ::windows_core::Interface for IDWriteFontFallback1 {
     type Vtable = IDWriteFontFallback1_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontFallback1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontFallback1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2397599d_dd0d_4681_bd6a_f4f31eaade77);
@@ -5570,6 +5045,7 @@ pub struct IDWriteFontFallback1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontFallbackBuilder(::windows_core::IUnknown);
 impl IDWriteFontFallbackBuilder {
     pub unsafe fn AddMapping<P0, P1, P2>(&self, ranges: &[DWRITE_UNICODE_RANGE], targetfamilynames: &[*const u16], fontcollection: P0, localename: P1, basefamilyname: P2, scale: f32) -> ::windows_core::Result<()>
@@ -5592,26 +5068,10 @@ impl IDWriteFontFallbackBuilder {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontFallbackBuilder, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteFontFallbackBuilder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontFallbackBuilder {}
-impl ::core::fmt::Debug for IDWriteFontFallbackBuilder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontFallbackBuilder").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontFallbackBuilder {}
 unsafe impl ::core::marker::Sync for IDWriteFontFallbackBuilder {}
 unsafe impl ::windows_core::Interface for IDWriteFontFallbackBuilder {
     type Vtable = IDWriteFontFallbackBuilder_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontFallbackBuilder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontFallbackBuilder {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd882d06_8aba_4fb8_b849_8be8b73e14de);
@@ -5626,6 +5086,7 @@ pub struct IDWriteFontFallbackBuilder_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontFamily(::windows_core::IUnknown);
 impl IDWriteFontFamily {
     pub unsafe fn GetFontCollection(&self) -> ::windows_core::Result<IDWriteFontCollection> {
@@ -5653,26 +5114,10 @@ impl IDWriteFontFamily {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontFamily, ::windows_core::IUnknown, IDWriteFontList);
-impl ::core::cmp::PartialEq for IDWriteFontFamily {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontFamily {}
-impl ::core::fmt::Debug for IDWriteFontFamily {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontFamily").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontFamily {}
 unsafe impl ::core::marker::Sync for IDWriteFontFamily {}
 unsafe impl ::windows_core::Interface for IDWriteFontFamily {
     type Vtable = IDWriteFontFamily_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontFamily {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontFamily {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda20d8ef_812a_4c43_9802_62ec4abd7add);
@@ -5687,6 +5132,7 @@ pub struct IDWriteFontFamily_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontFamily1(::windows_core::IUnknown);
 impl IDWriteFontFamily1 {
     pub unsafe fn GetFontCollection(&self) -> ::windows_core::Result<IDWriteFontCollection> {
@@ -5725,26 +5171,10 @@ impl IDWriteFontFamily1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontFamily1, ::windows_core::IUnknown, IDWriteFontList, IDWriteFontFamily);
-impl ::core::cmp::PartialEq for IDWriteFontFamily1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontFamily1 {}
-impl ::core::fmt::Debug for IDWriteFontFamily1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontFamily1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontFamily1 {}
 unsafe impl ::core::marker::Sync for IDWriteFontFamily1 {}
 unsafe impl ::windows_core::Interface for IDWriteFontFamily1 {
     type Vtable = IDWriteFontFamily1_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontFamily1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontFamily1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda20d8ef_812a_4c43_9802_62ec4abd7adf);
@@ -5759,6 +5189,7 @@ pub struct IDWriteFontFamily1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontFamily2(::windows_core::IUnknown);
 impl IDWriteFontFamily2 {
     pub unsafe fn GetFontCollection(&self) -> ::windows_core::Result<IDWriteFontCollection> {
@@ -5805,26 +5236,10 @@ impl IDWriteFontFamily2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontFamily2, ::windows_core::IUnknown, IDWriteFontList, IDWriteFontFamily, IDWriteFontFamily1);
-impl ::core::cmp::PartialEq for IDWriteFontFamily2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontFamily2 {}
-impl ::core::fmt::Debug for IDWriteFontFamily2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontFamily2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontFamily2 {}
 unsafe impl ::core::marker::Sync for IDWriteFontFamily2 {}
 unsafe impl ::windows_core::Interface for IDWriteFontFamily2 {
     type Vtable = IDWriteFontFamily2_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontFamily2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontFamily2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ed49e77_a398_4261_b9cf_c126c2131ef3);
@@ -5838,6 +5253,7 @@ pub struct IDWriteFontFamily2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontFile(::windows_core::IUnknown);
 impl IDWriteFontFile {
     pub unsafe fn GetReferenceKey(&self, fontfilereferencekey: *mut *mut ::core::ffi::c_void, fontfilereferencekeysize: *mut u32) -> ::windows_core::Result<()> {
@@ -5854,26 +5270,10 @@ impl IDWriteFontFile {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontFile, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteFontFile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontFile {}
-impl ::core::fmt::Debug for IDWriteFontFile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontFile").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontFile {}
 unsafe impl ::core::marker::Sync for IDWriteFontFile {}
 unsafe impl ::windows_core::Interface for IDWriteFontFile {
     type Vtable = IDWriteFontFile_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontFile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontFile {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x739d886a_cef5_47dc_8769_1a8b41bebbb0);
@@ -5891,6 +5291,7 @@ pub struct IDWriteFontFile_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontFileEnumerator(::windows_core::IUnknown);
 impl IDWriteFontFileEnumerator {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5905,26 +5306,10 @@ impl IDWriteFontFileEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontFileEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteFontFileEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontFileEnumerator {}
-impl ::core::fmt::Debug for IDWriteFontFileEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontFileEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontFileEnumerator {}
 unsafe impl ::core::marker::Sync for IDWriteFontFileEnumerator {}
 unsafe impl ::windows_core::Interface for IDWriteFontFileEnumerator {
     type Vtable = IDWriteFontFileEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontFileEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontFileEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x72755049_5ff7_435d_8348_4be97cfa6c7c);
@@ -5941,6 +5326,7 @@ pub struct IDWriteFontFileEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontFileLoader(::windows_core::IUnknown);
 impl IDWriteFontFileLoader {
     pub unsafe fn CreateStreamFromKey(&self, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32) -> ::windows_core::Result<IDWriteFontFileStream> {
@@ -5949,26 +5335,10 @@ impl IDWriteFontFileLoader {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontFileLoader, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteFontFileLoader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontFileLoader {}
-impl ::core::fmt::Debug for IDWriteFontFileLoader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontFileLoader").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontFileLoader {}
 unsafe impl ::core::marker::Sync for IDWriteFontFileLoader {}
 unsafe impl ::windows_core::Interface for IDWriteFontFileLoader {
     type Vtable = IDWriteFontFileLoader_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontFileLoader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontFileLoader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x727cad4e_d6af_4c9e_8a08_d695b11caa49);
@@ -5981,6 +5351,7 @@ pub struct IDWriteFontFileLoader_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontFileStream(::windows_core::IUnknown);
 impl IDWriteFontFileStream {
     pub unsafe fn ReadFileFragment(&self, fragmentstart: *mut *mut ::core::ffi::c_void, fileoffset: u64, fragmentsize: u64, fragmentcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -5999,26 +5370,10 @@ impl IDWriteFontFileStream {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontFileStream, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteFontFileStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontFileStream {}
-impl ::core::fmt::Debug for IDWriteFontFileStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontFileStream").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontFileStream {}
 unsafe impl ::core::marker::Sync for IDWriteFontFileStream {}
 unsafe impl ::windows_core::Interface for IDWriteFontFileStream {
     type Vtable = IDWriteFontFileStream_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontFileStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontFileStream {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d4865fe_0ab8_4d91_8f62_5dd6be34a3e0);
@@ -6034,6 +5389,7 @@ pub struct IDWriteFontFileStream_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontList(::windows_core::IUnknown);
 impl IDWriteFontList {
     pub unsafe fn GetFontCollection(&self) -> ::windows_core::Result<IDWriteFontCollection> {
@@ -6049,26 +5405,10 @@ impl IDWriteFontList {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontList, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteFontList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontList {}
-impl ::core::fmt::Debug for IDWriteFontList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontList").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontList {}
 unsafe impl ::core::marker::Sync for IDWriteFontList {}
 unsafe impl ::windows_core::Interface for IDWriteFontList {
     type Vtable = IDWriteFontList_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontList {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1a0d8438_1d97_4ec1_aef9_a2fb86ed6acb);
@@ -6083,6 +5423,7 @@ pub struct IDWriteFontList_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontList1(::windows_core::IUnknown);
 impl IDWriteFontList1 {
     pub unsafe fn GetFontCollection(&self) -> ::windows_core::Result<IDWriteFontCollection> {
@@ -6109,26 +5450,10 @@ impl IDWriteFontList1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontList1, ::windows_core::IUnknown, IDWriteFontList);
-impl ::core::cmp::PartialEq for IDWriteFontList1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontList1 {}
-impl ::core::fmt::Debug for IDWriteFontList1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontList1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontList1 {}
 unsafe impl ::core::marker::Sync for IDWriteFontList1 {}
 unsafe impl ::windows_core::Interface for IDWriteFontList1 {
     type Vtable = IDWriteFontList1_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontList1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontList1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda20d8ef_812a_4c43_9802_62ec4abd7ade);
@@ -6143,6 +5468,7 @@ pub struct IDWriteFontList1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontList2(::windows_core::IUnknown);
 impl IDWriteFontList2 {
     pub unsafe fn GetFontCollection(&self) -> ::windows_core::Result<IDWriteFontCollection> {
@@ -6173,26 +5499,10 @@ impl IDWriteFontList2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontList2, ::windows_core::IUnknown, IDWriteFontList, IDWriteFontList1);
-impl ::core::cmp::PartialEq for IDWriteFontList2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontList2 {}
-impl ::core::fmt::Debug for IDWriteFontList2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontList2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontList2 {}
 unsafe impl ::core::marker::Sync for IDWriteFontList2 {}
 unsafe impl ::windows_core::Interface for IDWriteFontList2 {
     type Vtable = IDWriteFontList2_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontList2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontList2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0763a34_77af_445a_b735_08c37b0a5bf5);
@@ -6205,6 +5515,7 @@ pub struct IDWriteFontList2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontResource(::windows_core::IUnknown);
 impl IDWriteFontResource {
     pub unsafe fn GetFontFile(&self) -> ::windows_core::Result<IDWriteFontFile> {
@@ -6251,26 +5562,10 @@ impl IDWriteFontResource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontResource, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteFontResource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontResource {}
-impl ::core::fmt::Debug for IDWriteFontResource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontResource").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontResource {}
 unsafe impl ::core::marker::Sync for IDWriteFontResource {}
 unsafe impl ::windows_core::Interface for IDWriteFontResource {
     type Vtable = IDWriteFontResource_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontResource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontResource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1f803a76_6871_48e8_987f_b975551c50f2);
@@ -6297,6 +5592,7 @@ pub struct IDWriteFontResource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontSet(::windows_core::IUnknown);
 impl IDWriteFontSet {
     pub unsafe fn GetFontCount(&self) -> u32 {
@@ -6355,26 +5651,10 @@ impl IDWriteFontSet {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontSet, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteFontSet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontSet {}
-impl ::core::fmt::Debug for IDWriteFontSet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontSet").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontSet {}
 unsafe impl ::core::marker::Sync for IDWriteFontSet {}
 unsafe impl ::windows_core::Interface for IDWriteFontSet {
     type Vtable = IDWriteFontSet_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontSet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontSet {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53585141_d9f8_4095_8321_d73cf6bd116b);
@@ -6405,6 +5685,7 @@ pub struct IDWriteFontSet_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontSet1(::windows_core::IUnknown);
 impl IDWriteFontSet1 {
     pub unsafe fn GetFontCount(&self) -> u32 {
@@ -6530,26 +5811,10 @@ impl IDWriteFontSet1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontSet1, ::windows_core::IUnknown, IDWriteFontSet);
-impl ::core::cmp::PartialEq for IDWriteFontSet1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontSet1 {}
-impl ::core::fmt::Debug for IDWriteFontSet1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontSet1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontSet1 {}
 unsafe impl ::core::marker::Sync for IDWriteFontSet1 {}
 unsafe impl ::windows_core::Interface for IDWriteFontSet1 {
     type Vtable = IDWriteFontSet1_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontSet1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontSet1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7e9fda85_6c92_4053_bc47_7ae3530db4d3);
@@ -6586,6 +5851,7 @@ pub struct IDWriteFontSet1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontSet2(::windows_core::IUnknown);
 impl IDWriteFontSet2 {
     pub unsafe fn GetFontCount(&self) -> u32 {
@@ -6716,26 +5982,10 @@ impl IDWriteFontSet2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontSet2, ::windows_core::IUnknown, IDWriteFontSet, IDWriteFontSet1);
-impl ::core::cmp::PartialEq for IDWriteFontSet2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontSet2 {}
-impl ::core::fmt::Debug for IDWriteFontSet2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontSet2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontSet2 {}
 unsafe impl ::core::marker::Sync for IDWriteFontSet2 {}
 unsafe impl ::windows_core::Interface for IDWriteFontSet2 {
     type Vtable = IDWriteFontSet2_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontSet2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontSet2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdc7ead19_e54c_43af_b2da_4e2b79ba3f7f);
@@ -6751,6 +6001,7 @@ pub struct IDWriteFontSet2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontSet3(::windows_core::IUnknown);
 impl IDWriteFontSet3 {
     pub unsafe fn GetFontCount(&self) -> u32 {
@@ -6890,26 +6141,10 @@ impl IDWriteFontSet3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontSet3, ::windows_core::IUnknown, IDWriteFontSet, IDWriteFontSet1, IDWriteFontSet2);
-impl ::core::cmp::PartialEq for IDWriteFontSet3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontSet3 {}
-impl ::core::fmt::Debug for IDWriteFontSet3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontSet3").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontSet3 {}
 unsafe impl ::core::marker::Sync for IDWriteFontSet3 {}
 unsafe impl ::windows_core::Interface for IDWriteFontSet3 {
     type Vtable = IDWriteFontSet3_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontSet3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontSet3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7c073ef2_a7f4_4045_8c32_8ab8ae640f90);
@@ -6924,6 +6159,7 @@ pub struct IDWriteFontSet3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontSet4(::windows_core::IUnknown);
 impl IDWriteFontSet4 {
     pub unsafe fn GetFontCount(&self) -> u32 {
@@ -7073,26 +6309,10 @@ impl IDWriteFontSet4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontSet4, ::windows_core::IUnknown, IDWriteFontSet, IDWriteFontSet1, IDWriteFontSet2, IDWriteFontSet3);
-impl ::core::cmp::PartialEq for IDWriteFontSet4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontSet4 {}
-impl ::core::fmt::Debug for IDWriteFontSet4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontSet4").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontSet4 {}
 unsafe impl ::core::marker::Sync for IDWriteFontSet4 {}
 unsafe impl ::windows_core::Interface for IDWriteFontSet4 {
     type Vtable = IDWriteFontSet4_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontSet4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontSet4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeec175fc_bea9_4c86_8b53_ccbdd7df0c82);
@@ -7106,6 +6326,7 @@ pub struct IDWriteFontSet4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontSetBuilder(::windows_core::IUnknown);
 impl IDWriteFontSetBuilder {
     pub unsafe fn AddFontFaceReference<P0>(&self, fontfacereference: P0, properties: &[DWRITE_FONT_PROPERTY]) -> ::windows_core::Result<()>
@@ -7132,26 +6353,10 @@ impl IDWriteFontSetBuilder {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontSetBuilder, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteFontSetBuilder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontSetBuilder {}
-impl ::core::fmt::Debug for IDWriteFontSetBuilder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontSetBuilder").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontSetBuilder {}
 unsafe impl ::core::marker::Sync for IDWriteFontSetBuilder {}
 unsafe impl ::windows_core::Interface for IDWriteFontSetBuilder {
     type Vtable = IDWriteFontSetBuilder_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontSetBuilder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontSetBuilder {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2f642afe_9c68_4f40_b8be_457401afcb3d);
@@ -7167,6 +6372,7 @@ pub struct IDWriteFontSetBuilder_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontSetBuilder1(::windows_core::IUnknown);
 impl IDWriteFontSetBuilder1 {
     pub unsafe fn AddFontFaceReference<P0>(&self, fontfacereference: P0, properties: &[DWRITE_FONT_PROPERTY]) -> ::windows_core::Result<()>
@@ -7199,26 +6405,10 @@ impl IDWriteFontSetBuilder1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontSetBuilder1, ::windows_core::IUnknown, IDWriteFontSetBuilder);
-impl ::core::cmp::PartialEq for IDWriteFontSetBuilder1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontSetBuilder1 {}
-impl ::core::fmt::Debug for IDWriteFontSetBuilder1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontSetBuilder1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontSetBuilder1 {}
 unsafe impl ::core::marker::Sync for IDWriteFontSetBuilder1 {}
 unsafe impl ::windows_core::Interface for IDWriteFontSetBuilder1 {
     type Vtable = IDWriteFontSetBuilder1_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontSetBuilder1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontSetBuilder1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ff7715f_3cdc_4dc6_9b72_ec5621dccafd);
@@ -7231,6 +6421,7 @@ pub struct IDWriteFontSetBuilder1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteFontSetBuilder2(::windows_core::IUnknown);
 impl IDWriteFontSetBuilder2 {
     pub unsafe fn AddFontFaceReference<P0>(&self, fontfacereference: P0, properties: &[DWRITE_FONT_PROPERTY]) -> ::windows_core::Result<()>
@@ -7275,26 +6466,10 @@ impl IDWriteFontSetBuilder2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteFontSetBuilder2, ::windows_core::IUnknown, IDWriteFontSetBuilder, IDWriteFontSetBuilder1);
-impl ::core::cmp::PartialEq for IDWriteFontSetBuilder2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteFontSetBuilder2 {}
-impl ::core::fmt::Debug for IDWriteFontSetBuilder2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteFontSetBuilder2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteFontSetBuilder2 {}
 unsafe impl ::core::marker::Sync for IDWriteFontSetBuilder2 {}
 unsafe impl ::windows_core::Interface for IDWriteFontSetBuilder2 {
     type Vtable = IDWriteFontSetBuilder2_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteFontSetBuilder2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteFontSetBuilder2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xee5ba612_b131_463c_8f4f_3189b9401e45);
@@ -7308,6 +6483,7 @@ pub struct IDWriteFontSetBuilder2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteGdiInterop(::windows_core::IUnknown);
 impl IDWriteGdiInterop {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -7352,26 +6528,10 @@ impl IDWriteGdiInterop {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteGdiInterop, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteGdiInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteGdiInterop {}
-impl ::core::fmt::Debug for IDWriteGdiInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteGdiInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteGdiInterop {}
 unsafe impl ::core::marker::Sync for IDWriteGdiInterop {}
 unsafe impl ::windows_core::Interface for IDWriteGdiInterop {
     type Vtable = IDWriteGdiInterop_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteGdiInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteGdiInterop {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1edd9491_9853_4299_898f_6432983b6f3a);
@@ -7403,6 +6563,7 @@ pub struct IDWriteGdiInterop_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteGdiInterop1(::windows_core::IUnknown);
 impl IDWriteGdiInterop1 {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -7481,26 +6642,10 @@ impl IDWriteGdiInterop1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteGdiInterop1, ::windows_core::IUnknown, IDWriteGdiInterop);
-impl ::core::cmp::PartialEq for IDWriteGdiInterop1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteGdiInterop1 {}
-impl ::core::fmt::Debug for IDWriteGdiInterop1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteGdiInterop1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteGdiInterop1 {}
 unsafe impl ::core::marker::Sync for IDWriteGdiInterop1 {}
 unsafe impl ::windows_core::Interface for IDWriteGdiInterop1 {
     type Vtable = IDWriteGdiInterop1_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteGdiInterop1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteGdiInterop1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4556be70_3abd_4f70_90be_421780a6f515);
@@ -7528,6 +6673,7 @@ pub struct IDWriteGdiInterop1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteGlyphRunAnalysis(::windows_core::IUnknown);
 impl IDWriteGlyphRunAnalysis {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7549,26 +6695,10 @@ impl IDWriteGlyphRunAnalysis {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteGlyphRunAnalysis, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteGlyphRunAnalysis {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteGlyphRunAnalysis {}
-impl ::core::fmt::Debug for IDWriteGlyphRunAnalysis {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteGlyphRunAnalysis").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteGlyphRunAnalysis {}
 unsafe impl ::core::marker::Sync for IDWriteGlyphRunAnalysis {}
 unsafe impl ::windows_core::Interface for IDWriteGlyphRunAnalysis {
     type Vtable = IDWriteGlyphRunAnalysis_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteGlyphRunAnalysis {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteGlyphRunAnalysis {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d97dbf7_e085_42d4_81e3_6a883bded118);
@@ -7589,6 +6719,7 @@ pub struct IDWriteGlyphRunAnalysis_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteInMemoryFontFileLoader(::windows_core::IUnknown);
 impl IDWriteInMemoryFontFileLoader {
     pub unsafe fn CreateStreamFromKey(&self, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32) -> ::windows_core::Result<IDWriteFontFileStream> {
@@ -7608,26 +6739,10 @@ impl IDWriteInMemoryFontFileLoader {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteInMemoryFontFileLoader, ::windows_core::IUnknown, IDWriteFontFileLoader);
-impl ::core::cmp::PartialEq for IDWriteInMemoryFontFileLoader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteInMemoryFontFileLoader {}
-impl ::core::fmt::Debug for IDWriteInMemoryFontFileLoader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteInMemoryFontFileLoader").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteInMemoryFontFileLoader {}
 unsafe impl ::core::marker::Sync for IDWriteInMemoryFontFileLoader {}
 unsafe impl ::windows_core::Interface for IDWriteInMemoryFontFileLoader {
     type Vtable = IDWriteInMemoryFontFileLoader_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteInMemoryFontFileLoader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteInMemoryFontFileLoader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdc102f47_a12d_4b1c_822d_9e117e33043f);
@@ -7641,6 +6756,7 @@ pub struct IDWriteInMemoryFontFileLoader_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteInlineObject(::windows_core::IUnknown);
 impl IDWriteInlineObject {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7669,26 +6785,10 @@ impl IDWriteInlineObject {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteInlineObject, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteInlineObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteInlineObject {}
-impl ::core::fmt::Debug for IDWriteInlineObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteInlineObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteInlineObject {}
 unsafe impl ::core::marker::Sync for IDWriteInlineObject {}
 unsafe impl ::windows_core::Interface for IDWriteInlineObject {
     type Vtable = IDWriteInlineObject_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteInlineObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteInlineObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8339fde3_106f_47ab_8373_1c6295eb10b3);
@@ -7710,6 +6810,7 @@ pub struct IDWriteInlineObject_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteLocalFontFileLoader(::windows_core::IUnknown);
 impl IDWriteLocalFontFileLoader {
     pub unsafe fn CreateStreamFromKey(&self, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32) -> ::windows_core::Result<IDWriteFontFileStream> {
@@ -7731,26 +6832,10 @@ impl IDWriteLocalFontFileLoader {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteLocalFontFileLoader, ::windows_core::IUnknown, IDWriteFontFileLoader);
-impl ::core::cmp::PartialEq for IDWriteLocalFontFileLoader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteLocalFontFileLoader {}
-impl ::core::fmt::Debug for IDWriteLocalFontFileLoader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteLocalFontFileLoader").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteLocalFontFileLoader {}
 unsafe impl ::core::marker::Sync for IDWriteLocalFontFileLoader {}
 unsafe impl ::windows_core::Interface for IDWriteLocalFontFileLoader {
     type Vtable = IDWriteLocalFontFileLoader_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteLocalFontFileLoader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteLocalFontFileLoader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2d9f3ec_c9fe_4a11_a2ec_d86208f7c0a2);
@@ -7768,6 +6853,7 @@ pub struct IDWriteLocalFontFileLoader_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteLocalizedStrings(::windows_core::IUnknown);
 impl IDWriteLocalizedStrings {
     pub unsafe fn GetCount(&self) -> u32 {
@@ -7797,26 +6883,10 @@ impl IDWriteLocalizedStrings {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteLocalizedStrings, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteLocalizedStrings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteLocalizedStrings {}
-impl ::core::fmt::Debug for IDWriteLocalizedStrings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteLocalizedStrings").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteLocalizedStrings {}
 unsafe impl ::core::marker::Sync for IDWriteLocalizedStrings {}
 unsafe impl ::windows_core::Interface for IDWriteLocalizedStrings {
     type Vtable = IDWriteLocalizedStrings_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteLocalizedStrings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteLocalizedStrings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x08256209_099a_4b34_b86d_c22b110e7771);
@@ -7837,29 +6907,14 @@ pub struct IDWriteLocalizedStrings_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteNumberSubstitution(::windows_core::IUnknown);
 impl IDWriteNumberSubstitution {}
 ::windows_core::imp::interface_hierarchy!(IDWriteNumberSubstitution, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteNumberSubstitution {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteNumberSubstitution {}
-impl ::core::fmt::Debug for IDWriteNumberSubstitution {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteNumberSubstitution").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteNumberSubstitution {}
 unsafe impl ::core::marker::Sync for IDWriteNumberSubstitution {}
 unsafe impl ::windows_core::Interface for IDWriteNumberSubstitution {
     type Vtable = IDWriteNumberSubstitution_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteNumberSubstitution {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteNumberSubstitution {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x14885cc9_bab0_4f90_b6ed_5c366a2cd03d);
@@ -7871,6 +6926,7 @@ pub struct IDWriteNumberSubstitution_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWritePixelSnapping(::windows_core::IUnknown);
 impl IDWritePixelSnapping {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7888,26 +6944,10 @@ impl IDWritePixelSnapping {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWritePixelSnapping, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWritePixelSnapping {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWritePixelSnapping {}
-impl ::core::fmt::Debug for IDWritePixelSnapping {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWritePixelSnapping").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWritePixelSnapping {}
 unsafe impl ::core::marker::Sync for IDWritePixelSnapping {}
 unsafe impl ::windows_core::Interface for IDWritePixelSnapping {
     type Vtable = IDWritePixelSnapping_Vtbl;
-}
-impl ::core::clone::Clone for IDWritePixelSnapping {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWritePixelSnapping {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeaf3a2da_ecf4_4d24_b644_b34f6842024b);
@@ -7925,6 +6965,7 @@ pub struct IDWritePixelSnapping_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteRemoteFontFileLoader(::windows_core::IUnknown);
 impl IDWriteRemoteFontFileLoader {
     pub unsafe fn CreateStreamFromKey(&self, fontfilereferencekey: *const ::core::ffi::c_void, fontfilereferencekeysize: u32) -> ::windows_core::Result<IDWriteFontFileStream> {
@@ -7950,26 +6991,10 @@ impl IDWriteRemoteFontFileLoader {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteRemoteFontFileLoader, ::windows_core::IUnknown, IDWriteFontFileLoader);
-impl ::core::cmp::PartialEq for IDWriteRemoteFontFileLoader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteRemoteFontFileLoader {}
-impl ::core::fmt::Debug for IDWriteRemoteFontFileLoader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteRemoteFontFileLoader").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteRemoteFontFileLoader {}
 unsafe impl ::core::marker::Sync for IDWriteRemoteFontFileLoader {}
 unsafe impl ::windows_core::Interface for IDWriteRemoteFontFileLoader {
     type Vtable = IDWriteRemoteFontFileLoader_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteRemoteFontFileLoader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteRemoteFontFileLoader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x68648c83_6ede_46c0_ab46_20083a887fde);
@@ -7984,6 +7009,7 @@ pub struct IDWriteRemoteFontFileLoader_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteRemoteFontFileStream(::windows_core::IUnknown);
 impl IDWriteRemoteFontFileStream {
     pub unsafe fn ReadFileFragment(&self, fragmentstart: *mut *mut ::core::ffi::c_void, fileoffset: u64, fragmentsize: u64, fragmentcontext: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -8018,26 +7044,10 @@ impl IDWriteRemoteFontFileStream {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteRemoteFontFileStream, ::windows_core::IUnknown, IDWriteFontFileStream);
-impl ::core::cmp::PartialEq for IDWriteRemoteFontFileStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteRemoteFontFileStream {}
-impl ::core::fmt::Debug for IDWriteRemoteFontFileStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteRemoteFontFileStream").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteRemoteFontFileStream {}
 unsafe impl ::core::marker::Sync for IDWriteRemoteFontFileStream {}
 unsafe impl ::windows_core::Interface for IDWriteRemoteFontFileStream {
     type Vtable = IDWriteRemoteFontFileStream_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteRemoteFontFileStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteRemoteFontFileStream {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4db3757a_2c72_4ed9_b2b6_1ababe1aff9c);
@@ -8056,6 +7066,7 @@ pub struct IDWriteRemoteFontFileStream_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteRenderingParams(::windows_core::IUnknown);
 impl IDWriteRenderingParams {
     pub unsafe fn GetGamma(&self) -> f32 {
@@ -8075,26 +7086,10 @@ impl IDWriteRenderingParams {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteRenderingParams, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteRenderingParams {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteRenderingParams {}
-impl ::core::fmt::Debug for IDWriteRenderingParams {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteRenderingParams").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteRenderingParams {}
 unsafe impl ::core::marker::Sync for IDWriteRenderingParams {}
 unsafe impl ::windows_core::Interface for IDWriteRenderingParams {
     type Vtable = IDWriteRenderingParams_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteRenderingParams {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteRenderingParams {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2f0da53a_2add_47cd_82ee_d9ec34688e75);
@@ -8111,6 +7106,7 @@ pub struct IDWriteRenderingParams_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteRenderingParams1(::windows_core::IUnknown);
 impl IDWriteRenderingParams1 {
     pub unsafe fn GetGamma(&self) -> f32 {
@@ -8133,26 +7129,10 @@ impl IDWriteRenderingParams1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteRenderingParams1, ::windows_core::IUnknown, IDWriteRenderingParams);
-impl ::core::cmp::PartialEq for IDWriteRenderingParams1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteRenderingParams1 {}
-impl ::core::fmt::Debug for IDWriteRenderingParams1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteRenderingParams1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteRenderingParams1 {}
 unsafe impl ::core::marker::Sync for IDWriteRenderingParams1 {}
 unsafe impl ::windows_core::Interface for IDWriteRenderingParams1 {
     type Vtable = IDWriteRenderingParams1_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteRenderingParams1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteRenderingParams1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x94413cf4_a6fc_4248_8b50_6674348fcad3);
@@ -8165,6 +7145,7 @@ pub struct IDWriteRenderingParams1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteRenderingParams2(::windows_core::IUnknown);
 impl IDWriteRenderingParams2 {
     pub unsafe fn GetGamma(&self) -> f32 {
@@ -8190,26 +7171,10 @@ impl IDWriteRenderingParams2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteRenderingParams2, ::windows_core::IUnknown, IDWriteRenderingParams, IDWriteRenderingParams1);
-impl ::core::cmp::PartialEq for IDWriteRenderingParams2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteRenderingParams2 {}
-impl ::core::fmt::Debug for IDWriteRenderingParams2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteRenderingParams2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteRenderingParams2 {}
 unsafe impl ::core::marker::Sync for IDWriteRenderingParams2 {}
 unsafe impl ::windows_core::Interface for IDWriteRenderingParams2 {
     type Vtable = IDWriteRenderingParams2_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteRenderingParams2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteRenderingParams2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf9d711c3_9777_40ae_87e8_3e5af9bf0948);
@@ -8222,6 +7187,7 @@ pub struct IDWriteRenderingParams2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteRenderingParams3(::windows_core::IUnknown);
 impl IDWriteRenderingParams3 {
     pub unsafe fn GetGamma(&self) -> f32 {
@@ -8250,26 +7216,10 @@ impl IDWriteRenderingParams3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteRenderingParams3, ::windows_core::IUnknown, IDWriteRenderingParams, IDWriteRenderingParams1, IDWriteRenderingParams2);
-impl ::core::cmp::PartialEq for IDWriteRenderingParams3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteRenderingParams3 {}
-impl ::core::fmt::Debug for IDWriteRenderingParams3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteRenderingParams3").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteRenderingParams3 {}
 unsafe impl ::core::marker::Sync for IDWriteRenderingParams3 {}
 unsafe impl ::windows_core::Interface for IDWriteRenderingParams3 {
     type Vtable = IDWriteRenderingParams3_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteRenderingParams3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteRenderingParams3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb7924baa_391b_412a_8c5c_e44cc2d867dc);
@@ -8282,6 +7232,7 @@ pub struct IDWriteRenderingParams3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteStringList(::windows_core::IUnknown);
 impl IDWriteStringList {
     pub unsafe fn GetCount(&self) -> u32 {
@@ -8303,26 +7254,10 @@ impl IDWriteStringList {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteStringList, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteStringList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteStringList {}
-impl ::core::fmt::Debug for IDWriteStringList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteStringList").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteStringList {}
 unsafe impl ::core::marker::Sync for IDWriteStringList {}
 unsafe impl ::windows_core::Interface for IDWriteStringList {
     type Vtable = IDWriteStringList_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteStringList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteStringList {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcfee3140_1157_47ca_8b85_31bfcf3f2d0e);
@@ -8339,6 +7274,7 @@ pub struct IDWriteStringList_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteTextAnalysisSink(::windows_core::IUnknown);
 impl IDWriteTextAnalysisSink {
     pub unsafe fn SetScriptAnalysis(&self, textposition: u32, textlength: u32, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS) -> ::windows_core::Result<()> {
@@ -8358,26 +7294,10 @@ impl IDWriteTextAnalysisSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteTextAnalysisSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteTextAnalysisSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteTextAnalysisSink {}
-impl ::core::fmt::Debug for IDWriteTextAnalysisSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteTextAnalysisSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteTextAnalysisSink {}
 unsafe impl ::core::marker::Sync for IDWriteTextAnalysisSink {}
 unsafe impl ::windows_core::Interface for IDWriteTextAnalysisSink {
     type Vtable = IDWriteTextAnalysisSink_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteTextAnalysisSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteTextAnalysisSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5810cd44_0ca0_4701_b3fa_bec5182ae4f6);
@@ -8393,6 +7313,7 @@ pub struct IDWriteTextAnalysisSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteTextAnalysisSink1(::windows_core::IUnknown);
 impl IDWriteTextAnalysisSink1 {
     pub unsafe fn SetScriptAnalysis(&self, textposition: u32, textlength: u32, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS) -> ::windows_core::Result<()> {
@@ -8421,26 +7342,10 @@ impl IDWriteTextAnalysisSink1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteTextAnalysisSink1, ::windows_core::IUnknown, IDWriteTextAnalysisSink);
-impl ::core::cmp::PartialEq for IDWriteTextAnalysisSink1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteTextAnalysisSink1 {}
-impl ::core::fmt::Debug for IDWriteTextAnalysisSink1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteTextAnalysisSink1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteTextAnalysisSink1 {}
 unsafe impl ::core::marker::Sync for IDWriteTextAnalysisSink1 {}
 unsafe impl ::windows_core::Interface for IDWriteTextAnalysisSink1 {
     type Vtable = IDWriteTextAnalysisSink1_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteTextAnalysisSink1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteTextAnalysisSink1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0d941a0_85e7_4d8b_9fd3_5ced9934482a);
@@ -8456,6 +7361,7 @@ pub struct IDWriteTextAnalysisSink1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteTextAnalysisSource(::windows_core::IUnknown);
 impl IDWriteTextAnalysisSource {
     pub unsafe fn GetTextAtPosition(&self, textposition: u32, textstring: *mut *mut u16, textlength: *mut u32) -> ::windows_core::Result<()> {
@@ -8475,26 +7381,10 @@ impl IDWriteTextAnalysisSource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteTextAnalysisSource, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteTextAnalysisSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteTextAnalysisSource {}
-impl ::core::fmt::Debug for IDWriteTextAnalysisSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteTextAnalysisSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteTextAnalysisSource {}
 unsafe impl ::core::marker::Sync for IDWriteTextAnalysisSource {}
 unsafe impl ::windows_core::Interface for IDWriteTextAnalysisSource {
     type Vtable = IDWriteTextAnalysisSource_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteTextAnalysisSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteTextAnalysisSource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x688e1a58_5094_47c8_adc8_fbcea60ae92b);
@@ -8511,6 +7401,7 @@ pub struct IDWriteTextAnalysisSource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteTextAnalysisSource1(::windows_core::IUnknown);
 impl IDWriteTextAnalysisSource1 {
     pub unsafe fn GetTextAtPosition(&self, textposition: u32, textstring: *mut *mut u16, textlength: *mut u32) -> ::windows_core::Result<()> {
@@ -8533,26 +7424,10 @@ impl IDWriteTextAnalysisSource1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteTextAnalysisSource1, ::windows_core::IUnknown, IDWriteTextAnalysisSource);
-impl ::core::cmp::PartialEq for IDWriteTextAnalysisSource1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteTextAnalysisSource1 {}
-impl ::core::fmt::Debug for IDWriteTextAnalysisSource1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteTextAnalysisSource1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteTextAnalysisSource1 {}
 unsafe impl ::core::marker::Sync for IDWriteTextAnalysisSource1 {}
 unsafe impl ::windows_core::Interface for IDWriteTextAnalysisSource1 {
     type Vtable = IDWriteTextAnalysisSource1_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteTextAnalysisSource1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteTextAnalysisSource1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x639cfad8_0fb4_4b21_a58a_067920120009);
@@ -8565,6 +7440,7 @@ pub struct IDWriteTextAnalysisSource1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteTextAnalyzer(::windows_core::IUnknown);
 impl IDWriteTextAnalyzer {
     pub unsafe fn AnalyzeScript<P0, P1>(&self, analysissource: P0, textposition: u32, textlength: u32, analysissink: P1) -> ::windows_core::Result<()>
@@ -8679,26 +7555,10 @@ impl IDWriteTextAnalyzer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteTextAnalyzer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteTextAnalyzer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteTextAnalyzer {}
-impl ::core::fmt::Debug for IDWriteTextAnalyzer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteTextAnalyzer").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteTextAnalyzer {}
 unsafe impl ::core::marker::Sync for IDWriteTextAnalyzer {}
 unsafe impl ::windows_core::Interface for IDWriteTextAnalyzer {
     type Vtable = IDWriteTextAnalyzer_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteTextAnalyzer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteTextAnalyzer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb7e6163e_7f46_43b4_84b3_e4e6249c365d);
@@ -8749,6 +7609,7 @@ pub struct IDWriteTextAnalyzer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteTextAnalyzer1(::windows_core::IUnknown);
 impl IDWriteTextAnalyzer1 {
     pub unsafe fn AnalyzeScript<P0, P1>(&self, analysissource: P0, textposition: u32, textlength: u32, analysissink: P1) -> ::windows_core::Result<()>
@@ -8940,26 +7801,10 @@ impl IDWriteTextAnalyzer1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteTextAnalyzer1, ::windows_core::IUnknown, IDWriteTextAnalyzer);
-impl ::core::cmp::PartialEq for IDWriteTextAnalyzer1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteTextAnalyzer1 {}
-impl ::core::fmt::Debug for IDWriteTextAnalyzer1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteTextAnalyzer1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteTextAnalyzer1 {}
 unsafe impl ::core::marker::Sync for IDWriteTextAnalyzer1 {}
 unsafe impl ::windows_core::Interface for IDWriteTextAnalyzer1 {
     type Vtable = IDWriteTextAnalyzer1_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteTextAnalyzer1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteTextAnalyzer1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x80dad800_e21f_4e83_96ce_bfcce500db7c);
@@ -8989,6 +7834,7 @@ pub struct IDWriteTextAnalyzer1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteTextAnalyzer2(::windows_core::IUnknown);
 impl IDWriteTextAnalyzer2 {
     pub unsafe fn AnalyzeScript<P0, P1>(&self, analysissource: P0, textposition: u32, textlength: u32, analysissink: P1) -> ::windows_core::Result<()>
@@ -9202,26 +8048,10 @@ impl IDWriteTextAnalyzer2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteTextAnalyzer2, ::windows_core::IUnknown, IDWriteTextAnalyzer, IDWriteTextAnalyzer1);
-impl ::core::cmp::PartialEq for IDWriteTextAnalyzer2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteTextAnalyzer2 {}
-impl ::core::fmt::Debug for IDWriteTextAnalyzer2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteTextAnalyzer2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteTextAnalyzer2 {}
 unsafe impl ::core::marker::Sync for IDWriteTextAnalyzer2 {}
 unsafe impl ::windows_core::Interface for IDWriteTextAnalyzer2 {
     type Vtable = IDWriteTextAnalyzer2_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteTextAnalyzer2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteTextAnalyzer2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x553a9ff3_5693_4df7_b52b_74806f7f2eb9);
@@ -9239,6 +8069,7 @@ pub struct IDWriteTextAnalyzer2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteTextFormat(::windows_core::IUnknown);
 impl IDWriteTextFormat {
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> ::windows_core::Result<()> {
@@ -9322,26 +8153,10 @@ impl IDWriteTextFormat {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteTextFormat, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteTextFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteTextFormat {}
-impl ::core::fmt::Debug for IDWriteTextFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteTextFormat").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteTextFormat {}
 unsafe impl ::core::marker::Sync for IDWriteTextFormat {}
 unsafe impl ::windows_core::Interface for IDWriteTextFormat {
     type Vtable = IDWriteTextFormat_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteTextFormat {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteTextFormat {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c906818_31d7_4fd3_a151_7c5e225db55a);
@@ -9378,6 +8193,7 @@ pub struct IDWriteTextFormat_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteTextFormat1(::windows_core::IUnknown);
 impl IDWriteTextFormat1 {
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> ::windows_core::Result<()> {
@@ -9496,26 +8312,10 @@ impl IDWriteTextFormat1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteTextFormat1, ::windows_core::IUnknown, IDWriteTextFormat);
-impl ::core::cmp::PartialEq for IDWriteTextFormat1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteTextFormat1 {}
-impl ::core::fmt::Debug for IDWriteTextFormat1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteTextFormat1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteTextFormat1 {}
 unsafe impl ::core::marker::Sync for IDWriteTextFormat1 {}
 unsafe impl ::windows_core::Interface for IDWriteTextFormat1 {
     type Vtable = IDWriteTextFormat1_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteTextFormat1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteTextFormat1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5f174b49_0d8b_4cfb_8bca_f1cce9d06c67);
@@ -9541,6 +8341,7 @@ pub struct IDWriteTextFormat1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteTextFormat2(::windows_core::IUnknown);
 impl IDWriteTextFormat2 {
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> ::windows_core::Result<()> {
@@ -9665,26 +8466,10 @@ impl IDWriteTextFormat2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteTextFormat2, ::windows_core::IUnknown, IDWriteTextFormat, IDWriteTextFormat1);
-impl ::core::cmp::PartialEq for IDWriteTextFormat2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteTextFormat2 {}
-impl ::core::fmt::Debug for IDWriteTextFormat2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteTextFormat2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteTextFormat2 {}
 unsafe impl ::core::marker::Sync for IDWriteTextFormat2 {}
 unsafe impl ::windows_core::Interface for IDWriteTextFormat2 {
     type Vtable = IDWriteTextFormat2_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteTextFormat2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteTextFormat2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf67e0edd_9e3d_4ecc_8c32_4183253dfe70);
@@ -9698,6 +8483,7 @@ pub struct IDWriteTextFormat2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteTextFormat3(::windows_core::IUnknown);
 impl IDWriteTextFormat3 {
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> ::windows_core::Result<()> {
@@ -9837,26 +8623,10 @@ impl IDWriteTextFormat3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteTextFormat3, ::windows_core::IUnknown, IDWriteTextFormat, IDWriteTextFormat1, IDWriteTextFormat2);
-impl ::core::cmp::PartialEq for IDWriteTextFormat3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteTextFormat3 {}
-impl ::core::fmt::Debug for IDWriteTextFormat3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteTextFormat3").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteTextFormat3 {}
 unsafe impl ::core::marker::Sync for IDWriteTextFormat3 {}
 unsafe impl ::windows_core::Interface for IDWriteTextFormat3 {
     type Vtable = IDWriteTextFormat3_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteTextFormat3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteTextFormat3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d3b5641_e550_430d_a85b_b7bf48a93427);
@@ -9873,6 +8643,7 @@ pub struct IDWriteTextFormat3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteTextLayout(::windows_core::IUnknown);
 impl IDWriteTextLayout {
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> ::windows_core::Result<()> {
@@ -10121,26 +8892,10 @@ impl IDWriteTextLayout {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteTextLayout, ::windows_core::IUnknown, IDWriteTextFormat);
-impl ::core::cmp::PartialEq for IDWriteTextLayout {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteTextLayout {}
-impl ::core::fmt::Debug for IDWriteTextLayout {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteTextLayout").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteTextLayout {}
 unsafe impl ::core::marker::Sync for IDWriteTextLayout {}
 unsafe impl ::windows_core::Interface for IDWriteTextLayout {
     type Vtable = IDWriteTextLayout_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteTextLayout {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteTextLayout {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53737037_6d14_410b_9bfe_0b182bb70961);
@@ -10215,6 +8970,7 @@ pub struct IDWriteTextLayout_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteTextLayout1(::windows_core::IUnknown);
 impl IDWriteTextLayout1 {
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> ::windows_core::Result<()> {
@@ -10482,26 +9238,10 @@ impl IDWriteTextLayout1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteTextLayout1, ::windows_core::IUnknown, IDWriteTextFormat, IDWriteTextLayout);
-impl ::core::cmp::PartialEq for IDWriteTextLayout1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteTextLayout1 {}
-impl ::core::fmt::Debug for IDWriteTextLayout1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteTextLayout1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteTextLayout1 {}
 unsafe impl ::core::marker::Sync for IDWriteTextLayout1 {}
 unsafe impl ::windows_core::Interface for IDWriteTextLayout1 {
     type Vtable = IDWriteTextLayout1_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteTextLayout1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteTextLayout1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9064d822_80a7_465c_a986_df65f78b8feb);
@@ -10523,6 +9263,7 @@ pub struct IDWriteTextLayout1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteTextLayout2(::windows_core::IUnknown);
 impl IDWriteTextLayout2 {
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> ::windows_core::Result<()> {
@@ -10828,26 +9569,10 @@ impl IDWriteTextLayout2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteTextLayout2, ::windows_core::IUnknown, IDWriteTextFormat, IDWriteTextLayout, IDWriteTextLayout1);
-impl ::core::cmp::PartialEq for IDWriteTextLayout2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteTextLayout2 {}
-impl ::core::fmt::Debug for IDWriteTextLayout2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteTextLayout2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteTextLayout2 {}
 unsafe impl ::core::marker::Sync for IDWriteTextLayout2 {}
 unsafe impl ::windows_core::Interface for IDWriteTextLayout2 {
     type Vtable = IDWriteTextLayout2_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteTextLayout2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteTextLayout2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1093c18f_8d5e_43f0_b064_0917311b525e);
@@ -10874,6 +9599,7 @@ pub struct IDWriteTextLayout2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteTextLayout3(::windows_core::IUnknown);
 impl IDWriteTextLayout3 {
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> ::windows_core::Result<()> {
@@ -11193,26 +9919,10 @@ impl IDWriteTextLayout3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteTextLayout3, ::windows_core::IUnknown, IDWriteTextFormat, IDWriteTextLayout, IDWriteTextLayout1, IDWriteTextLayout2);
-impl ::core::cmp::PartialEq for IDWriteTextLayout3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteTextLayout3 {}
-impl ::core::fmt::Debug for IDWriteTextLayout3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteTextLayout3").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteTextLayout3 {}
 unsafe impl ::core::marker::Sync for IDWriteTextLayout3 {}
 unsafe impl ::windows_core::Interface for IDWriteTextLayout3 {
     type Vtable = IDWriteTextLayout3_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteTextLayout3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteTextLayout3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x07ddcd52_020e_4de8_ac33_6c953d83f92d);
@@ -11231,6 +9941,7 @@ pub struct IDWriteTextLayout3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteTextLayout4(::windows_core::IUnknown);
 impl IDWriteTextLayout4 {
     pub unsafe fn SetTextAlignment(&self, textalignment: DWRITE_TEXT_ALIGNMENT) -> ::windows_core::Result<()> {
@@ -11565,26 +10276,10 @@ impl IDWriteTextLayout4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteTextLayout4, ::windows_core::IUnknown, IDWriteTextFormat, IDWriteTextLayout, IDWriteTextLayout1, IDWriteTextLayout2, IDWriteTextLayout3);
-impl ::core::cmp::PartialEq for IDWriteTextLayout4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteTextLayout4 {}
-impl ::core::fmt::Debug for IDWriteTextLayout4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteTextLayout4").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteTextLayout4 {}
 unsafe impl ::core::marker::Sync for IDWriteTextLayout4 {}
 unsafe impl ::windows_core::Interface for IDWriteTextLayout4 {
     type Vtable = IDWriteTextLayout4_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteTextLayout4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteTextLayout4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05a9bf42_223f_4441_b5fb_8263685f55e9);
@@ -11601,6 +10296,7 @@ pub struct IDWriteTextLayout4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteTextRenderer(::windows_core::IUnknown);
 impl IDWriteTextRenderer {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -11649,26 +10345,10 @@ impl IDWriteTextRenderer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteTextRenderer, ::windows_core::IUnknown, IDWritePixelSnapping);
-impl ::core::cmp::PartialEq for IDWriteTextRenderer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteTextRenderer {}
-impl ::core::fmt::Debug for IDWriteTextRenderer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteTextRenderer").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteTextRenderer {}
 unsafe impl ::core::marker::Sync for IDWriteTextRenderer {}
 unsafe impl ::windows_core::Interface for IDWriteTextRenderer {
     type Vtable = IDWriteTextRenderer_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteTextRenderer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteTextRenderer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef8a8135_5cc6_45fe_8825_c5a0724eb819);
@@ -11690,6 +10370,7 @@ pub struct IDWriteTextRenderer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteTextRenderer1(::windows_core::IUnknown);
 impl IDWriteTextRenderer1 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -11769,26 +10450,10 @@ impl IDWriteTextRenderer1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteTextRenderer1, ::windows_core::IUnknown, IDWritePixelSnapping, IDWriteTextRenderer);
-impl ::core::cmp::PartialEq for IDWriteTextRenderer1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteTextRenderer1 {}
-impl ::core::fmt::Debug for IDWriteTextRenderer1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteTextRenderer1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteTextRenderer1 {}
 unsafe impl ::core::marker::Sync for IDWriteTextRenderer1 {}
 unsafe impl ::windows_core::Interface for IDWriteTextRenderer1 {
     type Vtable = IDWriteTextRenderer1_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteTextRenderer1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteTextRenderer1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd3e0e934_22a0_427e_aae4_7d9574b59db1);
@@ -11810,6 +10475,7 @@ pub struct IDWriteTextRenderer1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDWriteTypography(::windows_core::IUnknown);
 impl IDWriteTypography {
     pub unsafe fn AddFontFeature(&self, fontfeature: DWRITE_FONT_FEATURE) -> ::windows_core::Result<()> {
@@ -11824,26 +10490,10 @@ impl IDWriteTypography {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDWriteTypography, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDWriteTypography {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDWriteTypography {}
-impl ::core::fmt::Debug for IDWriteTypography {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDWriteTypography").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDWriteTypography {}
 unsafe impl ::core::marker::Sync for IDWriteTypography {}
 unsafe impl ::windows_core::Interface for IDWriteTypography {
     type Vtable = IDWriteTypography_Vtbl;
-}
-impl ::core::clone::Clone for IDWriteTypography {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDWriteTypography {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x55f1112b_1dc2_4b3c_9541_f46894ed85b6);

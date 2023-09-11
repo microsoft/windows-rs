@@ -4,6 +4,7 @@ pub mod Dxc;
 pub mod Fxc;
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3DBlob(::windows_core::IUnknown);
 impl ID3DBlob {
     pub unsafe fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void {
@@ -14,26 +15,10 @@ impl ID3DBlob {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3DBlob, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3DBlob {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3DBlob {}
-impl ::core::fmt::Debug for ID3DBlob {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3DBlob").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3DBlob {}
 unsafe impl ::core::marker::Sync for ID3DBlob {}
 unsafe impl ::windows_core::Interface for ID3DBlob {
     type Vtable = ID3DBlob_Vtbl;
-}
-impl ::core::clone::Clone for ID3DBlob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3DBlob {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
@@ -47,6 +32,7 @@ pub struct ID3DBlob_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3DDestructionNotifier(::windows_core::IUnknown);
 impl ID3DDestructionNotifier {
     pub unsafe fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<u32> {
@@ -58,26 +44,10 @@ impl ID3DDestructionNotifier {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID3DDestructionNotifier, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID3DDestructionNotifier {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3DDestructionNotifier {}
-impl ::core::fmt::Debug for ID3DDestructionNotifier {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3DDestructionNotifier").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3DDestructionNotifier {}
 unsafe impl ::core::marker::Sync for ID3DDestructionNotifier {}
 unsafe impl ::windows_core::Interface for ID3DDestructionNotifier {
     type Vtable = ID3DDestructionNotifier_Vtbl;
-}
-impl ::core::clone::Clone for ID3DDestructionNotifier {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID3DDestructionNotifier {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
@@ -91,6 +61,7 @@ pub struct ID3DDestructionNotifier_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID3DInclude(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ID3DInclude {
     pub unsafe fn Open<P0>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: P0, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows_core::Result<()>
@@ -103,26 +74,10 @@ impl ID3DInclude {
         (::windows_core::Interface::vtable(self).Close)(::windows_core::Interface::as_raw(self), pdata).ok()
     }
 }
-impl ::core::cmp::PartialEq for ID3DInclude {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID3DInclude {}
-impl ::core::fmt::Debug for ID3DInclude {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID3DInclude").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID3DInclude {}
 unsafe impl ::core::marker::Sync for ID3DInclude {}
 unsafe impl ::windows_core::Interface for ID3DInclude {
     type Vtable = ID3DInclude_Vtbl;
-}
-impl ::core::clone::Clone for ID3DInclude {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

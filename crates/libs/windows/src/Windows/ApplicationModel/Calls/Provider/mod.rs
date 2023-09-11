@@ -1,16 +1,11 @@
 #[doc(hidden)]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallOrigin(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for IPhoneCallOrigin {
     type Vtable = IPhoneCallOrigin_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for IPhoneCallOrigin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::ComInterface for IPhoneCallOrigin {
@@ -49,16 +44,11 @@ pub struct IPhoneCallOrigin_Vtbl {
 #[doc(hidden)]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallOrigin2(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for IPhoneCallOrigin2 {
     type Vtable = IPhoneCallOrigin2_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for IPhoneCallOrigin2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::ComInterface for IPhoneCallOrigin2 {
@@ -81,16 +71,11 @@ pub struct IPhoneCallOrigin2_Vtbl {
 #[doc(hidden)]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallOrigin3(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for IPhoneCallOrigin3 {
     type Vtable = IPhoneCallOrigin3_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for IPhoneCallOrigin3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::ComInterface for IPhoneCallOrigin3 {
@@ -113,16 +98,11 @@ pub struct IPhoneCallOrigin3_Vtbl {
 #[doc(hidden)]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallOriginManagerStatics(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for IPhoneCallOriginManagerStatics {
     type Vtable = IPhoneCallOriginManagerStatics_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for IPhoneCallOriginManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::ComInterface for IPhoneCallOriginManagerStatics {
@@ -149,16 +129,11 @@ pub struct IPhoneCallOriginManagerStatics_Vtbl {
 #[doc(hidden)]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallOriginManagerStatics2(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for IPhoneCallOriginManagerStatics2 {
     type Vtable = IPhoneCallOriginManagerStatics2_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for IPhoneCallOriginManagerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::ComInterface for IPhoneCallOriginManagerStatics2 {
@@ -177,16 +152,11 @@ pub struct IPhoneCallOriginManagerStatics2_Vtbl {
 #[doc(hidden)]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallOriginManagerStatics3(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for IPhoneCallOriginManagerStatics3 {
     type Vtable = IPhoneCallOriginManagerStatics3_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for IPhoneCallOriginManagerStatics3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::ComInterface for IPhoneCallOriginManagerStatics3 {
@@ -205,6 +175,7 @@ pub struct IPhoneCallOriginManagerStatics3_Vtbl {
 #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneCallOrigin(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PhoneCallOrigin {
@@ -295,28 +266,8 @@ impl PhoneCallOrigin {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for PhoneCallOrigin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for PhoneCallOrigin {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for PhoneCallOrigin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallOrigin").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeType for PhoneCallOrigin {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Provider.PhoneCallOrigin;{20613479-0ef9-4454-871c-afb66a14b6a5})");
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for PhoneCallOrigin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for PhoneCallOrigin {

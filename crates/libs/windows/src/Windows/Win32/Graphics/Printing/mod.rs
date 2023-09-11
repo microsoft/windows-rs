@@ -2234,6 +2234,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAsyncGetSendNotificationCookie(::windows_core::IUnknown);
 impl IAsyncGetSendNotificationCookie {
     pub unsafe fn FinishAsyncCall(&self, param0: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
@@ -2253,24 +2254,8 @@ impl IAsyncGetSendNotificationCookie {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAsyncGetSendNotificationCookie, ::windows_core::IUnknown, IPrintAsyncCookie);
-impl ::core::cmp::PartialEq for IAsyncGetSendNotificationCookie {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAsyncGetSendNotificationCookie {}
-impl ::core::fmt::Debug for IAsyncGetSendNotificationCookie {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAsyncGetSendNotificationCookie").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAsyncGetSendNotificationCookie {
     type Vtable = IAsyncGetSendNotificationCookie_Vtbl;
-}
-impl ::core::clone::Clone for IAsyncGetSendNotificationCookie {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAsyncGetSendNotificationCookie {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -2286,6 +2271,7 @@ pub struct IAsyncGetSendNotificationCookie_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAsyncGetSrvReferralCookie(::windows_core::IUnknown);
 impl IAsyncGetSrvReferralCookie {
     pub unsafe fn FinishAsyncCall(&self, param0: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
@@ -2302,24 +2288,8 @@ impl IAsyncGetSrvReferralCookie {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAsyncGetSrvReferralCookie, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAsyncGetSrvReferralCookie {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAsyncGetSrvReferralCookie {}
-impl ::core::fmt::Debug for IAsyncGetSrvReferralCookie {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAsyncGetSrvReferralCookie").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAsyncGetSrvReferralCookie {
     type Vtable = IAsyncGetSrvReferralCookie_Vtbl;
-}
-impl ::core::clone::Clone for IAsyncGetSrvReferralCookie {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAsyncGetSrvReferralCookie {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -2334,6 +2304,7 @@ pub struct IAsyncGetSrvReferralCookie_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBidiAsyncNotifyChannel(::windows_core::IUnknown);
 impl IBidiAsyncNotifyChannel {
     pub unsafe fn SendNotification<P0>(&self, pdata: P0) -> ::windows_core::Result<()>
@@ -2373,24 +2344,8 @@ impl IBidiAsyncNotifyChannel {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBidiAsyncNotifyChannel, ::windows_core::IUnknown, IPrintAsyncNotifyChannel);
-impl ::core::cmp::PartialEq for IBidiAsyncNotifyChannel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBidiAsyncNotifyChannel {}
-impl ::core::fmt::Debug for IBidiAsyncNotifyChannel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBidiAsyncNotifyChannel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBidiAsyncNotifyChannel {
     type Vtable = IBidiAsyncNotifyChannel_Vtbl;
-}
-impl ::core::clone::Clone for IBidiAsyncNotifyChannel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBidiAsyncNotifyChannel {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x532818f7_921b_4fb2_bff8_2f4fd52ebebf);
@@ -2407,6 +2362,7 @@ pub struct IBidiAsyncNotifyChannel_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBidiRequest(::windows_core::IUnknown);
 impl IBidiRequest {
     pub unsafe fn SetSchema<P0>(&self, pszschema: P0) -> ::windows_core::Result<()>
@@ -2431,24 +2387,8 @@ impl IBidiRequest {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBidiRequest, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBidiRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBidiRequest {}
-impl ::core::fmt::Debug for IBidiRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBidiRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBidiRequest {
     type Vtable = IBidiRequest_Vtbl;
-}
-impl ::core::clone::Clone for IBidiRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBidiRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f348bd7_4b47_4755_8a9d_0f422df3dc89);
@@ -2465,6 +2405,7 @@ pub struct IBidiRequest_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBidiRequestContainer(::windows_core::IUnknown);
 impl IBidiRequestContainer {
     pub unsafe fn AddRequest<P0>(&self, prequest: P0) -> ::windows_core::Result<()>
@@ -2485,24 +2426,8 @@ impl IBidiRequestContainer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBidiRequestContainer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBidiRequestContainer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBidiRequestContainer {}
-impl ::core::fmt::Debug for IBidiRequestContainer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBidiRequestContainer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBidiRequestContainer {
     type Vtable = IBidiRequestContainer_Vtbl;
-}
-impl ::core::clone::Clone for IBidiRequestContainer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBidiRequestContainer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd752f6c0_94a8_4275_a77d_8f1d1a1121ae);
@@ -2520,6 +2445,7 @@ pub struct IBidiRequestContainer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBidiSpl(::windows_core::IUnknown);
 impl IBidiSpl {
     pub unsafe fn BindDevice<P0>(&self, pszdevicename: P0, dwaccess: u32) -> ::windows_core::Result<()>
@@ -2547,24 +2473,8 @@ impl IBidiSpl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBidiSpl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBidiSpl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBidiSpl {}
-impl ::core::fmt::Debug for IBidiSpl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBidiSpl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBidiSpl {
     type Vtable = IBidiSpl_Vtbl;
-}
-impl ::core::clone::Clone for IBidiSpl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBidiSpl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd580dc0e_de39_4649_baa8_bf0b85a03a97);
@@ -2580,6 +2490,7 @@ pub struct IBidiSpl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBidiSpl2(::windows_core::IUnknown);
 impl IBidiSpl2 {
     pub unsafe fn BindDevice<P0>(&self, pszdevicename: P0, dwaccess: u32) -> ::windows_core::Result<()>
@@ -2609,24 +2520,8 @@ impl IBidiSpl2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBidiSpl2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBidiSpl2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBidiSpl2 {}
-impl ::core::fmt::Debug for IBidiSpl2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBidiSpl2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBidiSpl2 {
     type Vtable = IBidiSpl2_Vtbl;
-}
-impl ::core::clone::Clone for IBidiSpl2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBidiSpl2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0e8f51b8_8273_4906_8e7b_be453ffd2e2b);
@@ -2645,6 +2540,7 @@ pub struct IBidiSpl2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFixedDocument(::windows_core::IUnknown);
 impl IFixedDocument {
     pub unsafe fn GetUri(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -2663,24 +2559,8 @@ impl IFixedDocument {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IFixedDocument, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IFixedDocument {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFixedDocument {}
-impl ::core::fmt::Debug for IFixedDocument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFixedDocument").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IFixedDocument {
     type Vtable = IFixedDocument_Vtbl;
-}
-impl ::core::clone::Clone for IFixedDocument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFixedDocument {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf222ca9f_9968_4db9_81bd_abaebf15f93f);
@@ -2695,6 +2575,7 @@ pub struct IFixedDocument_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFixedDocumentSequence(::windows_core::IUnknown);
 impl IFixedDocumentSequence {
     pub unsafe fn GetUri(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -2713,24 +2594,8 @@ impl IFixedDocumentSequence {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IFixedDocumentSequence, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IFixedDocumentSequence {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFixedDocumentSequence {}
-impl ::core::fmt::Debug for IFixedDocumentSequence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFixedDocumentSequence").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IFixedDocumentSequence {
     type Vtable = IFixedDocumentSequence_Vtbl;
-}
-impl ::core::clone::Clone for IFixedDocumentSequence {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFixedDocumentSequence {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8028d181_2c32_4249_8493_1bfb22045574);
@@ -2745,6 +2610,7 @@ pub struct IFixedDocumentSequence_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFixedPage(::windows_core::IUnknown);
 impl IFixedPage {
     pub unsafe fn GetUri(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -2801,24 +2667,8 @@ impl IFixedPage {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IFixedPage, ::windows_core::IUnknown, IPartBase);
-impl ::core::cmp::PartialEq for IFixedPage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFixedPage {}
-impl ::core::fmt::Debug for IFixedPage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFixedPage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IFixedPage {
     type Vtable = IFixedPage_Vtbl;
-}
-impl ::core::clone::Clone for IFixedPage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFixedPage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d9f6448_7e95_4cb5_94fb_0180c2883a57);
@@ -2838,6 +2688,7 @@ pub struct IFixedPage_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(feature = "Win32_System_Ole")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IImgCreateErrorInfo(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Ole")]
 impl IImgCreateErrorInfo {
@@ -2882,28 +2733,8 @@ impl IImgCreateErrorInfo {
 #[cfg(feature = "Win32_System_Ole")]
 ::windows_core::imp::interface_hierarchy!(IImgCreateErrorInfo, ::windows_core::IUnknown, super::super::System::Ole::ICreateErrorInfo);
 #[cfg(feature = "Win32_System_Ole")]
-impl ::core::cmp::PartialEq for IImgCreateErrorInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Ole")]
-impl ::core::cmp::Eq for IImgCreateErrorInfo {}
-#[cfg(feature = "Win32_System_Ole")]
-impl ::core::fmt::Debug for IImgCreateErrorInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IImgCreateErrorInfo").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Ole")]
 unsafe impl ::windows_core::Interface for IImgCreateErrorInfo {
     type Vtable = IImgCreateErrorInfo_Vtbl;
-}
-#[cfg(feature = "Win32_System_Ole")]
-impl ::core::clone::Clone for IImgCreateErrorInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Ole")]
 unsafe impl ::windows_core::ComInterface for IImgCreateErrorInfo {
@@ -2919,6 +2750,7 @@ pub struct IImgCreateErrorInfo_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IImgErrorInfo(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IImgErrorInfo {
@@ -2983,28 +2815,8 @@ impl IImgErrorInfo {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IImgErrorInfo, ::windows_core::IUnknown, super::super::System::Com::IErrorInfo);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IImgErrorInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IImgErrorInfo {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IImgErrorInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IImgErrorInfo").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IImgErrorInfo {
     type Vtable = IImgErrorInfo_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IImgErrorInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IImgErrorInfo {
@@ -3025,6 +2837,7 @@ pub struct IImgErrorInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInterFilterCommunicator(::windows_core::IUnknown);
 impl IInterFilterCommunicator {
     pub unsafe fn RequestReader(&self, ppireader: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -3035,24 +2848,8 @@ impl IInterFilterCommunicator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInterFilterCommunicator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInterFilterCommunicator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInterFilterCommunicator {}
-impl ::core::fmt::Debug for IInterFilterCommunicator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInterFilterCommunicator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInterFilterCommunicator {
     type Vtable = IInterFilterCommunicator_Vtbl;
-}
-impl ::core::clone::Clone for IInterFilterCommunicator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInterFilterCommunicator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4daf1e69_81fd_462d_940f_8cd3ddf56fca);
@@ -3066,6 +2863,7 @@ pub struct IInterFilterCommunicator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPartBase(::windows_core::IUnknown);
 impl IPartBase {
     pub unsafe fn GetUri(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3085,24 +2883,8 @@ impl IPartBase {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPartBase, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPartBase {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPartBase {}
-impl ::core::fmt::Debug for IPartBase {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPartBase").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPartBase {
     type Vtable = IPartBase_Vtbl;
-}
-impl ::core::clone::Clone for IPartBase {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPartBase {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36d51e28_369e_43ba_a666_9540c62c3f58);
@@ -3118,6 +2900,7 @@ pub struct IPartBase_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPartColorProfile(::windows_core::IUnknown);
 impl IPartColorProfile {
     pub unsafe fn GetUri(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3137,24 +2920,8 @@ impl IPartColorProfile {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPartColorProfile, ::windows_core::IUnknown, IPartBase);
-impl ::core::cmp::PartialEq for IPartColorProfile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPartColorProfile {}
-impl ::core::fmt::Debug for IPartColorProfile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPartColorProfile").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPartColorProfile {
     type Vtable = IPartColorProfile_Vtbl;
-}
-impl ::core::clone::Clone for IPartColorProfile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPartColorProfile {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x63cca95b_7d18_4762_b15e_98658693d24a);
@@ -3166,6 +2933,7 @@ pub struct IPartColorProfile_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPartDiscardControl(::windows_core::IUnknown);
 impl IPartDiscardControl {
     pub unsafe fn GetDiscardProperties(&self, urisentinelpage: *mut ::windows_core::BSTR, uriparttodiscard: *mut ::windows_core::BSTR) -> ::windows_core::Result<()> {
@@ -3173,24 +2941,8 @@ impl IPartDiscardControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPartDiscardControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPartDiscardControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPartDiscardControl {}
-impl ::core::fmt::Debug for IPartDiscardControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPartDiscardControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPartDiscardControl {
     type Vtable = IPartDiscardControl_Vtbl;
-}
-impl ::core::clone::Clone for IPartDiscardControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPartDiscardControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc350c00_095b_42a5_bf0f_c8780edadb3c);
@@ -3203,6 +2955,7 @@ pub struct IPartDiscardControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPartFont(::windows_core::IUnknown);
 impl IPartFont {
     pub unsafe fn GetUri(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3234,24 +2987,8 @@ impl IPartFont {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPartFont, ::windows_core::IUnknown, IPartBase);
-impl ::core::cmp::PartialEq for IPartFont {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPartFont {}
-impl ::core::fmt::Debug for IPartFont {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPartFont").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPartFont {
     type Vtable = IPartFont_Vtbl;
-}
-impl ::core::clone::Clone for IPartFont {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPartFont {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe07fe0ab_1124_43d0_a865_e8ffb6a3ea82);
@@ -3266,6 +3003,7 @@ pub struct IPartFont_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPartFont2(::windows_core::IUnknown);
 impl IPartFont2 {
     pub unsafe fn GetUri(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3301,24 +3039,8 @@ impl IPartFont2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPartFont2, ::windows_core::IUnknown, IPartBase, IPartFont);
-impl ::core::cmp::PartialEq for IPartFont2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPartFont2 {}
-impl ::core::fmt::Debug for IPartFont2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPartFont2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPartFont2 {
     type Vtable = IPartFont2_Vtbl;
-}
-impl ::core::clone::Clone for IPartFont2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPartFont2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x511e025f_d6cb_43be_bf65_63fe88515a39);
@@ -3331,6 +3053,7 @@ pub struct IPartFont2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPartImage(::windows_core::IUnknown);
 impl IPartImage {
     pub unsafe fn GetUri(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3360,24 +3083,8 @@ impl IPartImage {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPartImage, ::windows_core::IUnknown, IPartBase);
-impl ::core::cmp::PartialEq for IPartImage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPartImage {}
-impl ::core::fmt::Debug for IPartImage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPartImage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPartImage {
     type Vtable = IPartImage_Vtbl;
-}
-impl ::core::clone::Clone for IPartImage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPartImage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x725f2e3c_401a_4705_9de0_fe6f1353b87f);
@@ -3391,6 +3098,7 @@ pub struct IPartImage_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPartPrintTicket(::windows_core::IUnknown);
 impl IPartPrintTicket {
     pub unsafe fn GetUri(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3410,24 +3118,8 @@ impl IPartPrintTicket {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPartPrintTicket, ::windows_core::IUnknown, IPartBase);
-impl ::core::cmp::PartialEq for IPartPrintTicket {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPartPrintTicket {}
-impl ::core::fmt::Debug for IPartPrintTicket {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPartPrintTicket").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPartPrintTicket {
     type Vtable = IPartPrintTicket_Vtbl;
-}
-impl ::core::clone::Clone for IPartPrintTicket {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPartPrintTicket {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4a0f50f6_f9a2_41f0_99e7_5ae955be8e9e);
@@ -3439,6 +3131,7 @@ pub struct IPartPrintTicket_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPartResourceDictionary(::windows_core::IUnknown);
 impl IPartResourceDictionary {
     pub unsafe fn GetUri(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3458,24 +3151,8 @@ impl IPartResourceDictionary {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPartResourceDictionary, ::windows_core::IUnknown, IPartBase);
-impl ::core::cmp::PartialEq for IPartResourceDictionary {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPartResourceDictionary {}
-impl ::core::fmt::Debug for IPartResourceDictionary {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPartResourceDictionary").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPartResourceDictionary {
     type Vtable = IPartResourceDictionary_Vtbl;
-}
-impl ::core::clone::Clone for IPartResourceDictionary {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPartResourceDictionary {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x16cfce6d_e744_4fb3_b474_f1d54f024a01);
@@ -3487,6 +3164,7 @@ pub struct IPartResourceDictionary_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPartThumbnail(::windows_core::IUnknown);
 impl IPartThumbnail {
     pub unsafe fn GetUri(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3516,24 +3194,8 @@ impl IPartThumbnail {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPartThumbnail, ::windows_core::IUnknown, IPartBase);
-impl ::core::cmp::PartialEq for IPartThumbnail {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPartThumbnail {}
-impl ::core::fmt::Debug for IPartThumbnail {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPartThumbnail").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPartThumbnail {
     type Vtable = IPartThumbnail_Vtbl;
-}
-impl ::core::clone::Clone for IPartThumbnail {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPartThumbnail {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x027ed1c9_ba39_4cc5_aa55_7ec3a0de171a);
@@ -3547,6 +3209,7 @@ pub struct IPartThumbnail_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintAsyncCookie(::windows_core::IUnknown);
 impl IPrintAsyncCookie {
     pub unsafe fn FinishAsyncCall(&self, param0: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
@@ -3557,24 +3220,8 @@ impl IPrintAsyncCookie {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintAsyncCookie, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintAsyncCookie {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintAsyncCookie {}
-impl ::core::fmt::Debug for IPrintAsyncCookie {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintAsyncCookie").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintAsyncCookie {
     type Vtable = IPrintAsyncCookie_Vtbl;
-}
-impl ::core::clone::Clone for IPrintAsyncCookie {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintAsyncCookie {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -3588,6 +3235,7 @@ pub struct IPrintAsyncCookie_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintAsyncNewChannelCookie(::windows_core::IUnknown);
 impl IPrintAsyncNewChannelCookie {
     pub unsafe fn FinishAsyncCall(&self, param0: ::windows_core::HRESULT) -> ::windows_core::Result<()> {
@@ -3601,24 +3249,8 @@ impl IPrintAsyncNewChannelCookie {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintAsyncNewChannelCookie, ::windows_core::IUnknown, IPrintAsyncCookie);
-impl ::core::cmp::PartialEq for IPrintAsyncNewChannelCookie {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintAsyncNewChannelCookie {}
-impl ::core::fmt::Debug for IPrintAsyncNewChannelCookie {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintAsyncNewChannelCookie").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintAsyncNewChannelCookie {
     type Vtable = IPrintAsyncNewChannelCookie_Vtbl;
-}
-impl ::core::clone::Clone for IPrintAsyncNewChannelCookie {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintAsyncNewChannelCookie {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -3631,6 +3263,7 @@ pub struct IPrintAsyncNewChannelCookie_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintAsyncNotify(::windows_core::IUnknown);
 impl IPrintAsyncNotify {
     pub unsafe fn CreatePrintAsyncNotifyChannel<P0>(&self, param0: u32, param1: *const ::windows_core::GUID, param2: PrintAsyncNotifyUserFilter, param3: PrintAsyncNotifyConversationStyle, param4: P0) -> ::windows_core::Result<IPrintAsyncNotifyChannel>
@@ -3649,24 +3282,8 @@ impl IPrintAsyncNotify {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintAsyncNotify, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintAsyncNotify {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintAsyncNotify {}
-impl ::core::fmt::Debug for IPrintAsyncNotify {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintAsyncNotify").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintAsyncNotify {
     type Vtable = IPrintAsyncNotify_Vtbl;
-}
-impl ::core::clone::Clone for IPrintAsyncNotify {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintAsyncNotify {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x532818f7_921b_4fb2_bff8_2f4fd52ebebf);
@@ -3680,6 +3297,7 @@ pub struct IPrintAsyncNotify_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintAsyncNotifyCallback(::windows_core::IUnknown);
 impl IPrintAsyncNotifyCallback {
     pub unsafe fn OnEventNotify<P0, P1>(&self, pchannel: P0, pdata: P1) -> ::windows_core::Result<()>
@@ -3698,24 +3316,8 @@ impl IPrintAsyncNotifyCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintAsyncNotifyCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintAsyncNotifyCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintAsyncNotifyCallback {}
-impl ::core::fmt::Debug for IPrintAsyncNotifyCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintAsyncNotifyCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintAsyncNotifyCallback {
     type Vtable = IPrintAsyncNotifyCallback_Vtbl;
-}
-impl ::core::clone::Clone for IPrintAsyncNotifyCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintAsyncNotifyCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7def34c1_9d92_4c99_b3b3_db94a9d4191b);
@@ -3729,6 +3331,7 @@ pub struct IPrintAsyncNotifyCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintAsyncNotifyChannel(::windows_core::IUnknown);
 impl IPrintAsyncNotifyChannel {
     pub unsafe fn SendNotification<P0>(&self, pdata: P0) -> ::windows_core::Result<()>
@@ -3745,24 +3348,8 @@ impl IPrintAsyncNotifyChannel {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintAsyncNotifyChannel, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintAsyncNotifyChannel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintAsyncNotifyChannel {}
-impl ::core::fmt::Debug for IPrintAsyncNotifyChannel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintAsyncNotifyChannel").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintAsyncNotifyChannel {
     type Vtable = IPrintAsyncNotifyChannel_Vtbl;
-}
-impl ::core::clone::Clone for IPrintAsyncNotifyChannel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintAsyncNotifyChannel {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4a5031b1_1f3f_4db0_a462_4530ed8b0451);
@@ -3776,6 +3363,7 @@ pub struct IPrintAsyncNotifyChannel_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintAsyncNotifyDataObject(::windows_core::IUnknown);
 impl IPrintAsyncNotifyDataObject {
     pub unsafe fn AcquireData(&self, ppnotificationdata: ::core::option::Option<*mut *mut u8>, psize: ::core::option::Option<*mut u32>, ppschema: ::core::option::Option<*mut *mut ::windows_core::GUID>) -> ::windows_core::Result<()> {
@@ -3786,24 +3374,8 @@ impl IPrintAsyncNotifyDataObject {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintAsyncNotifyDataObject, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintAsyncNotifyDataObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintAsyncNotifyDataObject {}
-impl ::core::fmt::Debug for IPrintAsyncNotifyDataObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintAsyncNotifyDataObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintAsyncNotifyDataObject {
     type Vtable = IPrintAsyncNotifyDataObject_Vtbl;
-}
-impl ::core::clone::Clone for IPrintAsyncNotifyDataObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintAsyncNotifyDataObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x77cf513e_5d49_4789_9f30_d0822b335c0d);
@@ -3817,6 +3389,7 @@ pub struct IPrintAsyncNotifyDataObject_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintAsyncNotifyRegistration(::windows_core::IUnknown);
 impl IPrintAsyncNotifyRegistration {
     pub unsafe fn RegisterForNotifications(&self) -> ::windows_core::Result<()> {
@@ -3827,24 +3400,8 @@ impl IPrintAsyncNotifyRegistration {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintAsyncNotifyRegistration, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintAsyncNotifyRegistration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintAsyncNotifyRegistration {}
-impl ::core::fmt::Debug for IPrintAsyncNotifyRegistration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintAsyncNotifyRegistration").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintAsyncNotifyRegistration {
     type Vtable = IPrintAsyncNotifyRegistration_Vtbl;
-}
-impl ::core::clone::Clone for IPrintAsyncNotifyRegistration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintAsyncNotifyRegistration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f6f27b6_6f86_4591_9203_64c3bfadedfe);
@@ -3858,6 +3415,7 @@ pub struct IPrintAsyncNotifyRegistration_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintAsyncNotifyServerReferral(::windows_core::IUnknown);
 impl IPrintAsyncNotifyServerReferral {
     pub unsafe fn GetServerReferral(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -3878,24 +3436,8 @@ impl IPrintAsyncNotifyServerReferral {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintAsyncNotifyServerReferral, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintAsyncNotifyServerReferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintAsyncNotifyServerReferral {}
-impl ::core::fmt::Debug for IPrintAsyncNotifyServerReferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintAsyncNotifyServerReferral").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintAsyncNotifyServerReferral {
     type Vtable = IPrintAsyncNotifyServerReferral_Vtbl;
-}
-impl ::core::clone::Clone for IPrintAsyncNotifyServerReferral {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintAsyncNotifyServerReferral {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -3910,6 +3452,7 @@ pub struct IPrintAsyncNotifyServerReferral_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintBidiAsyncNotifyRegistration(::windows_core::IUnknown);
 impl IPrintBidiAsyncNotifyRegistration {
     pub unsafe fn RegisterForNotifications(&self) -> ::windows_core::Result<()> {
@@ -3926,24 +3469,8 @@ impl IPrintBidiAsyncNotifyRegistration {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintBidiAsyncNotifyRegistration, ::windows_core::IUnknown, IPrintAsyncNotifyRegistration);
-impl ::core::cmp::PartialEq for IPrintBidiAsyncNotifyRegistration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintBidiAsyncNotifyRegistration {}
-impl ::core::fmt::Debug for IPrintBidiAsyncNotifyRegistration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintBidiAsyncNotifyRegistration").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintBidiAsyncNotifyRegistration {
     type Vtable = IPrintBidiAsyncNotifyRegistration_Vtbl;
-}
-impl ::core::clone::Clone for IPrintBidiAsyncNotifyRegistration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintBidiAsyncNotifyRegistration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -3956,6 +3483,7 @@ pub struct IPrintBidiAsyncNotifyRegistration_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintClassObjectFactory(::windows_core::IUnknown);
 impl IPrintClassObjectFactory {
     pub unsafe fn GetPrintClassObject<P0>(&self, pszprintername: P0, riid: *const ::windows_core::GUID, ppnewobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -3966,24 +3494,8 @@ impl IPrintClassObjectFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintClassObjectFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintClassObjectFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintClassObjectFactory {}
-impl ::core::fmt::Debug for IPrintClassObjectFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintClassObjectFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintClassObjectFactory {
     type Vtable = IPrintClassObjectFactory_Vtbl;
-}
-impl ::core::clone::Clone for IPrintClassObjectFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintClassObjectFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9af593dd_9b02_48a8_9bad_69ace423f88b);
@@ -3996,6 +3508,7 @@ pub struct IPrintClassObjectFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintCoreHelper(::windows_core::IUnknown);
 impl IPrintCoreHelper {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -4062,24 +3575,8 @@ impl IPrintCoreHelper {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintCoreHelper, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintCoreHelper {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintCoreHelper {}
-impl ::core::fmt::Debug for IPrintCoreHelper {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintCoreHelper").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintCoreHelper {
     type Vtable = IPrintCoreHelper_Vtbl;
-}
-impl ::core::clone::Clone for IPrintCoreHelper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintCoreHelper {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa89ec53e_3905_49c6_9c1a_c0a88117fdb6);
@@ -4112,6 +3609,7 @@ pub struct IPrintCoreHelper_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintCoreHelperPS(::windows_core::IUnknown);
 impl IPrintCoreHelperPS {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -4199,24 +3697,8 @@ impl IPrintCoreHelperPS {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintCoreHelperPS, ::windows_core::IUnknown, IPrintCoreHelper);
-impl ::core::cmp::PartialEq for IPrintCoreHelperPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintCoreHelperPS {}
-impl ::core::fmt::Debug for IPrintCoreHelperPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintCoreHelperPS").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintCoreHelperPS {
     type Vtable = IPrintCoreHelperPS_Vtbl;
-}
-impl ::core::clone::Clone for IPrintCoreHelperPS {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintCoreHelperPS {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2c14f6f_95d3_4d63_96cf_6bd9e6c907c2);
@@ -4231,6 +3713,7 @@ pub struct IPrintCoreHelperPS_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintCoreHelperUni(::windows_core::IUnknown);
 impl IPrintCoreHelperUni {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -4308,24 +3791,8 @@ impl IPrintCoreHelperUni {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintCoreHelperUni, ::windows_core::IUnknown, IPrintCoreHelper);
-impl ::core::cmp::PartialEq for IPrintCoreHelperUni {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintCoreHelperUni {}
-impl ::core::fmt::Debug for IPrintCoreHelperUni {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintCoreHelperUni").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintCoreHelperUni {
     type Vtable = IPrintCoreHelperUni_Vtbl;
-}
-impl ::core::clone::Clone for IPrintCoreHelperUni {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintCoreHelperUni {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7e8e51d6_e5ee_4426_817b_958b9444eb79);
@@ -4345,6 +3812,7 @@ pub struct IPrintCoreHelperUni_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintCoreHelperUni2(::windows_core::IUnknown);
 impl IPrintCoreHelperUni2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -4430,24 +3898,8 @@ impl IPrintCoreHelperUni2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintCoreHelperUni2, ::windows_core::IUnknown, IPrintCoreHelper, IPrintCoreHelperUni);
-impl ::core::cmp::PartialEq for IPrintCoreHelperUni2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintCoreHelperUni2 {}
-impl ::core::fmt::Debug for IPrintCoreHelperUni2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintCoreHelperUni2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintCoreHelperUni2 {
     type Vtable = IPrintCoreHelperUni2_Vtbl;
-}
-impl ::core::clone::Clone for IPrintCoreHelperUni2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintCoreHelperUni2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c8afdfc_ead0_4d2d_8071_9bf0175a6c3a);
@@ -4463,6 +3915,7 @@ pub struct IPrintCoreHelperUni2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintCoreUI2(::windows_core::IUnknown);
 impl IPrintCoreUI2 {
     pub unsafe fn DrvGetDriverSetting<P0>(&self, pci: *mut ::core::ffi::c_void, feature: P0, poutput: *mut ::core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32, pdwoptionsreturned: *mut u32) -> ::windows_core::Result<()>
@@ -4562,24 +4015,8 @@ impl IPrintCoreUI2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintCoreUI2, ::windows_core::IUnknown, IPrintOemDriverUI);
-impl ::core::cmp::PartialEq for IPrintCoreUI2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintCoreUI2 {}
-impl ::core::fmt::Debug for IPrintCoreUI2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintCoreUI2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintCoreUI2 {
     type Vtable = IPrintCoreUI2_Vtbl;
-}
-impl ::core::clone::Clone for IPrintCoreUI2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintCoreUI2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x085ccfca_3adf_4c9e_b491_d851a6edc997);
@@ -4631,6 +4068,7 @@ pub struct IPrintCoreUI2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintJob(::windows_core::IUnknown);
 impl IPrintJob {
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -4662,24 +4100,8 @@ impl IPrintJob {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintJob, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintJob {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintJob {}
-impl ::core::fmt::Debug for IPrintJob {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintJob").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintJob {
     type Vtable = IPrintJob_Vtbl;
-}
-impl ::core::clone::Clone for IPrintJob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintJob {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb771dab8_1282_41b7_858c_f206e4d20577);
@@ -4699,6 +4121,7 @@ pub struct IPrintJob_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintJobCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintJobCollection {
@@ -4718,28 +4141,8 @@ impl IPrintJobCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrintJobCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrintJobCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrintJobCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrintJobCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintJobCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrintJobCollection {
     type Vtable = IPrintJobCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintJobCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrintJobCollection {
@@ -4756,6 +4159,7 @@ pub struct IPrintJobCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintOemCommon(::windows_core::IUnknown);
 impl IPrintOemCommon {
     pub unsafe fn GetInfo(&self, dwmode: u32, pbuffer: *mut ::core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32) -> ::windows_core::Result<()> {
@@ -4768,24 +4172,8 @@ impl IPrintOemCommon {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintOemCommon, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintOemCommon {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintOemCommon {}
-impl ::core::fmt::Debug for IPrintOemCommon {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintOemCommon").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintOemCommon {
     type Vtable = IPrintOemCommon_Vtbl;
-}
-impl ::core::clone::Clone for IPrintOemCommon {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintOemCommon {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f42285e_91d5_11d1_8820_00c04fb961ec);
@@ -4802,6 +4190,7 @@ pub struct IPrintOemCommon_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintOemDriverUI(::windows_core::IUnknown);
 impl IPrintOemDriverUI {
     pub unsafe fn DrvGetDriverSetting<P0>(&self, pci: *mut ::core::ffi::c_void, feature: P0, poutput: *mut ::core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32, pdwoptionsreturned: *mut u32) -> ::windows_core::Result<()>
@@ -4825,24 +4214,8 @@ impl IPrintOemDriverUI {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintOemDriverUI, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintOemDriverUI {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintOemDriverUI {}
-impl ::core::fmt::Debug for IPrintOemDriverUI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintOemDriverUI").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintOemDriverUI {
     type Vtable = IPrintOemDriverUI_Vtbl;
-}
-impl ::core::clone::Clone for IPrintOemDriverUI {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintOemDriverUI {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92b05d50_78bc_11d1_9480_00a0c90640b8);
@@ -4860,6 +4233,7 @@ pub struct IPrintOemDriverUI_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintOemUI(::windows_core::IUnknown);
 impl IPrintOemUI {
     pub unsafe fn GetInfo(&self, dwmode: u32, pbuffer: *mut ::core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32) -> ::windows_core::Result<()> {
@@ -4961,24 +4335,8 @@ impl IPrintOemUI {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintOemUI, ::windows_core::IUnknown, IPrintOemCommon);
-impl ::core::cmp::PartialEq for IPrintOemUI {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintOemUI {}
-impl ::core::fmt::Debug for IPrintOemUI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintOemUI").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintOemUI {
     type Vtable = IPrintOemUI_Vtbl;
-}
-impl ::core::clone::Clone for IPrintOemUI {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintOemUI {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6a7a9d0_774c_11d1_947f_00a0c90640b8);
@@ -5032,6 +4390,7 @@ pub struct IPrintOemUI_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintOemUI2(::windows_core::IUnknown);
 impl IPrintOemUI2 {
     pub unsafe fn GetInfo(&self, dwmode: u32, pbuffer: *mut ::core::ffi::c_void, cbsize: u32, pcbneeded: *mut u32) -> ::windows_core::Result<()> {
@@ -5153,24 +4512,8 @@ impl IPrintOemUI2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintOemUI2, ::windows_core::IUnknown, IPrintOemCommon, IPrintOemUI);
-impl ::core::cmp::PartialEq for IPrintOemUI2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintOemUI2 {}
-impl ::core::fmt::Debug for IPrintOemUI2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintOemUI2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintOemUI2 {
     type Vtable = IPrintOemUI2_Vtbl;
-}
-impl ::core::clone::Clone for IPrintOemUI2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintOemUI2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x292515f9_b54b_489b_9275_bab56821395e);
@@ -5191,6 +4534,7 @@ pub struct IPrintOemUI2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintOemUIMXDC(::windows_core::IUnknown);
 impl IPrintOemUIMXDC {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -5219,24 +4563,8 @@ impl IPrintOemUIMXDC {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintOemUIMXDC, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintOemUIMXDC {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintOemUIMXDC {}
-impl ::core::fmt::Debug for IPrintOemUIMXDC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintOemUIMXDC").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintOemUIMXDC {
     type Vtable = IPrintOemUIMXDC_Vtbl;
-}
-impl ::core::clone::Clone for IPrintOemUIMXDC {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintOemUIMXDC {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7349d725_e2c1_4dca_afb5_c13e91bc9306);
@@ -5260,6 +4588,7 @@ pub struct IPrintOemUIMXDC_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintPipelineFilter(::windows_core::IUnknown);
 impl IPrintPipelineFilter {
     pub unsafe fn InitializeFilter<P0, P1, P2>(&self, pinegotiation: P0, pipropertybag: P1, pipipelinecontrol: P2) -> ::windows_core::Result<()>
@@ -5278,24 +4607,8 @@ impl IPrintPipelineFilter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintPipelineFilter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintPipelineFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintPipelineFilter {}
-impl ::core::fmt::Debug for IPrintPipelineFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintPipelineFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintPipelineFilter {
     type Vtable = IPrintPipelineFilter_Vtbl;
-}
-impl ::core::clone::Clone for IPrintPipelineFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintPipelineFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcdb62fc0_8bed_434e_86fb_a2cae55f19ea);
@@ -5310,6 +4623,7 @@ pub struct IPrintPipelineFilter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintPipelineManagerControl(::windows_core::IUnknown);
 impl IPrintPipelineManagerControl {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5325,24 +4639,8 @@ impl IPrintPipelineManagerControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintPipelineManagerControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintPipelineManagerControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintPipelineManagerControl {}
-impl ::core::fmt::Debug for IPrintPipelineManagerControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintPipelineManagerControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintPipelineManagerControl {
     type Vtable = IPrintPipelineManagerControl_Vtbl;
-}
-impl ::core::clone::Clone for IPrintPipelineManagerControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintPipelineManagerControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa3e4910_5889_4681_91ef_823ad4ed4e44);
@@ -5359,6 +4657,7 @@ pub struct IPrintPipelineManagerControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintPipelineProgressReport(::windows_core::IUnknown);
 impl IPrintPipelineProgressReport {
     pub unsafe fn ReportProgress(&self, update: EXpsJobConsumption) -> ::windows_core::Result<()> {
@@ -5366,24 +4665,8 @@ impl IPrintPipelineProgressReport {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintPipelineProgressReport, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintPipelineProgressReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintPipelineProgressReport {}
-impl ::core::fmt::Debug for IPrintPipelineProgressReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintPipelineProgressReport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintPipelineProgressReport {
     type Vtable = IPrintPipelineProgressReport_Vtbl;
-}
-impl ::core::clone::Clone for IPrintPipelineProgressReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintPipelineProgressReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xedc12c7c_ed40_4ea5_96a6_5e4397497a61);
@@ -5396,6 +4679,7 @@ pub struct IPrintPipelineProgressReport_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintPipelinePropertyBag(::windows_core::IUnknown);
 impl IPrintPipelinePropertyBag {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -5425,24 +4709,8 @@ impl IPrintPipelinePropertyBag {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintPipelinePropertyBag, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintPipelinePropertyBag {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintPipelinePropertyBag {}
-impl ::core::fmt::Debug for IPrintPipelinePropertyBag {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintPipelinePropertyBag").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintPipelinePropertyBag {
     type Vtable = IPrintPipelinePropertyBag_Vtbl;
-}
-impl ::core::clone::Clone for IPrintPipelinePropertyBag {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintPipelinePropertyBag {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8b8c99dc_7892_4a95_8a04_57422e9fbb47);
@@ -5466,6 +4734,7 @@ pub struct IPrintPipelinePropertyBag_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintPreviewDxgiPackageTarget(::windows_core::IUnknown);
 impl IPrintPreviewDxgiPackageTarget {
     pub unsafe fn SetJobPageCount(&self, counttype: PageCountType, count: u32) -> ::windows_core::Result<()> {
@@ -5484,24 +4753,8 @@ impl IPrintPreviewDxgiPackageTarget {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintPreviewDxgiPackageTarget, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintPreviewDxgiPackageTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintPreviewDxgiPackageTarget {}
-impl ::core::fmt::Debug for IPrintPreviewDxgiPackageTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintPreviewDxgiPackageTarget").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintPreviewDxgiPackageTarget {
     type Vtable = IPrintPreviewDxgiPackageTarget_Vtbl;
-}
-impl ::core::clone::Clone for IPrintPreviewDxgiPackageTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintPreviewDxgiPackageTarget {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1a6dd0ad_1e2a_4e99_a5ba_91f17818290e);
@@ -5519,6 +4772,7 @@ pub struct IPrintPreviewDxgiPackageTarget_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintReadStream(::windows_core::IUnknown);
 impl IPrintReadStream {
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: u32, plibnewposition: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()> {
@@ -5531,24 +4785,8 @@ impl IPrintReadStream {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintReadStream, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintReadStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintReadStream {}
-impl ::core::fmt::Debug for IPrintReadStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintReadStream").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintReadStream {
     type Vtable = IPrintReadStream_Vtbl;
-}
-impl ::core::clone::Clone for IPrintReadStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintReadStream {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4d47a67c_66cc_4430_850e_daf466fe5bc4);
@@ -5565,6 +4803,7 @@ pub struct IPrintReadStream_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintReadStreamFactory(::windows_core::IUnknown);
 impl IPrintReadStreamFactory {
     pub unsafe fn GetStream(&self) -> ::windows_core::Result<IPrintReadStream> {
@@ -5573,24 +4812,8 @@ impl IPrintReadStreamFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintReadStreamFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintReadStreamFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintReadStreamFactory {}
-impl ::core::fmt::Debug for IPrintReadStreamFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintReadStreamFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintReadStreamFactory {
     type Vtable = IPrintReadStreamFactory_Vtbl;
-}
-impl ::core::clone::Clone for IPrintReadStreamFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintReadStreamFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xacb971e3_df8d_4fc2_bee6_0609d15f3cf9);
@@ -5604,6 +4827,7 @@ pub struct IPrintReadStreamFactory_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintSchemaAsyncOperation(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaAsyncOperation {
@@ -5617,28 +4841,8 @@ impl IPrintSchemaAsyncOperation {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrintSchemaAsyncOperation, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrintSchemaAsyncOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrintSchemaAsyncOperation {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrintSchemaAsyncOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintSchemaAsyncOperation").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrintSchemaAsyncOperation {
     type Vtable = IPrintSchemaAsyncOperation_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaAsyncOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrintSchemaAsyncOperation {
@@ -5655,6 +4859,7 @@ pub struct IPrintSchemaAsyncOperation_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintSchemaAsyncOperationEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaAsyncOperationEvent {
@@ -5670,28 +4875,8 @@ impl IPrintSchemaAsyncOperationEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrintSchemaAsyncOperationEvent, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrintSchemaAsyncOperationEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrintSchemaAsyncOperationEvent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrintSchemaAsyncOperationEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintSchemaAsyncOperationEvent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrintSchemaAsyncOperationEvent {
     type Vtable = IPrintSchemaAsyncOperationEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaAsyncOperationEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrintSchemaAsyncOperationEvent {
@@ -5710,6 +4895,7 @@ pub struct IPrintSchemaAsyncOperationEvent_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintSchemaCapabilities(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaCapabilities {
@@ -5780,28 +4966,8 @@ impl IPrintSchemaCapabilities {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrintSchemaCapabilities, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrintSchemaCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrintSchemaCapabilities {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrintSchemaCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintSchemaCapabilities").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrintSchemaCapabilities {
     type Vtable = IPrintSchemaCapabilities_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrintSchemaCapabilities {
@@ -5838,6 +5004,7 @@ pub struct IPrintSchemaCapabilities_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintSchemaCapabilities2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaCapabilities2 {
@@ -5918,28 +5085,8 @@ impl IPrintSchemaCapabilities2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrintSchemaCapabilities2, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement, IPrintSchemaCapabilities);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrintSchemaCapabilities2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrintSchemaCapabilities2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrintSchemaCapabilities2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintSchemaCapabilities2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrintSchemaCapabilities2 {
     type Vtable = IPrintSchemaCapabilities2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaCapabilities2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrintSchemaCapabilities2 {
@@ -5958,6 +5105,7 @@ pub struct IPrintSchemaCapabilities2_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintSchemaDisplayableElement(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaDisplayableElement {
@@ -5981,28 +5129,8 @@ impl IPrintSchemaDisplayableElement {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrintSchemaDisplayableElement, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrintSchemaDisplayableElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrintSchemaDisplayableElement {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrintSchemaDisplayableElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintSchemaDisplayableElement").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrintSchemaDisplayableElement {
     type Vtable = IPrintSchemaDisplayableElement_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaDisplayableElement {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrintSchemaDisplayableElement {
@@ -6018,6 +5146,7 @@ pub struct IPrintSchemaDisplayableElement_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintSchemaElement(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaElement {
@@ -6037,28 +5166,8 @@ impl IPrintSchemaElement {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrintSchemaElement, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrintSchemaElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrintSchemaElement {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrintSchemaElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintSchemaElement").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrintSchemaElement {
     type Vtable = IPrintSchemaElement_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaElement {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrintSchemaElement {
@@ -6076,6 +5185,7 @@ pub struct IPrintSchemaElement_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintSchemaFeature(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaFeature {
@@ -6133,28 +5243,8 @@ impl IPrintSchemaFeature {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrintSchemaFeature, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement, IPrintSchemaDisplayableElement);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrintSchemaFeature {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrintSchemaFeature {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrintSchemaFeature {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintSchemaFeature").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrintSchemaFeature {
     type Vtable = IPrintSchemaFeature_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaFeature {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrintSchemaFeature {
@@ -6186,6 +5276,7 @@ pub struct IPrintSchemaFeature_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintSchemaNUpOption(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaNUpOption {
@@ -6231,28 +5322,8 @@ impl IPrintSchemaNUpOption {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrintSchemaNUpOption, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement, IPrintSchemaDisplayableElement, IPrintSchemaOption);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrintSchemaNUpOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrintSchemaNUpOption {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrintSchemaNUpOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintSchemaNUpOption").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrintSchemaNUpOption {
     type Vtable = IPrintSchemaNUpOption_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaNUpOption {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrintSchemaNUpOption {
@@ -6268,6 +5339,7 @@ pub struct IPrintSchemaNUpOption_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintSchemaOption(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaOption {
@@ -6309,28 +5381,8 @@ impl IPrintSchemaOption {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrintSchemaOption, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement, IPrintSchemaDisplayableElement);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrintSchemaOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrintSchemaOption {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrintSchemaOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintSchemaOption").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrintSchemaOption {
     type Vtable = IPrintSchemaOption_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaOption {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrintSchemaOption {
@@ -6351,6 +5403,7 @@ pub struct IPrintSchemaOption_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintSchemaOptionCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaOptionCollection {
@@ -6372,28 +5425,8 @@ impl IPrintSchemaOptionCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrintSchemaOptionCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrintSchemaOptionCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrintSchemaOptionCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrintSchemaOptionCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintSchemaOptionCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrintSchemaOptionCollection {
     type Vtable = IPrintSchemaOptionCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaOptionCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrintSchemaOptionCollection {
@@ -6414,6 +5447,7 @@ pub struct IPrintSchemaOptionCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintSchemaPageImageableSize(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaPageImageableSize {
@@ -6457,28 +5491,8 @@ impl IPrintSchemaPageImageableSize {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrintSchemaPageImageableSize, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrintSchemaPageImageableSize {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrintSchemaPageImageableSize {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrintSchemaPageImageableSize {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintSchemaPageImageableSize").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrintSchemaPageImageableSize {
     type Vtable = IPrintSchemaPageImageableSize_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaPageImageableSize {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrintSchemaPageImageableSize {
@@ -6499,6 +5513,7 @@ pub struct IPrintSchemaPageImageableSize_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintSchemaPageMediaSizeOption(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaPageMediaSizeOption {
@@ -6548,28 +5563,8 @@ impl IPrintSchemaPageMediaSizeOption {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrintSchemaPageMediaSizeOption, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement, IPrintSchemaDisplayableElement, IPrintSchemaOption);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrintSchemaPageMediaSizeOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrintSchemaPageMediaSizeOption {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrintSchemaPageMediaSizeOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintSchemaPageMediaSizeOption").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrintSchemaPageMediaSizeOption {
     type Vtable = IPrintSchemaPageMediaSizeOption_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaPageMediaSizeOption {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrintSchemaPageMediaSizeOption {
@@ -6586,6 +5581,7 @@ pub struct IPrintSchemaPageMediaSizeOption_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintSchemaParameterDefinition(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaParameterDefinition {
@@ -6631,28 +5627,8 @@ impl IPrintSchemaParameterDefinition {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrintSchemaParameterDefinition, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement, IPrintSchemaDisplayableElement);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrintSchemaParameterDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrintSchemaParameterDefinition {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrintSchemaParameterDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintSchemaParameterDefinition").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrintSchemaParameterDefinition {
     type Vtable = IPrintSchemaParameterDefinition_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaParameterDefinition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrintSchemaParameterDefinition {
@@ -6675,6 +5651,7 @@ pub struct IPrintSchemaParameterDefinition_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintSchemaParameterInitializer(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaParameterInitializer {
@@ -6705,28 +5682,8 @@ impl IPrintSchemaParameterInitializer {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrintSchemaParameterInitializer, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrintSchemaParameterInitializer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrintSchemaParameterInitializer {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrintSchemaParameterInitializer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintSchemaParameterInitializer").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrintSchemaParameterInitializer {
     type Vtable = IPrintSchemaParameterInitializer_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaParameterInitializer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrintSchemaParameterInitializer {
@@ -6749,6 +5706,7 @@ pub struct IPrintSchemaParameterInitializer_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintSchemaTicket(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaTicket {
@@ -6818,28 +5776,8 @@ impl IPrintSchemaTicket {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrintSchemaTicket, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrintSchemaTicket {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrintSchemaTicket {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrintSchemaTicket {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintSchemaTicket").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrintSchemaTicket {
     type Vtable = IPrintSchemaTicket_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaTicket {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrintSchemaTicket {
@@ -6877,6 +5815,7 @@ pub struct IPrintSchemaTicket_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintSchemaTicket2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrintSchemaTicket2 {
@@ -6956,28 +5895,8 @@ impl IPrintSchemaTicket2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrintSchemaTicket2, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IPrintSchemaElement, IPrintSchemaTicket);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrintSchemaTicket2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrintSchemaTicket2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrintSchemaTicket2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintSchemaTicket2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrintSchemaTicket2 {
     type Vtable = IPrintSchemaTicket2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrintSchemaTicket2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrintSchemaTicket2 {
@@ -6995,6 +5914,7 @@ pub struct IPrintSchemaTicket2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintTicketProvider(::windows_core::IUnknown);
 impl IPrintTicketProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7051,24 +5971,8 @@ impl IPrintTicketProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintTicketProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintTicketProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintTicketProvider {}
-impl ::core::fmt::Debug for IPrintTicketProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintTicketProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintTicketProvider {
     type Vtable = IPrintTicketProvider_Vtbl;
-}
-impl ::core::clone::Clone for IPrintTicketProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintTicketProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb5116db_0a23_4c3a_a6b6_89e5558dfb5d);
@@ -7105,6 +6009,7 @@ pub struct IPrintTicketProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintTicketProvider2(::windows_core::IUnknown);
 impl IPrintTicketProvider2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7180,24 +6085,8 @@ impl IPrintTicketProvider2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintTicketProvider2, ::windows_core::IUnknown, IPrintTicketProvider);
-impl ::core::cmp::PartialEq for IPrintTicketProvider2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintTicketProvider2 {}
-impl ::core::fmt::Debug for IPrintTicketProvider2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintTicketProvider2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintTicketProvider2 {
     type Vtable = IPrintTicketProvider2_Vtbl;
-}
-impl ::core::clone::Clone for IPrintTicketProvider2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintTicketProvider2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb8a70ab2_3dfc_4fec_a074_511b13c651cb);
@@ -7217,6 +6106,7 @@ pub struct IPrintTicketProvider2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintUnidiAsyncNotifyRegistration(::windows_core::IUnknown);
 impl IPrintUnidiAsyncNotifyRegistration {
     pub unsafe fn RegisterForNotifications(&self) -> ::windows_core::Result<()> {
@@ -7233,24 +6123,8 @@ impl IPrintUnidiAsyncNotifyRegistration {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintUnidiAsyncNotifyRegistration, ::windows_core::IUnknown, IPrintAsyncNotifyRegistration);
-impl ::core::cmp::PartialEq for IPrintUnidiAsyncNotifyRegistration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintUnidiAsyncNotifyRegistration {}
-impl ::core::fmt::Debug for IPrintUnidiAsyncNotifyRegistration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintUnidiAsyncNotifyRegistration").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintUnidiAsyncNotifyRegistration {
     type Vtable = IPrintUnidiAsyncNotifyRegistration_Vtbl;
-}
-impl ::core::clone::Clone for IPrintUnidiAsyncNotifyRegistration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintUnidiAsyncNotifyRegistration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -7263,6 +6137,7 @@ pub struct IPrintUnidiAsyncNotifyRegistration_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintWriteStream(::windows_core::IUnknown);
 impl IPrintWriteStream {
     pub unsafe fn WriteBytes(&self, pvbuffer: *const ::core::ffi::c_void, cbbuffer: u32) -> ::windows_core::Result<u32> {
@@ -7274,24 +6149,8 @@ impl IPrintWriteStream {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintWriteStream, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintWriteStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintWriteStream {}
-impl ::core::fmt::Debug for IPrintWriteStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintWriteStream").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintWriteStream {
     type Vtable = IPrintWriteStream_Vtbl;
-}
-impl ::core::clone::Clone for IPrintWriteStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintWriteStream {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x65bb7f1b_371e_4571_8ac7_912f510c1a38);
@@ -7305,6 +6164,7 @@ pub struct IPrintWriteStream_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintWriteStreamFlush(::windows_core::IUnknown);
 impl IPrintWriteStreamFlush {
     pub unsafe fn FlushData(&self) -> ::windows_core::Result<()> {
@@ -7312,24 +6172,8 @@ impl IPrintWriteStreamFlush {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrintWriteStreamFlush, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrintWriteStreamFlush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintWriteStreamFlush {}
-impl ::core::fmt::Debug for IPrintWriteStreamFlush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintWriteStreamFlush").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrintWriteStreamFlush {
     type Vtable = IPrintWriteStreamFlush_Vtbl;
-}
-impl ::core::clone::Clone for IPrintWriteStreamFlush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintWriteStreamFlush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x07d11ff8_1753_4873_b749_6cdaf068e4c3);
@@ -7342,6 +6186,7 @@ pub struct IPrintWriteStreamFlush_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrinterBidiSetRequestCallback(::windows_core::IUnknown);
 impl IPrinterBidiSetRequestCallback {
     pub unsafe fn Completed<P0>(&self, bstrresponse: P0, hrstatus: ::windows_core::HRESULT) -> ::windows_core::Result<()>
@@ -7352,24 +6197,8 @@ impl IPrinterBidiSetRequestCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrinterBidiSetRequestCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrinterBidiSetRequestCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrinterBidiSetRequestCallback {}
-impl ::core::fmt::Debug for IPrinterBidiSetRequestCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrinterBidiSetRequestCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrinterBidiSetRequestCallback {
     type Vtable = IPrinterBidiSetRequestCallback_Vtbl;
-}
-impl ::core::clone::Clone for IPrinterBidiSetRequestCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrinterBidiSetRequestCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc52d32dd_f2b4_4052_8502_ec4305ecb71f);
@@ -7382,6 +6211,7 @@ pub struct IPrinterBidiSetRequestCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrinterExtensionAsyncOperation(::windows_core::IUnknown);
 impl IPrinterExtensionAsyncOperation {
     pub unsafe fn Cancel(&self) -> ::windows_core::Result<()> {
@@ -7389,24 +6219,8 @@ impl IPrinterExtensionAsyncOperation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrinterExtensionAsyncOperation, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrinterExtensionAsyncOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrinterExtensionAsyncOperation {}
-impl ::core::fmt::Debug for IPrinterExtensionAsyncOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrinterExtensionAsyncOperation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrinterExtensionAsyncOperation {
     type Vtable = IPrinterExtensionAsyncOperation_Vtbl;
-}
-impl ::core::clone::Clone for IPrinterExtensionAsyncOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrinterExtensionAsyncOperation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x108d6a23_6a4b_4552_9448_68b427186acd);
@@ -7420,6 +6234,7 @@ pub struct IPrinterExtensionAsyncOperation_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrinterExtensionContext(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrinterExtensionContext {
@@ -7451,28 +6266,8 @@ impl IPrinterExtensionContext {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrinterExtensionContext, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrinterExtensionContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrinterExtensionContext {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrinterExtensionContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrinterExtensionContext").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrinterExtensionContext {
     type Vtable = IPrinterExtensionContext_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterExtensionContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrinterExtensionContext {
@@ -7503,6 +6298,7 @@ pub struct IPrinterExtensionContext_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrinterExtensionContextCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrinterExtensionContextCollection {
@@ -7524,28 +6320,8 @@ impl IPrinterExtensionContextCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrinterExtensionContextCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrinterExtensionContextCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrinterExtensionContextCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrinterExtensionContextCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrinterExtensionContextCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrinterExtensionContextCollection {
     type Vtable = IPrinterExtensionContextCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterExtensionContextCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrinterExtensionContextCollection {
@@ -7566,6 +6342,7 @@ pub struct IPrinterExtensionContextCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrinterExtensionEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrinterExtensionEvent {
@@ -7589,28 +6366,8 @@ impl IPrinterExtensionEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrinterExtensionEvent, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrinterExtensionEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrinterExtensionEvent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrinterExtensionEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrinterExtensionEvent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrinterExtensionEvent {
     type Vtable = IPrinterExtensionEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterExtensionEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrinterExtensionEvent {
@@ -7633,6 +6390,7 @@ pub struct IPrinterExtensionEvent_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrinterExtensionEventArgs(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrinterExtensionEventArgs {
@@ -7698,28 +6456,8 @@ impl IPrinterExtensionEventArgs {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrinterExtensionEventArgs, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IPrinterExtensionContext);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrinterExtensionEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrinterExtensionEventArgs {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrinterExtensionEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrinterExtensionEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrinterExtensionEventArgs {
     type Vtable = IPrinterExtensionEventArgs_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterExtensionEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrinterExtensionEventArgs {
@@ -7749,6 +6487,7 @@ pub struct IPrinterExtensionEventArgs_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrinterExtensionManager(::windows_core::IUnknown);
 impl IPrinterExtensionManager {
     pub unsafe fn EnableEvents(&self, printerdriverid: ::windows_core::GUID) -> ::windows_core::Result<()> {
@@ -7759,24 +6498,8 @@ impl IPrinterExtensionManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPrinterExtensionManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPrinterExtensionManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrinterExtensionManager {}
-impl ::core::fmt::Debug for IPrinterExtensionManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrinterExtensionManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPrinterExtensionManager {
     type Vtable = IPrinterExtensionManager_Vtbl;
-}
-impl ::core::clone::Clone for IPrinterExtensionManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrinterExtensionManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x93c6eb8c_b001_4355_9629_8e8a1b3f8e77);
@@ -7791,6 +6514,7 @@ pub struct IPrinterExtensionManager_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrinterExtensionRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrinterExtensionRequest {
@@ -7807,28 +6531,8 @@ impl IPrinterExtensionRequest {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrinterExtensionRequest, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrinterExtensionRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrinterExtensionRequest {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrinterExtensionRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrinterExtensionRequest").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrinterExtensionRequest {
     type Vtable = IPrinterExtensionRequest_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterExtensionRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrinterExtensionRequest {
@@ -7845,6 +6549,7 @@ pub struct IPrinterExtensionRequest_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrinterPropertyBag(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrinterPropertyBag {
@@ -7927,28 +6632,8 @@ impl IPrinterPropertyBag {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrinterPropertyBag, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrinterPropertyBag {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrinterPropertyBag {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrinterPropertyBag {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrinterPropertyBag").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrinterPropertyBag {
     type Vtable = IPrinterPropertyBag_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterPropertyBag {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrinterPropertyBag {
@@ -7985,6 +6670,7 @@ pub struct IPrinterPropertyBag_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrinterQueue(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrinterQueue {
@@ -8014,28 +6700,8 @@ impl IPrinterQueue {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrinterQueue, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrinterQueue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrinterQueue {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrinterQueue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrinterQueue").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrinterQueue {
     type Vtable = IPrinterQueue_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterQueue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrinterQueue {
@@ -8060,6 +6726,7 @@ pub struct IPrinterQueue_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrinterQueue2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrinterQueue2 {
@@ -8103,28 +6770,8 @@ impl IPrinterQueue2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrinterQueue2, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IPrinterQueue);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrinterQueue2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrinterQueue2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrinterQueue2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrinterQueue2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrinterQueue2 {
     type Vtable = IPrinterQueue2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterQueue2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrinterQueue2 {
@@ -8144,6 +6791,7 @@ pub struct IPrinterQueue2_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrinterQueueEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrinterQueueEvent {
@@ -8157,28 +6805,8 @@ impl IPrinterQueueEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrinterQueueEvent, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrinterQueueEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrinterQueueEvent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrinterQueueEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrinterQueueEvent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrinterQueueEvent {
     type Vtable = IPrinterQueueEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterQueueEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrinterQueueEvent {
@@ -8194,6 +6822,7 @@ pub struct IPrinterQueueEvent_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrinterQueueView(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrinterQueueView {
@@ -8204,28 +6833,8 @@ impl IPrinterQueueView {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrinterQueueView, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrinterQueueView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrinterQueueView {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrinterQueueView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrinterQueueView").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrinterQueueView {
     type Vtable = IPrinterQueueView_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterQueueView {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrinterQueueView {
@@ -8241,6 +6850,7 @@ pub struct IPrinterQueueView_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrinterQueueViewEvent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrinterQueueViewEvent {
@@ -8256,28 +6866,8 @@ impl IPrinterQueueViewEvent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrinterQueueViewEvent, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrinterQueueViewEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrinterQueueViewEvent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrinterQueueViewEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrinterQueueViewEvent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrinterQueueViewEvent {
     type Vtable = IPrinterQueueViewEvent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterQueueViewEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrinterQueueViewEvent {
@@ -8296,6 +6886,7 @@ pub struct IPrinterQueueViewEvent_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrinterScriptContext(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrinterScriptContext {
@@ -8321,28 +6912,8 @@ impl IPrinterScriptContext {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrinterScriptContext, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrinterScriptContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrinterScriptContext {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrinterScriptContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrinterScriptContext").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrinterScriptContext {
     type Vtable = IPrinterScriptContext_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterScriptContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrinterScriptContext {
@@ -8369,6 +6940,7 @@ pub struct IPrinterScriptContext_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrinterScriptablePropertyBag(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrinterScriptablePropertyBag {
@@ -8457,28 +7029,8 @@ impl IPrinterScriptablePropertyBag {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrinterScriptablePropertyBag, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrinterScriptablePropertyBag {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrinterScriptablePropertyBag {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrinterScriptablePropertyBag {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrinterScriptablePropertyBag").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrinterScriptablePropertyBag {
     type Vtable = IPrinterScriptablePropertyBag_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterScriptablePropertyBag {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrinterScriptablePropertyBag {
@@ -8521,6 +7073,7 @@ pub struct IPrinterScriptablePropertyBag_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrinterScriptablePropertyBag2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrinterScriptablePropertyBag2 {
@@ -8616,28 +7169,8 @@ impl IPrinterScriptablePropertyBag2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrinterScriptablePropertyBag2, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IPrinterScriptablePropertyBag);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrinterScriptablePropertyBag2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrinterScriptablePropertyBag2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrinterScriptablePropertyBag2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrinterScriptablePropertyBag2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrinterScriptablePropertyBag2 {
     type Vtable = IPrinterScriptablePropertyBag2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterScriptablePropertyBag2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrinterScriptablePropertyBag2 {
@@ -8653,6 +7186,7 @@ pub struct IPrinterScriptablePropertyBag2_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrinterScriptableSequentialStream(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrinterScriptableSequentialStream {
@@ -8675,28 +7209,8 @@ impl IPrinterScriptableSequentialStream {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrinterScriptableSequentialStream, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrinterScriptableSequentialStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrinterScriptableSequentialStream {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrinterScriptableSequentialStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrinterScriptableSequentialStream").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrinterScriptableSequentialStream {
     type Vtable = IPrinterScriptableSequentialStream_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterScriptableSequentialStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrinterScriptableSequentialStream {
@@ -8719,6 +7233,7 @@ pub struct IPrinterScriptableSequentialStream_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrinterScriptableStream(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrinterScriptableStream {
@@ -8753,28 +7268,8 @@ impl IPrinterScriptableStream {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPrinterScriptableStream, ::windows_core::IUnknown, super::super::System::Com::IDispatch, IPrinterScriptableSequentialStream);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPrinterScriptableStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPrinterScriptableStream {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPrinterScriptableStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrinterScriptableStream").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPrinterScriptableStream {
     type Vtable = IPrinterScriptableStream_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPrinterScriptableStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPrinterScriptableStream {
@@ -8794,6 +7289,7 @@ pub struct IPrinterScriptableStream_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsDocument(::windows_core::IUnknown);
 impl IXpsDocument {
     pub unsafe fn GetThumbnail(&self) -> ::windows_core::Result<IPartThumbnail> {
@@ -8808,24 +7304,8 @@ impl IXpsDocument {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsDocument, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsDocument {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsDocument {}
-impl ::core::fmt::Debug for IXpsDocument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsDocument").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsDocument {
     type Vtable = IXpsDocument_Vtbl;
-}
-impl ::core::clone::Clone for IXpsDocument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsDocument {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe8d907db_62a9_4a95_abe7_e01763dd30f8);
@@ -8839,6 +7319,7 @@ pub struct IXpsDocument_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsDocumentConsumer(::windows_core::IUnknown);
 impl IXpsDocumentConsumer {
     pub unsafe fn SendXpsUnknown<P0>(&self, punknown: P0) -> ::windows_core::Result<()>
@@ -8882,24 +7363,8 @@ impl IXpsDocumentConsumer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsDocumentConsumer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsDocumentConsumer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsDocumentConsumer {}
-impl ::core::fmt::Debug for IXpsDocumentConsumer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsDocumentConsumer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsDocumentConsumer {
     type Vtable = IXpsDocumentConsumer_Vtbl;
-}
-impl ::core::clone::Clone for IXpsDocumentConsumer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsDocumentConsumer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4368d8a2_4181_4a9f_b295_3d9a38bb9ba0);
@@ -8918,6 +7383,7 @@ pub struct IXpsDocumentConsumer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsDocumentProvider(::windows_core::IUnknown);
 impl IXpsDocumentProvider {
     pub unsafe fn GetXpsPart(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -8926,24 +7392,8 @@ impl IXpsDocumentProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsDocumentProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsDocumentProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsDocumentProvider {}
-impl ::core::fmt::Debug for IXpsDocumentProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsDocumentProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsDocumentProvider {
     type Vtable = IXpsDocumentProvider_Vtbl;
-}
-impl ::core::clone::Clone for IXpsDocumentProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsDocumentProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb8cf8530_5562_47c4_ab67_b1f69ecf961e);
@@ -8956,6 +7406,7 @@ pub struct IXpsDocumentProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsPartIterator(::windows_core::IUnknown);
 impl IXpsPartIterator {
     pub unsafe fn Reset(&self) {
@@ -8974,24 +7425,8 @@ impl IXpsPartIterator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsPartIterator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsPartIterator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsPartIterator {}
-impl ::core::fmt::Debug for IXpsPartIterator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsPartIterator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsPartIterator {
     type Vtable = IXpsPartIterator_Vtbl;
-}
-impl ::core::clone::Clone for IXpsPartIterator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsPartIterator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0021d3cd_af6f_42ab_9999_14bc82a62d2e);
@@ -9010,6 +7445,7 @@ pub struct IXpsPartIterator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsRasterizationFactory(::windows_core::IUnknown);
 impl IXpsRasterizationFactory {
     #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
@@ -9023,24 +7459,8 @@ impl IXpsRasterizationFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsRasterizationFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsRasterizationFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsRasterizationFactory {}
-impl ::core::fmt::Debug for IXpsRasterizationFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsRasterizationFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsRasterizationFactory {
     type Vtable = IXpsRasterizationFactory_Vtbl;
-}
-impl ::core::clone::Clone for IXpsRasterizationFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsRasterizationFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe094808a_24c6_482b_a3a7_c21ac9b55f17);
@@ -9056,6 +7476,7 @@ pub struct IXpsRasterizationFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsRasterizationFactory1(::windows_core::IUnknown);
 impl IXpsRasterizationFactory1 {
     #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
@@ -9069,24 +7490,8 @@ impl IXpsRasterizationFactory1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsRasterizationFactory1, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsRasterizationFactory1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsRasterizationFactory1 {}
-impl ::core::fmt::Debug for IXpsRasterizationFactory1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsRasterizationFactory1").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsRasterizationFactory1 {
     type Vtable = IXpsRasterizationFactory1_Vtbl;
-}
-impl ::core::clone::Clone for IXpsRasterizationFactory1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsRasterizationFactory1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2d6e5f77_6414_4a1e_a8e0_d4194ce6a26f);
@@ -9102,6 +7507,7 @@ pub struct IXpsRasterizationFactory1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsRasterizationFactory2(::windows_core::IUnknown);
 impl IXpsRasterizationFactory2 {
     #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
@@ -9115,24 +7521,8 @@ impl IXpsRasterizationFactory2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsRasterizationFactory2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsRasterizationFactory2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsRasterizationFactory2 {}
-impl ::core::fmt::Debug for IXpsRasterizationFactory2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsRasterizationFactory2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsRasterizationFactory2 {
     type Vtable = IXpsRasterizationFactory2_Vtbl;
-}
-impl ::core::clone::Clone for IXpsRasterizationFactory2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsRasterizationFactory2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c16ce3e_10f5_41fd_9ddc_6826669c2ff6);
@@ -9148,6 +7538,7 @@ pub struct IXpsRasterizationFactory2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsRasterizer(::windows_core::IUnknown);
 impl IXpsRasterizer {
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
@@ -9164,24 +7555,8 @@ impl IXpsRasterizer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsRasterizer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsRasterizer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsRasterizer {}
-impl ::core::fmt::Debug for IXpsRasterizer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsRasterizer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsRasterizer {
     type Vtable = IXpsRasterizer_Vtbl;
-}
-impl ::core::clone::Clone for IXpsRasterizer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsRasterizer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7567cfc8_c156_47a8_9dac_11a2ae5bdd6b);
@@ -9198,6 +7573,7 @@ pub struct IXpsRasterizer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsRasterizerNotificationCallback(::windows_core::IUnknown);
 impl IXpsRasterizerNotificationCallback {
     pub unsafe fn Continue(&self) -> ::windows_core::Result<()> {
@@ -9205,24 +7581,8 @@ impl IXpsRasterizerNotificationCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsRasterizerNotificationCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsRasterizerNotificationCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsRasterizerNotificationCallback {}
-impl ::core::fmt::Debug for IXpsRasterizerNotificationCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsRasterizerNotificationCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsRasterizerNotificationCallback {
     type Vtable = IXpsRasterizerNotificationCallback_Vtbl;
-}
-impl ::core::clone::Clone for IXpsRasterizerNotificationCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsRasterizerNotificationCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9ab8fd0d_cb94_49c2_9cb0_97ec1d5469d2);

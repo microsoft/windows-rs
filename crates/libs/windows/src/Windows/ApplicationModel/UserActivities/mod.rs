@@ -2,14 +2,10 @@
 pub mod Core;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivity(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserActivity {
     type Vtable = IUserActivity_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivity {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivity {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfc103e9e_2cab_4d36_aea2_b4bb556cef0f);
@@ -57,14 +53,10 @@ pub struct IUserActivity_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivity2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserActivity2 {
     type Vtable = IUserActivity2_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivity2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivity2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9dc40c62_08c4_47ac_aa9c_2bb2221c55fd);
@@ -77,14 +69,10 @@ pub struct IUserActivity2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivity3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserActivity3 {
     type Vtable = IUserActivity3_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivity3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivity3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe7697744_e1a2_5147_8e06_55f1eeef271c);
@@ -98,14 +86,10 @@ pub struct IUserActivity3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivityAttribution(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserActivityAttribution {
     type Vtable = IUserActivityAttribution_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivityAttribution {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivityAttribution {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x34a5c8b5_86dd_4aec_a491_6a4faea5d22e);
@@ -129,14 +113,10 @@ pub struct IUserActivityAttribution_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivityAttributionFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserActivityAttributionFactory {
     type Vtable = IUserActivityAttributionFactory_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivityAttributionFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivityAttributionFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe62bd252_c566_4f42_9974_916c4d76377e);
@@ -152,14 +132,10 @@ pub struct IUserActivityAttributionFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivityChannel(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserActivityChannel {
     type Vtable = IUserActivityChannel_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivityChannel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivityChannel {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbac0f8b8_a0e4_483b_b948_9cbabd06070c);
@@ -183,14 +159,10 @@ pub struct IUserActivityChannel_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivityChannel2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserActivityChannel2 {
     type Vtable = IUserActivityChannel2_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivityChannel2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivityChannel2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1698e35b_eb7e_4ea0_bf17_a459e8be706c);
@@ -210,14 +182,10 @@ pub struct IUserActivityChannel2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivityChannelStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserActivityChannelStatics {
     type Vtable = IUserActivityChannelStatics_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivityChannelStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivityChannelStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc8c005ab_198d_4d80_abb2_c9775ec4a729);
@@ -230,14 +198,10 @@ pub struct IUserActivityChannelStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivityChannelStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserActivityChannelStatics2 {
     type Vtable = IUserActivityChannelStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivityChannelStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivityChannelStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8e87de30_aa4f_4624_9ad0_d40f3ba0317c);
@@ -254,14 +218,10 @@ pub struct IUserActivityChannelStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivityChannelStatics3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserActivityChannelStatics3 {
     type Vtable = IUserActivityChannelStatics3_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivityChannelStatics3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivityChannelStatics3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53bc4ddb_bbdf_5984_802a_5305874e205c);
@@ -277,6 +237,7 @@ pub struct IUserActivityChannelStatics3_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivityContentInfo(::windows_core::IUnknown);
 impl IUserActivityContentInfo {
     pub fn ToJson(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -288,27 +249,11 @@ impl IUserActivityContentInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUserActivityContentInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IUserActivityContentInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUserActivityContentInfo {}
-impl ::core::fmt::Debug for IUserActivityContentInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUserActivityContentInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IUserActivityContentInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{b399e5ad-137f-409d-822d-e1af27ce08dc}");
 }
 unsafe impl ::windows_core::Interface for IUserActivityContentInfo {
     type Vtable = IUserActivityContentInfo_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivityContentInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivityContentInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb399e5ad_137f_409d_822d_e1af27ce08dc);
@@ -321,14 +266,10 @@ pub struct IUserActivityContentInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivityContentInfoStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserActivityContentInfoStatics {
     type Vtable = IUserActivityContentInfoStatics_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivityContentInfoStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivityContentInfoStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9988c34b_0386_4bc9_968a_8200b004144f);
@@ -341,14 +282,10 @@ pub struct IUserActivityContentInfoStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivityFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserActivityFactory {
     type Vtable = IUserActivityFactory_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivityFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivityFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7c385758_361d_4a67_8a3b_34ca2978f9a3);
@@ -361,14 +298,10 @@ pub struct IUserActivityFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivityRequest(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserActivityRequest {
     type Vtable = IUserActivityRequest_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivityRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivityRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa0ef6355_cf35_4ff0_8833_50cb4b72e06d);
@@ -381,14 +314,10 @@ pub struct IUserActivityRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivityRequestManager(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserActivityRequestManager {
     type Vtable = IUserActivityRequestManager_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivityRequestManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivityRequestManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c30be4e_903d_48d6_82d4_4043ed57791b);
@@ -408,14 +337,10 @@ pub struct IUserActivityRequestManager_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivityRequestManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserActivityRequestManagerStatics {
     type Vtable = IUserActivityRequestManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivityRequestManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivityRequestManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0392df1_224a_432c_81e5_0c76b4c4cefa);
@@ -428,14 +353,10 @@ pub struct IUserActivityRequestManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivityRequestedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserActivityRequestedEventArgs {
     type Vtable = IUserActivityRequestedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivityRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivityRequestedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa4cc7a4c_8229_4cfd_a3bc_c61d318575a4);
@@ -452,14 +373,10 @@ pub struct IUserActivityRequestedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivitySession(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserActivitySession {
     type Vtable = IUserActivitySession_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivitySession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivitySession {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae434d78_24fa_44a3_ad48_6eda61aa1924);
@@ -472,14 +389,10 @@ pub struct IUserActivitySession_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivitySessionHistoryItem(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserActivitySessionHistoryItem {
     type Vtable = IUserActivitySessionHistoryItem_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivitySessionHistoryItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivitySessionHistoryItem {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe8d59bd3_3e5d_49fd_98d7_6da97521e255);
@@ -500,14 +413,10 @@ pub struct IUserActivitySessionHistoryItem_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivityStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserActivityStatics {
     type Vtable = IUserActivityStatics_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivityStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivityStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c8fd333_0e09_47f6_9ac7_95cf5c39367b);
@@ -528,14 +437,10 @@ pub struct IUserActivityStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivityVisualElements(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserActivityVisualElements {
     type Vtable = IUserActivityVisualElements_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivityVisualElements {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivityVisualElements {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x94757513_262f_49ef_bbbf_9b75d2e85250);
@@ -569,14 +474,10 @@ pub struct IUserActivityVisualElements_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserActivityVisualElements2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserActivityVisualElements2 {
     type Vtable = IUserActivityVisualElements2_Vtbl;
-}
-impl ::core::clone::Clone for IUserActivityVisualElements2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserActivityVisualElements2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcaae7fc7_3eef_4359_825c_9d51b9220de3);
@@ -590,6 +491,7 @@ pub struct IUserActivityVisualElements2_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserActivity(::windows_core::IUnknown);
 impl UserActivity {
     pub fn State(&self) -> ::windows_core::Result<UserActivityState> {
@@ -768,24 +670,8 @@ impl UserActivity {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for UserActivity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserActivity {}
-impl ::core::fmt::Debug for UserActivity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivity").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserActivity {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivity;{fc103e9e-2cab-4d36-aea2-b4bb556cef0f})");
-}
-impl ::core::clone::Clone for UserActivity {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserActivity {
     type Vtable = IUserActivity_Vtbl;
@@ -801,6 +687,7 @@ unsafe impl ::core::marker::Send for UserActivity {}
 unsafe impl ::core::marker::Sync for UserActivity {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserActivityAttribution(::windows_core::IUnknown);
 impl UserActivityAttribution {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -867,24 +754,8 @@ impl UserActivityAttribution {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for UserActivityAttribution {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserActivityAttribution {}
-impl ::core::fmt::Debug for UserActivityAttribution {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivityAttribution").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserActivityAttribution {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityAttribution;{34a5c8b5-86dd-4aec-a491-6a4faea5d22e})");
-}
-impl ::core::clone::Clone for UserActivityAttribution {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserActivityAttribution {
     type Vtable = IUserActivityAttribution_Vtbl;
@@ -900,6 +771,7 @@ unsafe impl ::core::marker::Send for UserActivityAttribution {}
 unsafe impl ::core::marker::Sync for UserActivityAttribution {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserActivityChannel(::windows_core::IUnknown);
 impl UserActivityChannel {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -994,24 +866,8 @@ impl UserActivityChannel {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for UserActivityChannel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserActivityChannel {}
-impl ::core::fmt::Debug for UserActivityChannel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivityChannel").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserActivityChannel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityChannel;{bac0f8b8-a0e4-483b-b948-9cbabd06070c})");
-}
-impl ::core::clone::Clone for UserActivityChannel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserActivityChannel {
     type Vtable = IUserActivityChannel_Vtbl;
@@ -1027,6 +883,7 @@ unsafe impl ::core::marker::Send for UserActivityChannel {}
 unsafe impl ::core::marker::Sync for UserActivityChannel {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserActivityContentInfo(::windows_core::IUnknown);
 impl UserActivityContentInfo {
     pub fn ToJson(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1048,24 +905,8 @@ impl UserActivityContentInfo {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for UserActivityContentInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserActivityContentInfo {}
-impl ::core::fmt::Debug for UserActivityContentInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivityContentInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserActivityContentInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityContentInfo;{b399e5ad-137f-409d-822d-e1af27ce08dc})");
-}
-impl ::core::clone::Clone for UserActivityContentInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserActivityContentInfo {
     type Vtable = IUserActivityContentInfo_Vtbl;
@@ -1082,6 +923,7 @@ unsafe impl ::core::marker::Send for UserActivityContentInfo {}
 unsafe impl ::core::marker::Sync for UserActivityContentInfo {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserActivityRequest(::windows_core::IUnknown);
 impl UserActivityRequest {
     pub fn SetUserActivity<P0>(&self, activity: P0) -> ::windows_core::Result<()>
@@ -1092,24 +934,8 @@ impl UserActivityRequest {
         unsafe { (::windows_core::Interface::vtable(this).SetUserActivity)(::windows_core::Interface::as_raw(this), activity.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for UserActivityRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserActivityRequest {}
-impl ::core::fmt::Debug for UserActivityRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivityRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserActivityRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityRequest;{a0ef6355-cf35-4ff0-8833-50cb4b72e06d})");
-}
-impl ::core::clone::Clone for UserActivityRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserActivityRequest {
     type Vtable = IUserActivityRequest_Vtbl;
@@ -1125,6 +951,7 @@ unsafe impl ::core::marker::Send for UserActivityRequest {}
 unsafe impl ::core::marker::Sync for UserActivityRequest {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserActivityRequestManager(::windows_core::IUnknown);
 impl UserActivityRequestManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1157,24 +984,8 @@ impl UserActivityRequestManager {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for UserActivityRequestManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserActivityRequestManager {}
-impl ::core::fmt::Debug for UserActivityRequestManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivityRequestManager").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserActivityRequestManager {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityRequestManager;{0c30be4e-903d-48d6-82d4-4043ed57791b})");
-}
-impl ::core::clone::Clone for UserActivityRequestManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserActivityRequestManager {
     type Vtable = IUserActivityRequestManager_Vtbl;
@@ -1188,6 +999,7 @@ impl ::windows_core::RuntimeName for UserActivityRequestManager {
 ::windows_core::imp::interface_hierarchy!(UserActivityRequestManager, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserActivityRequestedEventArgs(::windows_core::IUnknown);
 impl UserActivityRequestedEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<UserActivityRequest> {
@@ -1207,24 +1019,8 @@ impl UserActivityRequestedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for UserActivityRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserActivityRequestedEventArgs {}
-impl ::core::fmt::Debug for UserActivityRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivityRequestedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserActivityRequestedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityRequestedEventArgs;{a4cc7a4c-8229-4cfd-a3bc-c61d318575a4})");
-}
-impl ::core::clone::Clone for UserActivityRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserActivityRequestedEventArgs {
     type Vtable = IUserActivityRequestedEventArgs_Vtbl;
@@ -1240,6 +1036,7 @@ unsafe impl ::core::marker::Send for UserActivityRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for UserActivityRequestedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserActivitySession(::windows_core::IUnknown);
 impl UserActivitySession {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1256,24 +1053,8 @@ impl UserActivitySession {
         }
     }
 }
-impl ::core::cmp::PartialEq for UserActivitySession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserActivitySession {}
-impl ::core::fmt::Debug for UserActivitySession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivitySession").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserActivitySession {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivitySession;{ae434d78-24fa-44a3-ad48-6eda61aa1924})");
-}
-impl ::core::clone::Clone for UserActivitySession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserActivitySession {
     type Vtable = IUserActivitySession_Vtbl;
@@ -1291,6 +1072,7 @@ unsafe impl ::core::marker::Send for UserActivitySession {}
 unsafe impl ::core::marker::Sync for UserActivitySession {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserActivitySessionHistoryItem(::windows_core::IUnknown);
 impl UserActivitySessionHistoryItem {
     pub fn UserActivity(&self) -> ::windows_core::Result<UserActivity> {
@@ -1319,24 +1101,8 @@ impl UserActivitySessionHistoryItem {
         }
     }
 }
-impl ::core::cmp::PartialEq for UserActivitySessionHistoryItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserActivitySessionHistoryItem {}
-impl ::core::fmt::Debug for UserActivitySessionHistoryItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivitySessionHistoryItem").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserActivitySessionHistoryItem {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem;{e8d59bd3-3e5d-49fd-98d7-6da97521e255})");
-}
-impl ::core::clone::Clone for UserActivitySessionHistoryItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserActivitySessionHistoryItem {
     type Vtable = IUserActivitySessionHistoryItem_Vtbl;
@@ -1352,6 +1118,7 @@ unsafe impl ::core::marker::Send for UserActivitySessionHistoryItem {}
 unsafe impl ::core::marker::Sync for UserActivitySessionHistoryItem {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserActivityVisualElements(::windows_core::IUnknown);
 impl UserActivityVisualElements {
     pub fn DisplayText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1435,24 +1202,8 @@ impl UserActivityVisualElements {
         unsafe { (::windows_core::Interface::vtable(this).SetAttributionDisplayText)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for UserActivityVisualElements {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserActivityVisualElements {}
-impl ::core::fmt::Debug for UserActivityVisualElements {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivityVisualElements").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserActivityVisualElements {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserActivities.UserActivityVisualElements;{94757513-262f-49ef-bbbf-9b75d2e85250})");
-}
-impl ::core::clone::Clone for UserActivityVisualElements {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserActivityVisualElements {
     type Vtable = IUserActivityVisualElements_Vtbl;

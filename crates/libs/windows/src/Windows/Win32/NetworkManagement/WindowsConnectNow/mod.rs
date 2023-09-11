@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWCNConnectNotify(::windows_core::IUnknown);
 impl IWCNConnectNotify {
     pub unsafe fn ConnectSucceeded(&self) -> ::windows_core::Result<()> {
@@ -10,24 +11,8 @@ impl IWCNConnectNotify {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWCNConnectNotify, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWCNConnectNotify {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWCNConnectNotify {}
-impl ::core::fmt::Debug for IWCNConnectNotify {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWCNConnectNotify").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWCNConnectNotify {
     type Vtable = IWCNConnectNotify_Vtbl;
-}
-impl ::core::clone::Clone for IWCNConnectNotify {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWCNConnectNotify {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc100be9f_d33a_4a4b_bf23_bbef4663d017);
@@ -41,6 +26,7 @@ pub struct IWCNConnectNotify_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWCNDevice(::windows_core::IUnknown);
 impl IWCNDevice {
     pub unsafe fn SetPassword(&self, r#type: WCN_PASSWORD_TYPE, pbpassword: &[u8]) -> ::windows_core::Result<()> {
@@ -96,24 +82,8 @@ impl IWCNDevice {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWCNDevice, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWCNDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWCNDevice {}
-impl ::core::fmt::Debug for IWCNDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWCNDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWCNDevice {
     type Vtable = IWCNDevice_Vtbl;
-}
-impl ::core::clone::Clone for IWCNDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWCNDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc100be9c_d33a_4a4b_bf23_bbef4663d017);

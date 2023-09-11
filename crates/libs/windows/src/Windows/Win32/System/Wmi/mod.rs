@@ -6,6 +6,7 @@ pub unsafe fn MI_Application_InitializeV1(flags: u32, applicationid: ::core::opt
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumWbemClassObject(::windows_core::IUnknown);
 impl IEnumWbemClassObject {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
@@ -29,24 +30,8 @@ impl IEnumWbemClassObject {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumWbemClassObject, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumWbemClassObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumWbemClassObject {}
-impl ::core::fmt::Debug for IEnumWbemClassObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumWbemClassObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumWbemClassObject {
     type Vtable = IEnumWbemClassObject_Vtbl;
-}
-impl ::core::clone::Clone for IEnumWbemClassObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumWbemClassObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x027947e1_d731_11ce_a357_000000000001);
@@ -63,6 +48,7 @@ pub struct IEnumWbemClassObject_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMofCompiler(::windows_core::IUnknown);
 impl IMofCompiler {
     pub unsafe fn CompileFile<P0, P1, P2, P3, P4>(&self, filename: P0, serverandnamespace: P1, user: P2, authority: P3, password: P4, loptionflags: i32, lclassflags: i32, linstanceflags: i32, pinfo: *mut WBEM_COMPILE_STATUS_INFO) -> ::windows_core::Result<()>
@@ -94,24 +80,8 @@ impl IMofCompiler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMofCompiler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMofCompiler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMofCompiler {}
-impl ::core::fmt::Debug for IMofCompiler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMofCompiler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMofCompiler {
     type Vtable = IMofCompiler_Vtbl;
-}
-impl ::core::clone::Clone for IMofCompiler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMofCompiler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6daf974e_2e37_11d2_aec9_00c04fb68820);
@@ -127,6 +97,7 @@ pub struct IMofCompiler_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemDateTime(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemDateTime {
@@ -361,28 +332,8 @@ impl ISWbemDateTime {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemDateTime, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemDateTime {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemDateTime {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemDateTime {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemDateTime").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemDateTime {
     type Vtable = ISWbemDateTime_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemDateTime {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemDateTime {
@@ -503,6 +454,7 @@ pub struct ISWbemDateTime_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemEventSource(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemEventSource {
@@ -522,28 +474,8 @@ impl ISWbemEventSource {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemEventSource, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemEventSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemEventSource {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemEventSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemEventSource").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemEventSource {
     type Vtable = ISWbemEventSource_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemEventSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemEventSource {
@@ -566,6 +498,7 @@ pub struct ISWbemEventSource_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemLastError(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemLastError {
@@ -802,28 +735,8 @@ impl ISWbemLastError {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemLastError, ::windows_core::IUnknown, super::Com::IDispatch, ISWbemObject);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemLastError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemLastError {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemLastError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemLastError").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemLastError {
     type Vtable = ISWbemLastError_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemLastError {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemLastError {
@@ -838,6 +751,7 @@ pub struct ISWbemLastError_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemLocator(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemLocator {
@@ -866,28 +780,8 @@ impl ISWbemLocator {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemLocator, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemLocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemLocator {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemLocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemLocator").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemLocator {
     type Vtable = ISWbemLocator_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemLocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemLocator {
@@ -910,6 +804,7 @@ pub struct ISWbemLocator_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemMethod(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemMethod {
@@ -943,28 +838,8 @@ impl ISWbemMethod {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemMethod, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemMethod {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemMethod {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemMethod {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemMethod").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemMethod {
     type Vtable = ISWbemMethod_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemMethod {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemMethod {
@@ -993,6 +868,7 @@ pub struct ISWbemMethod_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemMethodSet(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemMethodSet {
@@ -1017,28 +893,8 @@ impl ISWbemMethodSet {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemMethodSet, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemMethodSet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemMethodSet {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemMethodSet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemMethodSet").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemMethodSet {
     type Vtable = ISWbemMethodSet_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemMethodSet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemMethodSet {
@@ -1059,6 +915,7 @@ pub struct ISWbemMethodSet_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemNamedValue(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemNamedValue {
@@ -1081,28 +938,8 @@ impl ISWbemNamedValue {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemNamedValue, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemNamedValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemNamedValue {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemNamedValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemNamedValue").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemNamedValue {
     type Vtable = ISWbemNamedValue_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemNamedValue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemNamedValue {
@@ -1126,6 +963,7 @@ pub struct ISWbemNamedValue_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemNamedValueSet(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemNamedValueSet {
@@ -1174,28 +1012,8 @@ impl ISWbemNamedValueSet {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemNamedValueSet, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemNamedValueSet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemNamedValueSet {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemNamedValueSet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemNamedValueSet").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemNamedValueSet {
     type Vtable = ISWbemNamedValueSet_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemNamedValueSet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemNamedValueSet {
@@ -1226,6 +1044,7 @@ pub struct ISWbemNamedValueSet_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemObject(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemObject {
@@ -1462,28 +1281,8 @@ impl ISWbemObject {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemObject, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemObject {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemObject").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemObject {
     type Vtable = ISWbemObject_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemObject {
@@ -1595,6 +1394,7 @@ pub struct ISWbemObject_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemObjectEx(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemObjectEx {
@@ -1863,28 +1663,8 @@ impl ISWbemObjectEx {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemObjectEx, ::windows_core::IUnknown, super::Com::IDispatch, ISWbemObject);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemObjectEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemObjectEx {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemObjectEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemObjectEx").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemObjectEx {
     type Vtable = ISWbemObjectEx_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemObjectEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemObjectEx {
@@ -1915,6 +1695,7 @@ pub struct ISWbemObjectEx_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemObjectPath(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemObjectPath {
@@ -2036,28 +1817,8 @@ impl ISWbemObjectPath {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemObjectPath, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemObjectPath {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemObjectPath {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemObjectPath {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemObjectPath").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemObjectPath {
     type Vtable = ISWbemObjectPath_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemObjectPath {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemObjectPath {
@@ -2107,6 +1868,7 @@ pub struct ISWbemObjectPath_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemObjectSet(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemObjectSet {
@@ -2143,28 +1905,8 @@ impl ISWbemObjectSet {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemObjectSet, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemObjectSet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemObjectSet {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemObjectSet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemObjectSet").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemObjectSet {
     type Vtable = ISWbemObjectSet_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemObjectSet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemObjectSet {
@@ -2193,6 +1935,7 @@ pub struct ISWbemObjectSet_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemPrivilege(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemPrivilege {
@@ -2226,28 +1969,8 @@ impl ISWbemPrivilege {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemPrivilege, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemPrivilege {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemPrivilege {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemPrivilege {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemPrivilege").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemPrivilege {
     type Vtable = ISWbemPrivilege_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemPrivilege {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemPrivilege {
@@ -2273,6 +1996,7 @@ pub struct ISWbemPrivilege_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemPrivilegeSet(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemPrivilegeSet {
@@ -2319,28 +2043,8 @@ impl ISWbemPrivilegeSet {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemPrivilegeSet, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemPrivilegeSet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemPrivilegeSet {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemPrivilegeSet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemPrivilegeSet").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemPrivilegeSet {
     type Vtable = ISWbemPrivilegeSet_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemPrivilegeSet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemPrivilegeSet {
@@ -2371,6 +2075,7 @@ pub struct ISWbemPrivilegeSet_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemProperty(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemProperty {
@@ -2419,28 +2124,8 @@ impl ISWbemProperty {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemProperty, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemProperty {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemProperty").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemProperty {
     type Vtable = ISWbemProperty_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemProperty {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemProperty {
@@ -2478,6 +2163,7 @@ pub struct ISWbemProperty_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemPropertySet(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemPropertySet {
@@ -2518,28 +2204,8 @@ impl ISWbemPropertySet {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemPropertySet, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemPropertySet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemPropertySet {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemPropertySet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemPropertySet").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemPropertySet {
     type Vtable = ISWbemPropertySet_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemPropertySet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemPropertySet {
@@ -2565,6 +2231,7 @@ pub struct ISWbemPropertySet_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemQualifier(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemQualifier {
@@ -2641,28 +2308,8 @@ impl ISWbemQualifier {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemQualifier, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemQualifier {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemQualifier {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemQualifier {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemQualifier").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemQualifier {
     type Vtable = ISWbemQualifier_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemQualifier {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemQualifier {
@@ -2718,6 +2365,7 @@ pub struct ISWbemQualifier_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemQualifierSet(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemQualifierSet {
@@ -2760,28 +2408,8 @@ impl ISWbemQualifierSet {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemQualifierSet, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemQualifierSet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemQualifierSet {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemQualifierSet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemQualifierSet").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemQualifierSet {
     type Vtable = ISWbemQualifierSet_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemQualifierSet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemQualifierSet {
@@ -2807,6 +2435,7 @@ pub struct ISWbemQualifierSet_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemRefreshableItem(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemRefreshableItem {
@@ -2845,28 +2474,8 @@ impl ISWbemRefreshableItem {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemRefreshableItem, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemRefreshableItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemRefreshableItem {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemRefreshableItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemRefreshableItem").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemRefreshableItem {
     type Vtable = ISWbemRefreshableItem_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemRefreshableItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemRefreshableItem {
@@ -2899,6 +2508,7 @@ pub struct ISWbemRefreshableItem_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemRefresher(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemRefresher {
@@ -2965,28 +2575,8 @@ impl ISWbemRefresher {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemRefresher, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemRefresher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemRefresher {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemRefresher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemRefresher").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemRefresher {
     type Vtable = ISWbemRefresher_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemRefresher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemRefresher {
@@ -3026,6 +2616,7 @@ pub struct ISWbemRefresher_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemSecurity(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemSecurity {
@@ -3053,28 +2644,8 @@ impl ISWbemSecurity {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemSecurity, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemSecurity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemSecurity {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemSecurity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemSecurity").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemSecurity {
     type Vtable = ISWbemSecurity_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemSecurity {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemSecurity {
@@ -3097,6 +2668,7 @@ pub struct ISWbemSecurity_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemServices(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemServices {
@@ -3332,28 +2904,8 @@ impl ISWbemServices {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemServices, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemServices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemServices {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemServices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemServices").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemServices {
     type Vtable = ISWbemServices_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemServices {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemServices {
@@ -3445,6 +2997,7 @@ pub struct ISWbemServices_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemServicesEx(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemServicesEx {
@@ -3701,28 +3254,8 @@ impl ISWbemServicesEx {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemServicesEx, ::windows_core::IUnknown, super::Com::IDispatch, ISWbemServices);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemServicesEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemServicesEx {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemServicesEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemServicesEx").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemServicesEx {
     type Vtable = ISWbemServicesEx_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemServicesEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemServicesEx {
@@ -3745,6 +3278,7 @@ pub struct ISWbemServicesEx_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemSink(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemSink {
@@ -3755,28 +3289,8 @@ impl ISWbemSink {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemSink, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemSink {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemSink").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemSink {
     type Vtable = ISWbemSink_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemSink {
@@ -3792,34 +3306,15 @@ pub struct ISWbemSink_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISWbemSinkEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISWbemSinkEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISWbemSinkEvents, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISWbemSinkEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISWbemSinkEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISWbemSinkEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISWbemSinkEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISWbemSinkEvents {
     type Vtable = ISWbemSinkEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISWbemSinkEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISWbemSinkEvents {
@@ -3833,6 +3328,7 @@ pub struct ISWbemSinkEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUnsecuredApartment(::windows_core::IUnknown);
 impl IUnsecuredApartment {
     pub unsafe fn CreateObjectStub<P0>(&self, pobject: P0) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -3844,24 +3340,8 @@ impl IUnsecuredApartment {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUnsecuredApartment, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUnsecuredApartment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUnsecuredApartment {}
-impl ::core::fmt::Debug for IUnsecuredApartment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUnsecuredApartment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUnsecuredApartment {
     type Vtable = IUnsecuredApartment_Vtbl;
-}
-impl ::core::clone::Clone for IUnsecuredApartment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUnsecuredApartment {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1cfaba8c_1523_11d1_ad79_00c04fd8fdff);
@@ -3875,6 +3355,7 @@ pub struct IUnsecuredApartment_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWMIExtension(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWMIExtension {
@@ -3898,28 +3379,8 @@ impl IWMIExtension {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWMIExtension, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWMIExtension {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWMIExtension {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWMIExtension {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWMIExtension").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWMIExtension {
     type Vtable = IWMIExtension_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWMIExtension {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWMIExtension {
@@ -3942,6 +3403,7 @@ pub struct IWMIExtension_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemAddressResolution(::windows_core::IUnknown);
 impl IWbemAddressResolution {
     pub unsafe fn Resolve<P0>(&self, wsznamespacepath: P0, wszaddresstype: ::windows_core::PWSTR, pdwaddresslength: *mut u32, pabbinaryaddress: *mut *mut u8) -> ::windows_core::Result<()>
@@ -3952,24 +3414,8 @@ impl IWbemAddressResolution {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemAddressResolution, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemAddressResolution {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemAddressResolution {}
-impl ::core::fmt::Debug for IWbemAddressResolution {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemAddressResolution").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemAddressResolution {
     type Vtable = IWbemAddressResolution_Vtbl;
-}
-impl ::core::clone::Clone for IWbemAddressResolution {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemAddressResolution {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf7ce2e12_8c90_11d1_9e7b_00c04fc324a8);
@@ -3982,6 +3428,7 @@ pub struct IWbemAddressResolution_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemBackupRestore(::windows_core::IUnknown);
 impl IWbemBackupRestore {
     pub unsafe fn Backup<P0>(&self, strbackuptofile: P0, lflags: i32) -> ::windows_core::Result<()>
@@ -3998,24 +3445,8 @@ impl IWbemBackupRestore {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemBackupRestore, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemBackupRestore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemBackupRestore {}
-impl ::core::fmt::Debug for IWbemBackupRestore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemBackupRestore").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemBackupRestore {
     type Vtable = IWbemBackupRestore_Vtbl;
-}
-impl ::core::clone::Clone for IWbemBackupRestore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemBackupRestore {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc49e32c7_bc8b_11d2_85d4_00105a1f8304);
@@ -4029,6 +3460,7 @@ pub struct IWbemBackupRestore_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemBackupRestoreEx(::windows_core::IUnknown);
 impl IWbemBackupRestoreEx {
     pub unsafe fn Backup<P0>(&self, strbackuptofile: P0, lflags: i32) -> ::windows_core::Result<()>
@@ -4051,24 +3483,8 @@ impl IWbemBackupRestoreEx {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemBackupRestoreEx, ::windows_core::IUnknown, IWbemBackupRestore);
-impl ::core::cmp::PartialEq for IWbemBackupRestoreEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemBackupRestoreEx {}
-impl ::core::fmt::Debug for IWbemBackupRestoreEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemBackupRestoreEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemBackupRestoreEx {
     type Vtable = IWbemBackupRestoreEx_Vtbl;
-}
-impl ::core::clone::Clone for IWbemBackupRestoreEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemBackupRestoreEx {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa359dec5_e813_4834_8a2a_ba7f1d777d76);
@@ -4082,6 +3498,7 @@ pub struct IWbemBackupRestoreEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemCallResult(::windows_core::IUnknown);
 impl IWbemCallResult {
     pub unsafe fn GetResultObject(&self, ltimeout: i32) -> ::windows_core::Result<IWbemClassObject> {
@@ -4102,24 +3519,8 @@ impl IWbemCallResult {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemCallResult, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemCallResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemCallResult {}
-impl ::core::fmt::Debug for IWbemCallResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemCallResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemCallResult {
     type Vtable = IWbemCallResult_Vtbl;
-}
-impl ::core::clone::Clone for IWbemCallResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemCallResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x44aca675_e8fc_11d0_a07c_00c04fb68820);
@@ -4135,6 +3536,7 @@ pub struct IWbemCallResult_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemClassObject(::windows_core::IUnknown);
 impl IWbemClassObject {
     pub unsafe fn GetQualifierSet(&self) -> ::windows_core::Result<IWbemQualifierSet> {
@@ -4270,24 +3672,8 @@ impl IWbemClassObject {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemClassObject, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemClassObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemClassObject {}
-impl ::core::fmt::Debug for IWbemClassObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemClassObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemClassObject {
     type Vtable = IWbemClassObject_Vtbl;
-}
-impl ::core::clone::Clone for IWbemClassObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemClassObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdc12a681_737f_11cf_884d_00aa004b2e24);
@@ -4335,6 +3721,7 @@ pub struct IWbemClassObject_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemClientConnectionTransport(::windows_core::IUnknown);
 impl IWbemClientConnectionTransport {
     pub unsafe fn Open<P0, P1, P2, P3, P4, P5, T>(&self, straddresstype: P0, abbinaryaddress: &[u8], strobject: P1, struser: P2, strpassword: P3, strlocale: P4, lflags: i32, pctx: P5, pcallres: *mut ::core::option::Option<IWbemCallResult>) -> ::windows_core::Result<T>
@@ -4370,24 +3757,8 @@ impl IWbemClientConnectionTransport {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemClientConnectionTransport, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemClientConnectionTransport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemClientConnectionTransport {}
-impl ::core::fmt::Debug for IWbemClientConnectionTransport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemClientConnectionTransport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemClientConnectionTransport {
     type Vtable = IWbemClientConnectionTransport_Vtbl;
-}
-impl ::core::clone::Clone for IWbemClientConnectionTransport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemClientConnectionTransport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa889c72a_fcc1_4a9e_af61_ed071333fb5b);
@@ -4402,6 +3773,7 @@ pub struct IWbemClientConnectionTransport_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemClientTransport(::windows_core::IUnknown);
 impl IWbemClientTransport {
     pub unsafe fn ConnectServer<P0, P1, P2, P3, P4, P5, P6>(&self, straddresstype: P0, abbinaryaddress: &[u8], strnetworkresource: P1, struser: P2, strpassword: P3, strlocale: P4, lsecurityflags: i32, strauthority: P5, pctx: P6) -> ::windows_core::Result<IWbemServices>
@@ -4419,24 +3791,8 @@ impl IWbemClientTransport {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemClientTransport, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemClientTransport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemClientTransport {}
-impl ::core::fmt::Debug for IWbemClientTransport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemClientTransport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemClientTransport {
     type Vtable = IWbemClientTransport_Vtbl;
-}
-impl ::core::clone::Clone for IWbemClientTransport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemClientTransport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf7ce2e11_8c90_11d1_9e7b_00c04fc324a8);
@@ -4449,6 +3805,7 @@ pub struct IWbemClientTransport_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemConfigureRefresher(::windows_core::IUnknown);
 impl IWbemConfigureRefresher {
     pub unsafe fn AddObjectByPath<P0, P1, P2>(&self, pnamespace: P0, wszpath: P1, lflags: i32, pcontext: P2, pprefreshable: *mut ::core::option::Option<IWbemClassObject>, plid: *mut i32) -> ::windows_core::Result<()>
@@ -4486,24 +3843,8 @@ impl IWbemConfigureRefresher {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemConfigureRefresher, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemConfigureRefresher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemConfigureRefresher {}
-impl ::core::fmt::Debug for IWbemConfigureRefresher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemConfigureRefresher").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemConfigureRefresher {
     type Vtable = IWbemConfigureRefresher_Vtbl;
-}
-impl ::core::clone::Clone for IWbemConfigureRefresher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemConfigureRefresher {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49353c92_516b_11d1_aea6_00c04fb68820);
@@ -4520,6 +3861,7 @@ pub struct IWbemConfigureRefresher_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemConnectorLogin(::windows_core::IUnknown);
 impl IWbemConnectorLogin {
     pub unsafe fn ConnectorLogin<P0, P1, P2, T>(&self, wsznetworkresource: P0, wszpreferredlocale: P1, lflags: i32, pctx: P2) -> ::windows_core::Result<T>
@@ -4534,24 +3876,8 @@ impl IWbemConnectorLogin {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemConnectorLogin, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemConnectorLogin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemConnectorLogin {}
-impl ::core::fmt::Debug for IWbemConnectorLogin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemConnectorLogin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemConnectorLogin {
     type Vtable = IWbemConnectorLogin_Vtbl;
-}
-impl ::core::clone::Clone for IWbemConnectorLogin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemConnectorLogin {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd8ec9cb1_b135_4f10_8b1b_c7188bb0d186);
@@ -4564,6 +3890,7 @@ pub struct IWbemConnectorLogin_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemConstructClassObject(::windows_core::IUnknown);
 impl IWbemConstructClassObject {
     pub unsafe fn SetInheritanceChain(&self, lnumantecedents: i32, awszantecedents: *const ::windows_core::PCWSTR) -> ::windows_core::Result<()> {
@@ -4590,24 +3917,8 @@ impl IWbemConstructClassObject {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemConstructClassObject, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemConstructClassObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemConstructClassObject {}
-impl ::core::fmt::Debug for IWbemConstructClassObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemConstructClassObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemConstructClassObject {
     type Vtable = IWbemConstructClassObject_Vtbl;
-}
-impl ::core::clone::Clone for IWbemConstructClassObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemConstructClassObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9ef76194_70d5_11d1_ad90_00c04fd8fdff);
@@ -4623,6 +3934,7 @@ pub struct IWbemConstructClassObject_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemContext(::windows_core::IUnknown);
 impl IWbemContext {
     pub unsafe fn Clone(&self) -> ::windows_core::Result<IWbemContext> {
@@ -4674,24 +3986,8 @@ impl IWbemContext {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemContext, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemContext {}
-impl ::core::fmt::Debug for IWbemContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemContext {
     type Vtable = IWbemContext_Vtbl;
-}
-impl ::core::clone::Clone for IWbemContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x44aca674_e8fc_11d0_a07c_00c04fb68820);
@@ -4724,6 +4020,7 @@ pub struct IWbemContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemDecoupledBasicEventProvider(::windows_core::IUnknown);
 impl IWbemDecoupledBasicEventProvider {
     pub unsafe fn Register<P0, P1, P2, P3, P4, P5>(&self, a_flags: i32, a_context: P0, a_user: P1, a_locale: P2, a_scope: P3, a_registration: P4, piunknown: P5) -> ::windows_core::Result<()>
@@ -4756,24 +4053,8 @@ impl IWbemDecoupledBasicEventProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemDecoupledBasicEventProvider, ::windows_core::IUnknown, IWbemDecoupledRegistrar);
-impl ::core::cmp::PartialEq for IWbemDecoupledBasicEventProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemDecoupledBasicEventProvider {}
-impl ::core::fmt::Debug for IWbemDecoupledBasicEventProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemDecoupledBasicEventProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemDecoupledBasicEventProvider {
     type Vtable = IWbemDecoupledBasicEventProvider_Vtbl;
-}
-impl ::core::clone::Clone for IWbemDecoupledBasicEventProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemDecoupledBasicEventProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x86336d20_ca11_4786_9ef1_bc8a946b42fc);
@@ -4787,6 +4068,7 @@ pub struct IWbemDecoupledBasicEventProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemDecoupledRegistrar(::windows_core::IUnknown);
 impl IWbemDecoupledRegistrar {
     pub unsafe fn Register<P0, P1, P2, P3, P4, P5>(&self, a_flags: i32, a_context: P0, a_user: P1, a_locale: P2, a_scope: P3, a_registration: P4, piunknown: P5) -> ::windows_core::Result<()>
@@ -4805,24 +4087,8 @@ impl IWbemDecoupledRegistrar {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemDecoupledRegistrar, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemDecoupledRegistrar {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemDecoupledRegistrar {}
-impl ::core::fmt::Debug for IWbemDecoupledRegistrar {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemDecoupledRegistrar").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemDecoupledRegistrar {
     type Vtable = IWbemDecoupledRegistrar_Vtbl;
-}
-impl ::core::clone::Clone for IWbemDecoupledRegistrar {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemDecoupledRegistrar {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1005cbcf_e64f_4646_bcd3_3a089d8a84b4);
@@ -4836,6 +4102,7 @@ pub struct IWbemDecoupledRegistrar_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemEventConsumerProvider(::windows_core::IUnknown);
 impl IWbemEventConsumerProvider {
     pub unsafe fn FindConsumer<P0>(&self, plogicalconsumer: P0) -> ::windows_core::Result<IWbemUnboundObjectSink>
@@ -4847,24 +4114,8 @@ impl IWbemEventConsumerProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemEventConsumerProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemEventConsumerProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemEventConsumerProvider {}
-impl ::core::fmt::Debug for IWbemEventConsumerProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemEventConsumerProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemEventConsumerProvider {
     type Vtable = IWbemEventConsumerProvider_Vtbl;
-}
-impl ::core::clone::Clone for IWbemEventConsumerProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemEventConsumerProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe246107a_b06e_11d0_ad61_00c04fd8fdff);
@@ -4877,6 +4128,7 @@ pub struct IWbemEventConsumerProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemEventProvider(::windows_core::IUnknown);
 impl IWbemEventProvider {
     pub unsafe fn ProvideEvents<P0>(&self, psink: P0, lflags: i32) -> ::windows_core::Result<()>
@@ -4887,24 +4139,8 @@ impl IWbemEventProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemEventProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemEventProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemEventProvider {}
-impl ::core::fmt::Debug for IWbemEventProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemEventProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemEventProvider {
     type Vtable = IWbemEventProvider_Vtbl;
-}
-impl ::core::clone::Clone for IWbemEventProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemEventProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe245105b_b06e_11d0_ad61_00c04fd8fdff);
@@ -4917,6 +4153,7 @@ pub struct IWbemEventProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemEventProviderQuerySink(::windows_core::IUnknown);
 impl IWbemEventProviderQuerySink {
     pub unsafe fn NewQuery(&self, dwid: u32, wszquerylanguage: *const u16, wszquery: *const u16) -> ::windows_core::Result<()> {
@@ -4927,24 +4164,8 @@ impl IWbemEventProviderQuerySink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemEventProviderQuerySink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemEventProviderQuerySink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemEventProviderQuerySink {}
-impl ::core::fmt::Debug for IWbemEventProviderQuerySink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemEventProviderQuerySink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemEventProviderQuerySink {
     type Vtable = IWbemEventProviderQuerySink_Vtbl;
-}
-impl ::core::clone::Clone for IWbemEventProviderQuerySink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemEventProviderQuerySink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x580acaf8_fa1c_11d0_ad72_00c04fd8fdff);
@@ -4958,6 +4179,7 @@ pub struct IWbemEventProviderQuerySink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemEventProviderSecurity(::windows_core::IUnknown);
 impl IWbemEventProviderSecurity {
     pub unsafe fn AccessCheck(&self, wszquerylanguage: *const u16, wszquery: *const u16, psid: &[u8]) -> ::windows_core::Result<()> {
@@ -4965,24 +4187,8 @@ impl IWbemEventProviderSecurity {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemEventProviderSecurity, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemEventProviderSecurity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemEventProviderSecurity {}
-impl ::core::fmt::Debug for IWbemEventProviderSecurity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemEventProviderSecurity").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemEventProviderSecurity {
     type Vtable = IWbemEventProviderSecurity_Vtbl;
-}
-impl ::core::clone::Clone for IWbemEventProviderSecurity {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemEventProviderSecurity {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x631f7d96_d993_11d2_b339_00105a1f4aaf);
@@ -4995,6 +4201,7 @@ pub struct IWbemEventProviderSecurity_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemEventSink(::windows_core::IUnknown);
 impl IWbemEventSink {
     pub unsafe fn Indicate(&self, apobjarray: &[::core::option::Option<IWbemClassObject>]) -> ::windows_core::Result<()> {
@@ -5025,24 +4232,8 @@ impl IWbemEventSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemEventSink, ::windows_core::IUnknown, IWbemObjectSink);
-impl ::core::cmp::PartialEq for IWbemEventSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemEventSink {}
-impl ::core::fmt::Debug for IWbemEventSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemEventSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemEventSink {
     type Vtable = IWbemEventSink_Vtbl;
-}
-impl ::core::clone::Clone for IWbemEventSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemEventSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ae0080a_7e3a_4366_bf89_0feedc931659);
@@ -5058,6 +4249,7 @@ pub struct IWbemEventSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemHiPerfEnum(::windows_core::IUnknown);
 impl IWbemHiPerfEnum {
     pub unsafe fn AddObjects(&self, lflags: i32, unumobjects: u32, apids: *const i32, apobj: *const ::core::option::Option<IWbemObjectAccess>) -> ::windows_core::Result<()> {
@@ -5074,24 +4266,8 @@ impl IWbemHiPerfEnum {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemHiPerfEnum, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemHiPerfEnum {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemHiPerfEnum {}
-impl ::core::fmt::Debug for IWbemHiPerfEnum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemHiPerfEnum").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemHiPerfEnum {
     type Vtable = IWbemHiPerfEnum_Vtbl;
-}
-impl ::core::clone::Clone for IWbemHiPerfEnum {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemHiPerfEnum {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2705c288_79ae_11d2_b348_00105a1f8177);
@@ -5107,6 +4283,7 @@ pub struct IWbemHiPerfEnum_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemHiPerfProvider(::windows_core::IUnknown);
 impl IWbemHiPerfProvider {
     pub unsafe fn QueryInstances<P0, P1, P2, P3>(&self, pnamespace: P0, wszclass: P1, lflags: i32, pctx: P2, psink: P3) -> ::windows_core::Result<()>
@@ -5160,24 +4337,8 @@ impl IWbemHiPerfProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemHiPerfProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemHiPerfProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemHiPerfProvider {}
-impl ::core::fmt::Debug for IWbemHiPerfProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemHiPerfProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemHiPerfProvider {
     type Vtable = IWbemHiPerfProvider_Vtbl;
-}
-impl ::core::clone::Clone for IWbemHiPerfProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemHiPerfProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49353c93_516b_11d1_aea6_00c04fb68820);
@@ -5195,6 +4356,7 @@ pub struct IWbemHiPerfProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemLevel1Login(::windows_core::IUnknown);
 impl IWbemLevel1Login {
     pub unsafe fn EstablishPosition<P0>(&self, wszlocalelist: P0, dwnumlocales: u32) -> ::windows_core::Result<u32>
@@ -5231,24 +4393,8 @@ impl IWbemLevel1Login {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemLevel1Login, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemLevel1Login {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemLevel1Login {}
-impl ::core::fmt::Debug for IWbemLevel1Login {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemLevel1Login").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemLevel1Login {
     type Vtable = IWbemLevel1Login_Vtbl;
-}
-impl ::core::clone::Clone for IWbemLevel1Login {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemLevel1Login {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf309ad18_d86a_11d0_a075_00c04fb68820);
@@ -5264,6 +4410,7 @@ pub struct IWbemLevel1Login_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemLocator(::windows_core::IUnknown);
 impl IWbemLocator {
     pub unsafe fn ConnectServer<P0, P1, P2, P3, P4, P5>(&self, strnetworkresource: P0, struser: P1, strpassword: P2, strlocale: P3, lsecurityflags: i32, strauthority: P4, pctx: P5) -> ::windows_core::Result<IWbemServices>
@@ -5280,24 +4427,8 @@ impl IWbemLocator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemLocator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemLocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemLocator {}
-impl ::core::fmt::Debug for IWbemLocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemLocator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemLocator {
     type Vtable = IWbemLocator_Vtbl;
-}
-impl ::core::clone::Clone for IWbemLocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemLocator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdc12a687_737f_11cf_884d_00aa004b2e24);
@@ -5310,6 +4441,7 @@ pub struct IWbemLocator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemObjectAccess(::windows_core::IUnknown);
 impl IWbemObjectAccess {
     pub unsafe fn GetQualifierSet(&self) -> ::windows_core::Result<IWbemQualifierSet> {
@@ -5480,24 +4612,8 @@ impl IWbemObjectAccess {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemObjectAccess, ::windows_core::IUnknown, IWbemClassObject);
-impl ::core::cmp::PartialEq for IWbemObjectAccess {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemObjectAccess {}
-impl ::core::fmt::Debug for IWbemObjectAccess {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemObjectAccess").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemObjectAccess {
     type Vtable = IWbemObjectAccess_Vtbl;
-}
-impl ::core::clone::Clone for IWbemObjectAccess {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemObjectAccess {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49353c9a_516b_11d1_aea6_00c04fb68820);
@@ -5519,6 +4635,7 @@ pub struct IWbemObjectAccess_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemObjectSink(::windows_core::IUnknown);
 impl IWbemObjectSink {
     pub unsafe fn Indicate(&self, apobjarray: &[::core::option::Option<IWbemClassObject>]) -> ::windows_core::Result<()> {
@@ -5533,24 +4650,8 @@ impl IWbemObjectSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemObjectSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemObjectSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemObjectSink {}
-impl ::core::fmt::Debug for IWbemObjectSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemObjectSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemObjectSink {
     type Vtable = IWbemObjectSink_Vtbl;
-}
-impl ::core::clone::Clone for IWbemObjectSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemObjectSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7c857801_7381_11cf_884d_00aa004b2e24);
@@ -5564,6 +4665,7 @@ pub struct IWbemObjectSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemObjectSinkEx(::windows_core::IUnknown);
 impl IWbemObjectSinkEx {
     pub unsafe fn Indicate(&self, apobjarray: &[::core::option::Option<IWbemClassObject>]) -> ::windows_core::Result<()> {
@@ -5614,24 +4716,8 @@ impl IWbemObjectSinkEx {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemObjectSinkEx, ::windows_core::IUnknown, IWbemObjectSink);
-impl ::core::cmp::PartialEq for IWbemObjectSinkEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemObjectSinkEx {}
-impl ::core::fmt::Debug for IWbemObjectSinkEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemObjectSinkEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemObjectSinkEx {
     type Vtable = IWbemObjectSinkEx_Vtbl;
-}
-impl ::core::clone::Clone for IWbemObjectSinkEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemObjectSinkEx {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe7d35cfa_348b_485e_b524_252725d697ca);
@@ -5651,6 +4737,7 @@ pub struct IWbemObjectSinkEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemObjectTextSrc(::windows_core::IUnknown);
 impl IWbemObjectTextSrc {
     pub unsafe fn GetText<P0, P1>(&self, lflags: i32, pobj: P0, uobjtextformat: u32, pctx: P1) -> ::windows_core::Result<::windows_core::BSTR>
@@ -5671,24 +4758,8 @@ impl IWbemObjectTextSrc {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemObjectTextSrc, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemObjectTextSrc {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemObjectTextSrc {}
-impl ::core::fmt::Debug for IWbemObjectTextSrc {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemObjectTextSrc").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemObjectTextSrc {
     type Vtable = IWbemObjectTextSrc_Vtbl;
-}
-impl ::core::clone::Clone for IWbemObjectTextSrc {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemObjectTextSrc {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfbf883a_cad7_11d3_a11b_00105a1f515a);
@@ -5702,6 +4773,7 @@ pub struct IWbemObjectTextSrc_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemPath(::windows_core::IUnknown);
 impl IWbemPath {
     pub unsafe fn SetText<P0>(&self, umode: u32, pszpath: P0) -> ::windows_core::Result<()>
@@ -5831,24 +4903,8 @@ impl IWbemPath {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemPath, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemPath {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemPath {}
-impl ::core::fmt::Debug for IWbemPath {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemPath").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemPath {
     type Vtable = IWbemPath_Vtbl;
-}
-impl ::core::clone::Clone for IWbemPath {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemPath {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3bc15af2_736c_477e_9e51_238af8667dcc);
@@ -5898,6 +4954,7 @@ pub struct IWbemPath_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemPathKeyList(::windows_core::IUnknown);
 impl IWbemPathKeyList {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -5947,24 +5004,8 @@ impl IWbemPathKeyList {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemPathKeyList, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemPathKeyList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemPathKeyList {}
-impl ::core::fmt::Debug for IWbemPathKeyList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemPathKeyList").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemPathKeyList {
     type Vtable = IWbemPathKeyList_Vtbl;
-}
-impl ::core::clone::Clone for IWbemPathKeyList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemPathKeyList {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9ae62877_7544_4bb0_aa26_a13824659ed6);
@@ -5992,6 +5033,7 @@ pub struct IWbemPathKeyList_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemPropertyProvider(::windows_core::IUnknown);
 impl IWbemPropertyProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -6019,24 +5061,8 @@ impl IWbemPropertyProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemPropertyProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemPropertyProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemPropertyProvider {}
-impl ::core::fmt::Debug for IWbemPropertyProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemPropertyProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemPropertyProvider {
     type Vtable = IWbemPropertyProvider_Vtbl;
-}
-impl ::core::clone::Clone for IWbemPropertyProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemPropertyProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xce61e841_65bc_11d0_b6bd_00aa003240c7);
@@ -6056,6 +5082,7 @@ pub struct IWbemPropertyProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemProviderIdentity(::windows_core::IUnknown);
 impl IWbemProviderIdentity {
     pub unsafe fn SetRegistrationObject<P0>(&self, lflags: i32, pprovreg: P0) -> ::windows_core::Result<()>
@@ -6066,24 +5093,8 @@ impl IWbemProviderIdentity {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemProviderIdentity, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemProviderIdentity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemProviderIdentity {}
-impl ::core::fmt::Debug for IWbemProviderIdentity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemProviderIdentity").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemProviderIdentity {
     type Vtable = IWbemProviderIdentity_Vtbl;
-}
-impl ::core::clone::Clone for IWbemProviderIdentity {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemProviderIdentity {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x631f7d97_d993_11d2_b339_00105a1f4aaf);
@@ -6096,6 +5107,7 @@ pub struct IWbemProviderIdentity_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemProviderInit(::windows_core::IUnknown);
 impl IWbemProviderInit {
     pub unsafe fn Initialize<P0, P1, P2, P3, P4, P5>(&self, wszuser: P0, lflags: i32, wsznamespace: P1, wszlocale: P2, pnamespace: P3, pctx: P4, pinitsink: P5) -> ::windows_core::Result<()>
@@ -6111,24 +5123,8 @@ impl IWbemProviderInit {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemProviderInit, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemProviderInit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemProviderInit {}
-impl ::core::fmt::Debug for IWbemProviderInit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemProviderInit").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemProviderInit {
     type Vtable = IWbemProviderInit_Vtbl;
-}
-impl ::core::clone::Clone for IWbemProviderInit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemProviderInit {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1be41572_91dd_11d1_aeb2_00c04fb68820);
@@ -6141,6 +5137,7 @@ pub struct IWbemProviderInit_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemProviderInitSink(::windows_core::IUnknown);
 impl IWbemProviderInitSink {
     pub unsafe fn SetStatus(&self, lstatus: i32, lflags: i32) -> ::windows_core::Result<()> {
@@ -6148,24 +5145,8 @@ impl IWbemProviderInitSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemProviderInitSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemProviderInitSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemProviderInitSink {}
-impl ::core::fmt::Debug for IWbemProviderInitSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemProviderInitSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemProviderInitSink {
     type Vtable = IWbemProviderInitSink_Vtbl;
-}
-impl ::core::clone::Clone for IWbemProviderInitSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemProviderInitSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1be41571_91dd_11d1_aeb2_00c04fb68820);
@@ -6178,6 +5159,7 @@ pub struct IWbemProviderInitSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemQualifierSet(::windows_core::IUnknown);
 impl IWbemQualifierSet {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -6221,24 +5203,8 @@ impl IWbemQualifierSet {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemQualifierSet, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemQualifierSet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemQualifierSet {}
-impl ::core::fmt::Debug for IWbemQualifierSet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemQualifierSet").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemQualifierSet {
     type Vtable = IWbemQualifierSet_Vtbl;
-}
-impl ::core::clone::Clone for IWbemQualifierSet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemQualifierSet {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdc12a680_737f_11cf_884d_00aa004b2e24);
@@ -6269,6 +5235,7 @@ pub struct IWbemQualifierSet_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemQuery(::windows_core::IUnknown);
 impl IWbemQuery {
     pub unsafe fn Empty(&self) -> ::windows_core::Result<()> {
@@ -6298,24 +5265,8 @@ impl IWbemQuery {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemQuery, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemQuery {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemQuery {}
-impl ::core::fmt::Debug for IWbemQuery {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemQuery").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemQuery {
     type Vtable = IWbemQuery_Vtbl;
-}
-impl ::core::clone::Clone for IWbemQuery {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemQuery {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x81166f58_dd98_11d3_a120_00105a1f515a);
@@ -6334,6 +5285,7 @@ pub struct IWbemQuery_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemRefresher(::windows_core::IUnknown);
 impl IWbemRefresher {
     pub unsafe fn Refresh(&self, lflags: i32) -> ::windows_core::Result<()> {
@@ -6341,24 +5293,8 @@ impl IWbemRefresher {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemRefresher, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemRefresher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemRefresher {}
-impl ::core::fmt::Debug for IWbemRefresher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemRefresher").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemRefresher {
     type Vtable = IWbemRefresher_Vtbl;
-}
-impl ::core::clone::Clone for IWbemRefresher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemRefresher {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49353c99_516b_11d1_aea6_00c04fb68820);
@@ -6371,6 +5307,7 @@ pub struct IWbemRefresher_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemServices(::windows_core::IUnknown);
 impl IWbemServices {
     pub unsafe fn OpenNamespace<P0, P1>(&self, strnamespace: P0, lflags: i32, pctx: P1, ppworkingnamespace: ::core::option::Option<*mut ::core::option::Option<IWbemServices>>, ppresult: ::core::option::Option<*mut ::core::option::Option<IWbemCallResult>>) -> ::windows_core::Result<()>
@@ -6554,24 +5491,8 @@ impl IWbemServices {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemServices, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemServices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemServices {}
-impl ::core::fmt::Debug for IWbemServices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemServices").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemServices {
     type Vtable = IWbemServices_Vtbl;
-}
-impl ::core::clone::Clone for IWbemServices {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemServices {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9556dc99_828c_11cf_a37e_00aa003240c7);
@@ -6606,6 +5527,7 @@ pub struct IWbemServices_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemShutdown(::windows_core::IUnknown);
 impl IWbemShutdown {
     pub unsafe fn Shutdown<P0>(&self, ureason: i32, umaxmilliseconds: u32, pctx: P0) -> ::windows_core::Result<()>
@@ -6616,24 +5538,8 @@ impl IWbemShutdown {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemShutdown, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemShutdown {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemShutdown {}
-impl ::core::fmt::Debug for IWbemShutdown {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemShutdown").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemShutdown {
     type Vtable = IWbemShutdown_Vtbl;
-}
-impl ::core::clone::Clone for IWbemShutdown {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemShutdown {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb7b31df9_d515_11d3_a11c_00105a1f515a);
@@ -6646,6 +5552,7 @@ pub struct IWbemShutdown_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemStatusCodeText(::windows_core::IUnknown);
 impl IWbemStatusCodeText {
     pub unsafe fn GetErrorCodeText(&self, hres: ::windows_core::HRESULT, localeid: u32, lflags: i32) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -6658,24 +5565,8 @@ impl IWbemStatusCodeText {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemStatusCodeText, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemStatusCodeText {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemStatusCodeText {}
-impl ::core::fmt::Debug for IWbemStatusCodeText {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemStatusCodeText").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemStatusCodeText {
     type Vtable = IWbemStatusCodeText_Vtbl;
-}
-impl ::core::clone::Clone for IWbemStatusCodeText {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemStatusCodeText {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb87e1bc_3233_11d2_aec9_00c04fb68820);
@@ -6689,6 +5580,7 @@ pub struct IWbemStatusCodeText_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemTransport(::windows_core::IUnknown);
 impl IWbemTransport {
     pub unsafe fn Initialize(&self) -> ::windows_core::Result<()> {
@@ -6696,24 +5588,8 @@ impl IWbemTransport {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemTransport, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemTransport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemTransport {}
-impl ::core::fmt::Debug for IWbemTransport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemTransport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemTransport {
     type Vtable = IWbemTransport_Vtbl;
-}
-impl ::core::clone::Clone for IWbemTransport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemTransport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x553fe584_2156_11d0_b6ae_00aa003240c7);
@@ -6726,6 +5602,7 @@ pub struct IWbemTransport_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemUnboundObjectSink(::windows_core::IUnknown);
 impl IWbemUnboundObjectSink {
     pub unsafe fn IndicateToConsumer<P0>(&self, plogicalconsumer: P0, apobjects: &[::core::option::Option<IWbemClassObject>]) -> ::windows_core::Result<()>
@@ -6736,24 +5613,8 @@ impl IWbemUnboundObjectSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemUnboundObjectSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWbemUnboundObjectSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemUnboundObjectSink {}
-impl ::core::fmt::Debug for IWbemUnboundObjectSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemUnboundObjectSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemUnboundObjectSink {
     type Vtable = IWbemUnboundObjectSink_Vtbl;
-}
-impl ::core::clone::Clone for IWbemUnboundObjectSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemUnboundObjectSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe246107b_b06e_11d0_ad61_00c04fd8fdff);
@@ -6766,6 +5627,7 @@ pub struct IWbemUnboundObjectSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWbemUnsecuredApartment(::windows_core::IUnknown);
 impl IWbemUnsecuredApartment {
     pub unsafe fn CreateObjectStub<P0>(&self, pobject: P0) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -6785,24 +5647,8 @@ impl IWbemUnsecuredApartment {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWbemUnsecuredApartment, ::windows_core::IUnknown, IUnsecuredApartment);
-impl ::core::cmp::PartialEq for IWbemUnsecuredApartment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWbemUnsecuredApartment {}
-impl ::core::fmt::Debug for IWbemUnsecuredApartment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWbemUnsecuredApartment").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWbemUnsecuredApartment {
     type Vtable = IWbemUnsecuredApartment_Vtbl;
-}
-impl ::core::clone::Clone for IWbemUnsecuredApartment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWbemUnsecuredApartment {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x31739d04_3471_4cf4_9a7c_57a44ae71956);

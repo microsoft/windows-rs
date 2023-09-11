@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWsbApplicationAsync(::windows_core::IUnknown);
 impl IWsbApplicationAsync {
     pub unsafe fn QueryStatus(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
@@ -11,24 +12,8 @@ impl IWsbApplicationAsync {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWsbApplicationAsync, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWsbApplicationAsync {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWsbApplicationAsync {}
-impl ::core::fmt::Debug for IWsbApplicationAsync {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWsbApplicationAsync").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWsbApplicationAsync {
     type Vtable = IWsbApplicationAsync_Vtbl;
-}
-impl ::core::clone::Clone for IWsbApplicationAsync {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWsbApplicationAsync {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0843f6f7_895c_44a6_b0c2_05a5022aa3a1);
@@ -42,6 +27,7 @@ pub struct IWsbApplicationAsync_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWsbApplicationBackupSupport(::windows_core::IUnknown);
 impl IWsbApplicationBackupSupport {
     pub unsafe fn CheckConsistency<P0, P1, P2>(&self, wszwritermetadata: P0, wszcomponentname: P1, wszcomponentlogicalpath: P2, cvolumes: u32, rgwszsourcevolumepath: *const ::windows_core::PCWSTR, rgwszsnapshotvolumepath: *const ::windows_core::PCWSTR) -> ::windows_core::Result<IWsbApplicationAsync>
@@ -55,24 +41,8 @@ impl IWsbApplicationBackupSupport {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWsbApplicationBackupSupport, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWsbApplicationBackupSupport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWsbApplicationBackupSupport {}
-impl ::core::fmt::Debug for IWsbApplicationBackupSupport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWsbApplicationBackupSupport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWsbApplicationBackupSupport {
     type Vtable = IWsbApplicationBackupSupport_Vtbl;
-}
-impl ::core::clone::Clone for IWsbApplicationBackupSupport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWsbApplicationBackupSupport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1eff3510_4a27_46ad_b9e0_08332f0f4f6d);
@@ -85,6 +55,7 @@ pub struct IWsbApplicationBackupSupport_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ServerBackup\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWsbApplicationRestoreSupport(::windows_core::IUnknown);
 impl IWsbApplicationRestoreSupport {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -118,24 +89,8 @@ impl IWsbApplicationRestoreSupport {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWsbApplicationRestoreSupport, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWsbApplicationRestoreSupport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWsbApplicationRestoreSupport {}
-impl ::core::fmt::Debug for IWsbApplicationRestoreSupport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWsbApplicationRestoreSupport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWsbApplicationRestoreSupport {
     type Vtable = IWsbApplicationRestoreSupport_Vtbl;
-}
-impl ::core::clone::Clone for IWsbApplicationRestoreSupport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWsbApplicationRestoreSupport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d3bdb38_4ee8_4718_85f9_c7dbc4ab77aa);

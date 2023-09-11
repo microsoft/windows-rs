@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicCamera(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicCamera {
     type Vtable = IHolographicCamera_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicCamera {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicCamera {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe4e98445_9bed_4980_9ba0_e87680d1cb74);
@@ -29,14 +25,10 @@ pub struct IHolographicCamera_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicCamera2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicCamera2 {
     type Vtable = IHolographicCamera2_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicCamera2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicCamera2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb55b9f1a_ba8c_4f84_ad79_2e7e1e2450f3);
@@ -51,14 +43,10 @@ pub struct IHolographicCamera2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicCamera3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicCamera3 {
     type Vtable = IHolographicCamera3_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicCamera3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicCamera3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x45aa4fb3_7b59_524e_4a3f_4a6ad6650477);
@@ -77,14 +65,10 @@ pub struct IHolographicCamera3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicCamera4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicCamera4 {
     type Vtable = IHolographicCamera4_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicCamera4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicCamera4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a2531d6_4723_4f39_a9a5_9d05181d9b44);
@@ -97,14 +81,10 @@ pub struct IHolographicCamera4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicCamera5(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicCamera5 {
     type Vtable = IHolographicCamera5_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicCamera5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicCamera5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x229706f2_628d_4ef5_9c08_a63fdd7787c6);
@@ -119,14 +99,10 @@ pub struct IHolographicCamera5_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicCamera6(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicCamera6 {
     type Vtable = IHolographicCamera6_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicCamera6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicCamera6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0209194f_632d_5154_ab52_0b5d15b12505);
@@ -139,14 +115,10 @@ pub struct IHolographicCamera6_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicCameraPose(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicCameraPose {
     type Vtable = IHolographicCameraPose_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicCameraPose {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicCameraPose {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d7d7e30_12de_45bd_912b_c7f6561599d1);
@@ -181,14 +153,10 @@ pub struct IHolographicCameraPose_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicCameraPose2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicCameraPose2 {
     type Vtable = IHolographicCameraPose2_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicCameraPose2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicCameraPose2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x232be073_5d2d_4560_814e_2697c4fce16b);
@@ -212,14 +180,10 @@ pub struct IHolographicCameraPose2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicCameraRenderingParameters(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicCameraRenderingParameters {
     type Vtable = IHolographicCameraRenderingParameters_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicCameraRenderingParameters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicCameraRenderingParameters {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8eac2ed1_5bf4_4e16_8236_ae0800c11d0d);
@@ -251,14 +215,10 @@ pub struct IHolographicCameraRenderingParameters_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicCameraRenderingParameters2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicCameraRenderingParameters2 {
     type Vtable = IHolographicCameraRenderingParameters2_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicCameraRenderingParameters2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicCameraRenderingParameters2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x261270e3_b696_4634_94d6_be0681643599);
@@ -276,14 +236,10 @@ pub struct IHolographicCameraRenderingParameters2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicCameraRenderingParameters3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicCameraRenderingParameters3 {
     type Vtable = IHolographicCameraRenderingParameters3_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicCameraRenderingParameters3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicCameraRenderingParameters3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb1aa513f_136d_4b06_b9d4_e4b914cd0683);
@@ -297,14 +253,10 @@ pub struct IHolographicCameraRenderingParameters3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicCameraRenderingParameters4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicCameraRenderingParameters4 {
     type Vtable = IHolographicCameraRenderingParameters4_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicCameraRenderingParameters4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicCameraRenderingParameters4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0878fa4c_e163_57dc_82b7_c406ab3e0537);
@@ -318,14 +270,10 @@ pub struct IHolographicCameraRenderingParameters4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicCameraViewportParameters(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicCameraViewportParameters {
     type Vtable = IHolographicCameraViewportParameters_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicCameraViewportParameters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicCameraViewportParameters {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x80cdf3f7_842a_41e1_93ed_5692ab1fbb10);
@@ -345,14 +293,10 @@ pub struct IHolographicCameraViewportParameters_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicDisplay(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicDisplay {
     type Vtable = IHolographicDisplay_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicDisplay {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicDisplay {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9acea414_1d9f_4090_a388_90c06f6eae9c);
@@ -376,14 +320,10 @@ pub struct IHolographicDisplay_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicDisplay2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicDisplay2 {
     type Vtable = IHolographicDisplay2_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicDisplay2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicDisplay2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75ac3f82_e755_436c_8d96_4d32d131473e);
@@ -396,14 +336,10 @@ pub struct IHolographicDisplay2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicDisplay3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicDisplay3 {
     type Vtable = IHolographicDisplay3_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicDisplay3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicDisplay3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfc4c6ac6_6480_5008_b29e_157d77c843f7);
@@ -416,14 +352,10 @@ pub struct IHolographicDisplay3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicDisplayStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicDisplayStatics {
     type Vtable = IHolographicDisplayStatics_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicDisplayStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicDisplayStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb374983_e7b0_4841_8355_3ae5b536e9a4);
@@ -436,14 +368,10 @@ pub struct IHolographicDisplayStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicFrame(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicFrame {
     type Vtable = IHolographicFrame_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicFrame {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicFrame {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6988eb6_a8b9_3054_a6eb_d624b6536375);
@@ -473,14 +401,10 @@ pub struct IHolographicFrame_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicFrame2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicFrame2 {
     type Vtable = IHolographicFrame2_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicFrame2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicFrame2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x283f37bf_3bf2_5e91_6633_870574e6f217);
@@ -493,14 +417,10 @@ pub struct IHolographicFrame2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicFrame3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicFrame3 {
     type Vtable = IHolographicFrame3_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicFrame3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicFrame3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe5e964c9_8a27_55d3_9f98_94530d369052);
@@ -513,14 +433,10 @@ pub struct IHolographicFrame3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicFramePrediction(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicFramePrediction {
     type Vtable = IHolographicFramePrediction_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicFramePrediction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicFramePrediction {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x520f4de1_5c0a_4e79_a81e_6abe02bb2739);
@@ -541,16 +457,11 @@ pub struct IHolographicFramePrediction_Vtbl {
 #[doc(hidden)]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicFramePresentationMonitor(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for IHolographicFramePresentationMonitor {
     type Vtable = IHolographicFramePresentationMonitor_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for IHolographicFramePresentationMonitor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::ComInterface for IHolographicFramePresentationMonitor {
@@ -569,16 +480,11 @@ pub struct IHolographicFramePresentationMonitor_Vtbl {
 #[doc(hidden)]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicFramePresentationReport(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for IHolographicFramePresentationReport {
     type Vtable = IHolographicFramePresentationReport_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for IHolographicFramePresentationReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::ComInterface for IHolographicFramePresentationReport {
@@ -612,14 +518,10 @@ pub struct IHolographicFramePresentationReport_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicFrameRenderingReport(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicFrameRenderingReport {
     type Vtable = IHolographicFrameRenderingReport_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicFrameRenderingReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicFrameRenderingReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05f32de4_e384_51b3_b934_f0d3a0f78606);
@@ -645,14 +547,10 @@ pub struct IHolographicFrameRenderingReport_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicFrameScanoutMonitor(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicFrameScanoutMonitor {
     type Vtable = IHolographicFrameScanoutMonitor_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicFrameScanoutMonitor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicFrameScanoutMonitor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7e83efa9_843c_5401_8095_9bc1b8b08638);
@@ -668,14 +566,10 @@ pub struct IHolographicFrameScanoutMonitor_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicFrameScanoutReport(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicFrameScanoutReport {
     type Vtable = IHolographicFrameScanoutReport_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicFrameScanoutReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicFrameScanoutReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ebbe606_03a0_5ca0_b46e_bba068d7233f);
@@ -701,14 +595,10 @@ pub struct IHolographicFrameScanoutReport_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicQuadLayer(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicQuadLayer {
     type Vtable = IHolographicQuadLayer_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicQuadLayer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicQuadLayer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x903460c9_c9d9_5d5c_41ac_a2d5ab0fd331);
@@ -728,14 +618,10 @@ pub struct IHolographicQuadLayer_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicQuadLayerFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicQuadLayerFactory {
     type Vtable = IHolographicQuadLayerFactory_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicQuadLayerFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicQuadLayerFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa67538f3_5a14_5a10_489a_455065b37b76);
@@ -755,14 +641,10 @@ pub struct IHolographicQuadLayerFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicQuadLayerUpdateParameters(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicQuadLayerUpdateParameters {
     type Vtable = IHolographicQuadLayerUpdateParameters_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicQuadLayerUpdateParameters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicQuadLayerUpdateParameters {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2b0ea3b0_798d_5bca_55c2_2c0c762ebb08);
@@ -795,14 +677,10 @@ pub struct IHolographicQuadLayerUpdateParameters_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicQuadLayerUpdateParameters2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicQuadLayerUpdateParameters2 {
     type Vtable = IHolographicQuadLayerUpdateParameters2_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicQuadLayerUpdateParameters2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicQuadLayerUpdateParameters2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f33d32d_82c1_46c1_8980_3cb70d98182b);
@@ -819,14 +697,10 @@ pub struct IHolographicQuadLayerUpdateParameters2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicSpace(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicSpace {
     type Vtable = IHolographicSpace_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicSpace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicSpace {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4380dba6_5e78_434f_807c_3433d1efe8b7);
@@ -860,14 +734,10 @@ pub struct IHolographicSpace_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicSpace2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicSpace2 {
     type Vtable = IHolographicSpace2_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicSpace2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicSpace2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f81a9a8_b7ff_4883_9827_7d677287ea70);
@@ -897,14 +767,10 @@ pub struct IHolographicSpace2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicSpace3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicSpace3 {
     type Vtable = IHolographicSpace3_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicSpace3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicSpace3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf1733d1_f224_587e_8d71_1e8fc8f07b1f);
@@ -917,14 +783,10 @@ pub struct IHolographicSpace3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicSpaceCameraAddedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicSpaceCameraAddedEventArgs {
     type Vtable = IHolographicSpaceCameraAddedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicSpaceCameraAddedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicSpaceCameraAddedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x58f1da35_bbb3_3c8f_993d_6c80e7feb99f);
@@ -941,14 +803,10 @@ pub struct IHolographicSpaceCameraAddedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicSpaceCameraRemovedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicSpaceCameraRemovedEventArgs {
     type Vtable = IHolographicSpaceCameraRemovedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicSpaceCameraRemovedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicSpaceCameraRemovedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x805444a8_f2ae_322e_8da9_836a0a95a4c1);
@@ -961,14 +819,10 @@ pub struct IHolographicSpaceCameraRemovedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicSpaceStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicSpaceStatics {
     type Vtable = IHolographicSpaceStatics_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicSpaceStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicSpaceStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x364e6064_c8f2_3ba1_8391_66b8489e67fd);
@@ -984,14 +838,10 @@ pub struct IHolographicSpaceStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicSpaceStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicSpaceStatics2 {
     type Vtable = IHolographicSpaceStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicSpaceStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicSpaceStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0e777088_75fc_48af_8758_0652f6f07c59);
@@ -1013,14 +863,10 @@ pub struct IHolographicSpaceStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicSpaceStatics3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicSpaceStatics3 {
     type Vtable = IHolographicSpaceStatics3_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicSpaceStatics3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicSpaceStatics3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3b00de3d_b1a3_4dfe_8e79_fec5909e6df8);
@@ -1033,14 +879,10 @@ pub struct IHolographicSpaceStatics3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicViewConfiguration(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicViewConfiguration {
     type Vtable = IHolographicViewConfiguration_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicViewConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicViewConfiguration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c1de6e6_67e9_5004_b02c_67a3a122b576);
@@ -1082,14 +924,10 @@ pub struct IHolographicViewConfiguration_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHolographicViewConfiguration2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHolographicViewConfiguration2 {
     type Vtable = IHolographicViewConfiguration2_Vtbl;
-}
-impl ::core::clone::Clone for IHolographicViewConfiguration2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHolographicViewConfiguration2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe241756e_e0d0_5019_9af5_1b165bc2f54e);
@@ -1105,6 +943,7 @@ pub struct IHolographicViewConfiguration2_Vtbl {
 }
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HolographicCamera(::windows_core::IUnknown);
 impl HolographicCamera {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1230,24 +1069,8 @@ impl HolographicCamera {
         }
     }
 }
-impl ::core::cmp::PartialEq for HolographicCamera {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicCamera {}
-impl ::core::fmt::Debug for HolographicCamera {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicCamera").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HolographicCamera {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCamera;{e4e98445-9bed-4980-9ba0-e87680d1cb74})");
-}
-impl ::core::clone::Clone for HolographicCamera {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HolographicCamera {
     type Vtable = IHolographicCamera_Vtbl;
@@ -1263,6 +1086,7 @@ unsafe impl ::core::marker::Send for HolographicCamera {}
 unsafe impl ::core::marker::Sync for HolographicCamera {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HolographicCameraPose(::windows_core::IUnknown);
 impl HolographicCameraPose {
     pub fn HolographicCamera(&self) -> ::windows_core::Result<HolographicCamera> {
@@ -1362,24 +1186,8 @@ impl HolographicCameraPose {
         unsafe { (::windows_core::Interface::vtable(this).OverrideViewport)(::windows_core::Interface::as_raw(this), leftviewport, rightviewport).ok() }
     }
 }
-impl ::core::cmp::PartialEq for HolographicCameraPose {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicCameraPose {}
-impl ::core::fmt::Debug for HolographicCameraPose {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicCameraPose").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HolographicCameraPose {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCameraPose;{0d7d7e30-12de-45bd-912b-c7f6561599d1})");
-}
-impl ::core::clone::Clone for HolographicCameraPose {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HolographicCameraPose {
     type Vtable = IHolographicCameraPose_Vtbl;
@@ -1395,6 +1203,7 @@ unsafe impl ::core::marker::Send for HolographicCameraPose {}
 unsafe impl ::core::marker::Sync for HolographicCameraPose {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HolographicCameraRenderingParameters(::windows_core::IUnknown);
 impl HolographicCameraRenderingParameters {
     #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
@@ -1485,24 +1294,8 @@ impl HolographicCameraRenderingParameters {
         unsafe { (::windows_core::Interface::vtable(this).SetDepthReprojectionMethod)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for HolographicCameraRenderingParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicCameraRenderingParameters {}
-impl ::core::fmt::Debug for HolographicCameraRenderingParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicCameraRenderingParameters").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HolographicCameraRenderingParameters {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCameraRenderingParameters;{8eac2ed1-5bf4-4e16-8236-ae0800c11d0d})");
-}
-impl ::core::clone::Clone for HolographicCameraRenderingParameters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HolographicCameraRenderingParameters {
     type Vtable = IHolographicCameraRenderingParameters_Vtbl;
@@ -1518,6 +1311,7 @@ unsafe impl ::core::marker::Send for HolographicCameraRenderingParameters {}
 unsafe impl ::core::marker::Sync for HolographicCameraRenderingParameters {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HolographicCameraViewportParameters(::windows_core::IUnknown);
 impl HolographicCameraViewportParameters {
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -1539,24 +1333,8 @@ impl HolographicCameraViewportParameters {
         }
     }
 }
-impl ::core::cmp::PartialEq for HolographicCameraViewportParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicCameraViewportParameters {}
-impl ::core::fmt::Debug for HolographicCameraViewportParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicCameraViewportParameters").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HolographicCameraViewportParameters {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCameraViewportParameters;{80cdf3f7-842a-41e1-93ed-5692ab1fbb10})");
-}
-impl ::core::clone::Clone for HolographicCameraViewportParameters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HolographicCameraViewportParameters {
     type Vtable = IHolographicCameraViewportParameters_Vtbl;
@@ -1572,6 +1350,7 @@ unsafe impl ::core::marker::Send for HolographicCameraViewportParameters {}
 unsafe impl ::core::marker::Sync for HolographicCameraViewportParameters {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HolographicDisplay(::windows_core::IUnknown);
 impl HolographicDisplay {
     pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1646,24 +1425,8 @@ impl HolographicDisplay {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for HolographicDisplay {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicDisplay {}
-impl ::core::fmt::Debug for HolographicDisplay {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicDisplay").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HolographicDisplay {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicDisplay;{9acea414-1d9f-4090-a388-90c06f6eae9c})");
-}
-impl ::core::clone::Clone for HolographicDisplay {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HolographicDisplay {
     type Vtable = IHolographicDisplay_Vtbl;
@@ -1679,6 +1442,7 @@ unsafe impl ::core::marker::Send for HolographicDisplay {}
 unsafe impl ::core::marker::Sync for HolographicDisplay {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HolographicFrame(::windows_core::IUnknown);
 impl HolographicFrame {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1765,24 +1529,8 @@ impl HolographicFrame {
         }
     }
 }
-impl ::core::cmp::PartialEq for HolographicFrame {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicFrame {}
-impl ::core::fmt::Debug for HolographicFrame {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicFrame").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HolographicFrame {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrame;{c6988eb6-a8b9-3054-a6eb-d624b6536375})");
-}
-impl ::core::clone::Clone for HolographicFrame {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HolographicFrame {
     type Vtable = IHolographicFrame_Vtbl;
@@ -1798,6 +1546,7 @@ unsafe impl ::core::marker::Send for HolographicFrame {}
 unsafe impl ::core::marker::Sync for HolographicFrame {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HolographicFramePrediction(::windows_core::IUnknown);
 impl HolographicFramePrediction {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1819,24 +1568,8 @@ impl HolographicFramePrediction {
         }
     }
 }
-impl ::core::cmp::PartialEq for HolographicFramePrediction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicFramePrediction {}
-impl ::core::fmt::Debug for HolographicFramePrediction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicFramePrediction").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HolographicFramePrediction {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFramePrediction;{520f4de1-5c0a-4e79-a81e-6abe02bb2739})");
-}
-impl ::core::clone::Clone for HolographicFramePrediction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HolographicFramePrediction {
     type Vtable = IHolographicFramePrediction_Vtbl;
@@ -1853,6 +1586,7 @@ unsafe impl ::core::marker::Sync for HolographicFramePrediction {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HolographicFramePresentationMonitor(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl HolographicFramePresentationMonitor {
@@ -1873,28 +1607,8 @@ impl HolographicFramePresentationMonitor {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for HolographicFramePresentationMonitor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for HolographicFramePresentationMonitor {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for HolographicFramePresentationMonitor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicFramePresentationMonitor").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeType for HolographicFramePresentationMonitor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFramePresentationMonitor;{ca87256c-6fae-428e-bb83-25dfee51136b})");
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for HolographicFramePresentationMonitor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for HolographicFramePresentationMonitor {
@@ -1919,6 +1633,7 @@ unsafe impl ::core::marker::Sync for HolographicFramePresentationMonitor {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HolographicFramePresentationReport(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl HolographicFramePresentationReport {
@@ -1969,28 +1684,8 @@ impl HolographicFramePresentationReport {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for HolographicFramePresentationReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for HolographicFramePresentationReport {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for HolographicFramePresentationReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicFramePresentationReport").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeType for HolographicFramePresentationReport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFramePresentationReport;{80baf614-f2f4-4c8a-8de3-065c78f6d5de})");
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for HolographicFramePresentationReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for HolographicFramePresentationReport {
@@ -2012,6 +1707,7 @@ unsafe impl ::core::marker::Send for HolographicFramePresentationReport {}
 unsafe impl ::core::marker::Sync for HolographicFramePresentationReport {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HolographicFrameRenderingReport(::windows_core::IUnknown);
 impl HolographicFrameRenderingReport {
     pub fn FrameId(&self) -> ::windows_core::Result<HolographicFrameId> {
@@ -2056,24 +1752,8 @@ impl HolographicFrameRenderingReport {
         }
     }
 }
-impl ::core::cmp::PartialEq for HolographicFrameRenderingReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicFrameRenderingReport {}
-impl ::core::fmt::Debug for HolographicFrameRenderingReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicFrameRenderingReport").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HolographicFrameRenderingReport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrameRenderingReport;{05f32de4-e384-51b3-b934-f0d3a0f78606})");
-}
-impl ::core::clone::Clone for HolographicFrameRenderingReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HolographicFrameRenderingReport {
     type Vtable = IHolographicFrameRenderingReport_Vtbl;
@@ -2089,6 +1769,7 @@ unsafe impl ::core::marker::Send for HolographicFrameRenderingReport {}
 unsafe impl ::core::marker::Sync for HolographicFrameRenderingReport {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HolographicFrameScanoutMonitor(::windows_core::IUnknown);
 impl HolographicFrameScanoutMonitor {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2107,24 +1788,8 @@ impl HolographicFrameScanoutMonitor {
         }
     }
 }
-impl ::core::cmp::PartialEq for HolographicFrameScanoutMonitor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicFrameScanoutMonitor {}
-impl ::core::fmt::Debug for HolographicFrameScanoutMonitor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicFrameScanoutMonitor").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HolographicFrameScanoutMonitor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrameScanoutMonitor;{7e83efa9-843c-5401-8095-9bc1b8b08638})");
-}
-impl ::core::clone::Clone for HolographicFrameScanoutMonitor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HolographicFrameScanoutMonitor {
     type Vtable = IHolographicFrameScanoutMonitor_Vtbl;
@@ -2142,6 +1807,7 @@ unsafe impl ::core::marker::Send for HolographicFrameScanoutMonitor {}
 unsafe impl ::core::marker::Sync for HolographicFrameScanoutMonitor {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HolographicFrameScanoutReport(::windows_core::IUnknown);
 impl HolographicFrameScanoutReport {
     pub fn RenderingReport(&self) -> ::windows_core::Result<HolographicFrameRenderingReport> {
@@ -2186,24 +1852,8 @@ impl HolographicFrameScanoutReport {
         }
     }
 }
-impl ::core::cmp::PartialEq for HolographicFrameScanoutReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicFrameScanoutReport {}
-impl ::core::fmt::Debug for HolographicFrameScanoutReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicFrameScanoutReport").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HolographicFrameScanoutReport {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrameScanoutReport;{0ebbe606-03a0-5ca0-b46e-bba068d7233f})");
-}
-impl ::core::clone::Clone for HolographicFrameScanoutReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HolographicFrameScanoutReport {
     type Vtable = IHolographicFrameScanoutReport_Vtbl;
@@ -2219,6 +1869,7 @@ unsafe impl ::core::marker::Send for HolographicFrameScanoutReport {}
 unsafe impl ::core::marker::Sync for HolographicFrameScanoutReport {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HolographicQuadLayer(::windows_core::IUnknown);
 impl HolographicQuadLayer {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2267,24 +1918,8 @@ impl HolographicQuadLayer {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for HolographicQuadLayer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicQuadLayer {}
-impl ::core::fmt::Debug for HolographicQuadLayer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicQuadLayer").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HolographicQuadLayer {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicQuadLayer;{903460c9-c9d9-5d5c-41ac-a2d5ab0fd331})");
-}
-impl ::core::clone::Clone for HolographicQuadLayer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HolographicQuadLayer {
     type Vtable = IHolographicQuadLayer_Vtbl;
@@ -2302,6 +1937,7 @@ unsafe impl ::core::marker::Send for HolographicQuadLayer {}
 unsafe impl ::core::marker::Sync for HolographicQuadLayer {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HolographicQuadLayerUpdateParameters(::windows_core::IUnknown);
 impl HolographicQuadLayerUpdateParameters {
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
@@ -2361,24 +1997,8 @@ impl HolographicQuadLayerUpdateParameters {
         }
     }
 }
-impl ::core::cmp::PartialEq for HolographicQuadLayerUpdateParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicQuadLayerUpdateParameters {}
-impl ::core::fmt::Debug for HolographicQuadLayerUpdateParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicQuadLayerUpdateParameters").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HolographicQuadLayerUpdateParameters {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicQuadLayerUpdateParameters;{2b0ea3b0-798d-5bca-55c2-2c0c762ebb08})");
-}
-impl ::core::clone::Clone for HolographicQuadLayerUpdateParameters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HolographicQuadLayerUpdateParameters {
     type Vtable = IHolographicQuadLayerUpdateParameters_Vtbl;
@@ -2394,6 +2014,7 @@ unsafe impl ::core::marker::Send for HolographicQuadLayerUpdateParameters {}
 unsafe impl ::core::marker::Sync for HolographicQuadLayerUpdateParameters {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HolographicSpace(::windows_core::IUnknown);
 impl HolographicSpace {
     pub fn PrimaryAdapterId(&self) -> ::windows_core::Result<HolographicAdapterId> {
@@ -2567,24 +2188,8 @@ impl HolographicSpace {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for HolographicSpace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicSpace {}
-impl ::core::fmt::Debug for HolographicSpace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicSpace").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HolographicSpace {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicSpace;{4380dba6-5e78-434f-807c-3433d1efe8b7})");
-}
-impl ::core::clone::Clone for HolographicSpace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HolographicSpace {
     type Vtable = IHolographicSpace_Vtbl;
@@ -2600,6 +2205,7 @@ unsafe impl ::core::marker::Send for HolographicSpace {}
 unsafe impl ::core::marker::Sync for HolographicSpace {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HolographicSpaceCameraAddedEventArgs(::windows_core::IUnknown);
 impl HolographicSpaceCameraAddedEventArgs {
     pub fn Camera(&self) -> ::windows_core::Result<HolographicCamera> {
@@ -2619,24 +2225,8 @@ impl HolographicSpaceCameraAddedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for HolographicSpaceCameraAddedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicSpaceCameraAddedEventArgs {}
-impl ::core::fmt::Debug for HolographicSpaceCameraAddedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicSpaceCameraAddedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HolographicSpaceCameraAddedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicSpaceCameraAddedEventArgs;{58f1da35-bbb3-3c8f-993d-6c80e7feb99f})");
-}
-impl ::core::clone::Clone for HolographicSpaceCameraAddedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HolographicSpaceCameraAddedEventArgs {
     type Vtable = IHolographicSpaceCameraAddedEventArgs_Vtbl;
@@ -2652,6 +2242,7 @@ unsafe impl ::core::marker::Send for HolographicSpaceCameraAddedEventArgs {}
 unsafe impl ::core::marker::Sync for HolographicSpaceCameraAddedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HolographicSpaceCameraRemovedEventArgs(::windows_core::IUnknown);
 impl HolographicSpaceCameraRemovedEventArgs {
     pub fn Camera(&self) -> ::windows_core::Result<HolographicCamera> {
@@ -2662,24 +2253,8 @@ impl HolographicSpaceCameraRemovedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for HolographicSpaceCameraRemovedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicSpaceCameraRemovedEventArgs {}
-impl ::core::fmt::Debug for HolographicSpaceCameraRemovedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicSpaceCameraRemovedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HolographicSpaceCameraRemovedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicSpaceCameraRemovedEventArgs;{805444a8-f2ae-322e-8da9-836a0a95a4c1})");
-}
-impl ::core::clone::Clone for HolographicSpaceCameraRemovedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HolographicSpaceCameraRemovedEventArgs {
     type Vtable = IHolographicSpaceCameraRemovedEventArgs_Vtbl;
@@ -2695,6 +2270,7 @@ unsafe impl ::core::marker::Send for HolographicSpaceCameraRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for HolographicSpaceCameraRemovedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Holographic\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HolographicViewConfiguration(::windows_core::IUnknown);
 impl HolographicViewConfiguration {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2797,24 +2373,8 @@ impl HolographicViewConfiguration {
         }
     }
 }
-impl ::core::cmp::PartialEq for HolographicViewConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicViewConfiguration {}
-impl ::core::fmt::Debug for HolographicViewConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HolographicViewConfiguration").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HolographicViewConfiguration {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicViewConfiguration;{5c1de6e6-67e9-5004-b02c-67a3a122b576})");
-}
-impl ::core::clone::Clone for HolographicViewConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HolographicViewConfiguration {
     type Vtable = IHolographicViewConfiguration_Vtbl;

@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IApplicationDataManager(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IApplicationDataManager {
     type Vtable = IApplicationDataManager_Vtbl;
-}
-impl ::core::clone::Clone for IApplicationDataManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IApplicationDataManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x74d10432_2e99_4000_9a3a_64307e858129);
@@ -19,14 +15,10 @@ pub struct IApplicationDataManager_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IApplicationDataManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IApplicationDataManagerStatics {
     type Vtable = IApplicationDataManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IApplicationDataManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IApplicationDataManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1e1862e3_698e_49a1_9752_dee94925b9b3);
@@ -42,6 +34,7 @@ pub struct IApplicationDataManagerStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Management_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ApplicationDataManager(::windows_core::IUnknown);
 impl ApplicationDataManager {
     #[doc = "*Required features: `\"Storage\"`*"]
@@ -58,24 +51,8 @@ impl ApplicationDataManager {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for ApplicationDataManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationDataManager {}
-impl ::core::fmt::Debug for ApplicationDataManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationDataManager").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ApplicationDataManager {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Management.Core.ApplicationDataManager;{74d10432-2e99-4000-9a3a-64307e858129})");
-}
-impl ::core::clone::Clone for ApplicationDataManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ApplicationDataManager {
     type Vtable = IApplicationDataManager_Vtbl;

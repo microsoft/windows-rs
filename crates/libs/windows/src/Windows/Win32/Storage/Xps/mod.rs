@@ -125,6 +125,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsDocumentPackageTarget(::windows_core::IUnknown);
 impl IXpsDocumentPackageTarget {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -147,24 +148,8 @@ impl IXpsDocumentPackageTarget {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsDocumentPackageTarget, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsDocumentPackageTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsDocumentPackageTarget {}
-impl ::core::fmt::Debug for IXpsDocumentPackageTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsDocumentPackageTarget").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsDocumentPackageTarget {
     type Vtable = IXpsDocumentPackageTarget_Vtbl;
-}
-impl ::core::clone::Clone for IXpsDocumentPackageTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsDocumentPackageTarget {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3b0b6d38_53ad_41da_b212_d37637a6714e);
@@ -182,6 +167,7 @@ pub struct IXpsDocumentPackageTarget_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsDocumentPackageTarget3D(::windows_core::IUnknown);
 impl IXpsDocumentPackageTarget3D {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -202,24 +188,8 @@ impl IXpsDocumentPackageTarget3D {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsDocumentPackageTarget3D, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsDocumentPackageTarget3D {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsDocumentPackageTarget3D {}
-impl ::core::fmt::Debug for IXpsDocumentPackageTarget3D {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsDocumentPackageTarget3D").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsDocumentPackageTarget3D {
     type Vtable = IXpsDocumentPackageTarget3D_Vtbl;
-}
-impl ::core::clone::Clone for IXpsDocumentPackageTarget3D {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsDocumentPackageTarget3D {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x60ba71b8_3101_4984_9199_f4ea775ff01d);
@@ -236,6 +206,7 @@ pub struct IXpsDocumentPackageTarget3D_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMBrush(::windows_core::IUnknown);
 impl IXpsOMBrush {
     pub unsafe fn GetOwner(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -255,24 +226,8 @@ impl IXpsOMBrush {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMBrush, ::windows_core::IUnknown, IXpsOMShareable);
-impl ::core::cmp::PartialEq for IXpsOMBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMBrush {}
-impl ::core::fmt::Debug for IXpsOMBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMBrush").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMBrush {
     type Vtable = IXpsOMBrush_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x56a3f80c_ea4c_4187_a57b_a2a473b2b42b);
@@ -286,6 +241,7 @@ pub struct IXpsOMBrush_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMCanvas(::windows_core::IUnknown);
 impl IXpsOMCanvas {
     pub unsafe fn GetOwner(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -491,24 +447,8 @@ impl IXpsOMCanvas {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMCanvas, ::windows_core::IUnknown, IXpsOMShareable, IXpsOMVisual);
-impl ::core::cmp::PartialEq for IXpsOMCanvas {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMCanvas {}
-impl ::core::fmt::Debug for IXpsOMCanvas {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMCanvas").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMCanvas {
     type Vtable = IXpsOMCanvas_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMCanvas {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMCanvas {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x221d1452_331e_47c6_87e9_6ccefb9b5ba3);
@@ -539,6 +479,7 @@ pub struct IXpsOMCanvas_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMColorProfileResource(::windows_core::IUnknown);
 impl IXpsOMColorProfileResource {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -572,24 +513,8 @@ impl IXpsOMColorProfileResource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMColorProfileResource, ::windows_core::IUnknown, IXpsOMPart, IXpsOMResource);
-impl ::core::cmp::PartialEq for IXpsOMColorProfileResource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMColorProfileResource {}
-impl ::core::fmt::Debug for IXpsOMColorProfileResource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMColorProfileResource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMColorProfileResource {
     type Vtable = IXpsOMColorProfileResource_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMColorProfileResource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMColorProfileResource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x67bd7d69_1eef_4bb1_b5e7_6f4f87be8abe);
@@ -609,6 +534,7 @@ pub struct IXpsOMColorProfileResource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMColorProfileResourceCollection(::windows_core::IUnknown);
 impl IXpsOMColorProfileResourceCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -651,24 +577,8 @@ impl IXpsOMColorProfileResourceCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMColorProfileResourceCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMColorProfileResourceCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMColorProfileResourceCollection {}
-impl ::core::fmt::Debug for IXpsOMColorProfileResourceCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMColorProfileResourceCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMColorProfileResourceCollection {
     type Vtable = IXpsOMColorProfileResourceCollection_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMColorProfileResourceCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMColorProfileResourceCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x12759630_5fba_4283_8f7d_cca849809edb);
@@ -690,6 +600,7 @@ pub struct IXpsOMColorProfileResourceCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMCoreProperties(::windows_core::IUnknown);
 impl IXpsOMCoreProperties {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -879,24 +790,8 @@ impl IXpsOMCoreProperties {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMCoreProperties, ::windows_core::IUnknown, IXpsOMPart);
-impl ::core::cmp::PartialEq for IXpsOMCoreProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMCoreProperties {}
-impl ::core::fmt::Debug for IXpsOMCoreProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMCoreProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMCoreProperties {
     type Vtable = IXpsOMCoreProperties_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMCoreProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMCoreProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3340fe8f_4027_4aa1_8f5f_d35ae45fe597);
@@ -960,6 +855,7 @@ pub struct IXpsOMCoreProperties_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMDashCollection(::windows_core::IUnknown);
 impl IXpsOMDashCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -984,24 +880,8 @@ impl IXpsOMDashCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMDashCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMDashCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMDashCollection {}
-impl ::core::fmt::Debug for IXpsOMDashCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMDashCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMDashCollection {
     type Vtable = IXpsOMDashCollection_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMDashCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMDashCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x081613f4_74eb_48f2_83b3_37a9ce2d7dc6);
@@ -1019,6 +899,7 @@ pub struct IXpsOMDashCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMDictionary(::windows_core::IUnknown);
 impl IXpsOMDictionary {
     pub unsafe fn GetOwner(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -1077,24 +958,8 @@ impl IXpsOMDictionary {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMDictionary, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMDictionary {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMDictionary {}
-impl ::core::fmt::Debug for IXpsOMDictionary {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMDictionary").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMDictionary {
     type Vtable = IXpsOMDictionary_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMDictionary {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMDictionary {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x897c86b8_8eaf_4ae3_bdde_56419fcf4236);
@@ -1116,6 +981,7 @@ pub struct IXpsOMDictionary_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMDocument(::windows_core::IUnknown);
 impl IXpsOMDocument {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -1170,24 +1036,8 @@ impl IXpsOMDocument {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMDocument, ::windows_core::IUnknown, IXpsOMPart);
-impl ::core::cmp::PartialEq for IXpsOMDocument {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMDocument {}
-impl ::core::fmt::Debug for IXpsOMDocument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMDocument").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMDocument {
     type Vtable = IXpsOMDocument_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMDocument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMDocument {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c2c94cb_ac5f_4254_8ee9_23948309d9f0);
@@ -1207,6 +1057,7 @@ pub struct IXpsOMDocument_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMDocumentCollection(::windows_core::IUnknown);
 impl IXpsOMDocumentCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -1240,24 +1091,8 @@ impl IXpsOMDocumentCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMDocumentCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMDocumentCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMDocumentCollection {}
-impl ::core::fmt::Debug for IXpsOMDocumentCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMDocumentCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMDocumentCollection {
     type Vtable = IXpsOMDocumentCollection_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMDocumentCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMDocumentCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd1c87f0d_e947_4754_8a25_971478f7e83e);
@@ -1275,6 +1110,7 @@ pub struct IXpsOMDocumentCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMDocumentSequence(::windows_core::IUnknown);
 impl IXpsOMDocumentSequence {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -1311,24 +1147,8 @@ impl IXpsOMDocumentSequence {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMDocumentSequence, ::windows_core::IUnknown, IXpsOMPart);
-impl ::core::cmp::PartialEq for IXpsOMDocumentSequence {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMDocumentSequence {}
-impl ::core::fmt::Debug for IXpsOMDocumentSequence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMDocumentSequence").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMDocumentSequence {
     type Vtable = IXpsOMDocumentSequence_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMDocumentSequence {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMDocumentSequence {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x56492eb4_d8d5_425e_8256_4c2b64ad0264);
@@ -1344,6 +1164,7 @@ pub struct IXpsOMDocumentSequence_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMDocumentStructureResource(::windows_core::IUnknown);
 impl IXpsOMDocumentStructureResource {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -1381,24 +1202,8 @@ impl IXpsOMDocumentStructureResource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMDocumentStructureResource, ::windows_core::IUnknown, IXpsOMPart, IXpsOMResource);
-impl ::core::cmp::PartialEq for IXpsOMDocumentStructureResource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMDocumentStructureResource {}
-impl ::core::fmt::Debug for IXpsOMDocumentStructureResource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMDocumentStructureResource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMDocumentStructureResource {
     type Vtable = IXpsOMDocumentStructureResource_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMDocumentStructureResource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMDocumentStructureResource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x85febc8a_6b63_48a9_af07_7064e4ecff30);
@@ -1419,6 +1224,7 @@ pub struct IXpsOMDocumentStructureResource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMFontResource(::windows_core::IUnknown);
 impl IXpsOMFontResource {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -1456,24 +1262,8 @@ impl IXpsOMFontResource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMFontResource, ::windows_core::IUnknown, IXpsOMPart, IXpsOMResource);
-impl ::core::cmp::PartialEq for IXpsOMFontResource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMFontResource {}
-impl ::core::fmt::Debug for IXpsOMFontResource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMFontResource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMFontResource {
     type Vtable = IXpsOMFontResource_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMFontResource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMFontResource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8c45708_47d9_4af4_8d20_33b48c9b8485);
@@ -1494,6 +1284,7 @@ pub struct IXpsOMFontResource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMFontResourceCollection(::windows_core::IUnknown);
 impl IXpsOMFontResourceCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -1536,24 +1327,8 @@ impl IXpsOMFontResourceCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMFontResourceCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMFontResourceCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMFontResourceCollection {}
-impl ::core::fmt::Debug for IXpsOMFontResourceCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMFontResourceCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMFontResourceCollection {
     type Vtable = IXpsOMFontResourceCollection_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMFontResourceCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMFontResourceCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x70b4a6bb_88d4_4fa8_aaf9_6d9c596fdbad);
@@ -1575,6 +1350,7 @@ pub struct IXpsOMFontResourceCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMGeometry(::windows_core::IUnknown);
 impl IXpsOMGeometry {
     pub unsafe fn GetOwner(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -1626,24 +1402,8 @@ impl IXpsOMGeometry {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMGeometry, ::windows_core::IUnknown, IXpsOMShareable);
-impl ::core::cmp::PartialEq for IXpsOMGeometry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMGeometry {}
-impl ::core::fmt::Debug for IXpsOMGeometry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMGeometry").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMGeometry {
     type Vtable = IXpsOMGeometry_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMGeometry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMGeometry {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64fcf3d7_4d58_44ba_ad73_a13af6492072);
@@ -1664,6 +1424,7 @@ pub struct IXpsOMGeometry_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMGeometryFigure(::windows_core::IUnknown);
 impl IXpsOMGeometryFigure {
     pub unsafe fn GetOwner(&self) -> ::windows_core::Result<IXpsOMGeometry> {
@@ -1739,24 +1500,8 @@ impl IXpsOMGeometryFigure {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMGeometryFigure, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMGeometryFigure {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMGeometryFigure {}
-impl ::core::fmt::Debug for IXpsOMGeometryFigure {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMGeometryFigure").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMGeometryFigure {
     type Vtable = IXpsOMGeometryFigure_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMGeometryFigure {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMGeometryFigure {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd410dc83_908c_443e_8947_b1795d3c165a);
@@ -1801,6 +1546,7 @@ pub struct IXpsOMGeometryFigure_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMGeometryFigureCollection(::windows_core::IUnknown);
 impl IXpsOMGeometryFigureCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -1834,24 +1580,8 @@ impl IXpsOMGeometryFigureCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMGeometryFigureCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMGeometryFigureCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMGeometryFigureCollection {}
-impl ::core::fmt::Debug for IXpsOMGeometryFigureCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMGeometryFigureCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMGeometryFigureCollection {
     type Vtable = IXpsOMGeometryFigureCollection_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMGeometryFigureCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMGeometryFigureCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd48c3f3_a58e_4b5a_8826_1de54abe72b2);
@@ -1869,6 +1599,7 @@ pub struct IXpsOMGeometryFigureCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMGlyphs(::windows_core::IUnknown);
 impl IXpsOMGlyphs {
     pub unsafe fn GetOwner(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -2117,24 +1848,8 @@ impl IXpsOMGlyphs {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMGlyphs, ::windows_core::IUnknown, IXpsOMShareable, IXpsOMVisual);
-impl ::core::cmp::PartialEq for IXpsOMGlyphs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMGlyphs {}
-impl ::core::fmt::Debug for IXpsOMGlyphs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMGlyphs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMGlyphs {
     type Vtable = IXpsOMGlyphs_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMGlyphs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMGlyphs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x819b3199_0a5a_4b64_bec7_a9e17e780de2);
@@ -2176,6 +1891,7 @@ pub struct IXpsOMGlyphs_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMGlyphsEditor(::windows_core::IUnknown);
 impl IXpsOMGlyphsEditor {
     pub unsafe fn ApplyEdits(&self) -> ::windows_core::Result<()> {
@@ -2254,24 +1970,8 @@ impl IXpsOMGlyphsEditor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMGlyphsEditor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMGlyphsEditor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMGlyphsEditor {}
-impl ::core::fmt::Debug for IXpsOMGlyphsEditor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMGlyphsEditor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMGlyphsEditor {
     type Vtable = IXpsOMGlyphsEditor_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMGlyphsEditor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMGlyphsEditor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa5ab8616_5b16_4b9f_9629_89b323ed7909);
@@ -2307,6 +2007,7 @@ pub struct IXpsOMGlyphsEditor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMGradientBrush(::windows_core::IUnknown);
 impl IXpsOMGradientBrush {
     pub unsafe fn GetOwner(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -2368,24 +2069,8 @@ impl IXpsOMGradientBrush {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMGradientBrush, ::windows_core::IUnknown, IXpsOMShareable, IXpsOMBrush);
-impl ::core::cmp::PartialEq for IXpsOMGradientBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMGradientBrush {}
-impl ::core::fmt::Debug for IXpsOMGradientBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMGradientBrush").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMGradientBrush {
     type Vtable = IXpsOMGradientBrush_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMGradientBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMGradientBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xedb59622_61a2_42c3_bace_acf2286c06bf);
@@ -2407,6 +2092,7 @@ pub struct IXpsOMGradientBrush_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMGradientStop(::windows_core::IUnknown);
 impl IXpsOMGradientStop {
     pub unsafe fn GetOwner(&self) -> ::windows_core::Result<IXpsOMGradientBrush> {
@@ -2435,24 +2121,8 @@ impl IXpsOMGradientStop {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMGradientStop, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMGradientStop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMGradientStop {}
-impl ::core::fmt::Debug for IXpsOMGradientStop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMGradientStop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMGradientStop {
     type Vtable = IXpsOMGradientStop_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMGradientStop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMGradientStop {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5cf4f5cc_3969_49b5_a70a_5550b618fe49);
@@ -2470,6 +2140,7 @@ pub struct IXpsOMGradientStop_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMGradientStopCollection(::windows_core::IUnknown);
 impl IXpsOMGradientStopCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -2503,24 +2174,8 @@ impl IXpsOMGradientStopCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMGradientStopCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMGradientStopCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMGradientStopCollection {}
-impl ::core::fmt::Debug for IXpsOMGradientStopCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMGradientStopCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMGradientStopCollection {
     type Vtable = IXpsOMGradientStopCollection_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMGradientStopCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMGradientStopCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc9174c3a_3cd3_4319_bda4_11a39392ceef);
@@ -2538,6 +2193,7 @@ pub struct IXpsOMGradientStopCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMImageBrush(::windows_core::IUnknown);
 impl IXpsOMImageBrush {
     pub unsafe fn GetOwner(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -2626,24 +2282,8 @@ impl IXpsOMImageBrush {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMImageBrush, ::windows_core::IUnknown, IXpsOMShareable, IXpsOMBrush, IXpsOMTileBrush);
-impl ::core::cmp::PartialEq for IXpsOMImageBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMImageBrush {}
-impl ::core::fmt::Debug for IXpsOMImageBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMImageBrush").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMImageBrush {
     type Vtable = IXpsOMImageBrush_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMImageBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMImageBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3df0b466_d382_49ef_8550_dd94c80242e4);
@@ -2660,6 +2300,7 @@ pub struct IXpsOMImageBrush_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMImageResource(::windows_core::IUnknown);
 impl IXpsOMImageResource {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -2697,24 +2338,8 @@ impl IXpsOMImageResource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMImageResource, ::windows_core::IUnknown, IXpsOMPart, IXpsOMResource);
-impl ::core::cmp::PartialEq for IXpsOMImageResource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMImageResource {}
-impl ::core::fmt::Debug for IXpsOMImageResource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMImageResource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMImageResource {
     type Vtable = IXpsOMImageResource_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMImageResource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMImageResource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3db8417d_ae50_485e_9a44_d7758f78a23f);
@@ -2735,6 +2360,7 @@ pub struct IXpsOMImageResource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMImageResourceCollection(::windows_core::IUnknown);
 impl IXpsOMImageResourceCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -2777,24 +2403,8 @@ impl IXpsOMImageResourceCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMImageResourceCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMImageResourceCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMImageResourceCollection {}
-impl ::core::fmt::Debug for IXpsOMImageResourceCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMImageResourceCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMImageResourceCollection {
     type Vtable = IXpsOMImageResourceCollection_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMImageResourceCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMImageResourceCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7a4a1a71_9cde_4b71_b33f_62de843eabfe);
@@ -2816,6 +2426,7 @@ pub struct IXpsOMImageResourceCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMLinearGradientBrush(::windows_core::IUnknown);
 impl IXpsOMLinearGradientBrush {
     pub unsafe fn GetOwner(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -2895,24 +2506,8 @@ impl IXpsOMLinearGradientBrush {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMLinearGradientBrush, ::windows_core::IUnknown, IXpsOMShareable, IXpsOMBrush, IXpsOMGradientBrush);
-impl ::core::cmp::PartialEq for IXpsOMLinearGradientBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMLinearGradientBrush {}
-impl ::core::fmt::Debug for IXpsOMLinearGradientBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMLinearGradientBrush").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMLinearGradientBrush {
     type Vtable = IXpsOMLinearGradientBrush_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMLinearGradientBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMLinearGradientBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x005e279f_c30d_40ff_93ec_1950d3c528db);
@@ -2929,6 +2524,7 @@ pub struct IXpsOMLinearGradientBrush_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMMatrixTransform(::windows_core::IUnknown);
 impl IXpsOMMatrixTransform {
     pub unsafe fn GetOwner(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -2952,24 +2548,8 @@ impl IXpsOMMatrixTransform {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMMatrixTransform, ::windows_core::IUnknown, IXpsOMShareable);
-impl ::core::cmp::PartialEq for IXpsOMMatrixTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMMatrixTransform {}
-impl ::core::fmt::Debug for IXpsOMMatrixTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMMatrixTransform").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMMatrixTransform {
     type Vtable = IXpsOMMatrixTransform_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMMatrixTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMMatrixTransform {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb77330ff_bb37_4501_a93e_f1b1e50bfc46);
@@ -2984,6 +2564,7 @@ pub struct IXpsOMMatrixTransform_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMNameCollection(::windows_core::IUnknown);
 impl IXpsOMNameCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -2996,24 +2577,8 @@ impl IXpsOMNameCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMNameCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMNameCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMNameCollection {}
-impl ::core::fmt::Debug for IXpsOMNameCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMNameCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMNameCollection {
     type Vtable = IXpsOMNameCollection_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMNameCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMNameCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4bddf8ec_c915_421b_a166_d173d25653d2);
@@ -3027,6 +2592,7 @@ pub struct IXpsOMNameCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMObjectFactory(::windows_core::IUnknown);
 impl IXpsOMObjectFactory {
     pub unsafe fn CreatePackage(&self) -> ::windows_core::Result<IXpsOMPackage> {
@@ -3328,24 +2894,8 @@ impl IXpsOMObjectFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMObjectFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMObjectFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMObjectFactory {}
-impl ::core::fmt::Debug for IXpsOMObjectFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMObjectFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMObjectFactory {
     type Vtable = IXpsOMObjectFactory_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMObjectFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMObjectFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf9b2a685_a50d_4fc2_b764_b56e093ea0ca);
@@ -3454,6 +3004,7 @@ pub struct IXpsOMObjectFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMObjectFactory1(::windows_core::IUnknown);
 impl IXpsOMObjectFactory1 {
     pub unsafe fn CreatePackage(&self) -> ::windows_core::Result<IXpsOMPackage> {
@@ -3870,24 +3421,8 @@ impl IXpsOMObjectFactory1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMObjectFactory1, ::windows_core::IUnknown, IXpsOMObjectFactory);
-impl ::core::cmp::PartialEq for IXpsOMObjectFactory1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMObjectFactory1 {}
-impl ::core::fmt::Debug for IXpsOMObjectFactory1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMObjectFactory1").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMObjectFactory1 {
     type Vtable = IXpsOMObjectFactory1_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMObjectFactory1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMObjectFactory1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a91b617_d612_4181_bf7c_be5824e9cc8f);
@@ -3935,6 +3470,7 @@ pub struct IXpsOMObjectFactory1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMPackage(::windows_core::IUnknown);
 impl IXpsOMPackage {
     pub unsafe fn GetDocumentSequence(&self) -> ::windows_core::Result<IXpsOMDocumentSequence> {
@@ -4001,24 +3537,8 @@ impl IXpsOMPackage {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMPackage, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMPackage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMPackage {}
-impl ::core::fmt::Debug for IXpsOMPackage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMPackage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMPackage {
     type Vtable = IXpsOMPackage_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMPackage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMPackage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x18c3df65_81e1_4674_91dc_fc452f5a416f);
@@ -4052,6 +3572,7 @@ pub struct IXpsOMPackage_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMPackage1(::windows_core::IUnknown);
 impl IXpsOMPackage1 {
     pub unsafe fn GetDocumentSequence(&self) -> ::windows_core::Result<IXpsOMDocumentSequence> {
@@ -4140,24 +3661,8 @@ impl IXpsOMPackage1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMPackage1, ::windows_core::IUnknown, IXpsOMPackage);
-impl ::core::cmp::PartialEq for IXpsOMPackage1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMPackage1 {}
-impl ::core::fmt::Debug for IXpsOMPackage1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMPackage1").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMPackage1 {
     type Vtable = IXpsOMPackage1_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMPackage1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMPackage1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95a9435e_12bb_461b_8e7f_c6adb04cd96a);
@@ -4178,6 +3683,7 @@ pub struct IXpsOMPackage1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMPackageTarget(::windows_core::IUnknown);
 impl IXpsOMPackageTarget {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -4193,24 +3699,8 @@ impl IXpsOMPackageTarget {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMPackageTarget, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMPackageTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMPackageTarget {}
-impl ::core::fmt::Debug for IXpsOMPackageTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMPackageTarget").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMPackageTarget {
     type Vtable = IXpsOMPackageTarget_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMPackageTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMPackageTarget {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x219a9db0_4959_47d0_8034_b1ce84f41a4d);
@@ -4226,6 +3716,7 @@ pub struct IXpsOMPackageTarget_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMPackageWriter(::windows_core::IUnknown);
 impl IXpsOMPackageWriter {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -4267,24 +3758,8 @@ impl IXpsOMPackageWriter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMPackageWriter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMPackageWriter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMPackageWriter {}
-impl ::core::fmt::Debug for IXpsOMPackageWriter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMPackageWriter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMPackageWriter {
     type Vtable = IXpsOMPackageWriter_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMPackageWriter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMPackageWriter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e2aa182_a443_42c6_b41b_4f8e9de73ff9);
@@ -4307,6 +3782,7 @@ pub struct IXpsOMPackageWriter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMPackageWriter3D(::windows_core::IUnknown);
 impl IXpsOMPackageWriter3D {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -4366,24 +3842,8 @@ impl IXpsOMPackageWriter3D {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMPackageWriter3D, ::windows_core::IUnknown, IXpsOMPackageWriter);
-impl ::core::cmp::PartialEq for IXpsOMPackageWriter3D {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMPackageWriter3D {}
-impl ::core::fmt::Debug for IXpsOMPackageWriter3D {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMPackageWriter3D").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMPackageWriter3D {
     type Vtable = IXpsOMPackageWriter3D_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMPackageWriter3D {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMPackageWriter3D {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe8a45033_640e_43fa_9bdf_fddeaa31c6a0);
@@ -4403,6 +3863,7 @@ pub struct IXpsOMPackageWriter3D_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMPage(::windows_core::IUnknown);
 impl IXpsOMPage {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -4525,24 +3986,8 @@ impl IXpsOMPage {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMPage, ::windows_core::IUnknown, IXpsOMPart);
-impl ::core::cmp::PartialEq for IXpsOMPage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMPage {}
-impl ::core::fmt::Debug for IXpsOMPage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMPage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMPage {
     type Vtable = IXpsOMPage_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMPage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMPage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd3e18888_f120_4fee_8c68_35296eae91d4);
@@ -4585,6 +4030,7 @@ pub struct IXpsOMPage_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMPage1(::windows_core::IUnknown);
 impl IXpsOMPage1 {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -4720,24 +4166,8 @@ impl IXpsOMPage1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMPage1, ::windows_core::IUnknown, IXpsOMPart, IXpsOMPage);
-impl ::core::cmp::PartialEq for IXpsOMPage1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMPage1 {}
-impl ::core::fmt::Debug for IXpsOMPage1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMPage1").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMPage1 {
     type Vtable = IXpsOMPage1_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMPage1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMPage1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x305b60ef_6892_4dda_9cbb_3aa65974508a);
@@ -4754,6 +4184,7 @@ pub struct IXpsOMPage1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMPageReference(::windows_core::IUnknown);
 impl IXpsOMPageReference {
     pub unsafe fn GetOwner(&self) -> ::windows_core::Result<IXpsOMDocument> {
@@ -4836,24 +4267,8 @@ impl IXpsOMPageReference {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMPageReference, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMPageReference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMPageReference {}
-impl ::core::fmt::Debug for IXpsOMPageReference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMPageReference").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMPageReference {
     type Vtable = IXpsOMPageReference_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMPageReference {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMPageReference {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed360180_6f92_4998_890d_2f208531a0a0);
@@ -4888,6 +4303,7 @@ pub struct IXpsOMPageReference_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMPageReferenceCollection(::windows_core::IUnknown);
 impl IXpsOMPageReferenceCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -4921,24 +4337,8 @@ impl IXpsOMPageReferenceCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMPageReferenceCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMPageReferenceCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMPageReferenceCollection {}
-impl ::core::fmt::Debug for IXpsOMPageReferenceCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMPageReferenceCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMPageReferenceCollection {
     type Vtable = IXpsOMPageReferenceCollection_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMPageReferenceCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMPageReferenceCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xca16ba4d_e7b9_45c5_958b_f98022473745);
@@ -4956,6 +4356,7 @@ pub struct IXpsOMPageReferenceCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMPart(::windows_core::IUnknown);
 impl IXpsOMPart {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -4974,24 +4375,8 @@ impl IXpsOMPart {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMPart, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMPart {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMPart {}
-impl ::core::fmt::Debug for IXpsOMPart {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMPart").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMPart {
     type Vtable = IXpsOMPart_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMPart {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMPart {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x74eb2f0b_a91e_4486_afac_0fabeca3dfc6);
@@ -5011,6 +4396,7 @@ pub struct IXpsOMPart_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMPartResources(::windows_core::IUnknown);
 impl IXpsOMPartResources {
     pub unsafe fn GetFontResources(&self) -> ::windows_core::Result<IXpsOMFontResourceCollection> {
@@ -5031,24 +4417,8 @@ impl IXpsOMPartResources {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMPartResources, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMPartResources {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMPartResources {}
-impl ::core::fmt::Debug for IXpsOMPartResources {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMPartResources").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMPartResources {
     type Vtable = IXpsOMPartResources_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMPartResources {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMPartResources {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf4cf7729_4864_4275_99b3_a8717163ecaf);
@@ -5064,6 +4434,7 @@ pub struct IXpsOMPartResources_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMPartUriCollection(::windows_core::IUnknown);
 impl IXpsOMPartUriCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -5105,24 +4476,8 @@ impl IXpsOMPartUriCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMPartUriCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMPartUriCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMPartUriCollection {}
-impl ::core::fmt::Debug for IXpsOMPartUriCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMPartUriCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMPartUriCollection {
     type Vtable = IXpsOMPartUriCollection_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMPartUriCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMPartUriCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x57c650d4_067c_4893_8c33_f62a0633730f);
@@ -5152,6 +4507,7 @@ pub struct IXpsOMPartUriCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMPath(::windows_core::IUnknown);
 impl IXpsOMPath {
     pub unsafe fn GetOwner(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -5454,24 +4810,8 @@ impl IXpsOMPath {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMPath, ::windows_core::IUnknown, IXpsOMShareable, IXpsOMVisual);
-impl ::core::cmp::PartialEq for IXpsOMPath {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMPath {}
-impl ::core::fmt::Debug for IXpsOMPath {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMPath").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMPath {
     type Vtable = IXpsOMPath_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMPath {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMPath {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x37d38bb6_3ee9_4110_9312_14b194163337);
@@ -5526,6 +4866,7 @@ pub struct IXpsOMPath_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMPrintTicketResource(::windows_core::IUnknown);
 impl IXpsOMPrintTicketResource {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -5559,24 +4900,8 @@ impl IXpsOMPrintTicketResource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMPrintTicketResource, ::windows_core::IUnknown, IXpsOMPart, IXpsOMResource);
-impl ::core::cmp::PartialEq for IXpsOMPrintTicketResource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMPrintTicketResource {}
-impl ::core::fmt::Debug for IXpsOMPrintTicketResource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMPrintTicketResource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMPrintTicketResource {
     type Vtable = IXpsOMPrintTicketResource_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMPrintTicketResource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMPrintTicketResource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe7ff32d2_34aa_499b_bbe9_9cd4ee6c59f7);
@@ -5596,6 +4921,7 @@ pub struct IXpsOMPrintTicketResource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMRadialGradientBrush(::windows_core::IUnknown);
 impl IXpsOMRadialGradientBrush {
     pub unsafe fn GetOwner(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -5682,24 +5008,8 @@ impl IXpsOMRadialGradientBrush {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMRadialGradientBrush, ::windows_core::IUnknown, IXpsOMShareable, IXpsOMBrush, IXpsOMGradientBrush);
-impl ::core::cmp::PartialEq for IXpsOMRadialGradientBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMRadialGradientBrush {}
-impl ::core::fmt::Debug for IXpsOMRadialGradientBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMRadialGradientBrush").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMRadialGradientBrush {
     type Vtable = IXpsOMRadialGradientBrush_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMRadialGradientBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMRadialGradientBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75f207e5_08bf_413c_96b1_b82b4064176b);
@@ -5718,6 +5028,7 @@ pub struct IXpsOMRadialGradientBrush_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMRemoteDictionaryResource(::windows_core::IUnknown);
 impl IXpsOMRemoteDictionaryResource {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -5746,24 +5057,8 @@ impl IXpsOMRemoteDictionaryResource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMRemoteDictionaryResource, ::windows_core::IUnknown, IXpsOMPart, IXpsOMResource);
-impl ::core::cmp::PartialEq for IXpsOMRemoteDictionaryResource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMRemoteDictionaryResource {}
-impl ::core::fmt::Debug for IXpsOMRemoteDictionaryResource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMRemoteDictionaryResource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMRemoteDictionaryResource {
     type Vtable = IXpsOMRemoteDictionaryResource_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMRemoteDictionaryResource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMRemoteDictionaryResource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc9bd7cd4_e16a_4bf8_8c84_c950af7a3061);
@@ -5777,6 +5072,7 @@ pub struct IXpsOMRemoteDictionaryResource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMRemoteDictionaryResource1(::windows_core::IUnknown);
 impl IXpsOMRemoteDictionaryResource1 {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -5817,24 +5113,8 @@ impl IXpsOMRemoteDictionaryResource1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMRemoteDictionaryResource1, ::windows_core::IUnknown, IXpsOMPart, IXpsOMResource, IXpsOMRemoteDictionaryResource);
-impl ::core::cmp::PartialEq for IXpsOMRemoteDictionaryResource1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMRemoteDictionaryResource1 {}
-impl ::core::fmt::Debug for IXpsOMRemoteDictionaryResource1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMRemoteDictionaryResource1").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMRemoteDictionaryResource1 {
     type Vtable = IXpsOMRemoteDictionaryResource1_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMRemoteDictionaryResource1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMRemoteDictionaryResource1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbf8fc1d4_9d46_4141_ba5f_94bb9250d041);
@@ -5851,6 +5131,7 @@ pub struct IXpsOMRemoteDictionaryResource1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMRemoteDictionaryResourceCollection(::windows_core::IUnknown);
 impl IXpsOMRemoteDictionaryResourceCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -5893,24 +5174,8 @@ impl IXpsOMRemoteDictionaryResourceCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMRemoteDictionaryResourceCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMRemoteDictionaryResourceCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMRemoteDictionaryResourceCollection {}
-impl ::core::fmt::Debug for IXpsOMRemoteDictionaryResourceCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMRemoteDictionaryResourceCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMRemoteDictionaryResourceCollection {
     type Vtable = IXpsOMRemoteDictionaryResourceCollection_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMRemoteDictionaryResourceCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMRemoteDictionaryResourceCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c38db61_7fec_464a_87bd_41e3bef018be);
@@ -5932,6 +5197,7 @@ pub struct IXpsOMRemoteDictionaryResourceCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMResource(::windows_core::IUnknown);
 impl IXpsOMResource {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -5950,24 +5216,8 @@ impl IXpsOMResource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMResource, ::windows_core::IUnknown, IXpsOMPart);
-impl ::core::cmp::PartialEq for IXpsOMResource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMResource {}
-impl ::core::fmt::Debug for IXpsOMResource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMResource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMResource {
     type Vtable = IXpsOMResource_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMResource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMResource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda2ac0a2_73a2_4975_ad14_74097c3ff3a5);
@@ -5979,6 +5229,7 @@ pub struct IXpsOMResource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMShareable(::windows_core::IUnknown);
 impl IXpsOMShareable {
     pub unsafe fn GetOwner(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -5991,24 +5242,8 @@ impl IXpsOMShareable {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMShareable, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMShareable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMShareable {}
-impl ::core::fmt::Debug for IXpsOMShareable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMShareable").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMShareable {
     type Vtable = IXpsOMShareable_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMShareable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMShareable {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7137398f_2fc1_454d_8c6a_2c3115a16ece);
@@ -6022,6 +5257,7 @@ pub struct IXpsOMShareable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMSignatureBlockResource(::windows_core::IUnknown);
 impl IXpsOMSignatureBlockResource {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -6059,24 +5295,8 @@ impl IXpsOMSignatureBlockResource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMSignatureBlockResource, ::windows_core::IUnknown, IXpsOMPart, IXpsOMResource);
-impl ::core::cmp::PartialEq for IXpsOMSignatureBlockResource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMSignatureBlockResource {}
-impl ::core::fmt::Debug for IXpsOMSignatureBlockResource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMSignatureBlockResource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMSignatureBlockResource {
     type Vtable = IXpsOMSignatureBlockResource_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMSignatureBlockResource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMSignatureBlockResource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4776ad35_2e04_4357_8743_ebf6c171a905);
@@ -6097,6 +5317,7 @@ pub struct IXpsOMSignatureBlockResource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMSignatureBlockResourceCollection(::windows_core::IUnknown);
 impl IXpsOMSignatureBlockResourceCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -6139,24 +5360,8 @@ impl IXpsOMSignatureBlockResourceCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMSignatureBlockResourceCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMSignatureBlockResourceCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMSignatureBlockResourceCollection {}
-impl ::core::fmt::Debug for IXpsOMSignatureBlockResourceCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMSignatureBlockResourceCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMSignatureBlockResourceCollection {
     type Vtable = IXpsOMSignatureBlockResourceCollection_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMSignatureBlockResourceCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMSignatureBlockResourceCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab8f5d8e_351b_4d33_aaed_fa56f0022931);
@@ -6178,6 +5383,7 @@ pub struct IXpsOMSignatureBlockResourceCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMSolidColorBrush(::windows_core::IUnknown);
 impl IXpsOMSolidColorBrush {
     pub unsafe fn GetOwner(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -6210,24 +5416,8 @@ impl IXpsOMSolidColorBrush {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMSolidColorBrush, ::windows_core::IUnknown, IXpsOMShareable, IXpsOMBrush);
-impl ::core::cmp::PartialEq for IXpsOMSolidColorBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMSolidColorBrush {}
-impl ::core::fmt::Debug for IXpsOMSolidColorBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMSolidColorBrush").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMSolidColorBrush {
     type Vtable = IXpsOMSolidColorBrush_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMSolidColorBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMSolidColorBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa06f9f05_3be9_4763_98a8_094fc672e488);
@@ -6242,6 +5432,7 @@ pub struct IXpsOMSolidColorBrush_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMStoryFragmentsResource(::windows_core::IUnknown);
 impl IXpsOMStoryFragmentsResource {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -6279,24 +5470,8 @@ impl IXpsOMStoryFragmentsResource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMStoryFragmentsResource, ::windows_core::IUnknown, IXpsOMPart, IXpsOMResource);
-impl ::core::cmp::PartialEq for IXpsOMStoryFragmentsResource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMStoryFragmentsResource {}
-impl ::core::fmt::Debug for IXpsOMStoryFragmentsResource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMStoryFragmentsResource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMStoryFragmentsResource {
     type Vtable = IXpsOMStoryFragmentsResource_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMStoryFragmentsResource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMStoryFragmentsResource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2b3ca09_0473_4282_87ae_1780863223f0);
@@ -6317,6 +5492,7 @@ pub struct IXpsOMStoryFragmentsResource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMThumbnailGenerator(::windows_core::IUnknown);
 impl IXpsOMThumbnailGenerator {
     #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
@@ -6331,24 +5507,8 @@ impl IXpsOMThumbnailGenerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMThumbnailGenerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMThumbnailGenerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMThumbnailGenerator {}
-impl ::core::fmt::Debug for IXpsOMThumbnailGenerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMThumbnailGenerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMThumbnailGenerator {
     type Vtable = IXpsOMThumbnailGenerator_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMThumbnailGenerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMThumbnailGenerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x15b873d5_1971_41e8_83a3_6578403064c7);
@@ -6364,6 +5524,7 @@ pub struct IXpsOMThumbnailGenerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMTileBrush(::windows_core::IUnknown);
 impl IXpsOMTileBrush {
     pub unsafe fn GetOwner(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -6428,24 +5589,8 @@ impl IXpsOMTileBrush {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMTileBrush, ::windows_core::IUnknown, IXpsOMShareable, IXpsOMBrush);
-impl ::core::cmp::PartialEq for IXpsOMTileBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMTileBrush {}
-impl ::core::fmt::Debug for IXpsOMTileBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMTileBrush").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMTileBrush {
     type Vtable = IXpsOMTileBrush_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMTileBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMTileBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0fc2328d_d722_4a54_b2ec_be90218a789e);
@@ -6468,6 +5613,7 @@ pub struct IXpsOMTileBrush_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMVisual(::windows_core::IUnknown);
 impl IXpsOMVisual {
     pub unsafe fn GetOwner(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -6607,24 +5753,8 @@ impl IXpsOMVisual {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMVisual, ::windows_core::IUnknown, IXpsOMShareable);
-impl ::core::cmp::PartialEq for IXpsOMVisual {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMVisual {}
-impl ::core::fmt::Debug for IXpsOMVisual {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMVisual").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMVisual {
     type Vtable = IXpsOMVisual_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMVisual {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMVisual {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbc3e7333_fb0b_4af3_a819_0b4eaad0d2fd);
@@ -6673,6 +5803,7 @@ pub struct IXpsOMVisual_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMVisualBrush(::windows_core::IUnknown);
 impl IXpsOMVisualBrush {
     pub unsafe fn GetOwner(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -6765,24 +5896,8 @@ impl IXpsOMVisualBrush {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMVisualBrush, ::windows_core::IUnknown, IXpsOMShareable, IXpsOMBrush, IXpsOMTileBrush);
-impl ::core::cmp::PartialEq for IXpsOMVisualBrush {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMVisualBrush {}
-impl ::core::fmt::Debug for IXpsOMVisualBrush {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMVisualBrush").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMVisualBrush {
     type Vtable = IXpsOMVisualBrush_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMVisualBrush {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMVisualBrush {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97e294af_5b37_46b4_8057_874d2f64119b);
@@ -6800,6 +5915,7 @@ pub struct IXpsOMVisualBrush_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsOMVisualCollection(::windows_core::IUnknown);
 impl IXpsOMVisualCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -6833,24 +5949,8 @@ impl IXpsOMVisualCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsOMVisualCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsOMVisualCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsOMVisualCollection {}
-impl ::core::fmt::Debug for IXpsOMVisualCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsOMVisualCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsOMVisualCollection {
     type Vtable = IXpsOMVisualCollection_Vtbl;
-}
-impl ::core::clone::Clone for IXpsOMVisualCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsOMVisualCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x94d8abde_ab91_46a8_82b7_f5b05ef01a96);
@@ -6868,6 +5968,7 @@ pub struct IXpsOMVisualCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsSignature(::windows_core::IUnknown);
 impl IXpsSignature {
     pub unsafe fn GetSignatureId(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -6929,24 +6030,8 @@ impl IXpsSignature {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsSignature, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsSignature {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsSignature {}
-impl ::core::fmt::Debug for IXpsSignature {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsSignature").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsSignature {
     type Vtable = IXpsSignature_Vtbl;
-}
-impl ::core::clone::Clone for IXpsSignature {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsSignature {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6ae4c93e_1ade_42fb_898b_3a5658284857);
@@ -6988,6 +6073,7 @@ pub struct IXpsSignature_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsSignatureBlock(::windows_core::IUnknown);
 impl IXpsSignatureBlock {
     pub unsafe fn GetRequests(&self) -> ::windows_core::Result<IXpsSignatureRequestCollection> {
@@ -7019,24 +6105,8 @@ impl IXpsSignatureBlock {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsSignatureBlock, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsSignatureBlock {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsSignatureBlock {}
-impl ::core::fmt::Debug for IXpsSignatureBlock {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsSignatureBlock").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsSignatureBlock {
     type Vtable = IXpsSignatureBlock_Vtbl;
-}
-impl ::core::clone::Clone for IXpsSignatureBlock {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsSignatureBlock {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x151fac09_0b97_4ac6_a323_5e4297d4322b);
@@ -7059,6 +6129,7 @@ pub struct IXpsSignatureBlock_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsSignatureBlockCollection(::windows_core::IUnknown);
 impl IXpsSignatureBlockCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -7074,24 +6145,8 @@ impl IXpsSignatureBlockCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsSignatureBlockCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsSignatureBlockCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsSignatureBlockCollection {}
-impl ::core::fmt::Debug for IXpsSignatureBlockCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsSignatureBlockCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsSignatureBlockCollection {
     type Vtable = IXpsSignatureBlockCollection_Vtbl;
-}
-impl ::core::clone::Clone for IXpsSignatureBlockCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsSignatureBlockCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x23397050_fe99_467a_8dce_9237f074ffe4);
@@ -7106,6 +6161,7 @@ pub struct IXpsSignatureBlockCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsSignatureCollection(::windows_core::IUnknown);
 impl IXpsSignatureCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -7121,24 +6177,8 @@ impl IXpsSignatureCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsSignatureCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsSignatureCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsSignatureCollection {}
-impl ::core::fmt::Debug for IXpsSignatureCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsSignatureCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsSignatureCollection {
     type Vtable = IXpsSignatureCollection_Vtbl;
-}
-impl ::core::clone::Clone for IXpsSignatureCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsSignatureCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2d1d95d_add2_4dff_ab27_6b9c645ff322);
@@ -7153,6 +6193,7 @@ pub struct IXpsSignatureCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsSignatureManager(::windows_core::IUnknown);
 impl IXpsSignatureManager {
     pub unsafe fn LoadPackageFile<P0>(&self, filename: P0) -> ::windows_core::Result<()>
@@ -7231,24 +6272,8 @@ impl IXpsSignatureManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsSignatureManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsSignatureManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsSignatureManager {}
-impl ::core::fmt::Debug for IXpsSignatureManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsSignatureManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsSignatureManager {
     type Vtable = IXpsSignatureManager_Vtbl;
-}
-impl ::core::clone::Clone for IXpsSignatureManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsSignatureManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd3e8d338_fdc4_4afc_80b5_d532a1782ee1);
@@ -7292,6 +6317,7 @@ pub struct IXpsSignatureManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsSignatureRequest(::windows_core::IUnknown);
 impl IXpsSignatureRequest {
     pub unsafe fn GetIntent(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -7352,24 +6378,8 @@ impl IXpsSignatureRequest {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsSignatureRequest, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsSignatureRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsSignatureRequest {}
-impl ::core::fmt::Debug for IXpsSignatureRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsSignatureRequest").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsSignatureRequest {
     type Vtable = IXpsSignatureRequest_Vtbl;
-}
-impl ::core::clone::Clone for IXpsSignatureRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsSignatureRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xac58950b_7208_4b2d_b2c4_951083d3b8eb);
@@ -7396,6 +6406,7 @@ pub struct IXpsSignatureRequest_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsSignatureRequestCollection(::windows_core::IUnknown);
 impl IXpsSignatureRequestCollection {
     pub unsafe fn GetCount(&self) -> ::windows_core::Result<u32> {
@@ -7411,24 +6422,8 @@ impl IXpsSignatureRequestCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsSignatureRequestCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsSignatureRequestCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsSignatureRequestCollection {}
-impl ::core::fmt::Debug for IXpsSignatureRequestCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsSignatureRequestCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsSignatureRequestCollection {
     type Vtable = IXpsSignatureRequestCollection_Vtbl;
-}
-impl ::core::clone::Clone for IXpsSignatureRequestCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsSignatureRequestCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf0253e68_9f19_412e_9b4f_54d3b0ac6cd9);
@@ -7443,6 +6438,7 @@ pub struct IXpsSignatureRequestCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXpsSigningOptions(::windows_core::IUnknown);
 impl IXpsSigningOptions {
     pub unsafe fn GetSignatureId(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -7534,24 +6530,8 @@ impl IXpsSigningOptions {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXpsSigningOptions, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXpsSigningOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXpsSigningOptions {}
-impl ::core::fmt::Debug for IXpsSigningOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXpsSigningOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXpsSigningOptions {
     type Vtable = IXpsSigningOptions_Vtbl;
-}
-impl ::core::clone::Clone for IXpsSigningOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXpsSigningOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7718eae4_3215_49be_af5b_594fef7fcfa6);

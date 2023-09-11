@@ -1039,6 +1039,7 @@ pub unsafe fn WcsTranslateColors(hcolortransform: isize, ncolors: u32, ninputcha
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceModelPlugIn(::windows_core::IUnknown);
 impl IDeviceModelPlugIn {
     pub unsafe fn Initialize<P0>(&self, bstrxml: P0, cnummodels: u32, imodelposition: u32) -> ::windows_core::Result<()>
@@ -1088,24 +1089,8 @@ impl IDeviceModelPlugIn {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDeviceModelPlugIn, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDeviceModelPlugIn {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDeviceModelPlugIn {}
-impl ::core::fmt::Debug for IDeviceModelPlugIn {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDeviceModelPlugIn").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDeviceModelPlugIn {
     type Vtable = IDeviceModelPlugIn_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceModelPlugIn {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceModelPlugIn {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1cd63475_07c4_46fe_a903_d655316d11fd);
@@ -1131,6 +1116,7 @@ pub struct IDeviceModelPlugIn_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGamutMapModelPlugIn(::windows_core::IUnknown);
 impl IGamutMapModelPlugIn {
     pub unsafe fn Initialize<P0, P1, P2>(&self, bstrxml: P0, psrcplugin: P1, pdestplugin: P2, psrcgbd: *const GamutBoundaryDescription, pdestgbd: *const GamutBoundaryDescription) -> ::windows_core::Result<()>
@@ -1146,24 +1132,8 @@ impl IGamutMapModelPlugIn {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGamutMapModelPlugIn, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGamutMapModelPlugIn {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGamutMapModelPlugIn {}
-impl ::core::fmt::Debug for IGamutMapModelPlugIn {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGamutMapModelPlugIn").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGamutMapModelPlugIn {
     type Vtable = IGamutMapModelPlugIn_Vtbl;
-}
-impl ::core::clone::Clone for IGamutMapModelPlugIn {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGamutMapModelPlugIn {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2dd80115_ad1e_41f6_a219_a4f4b583d1f9);

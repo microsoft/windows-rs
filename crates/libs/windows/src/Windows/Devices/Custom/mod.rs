@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICustomDevice(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICustomDevice {
     type Vtable = ICustomDevice_Vtbl;
-}
-impl ::core::clone::Clone for ICustomDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICustomDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd30251f_c48b_43bd_bcb1_dec88f15143e);
@@ -35,14 +31,10 @@ pub struct ICustomDevice_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICustomDeviceStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICustomDeviceStatics {
     type Vtable = ICustomDeviceStatics_Vtbl;
-}
-impl ::core::clone::Clone for ICustomDeviceStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICustomDeviceStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc8220312_ef4c_46b1_a58e_eeb308dc8917);
@@ -59,6 +51,7 @@ pub struct ICustomDeviceStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Custom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIOControlCode(::windows_core::IUnknown);
 impl IIOControlCode {
     pub fn AccessMode(&self) -> ::windows_core::Result<IOControlAccessMode> {
@@ -98,27 +91,11 @@ impl IIOControlCode {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIOControlCode, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IIOControlCode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIOControlCode {}
-impl ::core::fmt::Debug for IIOControlCode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIOControlCode").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IIOControlCode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{0e9559e7-60c8-4375-a761-7f8808066c60}");
 }
 unsafe impl ::windows_core::Interface for IIOControlCode {
     type Vtable = IIOControlCode_Vtbl;
-}
-impl ::core::clone::Clone for IIOControlCode {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIOControlCode {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0e9559e7_60c8_4375_a761_7f8808066c60);
@@ -135,14 +112,10 @@ pub struct IIOControlCode_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIOControlCodeFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IIOControlCodeFactory {
     type Vtable = IIOControlCodeFactory_Vtbl;
-}
-impl ::core::clone::Clone for IIOControlCodeFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIOControlCodeFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x856a7cf0_4c11_44ae_afc6_b8d4a212788f);
@@ -155,14 +128,10 @@ pub struct IIOControlCodeFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKnownDeviceTypesStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKnownDeviceTypesStatics {
     type Vtable = IKnownDeviceTypesStatics_Vtbl;
-}
-impl ::core::clone::Clone for IKnownDeviceTypesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKnownDeviceTypesStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xee5479c2_5448_45da_ad1b_24948c239094);
@@ -175,6 +144,7 @@ pub struct IKnownDeviceTypesStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Custom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CustomDevice(::windows_core::IUnknown);
 impl CustomDevice {
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -243,24 +213,8 @@ impl CustomDevice {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for CustomDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CustomDevice {}
-impl ::core::fmt::Debug for CustomDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CustomDevice").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CustomDevice {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Custom.CustomDevice;{dd30251f-c48b-43bd-bcb1-dec88f15143e})");
-}
-impl ::core::clone::Clone for CustomDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CustomDevice {
     type Vtable = ICustomDevice_Vtbl;
@@ -276,6 +230,7 @@ unsafe impl ::core::marker::Send for CustomDevice {}
 unsafe impl ::core::marker::Sync for CustomDevice {}
 #[doc = "*Required features: `\"Devices_Custom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOControlCode(::windows_core::IUnknown);
 impl IOControlCode {
     pub fn AccessMode(&self) -> ::windows_core::Result<IOControlAccessMode> {
@@ -325,24 +280,8 @@ impl IOControlCode {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for IOControlCode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOControlCode {}
-impl ::core::fmt::Debug for IOControlCode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOControlCode").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IOControlCode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Custom.IOControlCode;{0e9559e7-60c8-4375-a761-7f8808066c60})");
-}
-impl ::core::clone::Clone for IOControlCode {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for IOControlCode {
     type Vtable = IIOControlCode_Vtbl;

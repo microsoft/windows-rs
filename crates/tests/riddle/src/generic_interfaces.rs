@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIterable<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
 where
     T: ::windows_core::RuntimeType + 'static;
@@ -32,17 +33,6 @@ impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows
     for IIterable<T>
 {
 }
-impl<T: ::windows_core::RuntimeType + 'static> ::core::cmp::PartialEq for IIterable<T> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::cmp::Eq for IIterable<T> {}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::fmt::Debug for IIterable<T> {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIterable").field(&self.0).finish()
-    }
-}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IIterable<T> {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = {
         ::windows_core::imp::ConstBuffer::new()
@@ -55,11 +45,6 @@ impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for I
 }
 unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface for IIterable<T> {
     type Vtable = IIterable_Vtbl<T>;
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::clone::Clone for IIterable<T> {
-    fn clone(&self) -> Self {
-        Self(self.0.clone(), ::core::marker::PhantomData::<T>)
-    }
 }
 unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::ComInterface
     for IIterable<T>
@@ -81,6 +66,7 @@ where
     pub T: ::core::marker::PhantomData<T>,
 }
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIterator<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
 where
     T: ::windows_core::RuntimeType + 'static;
@@ -127,17 +113,6 @@ impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows
     for IIterator<T>
 {
 }
-impl<T: ::windows_core::RuntimeType + 'static> ::core::cmp::PartialEq for IIterator<T> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::cmp::Eq for IIterator<T> {}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::fmt::Debug for IIterator<T> {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIterator").field(&self.0).finish()
-    }
-}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IIterator<T> {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = {
         ::windows_core::imp::ConstBuffer::new()
@@ -150,11 +125,6 @@ impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for I
 }
 unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface for IIterator<T> {
     type Vtable = IIterator_Vtbl<T>;
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::clone::Clone for IIterator<T> {
-    fn clone(&self) -> Self {
-        Self(self.0.clone(), ::core::marker::PhantomData::<T>)
-    }
 }
 unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::ComInterface
     for IIterator<T>
@@ -184,6 +154,7 @@ where
     pub T: ::core::marker::PhantomData<T>,
 }
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKeyValuePair<K, V>(
     ::windows_core::IUnknown,
     ::core::marker::PhantomData<K>,
@@ -227,24 +198,6 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
 {
 }
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
-    ::core::cmp::PartialEq for IKeyValuePair<K, V>
-{
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
-    ::core::cmp::Eq for IKeyValuePair<K, V>
-{
-}
-impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
-    ::core::fmt::Debug for IKeyValuePair<K, V>
-{
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKeyValuePair").field(&self.0).finish()
-    }
-}
-impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
     ::windows_core::RuntimeType for IKeyValuePair<K, V>
 {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = {
@@ -262,17 +215,6 @@ unsafe impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::Runtime
     ::windows_core::Interface for IKeyValuePair<K, V>
 {
     type Vtable = IKeyValuePair_Vtbl<K, V>;
-}
-impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
-    ::core::clone::Clone for IKeyValuePair<K, V>
-{
-    fn clone(&self) -> Self {
-        Self(
-            self.0.clone(),
-            ::core::marker::PhantomData::<K>,
-            ::core::marker::PhantomData::<V>,
-        )
-    }
 }
 unsafe impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
     ::windows_core::ComInterface for IKeyValuePair<K, V>
@@ -300,6 +242,7 @@ where
     pub V: ::core::marker::PhantomData<V>,
 }
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMapView<K, V>(
     ::windows_core::IUnknown,
     ::core::marker::PhantomData<K>,
@@ -383,24 +326,6 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
 {
 }
 impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
-    ::core::cmp::PartialEq for IMapView<K, V>
-{
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
-    ::core::cmp::Eq for IMapView<K, V>
-{
-}
-impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
-    ::core::fmt::Debug for IMapView<K, V>
-{
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMapView").field(&self.0).finish()
-    }
-}
-impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
     ::windows_core::RuntimeType for IMapView<K, V>
 {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = {
@@ -418,17 +343,6 @@ unsafe impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::Runtime
     ::windows_core::Interface for IMapView<K, V>
 {
     type Vtable = IMapView_Vtbl<K, V>;
-}
-impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
-    ::core::clone::Clone for IMapView<K, V>
-{
-    fn clone(&self) -> Self {
-        Self(
-            self.0.clone(),
-            ::core::marker::PhantomData::<K>,
-            ::core::marker::PhantomData::<V>,
-        )
-    }
 }
 unsafe impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 'static>
     ::windows_core::ComInterface for IMapView<K, V>

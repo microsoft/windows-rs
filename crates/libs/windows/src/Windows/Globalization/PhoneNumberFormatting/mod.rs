@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneNumberFormatter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneNumberFormatter {
     type Vtable = IPhoneNumberFormatter_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneNumberFormatter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneNumberFormatter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1556b49e_bad4_4b4a_900d_4407adb7c981);
@@ -24,14 +20,10 @@ pub struct IPhoneNumberFormatter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneNumberFormatterStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneNumberFormatterStatics {
     type Vtable = IPhoneNumberFormatterStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneNumberFormatterStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneNumberFormatterStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ca6f931_84d9_414b_ab4e_a0552c878602);
@@ -47,14 +39,10 @@ pub struct IPhoneNumberFormatterStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneNumberInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneNumberInfo {
     type Vtable = IPhoneNumberInfo_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneNumberInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneNumberInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1c7ce4dd_c8b4_4ea3_9aef_b342e2c5b417);
@@ -74,14 +62,10 @@ pub struct IPhoneNumberInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneNumberInfoFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneNumberInfoFactory {
     type Vtable = IPhoneNumberInfoFactory_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneNumberInfoFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneNumberInfoFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8202b964_adaa_4cff_8fcf_17e7516a28ff);
@@ -94,14 +78,10 @@ pub struct IPhoneNumberInfoFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneNumberInfoStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneNumberInfoStatics {
     type Vtable = IPhoneNumberInfoStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneNumberInfoStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneNumberInfoStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b3f4f6a_86a9_40e9_8649_6d61161928d4);
@@ -115,6 +95,7 @@ pub struct IPhoneNumberInfoStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneNumberFormatter(::windows_core::IUnknown);
 impl PhoneNumberFormatter {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -192,24 +173,8 @@ impl PhoneNumberFormatter {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for PhoneNumberFormatter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneNumberFormatter {}
-impl ::core::fmt::Debug for PhoneNumberFormatter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneNumberFormatter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneNumberFormatter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormatter;{1556b49e-bad4-4b4a-900d-4407adb7c981})");
-}
-impl ::core::clone::Clone for PhoneNumberFormatter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneNumberFormatter {
     type Vtable = IPhoneNumberFormatter_Vtbl;
@@ -225,6 +190,7 @@ unsafe impl ::core::marker::Send for PhoneNumberFormatter {}
 unsafe impl ::core::marker::Sync for PhoneNumberFormatter {}
 #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneNumberInfo(::windows_core::IUnknown);
 impl PhoneNumberInfo {
     pub fn CountryCode(&self) -> ::windows_core::Result<i32> {
@@ -324,24 +290,8 @@ impl PhoneNumberInfo {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for PhoneNumberInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneNumberInfo {}
-impl ::core::fmt::Debug for PhoneNumberInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneNumberInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneNumberInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.PhoneNumberFormatting.PhoneNumberInfo;{1c7ce4dd-c8b4-4ea3-9aef-b342e2c5b417})");
-}
-impl ::core::clone::Clone for PhoneNumberInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneNumberInfo {
     type Vtable = IPhoneNumberInfo_Vtbl;

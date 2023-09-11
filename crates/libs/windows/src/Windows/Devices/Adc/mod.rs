@@ -2,14 +2,10 @@
 pub mod Provider;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdcChannel(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdcChannel {
     type Vtable = IAdcChannel_Vtbl;
-}
-impl ::core::clone::Clone for IAdcChannel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdcChannel {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x040bf414_2588_4a56_abef_73a260acc60a);
@@ -24,14 +20,10 @@ pub struct IAdcChannel_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdcController(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdcController {
     type Vtable = IAdcController_Vtbl;
-}
-impl ::core::clone::Clone for IAdcController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdcController {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a76e4b0_a896_4219_86b6_ea8cdce98f56);
@@ -51,14 +43,10 @@ pub struct IAdcController_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdcControllerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdcControllerStatics {
     type Vtable = IAdcControllerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IAdcControllerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdcControllerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcce98e0c_01f8_4891_bc3b_be53ef279ca4);
@@ -74,14 +62,10 @@ pub struct IAdcControllerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdcControllerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdcControllerStatics2 {
     type Vtable = IAdcControllerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IAdcControllerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdcControllerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2b93b1d_977b_4f5a_a5fe_a6abaffe6484);
@@ -97,6 +81,7 @@ pub struct IAdcControllerStatics2_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Adc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdcChannel(::windows_core::IUnknown);
 impl AdcChannel {
     pub fn Controller(&self) -> ::windows_core::Result<AdcController> {
@@ -127,24 +112,8 @@ impl AdcChannel {
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for AdcChannel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdcChannel {}
-impl ::core::fmt::Debug for AdcChannel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdcChannel").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AdcChannel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Adc.AdcChannel;{040bf414-2588-4a56-abef-73a260acc60a})");
-}
-impl ::core::clone::Clone for AdcChannel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AdcChannel {
     type Vtable = IAdcChannel_Vtbl;
@@ -162,6 +131,7 @@ unsafe impl ::core::marker::Send for AdcChannel {}
 unsafe impl ::core::marker::Sync for AdcChannel {}
 #[doc = "*Required features: `\"Devices_Adc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdcController(::windows_core::IUnknown);
 impl AdcController {
     pub fn ChannelCount(&self) -> ::windows_core::Result<i32> {
@@ -247,24 +217,8 @@ impl AdcController {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for AdcController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdcController {}
-impl ::core::fmt::Debug for AdcController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdcController").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AdcController {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Adc.AdcController;{2a76e4b0-a896-4219-86b6-ea8cdce98f56})");
-}
-impl ::core::clone::Clone for AdcController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AdcController {
     type Vtable = IAdcController_Vtbl;

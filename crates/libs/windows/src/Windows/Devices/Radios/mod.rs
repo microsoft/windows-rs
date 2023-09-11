@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRadio(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRadio {
     type Vtable = IRadio_Vtbl;
-}
-impl ::core::clone::Clone for IRadio {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRadio {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x252118df_b33e_416a_875f_1cf38ae2d83e);
@@ -34,14 +30,10 @@ pub struct IRadio_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRadioStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRadioStatics {
     type Vtable = IRadioStatics_Vtbl;
-}
-impl ::core::clone::Clone for IRadioStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRadioStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5fb6a12e_67cb_46ae_aae9_65919f86eff4);
@@ -66,6 +58,7 @@ pub struct IRadioStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Radios\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Radio(::windows_core::IUnknown);
 impl Radio {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -152,24 +145,8 @@ impl Radio {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for Radio {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Radio {}
-impl ::core::fmt::Debug for Radio {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Radio").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Radio {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Radios.Radio;{252118df-b33e-416a-875f-1cf38ae2d83e})");
-}
-impl ::core::clone::Clone for Radio {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Radio {
     type Vtable = IRadio_Vtbl;

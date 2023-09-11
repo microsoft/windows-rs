@@ -2,6 +2,7 @@
 pub mod Management;
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveNotificationContent(::windows_core::IUnknown);
 impl IAdaptiveNotificationContent {
     pub fn Kind(&self) -> ::windows_core::Result<AdaptiveNotificationContentKind> {
@@ -22,27 +23,11 @@ impl IAdaptiveNotificationContent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAdaptiveNotificationContent, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IAdaptiveNotificationContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAdaptiveNotificationContent {}
-impl ::core::fmt::Debug for IAdaptiveNotificationContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAdaptiveNotificationContent").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IAdaptiveNotificationContent {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{eb0dbe66-7448-448d-9db8-d78acd2abba9}");
 }
 unsafe impl ::windows_core::Interface for IAdaptiveNotificationContent {
     type Vtable = IAdaptiveNotificationContent_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveNotificationContent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveNotificationContent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb0dbe66_7448_448d_9db8_d78acd2abba9);
@@ -59,14 +44,10 @@ pub struct IAdaptiveNotificationContent_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdaptiveNotificationText(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdaptiveNotificationText {
     type Vtable = IAdaptiveNotificationText_Vtbl;
-}
-impl ::core::clone::Clone for IAdaptiveNotificationText {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdaptiveNotificationText {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x46d4a3be_609a_4326_a40b_bfde872034a3);
@@ -82,14 +63,10 @@ pub struct IAdaptiveNotificationText_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBadgeNotification(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBadgeNotification {
     type Vtable = IBadgeNotification_Vtbl;
-}
-impl ::core::clone::Clone for IBadgeNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBadgeNotification {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x075cb4ca_d08a_4e2f_9233_7e289c1f7722);
@@ -113,14 +90,10 @@ pub struct IBadgeNotification_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBadgeNotificationFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBadgeNotificationFactory {
     type Vtable = IBadgeNotificationFactory_Vtbl;
-}
-impl ::core::clone::Clone for IBadgeNotificationFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBadgeNotificationFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xedf255ce_0618_4d59_948a_5a61040c52f9);
@@ -136,14 +109,10 @@ pub struct IBadgeNotificationFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBadgeUpdateManagerForUser(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBadgeUpdateManagerForUser {
     type Vtable = IBadgeUpdateManagerForUser_Vtbl;
-}
-impl ::core::clone::Clone for IBadgeUpdateManagerForUser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBadgeUpdateManagerForUser {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x996b21bc_0386_44e5_ba8d_0c1077a62e92);
@@ -162,14 +131,10 @@ pub struct IBadgeUpdateManagerForUser_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBadgeUpdateManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBadgeUpdateManagerStatics {
     type Vtable = IBadgeUpdateManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IBadgeUpdateManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBadgeUpdateManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33400faa_6dd5_4105_aebc_9b50fca492da);
@@ -188,14 +153,10 @@ pub struct IBadgeUpdateManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBadgeUpdateManagerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBadgeUpdateManagerStatics2 {
     type Vtable = IBadgeUpdateManagerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IBadgeUpdateManagerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBadgeUpdateManagerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x979a35ce_f940_48bf_94e8_ca244d400b41);
@@ -211,14 +172,10 @@ pub struct IBadgeUpdateManagerStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBadgeUpdater(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBadgeUpdater {
     type Vtable = IBadgeUpdater_Vtbl;
-}
-impl ::core::clone::Clone for IBadgeUpdater {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBadgeUpdater {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5fa1fd4_7562_4f6c_bfa3_1b6ed2e57f2f);
@@ -241,14 +198,10 @@ pub struct IBadgeUpdater_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKnownAdaptiveNotificationHintsStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKnownAdaptiveNotificationHintsStatics {
     type Vtable = IKnownAdaptiveNotificationHintsStatics_Vtbl;
-}
-impl ::core::clone::Clone for IKnownAdaptiveNotificationHintsStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKnownAdaptiveNotificationHintsStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x06206598_d496_497d_8692_4f7d7c2770df);
@@ -266,14 +219,10 @@ pub struct IKnownAdaptiveNotificationHintsStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKnownAdaptiveNotificationTextStylesStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKnownAdaptiveNotificationTextStylesStatics {
     type Vtable = IKnownAdaptiveNotificationTextStylesStatics_Vtbl;
-}
-impl ::core::clone::Clone for IKnownAdaptiveNotificationTextStylesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKnownAdaptiveNotificationTextStylesStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x202192d7_8996_45aa_8ba1_d461d72c2a1b);
@@ -304,14 +253,10 @@ pub struct IKnownAdaptiveNotificationTextStylesStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKnownNotificationBindingsStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKnownNotificationBindingsStatics {
     type Vtable = IKnownNotificationBindingsStatics_Vtbl;
-}
-impl ::core::clone::Clone for IKnownNotificationBindingsStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKnownNotificationBindingsStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79427bae_a8b7_4d58_89ea_76a7b7bccded);
@@ -324,14 +269,10 @@ pub struct IKnownNotificationBindingsStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INotification(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for INotification {
     type Vtable = INotification_Vtbl;
-}
-impl ::core::clone::Clone for INotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INotification {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x108037fe_eb76_4f82_97bc_da07530a2e20);
@@ -353,14 +294,10 @@ pub struct INotification_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INotificationBinding(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for INotificationBinding {
     type Vtable = INotificationBinding_Vtbl;
-}
-impl ::core::clone::Clone for INotificationBinding {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INotificationBinding {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf29e4b85_0370_4ad3_b4ea_da9e35e7eabf);
@@ -384,14 +321,10 @@ pub struct INotificationBinding_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INotificationData(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for INotificationData {
     type Vtable = INotificationData_Vtbl;
-}
-impl ::core::clone::Clone for INotificationData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INotificationData {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9ffd2312_9d6a_4aaf_b6ac_ff17f0c1f280);
@@ -409,14 +342,10 @@ pub struct INotificationData_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INotificationDataFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for INotificationDataFactory {
     type Vtable = INotificationDataFactory_Vtbl;
-}
-impl ::core::clone::Clone for INotificationDataFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INotificationDataFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x23c1e33a_1c10_46fb_8040_dec384621cf8);
@@ -436,14 +365,10 @@ pub struct INotificationDataFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INotificationVisual(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for INotificationVisual {
     type Vtable = INotificationVisual_Vtbl;
-}
-impl ::core::clone::Clone for INotificationVisual {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INotificationVisual {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x68835b8e_aa56_4e11_86d3_5f9a6957bc5b);
@@ -462,14 +387,10 @@ pub struct INotificationVisual_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScheduledTileNotification(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IScheduledTileNotification {
     type Vtable = IScheduledTileNotification_Vtbl;
-}
-impl ::core::clone::Clone for IScheduledTileNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IScheduledTileNotification {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0abca6d5_99dc_4c78_a11c_c9e7f86d7ef7);
@@ -501,14 +422,10 @@ pub struct IScheduledTileNotification_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScheduledTileNotificationFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IScheduledTileNotificationFactory {
     type Vtable = IScheduledTileNotificationFactory_Vtbl;
-}
-impl ::core::clone::Clone for IScheduledTileNotificationFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IScheduledTileNotificationFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3383138a_98c0_4c3b_bbd6_4a633c7cfc29);
@@ -524,14 +441,10 @@ pub struct IScheduledTileNotificationFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScheduledToastNotification(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IScheduledToastNotification {
     type Vtable = IScheduledToastNotification_Vtbl;
-}
-impl ::core::clone::Clone for IScheduledToastNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IScheduledToastNotification {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79f577f8_0de7_48cd_9740_9b370490c838);
@@ -558,14 +471,10 @@ pub struct IScheduledToastNotification_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScheduledToastNotification2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IScheduledToastNotification2 {
     type Vtable = IScheduledToastNotification2_Vtbl;
-}
-impl ::core::clone::Clone for IScheduledToastNotification2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IScheduledToastNotification2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa66ea09c_31b4_43b0_b5dd_7a40e85363b1);
@@ -583,14 +492,10 @@ pub struct IScheduledToastNotification2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScheduledToastNotification3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IScheduledToastNotification3 {
     type Vtable = IScheduledToastNotification3_Vtbl;
-}
-impl ::core::clone::Clone for IScheduledToastNotification3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IScheduledToastNotification3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98429e8b_bd32_4a3b_9d15_22aea49462a1);
@@ -606,14 +511,10 @@ pub struct IScheduledToastNotification3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScheduledToastNotification4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IScheduledToastNotification4 {
     type Vtable = IScheduledToastNotification4_Vtbl;
-}
-impl ::core::clone::Clone for IScheduledToastNotification4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IScheduledToastNotification4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1d4761fd_bdef_4e4a_96be_0101369b58d2);
@@ -633,14 +534,10 @@ pub struct IScheduledToastNotification4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScheduledToastNotificationFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IScheduledToastNotificationFactory {
     type Vtable = IScheduledToastNotificationFactory_Vtbl;
-}
-impl ::core::clone::Clone for IScheduledToastNotificationFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IScheduledToastNotificationFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe7bed191_0bb9_4189_8394_31761b476fd7);
@@ -660,14 +557,10 @@ pub struct IScheduledToastNotificationFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScheduledToastNotificationShowingEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IScheduledToastNotificationShowingEventArgs {
     type Vtable = IScheduledToastNotificationShowingEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IScheduledToastNotificationShowingEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IScheduledToastNotificationShowingEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6173f6b4_412a_5e2c_a6ed_a0209aef9a09);
@@ -686,14 +579,10 @@ pub struct IScheduledToastNotificationShowingEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IShownTileNotification(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IShownTileNotification {
     type Vtable = IShownTileNotification_Vtbl;
-}
-impl ::core::clone::Clone for IShownTileNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IShownTileNotification {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x342d8988_5af2_481a_a6a3_f2fdc78de88e);
@@ -706,14 +595,10 @@ pub struct IShownTileNotification_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITileFlyoutNotification(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITileFlyoutNotification {
     type Vtable = ITileFlyoutNotification_Vtbl;
-}
-impl ::core::clone::Clone for ITileFlyoutNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITileFlyoutNotification {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9a53b261_c70c_42be_b2f3_f42aa97d34e5);
@@ -737,14 +622,10 @@ pub struct ITileFlyoutNotification_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITileFlyoutNotificationFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITileFlyoutNotificationFactory {
     type Vtable = ITileFlyoutNotificationFactory_Vtbl;
-}
-impl ::core::clone::Clone for ITileFlyoutNotificationFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITileFlyoutNotificationFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef556ff5_5226_4f2b_b278_88a35dfe569f);
@@ -760,14 +641,10 @@ pub struct ITileFlyoutNotificationFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITileFlyoutUpdateManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITileFlyoutUpdateManagerStatics {
     type Vtable = ITileFlyoutUpdateManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for ITileFlyoutUpdateManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITileFlyoutUpdateManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04363b0b_1ac0_4b99_88e7_ada83e953d48);
@@ -786,14 +663,10 @@ pub struct ITileFlyoutUpdateManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITileFlyoutUpdater(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITileFlyoutUpdater {
     type Vtable = ITileFlyoutUpdater_Vtbl;
-}
-impl ::core::clone::Clone for ITileFlyoutUpdater {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITileFlyoutUpdater {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d40c76a_c465_4052_a740_5c2654c1a089);
@@ -817,14 +690,10 @@ pub struct ITileFlyoutUpdater_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITileNotification(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITileNotification {
     type Vtable = ITileNotification_Vtbl;
-}
-impl ::core::clone::Clone for ITileNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITileNotification {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xebaec8fa_50ec_4c18_b4d0_3af02e5540ab);
@@ -850,14 +719,10 @@ pub struct ITileNotification_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITileNotificationFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITileNotificationFactory {
     type Vtable = ITileNotificationFactory_Vtbl;
-}
-impl ::core::clone::Clone for ITileNotificationFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITileNotificationFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6abdd6e_4928_46c8_bdbf_81a047dea0d4);
@@ -873,14 +738,10 @@ pub struct ITileNotificationFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITileUpdateManagerForUser(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITileUpdateManagerForUser {
     type Vtable = ITileUpdateManagerForUser_Vtbl;
-}
-impl ::core::clone::Clone for ITileUpdateManagerForUser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITileUpdateManagerForUser {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x55141348_2ee2_4e2d_9cc1_216a20decc9f);
@@ -899,14 +760,10 @@ pub struct ITileUpdateManagerForUser_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITileUpdateManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITileUpdateManagerStatics {
     type Vtable = ITileUpdateManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for ITileUpdateManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITileUpdateManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda159e5d_3ea9_4986_8d84_b09d5e12276d);
@@ -925,14 +782,10 @@ pub struct ITileUpdateManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITileUpdateManagerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITileUpdateManagerStatics2 {
     type Vtable = ITileUpdateManagerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ITileUpdateManagerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITileUpdateManagerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x731c1ddc_8e14_4b7c_a34b_9d22de76c84d);
@@ -948,14 +801,10 @@ pub struct ITileUpdateManagerStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITileUpdater(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITileUpdater {
     type Vtable = ITileUpdater_Vtbl;
-}
-impl ::core::clone::Clone for ITileUpdater {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITileUpdater {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0942a48b_1d91_44ec_9243_c1e821c29a20);
@@ -994,14 +843,10 @@ pub struct ITileUpdater_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITileUpdater2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITileUpdater2 {
     type Vtable = ITileUpdater2_Vtbl;
-}
-impl ::core::clone::Clone for ITileUpdater2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITileUpdater2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2266e12_15ee_43ed_83f5_65b352bb1a84);
@@ -1016,14 +861,10 @@ pub struct ITileUpdater2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastActivatedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastActivatedEventArgs {
     type Vtable = IToastActivatedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IToastActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastActivatedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe3bf92f3_c197_436f_8265_0625824f8dac);
@@ -1036,14 +877,10 @@ pub struct IToastActivatedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastActivatedEventArgs2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastActivatedEventArgs2 {
     type Vtable = IToastActivatedEventArgs2_Vtbl;
-}
-impl ::core::clone::Clone for IToastActivatedEventArgs2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastActivatedEventArgs2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab7da512_cc61_568e_81be_304ac31038fa);
@@ -1059,14 +896,10 @@ pub struct IToastActivatedEventArgs2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastCollection(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastCollection {
     type Vtable = IToastCollection_Vtbl;
-}
-impl ::core::clone::Clone for IToastCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a8bc3b0_e0be_4858_bc2a_89dfe0b32863);
@@ -1091,14 +924,10 @@ pub struct IToastCollection_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastCollectionFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastCollectionFactory {
     type Vtable = IToastCollectionFactory_Vtbl;
-}
-impl ::core::clone::Clone for IToastCollectionFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastCollectionFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x164dd3d7_73c4_44f7_b4ff_fb6d4bf1f4c6);
@@ -1114,14 +943,10 @@ pub struct IToastCollectionFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastCollectionManager(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastCollectionManager {
     type Vtable = IToastCollectionManager_Vtbl;
-}
-impl ::core::clone::Clone for IToastCollectionManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastCollectionManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a1821fe_179d_49bc_b79d_a527920d3665);
@@ -1158,14 +983,10 @@ pub struct IToastCollectionManager_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastDismissedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastDismissedEventArgs {
     type Vtable = IToastDismissedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IToastDismissedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastDismissedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3f89d935_d9cb_4538_a0f0_ffe7659938f8);
@@ -1178,14 +999,10 @@ pub struct IToastDismissedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastFailedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastFailedEventArgs {
     type Vtable = IToastFailedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IToastFailedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastFailedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x35176862_cfd4_44f8_ad64_f500fd896c3b);
@@ -1198,14 +1015,10 @@ pub struct IToastFailedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastNotification(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastNotification {
     type Vtable = IToastNotification_Vtbl;
-}
-impl ::core::clone::Clone for IToastNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastNotification {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x997e2675_059e_4e60_8b06_1760917c8b80);
@@ -1253,14 +1066,10 @@ pub struct IToastNotification_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastNotification2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastNotification2 {
     type Vtable = IToastNotification2_Vtbl;
-}
-impl ::core::clone::Clone for IToastNotification2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastNotification2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9dfb9fd1_143a_490e_90bf_b9fba7132de7);
@@ -1278,14 +1087,10 @@ pub struct IToastNotification2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastNotification3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastNotification3 {
     type Vtable = IToastNotification3_Vtbl;
-}
-impl ::core::clone::Clone for IToastNotification3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastNotification3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x31e8aed8_8141_4f99_bc0a_c4ed21297d77);
@@ -1301,14 +1106,10 @@ pub struct IToastNotification3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastNotification4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastNotification4 {
     type Vtable = IToastNotification4_Vtbl;
-}
-impl ::core::clone::Clone for IToastNotification4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastNotification4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x15154935_28ea_4727_88e9_c58680e2d118);
@@ -1324,14 +1125,10 @@ pub struct IToastNotification4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastNotification6(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastNotification6 {
     type Vtable = IToastNotification6_Vtbl;
-}
-impl ::core::clone::Clone for IToastNotification6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastNotification6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43ebfe53_89ae_5c1e_a279_3aecfe9b6f54);
@@ -1345,14 +1142,10 @@ pub struct IToastNotification6_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastNotificationActionTriggerDetail(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastNotificationActionTriggerDetail {
     type Vtable = IToastNotificationActionTriggerDetail_Vtbl;
-}
-impl ::core::clone::Clone for IToastNotificationActionTriggerDetail {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastNotificationActionTriggerDetail {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9445135a_38f3_42f6_96aa_7955b0f03da2);
@@ -1369,14 +1162,10 @@ pub struct IToastNotificationActionTriggerDetail_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastNotificationFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastNotificationFactory {
     type Vtable = IToastNotificationFactory_Vtbl;
-}
-impl ::core::clone::Clone for IToastNotificationFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastNotificationFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04124b20_82c6_4229_b109_fd9ed4662b53);
@@ -1392,14 +1181,10 @@ pub struct IToastNotificationFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastNotificationHistory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastNotificationHistory {
     type Vtable = IToastNotificationHistory_Vtbl;
-}
-impl ::core::clone::Clone for IToastNotificationHistory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastNotificationHistory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5caddc63_01d3_4c97_986f_0533483fee14);
@@ -1418,14 +1203,10 @@ pub struct IToastNotificationHistory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastNotificationHistory2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastNotificationHistory2 {
     type Vtable = IToastNotificationHistory2_Vtbl;
-}
-impl ::core::clone::Clone for IToastNotificationHistory2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastNotificationHistory2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3bc3d253_2f31_4092_9129_8ad5abf067da);
@@ -1445,14 +1226,10 @@ pub struct IToastNotificationHistory2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastNotificationHistoryChangedTriggerDetail(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastNotificationHistoryChangedTriggerDetail {
     type Vtable = IToastNotificationHistoryChangedTriggerDetail_Vtbl;
-}
-impl ::core::clone::Clone for IToastNotificationHistoryChangedTriggerDetail {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastNotificationHistoryChangedTriggerDetail {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdb037ffa_0068_412c_9c83_267c37f65670);
@@ -1465,14 +1242,10 @@ pub struct IToastNotificationHistoryChangedTriggerDetail_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastNotificationHistoryChangedTriggerDetail2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastNotificationHistoryChangedTriggerDetail2 {
     type Vtable = IToastNotificationHistoryChangedTriggerDetail2_Vtbl;
-}
-impl ::core::clone::Clone for IToastNotificationHistoryChangedTriggerDetail2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastNotificationHistoryChangedTriggerDetail2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b36e982_c871_49fb_babb_25bdbc4cc45b);
@@ -1485,14 +1258,10 @@ pub struct IToastNotificationHistoryChangedTriggerDetail2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastNotificationManagerForUser(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastNotificationManagerForUser {
     type Vtable = IToastNotificationManagerForUser_Vtbl;
-}
-impl ::core::clone::Clone for IToastNotificationManagerForUser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastNotificationManagerForUser {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79ab57f6_43fe_487b_8a7f_99567200ae94);
@@ -1511,14 +1280,10 @@ pub struct IToastNotificationManagerForUser_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastNotificationManagerForUser2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastNotificationManagerForUser2 {
     type Vtable = IToastNotificationManagerForUser2_Vtbl;
-}
-impl ::core::clone::Clone for IToastNotificationManagerForUser2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastNotificationManagerForUser2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x679c64b7_81ab_42c2_8819_c958767753f4);
@@ -1540,14 +1305,10 @@ pub struct IToastNotificationManagerForUser2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastNotificationManagerForUser3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastNotificationManagerForUser3 {
     type Vtable = IToastNotificationManagerForUser3_Vtbl;
-}
-impl ::core::clone::Clone for IToastNotificationManagerForUser3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastNotificationManagerForUser3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3efcb176_6cc1_56dc_973b_251f7aacb1c5);
@@ -1568,14 +1329,10 @@ pub struct IToastNotificationManagerForUser3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastNotificationManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastNotificationManagerStatics {
     type Vtable = IToastNotificationManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IToastNotificationManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastNotificationManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x50ac103f_d235_4598_bbef_98fe4d1a3ad4);
@@ -1593,14 +1350,10 @@ pub struct IToastNotificationManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastNotificationManagerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastNotificationManagerStatics2 {
     type Vtable = IToastNotificationManagerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IToastNotificationManagerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastNotificationManagerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7ab93c52_0e48_4750_ba9d_1a4113981847);
@@ -1613,14 +1366,10 @@ pub struct IToastNotificationManagerStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastNotificationManagerStatics4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastNotificationManagerStatics4 {
     type Vtable = IToastNotificationManagerStatics4_Vtbl;
-}
-impl ::core::clone::Clone for IToastNotificationManagerStatics4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastNotificationManagerStatics4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f993fd3_e516_45fb_8130_398e93fa52c3);
@@ -1637,14 +1386,10 @@ pub struct IToastNotificationManagerStatics4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastNotificationManagerStatics5(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastNotificationManagerStatics5 {
     type Vtable = IToastNotificationManagerStatics5_Vtbl;
-}
-impl ::core::clone::Clone for IToastNotificationManagerStatics5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastNotificationManagerStatics5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd6f5f569_d40d_407c_8989_88cab42cfd14);
@@ -1657,14 +1402,10 @@ pub struct IToastNotificationManagerStatics5_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastNotifier(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastNotifier {
     type Vtable = IToastNotifier_Vtbl;
-}
-impl ::core::clone::Clone for IToastNotifier {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastNotifier {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75927b93_03f3_41ec_91d3_6e5bac1b38e7);
@@ -1685,14 +1426,10 @@ pub struct IToastNotifier_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastNotifier2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastNotifier2 {
     type Vtable = IToastNotifier2_Vtbl;
-}
-impl ::core::clone::Clone for IToastNotifier2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastNotifier2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x354389c6_7c01_4bd5_9c20_604340cd2b74);
@@ -1706,14 +1443,10 @@ pub struct IToastNotifier2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToastNotifier3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IToastNotifier3 {
     type Vtable = IToastNotifier3_Vtbl;
-}
-impl ::core::clone::Clone for IToastNotifier3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToastNotifier3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae75a04a_3b0c_51ad_b7e8_b08ab6052549);
@@ -1733,14 +1466,10 @@ pub struct IToastNotifier3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserNotification(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserNotification {
     type Vtable = IUserNotification_Vtbl;
-}
-impl ::core::clone::Clone for IUserNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserNotification {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xadf7e52f_4e53_42d5_9c33_eb5ea515b23e);
@@ -1762,14 +1491,10 @@ pub struct IUserNotification_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserNotificationChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserNotificationChangedEventArgs {
     type Vtable = IUserNotificationChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IUserNotificationChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserNotificationChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb6bd6839_79cf_4b25_82c0_0ce1eef81f8c);
@@ -1783,6 +1508,7 @@ pub struct IUserNotificationChangedEventArgs_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdaptiveNotificationText(::windows_core::IUnknown);
 impl AdaptiveNotificationText {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1831,24 +1557,8 @@ impl AdaptiveNotificationText {
         unsafe { (::windows_core::Interface::vtable(this).SetLanguage)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for AdaptiveNotificationText {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveNotificationText {}
-impl ::core::fmt::Debug for AdaptiveNotificationText {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveNotificationText").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AdaptiveNotificationText {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.AdaptiveNotificationText;{46d4a3be-609a-4326-a40b-bfde872034a3})");
-}
-impl ::core::clone::Clone for AdaptiveNotificationText {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AdaptiveNotificationText {
     type Vtable = IAdaptiveNotificationText_Vtbl;
@@ -1865,6 +1575,7 @@ unsafe impl ::core::marker::Send for AdaptiveNotificationText {}
 unsafe impl ::core::marker::Sync for AdaptiveNotificationText {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BadgeNotification(::windows_core::IUnknown);
 impl BadgeNotification {
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -1911,24 +1622,8 @@ impl BadgeNotification {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for BadgeNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BadgeNotification {}
-impl ::core::fmt::Debug for BadgeNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BadgeNotification").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BadgeNotification {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.BadgeNotification;{075cb4ca-d08a-4e2f-9233-7e289c1f7722})");
-}
-impl ::core::clone::Clone for BadgeNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BadgeNotification {
     type Vtable = IBadgeNotification_Vtbl;
@@ -1998,6 +1693,7 @@ impl ::windows_core::RuntimeName for BadgeUpdateManager {
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BadgeUpdateManagerForUser(::windows_core::IUnknown);
 impl BadgeUpdateManagerForUser {
     pub fn CreateBadgeUpdaterForApplication(&self) -> ::windows_core::Result<BadgeUpdater> {
@@ -2031,24 +1727,8 @@ impl BadgeUpdateManagerForUser {
         }
     }
 }
-impl ::core::cmp::PartialEq for BadgeUpdateManagerForUser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BadgeUpdateManagerForUser {}
-impl ::core::fmt::Debug for BadgeUpdateManagerForUser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BadgeUpdateManagerForUser").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BadgeUpdateManagerForUser {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.BadgeUpdateManagerForUser;{996b21bc-0386-44e5-ba8d-0c1077a62e92})");
-}
-impl ::core::clone::Clone for BadgeUpdateManagerForUser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BadgeUpdateManagerForUser {
     type Vtable = IBadgeUpdateManagerForUser_Vtbl;
@@ -2064,6 +1744,7 @@ unsafe impl ::core::marker::Send for BadgeUpdateManagerForUser {}
 unsafe impl ::core::marker::Sync for BadgeUpdateManagerForUser {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BadgeUpdater(::windows_core::IUnknown);
 impl BadgeUpdater {
     pub fn Update<P0>(&self, notification: P0) -> ::windows_core::Result<()>
@@ -2100,24 +1781,8 @@ impl BadgeUpdater {
         unsafe { (::windows_core::Interface::vtable(this).StopPeriodicUpdate)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for BadgeUpdater {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BadgeUpdater {}
-impl ::core::fmt::Debug for BadgeUpdater {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BadgeUpdater").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BadgeUpdater {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.BadgeUpdater;{b5fa1fd4-7562-4f6c-bfa3-1b6ed2e57f2f})");
-}
-impl ::core::clone::Clone for BadgeUpdater {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BadgeUpdater {
     type Vtable = IBadgeUpdater_Vtbl;
@@ -2325,6 +1990,7 @@ impl ::windows_core::RuntimeName for KnownNotificationBindings {
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Notification(::windows_core::IUnknown);
 impl Notification {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2367,24 +2033,8 @@ impl Notification {
         unsafe { (::windows_core::Interface::vtable(this).SetVisual)(::windows_core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for Notification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Notification {}
-impl ::core::fmt::Debug for Notification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Notification").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Notification {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.Notification;{108037fe-eb76-4f82-97bc-da07530a2e20})");
-}
-impl ::core::clone::Clone for Notification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Notification {
     type Vtable = INotification_Vtbl;
@@ -2400,6 +2050,7 @@ unsafe impl ::core::marker::Send for Notification {}
 unsafe impl ::core::marker::Sync for Notification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct NotificationBinding(::windows_core::IUnknown);
 impl NotificationBinding {
     pub fn Template(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2443,24 +2094,8 @@ impl NotificationBinding {
         }
     }
 }
-impl ::core::cmp::PartialEq for NotificationBinding {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NotificationBinding {}
-impl ::core::fmt::Debug for NotificationBinding {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NotificationBinding").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for NotificationBinding {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.NotificationBinding;{f29e4b85-0370-4ad3-b4ea-da9e35e7eabf})");
-}
-impl ::core::clone::Clone for NotificationBinding {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for NotificationBinding {
     type Vtable = INotificationBinding_Vtbl;
@@ -2476,6 +2111,7 @@ unsafe impl ::core::marker::Send for NotificationBinding {}
 unsafe impl ::core::marker::Sync for NotificationBinding {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct NotificationData(::windows_core::IUnknown);
 impl NotificationData {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2533,24 +2169,8 @@ impl NotificationData {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for NotificationData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NotificationData {}
-impl ::core::fmt::Debug for NotificationData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NotificationData").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for NotificationData {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.NotificationData;{9ffd2312-9d6a-4aaf-b6ac-ff17f0c1f280})");
-}
-impl ::core::clone::Clone for NotificationData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for NotificationData {
     type Vtable = INotificationData_Vtbl;
@@ -2566,6 +2186,7 @@ unsafe impl ::core::marker::Send for NotificationData {}
 unsafe impl ::core::marker::Sync for NotificationData {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct NotificationVisual(::windows_core::IUnknown);
 impl NotificationVisual {
     pub fn Language(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2596,24 +2217,8 @@ impl NotificationVisual {
         }
     }
 }
-impl ::core::cmp::PartialEq for NotificationVisual {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NotificationVisual {}
-impl ::core::fmt::Debug for NotificationVisual {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NotificationVisual").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for NotificationVisual {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.NotificationVisual;{68835b8e-aa56-4e11-86d3-5f9a6957bc5b})");
-}
-impl ::core::clone::Clone for NotificationVisual {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for NotificationVisual {
     type Vtable = INotificationVisual_Vtbl;
@@ -2629,6 +2234,7 @@ unsafe impl ::core::marker::Send for NotificationVisual {}
 unsafe impl ::core::marker::Sync for NotificationVisual {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ScheduledTileNotification(::windows_core::IUnknown);
 impl ScheduledTileNotification {
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -2706,24 +2312,8 @@ impl ScheduledTileNotification {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for ScheduledTileNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ScheduledTileNotification {}
-impl ::core::fmt::Debug for ScheduledTileNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ScheduledTileNotification").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ScheduledTileNotification {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ScheduledTileNotification;{0abca6d5-99dc-4c78-a11c-c9e7f86d7ef7})");
-}
-impl ::core::clone::Clone for ScheduledTileNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ScheduledTileNotification {
     type Vtable = IScheduledTileNotification_Vtbl;
@@ -2739,6 +2329,7 @@ unsafe impl ::core::marker::Send for ScheduledTileNotification {}
 unsafe impl ::core::marker::Sync for ScheduledTileNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ScheduledToastNotification(::windows_core::IUnknown);
 impl ScheduledToastNotification {
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -2887,24 +2478,8 @@ impl ScheduledToastNotification {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for ScheduledToastNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ScheduledToastNotification {}
-impl ::core::fmt::Debug for ScheduledToastNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ScheduledToastNotification").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ScheduledToastNotification {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ScheduledToastNotification;{79f577f8-0de7-48cd-9740-9b370490c838})");
-}
-impl ::core::clone::Clone for ScheduledToastNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ScheduledToastNotification {
     type Vtable = IScheduledToastNotification_Vtbl;
@@ -2920,6 +2495,7 @@ unsafe impl ::core::marker::Send for ScheduledToastNotification {}
 unsafe impl ::core::marker::Sync for ScheduledToastNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ScheduledToastNotificationShowingEventArgs(::windows_core::IUnknown);
 impl ScheduledToastNotificationShowingEventArgs {
     pub fn Cancel(&self) -> ::windows_core::Result<bool> {
@@ -2950,24 +2526,8 @@ impl ScheduledToastNotificationShowingEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for ScheduledToastNotificationShowingEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ScheduledToastNotificationShowingEventArgs {}
-impl ::core::fmt::Debug for ScheduledToastNotificationShowingEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ScheduledToastNotificationShowingEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ScheduledToastNotificationShowingEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ScheduledToastNotificationShowingEventArgs;{6173f6b4-412a-5e2c-a6ed-a0209aef9a09})");
-}
-impl ::core::clone::Clone for ScheduledToastNotificationShowingEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ScheduledToastNotificationShowingEventArgs {
     type Vtable = IScheduledToastNotificationShowingEventArgs_Vtbl;
@@ -2983,6 +2543,7 @@ unsafe impl ::core::marker::Send for ScheduledToastNotificationShowingEventArgs 
 unsafe impl ::core::marker::Sync for ScheduledToastNotificationShowingEventArgs {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ShownTileNotification(::windows_core::IUnknown);
 impl ShownTileNotification {
     pub fn Arguments(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2993,24 +2554,8 @@ impl ShownTileNotification {
         }
     }
 }
-impl ::core::cmp::PartialEq for ShownTileNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ShownTileNotification {}
-impl ::core::fmt::Debug for ShownTileNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ShownTileNotification").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ShownTileNotification {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ShownTileNotification;{342d8988-5af2-481a-a6a3-f2fdc78de88e})");
-}
-impl ::core::clone::Clone for ShownTileNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ShownTileNotification {
     type Vtable = IShownTileNotification_Vtbl;
@@ -3026,6 +2571,7 @@ unsafe impl ::core::marker::Send for ShownTileNotification {}
 unsafe impl ::core::marker::Sync for ShownTileNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TileFlyoutNotification(::windows_core::IUnknown);
 impl TileFlyoutNotification {
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -3072,24 +2618,8 @@ impl TileFlyoutNotification {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for TileFlyoutNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TileFlyoutNotification {}
-impl ::core::fmt::Debug for TileFlyoutNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileFlyoutNotification").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TileFlyoutNotification {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileFlyoutNotification;{9a53b261-c70c-42be-b2f3-f42aa97d34e5})");
-}
-impl ::core::clone::Clone for TileFlyoutNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TileFlyoutNotification {
     type Vtable = ITileFlyoutNotification_Vtbl;
@@ -3143,6 +2673,7 @@ impl ::windows_core::RuntimeName for TileFlyoutUpdateManager {
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TileFlyoutUpdater(::windows_core::IUnknown);
 impl TileFlyoutUpdater {
     pub fn Update<P0>(&self, notification: P0) -> ::windows_core::Result<()>
@@ -3186,24 +2717,8 @@ impl TileFlyoutUpdater {
         }
     }
 }
-impl ::core::cmp::PartialEq for TileFlyoutUpdater {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TileFlyoutUpdater {}
-impl ::core::fmt::Debug for TileFlyoutUpdater {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileFlyoutUpdater").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TileFlyoutUpdater {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileFlyoutUpdater;{8d40c76a-c465-4052-a740-5c2654c1a089})");
-}
-impl ::core::clone::Clone for TileFlyoutUpdater {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TileFlyoutUpdater {
     type Vtable = ITileFlyoutUpdater_Vtbl;
@@ -3217,6 +2732,7 @@ impl ::windows_core::RuntimeName for TileFlyoutUpdater {
 ::windows_core::imp::interface_hierarchy!(TileFlyoutUpdater, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TileNotification(::windows_core::IUnknown);
 impl TileNotification {
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -3274,24 +2790,8 @@ impl TileNotification {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for TileNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TileNotification {}
-impl ::core::fmt::Debug for TileNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileNotification").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TileNotification {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileNotification;{ebaec8fa-50ec-4c18-b4d0-3af02e5540ab})");
-}
-impl ::core::clone::Clone for TileNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TileNotification {
     type Vtable = ITileNotification_Vtbl;
@@ -3361,6 +2861,7 @@ impl ::windows_core::RuntimeName for TileUpdateManager {
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TileUpdateManagerForUser(::windows_core::IUnknown);
 impl TileUpdateManagerForUser {
     pub fn CreateTileUpdaterForApplication(&self) -> ::windows_core::Result<TileUpdater> {
@@ -3394,24 +2895,8 @@ impl TileUpdateManagerForUser {
         }
     }
 }
-impl ::core::cmp::PartialEq for TileUpdateManagerForUser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TileUpdateManagerForUser {}
-impl ::core::fmt::Debug for TileUpdateManagerForUser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileUpdateManagerForUser").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TileUpdateManagerForUser {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileUpdateManagerForUser;{55141348-2ee2-4e2d-9cc1-216a20decc9f})");
-}
-impl ::core::clone::Clone for TileUpdateManagerForUser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TileUpdateManagerForUser {
     type Vtable = ITileUpdateManagerForUser_Vtbl;
@@ -3427,6 +2912,7 @@ unsafe impl ::core::marker::Send for TileUpdateManagerForUser {}
 unsafe impl ::core::marker::Sync for TileUpdateManagerForUser {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TileUpdater(::windows_core::IUnknown);
 impl TileUpdater {
     pub fn Update<P0>(&self, notification: P0) -> ::windows_core::Result<()>
@@ -3527,24 +3013,8 @@ impl TileUpdater {
         unsafe { (::windows_core::Interface::vtable(this).EnableNotificationQueueForSquare310x310)(::windows_core::Interface::as_raw(this), enable).ok() }
     }
 }
-impl ::core::cmp::PartialEq for TileUpdater {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TileUpdater {}
-impl ::core::fmt::Debug for TileUpdater {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileUpdater").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TileUpdater {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.TileUpdater;{0942a48b-1d91-44ec-9243-c1e821c29a20})");
-}
-impl ::core::clone::Clone for TileUpdater {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TileUpdater {
     type Vtable = ITileUpdater_Vtbl;
@@ -3560,6 +3030,7 @@ unsafe impl ::core::marker::Send for TileUpdater {}
 unsafe impl ::core::marker::Sync for TileUpdater {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ToastActivatedEventArgs(::windows_core::IUnknown);
 impl ToastActivatedEventArgs {
     pub fn Arguments(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -3579,24 +3050,8 @@ impl ToastActivatedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for ToastActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastActivatedEventArgs {}
-impl ::core::fmt::Debug for ToastActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastActivatedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ToastActivatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastActivatedEventArgs;{e3bf92f3-c197-436f-8265-0625824f8dac})");
-}
-impl ::core::clone::Clone for ToastActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ToastActivatedEventArgs {
     type Vtable = IToastActivatedEventArgs_Vtbl;
@@ -3610,6 +3065,7 @@ impl ::windows_core::RuntimeName for ToastActivatedEventArgs {
 ::windows_core::imp::interface_hierarchy!(ToastActivatedEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ToastCollection(::windows_core::IUnknown);
 impl ToastCollection {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -3676,24 +3132,8 @@ impl ToastCollection {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for ToastCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastCollection {}
-impl ::core::fmt::Debug for ToastCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastCollection").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ToastCollection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastCollection;{0a8bc3b0-e0be-4858-bc2a-89dfe0b32863})");
-}
-impl ::core::clone::Clone for ToastCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ToastCollection {
     type Vtable = IToastCollection_Vtbl;
@@ -3709,6 +3149,7 @@ unsafe impl ::core::marker::Send for ToastCollection {}
 unsafe impl ::core::marker::Sync for ToastCollection {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ToastCollectionManager(::windows_core::IUnknown);
 impl ToastCollectionManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3776,24 +3217,8 @@ impl ToastCollectionManager {
         }
     }
 }
-impl ::core::cmp::PartialEq for ToastCollectionManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastCollectionManager {}
-impl ::core::fmt::Debug for ToastCollectionManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastCollectionManager").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ToastCollectionManager {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastCollectionManager;{2a1821fe-179d-49bc-b79d-a527920d3665})");
-}
-impl ::core::clone::Clone for ToastCollectionManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ToastCollectionManager {
     type Vtable = IToastCollectionManager_Vtbl;
@@ -3809,6 +3234,7 @@ unsafe impl ::core::marker::Send for ToastCollectionManager {}
 unsafe impl ::core::marker::Sync for ToastCollectionManager {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ToastDismissedEventArgs(::windows_core::IUnknown);
 impl ToastDismissedEventArgs {
     pub fn Reason(&self) -> ::windows_core::Result<ToastDismissalReason> {
@@ -3819,24 +3245,8 @@ impl ToastDismissedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for ToastDismissedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastDismissedEventArgs {}
-impl ::core::fmt::Debug for ToastDismissedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastDismissedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ToastDismissedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastDismissedEventArgs;{3f89d935-d9cb-4538-a0f0-ffe7659938f8})");
-}
-impl ::core::clone::Clone for ToastDismissedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ToastDismissedEventArgs {
     type Vtable = IToastDismissedEventArgs_Vtbl;
@@ -3852,6 +3262,7 @@ unsafe impl ::core::marker::Send for ToastDismissedEventArgs {}
 unsafe impl ::core::marker::Sync for ToastDismissedEventArgs {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ToastFailedEventArgs(::windows_core::IUnknown);
 impl ToastFailedEventArgs {
     pub fn ErrorCode(&self) -> ::windows_core::Result<::windows_core::HRESULT> {
@@ -3862,24 +3273,8 @@ impl ToastFailedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for ToastFailedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastFailedEventArgs {}
-impl ::core::fmt::Debug for ToastFailedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastFailedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ToastFailedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastFailedEventArgs;{35176862-cfd4-44f8-ad64-f500fd896c3b})");
-}
-impl ::core::clone::Clone for ToastFailedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ToastFailedEventArgs {
     type Vtable = IToastFailedEventArgs_Vtbl;
@@ -3895,6 +3290,7 @@ unsafe impl ::core::marker::Send for ToastFailedEventArgs {}
 unsafe impl ::core::marker::Sync for ToastFailedEventArgs {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ToastNotification(::windows_core::IUnknown);
 impl ToastNotification {
     #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
@@ -4086,24 +3482,8 @@ impl ToastNotification {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for ToastNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastNotification {}
-impl ::core::fmt::Debug for ToastNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastNotification").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ToastNotification {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotification;{997e2675-059e-4e60-8b06-1760917c8b80})");
-}
-impl ::core::clone::Clone for ToastNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ToastNotification {
     type Vtable = IToastNotification_Vtbl;
@@ -4119,6 +3499,7 @@ unsafe impl ::core::marker::Send for ToastNotification {}
 unsafe impl ::core::marker::Sync for ToastNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ToastNotificationActionTriggerDetail(::windows_core::IUnknown);
 impl ToastNotificationActionTriggerDetail {
     pub fn Argument(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -4138,24 +3519,8 @@ impl ToastNotificationActionTriggerDetail {
         }
     }
 }
-impl ::core::cmp::PartialEq for ToastNotificationActionTriggerDetail {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastNotificationActionTriggerDetail {}
-impl ::core::fmt::Debug for ToastNotificationActionTriggerDetail {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastNotificationActionTriggerDetail").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ToastNotificationActionTriggerDetail {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotificationActionTriggerDetail;{9445135a-38f3-42f6-96aa-7955b0f03da2})");
-}
-impl ::core::clone::Clone for ToastNotificationActionTriggerDetail {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ToastNotificationActionTriggerDetail {
     type Vtable = IToastNotificationActionTriggerDetail_Vtbl;
@@ -4169,6 +3534,7 @@ impl ::windows_core::RuntimeName for ToastNotificationActionTriggerDetail {
 ::windows_core::imp::interface_hierarchy!(ToastNotificationActionTriggerDetail, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ToastNotificationHistory(::windows_core::IUnknown);
 impl ToastNotificationHistory {
     pub fn RemoveGroup(&self, group: &::windows_core::HSTRING) -> ::windows_core::Result<()> {
@@ -4218,24 +3584,8 @@ impl ToastNotificationHistory {
         }
     }
 }
-impl ::core::cmp::PartialEq for ToastNotificationHistory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastNotificationHistory {}
-impl ::core::fmt::Debug for ToastNotificationHistory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastNotificationHistory").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ToastNotificationHistory {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotificationHistory;{5caddc63-01d3-4c97-986f-0533483fee14})");
-}
-impl ::core::clone::Clone for ToastNotificationHistory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ToastNotificationHistory {
     type Vtable = IToastNotificationHistory_Vtbl;
@@ -4249,6 +3599,7 @@ impl ::windows_core::RuntimeName for ToastNotificationHistory {
 ::windows_core::imp::interface_hierarchy!(ToastNotificationHistory, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ToastNotificationHistoryChangedTriggerDetail(::windows_core::IUnknown);
 impl ToastNotificationHistoryChangedTriggerDetail {
     pub fn ChangeType(&self) -> ::windows_core::Result<ToastHistoryChangedType> {
@@ -4266,24 +3617,8 @@ impl ToastNotificationHistoryChangedTriggerDetail {
         }
     }
 }
-impl ::core::cmp::PartialEq for ToastNotificationHistoryChangedTriggerDetail {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastNotificationHistoryChangedTriggerDetail {}
-impl ::core::fmt::Debug for ToastNotificationHistoryChangedTriggerDetail {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastNotificationHistoryChangedTriggerDetail").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ToastNotificationHistoryChangedTriggerDetail {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotificationHistoryChangedTriggerDetail;{db037ffa-0068-412c-9c83-267c37f65670})");
-}
-impl ::core::clone::Clone for ToastNotificationHistoryChangedTriggerDetail {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ToastNotificationHistoryChangedTriggerDetail {
     type Vtable = IToastNotificationHistoryChangedTriggerDetail_Vtbl;
@@ -4370,6 +3705,7 @@ impl ::windows_core::RuntimeName for ToastNotificationManager {
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ToastNotificationManagerForUser(::windows_core::IUnknown);
 impl ToastNotificationManagerForUser {
     pub fn CreateToastNotifier(&self) -> ::windows_core::Result<ToastNotifier> {
@@ -4460,24 +3796,8 @@ impl ToastNotificationManagerForUser {
         unsafe { (::windows_core::Interface::vtable(this).RemoveNotificationModeChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ToastNotificationManagerForUser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastNotificationManagerForUser {}
-impl ::core::fmt::Debug for ToastNotificationManagerForUser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastNotificationManagerForUser").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ToastNotificationManagerForUser {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotificationManagerForUser;{79ab57f6-43fe-487b-8a7f-99567200ae94})");
-}
-impl ::core::clone::Clone for ToastNotificationManagerForUser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ToastNotificationManagerForUser {
     type Vtable = IToastNotificationManagerForUser_Vtbl;
@@ -4493,6 +3813,7 @@ unsafe impl ::core::marker::Send for ToastNotificationManagerForUser {}
 unsafe impl ::core::marker::Sync for ToastNotificationManagerForUser {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ToastNotifier(::windows_core::IUnknown);
 impl ToastNotifier {
     pub fn Show<P0>(&self, notification: P0) -> ::windows_core::Result<()>
@@ -4578,24 +3899,8 @@ impl ToastNotifier {
         unsafe { (::windows_core::Interface::vtable(this).RemoveScheduledToastNotificationShowing)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ToastNotifier {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastNotifier {}
-impl ::core::fmt::Debug for ToastNotifier {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastNotifier").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ToastNotifier {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.ToastNotifier;{75927b93-03f3-41ec-91d3-6e5bac1b38e7})");
-}
-impl ::core::clone::Clone for ToastNotifier {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ToastNotifier {
     type Vtable = IToastNotifier_Vtbl;
@@ -4611,6 +3916,7 @@ unsafe impl ::core::marker::Send for ToastNotifier {}
 unsafe impl ::core::marker::Sync for ToastNotifier {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserNotification(::windows_core::IUnknown);
 impl UserNotification {
     pub fn Notification(&self) -> ::windows_core::Result<Notification> {
@@ -4646,24 +3952,8 @@ impl UserNotification {
         }
     }
 }
-impl ::core::cmp::PartialEq for UserNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserNotification {}
-impl ::core::fmt::Debug for UserNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserNotification").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserNotification {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.UserNotification;{adf7e52f-4e53-42d5-9c33-eb5ea515b23e})");
-}
-impl ::core::clone::Clone for UserNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserNotification {
     type Vtable = IUserNotification_Vtbl;
@@ -4679,6 +3969,7 @@ unsafe impl ::core::marker::Send for UserNotification {}
 unsafe impl ::core::marker::Sync for UserNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserNotificationChangedEventArgs(::windows_core::IUnknown);
 impl UserNotificationChangedEventArgs {
     pub fn ChangeKind(&self) -> ::windows_core::Result<UserNotificationChangedKind> {
@@ -4696,24 +3987,8 @@ impl UserNotificationChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for UserNotificationChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserNotificationChangedEventArgs {}
-impl ::core::fmt::Debug for UserNotificationChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserNotificationChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserNotificationChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.UserNotificationChangedEventArgs;{b6bd6839-79cf-4b25-82c0-0ce1eef81f8c})");
-}
-impl ::core::clone::Clone for UserNotificationChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserNotificationChangedEventArgs {
     type Vtable = IUserNotificationChangedEventArgs_Vtbl;

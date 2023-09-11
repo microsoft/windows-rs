@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3D11CaptureFrame(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDirect3D11CaptureFrame {
     type Vtable = IDirect3D11CaptureFrame_Vtbl;
-}
-impl ::core::clone::Clone for IDirect3D11CaptureFrame {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirect3D11CaptureFrame {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfa50c623_38da_4b32_acf3_fa9734ad800e);
@@ -28,14 +24,10 @@ pub struct IDirect3D11CaptureFrame_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3D11CaptureFramePool(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDirect3D11CaptureFramePool {
     type Vtable = IDirect3D11CaptureFramePool_Vtbl;
-}
-impl ::core::clone::Clone for IDirect3D11CaptureFramePool {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirect3D11CaptureFramePool {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24eb6d22_1975_422e_82e7_780dbd8ddf24);
@@ -65,14 +57,10 @@ pub struct IDirect3D11CaptureFramePool_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3D11CaptureFramePoolStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDirect3D11CaptureFramePoolStatics {
     type Vtable = IDirect3D11CaptureFramePoolStatics_Vtbl;
-}
-impl ::core::clone::Clone for IDirect3D11CaptureFramePoolStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirect3D11CaptureFramePoolStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7784056a_67aa_4d53_ae54_1088d5a8ca21);
@@ -88,14 +76,10 @@ pub struct IDirect3D11CaptureFramePoolStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDirect3D11CaptureFramePoolStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDirect3D11CaptureFramePoolStatics2 {
     type Vtable = IDirect3D11CaptureFramePoolStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IDirect3D11CaptureFramePoolStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDirect3D11CaptureFramePoolStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x589b103f_6bbc_5df5_a991_02e28b3b66d5);
@@ -111,14 +95,10 @@ pub struct IDirect3D11CaptureFramePoolStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGraphicsCaptureAccessStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGraphicsCaptureAccessStatics {
     type Vtable = IGraphicsCaptureAccessStatics_Vtbl;
-}
-impl ::core::clone::Clone for IGraphicsCaptureAccessStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGraphicsCaptureAccessStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x743ed370_06ec_5040_a58a_901f0f757095);
@@ -134,14 +114,10 @@ pub struct IGraphicsCaptureAccessStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGraphicsCaptureItem(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGraphicsCaptureItem {
     type Vtable = IGraphicsCaptureItem_Vtbl;
-}
-impl ::core::clone::Clone for IGraphicsCaptureItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGraphicsCaptureItem {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79c3f95b_31f7_4ec2_a464_632ef5d30760);
@@ -163,14 +139,10 @@ pub struct IGraphicsCaptureItem_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGraphicsCaptureItemStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGraphicsCaptureItemStatics {
     type Vtable = IGraphicsCaptureItemStatics_Vtbl;
-}
-impl ::core::clone::Clone for IGraphicsCaptureItemStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGraphicsCaptureItemStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa87ebea5_457c_5788_ab47_0cf1d3637e74);
@@ -186,14 +158,10 @@ pub struct IGraphicsCaptureItemStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGraphicsCaptureItemStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGraphicsCaptureItemStatics2 {
     type Vtable = IGraphicsCaptureItemStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IGraphicsCaptureItemStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGraphicsCaptureItemStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3b92acc9_e584_5862_bf5c_9c316c6d2dbb);
@@ -210,14 +178,10 @@ pub struct IGraphicsCaptureItemStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGraphicsCapturePicker(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGraphicsCapturePicker {
     type Vtable = IGraphicsCapturePicker_Vtbl;
-}
-impl ::core::clone::Clone for IGraphicsCapturePicker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGraphicsCapturePicker {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5a1711b3_ad79_4b4a_9336_1318fdde3539);
@@ -233,14 +197,10 @@ pub struct IGraphicsCapturePicker_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGraphicsCaptureSession(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGraphicsCaptureSession {
     type Vtable = IGraphicsCaptureSession_Vtbl;
-}
-impl ::core::clone::Clone for IGraphicsCaptureSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGraphicsCaptureSession {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x814e42a9_f70f_4ad7_939b_fddcc6eb880d);
@@ -253,14 +213,10 @@ pub struct IGraphicsCaptureSession_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGraphicsCaptureSession2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGraphicsCaptureSession2 {
     type Vtable = IGraphicsCaptureSession2_Vtbl;
-}
-impl ::core::clone::Clone for IGraphicsCaptureSession2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGraphicsCaptureSession2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c39ae40_7d2e_5044_804e_8b6799d4cf9e);
@@ -274,14 +230,10 @@ pub struct IGraphicsCaptureSession2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGraphicsCaptureSession3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGraphicsCaptureSession3 {
     type Vtable = IGraphicsCaptureSession3_Vtbl;
-}
-impl ::core::clone::Clone for IGraphicsCaptureSession3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGraphicsCaptureSession3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2cdd966_22ae_5ea1_9596_3a289344c3be);
@@ -295,14 +247,10 @@ pub struct IGraphicsCaptureSession3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGraphicsCaptureSessionStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGraphicsCaptureSessionStatics {
     type Vtable = IGraphicsCaptureSessionStatics_Vtbl;
-}
-impl ::core::clone::Clone for IGraphicsCaptureSessionStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGraphicsCaptureSessionStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2224a540_5974_49aa_b232_0882536f4cb5);
@@ -315,6 +263,7 @@ pub struct IGraphicsCaptureSessionStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Graphics_Capture\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Direct3D11CaptureFrame(::windows_core::IUnknown);
 impl Direct3D11CaptureFrame {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -349,24 +298,8 @@ impl Direct3D11CaptureFrame {
         }
     }
 }
-impl ::core::cmp::PartialEq for Direct3D11CaptureFrame {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Direct3D11CaptureFrame {}
-impl ::core::fmt::Debug for Direct3D11CaptureFrame {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Direct3D11CaptureFrame").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Direct3D11CaptureFrame {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.Direct3D11CaptureFrame;{fa50c623-38da-4b32-acf3-fa9734ad800e})");
-}
-impl ::core::clone::Clone for Direct3D11CaptureFrame {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Direct3D11CaptureFrame {
     type Vtable = IDirect3D11CaptureFrame_Vtbl;
@@ -384,6 +317,7 @@ unsafe impl ::core::marker::Send for Direct3D11CaptureFrame {}
 unsafe impl ::core::marker::Sync for Direct3D11CaptureFrame {}
 #[doc = "*Required features: `\"Graphics_Capture\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Direct3D11CaptureFramePool(::windows_core::IUnknown);
 impl Direct3D11CaptureFramePool {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -478,24 +412,8 @@ impl Direct3D11CaptureFramePool {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for Direct3D11CaptureFramePool {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Direct3D11CaptureFramePool {}
-impl ::core::fmt::Debug for Direct3D11CaptureFramePool {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Direct3D11CaptureFramePool").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Direct3D11CaptureFramePool {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.Direct3D11CaptureFramePool;{24eb6d22-1975-422e-82e7-780dbd8ddf24})");
-}
-impl ::core::clone::Clone for Direct3D11CaptureFramePool {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Direct3D11CaptureFramePool {
     type Vtable = IDirect3D11CaptureFramePool_Vtbl;
@@ -533,6 +451,7 @@ impl ::windows_core::RuntimeName for GraphicsCaptureAccess {
 }
 #[doc = "*Required features: `\"Graphics_Capture\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GraphicsCaptureItem(::windows_core::IUnknown);
 impl GraphicsCaptureItem {
     pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -603,24 +522,8 @@ impl GraphicsCaptureItem {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for GraphicsCaptureItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GraphicsCaptureItem {}
-impl ::core::fmt::Debug for GraphicsCaptureItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GraphicsCaptureItem").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for GraphicsCaptureItem {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.GraphicsCaptureItem;{79c3f95b-31f7-4ec2-a464-632ef5d30760})");
-}
-impl ::core::clone::Clone for GraphicsCaptureItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for GraphicsCaptureItem {
     type Vtable = IGraphicsCaptureItem_Vtbl;
@@ -636,6 +539,7 @@ unsafe impl ::core::marker::Send for GraphicsCaptureItem {}
 unsafe impl ::core::marker::Sync for GraphicsCaptureItem {}
 #[doc = "*Required features: `\"Graphics_Capture\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GraphicsCapturePicker(::windows_core::IUnknown);
 impl GraphicsCapturePicker {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -655,24 +559,8 @@ impl GraphicsCapturePicker {
         }
     }
 }
-impl ::core::cmp::PartialEq for GraphicsCapturePicker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GraphicsCapturePicker {}
-impl ::core::fmt::Debug for GraphicsCapturePicker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GraphicsCapturePicker").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for GraphicsCapturePicker {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.GraphicsCapturePicker;{5a1711b3-ad79-4b4a-9336-1318fdde3539})");
-}
-impl ::core::clone::Clone for GraphicsCapturePicker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for GraphicsCapturePicker {
     type Vtable = IGraphicsCapturePicker_Vtbl;
@@ -688,6 +576,7 @@ unsafe impl ::core::marker::Send for GraphicsCapturePicker {}
 unsafe impl ::core::marker::Sync for GraphicsCapturePicker {}
 #[doc = "*Required features: `\"Graphics_Capture\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GraphicsCaptureSession(::windows_core::IUnknown);
 impl GraphicsCaptureSession {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -734,24 +623,8 @@ impl GraphicsCaptureSession {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for GraphicsCaptureSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GraphicsCaptureSession {}
-impl ::core::fmt::Debug for GraphicsCaptureSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GraphicsCaptureSession").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for GraphicsCaptureSession {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.GraphicsCaptureSession;{814e42a9-f70f-4ad7-939b-fddcc6eb880d})");
-}
-impl ::core::clone::Clone for GraphicsCaptureSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for GraphicsCaptureSession {
     type Vtable = IGraphicsCaptureSession_Vtbl;

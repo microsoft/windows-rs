@@ -73,6 +73,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFhConfigMgr(::windows_core::IUnknown);
 impl IFhConfigMgr {
     pub unsafe fn LoadConfiguration(&self) -> ::windows_core::Result<()> {
@@ -152,24 +153,8 @@ impl IFhConfigMgr {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IFhConfigMgr, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IFhConfigMgr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFhConfigMgr {}
-impl ::core::fmt::Debug for IFhConfigMgr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFhConfigMgr").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IFhConfigMgr {
     type Vtable = IFhConfigMgr_Vtbl;
-}
-impl ::core::clone::Clone for IFhConfigMgr {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFhConfigMgr {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a5fea5b_bf8f_4ee5_b8c3_44d8a0d7331c);
@@ -207,6 +192,7 @@ pub struct IFhConfigMgr_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFhReassociation(::windows_core::IUnknown);
 impl IFhReassociation {
     pub unsafe fn ValidateTarget<P0>(&self, targeturl: P0) -> ::windows_core::Result<FH_DEVICE_VALIDATION_RESULT>
@@ -240,24 +226,8 @@ impl IFhReassociation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IFhReassociation, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IFhReassociation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFhReassociation {}
-impl ::core::fmt::Debug for IFhReassociation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFhReassociation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IFhReassociation {
     type Vtable = IFhReassociation_Vtbl;
-}
-impl ::core::clone::Clone for IFhReassociation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFhReassociation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6544a28a_f68d_47ac_91ef_16b2b36aa3ee);
@@ -280,6 +250,7 @@ pub struct IFhReassociation_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFhScopeIterator(::windows_core::IUnknown);
 impl IFhScopeIterator {
     pub unsafe fn MoveToNextItem(&self) -> ::windows_core::Result<()> {
@@ -291,24 +262,8 @@ impl IFhScopeIterator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IFhScopeIterator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IFhScopeIterator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFhScopeIterator {}
-impl ::core::fmt::Debug for IFhScopeIterator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFhScopeIterator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IFhScopeIterator {
     type Vtable = IFhScopeIterator_Vtbl;
-}
-impl ::core::clone::Clone for IFhScopeIterator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFhScopeIterator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3197abce_532a_44c6_8615_f3666566a720);
@@ -322,6 +277,7 @@ pub struct IFhScopeIterator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFhTarget(::windows_core::IUnknown);
 impl IFhTarget {
     pub unsafe fn GetStringProperty(&self, propertytype: FH_TARGET_PROPERTY_TYPE) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -334,24 +290,8 @@ impl IFhTarget {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IFhTarget, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IFhTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IFhTarget {}
-impl ::core::fmt::Debug for IFhTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IFhTarget").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IFhTarget {
     type Vtable = IFhTarget_Vtbl;
-}
-impl ::core::clone::Clone for IFhTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFhTarget {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd87965fd_2bad_4657_bd3b_9567eb300ced);

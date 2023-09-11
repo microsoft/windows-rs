@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConditionForceEffect(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IConditionForceEffect {
     type Vtable = IConditionForceEffect_Vtbl;
-}
-impl ::core::clone::Clone for IConditionForceEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConditionForceEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x32d1ea68_3695_4e69_85c0_cd1944189140);
@@ -24,14 +20,10 @@ pub struct IConditionForceEffect_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConditionForceEffectFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IConditionForceEffectFactory {
     type Vtable = IConditionForceEffectFactory_Vtbl;
-}
-impl ::core::clone::Clone for IConditionForceEffectFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConditionForceEffectFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x91a99264_1810_4eb6_a773_bfd3b8cddbab);
@@ -44,14 +36,10 @@ pub struct IConditionForceEffectFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConstantForceEffect(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IConstantForceEffect {
     type Vtable = IConstantForceEffect_Vtbl;
-}
-impl ::core::clone::Clone for IConstantForceEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConstantForceEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9bfa0140_f3c7_415c_b068_0f068734bce0);
@@ -71,6 +59,7 @@ pub struct IConstantForceEffect_Vtbl {
 }
 #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IForceFeedbackEffect(::windows_core::IUnknown);
 impl IForceFeedbackEffect {
     pub fn Gain(&self) -> ::windows_core::Result<f64> {
@@ -101,27 +90,11 @@ impl IForceFeedbackEffect {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IForceFeedbackEffect, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IForceFeedbackEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IForceFeedbackEffect {}
-impl ::core::fmt::Debug for IForceFeedbackEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IForceFeedbackEffect").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IForceFeedbackEffect {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{a17fba0c-2ae4-48c2-8063-eabd0777cb89}");
 }
 unsafe impl ::windows_core::Interface for IForceFeedbackEffect {
     type Vtable = IForceFeedbackEffect_Vtbl;
-}
-impl ::core::clone::Clone for IForceFeedbackEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IForceFeedbackEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
@@ -138,14 +111,10 @@ pub struct IForceFeedbackEffect_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IForceFeedbackMotor(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IForceFeedbackMotor {
     type Vtable = IForceFeedbackMotor_Vtbl;
-}
-impl ::core::clone::Clone for IForceFeedbackMotor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IForceFeedbackMotor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8d3d417c_a5ea_4516_8026_2b00f74ef6e5);
@@ -185,14 +154,10 @@ pub struct IForceFeedbackMotor_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPeriodicForceEffect(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPeriodicForceEffect {
     type Vtable = IPeriodicForceEffect_Vtbl;
-}
-impl ::core::clone::Clone for IPeriodicForceEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPeriodicForceEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c5138d7_fc75_4d52_9a0a_efe4cab5fe64);
@@ -213,14 +178,10 @@ pub struct IPeriodicForceEffect_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPeriodicForceEffectFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPeriodicForceEffectFactory {
     type Vtable = IPeriodicForceEffectFactory_Vtbl;
-}
-impl ::core::clone::Clone for IPeriodicForceEffectFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPeriodicForceEffectFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f62eb1a_9851_477b_b318_35ecaa15070f);
@@ -233,14 +194,10 @@ pub struct IPeriodicForceEffectFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRampForceEffect(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRampForceEffect {
     type Vtable = IRampForceEffect_Vtbl;
-}
-impl ::core::clone::Clone for IRampForceEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRampForceEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf1f81259_1ca6_4080_b56d_b43f3354d052);
@@ -260,6 +217,7 @@ pub struct IRampForceEffect_Vtbl {
 }
 #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ConditionForceEffect(::windows_core::IUnknown);
 impl ConditionForceEffect {
     pub fn Kind(&self) -> ::windows_core::Result<ConditionForceEffectKind> {
@@ -313,24 +271,8 @@ impl ConditionForceEffect {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for ConditionForceEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConditionForceEffect {}
-impl ::core::fmt::Debug for ConditionForceEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConditionForceEffect").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ConditionForceEffect {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ForceFeedback.ConditionForceEffect;{a17fba0c-2ae4-48c2-8063-eabd0777cb89})");
-}
-impl ::core::clone::Clone for ConditionForceEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ConditionForceEffect {
     type Vtable = IForceFeedbackEffect_Vtbl;
@@ -347,6 +289,7 @@ unsafe impl ::core::marker::Send for ConditionForceEffect {}
 unsafe impl ::core::marker::Sync for ConditionForceEffect {}
 #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ConstantForceEffect(::windows_core::IUnknown);
 impl ConstantForceEffect {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -395,24 +338,8 @@ impl ConstantForceEffect {
         unsafe { (::windows_core::Interface::vtable(this).Stop)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ConstantForceEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConstantForceEffect {}
-impl ::core::fmt::Debug for ConstantForceEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConstantForceEffect").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ConstantForceEffect {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ForceFeedback.ConstantForceEffect;{a17fba0c-2ae4-48c2-8063-eabd0777cb89})");
-}
-impl ::core::clone::Clone for ConstantForceEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ConstantForceEffect {
     type Vtable = IForceFeedbackEffect_Vtbl;
@@ -429,6 +356,7 @@ unsafe impl ::core::marker::Send for ConstantForceEffect {}
 unsafe impl ::core::marker::Sync for ConstantForceEffect {}
 #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ForceFeedbackMotor(::windows_core::IUnknown);
 impl ForceFeedbackMotor {
     pub fn AreEffectsPaused(&self) -> ::windows_core::Result<bool> {
@@ -527,24 +455,8 @@ impl ForceFeedbackMotor {
         }
     }
 }
-impl ::core::cmp::PartialEq for ForceFeedbackMotor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ForceFeedbackMotor {}
-impl ::core::fmt::Debug for ForceFeedbackMotor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ForceFeedbackMotor").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ForceFeedbackMotor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor;{8d3d417c-a5ea-4516-8026-2b00f74ef6e5})");
-}
-impl ::core::clone::Clone for ForceFeedbackMotor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ForceFeedbackMotor {
     type Vtable = IForceFeedbackMotor_Vtbl;
@@ -560,6 +472,7 @@ unsafe impl ::core::marker::Send for ForceFeedbackMotor {}
 unsafe impl ::core::marker::Sync for ForceFeedbackMotor {}
 #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PeriodicForceEffect(::windows_core::IUnknown);
 impl PeriodicForceEffect {
     pub fn Gain(&self) -> ::windows_core::Result<f64> {
@@ -619,24 +532,8 @@ impl PeriodicForceEffect {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for PeriodicForceEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PeriodicForceEffect {}
-impl ::core::fmt::Debug for PeriodicForceEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PeriodicForceEffect").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PeriodicForceEffect {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ForceFeedback.PeriodicForceEffect;{a17fba0c-2ae4-48c2-8063-eabd0777cb89})");
-}
-impl ::core::clone::Clone for PeriodicForceEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PeriodicForceEffect {
     type Vtable = IForceFeedbackEffect_Vtbl;
@@ -653,6 +550,7 @@ unsafe impl ::core::marker::Send for PeriodicForceEffect {}
 unsafe impl ::core::marker::Sync for PeriodicForceEffect {}
 #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RampForceEffect(::windows_core::IUnknown);
 impl RampForceEffect {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -701,24 +599,8 @@ impl RampForceEffect {
         unsafe { (::windows_core::Interface::vtable(this).SetParametersWithEnvelope)(::windows_core::Interface::as_raw(this), startvector, endvector, attackgain, sustaingain, releasegain, startdelay, attackduration, sustainduration, releaseduration, repeatcount).ok() }
     }
 }
-impl ::core::cmp::PartialEq for RampForceEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RampForceEffect {}
-impl ::core::fmt::Debug for RampForceEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RampForceEffect").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RampForceEffect {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ForceFeedback.RampForceEffect;{a17fba0c-2ae4-48c2-8063-eabd0777cb89})");
-}
-impl ::core::clone::Clone for RampForceEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RampForceEffect {
     type Vtable = IForceFeedbackEffect_Vtbl;

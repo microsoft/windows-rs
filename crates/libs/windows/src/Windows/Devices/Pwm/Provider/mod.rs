@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Devices_Pwm_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPwmControllerProvider(::windows_core::IUnknown);
 impl IPwmControllerProvider {
     pub fn PinCount(&self) -> ::windows_core::Result<i32> {
@@ -59,27 +60,11 @@ impl IPwmControllerProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPwmControllerProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IPwmControllerProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPwmControllerProvider {}
-impl ::core::fmt::Debug for IPwmControllerProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPwmControllerProvider").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IPwmControllerProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{1300593b-e2e3-40a4-b7d9-48dff0377a52}");
 }
 unsafe impl ::windows_core::Interface for IPwmControllerProvider {
     type Vtable = IPwmControllerProvider_Vtbl;
-}
-impl ::core::clone::Clone for IPwmControllerProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPwmControllerProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1300593b_e2e3_40a4_b7d9_48dff0377a52);
@@ -101,6 +86,7 @@ pub struct IPwmControllerProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Pwm_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPwmProvider(::windows_core::IUnknown);
 impl IPwmProvider {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -114,27 +100,11 @@ impl IPwmProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPwmProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IPwmProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPwmProvider {}
-impl ::core::fmt::Debug for IPwmProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPwmProvider").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IPwmProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{a3301228-52f1-47b0-9349-66ba43d25902}");
 }
 unsafe impl ::windows_core::Interface for IPwmProvider {
     type Vtable = IPwmProvider_Vtbl;
-}
-impl ::core::clone::Clone for IPwmProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPwmProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa3301228_52f1_47b0_9349_66ba43d25902);

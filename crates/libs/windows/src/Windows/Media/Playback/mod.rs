@@ -1,16 +1,11 @@
 #[doc(hidden)]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBackgroundMediaPlayerStatics(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for IBackgroundMediaPlayerStatics {
     type Vtable = IBackgroundMediaPlayerStatics_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for IBackgroundMediaPlayerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::ComInterface for IBackgroundMediaPlayerStatics {
@@ -60,14 +55,10 @@ pub struct IBackgroundMediaPlayerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICurrentMediaPlaybackItemChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICurrentMediaPlaybackItemChangedEventArgs {
     type Vtable = ICurrentMediaPlaybackItemChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for ICurrentMediaPlaybackItemChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICurrentMediaPlaybackItemChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1743a892_5c43_4a15_967a_572d2d0f26c6);
@@ -81,14 +72,10 @@ pub struct ICurrentMediaPlaybackItemChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICurrentMediaPlaybackItemChangedEventArgs2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICurrentMediaPlaybackItemChangedEventArgs2 {
     type Vtable = ICurrentMediaPlaybackItemChangedEventArgs2_Vtbl;
-}
-impl ::core::clone::Clone for ICurrentMediaPlaybackItemChangedEventArgs2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICurrentMediaPlaybackItemChangedEventArgs2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1d80a51e_996e_40a9_be48_e66ec90b2b7d);
@@ -101,14 +88,10 @@ pub struct ICurrentMediaPlaybackItemChangedEventArgs2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaBreak(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaBreak {
     type Vtable = IMediaBreak_Vtbl;
-}
-impl ::core::clone::Clone for IMediaBreak {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaBreak {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x714be270_0def_4ebc_a489_6b34930e1558);
@@ -132,14 +115,10 @@ pub struct IMediaBreak_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaBreakEndedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaBreakEndedEventArgs {
     type Vtable = IMediaBreakEndedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMediaBreakEndedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaBreakEndedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x32b93276_1c5d_4fee_8732_236dc3a88580);
@@ -152,14 +131,10 @@ pub struct IMediaBreakEndedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaBreakFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaBreakFactory {
     type Vtable = IMediaBreakFactory_Vtbl;
-}
-impl ::core::clone::Clone for IMediaBreakFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaBreakFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4516e002_18e0_4079_8b5f_d33495c15d2e);
@@ -176,14 +151,10 @@ pub struct IMediaBreakFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaBreakManager(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaBreakManager {
     type Vtable = IMediaBreakManager_Vtbl;
-}
-impl ::core::clone::Clone for IMediaBreakManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaBreakManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa854ddb1_feb4_4d9b_9d97_0fdbe58e5e39);
@@ -231,14 +202,10 @@ pub struct IMediaBreakManager_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaBreakSchedule(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaBreakSchedule {
     type Vtable = IMediaBreakSchedule_Vtbl;
-}
-impl ::core::clone::Clone for IMediaBreakSchedule {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaBreakSchedule {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa19a5813_98b6_41d8_83da_f971d22b7bba);
@@ -269,14 +236,10 @@ pub struct IMediaBreakSchedule_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaBreakSeekedOverEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaBreakSeekedOverEventArgs {
     type Vtable = IMediaBreakSeekedOverEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMediaBreakSeekedOverEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaBreakSeekedOverEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe5aa6746_0606_4492_b9d3_c3c8fde0a4ea);
@@ -300,14 +263,10 @@ pub struct IMediaBreakSeekedOverEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaBreakSkippedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaBreakSkippedEventArgs {
     type Vtable = IMediaBreakSkippedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMediaBreakSkippedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaBreakSkippedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6ee94c05_2f54_4a3e_a3ab_24c3b270b4a3);
@@ -320,14 +279,10 @@ pub struct IMediaBreakSkippedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaBreakStartedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaBreakStartedEventArgs {
     type Vtable = IMediaBreakStartedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMediaBreakStartedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaBreakStartedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa87efe71_dfd4_454a_956e_0a4a648395f8);
@@ -341,6 +296,7 @@ pub struct IMediaBreakStartedEventArgs_Vtbl {
 #[doc = "*Required features: `\"Media_Playback\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaEnginePlaybackSource(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl IMediaEnginePlaybackSource {
@@ -366,32 +322,12 @@ impl IMediaEnginePlaybackSource {
 #[cfg(feature = "deprecated")]
 ::windows_core::imp::interface_hierarchy!(IMediaEnginePlaybackSource, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for IMediaEnginePlaybackSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for IMediaEnginePlaybackSource {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for IMediaEnginePlaybackSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMediaEnginePlaybackSource").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
 impl ::windows_core::RuntimeType for IMediaEnginePlaybackSource {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{5c1d0ba7-3856-48b9-8dc6-244bf107bf8c}");
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for IMediaEnginePlaybackSource {
     type Vtable = IMediaEnginePlaybackSource_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for IMediaEnginePlaybackSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::ComInterface for IMediaEnginePlaybackSource {
@@ -413,14 +349,10 @@ pub struct IMediaEnginePlaybackSource_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaItemDisplayProperties(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaItemDisplayProperties {
     type Vtable = IMediaItemDisplayProperties_Vtbl;
-}
-impl ::core::clone::Clone for IMediaItemDisplayProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaItemDisplayProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1e3c1b48_7097_4384_a217_c1291dfa8c16);
@@ -445,14 +377,10 @@ pub struct IMediaItemDisplayProperties_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackCommandManager(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackCommandManager {
     type Vtable = IMediaPlaybackCommandManager_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackCommandManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackCommandManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5acee5a6_5cb6_4a5a_8521_cc86b1c1ed37);
@@ -557,14 +485,10 @@ pub struct IMediaPlaybackCommandManager_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d6f4f23_5230_4411_a0e9_bad94c2a045c);
@@ -583,14 +507,10 @@ pub struct IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackCommandManagerCommandBehavior(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackCommandManagerCommandBehavior {
     type Vtable = IMediaPlaybackCommandManagerCommandBehavior_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackCommandManagerCommandBehavior {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackCommandManagerCommandBehavior {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x786c1e78_ce78_4a10_afd6_843fcbb90c2e);
@@ -614,14 +534,10 @@ pub struct IMediaPlaybackCommandManagerCommandBehavior_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackCommandManagerFastForwardReceivedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackCommandManagerFastForwardReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackCommandManagerFastForwardReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackCommandManagerFastForwardReceivedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30f064d9_b491_4d0a_bc21_3098bd1332e9);
@@ -639,14 +555,10 @@ pub struct IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackCommandManagerNextReceivedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackCommandManagerNextReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerNextReceivedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackCommandManagerNextReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackCommandManagerNextReceivedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe1504433_a2b0_45d4_b9de_5f42ac14a839);
@@ -664,14 +576,10 @@ pub struct IMediaPlaybackCommandManagerNextReceivedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackCommandManagerPauseReceivedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackCommandManagerPauseReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPauseReceivedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackCommandManagerPauseReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackCommandManagerPauseReceivedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ceccd1c_c25c_4221_b16c_c3c98ce012d6);
@@ -689,14 +597,10 @@ pub struct IMediaPlaybackCommandManagerPauseReceivedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackCommandManagerPlayReceivedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackCommandManagerPlayReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPlayReceivedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackCommandManagerPlayReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackCommandManagerPlayReceivedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9af0004e_578b_4c56_a006_16159d888a48);
@@ -714,14 +618,10 @@ pub struct IMediaPlaybackCommandManagerPlayReceivedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackCommandManagerPositionReceivedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackCommandManagerPositionReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPositionReceivedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackCommandManagerPositionReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackCommandManagerPositionReceivedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5591a754_d627_4bdd_a90d_86a015b24902);
@@ -743,14 +643,10 @@ pub struct IMediaPlaybackCommandManagerPositionReceivedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackCommandManagerPreviousReceivedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackCommandManagerPreviousReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPreviousReceivedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackCommandManagerPreviousReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackCommandManagerPreviousReceivedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x525e3081_4632_4f76_99b1_d771623f6287);
@@ -768,14 +664,10 @@ pub struct IMediaPlaybackCommandManagerPreviousReceivedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackCommandManagerRateReceivedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackCommandManagerRateReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerRateReceivedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackCommandManagerRateReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackCommandManagerRateReceivedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x18ea3939_4a16_4169_8b05_3eb9f5ff78eb);
@@ -794,14 +686,10 @@ pub struct IMediaPlaybackCommandManagerRateReceivedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackCommandManagerRewindReceivedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackCommandManagerRewindReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerRewindReceivedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackCommandManagerRewindReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackCommandManagerRewindReceivedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f085947_a3c0_425d_aaef_97ba7898b141);
@@ -819,14 +707,10 @@ pub struct IMediaPlaybackCommandManagerRewindReceivedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackCommandManagerShuffleReceivedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackCommandManagerShuffleReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerShuffleReceivedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackCommandManagerShuffleReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackCommandManagerShuffleReceivedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x50a05cef_63ee_4a96_b7b5_fee08b9ff90c);
@@ -845,14 +729,10 @@ pub struct IMediaPlaybackCommandManagerShuffleReceivedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackItem(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackItem {
     type Vtable = IMediaPlaybackItem_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackItem {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x047097d2_e4af_48ab_b283_6929e674ece2);
@@ -904,14 +784,10 @@ pub struct IMediaPlaybackItem_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackItem2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackItem2 {
     type Vtable = IMediaPlaybackItem2_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackItem2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackItem2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd859d171_d7ef_4b81_ac1f_f40493cbb091);
@@ -936,14 +812,10 @@ pub struct IMediaPlaybackItem2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackItem3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackItem3 {
     type Vtable = IMediaPlaybackItem3_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackItem3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackItem3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d328220_b80a_4d09_9ff8_f87094a1c831);
@@ -960,14 +832,10 @@ pub struct IMediaPlaybackItem3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackItemError(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackItemError {
     type Vtable = IMediaPlaybackItemError_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackItemError {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackItemError {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69fbef2b_dcd6_4df9_a450_dbf4c6f1c2c2);
@@ -981,14 +849,10 @@ pub struct IMediaPlaybackItemError_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackItemFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackItemFactory {
     type Vtable = IMediaPlaybackItemFactory_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackItemFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackItemFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7133fce1_1769_4ff9_a7c1_38d2c4d42360);
@@ -1004,14 +868,10 @@ pub struct IMediaPlaybackItemFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackItemFactory2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackItemFactory2 {
     type Vtable = IMediaPlaybackItemFactory2_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackItemFactory2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackItemFactory2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd77cdf3a_b947_4972_b35d_adfb931a71e6);
@@ -1031,14 +891,10 @@ pub struct IMediaPlaybackItemFactory2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackItemFailedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackItemFailedEventArgs {
     type Vtable = IMediaPlaybackItemFailedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackItemFailedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackItemFailedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7703134a_e9a7_47c3_862c_c656d30683d4);
@@ -1052,14 +908,10 @@ pub struct IMediaPlaybackItemFailedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackItemOpenedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackItemOpenedEventArgs {
     type Vtable = IMediaPlaybackItemOpenedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackItemOpenedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackItemOpenedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcbd9bd82_3037_4fbe_ae8f_39fc39edf4ef);
@@ -1072,14 +924,10 @@ pub struct IMediaPlaybackItemOpenedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackItemStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackItemStatics {
     type Vtable = IMediaPlaybackItemStatics_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackItemStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackItemStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4b1be7f4_4345_403c_8a67_f5de91df4c86);
@@ -1095,14 +943,10 @@ pub struct IMediaPlaybackItemStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackList(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackList {
     type Vtable = IMediaPlaybackList_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackList {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f77ee9c_dc42_4e26_a98d_7850df8ec925);
@@ -1151,14 +995,10 @@ pub struct IMediaPlaybackList_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackList2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackList2 {
     type Vtable = IMediaPlaybackList2_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackList2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackList2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0e09b478_600a_4274_a14b_0b6723d0f48b);
@@ -1188,14 +1028,10 @@ pub struct IMediaPlaybackList2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackList3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackList3 {
     type Vtable = IMediaPlaybackList3_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackList3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackList3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd24bba9_bc47_4463_aa90_c18b7e5ffde1);
@@ -1215,14 +1051,10 @@ pub struct IMediaPlaybackList3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackSession(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackSession {
     type Vtable = IMediaPlaybackSession_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackSession {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc32b683d_0407_41ba_8946_8b345a5a5435);
@@ -1353,14 +1185,10 @@ pub struct IMediaPlaybackSession_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackSession2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackSession2 {
     type Vtable = IMediaPlaybackSession2_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackSession2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackSession2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf8ba7c79_1fc8_4097_ad70_c0fa18cc0050);
@@ -1420,14 +1248,10 @@ pub struct IMediaPlaybackSession2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackSession3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackSession3 {
     type Vtable = IMediaPlaybackSession3_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackSession3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackSession3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7ba2b41a_a3e2_405f_b77b_a4812c238b66);
@@ -1448,14 +1272,10 @@ pub struct IMediaPlaybackSession3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackSessionBufferingStartedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackSessionBufferingStartedEventArgs {
     type Vtable = IMediaPlaybackSessionBufferingStartedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackSessionBufferingStartedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackSessionBufferingStartedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcd6aafed_74e2_43b5_b115_76236c33791a);
@@ -1468,14 +1288,10 @@ pub struct IMediaPlaybackSessionBufferingStartedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackSessionOutputDegradationPolicyState(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackSessionOutputDegradationPolicyState {
     type Vtable = IMediaPlaybackSessionOutputDegradationPolicyState_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackSessionOutputDegradationPolicyState {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackSessionOutputDegradationPolicyState {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x558e727d_f633_49f9_965a_abaa1db709be);
@@ -1488,30 +1304,15 @@ pub struct IMediaPlaybackSessionOutputDegradationPolicyState_Vtbl {
 }
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackSource(::windows_core::IUnknown);
 impl IMediaPlaybackSource {}
 ::windows_core::imp::interface_hierarchy!(IMediaPlaybackSource, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IMediaPlaybackSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMediaPlaybackSource {}
-impl ::core::fmt::Debug for IMediaPlaybackSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMediaPlaybackSource").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IMediaPlaybackSource {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{ef9dc2bc-9317-4696-b051-2bad643177b5}");
 }
 unsafe impl ::windows_core::Interface for IMediaPlaybackSource {
     type Vtable = IMediaPlaybackSource_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackSource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef9dc2bc_9317_4696_b051_2bad643177b5);
@@ -1523,14 +1324,10 @@ pub struct IMediaPlaybackSource_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackSphericalVideoProjection(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackSphericalVideoProjection {
     type Vtable = IMediaPlaybackSphericalVideoProjection_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackSphericalVideoProjection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackSphericalVideoProjection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd405b37c_6f0e_4661_b8ee_d487ba9752d5);
@@ -1564,14 +1361,10 @@ pub struct IMediaPlaybackSphericalVideoProjection_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlaybackTimedMetadataTrackList(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlaybackTimedMetadataTrackList {
     type Vtable = IMediaPlaybackTimedMetadataTrackList_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlaybackTimedMetadataTrackList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlaybackTimedMetadataTrackList {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x72b41319_bbfb_46a3_9372_9c9c744b9438);
@@ -1593,14 +1386,10 @@ pub struct IMediaPlaybackTimedMetadataTrackList_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlayer(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlayer {
     type Vtable = IMediaPlayer_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlayer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlayer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x381a83cb_6fff_499b_8d64_2885dfc1249e);
@@ -1750,14 +1539,10 @@ pub struct IMediaPlayer_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlayer2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlayer2 {
     type Vtable = IMediaPlayer2_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlayer2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlayer2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3c841218_2123_4fc5_9082_2f883f77bdf5);
@@ -1774,14 +1559,10 @@ pub struct IMediaPlayer2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlayer3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlayer3 {
     type Vtable = IMediaPlayer3_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlayer3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlayer3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xee0660da_031b_4feb_bd9b_92e0a0a8d299);
@@ -1842,14 +1623,10 @@ pub struct IMediaPlayer3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlayer4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlayer4 {
     type Vtable = IMediaPlayer4_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlayer4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlayer4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x80035db0_7448_4770_afcf_2a57450914c5);
@@ -1869,14 +1646,10 @@ pub struct IMediaPlayer4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlayer5(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlayer5 {
     type Vtable = IMediaPlayer5_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlayer5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlayer5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcfe537fd_f86a_4446_bf4d_c8e792b7b4b3);
@@ -1910,14 +1683,10 @@ pub struct IMediaPlayer5_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlayer6(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlayer6 {
     type Vtable = IMediaPlayer6_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlayer6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlayer6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe0caa086_ae65_414c_b010_8bc55f00e692);
@@ -1945,14 +1714,10 @@ pub struct IMediaPlayer6_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlayer7(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlayer7 {
     type Vtable = IMediaPlayer7_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlayer7 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlayer7 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d1dc478_4500_4531_b3f4_777a71491f7f);
@@ -1968,14 +1733,10 @@ pub struct IMediaPlayer7_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlayerDataReceivedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlayerDataReceivedEventArgs {
     type Vtable = IMediaPlayerDataReceivedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlayerDataReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlayerDataReceivedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc75a9405_c801_412a_835b_83fc0e622a8e);
@@ -1991,14 +1752,10 @@ pub struct IMediaPlayerDataReceivedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlayerEffects(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlayerEffects {
     type Vtable = IMediaPlayerEffects_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlayerEffects {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlayerEffects {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x85a1deda_cab6_4cc0_8be3_6035f4de2591);
@@ -2015,14 +1772,10 @@ pub struct IMediaPlayerEffects_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlayerEffects2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlayerEffects2 {
     type Vtable = IMediaPlayerEffects2_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlayerEffects2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlayerEffects2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfa419a79_1bbe_46c5_ae1f_8ee69fb3c2c7);
@@ -2038,14 +1791,10 @@ pub struct IMediaPlayerEffects2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlayerFailedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlayerFailedEventArgs {
     type Vtable = IMediaPlayerFailedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlayerFailedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlayerFailedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2744e9b9_a7e3_4f16_bac4_7914ebc08301);
@@ -2060,14 +1809,10 @@ pub struct IMediaPlayerFailedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlayerRateChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlayerRateChangedEventArgs {
     type Vtable = IMediaPlayerRateChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlayerRateChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlayerRateChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x40600d58_3b61_4bb2_989f_fc65608b6cab);
@@ -2080,14 +1825,10 @@ pub struct IMediaPlayerRateChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlayerSource(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlayerSource {
     type Vtable = IMediaPlayerSource_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlayerSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlayerSource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbd4f8897_1423_4c3e_82c5_0fb1af94f715);
@@ -2119,14 +1860,10 @@ pub struct IMediaPlayerSource_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlayerSource2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlayerSource2 {
     type Vtable = IMediaPlayerSource2_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlayerSource2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlayerSource2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x82449b9f_7322_4c0b_b03b_3e69a48260c5);
@@ -2140,14 +1877,10 @@ pub struct IMediaPlayerSource2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaPlayerSurface(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMediaPlayerSurface {
     type Vtable = IMediaPlayerSurface_Vtbl;
-}
-impl ::core::clone::Clone for IMediaPlayerSurface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaPlayerSurface {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ed653bc_b736_49c3_830b_764a3845313a);
@@ -2168,14 +1901,10 @@ pub struct IMediaPlayerSurface_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPlaybackMediaMarker(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPlaybackMediaMarker {
     type Vtable = IPlaybackMediaMarker_Vtbl;
-}
-impl ::core::clone::Clone for IPlaybackMediaMarker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPlaybackMediaMarker {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc4d22f5c_3c1c_4444_b6b9_778b0422d41a);
@@ -2193,14 +1922,10 @@ pub struct IPlaybackMediaMarker_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPlaybackMediaMarkerFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPlaybackMediaMarkerFactory {
     type Vtable = IPlaybackMediaMarkerFactory_Vtbl;
-}
-impl ::core::clone::Clone for IPlaybackMediaMarkerFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPlaybackMediaMarkerFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c530a78_e0ae_4e1a_a8c8_e23f982a937b);
@@ -2220,14 +1945,10 @@ pub struct IPlaybackMediaMarkerFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPlaybackMediaMarkerReachedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPlaybackMediaMarkerReachedEventArgs {
     type Vtable = IPlaybackMediaMarkerReachedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IPlaybackMediaMarkerReachedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPlaybackMediaMarkerReachedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x578cd1b9_90e2_4e60_abc4_8740b01f6196);
@@ -2240,14 +1961,10 @@ pub struct IPlaybackMediaMarkerReachedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPlaybackMediaMarkerSequence(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPlaybackMediaMarkerSequence {
     type Vtable = IPlaybackMediaMarkerSequence_Vtbl;
-}
-impl ::core::clone::Clone for IPlaybackMediaMarkerSequence {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPlaybackMediaMarkerSequence {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2810cee_638b_46cf_8817_1d111fe9d8c4);
@@ -2262,14 +1979,10 @@ pub struct IPlaybackMediaMarkerSequence_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITimedMetadataPresentationModeChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITimedMetadataPresentationModeChangedEventArgs {
     type Vtable = ITimedMetadataPresentationModeChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for ITimedMetadataPresentationModeChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITimedMetadataPresentationModeChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd1636099_65df_45ae_8cef_dc0b53fdc2bb);
@@ -2372,6 +2085,7 @@ impl ::windows_core::RuntimeName for BackgroundMediaPlayer {
 }
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CurrentMediaPlaybackItemChangedEventArgs(::windows_core::IUnknown);
 impl CurrentMediaPlaybackItemChangedEventArgs {
     pub fn NewItem(&self) -> ::windows_core::Result<MediaPlaybackItem> {
@@ -2396,24 +2110,8 @@ impl CurrentMediaPlaybackItemChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for CurrentMediaPlaybackItemChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CurrentMediaPlaybackItemChangedEventArgs {}
-impl ::core::fmt::Debug for CurrentMediaPlaybackItemChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CurrentMediaPlaybackItemChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CurrentMediaPlaybackItemChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.CurrentMediaPlaybackItemChangedEventArgs;{1743a892-5c43-4a15-967a-572d2d0f26c6})");
-}
-impl ::core::clone::Clone for CurrentMediaPlaybackItemChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CurrentMediaPlaybackItemChangedEventArgs {
     type Vtable = ICurrentMediaPlaybackItemChangedEventArgs_Vtbl;
@@ -2429,6 +2127,7 @@ unsafe impl ::core::marker::Send for CurrentMediaPlaybackItemChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CurrentMediaPlaybackItemChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaBreak(::windows_core::IUnknown);
 impl MediaBreak {
     pub fn PlaybackList(&self) -> ::windows_core::Result<MediaPlaybackList> {
@@ -2494,24 +2193,8 @@ impl MediaBreak {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for MediaBreak {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaBreak {}
-impl ::core::fmt::Debug for MediaBreak {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaBreak").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaBreak {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreak;{714be270-0def-4ebc-a489-6b34930e1558})");
-}
-impl ::core::clone::Clone for MediaBreak {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaBreak {
     type Vtable = IMediaBreak_Vtbl;
@@ -2527,6 +2210,7 @@ unsafe impl ::core::marker::Send for MediaBreak {}
 unsafe impl ::core::marker::Sync for MediaBreak {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaBreakEndedEventArgs(::windows_core::IUnknown);
 impl MediaBreakEndedEventArgs {
     pub fn MediaBreak(&self) -> ::windows_core::Result<MediaBreak> {
@@ -2537,24 +2221,8 @@ impl MediaBreakEndedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaBreakEndedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaBreakEndedEventArgs {}
-impl ::core::fmt::Debug for MediaBreakEndedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaBreakEndedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaBreakEndedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakEndedEventArgs;{32b93276-1c5d-4fee-8732-236dc3a88580})");
-}
-impl ::core::clone::Clone for MediaBreakEndedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaBreakEndedEventArgs {
     type Vtable = IMediaBreakEndedEventArgs_Vtbl;
@@ -2570,6 +2238,7 @@ unsafe impl ::core::marker::Send for MediaBreakEndedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaBreakEndedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaBreakManager(::windows_core::IUnknown);
 impl MediaBreakManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2670,24 +2339,8 @@ impl MediaBreakManager {
         unsafe { (::windows_core::Interface::vtable(this).SkipCurrentBreak)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for MediaBreakManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaBreakManager {}
-impl ::core::fmt::Debug for MediaBreakManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaBreakManager").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaBreakManager {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakManager;{a854ddb1-feb4-4d9b-9d97-0fdbe58e5e39})");
-}
-impl ::core::clone::Clone for MediaBreakManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaBreakManager {
     type Vtable = IMediaBreakManager_Vtbl;
@@ -2703,6 +2356,7 @@ unsafe impl ::core::marker::Send for MediaBreakManager {}
 unsafe impl ::core::marker::Sync for MediaBreakManager {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaBreakSchedule(::windows_core::IUnknown);
 impl MediaBreakSchedule {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2782,24 +2436,8 @@ impl MediaBreakSchedule {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaBreakSchedule {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaBreakSchedule {}
-impl ::core::fmt::Debug for MediaBreakSchedule {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaBreakSchedule").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaBreakSchedule {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakSchedule;{a19a5813-98b6-41d8-83da-f971d22b7bba})");
-}
-impl ::core::clone::Clone for MediaBreakSchedule {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaBreakSchedule {
     type Vtable = IMediaBreakSchedule_Vtbl;
@@ -2815,6 +2453,7 @@ unsafe impl ::core::marker::Send for MediaBreakSchedule {}
 unsafe impl ::core::marker::Sync for MediaBreakSchedule {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaBreakSeekedOverEventArgs(::windows_core::IUnknown);
 impl MediaBreakSeekedOverEventArgs {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2845,24 +2484,8 @@ impl MediaBreakSeekedOverEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaBreakSeekedOverEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaBreakSeekedOverEventArgs {}
-impl ::core::fmt::Debug for MediaBreakSeekedOverEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaBreakSeekedOverEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaBreakSeekedOverEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakSeekedOverEventArgs;{e5aa6746-0606-4492-b9d3-c3c8fde0a4ea})");
-}
-impl ::core::clone::Clone for MediaBreakSeekedOverEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaBreakSeekedOverEventArgs {
     type Vtable = IMediaBreakSeekedOverEventArgs_Vtbl;
@@ -2878,6 +2501,7 @@ unsafe impl ::core::marker::Send for MediaBreakSeekedOverEventArgs {}
 unsafe impl ::core::marker::Sync for MediaBreakSeekedOverEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaBreakSkippedEventArgs(::windows_core::IUnknown);
 impl MediaBreakSkippedEventArgs {
     pub fn MediaBreak(&self) -> ::windows_core::Result<MediaBreak> {
@@ -2888,24 +2512,8 @@ impl MediaBreakSkippedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaBreakSkippedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaBreakSkippedEventArgs {}
-impl ::core::fmt::Debug for MediaBreakSkippedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaBreakSkippedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaBreakSkippedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakSkippedEventArgs;{6ee94c05-2f54-4a3e-a3ab-24c3b270b4a3})");
-}
-impl ::core::clone::Clone for MediaBreakSkippedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaBreakSkippedEventArgs {
     type Vtable = IMediaBreakSkippedEventArgs_Vtbl;
@@ -2921,6 +2529,7 @@ unsafe impl ::core::marker::Send for MediaBreakSkippedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaBreakSkippedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaBreakStartedEventArgs(::windows_core::IUnknown);
 impl MediaBreakStartedEventArgs {
     pub fn MediaBreak(&self) -> ::windows_core::Result<MediaBreak> {
@@ -2931,24 +2540,8 @@ impl MediaBreakStartedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaBreakStartedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaBreakStartedEventArgs {}
-impl ::core::fmt::Debug for MediaBreakStartedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaBreakStartedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaBreakStartedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakStartedEventArgs;{a87efe71-dfd4-454a-956e-0a4a648395f8})");
-}
-impl ::core::clone::Clone for MediaBreakStartedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaBreakStartedEventArgs {
     type Vtable = IMediaBreakStartedEventArgs_Vtbl;
@@ -2964,6 +2557,7 @@ unsafe impl ::core::marker::Send for MediaBreakStartedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaBreakStartedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaItemDisplayProperties(::windows_core::IUnknown);
 impl MediaItemDisplayProperties {
     pub fn Type(&self) -> ::windows_core::Result<super::MediaPlaybackType> {
@@ -3014,24 +2608,8 @@ impl MediaItemDisplayProperties {
         unsafe { (::windows_core::Interface::vtable(this).ClearAll)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for MediaItemDisplayProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaItemDisplayProperties {}
-impl ::core::fmt::Debug for MediaItemDisplayProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaItemDisplayProperties").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaItemDisplayProperties {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaItemDisplayProperties;{1e3c1b48-7097-4384-a217-c1291dfa8c16})");
-}
-impl ::core::clone::Clone for MediaItemDisplayProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaItemDisplayProperties {
     type Vtable = IMediaItemDisplayProperties_Vtbl;
@@ -3048,6 +2626,7 @@ unsafe impl ::core::marker::Sync for MediaItemDisplayProperties {}
 #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackAudioTrackList(::windows_core::IUnknown);
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl MediaPlaybackAudioTrackList {
@@ -3134,28 +2713,8 @@ impl MediaPlaybackAudioTrackList {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::cmp::PartialEq for MediaPlaybackAudioTrackList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::cmp::Eq for MediaPlaybackAudioTrackList {}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::fmt::Debug for MediaPlaybackAudioTrackList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackAudioTrackList").field(&self.0).finish()
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl ::windows_core::RuntimeType for MediaPlaybackAudioTrackList {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackAudioTrackList;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Media.Core.AudioTrack;{03e1fafc-c931-491a-b46b-c10ee8c256b7})))");
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::clone::Clone for MediaPlaybackAudioTrackList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 unsafe impl ::windows_core::Interface for MediaPlaybackAudioTrackList {
@@ -3199,6 +2758,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackAudioTrackList {}
 unsafe impl ::core::marker::Sync for MediaPlaybackAudioTrackList {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackCommandManager(::windows_core::IUnknown);
 impl MediaPlaybackCommandManager {
     pub fn IsEnabled(&self) -> ::windows_core::Result<bool> {
@@ -3470,24 +3030,8 @@ impl MediaPlaybackCommandManager {
         unsafe { (::windows_core::Interface::vtable(this).RemoveRateReceived)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlaybackCommandManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackCommandManager {}
-impl ::core::fmt::Debug for MediaPlaybackCommandManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackCommandManager").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlaybackCommandManager {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManager;{5acee5a6-5cb6-4a5a-8521-cc86b1c1ed37})");
-}
-impl ::core::clone::Clone for MediaPlaybackCommandManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlaybackCommandManager {
     type Vtable = IMediaPlaybackCommandManager_Vtbl;
@@ -3503,6 +3047,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackCommandManager {}
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManager {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs(::windows_core::IUnknown);
 impl MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
     pub fn Handled(&self) -> ::windows_core::Result<bool> {
@@ -3533,24 +3078,8 @@ impl MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {}
-impl ::core::fmt::Debug for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs;{3d6f4f23-5230-4411-a0e9-bad94c2a045c})");
-}
-impl ::core::clone::Clone for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_Vtbl;
@@ -3566,6 +3095,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerAutoRepeatModeRe
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackCommandManagerCommandBehavior(::windows_core::IUnknown);
 impl MediaPlaybackCommandManagerCommandBehavior {
     pub fn CommandManager(&self) -> ::windows_core::Result<MediaPlaybackCommandManager> {
@@ -3612,24 +3142,8 @@ impl MediaPlaybackCommandManagerCommandBehavior {
         unsafe { (::windows_core::Interface::vtable(this).RemoveIsEnabledChanged)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerCommandBehavior {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackCommandManagerCommandBehavior {}
-impl ::core::fmt::Debug for MediaPlaybackCommandManagerCommandBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackCommandManagerCommandBehavior").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlaybackCommandManagerCommandBehavior {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerCommandBehavior;{786c1e78-ce78-4a10-afd6-843fcbb90c2e})");
-}
-impl ::core::clone::Clone for MediaPlaybackCommandManagerCommandBehavior {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlaybackCommandManagerCommandBehavior {
     type Vtable = IMediaPlaybackCommandManagerCommandBehavior_Vtbl;
@@ -3645,6 +3159,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerCommandBehavior 
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerCommandBehavior {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackCommandManagerFastForwardReceivedEventArgs(::windows_core::IUnknown);
 impl MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
     pub fn Handled(&self) -> ::windows_core::Result<bool> {
@@ -3668,24 +3183,8 @@ impl MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {}
-impl ::core::fmt::Debug for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackCommandManagerFastForwardReceivedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerFastForwardReceivedEventArgs;{30f064d9-b491-4d0a-bc21-3098bd1332e9})");
-}
-impl ::core::clone::Clone for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_Vtbl;
@@ -3701,6 +3200,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerFastForwardRecei
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackCommandManagerNextReceivedEventArgs(::windows_core::IUnknown);
 impl MediaPlaybackCommandManagerNextReceivedEventArgs {
     pub fn Handled(&self) -> ::windows_core::Result<bool> {
@@ -3724,24 +3224,8 @@ impl MediaPlaybackCommandManagerNextReceivedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerNextReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackCommandManagerNextReceivedEventArgs {}
-impl ::core::fmt::Debug for MediaPlaybackCommandManagerNextReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackCommandManagerNextReceivedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlaybackCommandManagerNextReceivedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerNextReceivedEventArgs;{e1504433-a2b0-45d4-b9de-5f42ac14a839})");
-}
-impl ::core::clone::Clone for MediaPlaybackCommandManagerNextReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlaybackCommandManagerNextReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerNextReceivedEventArgs_Vtbl;
@@ -3757,6 +3241,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerNextReceivedEven
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerNextReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackCommandManagerPauseReceivedEventArgs(::windows_core::IUnknown);
 impl MediaPlaybackCommandManagerPauseReceivedEventArgs {
     pub fn Handled(&self) -> ::windows_core::Result<bool> {
@@ -3780,24 +3265,8 @@ impl MediaPlaybackCommandManagerPauseReceivedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerPauseReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackCommandManagerPauseReceivedEventArgs {}
-impl ::core::fmt::Debug for MediaPlaybackCommandManagerPauseReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackCommandManagerPauseReceivedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlaybackCommandManagerPauseReceivedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerPauseReceivedEventArgs;{5ceccd1c-c25c-4221-b16c-c3c98ce012d6})");
-}
-impl ::core::clone::Clone for MediaPlaybackCommandManagerPauseReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlaybackCommandManagerPauseReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPauseReceivedEventArgs_Vtbl;
@@ -3813,6 +3282,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPauseReceivedEve
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerPauseReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackCommandManagerPlayReceivedEventArgs(::windows_core::IUnknown);
 impl MediaPlaybackCommandManagerPlayReceivedEventArgs {
     pub fn Handled(&self) -> ::windows_core::Result<bool> {
@@ -3836,24 +3306,8 @@ impl MediaPlaybackCommandManagerPlayReceivedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerPlayReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackCommandManagerPlayReceivedEventArgs {}
-impl ::core::fmt::Debug for MediaPlaybackCommandManagerPlayReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackCommandManagerPlayReceivedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlaybackCommandManagerPlayReceivedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerPlayReceivedEventArgs;{9af0004e-578b-4c56-a006-16159d888a48})");
-}
-impl ::core::clone::Clone for MediaPlaybackCommandManagerPlayReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlaybackCommandManagerPlayReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPlayReceivedEventArgs_Vtbl;
@@ -3869,6 +3323,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPlayReceivedEven
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerPlayReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackCommandManagerPositionReceivedEventArgs(::windows_core::IUnknown);
 impl MediaPlaybackCommandManagerPositionReceivedEventArgs {
     pub fn Handled(&self) -> ::windows_core::Result<bool> {
@@ -3901,24 +3356,8 @@ impl MediaPlaybackCommandManagerPositionReceivedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerPositionReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackCommandManagerPositionReceivedEventArgs {}
-impl ::core::fmt::Debug for MediaPlaybackCommandManagerPositionReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackCommandManagerPositionReceivedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlaybackCommandManagerPositionReceivedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerPositionReceivedEventArgs;{5591a754-d627-4bdd-a90d-86a015b24902})");
-}
-impl ::core::clone::Clone for MediaPlaybackCommandManagerPositionReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlaybackCommandManagerPositionReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPositionReceivedEventArgs_Vtbl;
@@ -3934,6 +3373,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPositionReceived
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerPositionReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackCommandManagerPreviousReceivedEventArgs(::windows_core::IUnknown);
 impl MediaPlaybackCommandManagerPreviousReceivedEventArgs {
     pub fn Handled(&self) -> ::windows_core::Result<bool> {
@@ -3957,24 +3397,8 @@ impl MediaPlaybackCommandManagerPreviousReceivedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerPreviousReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackCommandManagerPreviousReceivedEventArgs {}
-impl ::core::fmt::Debug for MediaPlaybackCommandManagerPreviousReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackCommandManagerPreviousReceivedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlaybackCommandManagerPreviousReceivedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerPreviousReceivedEventArgs;{525e3081-4632-4f76-99b1-d771623f6287})");
-}
-impl ::core::clone::Clone for MediaPlaybackCommandManagerPreviousReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlaybackCommandManagerPreviousReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPreviousReceivedEventArgs_Vtbl;
@@ -3990,6 +3414,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPreviousReceived
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerPreviousReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackCommandManagerRateReceivedEventArgs(::windows_core::IUnknown);
 impl MediaPlaybackCommandManagerRateReceivedEventArgs {
     pub fn Handled(&self) -> ::windows_core::Result<bool> {
@@ -4020,24 +3445,8 @@ impl MediaPlaybackCommandManagerRateReceivedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerRateReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackCommandManagerRateReceivedEventArgs {}
-impl ::core::fmt::Debug for MediaPlaybackCommandManagerRateReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackCommandManagerRateReceivedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlaybackCommandManagerRateReceivedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerRateReceivedEventArgs;{18ea3939-4a16-4169-8b05-3eb9f5ff78eb})");
-}
-impl ::core::clone::Clone for MediaPlaybackCommandManagerRateReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlaybackCommandManagerRateReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerRateReceivedEventArgs_Vtbl;
@@ -4053,6 +3462,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerRateReceivedEven
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerRateReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackCommandManagerRewindReceivedEventArgs(::windows_core::IUnknown);
 impl MediaPlaybackCommandManagerRewindReceivedEventArgs {
     pub fn Handled(&self) -> ::windows_core::Result<bool> {
@@ -4076,24 +3486,8 @@ impl MediaPlaybackCommandManagerRewindReceivedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerRewindReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackCommandManagerRewindReceivedEventArgs {}
-impl ::core::fmt::Debug for MediaPlaybackCommandManagerRewindReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackCommandManagerRewindReceivedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlaybackCommandManagerRewindReceivedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerRewindReceivedEventArgs;{9f085947-a3c0-425d-aaef-97ba7898b141})");
-}
-impl ::core::clone::Clone for MediaPlaybackCommandManagerRewindReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlaybackCommandManagerRewindReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerRewindReceivedEventArgs_Vtbl;
@@ -4109,6 +3503,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerRewindReceivedEv
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerRewindReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackCommandManagerShuffleReceivedEventArgs(::windows_core::IUnknown);
 impl MediaPlaybackCommandManagerShuffleReceivedEventArgs {
     pub fn Handled(&self) -> ::windows_core::Result<bool> {
@@ -4139,24 +3534,8 @@ impl MediaPlaybackCommandManagerShuffleReceivedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerShuffleReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackCommandManagerShuffleReceivedEventArgs {}
-impl ::core::fmt::Debug for MediaPlaybackCommandManagerShuffleReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackCommandManagerShuffleReceivedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlaybackCommandManagerShuffleReceivedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerShuffleReceivedEventArgs;{50a05cef-63ee-4a96-b7b5-fee08b9ff90c})");
-}
-impl ::core::clone::Clone for MediaPlaybackCommandManagerShuffleReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlaybackCommandManagerShuffleReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerShuffleReceivedEventArgs_Vtbl;
@@ -4172,6 +3551,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerShuffleReceivedE
 unsafe impl ::core::marker::Sync for MediaPlaybackCommandManagerShuffleReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackItem(::windows_core::IUnknown);
 impl MediaPlaybackItem {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4403,24 +3783,8 @@ impl MediaPlaybackItem {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for MediaPlaybackItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackItem {}
-impl ::core::fmt::Debug for MediaPlaybackItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackItem").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlaybackItem {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackItem;{047097d2-e4af-48ab-b283-6929e674ece2})");
-}
-impl ::core::clone::Clone for MediaPlaybackItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlaybackItem {
     type Vtable = IMediaPlaybackItem_Vtbl;
@@ -4437,6 +3801,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackItem {}
 unsafe impl ::core::marker::Sync for MediaPlaybackItem {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackItemError(::windows_core::IUnknown);
 impl MediaPlaybackItemError {
     pub fn ErrorCode(&self) -> ::windows_core::Result<MediaPlaybackItemErrorCode> {
@@ -4454,24 +3819,8 @@ impl MediaPlaybackItemError {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlaybackItemError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackItemError {}
-impl ::core::fmt::Debug for MediaPlaybackItemError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackItemError").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlaybackItemError {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackItemError;{69fbef2b-dcd6-4df9-a450-dbf4c6f1c2c2})");
-}
-impl ::core::clone::Clone for MediaPlaybackItemError {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlaybackItemError {
     type Vtable = IMediaPlaybackItemError_Vtbl;
@@ -4487,6 +3836,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackItemError {}
 unsafe impl ::core::marker::Sync for MediaPlaybackItemError {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackItemFailedEventArgs(::windows_core::IUnknown);
 impl MediaPlaybackItemFailedEventArgs {
     pub fn Item(&self) -> ::windows_core::Result<MediaPlaybackItem> {
@@ -4504,24 +3854,8 @@ impl MediaPlaybackItemFailedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlaybackItemFailedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackItemFailedEventArgs {}
-impl ::core::fmt::Debug for MediaPlaybackItemFailedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackItemFailedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlaybackItemFailedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackItemFailedEventArgs;{7703134a-e9a7-47c3-862c-c656d30683d4})");
-}
-impl ::core::clone::Clone for MediaPlaybackItemFailedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlaybackItemFailedEventArgs {
     type Vtable = IMediaPlaybackItemFailedEventArgs_Vtbl;
@@ -4537,6 +3871,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackItemFailedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackItemFailedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackItemOpenedEventArgs(::windows_core::IUnknown);
 impl MediaPlaybackItemOpenedEventArgs {
     pub fn Item(&self) -> ::windows_core::Result<MediaPlaybackItem> {
@@ -4547,24 +3882,8 @@ impl MediaPlaybackItemOpenedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlaybackItemOpenedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackItemOpenedEventArgs {}
-impl ::core::fmt::Debug for MediaPlaybackItemOpenedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackItemOpenedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlaybackItemOpenedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackItemOpenedEventArgs;{cbd9bd82-3037-4fbe-ae8f-39fc39edf4ef})");
-}
-impl ::core::clone::Clone for MediaPlaybackItemOpenedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlaybackItemOpenedEventArgs {
     type Vtable = IMediaPlaybackItemOpenedEventArgs_Vtbl;
@@ -4580,6 +3899,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackItemOpenedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlaybackItemOpenedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackList(::windows_core::IUnknown);
 impl MediaPlaybackList {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -4778,24 +4098,8 @@ impl MediaPlaybackList {
         unsafe { (::windows_core::Interface::vtable(this).SetMaxPlayedItemsToKeepOpen)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlaybackList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackList {}
-impl ::core::fmt::Debug for MediaPlaybackList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackList").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlaybackList {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackList;{7f77ee9c-dc42-4e26-a98d-7850df8ec925})");
-}
-impl ::core::clone::Clone for MediaPlaybackList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlaybackList {
     type Vtable = IMediaPlaybackList_Vtbl;
@@ -4812,6 +4116,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackList {}
 unsafe impl ::core::marker::Sync for MediaPlaybackList {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackSession(::windows_core::IUnknown);
 impl MediaPlaybackSession {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -5269,24 +4574,8 @@ impl MediaPlaybackSession {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlaybackSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackSession {}
-impl ::core::fmt::Debug for MediaPlaybackSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackSession").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlaybackSession {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackSession;{c32b683d-0407-41ba-8946-8b345a5a5435})");
-}
-impl ::core::clone::Clone for MediaPlaybackSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlaybackSession {
     type Vtable = IMediaPlaybackSession_Vtbl;
@@ -5302,6 +4591,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackSession {}
 unsafe impl ::core::marker::Sync for MediaPlaybackSession {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackSessionBufferingStartedEventArgs(::windows_core::IUnknown);
 impl MediaPlaybackSessionBufferingStartedEventArgs {
     pub fn IsPlaybackInterruption(&self) -> ::windows_core::Result<bool> {
@@ -5312,24 +4602,8 @@ impl MediaPlaybackSessionBufferingStartedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlaybackSessionBufferingStartedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackSessionBufferingStartedEventArgs {}
-impl ::core::fmt::Debug for MediaPlaybackSessionBufferingStartedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackSessionBufferingStartedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlaybackSessionBufferingStartedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackSessionBufferingStartedEventArgs;{cd6aafed-74e2-43b5-b115-76236c33791a})");
-}
-impl ::core::clone::Clone for MediaPlaybackSessionBufferingStartedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlaybackSessionBufferingStartedEventArgs {
     type Vtable = IMediaPlaybackSessionBufferingStartedEventArgs_Vtbl;
@@ -5345,6 +4619,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackSessionBufferingStartedEventAr
 unsafe impl ::core::marker::Sync for MediaPlaybackSessionBufferingStartedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackSessionOutputDegradationPolicyState(::windows_core::IUnknown);
 impl MediaPlaybackSessionOutputDegradationPolicyState {
     pub fn VideoConstrictionReason(&self) -> ::windows_core::Result<MediaPlaybackSessionVideoConstrictionReason> {
@@ -5355,24 +4630,8 @@ impl MediaPlaybackSessionOutputDegradationPolicyState {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlaybackSessionOutputDegradationPolicyState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackSessionOutputDegradationPolicyState {}
-impl ::core::fmt::Debug for MediaPlaybackSessionOutputDegradationPolicyState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackSessionOutputDegradationPolicyState").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlaybackSessionOutputDegradationPolicyState {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackSessionOutputDegradationPolicyState;{558e727d-f633-49f9-965a-abaa1db709be})");
-}
-impl ::core::clone::Clone for MediaPlaybackSessionOutputDegradationPolicyState {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlaybackSessionOutputDegradationPolicyState {
     type Vtable = IMediaPlaybackSessionOutputDegradationPolicyState_Vtbl;
@@ -5388,6 +4647,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackSessionOutputDegradationPolicy
 unsafe impl ::core::marker::Sync for MediaPlaybackSessionOutputDegradationPolicyState {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackSphericalVideoProjection(::windows_core::IUnknown);
 impl MediaPlaybackSphericalVideoProjection {
     pub fn IsEnabled(&self) -> ::windows_core::Result<bool> {
@@ -5454,24 +4714,8 @@ impl MediaPlaybackSphericalVideoProjection {
         unsafe { (::windows_core::Interface::vtable(this).SetProjectionMode)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlaybackSphericalVideoProjection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackSphericalVideoProjection {}
-impl ::core::fmt::Debug for MediaPlaybackSphericalVideoProjection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackSphericalVideoProjection").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlaybackSphericalVideoProjection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackSphericalVideoProjection;{d405b37c-6f0e-4661-b8ee-d487ba9752d5})");
-}
-impl ::core::clone::Clone for MediaPlaybackSphericalVideoProjection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlaybackSphericalVideoProjection {
     type Vtable = IMediaPlaybackSphericalVideoProjection_Vtbl;
@@ -5488,6 +4732,7 @@ unsafe impl ::core::marker::Sync for MediaPlaybackSphericalVideoProjection {}
 #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackTimedMetadataTrackList(::windows_core::IUnknown);
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl MediaPlaybackTimedMetadataTrackList {
@@ -5570,28 +4815,8 @@ impl MediaPlaybackTimedMetadataTrackList {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::cmp::PartialEq for MediaPlaybackTimedMetadataTrackList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::cmp::Eq for MediaPlaybackTimedMetadataTrackList {}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::fmt::Debug for MediaPlaybackTimedMetadataTrackList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackTimedMetadataTrackList").field(&self.0).finish()
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl ::windows_core::RuntimeType for MediaPlaybackTimedMetadataTrackList {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackTimedMetadataTrackList;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Media.Core.TimedMetadataTrack;{9e6aed9e-f67a-49a9-b330-cf03b0e9cf07})))");
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::clone::Clone for MediaPlaybackTimedMetadataTrackList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 unsafe impl ::windows_core::Interface for MediaPlaybackTimedMetadataTrackList {
@@ -5634,6 +4859,7 @@ unsafe impl ::core::marker::Sync for MediaPlaybackTimedMetadataTrackList {}
 #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlaybackVideoTrackList(::windows_core::IUnknown);
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl MediaPlaybackVideoTrackList {
@@ -5720,28 +4946,8 @@ impl MediaPlaybackVideoTrackList {
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::cmp::PartialEq for MediaPlaybackVideoTrackList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::cmp::Eq for MediaPlaybackVideoTrackList {}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::fmt::Debug for MediaPlaybackVideoTrackList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlaybackVideoTrackList").field(&self.0).finish()
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 impl ::windows_core::RuntimeType for MediaPlaybackVideoTrackList {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackVideoTrackList;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Media.Core.VideoTrack;{03e1fafc-c931-491a-b46b-c10ee8c256b7})))");
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl ::core::clone::Clone for MediaPlaybackVideoTrackList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
 unsafe impl ::windows_core::Interface for MediaPlaybackVideoTrackList {
@@ -5785,6 +4991,7 @@ unsafe impl ::core::marker::Send for MediaPlaybackVideoTrackList {}
 unsafe impl ::core::marker::Sync for MediaPlaybackVideoTrackList {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlayer(::windows_core::IUnknown);
 impl MediaPlayer {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -6525,24 +5732,8 @@ impl MediaPlayer {
         unsafe { (::windows_core::Interface::vtable(this).SetSource)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlayer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlayer {}
-impl ::core::fmt::Debug for MediaPlayer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlayer").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlayer {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlayer;{381a83cb-6fff-499b-8d64-2885dfc1249e})");
-}
-impl ::core::clone::Clone for MediaPlayer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlayer {
     type Vtable = IMediaPlayer_Vtbl;
@@ -6560,6 +5751,7 @@ unsafe impl ::core::marker::Send for MediaPlayer {}
 unsafe impl ::core::marker::Sync for MediaPlayer {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlayerDataReceivedEventArgs(::windows_core::IUnknown);
 impl MediaPlayerDataReceivedEventArgs {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -6572,24 +5764,8 @@ impl MediaPlayerDataReceivedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlayerDataReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlayerDataReceivedEventArgs {}
-impl ::core::fmt::Debug for MediaPlayerDataReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlayerDataReceivedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlayerDataReceivedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlayerDataReceivedEventArgs;{c75a9405-c801-412a-835b-83fc0e622a8e})");
-}
-impl ::core::clone::Clone for MediaPlayerDataReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlayerDataReceivedEventArgs {
     type Vtable = IMediaPlayerDataReceivedEventArgs_Vtbl;
@@ -6605,6 +5781,7 @@ unsafe impl ::core::marker::Send for MediaPlayerDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlayerDataReceivedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlayerFailedEventArgs(::windows_core::IUnknown);
 impl MediaPlayerFailedEventArgs {
     pub fn Error(&self) -> ::windows_core::Result<MediaPlayerError> {
@@ -6629,24 +5806,8 @@ impl MediaPlayerFailedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlayerFailedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlayerFailedEventArgs {}
-impl ::core::fmt::Debug for MediaPlayerFailedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlayerFailedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlayerFailedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlayerFailedEventArgs;{2744e9b9-a7e3-4f16-bac4-7914ebc08301})");
-}
-impl ::core::clone::Clone for MediaPlayerFailedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlayerFailedEventArgs {
     type Vtable = IMediaPlayerFailedEventArgs_Vtbl;
@@ -6662,6 +5823,7 @@ unsafe impl ::core::marker::Send for MediaPlayerFailedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlayerFailedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlayerRateChangedEventArgs(::windows_core::IUnknown);
 impl MediaPlayerRateChangedEventArgs {
     pub fn NewRate(&self) -> ::windows_core::Result<f64> {
@@ -6672,24 +5834,8 @@ impl MediaPlayerRateChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlayerRateChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlayerRateChangedEventArgs {}
-impl ::core::fmt::Debug for MediaPlayerRateChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlayerRateChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlayerRateChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlayerRateChangedEventArgs;{40600d58-3b61-4bb2-989f-fc65608b6cab})");
-}
-impl ::core::clone::Clone for MediaPlayerRateChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlayerRateChangedEventArgs {
     type Vtable = IMediaPlayerRateChangedEventArgs_Vtbl;
@@ -6705,6 +5851,7 @@ unsafe impl ::core::marker::Send for MediaPlayerRateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaPlayerRateChangedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MediaPlayerSurface(::windows_core::IUnknown);
 impl MediaPlayerSurface {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6739,24 +5886,8 @@ impl MediaPlayerSurface {
         }
     }
 }
-impl ::core::cmp::PartialEq for MediaPlayerSurface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlayerSurface {}
-impl ::core::fmt::Debug for MediaPlayerSurface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaPlayerSurface").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MediaPlayerSurface {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlayerSurface;{0ed653bc-b736-49c3-830b-764a3845313a})");
-}
-impl ::core::clone::Clone for MediaPlayerSurface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MediaPlayerSurface {
     type Vtable = IMediaPlayerSurface_Vtbl;
@@ -6774,6 +5905,7 @@ unsafe impl ::core::marker::Send for MediaPlayerSurface {}
 unsafe impl ::core::marker::Sync for MediaPlayerSurface {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PlaybackMediaMarker(::windows_core::IUnknown);
 impl PlaybackMediaMarker {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -6821,24 +5953,8 @@ impl PlaybackMediaMarker {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for PlaybackMediaMarker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlaybackMediaMarker {}
-impl ::core::fmt::Debug for PlaybackMediaMarker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlaybackMediaMarker").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PlaybackMediaMarker {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.PlaybackMediaMarker;{c4d22f5c-3c1c-4444-b6b9-778b0422d41a})");
-}
-impl ::core::clone::Clone for PlaybackMediaMarker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PlaybackMediaMarker {
     type Vtable = IPlaybackMediaMarker_Vtbl;
@@ -6854,6 +5970,7 @@ unsafe impl ::core::marker::Send for PlaybackMediaMarker {}
 unsafe impl ::core::marker::Sync for PlaybackMediaMarker {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PlaybackMediaMarkerReachedEventArgs(::windows_core::IUnknown);
 impl PlaybackMediaMarkerReachedEventArgs {
     pub fn PlaybackMediaMarker(&self) -> ::windows_core::Result<PlaybackMediaMarker> {
@@ -6864,24 +5981,8 @@ impl PlaybackMediaMarkerReachedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for PlaybackMediaMarkerReachedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlaybackMediaMarkerReachedEventArgs {}
-impl ::core::fmt::Debug for PlaybackMediaMarkerReachedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlaybackMediaMarkerReachedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PlaybackMediaMarkerReachedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.PlaybackMediaMarkerReachedEventArgs;{578cd1b9-90e2-4e60-abc4-8740b01f6196})");
-}
-impl ::core::clone::Clone for PlaybackMediaMarkerReachedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PlaybackMediaMarkerReachedEventArgs {
     type Vtable = IPlaybackMediaMarkerReachedEventArgs_Vtbl;
@@ -6897,6 +5998,7 @@ unsafe impl ::core::marker::Send for PlaybackMediaMarkerReachedEventArgs {}
 unsafe impl ::core::marker::Sync for PlaybackMediaMarkerReachedEventArgs {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PlaybackMediaMarkerSequence(::windows_core::IUnknown);
 impl PlaybackMediaMarkerSequence {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -6927,24 +6029,8 @@ impl PlaybackMediaMarkerSequence {
         unsafe { (::windows_core::Interface::vtable(this).Clear)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for PlaybackMediaMarkerSequence {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlaybackMediaMarkerSequence {}
-impl ::core::fmt::Debug for PlaybackMediaMarkerSequence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlaybackMediaMarkerSequence").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PlaybackMediaMarkerSequence {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.PlaybackMediaMarkerSequence;{f2810cee-638b-46cf-8817-1d111fe9d8c4})");
-}
-impl ::core::clone::Clone for PlaybackMediaMarkerSequence {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PlaybackMediaMarkerSequence {
     type Vtable = IPlaybackMediaMarkerSequence_Vtbl;
@@ -6978,6 +6064,7 @@ unsafe impl ::core::marker::Send for PlaybackMediaMarkerSequence {}
 unsafe impl ::core::marker::Sync for PlaybackMediaMarkerSequence {}
 #[doc = "*Required features: `\"Media_Playback\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TimedMetadataPresentationModeChangedEventArgs(::windows_core::IUnknown);
 impl TimedMetadataPresentationModeChangedEventArgs {
     #[doc = "*Required features: `\"Media_Core\"`*"]
@@ -7004,24 +6091,8 @@ impl TimedMetadataPresentationModeChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for TimedMetadataPresentationModeChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedMetadataPresentationModeChangedEventArgs {}
-impl ::core::fmt::Debug for TimedMetadataPresentationModeChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TimedMetadataPresentationModeChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TimedMetadataPresentationModeChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.TimedMetadataPresentationModeChangedEventArgs;{d1636099-65df-45ae-8cef-dc0b53fdc2bb})");
-}
-impl ::core::clone::Clone for TimedMetadataPresentationModeChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TimedMetadataPresentationModeChangedEventArgs {
     type Vtable = ITimedMetadataPresentationModeChangedEventArgs_Vtbl;

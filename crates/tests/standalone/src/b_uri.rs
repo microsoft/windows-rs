@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIterable<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
 where
     T: ::windows_core::RuntimeType + 'static;
@@ -31,17 +32,6 @@ impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows_core::IInspectable>
     for IIterable<T>
 {
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::cmp::PartialEq for IIterable<T> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::cmp::Eq for IIterable<T> {}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::fmt::Debug for IIterable<T> {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIterable").field(&self.0).finish()
-    }
 }
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IIterable<T> {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = {
@@ -70,11 +60,6 @@ impl<T: ::windows_core::RuntimeType> ::core::iter::IntoIterator for &IIterable<T
 unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface for IIterable<T> {
     type Vtable = IIterable_Vtbl<T>;
 }
-impl<T: ::windows_core::RuntimeType + 'static> ::core::clone::Clone for IIterable<T> {
-    fn clone(&self) -> Self {
-        Self(self.0.clone(), ::core::marker::PhantomData::<T>)
-    }
-}
 unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::ComInterface
     for IIterable<T>
 {
@@ -95,6 +80,7 @@ where
     pub T: ::core::marker::PhantomData<T>,
 }
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIterator<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
 where
     T: ::windows_core::RuntimeType + 'static;
@@ -157,17 +143,6 @@ impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanInto<::windows
     for IIterator<T>
 {
 }
-impl<T: ::windows_core::RuntimeType + 'static> ::core::cmp::PartialEq for IIterator<T> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::cmp::Eq for IIterator<T> {}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::fmt::Debug for IIterator<T> {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIterator").field(&self.0).finish()
-    }
-}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IIterator<T> {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = {
         ::windows_core::imp::ConstBuffer::new()
@@ -190,11 +165,6 @@ impl<T: ::windows_core::RuntimeType> ::core::iter::Iterator for IIterator<T> {
 }
 unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface for IIterator<T> {
     type Vtable = IIterator_Vtbl<T>;
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::clone::Clone for IIterator<T> {
-    fn clone(&self) -> Self {
-        Self(self.0.clone(), ::core::marker::PhantomData::<T>)
-    }
 }
 unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::ComInterface
     for IIterator<T>
@@ -230,6 +200,7 @@ where
     pub T: ::core::marker::PhantomData<T>,
 }
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStringable(::windows_core::IUnknown);
 impl IStringable {
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -249,28 +220,12 @@ impl IStringable {
     ::windows_core::IUnknown,
     ::windows_core::IInspectable
 );
-impl ::core::cmp::PartialEq for IStringable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStringable {}
-impl ::core::fmt::Debug for IStringable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStringable").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IStringable {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
         ::windows_core::imp::ConstBuffer::from_slice(b"{96369f54-8eb6-48f0-abce-c1b211e627c3}");
 }
 unsafe impl ::windows_core::Interface for IStringable {
     type Vtable = IStringable_Vtbl;
-}
-impl ::core::clone::Clone for IStringable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStringable {
     const IID: ::windows_core::GUID =
@@ -287,14 +242,10 @@ pub struct IStringable_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUriEscapeStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUriEscapeStatics {
     type Vtable = IUriEscapeStatics_Vtbl;
-}
-impl ::core::clone::Clone for IUriEscapeStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUriEscapeStatics {
     const IID: ::windows_core::GUID =
@@ -317,14 +268,10 @@ pub struct IUriEscapeStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUriRuntimeClass(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUriRuntimeClass {
     type Vtable = IUriRuntimeClass_Vtbl;
-}
-impl ::core::clone::Clone for IUriRuntimeClass {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUriRuntimeClass {
     const IID: ::windows_core::GUID =
@@ -407,14 +354,10 @@ pub struct IUriRuntimeClass_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUriRuntimeClassFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUriRuntimeClassFactory {
     type Vtable = IUriRuntimeClassFactory_Vtbl;
-}
-impl ::core::clone::Clone for IUriRuntimeClassFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUriRuntimeClassFactory {
     const IID: ::windows_core::GUID =
@@ -438,14 +381,10 @@ pub struct IUriRuntimeClassFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUriRuntimeClassWithAbsoluteCanonicalUri(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUriRuntimeClassWithAbsoluteCanonicalUri {
     type Vtable = IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl;
-}
-impl ::core::clone::Clone for IUriRuntimeClassWithAbsoluteCanonicalUri {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUriRuntimeClassWithAbsoluteCanonicalUri {
     const IID: ::windows_core::GUID =
@@ -465,6 +404,7 @@ pub struct IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl {
     ) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVectorView<T>(::windows_core::IUnknown, ::core::marker::PhantomData<T>)
 where
     T: ::windows_core::RuntimeType + 'static;
@@ -550,17 +490,6 @@ impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::CanTryInto<IItera
     for IVectorView<T>
 {
 }
-impl<T: ::windows_core::RuntimeType + 'static> ::core::cmp::PartialEq for IVectorView<T> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::cmp::Eq for IVectorView<T> {}
-impl<T: ::windows_core::RuntimeType + 'static> ::core::fmt::Debug for IVectorView<T> {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVectorView").field(&self.0).finish()
-    }
-}
 impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::RuntimeType for IVectorView<T> {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = {
         ::windows_core::imp::ConstBuffer::new()
@@ -611,11 +540,6 @@ impl<T: ::windows_core::RuntimeType> ::core::iter::IntoIterator for &IVectorView
 unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::Interface for IVectorView<T> {
     type Vtable = IVectorView_Vtbl<T>;
 }
-impl<T: ::windows_core::RuntimeType + 'static> ::core::clone::Clone for IVectorView<T> {
-    fn clone(&self) -> Self {
-        Self(self.0.clone(), ::core::marker::PhantomData::<T>)
-    }
-}
 unsafe impl<T: ::windows_core::RuntimeType + 'static> ::windows_core::ComInterface
     for IVectorView<T>
 {
@@ -654,6 +578,7 @@ where
     pub T: ::core::marker::PhantomData<T>,
 }
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWwwFormUrlDecoderEntry(::windows_core::IUnknown);
 impl IWwwFormUrlDecoderEntry {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -684,30 +609,12 @@ impl IWwwFormUrlDecoderEntry {
     ::windows_core::IUnknown,
     ::windows_core::IInspectable
 );
-impl ::core::cmp::PartialEq for IWwwFormUrlDecoderEntry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWwwFormUrlDecoderEntry {}
-impl ::core::fmt::Debug for IWwwFormUrlDecoderEntry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWwwFormUrlDecoderEntry")
-            .field(&self.0)
-            .finish()
-    }
-}
 impl ::windows_core::RuntimeType for IWwwFormUrlDecoderEntry {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
         ::windows_core::imp::ConstBuffer::from_slice(b"{125e7431-f678-4e8e-b670-20a9b06c512d}");
 }
 unsafe impl ::windows_core::Interface for IWwwFormUrlDecoderEntry {
     type Vtable = IWwwFormUrlDecoderEntry_Vtbl;
-}
-impl ::core::clone::Clone for IWwwFormUrlDecoderEntry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWwwFormUrlDecoderEntry {
     const IID: ::windows_core::GUID =
@@ -728,14 +635,10 @@ pub struct IWwwFormUrlDecoderEntry_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWwwFormUrlDecoderRuntimeClass(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWwwFormUrlDecoderRuntimeClass {
     type Vtable = IWwwFormUrlDecoderRuntimeClass_Vtbl;
-}
-impl ::core::clone::Clone for IWwwFormUrlDecoderRuntimeClass {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWwwFormUrlDecoderRuntimeClass {
     const IID: ::windows_core::GUID =
@@ -753,14 +656,10 @@ pub struct IWwwFormUrlDecoderRuntimeClass_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWwwFormUrlDecoderRuntimeClassFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWwwFormUrlDecoderRuntimeClassFactory {
     type Vtable = IWwwFormUrlDecoderRuntimeClassFactory_Vtbl;
-}
-impl ::core::clone::Clone for IWwwFormUrlDecoderRuntimeClassFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWwwFormUrlDecoderRuntimeClassFactory {
     const IID: ::windows_core::GUID =
@@ -777,6 +676,7 @@ pub struct IWwwFormUrlDecoderRuntimeClassFactory_Vtbl {
     ) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Uri(::windows_core::IUnknown);
 impl Uri {
     pub fn ToString(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1078,27 +978,11 @@ impl Uri {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for Uri {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Uri {}
-impl ::core::fmt::Debug for Uri {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Uri").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Uri {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
         ::windows_core::imp::ConstBuffer::from_slice(
             b"rc(Windows.Foundation.Uri;{9e365e57-48b2-4160-956f-c7385120bbfc})",
         );
-}
-impl ::core::clone::Clone for Uri {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Uri {
     type Vtable = IUriRuntimeClass_Vtbl;
@@ -1118,6 +1002,7 @@ impl ::windows_core::CanTryInto<IStringable> for Uri {}
 unsafe impl ::core::marker::Send for Uri {}
 unsafe impl ::core::marker::Sync for Uri {}
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WwwFormUrlDecoder(::windows_core::IUnknown);
 impl WwwFormUrlDecoder {
     pub fn First(&self) -> ::windows_core::Result<IIterator<IWwwFormUrlDecoderEntry>> {
@@ -1234,27 +1119,11 @@ impl WwwFormUrlDecoder {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for WwwFormUrlDecoder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WwwFormUrlDecoder {}
-impl ::core::fmt::Debug for WwwFormUrlDecoder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WwwFormUrlDecoder").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WwwFormUrlDecoder {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
         ::windows_core::imp::ConstBuffer::from_slice(
             b"rc(Windows.Foundation.WwwFormUrlDecoder;{d45a0451-f225-4542-9296-0e1df5d254df})",
         );
-}
-impl ::core::clone::Clone for WwwFormUrlDecoder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WwwFormUrlDecoder {
     type Vtable = IWwwFormUrlDecoderRuntimeClass_Vtbl;

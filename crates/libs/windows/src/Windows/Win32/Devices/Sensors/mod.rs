@@ -285,6 +285,7 @@ pub unsafe fn SerializationBufferFree(buffer: ::core::option::Option<*const u8>)
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILocationPermissions(::windows_core::IUnknown);
 impl ILocationPermissions {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -298,24 +299,8 @@ impl ILocationPermissions {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ILocationPermissions, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ILocationPermissions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILocationPermissions {}
-impl ::core::fmt::Debug for ILocationPermissions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILocationPermissions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ILocationPermissions {
     type Vtable = ILocationPermissions_Vtbl;
-}
-impl ::core::clone::Clone for ILocationPermissions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILocationPermissions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd5fb0a7f_e74e_44f5_8e02_4806863a274f);
@@ -332,6 +317,7 @@ pub struct ILocationPermissions_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISensor(::windows_core::IUnknown);
 impl ISensor {
     pub unsafe fn GetID(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -414,24 +400,8 @@ impl ISensor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISensor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISensor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISensor {}
-impl ::core::fmt::Debug for ISensor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISensor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISensor {
     type Vtable = ISensor_Vtbl;
-}
-impl ::core::clone::Clone for ISensor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISensor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5fa08f80_2657_458e_af75_46f73fa6ac5c);
@@ -476,6 +446,7 @@ pub struct ISensor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISensorCollection(::windows_core::IUnknown);
 impl ISensorCollection {
     pub unsafe fn GetAt(&self, ulindex: u32) -> ::windows_core::Result<ISensor> {
@@ -506,24 +477,8 @@ impl ISensorCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISensorCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISensorCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISensorCollection {}
-impl ::core::fmt::Debug for ISensorCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISensorCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISensorCollection {
     type Vtable = ISensorCollection_Vtbl;
-}
-impl ::core::clone::Clone for ISensorCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISensorCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x23571e11_e545_4dd8_a337_b89bf44b10df);
@@ -541,6 +496,7 @@ pub struct ISensorCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISensorDataReport(::windows_core::IUnknown);
 impl ISensorDataReport {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -566,24 +522,8 @@ impl ISensorDataReport {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISensorDataReport, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISensorDataReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISensorDataReport {}
-impl ::core::fmt::Debug for ISensorDataReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISensorDataReport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISensorDataReport {
     type Vtable = ISensorDataReport_Vtbl;
-}
-impl ::core::clone::Clone for ISensorDataReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISensorDataReport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ab9df9b_c4b5_4796_8898_0470706a2e1d);
@@ -607,6 +547,7 @@ pub struct ISensorDataReport_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISensorEvents(::windows_core::IUnknown);
 impl ISensorEvents {
     pub unsafe fn OnStateChanged<P0>(&self, psensor: P0, state: SensorState) -> ::windows_core::Result<()>
@@ -636,24 +577,8 @@ impl ISensorEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISensorEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISensorEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISensorEvents {}
-impl ::core::fmt::Debug for ISensorEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISensorEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISensorEvents {
     type Vtable = ISensorEvents_Vtbl;
-}
-impl ::core::clone::Clone for ISensorEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISensorEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d8dcc91_4641_47e7_b7c3_b74f48a6c391);
@@ -672,6 +597,7 @@ pub struct ISensorEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISensorManager(::windows_core::IUnknown);
 impl ISensorManager {
     pub unsafe fn GetSensorsByCategory(&self, sensorcategory: *const ::windows_core::GUID) -> ::windows_core::Result<ISensorCollection> {
@@ -704,24 +630,8 @@ impl ISensorManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISensorManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISensorManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISensorManager {}
-impl ::core::fmt::Debug for ISensorManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISensorManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISensorManager {
     type Vtable = ISensorManager_Vtbl;
-}
-impl ::core::clone::Clone for ISensorManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISensorManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbd77db67_45a8_42dc_8d00_6dcf15f8377a);
@@ -741,6 +651,7 @@ pub struct ISensorManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_Sensors\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISensorManagerEvents(::windows_core::IUnknown);
 impl ISensorManagerEvents {
     pub unsafe fn OnSensorEnter<P0>(&self, psensor: P0, state: SensorState) -> ::windows_core::Result<()>
@@ -751,24 +662,8 @@ impl ISensorManagerEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISensorManagerEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISensorManagerEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISensorManagerEvents {}
-impl ::core::fmt::Debug for ISensorManagerEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISensorManagerEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISensorManagerEvents {
     type Vtable = ISensorManagerEvents_Vtbl;
-}
-impl ::core::clone::Clone for ISensorManagerEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISensorManagerEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b3b0b86_266a_4aad_b21f_fde5501001b7);

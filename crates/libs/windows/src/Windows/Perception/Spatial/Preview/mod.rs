@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialGraphInteropFrameOfReferencePreview(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpatialGraphInteropFrameOfReferencePreview {
     type Vtable = ISpatialGraphInteropFrameOfReferencePreview_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialGraphInteropFrameOfReferencePreview {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialGraphInteropFrameOfReferencePreview {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8271b23_735f_5729_a98e_e64ed189abc5);
@@ -25,14 +21,10 @@ pub struct ISpatialGraphInteropFrameOfReferencePreview_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialGraphInteropPreviewStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpatialGraphInteropPreviewStatics {
     type Vtable = ISpatialGraphInteropPreviewStatics_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialGraphInteropPreviewStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialGraphInteropPreviewStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc042644c_20d8_4ed0_aef7_6805b8e53f55);
@@ -54,14 +46,10 @@ pub struct ISpatialGraphInteropPreviewStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpatialGraphInteropPreviewStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpatialGraphInteropPreviewStatics2 {
     type Vtable = ISpatialGraphInteropPreviewStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ISpatialGraphInteropPreviewStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpatialGraphInteropPreviewStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2490b15f_6cbd_4b1e_b765_31e462a32df2);
@@ -82,6 +70,7 @@ pub struct ISpatialGraphInteropPreviewStatics2_Vtbl {
 }
 #[doc = "*Required features: `\"Perception_Spatial_Preview\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpatialGraphInteropFrameOfReferencePreview(::windows_core::IUnknown);
 impl SpatialGraphInteropFrameOfReferencePreview {
     pub fn CoordinateSystem(&self) -> ::windows_core::Result<super::SpatialCoordinateSystem> {
@@ -108,24 +97,8 @@ impl SpatialGraphInteropFrameOfReferencePreview {
         }
     }
 }
-impl ::core::cmp::PartialEq for SpatialGraphInteropFrameOfReferencePreview {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialGraphInteropFrameOfReferencePreview {}
-impl ::core::fmt::Debug for SpatialGraphInteropFrameOfReferencePreview {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialGraphInteropFrameOfReferencePreview").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SpatialGraphInteropFrameOfReferencePreview {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Preview.SpatialGraphInteropFrameOfReferencePreview;{a8271b23-735f-5729-a98e-e64ed189abc5})");
-}
-impl ::core::clone::Clone for SpatialGraphInteropFrameOfReferencePreview {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SpatialGraphInteropFrameOfReferencePreview {
     type Vtable = ISpatialGraphInteropFrameOfReferencePreview_Vtbl;

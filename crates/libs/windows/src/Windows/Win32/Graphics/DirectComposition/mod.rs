@@ -104,6 +104,7 @@ pub unsafe fn DCompositionWaitForCompositorClock(handles: ::core::option::Option
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionAffineTransform2DEffect(::windows_core::IUnknown);
 impl IDCompositionAffineTransform2DEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows_core::Result<()>
@@ -147,24 +148,8 @@ impl IDCompositionAffineTransform2DEffect {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionAffineTransform2DEffect, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
-impl ::core::cmp::PartialEq for IDCompositionAffineTransform2DEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionAffineTransform2DEffect {}
-impl ::core::fmt::Debug for IDCompositionAffineTransform2DEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionAffineTransform2DEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionAffineTransform2DEffect {
     type Vtable = IDCompositionAffineTransform2DEffect_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionAffineTransform2DEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionAffineTransform2DEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b74b9e8_cdd6_492f_bbbc_5ed32157026d);
@@ -192,6 +177,7 @@ pub struct IDCompositionAffineTransform2DEffect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionAnimation(::windows_core::IUnknown);
 impl IDCompositionAnimation {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
@@ -214,24 +200,8 @@ impl IDCompositionAnimation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionAnimation, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDCompositionAnimation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionAnimation {}
-impl ::core::fmt::Debug for IDCompositionAnimation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionAnimation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionAnimation {
     type Vtable = IDCompositionAnimation_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionAnimation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionAnimation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcbfd91d9_51b2_45e4_b3de_d19ccfb863c5);
@@ -249,6 +219,7 @@ pub struct IDCompositionAnimation_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionArithmeticCompositeEffect(::windows_core::IUnknown);
 impl IDCompositionArithmeticCompositeEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows_core::Result<()>
@@ -308,24 +279,8 @@ impl IDCompositionArithmeticCompositeEffect {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionArithmeticCompositeEffect, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
-impl ::core::cmp::PartialEq for IDCompositionArithmeticCompositeEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionArithmeticCompositeEffect {}
-impl ::core::fmt::Debug for IDCompositionArithmeticCompositeEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionArithmeticCompositeEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionArithmeticCompositeEffect {
     type Vtable = IDCompositionArithmeticCompositeEffect_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionArithmeticCompositeEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionArithmeticCompositeEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3b67dfa8_e3dd_4e61_b640_46c2f3d739dc);
@@ -353,6 +308,7 @@ pub struct IDCompositionArithmeticCompositeEffect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionBlendEffect(::windows_core::IUnknown);
 impl IDCompositionBlendEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows_core::Result<()>
@@ -368,24 +324,8 @@ impl IDCompositionBlendEffect {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionBlendEffect, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
-impl ::core::cmp::PartialEq for IDCompositionBlendEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionBlendEffect {}
-impl ::core::fmt::Debug for IDCompositionBlendEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionBlendEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionBlendEffect {
     type Vtable = IDCompositionBlendEffect_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionBlendEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionBlendEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33ecdc0a_578a_4a11_9c14_0cb90517f9c5);
@@ -401,6 +341,7 @@ pub struct IDCompositionBlendEffect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionBrightnessEffect(::windows_core::IUnknown);
 impl IDCompositionBrightnessEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows_core::Result<()>
@@ -457,24 +398,8 @@ impl IDCompositionBrightnessEffect {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionBrightnessEffect, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
-impl ::core::cmp::PartialEq for IDCompositionBrightnessEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionBrightnessEffect {}
-impl ::core::fmt::Debug for IDCompositionBrightnessEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionBrightnessEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionBrightnessEffect {
     type Vtable = IDCompositionBrightnessEffect_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionBrightnessEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionBrightnessEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6027496e_cb3a_49ab_934f_d798da4f7da6);
@@ -502,27 +427,12 @@ pub struct IDCompositionBrightnessEffect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionClip(::windows_core::IUnknown);
 impl IDCompositionClip {}
 ::windows_core::imp::interface_hierarchy!(IDCompositionClip, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDCompositionClip {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionClip {}
-impl ::core::fmt::Debug for IDCompositionClip {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionClip").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionClip {
     type Vtable = IDCompositionClip_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionClip {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionClip {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64ac3703_9d3f_45ec_a109_7cac0e7a13a7);
@@ -534,6 +444,7 @@ pub struct IDCompositionClip_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionColorMatrixEffect(::windows_core::IUnknown);
 impl IDCompositionColorMatrixEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows_core::Result<()>
@@ -571,24 +482,8 @@ impl IDCompositionColorMatrixEffect {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionColorMatrixEffect, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
-impl ::core::cmp::PartialEq for IDCompositionColorMatrixEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionColorMatrixEffect {}
-impl ::core::fmt::Debug for IDCompositionColorMatrixEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionColorMatrixEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionColorMatrixEffect {
     type Vtable = IDCompositionColorMatrixEffect_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionColorMatrixEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionColorMatrixEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc1170a22_3ce2_4966_90d4_55408bfc84c4);
@@ -614,6 +509,7 @@ pub struct IDCompositionColorMatrixEffect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionCompositeEffect(::windows_core::IUnknown);
 impl IDCompositionCompositeEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows_core::Result<()>
@@ -629,24 +525,8 @@ impl IDCompositionCompositeEffect {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionCompositeEffect, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
-impl ::core::cmp::PartialEq for IDCompositionCompositeEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionCompositeEffect {}
-impl ::core::fmt::Debug for IDCompositionCompositeEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionCompositeEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionCompositeEffect {
     type Vtable = IDCompositionCompositeEffect_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionCompositeEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionCompositeEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x576616c0_a231_494d_a38d_00fd5ec4db46);
@@ -662,6 +542,7 @@ pub struct IDCompositionCompositeEffect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionDelegatedInkTrail(::windows_core::IUnknown);
 impl IDCompositionDelegatedInkTrail {
     pub unsafe fn AddTrailPoints(&self, inkpoints: &[DCompositionInkTrailPoint]) -> ::windows_core::Result<u32> {
@@ -682,24 +563,8 @@ impl IDCompositionDelegatedInkTrail {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionDelegatedInkTrail, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDCompositionDelegatedInkTrail {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionDelegatedInkTrail {}
-impl ::core::fmt::Debug for IDCompositionDelegatedInkTrail {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionDelegatedInkTrail").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionDelegatedInkTrail {
     type Vtable = IDCompositionDelegatedInkTrail_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionDelegatedInkTrail {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionDelegatedInkTrail {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2448e9b_547d_4057_8cf5_8144ede1c2da);
@@ -718,6 +583,7 @@ pub struct IDCompositionDelegatedInkTrail_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionDesktopDevice(::windows_core::IUnknown);
 impl IDCompositionDesktopDevice {
     pub unsafe fn Commit(&self) -> ::windows_core::Result<()> {
@@ -840,24 +706,8 @@ impl IDCompositionDesktopDevice {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionDesktopDevice, ::windows_core::IUnknown, IDCompositionDevice2);
-impl ::core::cmp::PartialEq for IDCompositionDesktopDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionDesktopDevice {}
-impl ::core::fmt::Debug for IDCompositionDesktopDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionDesktopDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionDesktopDevice {
     type Vtable = IDCompositionDesktopDevice_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionDesktopDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionDesktopDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5f4633fe_1e08_4cb8_8c75_ce24333f5602);
@@ -881,6 +731,7 @@ pub struct IDCompositionDesktopDevice_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionDevice(::windows_core::IUnknown);
 impl IDCompositionDevice {
     pub unsafe fn Commit(&self) -> ::windows_core::Result<()> {
@@ -1002,24 +853,8 @@ impl IDCompositionDevice {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionDevice, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDCompositionDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionDevice {}
-impl ::core::fmt::Debug for IDCompositionDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionDevice {
     type Vtable = IDCompositionDevice_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc37ea93a_e7aa_450d_b16f_9746cb0407f3);
@@ -1076,6 +911,7 @@ pub struct IDCompositionDevice_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionDevice2(::windows_core::IUnknown);
 impl IDCompositionDevice2 {
     pub unsafe fn Commit(&self) -> ::windows_core::Result<()> {
@@ -1170,24 +1006,8 @@ impl IDCompositionDevice2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionDevice2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDCompositionDevice2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionDevice2 {}
-impl ::core::fmt::Debug for IDCompositionDevice2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionDevice2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionDevice2 {
     type Vtable = IDCompositionDevice2_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionDevice2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionDevice2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75f6468d_1b8e_447c_9bc6_75fea80b5b25);
@@ -1229,6 +1049,7 @@ pub struct IDCompositionDevice2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionDevice3(::windows_core::IUnknown);
 impl IDCompositionDevice3 {
     pub unsafe fn Commit(&self) -> ::windows_core::Result<()> {
@@ -1375,24 +1196,8 @@ impl IDCompositionDevice3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionDevice3, ::windows_core::IUnknown, IDCompositionDevice2);
-impl ::core::cmp::PartialEq for IDCompositionDevice3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionDevice3 {}
-impl ::core::fmt::Debug for IDCompositionDevice3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionDevice3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionDevice3 {
     type Vtable = IDCompositionDevice3_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionDevice3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionDevice3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0987cb06_f916_48bf_8d35_ce7641781bd9);
@@ -1417,6 +1222,7 @@ pub struct IDCompositionDevice3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionDeviceDebug(::windows_core::IUnknown);
 impl IDCompositionDeviceDebug {
     pub unsafe fn EnableDebugCounters(&self) -> ::windows_core::Result<()> {
@@ -1427,24 +1233,8 @@ impl IDCompositionDeviceDebug {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionDeviceDebug, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDCompositionDeviceDebug {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionDeviceDebug {}
-impl ::core::fmt::Debug for IDCompositionDeviceDebug {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionDeviceDebug").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionDeviceDebug {
     type Vtable = IDCompositionDeviceDebug_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionDeviceDebug {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionDeviceDebug {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1a3c64a_224f_4a81_9773_4f03a89d3c6c);
@@ -1458,27 +1248,12 @@ pub struct IDCompositionDeviceDebug_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionEffect(::windows_core::IUnknown);
 impl IDCompositionEffect {}
 ::windows_core::imp::interface_hierarchy!(IDCompositionEffect, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDCompositionEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionEffect {}
-impl ::core::fmt::Debug for IDCompositionEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionEffect {
     type Vtable = IDCompositionEffect_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xec81b08f_bfcb_4e8d_b193_a915587999e8);
@@ -1490,6 +1265,7 @@ pub struct IDCompositionEffect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionEffectGroup(::windows_core::IUnknown);
 impl IDCompositionEffectGroup {
     pub unsafe fn SetOpacity<P0>(&self, animation: P0) -> ::windows_core::Result<()>
@@ -1509,24 +1285,8 @@ impl IDCompositionEffectGroup {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionEffectGroup, ::windows_core::IUnknown, IDCompositionEffect);
-impl ::core::cmp::PartialEq for IDCompositionEffectGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionEffectGroup {}
-impl ::core::fmt::Debug for IDCompositionEffectGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionEffectGroup").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionEffectGroup {
     type Vtable = IDCompositionEffectGroup_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionEffectGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionEffectGroup {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa7929a74_e6b2_4bd6_8b95_4040119ca34d);
@@ -1541,6 +1301,7 @@ pub struct IDCompositionEffectGroup_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionFilterEffect(::windows_core::IUnknown);
 impl IDCompositionFilterEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows_core::Result<()>
@@ -1551,24 +1312,8 @@ impl IDCompositionFilterEffect {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionFilterEffect, ::windows_core::IUnknown, IDCompositionEffect);
-impl ::core::cmp::PartialEq for IDCompositionFilterEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionFilterEffect {}
-impl ::core::fmt::Debug for IDCompositionFilterEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionFilterEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionFilterEffect {
     type Vtable = IDCompositionFilterEffect_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionFilterEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionFilterEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30c421d5_8cb2_4e9f_b133_37be270d4ac2);
@@ -1581,6 +1326,7 @@ pub struct IDCompositionFilterEffect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionGaussianBlurEffect(::windows_core::IUnknown);
 impl IDCompositionGaussianBlurEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows_core::Result<()>
@@ -1605,24 +1351,8 @@ impl IDCompositionGaussianBlurEffect {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionGaussianBlurEffect, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
-impl ::core::cmp::PartialEq for IDCompositionGaussianBlurEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionGaussianBlurEffect {}
-impl ::core::fmt::Debug for IDCompositionGaussianBlurEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionGaussianBlurEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionGaussianBlurEffect {
     type Vtable = IDCompositionGaussianBlurEffect_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionGaussianBlurEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionGaussianBlurEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x45d4d0b7_1bd4_454e_8894_2bfa68443033);
@@ -1640,6 +1370,7 @@ pub struct IDCompositionGaussianBlurEffect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionHueRotationEffect(::windows_core::IUnknown);
 impl IDCompositionHueRotationEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows_core::Result<()>
@@ -1659,24 +1390,8 @@ impl IDCompositionHueRotationEffect {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionHueRotationEffect, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
-impl ::core::cmp::PartialEq for IDCompositionHueRotationEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionHueRotationEffect {}
-impl ::core::fmt::Debug for IDCompositionHueRotationEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionHueRotationEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionHueRotationEffect {
     type Vtable = IDCompositionHueRotationEffect_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionHueRotationEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionHueRotationEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6db9f920_0770_4781_b0c6_381912f9d167);
@@ -1690,6 +1405,7 @@ pub struct IDCompositionHueRotationEffect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionInkTrailDevice(::windows_core::IUnknown);
 impl IDCompositionInkTrailDevice {
     pub unsafe fn CreateDelegatedInkTrail(&self) -> ::windows_core::Result<IDCompositionDelegatedInkTrail> {
@@ -1705,24 +1421,8 @@ impl IDCompositionInkTrailDevice {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionInkTrailDevice, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDCompositionInkTrailDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionInkTrailDevice {}
-impl ::core::fmt::Debug for IDCompositionInkTrailDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionInkTrailDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionInkTrailDevice {
     type Vtable = IDCompositionInkTrailDevice_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionInkTrailDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionInkTrailDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdf0c7cec_cdeb_4d4a_b91c_721bf22f4e6c);
@@ -1736,6 +1436,7 @@ pub struct IDCompositionInkTrailDevice_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionLinearTransferEffect(::windows_core::IUnknown);
 impl IDCompositionLinearTransferEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows_core::Result<()>
@@ -1858,24 +1559,8 @@ impl IDCompositionLinearTransferEffect {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionLinearTransferEffect, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
-impl ::core::cmp::PartialEq for IDCompositionLinearTransferEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionLinearTransferEffect {}
-impl ::core::fmt::Debug for IDCompositionLinearTransferEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionLinearTransferEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionLinearTransferEffect {
     type Vtable = IDCompositionLinearTransferEffect_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionLinearTransferEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionLinearTransferEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4305ee5b_c4a0_4c88_9385_67124e017683);
@@ -1923,6 +1608,7 @@ pub struct IDCompositionLinearTransferEffect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionMatrixTransform(::windows_core::IUnknown);
 impl IDCompositionMatrixTransform {
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -1941,24 +1627,8 @@ impl IDCompositionMatrixTransform {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionMatrixTransform, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
-impl ::core::cmp::PartialEq for IDCompositionMatrixTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionMatrixTransform {}
-impl ::core::fmt::Debug for IDCompositionMatrixTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionMatrixTransform").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionMatrixTransform {
     type Vtable = IDCompositionMatrixTransform_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionMatrixTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionMatrixTransform {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x16cdff07_c503_419c_83f2_0965c7af1fa6);
@@ -1976,6 +1646,7 @@ pub struct IDCompositionMatrixTransform_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionMatrixTransform3D(::windows_core::IUnknown);
 impl IDCompositionMatrixTransform3D {
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -1994,24 +1665,8 @@ impl IDCompositionMatrixTransform3D {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionMatrixTransform3D, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
-impl ::core::cmp::PartialEq for IDCompositionMatrixTransform3D {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionMatrixTransform3D {}
-impl ::core::fmt::Debug for IDCompositionMatrixTransform3D {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionMatrixTransform3D").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionMatrixTransform3D {
     type Vtable = IDCompositionMatrixTransform3D_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionMatrixTransform3D {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionMatrixTransform3D {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4b3363f0_643b_41b7_b6e0_ccf22d34467c);
@@ -2029,6 +1684,7 @@ pub struct IDCompositionMatrixTransform3D_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionRectangleClip(::windows_core::IUnknown);
 impl IDCompositionRectangleClip {
     pub unsafe fn SetLeft<P0>(&self, animation: P0) -> ::windows_core::Result<()>
@@ -2141,24 +1797,8 @@ impl IDCompositionRectangleClip {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionRectangleClip, ::windows_core::IUnknown, IDCompositionClip);
-impl ::core::cmp::PartialEq for IDCompositionRectangleClip {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionRectangleClip {}
-impl ::core::fmt::Debug for IDCompositionRectangleClip {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionRectangleClip").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionRectangleClip {
     type Vtable = IDCompositionRectangleClip_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionRectangleClip {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionRectangleClip {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9842ad7d_d9cf_4908_aed7_48b51da5e7c2);
@@ -2194,6 +1834,7 @@ pub struct IDCompositionRectangleClip_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionRotateTransform(::windows_core::IUnknown);
 impl IDCompositionRotateTransform {
     pub unsafe fn SetAngle<P0>(&self, animation: P0) -> ::windows_core::Result<()>
@@ -2225,24 +1866,8 @@ impl IDCompositionRotateTransform {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionRotateTransform, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
-impl ::core::cmp::PartialEq for IDCompositionRotateTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionRotateTransform {}
-impl ::core::fmt::Debug for IDCompositionRotateTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionRotateTransform").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionRotateTransform {
     type Vtable = IDCompositionRotateTransform_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionRotateTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionRotateTransform {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x641ed83c_ae96_46c5_90dc_32774cc5c6d5);
@@ -2260,6 +1885,7 @@ pub struct IDCompositionRotateTransform_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionRotateTransform3D(::windows_core::IUnknown);
 impl IDCompositionRotateTransform3D {
     pub unsafe fn SetAngle<P0>(&self, animation: P0) -> ::windows_core::Result<()>
@@ -2327,24 +1953,8 @@ impl IDCompositionRotateTransform3D {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionRotateTransform3D, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
-impl ::core::cmp::PartialEq for IDCompositionRotateTransform3D {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionRotateTransform3D {}
-impl ::core::fmt::Debug for IDCompositionRotateTransform3D {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionRotateTransform3D").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionRotateTransform3D {
     type Vtable = IDCompositionRotateTransform3D_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionRotateTransform3D {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionRotateTransform3D {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd8f5b23f_d429_4a91_b55a_d2f45fd75b18);
@@ -2370,6 +1980,7 @@ pub struct IDCompositionRotateTransform3D_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionSaturationEffect(::windows_core::IUnknown);
 impl IDCompositionSaturationEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows_core::Result<()>
@@ -2389,24 +2000,8 @@ impl IDCompositionSaturationEffect {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionSaturationEffect, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
-impl ::core::cmp::PartialEq for IDCompositionSaturationEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionSaturationEffect {}
-impl ::core::fmt::Debug for IDCompositionSaturationEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionSaturationEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionSaturationEffect {
     type Vtable = IDCompositionSaturationEffect_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionSaturationEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionSaturationEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa08debda_3258_4fa4_9f16_9174d3fe93b1);
@@ -2420,6 +2015,7 @@ pub struct IDCompositionSaturationEffect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionScaleTransform(::windows_core::IUnknown);
 impl IDCompositionScaleTransform {
     pub unsafe fn SetScaleX<P0>(&self, animation: P0) -> ::windows_core::Result<()>
@@ -2460,24 +2056,8 @@ impl IDCompositionScaleTransform {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionScaleTransform, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
-impl ::core::cmp::PartialEq for IDCompositionScaleTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionScaleTransform {}
-impl ::core::fmt::Debug for IDCompositionScaleTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionScaleTransform").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionScaleTransform {
     type Vtable = IDCompositionScaleTransform_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionScaleTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionScaleTransform {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71fde914_40ef_45ef_bd51_68b037c339f9);
@@ -2497,6 +2077,7 @@ pub struct IDCompositionScaleTransform_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionScaleTransform3D(::windows_core::IUnknown);
 impl IDCompositionScaleTransform3D {
     pub unsafe fn SetScaleX<P0>(&self, animation: P0) -> ::windows_core::Result<()>
@@ -2555,24 +2136,8 @@ impl IDCompositionScaleTransform3D {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionScaleTransform3D, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
-impl ::core::cmp::PartialEq for IDCompositionScaleTransform3D {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionScaleTransform3D {}
-impl ::core::fmt::Debug for IDCompositionScaleTransform3D {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionScaleTransform3D").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionScaleTransform3D {
     type Vtable = IDCompositionScaleTransform3D_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionScaleTransform3D {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionScaleTransform3D {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a9e9ead_364b_4b15_a7c4_a1997f78b389);
@@ -2596,6 +2161,7 @@ pub struct IDCompositionScaleTransform3D_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionShadowEffect(::windows_core::IUnknown);
 impl IDCompositionShadowEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows_core::Result<()>
@@ -2656,24 +2222,8 @@ impl IDCompositionShadowEffect {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionShadowEffect, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
-impl ::core::cmp::PartialEq for IDCompositionShadowEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionShadowEffect {}
-impl ::core::fmt::Debug for IDCompositionShadowEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionShadowEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionShadowEffect {
     type Vtable = IDCompositionShadowEffect_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionShadowEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionShadowEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4ad18ac0_cfd2_4c2f_bb62_96e54fdb6879);
@@ -2699,6 +2249,7 @@ pub struct IDCompositionShadowEffect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionSkewTransform(::windows_core::IUnknown);
 impl IDCompositionSkewTransform {
     pub unsafe fn SetAngleX<P0>(&self, animation: P0) -> ::windows_core::Result<()>
@@ -2739,24 +2290,8 @@ impl IDCompositionSkewTransform {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionSkewTransform, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
-impl ::core::cmp::PartialEq for IDCompositionSkewTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionSkewTransform {}
-impl ::core::fmt::Debug for IDCompositionSkewTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionSkewTransform").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionSkewTransform {
     type Vtable = IDCompositionSkewTransform_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionSkewTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionSkewTransform {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe57aa735_dcdb_4c72_9c61_0591f58889ee);
@@ -2776,6 +2311,7 @@ pub struct IDCompositionSkewTransform_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionSurface(::windows_core::IUnknown);
 impl IDCompositionSurface {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2803,24 +2339,8 @@ impl IDCompositionSurface {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionSurface, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDCompositionSurface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionSurface {}
-impl ::core::fmt::Debug for IDCompositionSurface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionSurface").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionSurface {
     type Vtable = IDCompositionSurface_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionSurface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionSurface {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb8a4953_2c99_4f5a_96f5_4819027fa3ac);
@@ -2843,6 +2363,7 @@ pub struct IDCompositionSurface_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionSurfaceFactory(::windows_core::IUnknown);
 impl IDCompositionSurfaceFactory {
     #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
@@ -2859,24 +2380,8 @@ impl IDCompositionSurfaceFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionSurfaceFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDCompositionSurfaceFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionSurfaceFactory {}
-impl ::core::fmt::Debug for IDCompositionSurfaceFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionSurfaceFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionSurfaceFactory {
     type Vtable = IDCompositionSurfaceFactory_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionSurfaceFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionSurfaceFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe334bc12_3937_4e02_85eb_fcf4eb30d2c8);
@@ -2896,6 +2401,7 @@ pub struct IDCompositionSurfaceFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionTableTransferEffect(::windows_core::IUnknown);
 impl IDCompositionTableTransferEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows_core::Result<()>
@@ -2994,24 +2500,8 @@ impl IDCompositionTableTransferEffect {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionTableTransferEffect, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
-impl ::core::cmp::PartialEq for IDCompositionTableTransferEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionTableTransferEffect {}
-impl ::core::fmt::Debug for IDCompositionTableTransferEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionTableTransferEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionTableTransferEffect {
     type Vtable = IDCompositionTableTransferEffect_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionTableTransferEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionTableTransferEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b7e82e2_69c5_4eb4_a5f5_a7033f5132cd);
@@ -3055,6 +2545,7 @@ pub struct IDCompositionTableTransferEffect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionTarget(::windows_core::IUnknown);
 impl IDCompositionTarget {
     pub unsafe fn SetRoot<P0>(&self, visual: P0) -> ::windows_core::Result<()>
@@ -3065,24 +2556,8 @@ impl IDCompositionTarget {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionTarget, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDCompositionTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionTarget {}
-impl ::core::fmt::Debug for IDCompositionTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionTarget").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionTarget {
     type Vtable = IDCompositionTarget_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionTarget {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeacdd04c_117e_4e17_88f4_d1b12b0e3d89);
@@ -3095,27 +2570,12 @@ pub struct IDCompositionTarget_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionTransform(::windows_core::IUnknown);
 impl IDCompositionTransform {}
 ::windows_core::imp::interface_hierarchy!(IDCompositionTransform, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
-impl ::core::cmp::PartialEq for IDCompositionTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionTransform {}
-impl ::core::fmt::Debug for IDCompositionTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionTransform").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionTransform {
     type Vtable = IDCompositionTransform_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionTransform {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd55faa7_37e0_4c20_95d2_9be45bc33f55);
@@ -3127,27 +2587,12 @@ pub struct IDCompositionTransform_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionTransform3D(::windows_core::IUnknown);
 impl IDCompositionTransform3D {}
 ::windows_core::imp::interface_hierarchy!(IDCompositionTransform3D, ::windows_core::IUnknown, IDCompositionEffect);
-impl ::core::cmp::PartialEq for IDCompositionTransform3D {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionTransform3D {}
-impl ::core::fmt::Debug for IDCompositionTransform3D {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionTransform3D").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionTransform3D {
     type Vtable = IDCompositionTransform3D_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionTransform3D {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionTransform3D {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71185722_246b_41f2_aad1_0443f7f4bfc2);
@@ -3159,6 +2604,7 @@ pub struct IDCompositionTransform3D_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionTranslateTransform(::windows_core::IUnknown);
 impl IDCompositionTranslateTransform {
     pub unsafe fn SetOffsetX<P0>(&self, animation: P0) -> ::windows_core::Result<()>
@@ -3181,24 +2627,8 @@ impl IDCompositionTranslateTransform {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionTranslateTransform, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D, IDCompositionTransform);
-impl ::core::cmp::PartialEq for IDCompositionTranslateTransform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionTranslateTransform {}
-impl ::core::fmt::Debug for IDCompositionTranslateTransform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionTranslateTransform").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionTranslateTransform {
     type Vtable = IDCompositionTranslateTransform_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionTranslateTransform {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionTranslateTransform {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x06791122_c6f0_417d_8323_269e987f5954);
@@ -3214,6 +2644,7 @@ pub struct IDCompositionTranslateTransform_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionTranslateTransform3D(::windows_core::IUnknown);
 impl IDCompositionTranslateTransform3D {
     pub unsafe fn SetOffsetX<P0>(&self, animation: P0) -> ::windows_core::Result<()>
@@ -3245,24 +2676,8 @@ impl IDCompositionTranslateTransform3D {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionTranslateTransform3D, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionTransform3D);
-impl ::core::cmp::PartialEq for IDCompositionTranslateTransform3D {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionTranslateTransform3D {}
-impl ::core::fmt::Debug for IDCompositionTranslateTransform3D {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionTranslateTransform3D").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionTranslateTransform3D {
     type Vtable = IDCompositionTranslateTransform3D_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionTranslateTransform3D {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionTranslateTransform3D {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x91636d4b_9ba1_4532_aaf7_e3344994d788);
@@ -3280,6 +2695,7 @@ pub struct IDCompositionTranslateTransform3D_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionTurbulenceEffect(::windows_core::IUnknown);
 impl IDCompositionTurbulenceEffect {
     pub unsafe fn SetInput<P0>(&self, index: u32, input: P0, flags: u32) -> ::windows_core::Result<()>
@@ -3324,24 +2740,8 @@ impl IDCompositionTurbulenceEffect {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionTurbulenceEffect, ::windows_core::IUnknown, IDCompositionEffect, IDCompositionFilterEffect);
-impl ::core::cmp::PartialEq for IDCompositionTurbulenceEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionTurbulenceEffect {}
-impl ::core::fmt::Debug for IDCompositionTurbulenceEffect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionTurbulenceEffect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionTurbulenceEffect {
     type Vtable = IDCompositionTurbulenceEffect_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionTurbulenceEffect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionTurbulenceEffect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa6a55bda_c09c_49f3_9193_a41922c89715);
@@ -3375,6 +2775,7 @@ pub struct IDCompositionTurbulenceEffect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionVirtualSurface(::windows_core::IUnknown);
 impl IDCompositionVirtualSurface {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3410,24 +2811,8 @@ impl IDCompositionVirtualSurface {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionVirtualSurface, ::windows_core::IUnknown, IDCompositionSurface);
-impl ::core::cmp::PartialEq for IDCompositionVirtualSurface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionVirtualSurface {}
-impl ::core::fmt::Debug for IDCompositionVirtualSurface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionVirtualSurface").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionVirtualSurface {
     type Vtable = IDCompositionVirtualSurface_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionVirtualSurface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionVirtualSurface {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae471c51_5f53_4a24_8d3e_d0c39c30b3f0);
@@ -3444,6 +2829,7 @@ pub struct IDCompositionVirtualSurface_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionVisual(::windows_core::IUnknown);
 impl IDCompositionVisual {
     pub unsafe fn SetOffsetX<P0>(&self, animation: P0) -> ::windows_core::Result<()>
@@ -3534,24 +2920,8 @@ impl IDCompositionVisual {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionVisual, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDCompositionVisual {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionVisual {}
-impl ::core::fmt::Debug for IDCompositionVisual {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionVisual").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionVisual {
     type Vtable = IDCompositionVisual_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionVisual {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionVisual {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4d93059d_097b_4651_9a60_f0f25116e2f3);
@@ -3589,6 +2959,7 @@ pub struct IDCompositionVisual_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionVisual2(::windows_core::IUnknown);
 impl IDCompositionVisual2 {
     pub unsafe fn SetOffsetX<P0>(&self, animation: P0) -> ::windows_core::Result<()>
@@ -3685,24 +3056,8 @@ impl IDCompositionVisual2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionVisual2, ::windows_core::IUnknown, IDCompositionVisual);
-impl ::core::cmp::PartialEq for IDCompositionVisual2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionVisual2 {}
-impl ::core::fmt::Debug for IDCompositionVisual2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionVisual2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionVisual2 {
     type Vtable = IDCompositionVisual2_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionVisual2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionVisual2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe8de1639_4331_4b26_bc5f_6a321d347a85);
@@ -3716,6 +3071,7 @@ pub struct IDCompositionVisual2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionVisual3(::windows_core::IUnknown);
 impl IDCompositionVisual3 {
     pub unsafe fn SetOffsetX<P0>(&self, animation: P0) -> ::windows_core::Result<()>
@@ -3866,24 +3222,8 @@ impl IDCompositionVisual3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionVisual3, ::windows_core::IUnknown, IDCompositionVisual, IDCompositionVisual2, IDCompositionVisualDebug);
-impl ::core::cmp::PartialEq for IDCompositionVisual3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionVisual3 {}
-impl ::core::fmt::Debug for IDCompositionVisual3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionVisual3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionVisual3 {
     type Vtable = IDCompositionVisual3_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionVisual3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionVisual3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2775f462_b6c1_4015_b0be_b3e7d6a4976d);
@@ -3909,6 +3249,7 @@ pub struct IDCompositionVisual3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCompositionVisualDebug(::windows_core::IUnknown);
 impl IDCompositionVisualDebug {
     pub unsafe fn SetOffsetX<P0>(&self, animation: P0) -> ::windows_core::Result<()>
@@ -4019,24 +3360,8 @@ impl IDCompositionVisualDebug {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCompositionVisualDebug, ::windows_core::IUnknown, IDCompositionVisual, IDCompositionVisual2);
-impl ::core::cmp::PartialEq for IDCompositionVisualDebug {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCompositionVisualDebug {}
-impl ::core::fmt::Debug for IDCompositionVisualDebug {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCompositionVisualDebug").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCompositionVisualDebug {
     type Vtable = IDCompositionVisualDebug_Vtbl;
-}
-impl ::core::clone::Clone for IDCompositionVisualDebug {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCompositionVisualDebug {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfed2b808_5eb4_43a0_aea3_35f65280f91b);

@@ -2,14 +2,10 @@
 pub mod Extensions;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIppAttributeError(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IIppAttributeError {
     type Vtable = IIppAttributeError_Vtbl;
-}
-impl ::core::clone::Clone for IIppAttributeError {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIppAttributeError {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x750feda1_9eef_5c39_93e4_46149bbcef27);
@@ -27,14 +23,10 @@ pub struct IIppAttributeError_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIppAttributeValue(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IIppAttributeValue {
     type Vtable = IIppAttributeValue_Vtbl;
-}
-impl ::core::clone::Clone for IIppAttributeValue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIppAttributeValue {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x99407fed_e2bb_59a3_988b_28a974052a26);
@@ -119,14 +111,10 @@ pub struct IIppAttributeValue_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIppAttributeValueStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IIppAttributeValueStatics {
     type Vtable = IIppAttributeValueStatics_Vtbl;
-}
-impl ::core::clone::Clone for IIppAttributeValueStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIppAttributeValueStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x10d43942_dd94_5998_b235_afafb6fa7935);
@@ -243,14 +231,10 @@ pub struct IIppAttributeValueStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIppIntegerRange(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IIppIntegerRange {
     type Vtable = IIppIntegerRange_Vtbl;
-}
-impl ::core::clone::Clone for IIppIntegerRange {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIppIntegerRange {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92907346_c3ea_5ed6_bdb1_3752c62c6f7f);
@@ -264,14 +248,10 @@ pub struct IIppIntegerRange_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIppIntegerRangeFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IIppIntegerRangeFactory {
     type Vtable = IIppIntegerRangeFactory_Vtbl;
-}
-impl ::core::clone::Clone for IIppIntegerRangeFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIppIntegerRangeFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75d4ecae_f87e_54ad_b5d0_465204db7553);
@@ -284,14 +264,10 @@ pub struct IIppIntegerRangeFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIppPrintDevice(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IIppPrintDevice {
     type Vtable = IIppPrintDevice_Vtbl;
-}
-impl ::core::clone::Clone for IIppPrintDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIppPrintDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd748ac56_76f3_5dc6_afd4_c2a8686b9359);
@@ -324,14 +300,10 @@ pub struct IIppPrintDevice_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIppPrintDevice2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IIppPrintDevice2 {
     type Vtable = IIppPrintDevice2_Vtbl;
-}
-impl ::core::clone::Clone for IIppPrintDevice2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIppPrintDevice2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf7c844c9_9d21_5c63_ac20_3676915be2d7);
@@ -347,14 +319,10 @@ pub struct IIppPrintDevice2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIppPrintDeviceStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IIppPrintDeviceStatics {
     type Vtable = IIppPrintDeviceStatics_Vtbl;
-}
-impl ::core::clone::Clone for IIppPrintDeviceStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIppPrintDeviceStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7dc19f08_7f20_52ab_94a7_894b83b2a17e);
@@ -370,14 +338,10 @@ pub struct IIppPrintDeviceStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIppResolution(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IIppResolution {
     type Vtable = IIppResolution_Vtbl;
-}
-impl ::core::clone::Clone for IIppResolution {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIppResolution {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb493f86_6bf3_56f5_86ce_263d08aead63);
@@ -392,14 +356,10 @@ pub struct IIppResolution_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIppResolutionFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IIppResolutionFactory {
     type Vtable = IIppResolutionFactory_Vtbl;
-}
-impl ::core::clone::Clone for IIppResolutionFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIppResolutionFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe481c2ae_251a_5326_b173_95543ed99a35);
@@ -412,14 +372,10 @@ pub struct IIppResolutionFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIppSetAttributesResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IIppSetAttributesResult {
     type Vtable = IIppSetAttributesResult_Vtbl;
-}
-impl ::core::clone::Clone for IIppSetAttributesResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIppSetAttributesResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d1c7f55_aa9d_58a3_90e9_17bdc5281f07);
@@ -436,14 +392,10 @@ pub struct IIppSetAttributesResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIppTextWithLanguage(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IIppTextWithLanguage {
     type Vtable = IIppTextWithLanguage_Vtbl;
-}
-impl ::core::clone::Clone for IIppTextWithLanguage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIppTextWithLanguage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x326447a6_5149_5936_90e8_0c736036bf77);
@@ -457,14 +409,10 @@ pub struct IIppTextWithLanguage_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIppTextWithLanguageFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IIppTextWithLanguageFactory {
     type Vtable = IIppTextWithLanguageFactory_Vtbl;
-}
-impl ::core::clone::Clone for IIppTextWithLanguageFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIppTextWithLanguageFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xca4a1e8d_2968_5775_997c_8a46f1a574ed);
@@ -477,14 +425,10 @@ pub struct IIppTextWithLanguageFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPageConfigurationSettings(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPageConfigurationSettings {
     type Vtable = IPageConfigurationSettings_Vtbl;
-}
-impl ::core::clone::Clone for IPageConfigurationSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPageConfigurationSettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb6fc1e02_5331_54ff_95a0_1fcb76bb97a9);
@@ -500,14 +444,10 @@ pub struct IPageConfigurationSettings_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPdlPassthroughProvider(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPdlPassthroughProvider {
     type Vtable = IPdlPassthroughProvider_Vtbl;
-}
-impl ::core::clone::Clone for IPdlPassthroughProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPdlPassthroughProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x23c71dd2_6117_553f_9378_180af5849a49);
@@ -531,14 +471,10 @@ pub struct IPdlPassthroughProvider_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPdlPassthroughTarget(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPdlPassthroughTarget {
     type Vtable = IPdlPassthroughTarget_Vtbl;
-}
-impl ::core::clone::Clone for IPdlPassthroughTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPdlPassthroughTarget {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9840be79_67f8_5385_a5b9_e8c96e0fca76);
@@ -556,14 +492,10 @@ pub struct IPdlPassthroughTarget_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrint3DDevice(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPrint3DDevice {
     type Vtable = IPrint3DDevice_Vtbl;
-}
-impl ::core::clone::Clone for IPrint3DDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrint3DDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x041c3d19_9713_42a2_9813_7dc3337428d3);
@@ -576,14 +508,10 @@ pub struct IPrint3DDevice_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrint3DDeviceStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPrint3DDeviceStatics {
     type Vtable = IPrint3DDeviceStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPrint3DDeviceStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrint3DDeviceStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfde3620a_67cd_41b7_a344_5150a1fd75b5);
@@ -600,14 +528,10 @@ pub struct IPrint3DDeviceStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPrintSchema(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPrintSchema {
     type Vtable = IPrintSchema_Vtbl;
-}
-impl ::core::clone::Clone for IPrintSchema {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPrintSchema {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2b98316_26b8_4bfb_8138_9f962c22a35b);
@@ -631,6 +555,7 @@ pub struct IPrintSchema_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IppAttributeError(::windows_core::IUnknown);
 impl IppAttributeError {
     pub fn Reason(&self) -> ::windows_core::Result<IppAttributeErrorReason> {
@@ -657,24 +582,8 @@ impl IppAttributeError {
         }
     }
 }
-impl ::core::cmp::PartialEq for IppAttributeError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IppAttributeError {}
-impl ::core::fmt::Debug for IppAttributeError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppAttributeError").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IppAttributeError {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppAttributeError;{750feda1-9eef-5c39-93e4-46149bbcef27})");
-}
-impl ::core::clone::Clone for IppAttributeError {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for IppAttributeError {
     type Vtable = IIppAttributeError_Vtbl;
@@ -690,6 +599,7 @@ unsafe impl ::core::marker::Send for IppAttributeError {}
 unsafe impl ::core::marker::Sync for IppAttributeError {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IppAttributeValue(::windows_core::IUnknown);
 impl IppAttributeValue {
     pub fn Kind(&self) -> ::windows_core::Result<IppAttributeValueKind> {
@@ -1220,24 +1130,8 @@ impl IppAttributeValue {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for IppAttributeValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IppAttributeValue {}
-impl ::core::fmt::Debug for IppAttributeValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppAttributeValue").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IppAttributeValue {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppAttributeValue;{99407fed-e2bb-59a3-988b-28a974052a26})");
-}
-impl ::core::clone::Clone for IppAttributeValue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for IppAttributeValue {
     type Vtable = IIppAttributeValue_Vtbl;
@@ -1253,6 +1147,7 @@ unsafe impl ::core::marker::Send for IppAttributeValue {}
 unsafe impl ::core::marker::Sync for IppAttributeValue {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IppIntegerRange(::windows_core::IUnknown);
 impl IppIntegerRange {
     pub fn Start(&self) -> ::windows_core::Result<i32> {
@@ -1281,24 +1176,8 @@ impl IppIntegerRange {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for IppIntegerRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IppIntegerRange {}
-impl ::core::fmt::Debug for IppIntegerRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppIntegerRange").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IppIntegerRange {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppIntegerRange;{92907346-c3ea-5ed6-bdb1-3752c62c6f7f})");
-}
-impl ::core::clone::Clone for IppIntegerRange {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for IppIntegerRange {
     type Vtable = IIppIntegerRange_Vtbl;
@@ -1314,6 +1193,7 @@ unsafe impl ::core::marker::Send for IppIntegerRange {}
 unsafe impl ::core::marker::Sync for IppIntegerRange {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IppPrintDevice(::windows_core::IUnknown);
 impl IppPrintDevice {
     pub fn PrinterName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1438,24 +1318,8 @@ impl IppPrintDevice {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for IppPrintDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IppPrintDevice {}
-impl ::core::fmt::Debug for IppPrintDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppPrintDevice").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IppPrintDevice {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppPrintDevice;{d748ac56-76f3-5dc6-afd4-c2a8686b9359})");
-}
-impl ::core::clone::Clone for IppPrintDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for IppPrintDevice {
     type Vtable = IIppPrintDevice_Vtbl;
@@ -1471,6 +1335,7 @@ unsafe impl ::core::marker::Send for IppPrintDevice {}
 unsafe impl ::core::marker::Sync for IppPrintDevice {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IppResolution(::windows_core::IUnknown);
 impl IppResolution {
     pub fn Width(&self) -> ::windows_core::Result<i32> {
@@ -1506,24 +1371,8 @@ impl IppResolution {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for IppResolution {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IppResolution {}
-impl ::core::fmt::Debug for IppResolution {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppResolution").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IppResolution {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppResolution;{cb493f86-6bf3-56f5-86ce-263d08aead63})");
-}
-impl ::core::clone::Clone for IppResolution {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for IppResolution {
     type Vtable = IIppResolution_Vtbl;
@@ -1539,6 +1388,7 @@ unsafe impl ::core::marker::Send for IppResolution {}
 unsafe impl ::core::marker::Sync for IppResolution {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IppSetAttributesResult(::windows_core::IUnknown);
 impl IppSetAttributesResult {
     pub fn Succeeded(&self) -> ::windows_core::Result<bool> {
@@ -1558,24 +1408,8 @@ impl IppSetAttributesResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for IppSetAttributesResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IppSetAttributesResult {}
-impl ::core::fmt::Debug for IppSetAttributesResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppSetAttributesResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IppSetAttributesResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppSetAttributesResult;{7d1c7f55-aa9d-58a3-90e9-17bdc5281f07})");
-}
-impl ::core::clone::Clone for IppSetAttributesResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for IppSetAttributesResult {
     type Vtable = IIppSetAttributesResult_Vtbl;
@@ -1591,6 +1425,7 @@ unsafe impl ::core::marker::Send for IppSetAttributesResult {}
 unsafe impl ::core::marker::Sync for IppSetAttributesResult {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IppTextWithLanguage(::windows_core::IUnknown);
 impl IppTextWithLanguage {
     pub fn Language(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1619,24 +1454,8 @@ impl IppTextWithLanguage {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for IppTextWithLanguage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IppTextWithLanguage {}
-impl ::core::fmt::Debug for IppTextWithLanguage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppTextWithLanguage").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IppTextWithLanguage {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.IppTextWithLanguage;{326447a6-5149-5936-90e8-0c736036bf77})");
-}
-impl ::core::clone::Clone for IppTextWithLanguage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for IppTextWithLanguage {
     type Vtable = IIppTextWithLanguage_Vtbl;
@@ -1652,6 +1471,7 @@ unsafe impl ::core::marker::Send for IppTextWithLanguage {}
 unsafe impl ::core::marker::Sync for IppTextWithLanguage {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PageConfigurationSettings(::windows_core::IUnknown);
 impl PageConfigurationSettings {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1684,24 +1504,8 @@ impl PageConfigurationSettings {
         unsafe { (::windows_core::Interface::vtable(this).SetSizeSource)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for PageConfigurationSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PageConfigurationSettings {}
-impl ::core::fmt::Debug for PageConfigurationSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PageConfigurationSettings").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PageConfigurationSettings {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PageConfigurationSettings;{b6fc1e02-5331-54ff-95a0-1fcb76bb97a9})");
-}
-impl ::core::clone::Clone for PageConfigurationSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PageConfigurationSettings {
     type Vtable = IPageConfigurationSettings_Vtbl;
@@ -1717,6 +1521,7 @@ unsafe impl ::core::marker::Send for PageConfigurationSettings {}
 unsafe impl ::core::marker::Sync for PageConfigurationSettings {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PdlPassthroughProvider(::windows_core::IUnknown);
 impl PdlPassthroughProvider {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1755,24 +1560,8 @@ impl PdlPassthroughProvider {
         }
     }
 }
-impl ::core::cmp::PartialEq for PdlPassthroughProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PdlPassthroughProvider {}
-impl ::core::fmt::Debug for PdlPassthroughProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PdlPassthroughProvider").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PdlPassthroughProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PdlPassthroughProvider;{23c71dd2-6117-553f-9378-180af5849a49})");
-}
-impl ::core::clone::Clone for PdlPassthroughProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PdlPassthroughProvider {
     type Vtable = IPdlPassthroughProvider_Vtbl;
@@ -1788,6 +1577,7 @@ unsafe impl ::core::marker::Send for PdlPassthroughProvider {}
 unsafe impl ::core::marker::Sync for PdlPassthroughProvider {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PdlPassthroughTarget(::windows_core::IUnknown);
 impl PdlPassthroughTarget {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1817,24 +1607,8 @@ impl PdlPassthroughTarget {
         unsafe { (::windows_core::Interface::vtable(this).Submit)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for PdlPassthroughTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PdlPassthroughTarget {}
-impl ::core::fmt::Debug for PdlPassthroughTarget {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PdlPassthroughTarget").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PdlPassthroughTarget {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PdlPassthroughTarget;{9840be79-67f8-5385-a5b9-e8c96e0fca76})");
-}
-impl ::core::clone::Clone for PdlPassthroughTarget {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PdlPassthroughTarget {
     type Vtable = IPdlPassthroughTarget_Vtbl;
@@ -1852,6 +1626,7 @@ unsafe impl ::core::marker::Send for PdlPassthroughTarget {}
 unsafe impl ::core::marker::Sync for PdlPassthroughTarget {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Print3DDevice(::windows_core::IUnknown);
 impl Print3DDevice {
     pub fn PrintSchema(&self) -> ::windows_core::Result<PrintSchema> {
@@ -1881,24 +1656,8 @@ impl Print3DDevice {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for Print3DDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Print3DDevice {}
-impl ::core::fmt::Debug for Print3DDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DDevice").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Print3DDevice {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.Print3DDevice;{041c3d19-9713-42a2-9813-7dc3337428d3})");
-}
-impl ::core::clone::Clone for Print3DDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Print3DDevice {
     type Vtable = IPrint3DDevice_Vtbl;
@@ -1914,6 +1673,7 @@ unsafe impl ::core::marker::Send for Print3DDevice {}
 unsafe impl ::core::marker::Sync for Print3DDevice {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PrintSchema(::windows_core::IUnknown);
 impl PrintSchema {
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -1950,24 +1710,8 @@ impl PrintSchema {
         }
     }
 }
-impl ::core::cmp::PartialEq for PrintSchema {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintSchema {}
-impl ::core::fmt::Debug for PrintSchema {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintSchema").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PrintSchema {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Printers.PrintSchema;{c2b98316-26b8-4bfb-8138-9f962c22a35b})");
-}
-impl ::core::clone::Clone for PrintSchema {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PrintSchema {
     type Vtable = IPrintSchema_Vtbl;

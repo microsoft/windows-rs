@@ -68,6 +68,7 @@ pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, 
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IReferenceClock(::windows_core::IUnknown);
 impl IReferenceClock {
     pub unsafe fn GetTime(&self) -> ::windows_core::Result<i64> {
@@ -97,24 +98,8 @@ impl IReferenceClock {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IReferenceClock, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IReferenceClock {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IReferenceClock {}
-impl ::core::fmt::Debug for IReferenceClock {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IReferenceClock").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IReferenceClock {
     type Vtable = IReferenceClock_Vtbl;
-}
-impl ::core::clone::Clone for IReferenceClock {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IReferenceClock {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x56a86897_0ad4_11ce_b03a_0020af0ba770);
@@ -136,6 +121,7 @@ pub struct IReferenceClock_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IReferenceClock2(::windows_core::IUnknown);
 impl IReferenceClock2 {
     pub unsafe fn GetTime(&self) -> ::windows_core::Result<i64> {
@@ -165,24 +151,8 @@ impl IReferenceClock2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IReferenceClock2, ::windows_core::IUnknown, IReferenceClock);
-impl ::core::cmp::PartialEq for IReferenceClock2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IReferenceClock2 {}
-impl ::core::fmt::Debug for IReferenceClock2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IReferenceClock2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IReferenceClock2 {
     type Vtable = IReferenceClock2_Vtbl;
-}
-impl ::core::clone::Clone for IReferenceClock2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IReferenceClock2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36b73885_c2c8_11cf_8b46_00805f6cef60);
@@ -194,6 +164,7 @@ pub struct IReferenceClock2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IReferenceClockTimerControl(::windows_core::IUnknown);
 impl IReferenceClockTimerControl {
     pub unsafe fn SetDefaultTimerResolution(&self, timerresolution: i64) -> ::windows_core::Result<()> {
@@ -205,24 +176,8 @@ impl IReferenceClockTimerControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IReferenceClockTimerControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IReferenceClockTimerControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IReferenceClockTimerControl {}
-impl ::core::fmt::Debug for IReferenceClockTimerControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IReferenceClockTimerControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IReferenceClockTimerControl {
     type Vtable = IReferenceClockTimerControl_Vtbl;
-}
-impl ::core::clone::Clone for IReferenceClockTimerControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IReferenceClockTimerControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xebec459c_2eca_4d42_a8af_30df557614b8);

@@ -10,6 +10,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICreateDeviceAccessAsync(::windows_core::IUnknown);
 impl ICreateDeviceAccessAsync {
     pub unsafe fn Cancel(&self) -> ::windows_core::Result<()> {
@@ -30,24 +31,8 @@ impl ICreateDeviceAccessAsync {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICreateDeviceAccessAsync, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICreateDeviceAccessAsync {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICreateDeviceAccessAsync {}
-impl ::core::fmt::Debug for ICreateDeviceAccessAsync {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICreateDeviceAccessAsync").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICreateDeviceAccessAsync {
     type Vtable = ICreateDeviceAccessAsync_Vtbl;
-}
-impl ::core::clone::Clone for ICreateDeviceAccessAsync {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICreateDeviceAccessAsync {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3474628f_683d_42d2_abcb_db018c6503bc);
@@ -63,6 +48,7 @@ pub struct ICreateDeviceAccessAsync_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceIoControl(::windows_core::IUnknown);
 impl IDeviceIoControl {
     pub unsafe fn DeviceIoControlSync(&self, iocontrolcode: u32, inputbuffer: ::core::option::Option<&[u8]>, outputbuffer: ::core::option::Option<&mut [u8]>, bytesreturned: *mut u32) -> ::windows_core::Result<()> {
@@ -89,24 +75,8 @@ impl IDeviceIoControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDeviceIoControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDeviceIoControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDeviceIoControl {}
-impl ::core::fmt::Debug for IDeviceIoControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDeviceIoControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDeviceIoControl {
     type Vtable = IDeviceIoControl_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceIoControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceIoControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9eefe161_23ab_4f18_9b49_991b586ae970);
@@ -121,6 +91,7 @@ pub struct IDeviceIoControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAccess\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceRequestCompletionCallback(::windows_core::IUnknown);
 impl IDeviceRequestCompletionCallback {
     pub unsafe fn Invoke(&self, requestresult: ::windows_core::HRESULT, bytesreturned: u32) -> ::windows_core::Result<()> {
@@ -128,24 +99,8 @@ impl IDeviceRequestCompletionCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDeviceRequestCompletionCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDeviceRequestCompletionCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDeviceRequestCompletionCallback {}
-impl ::core::fmt::Debug for IDeviceRequestCompletionCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDeviceRequestCompletionCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDeviceRequestCompletionCallback {
     type Vtable = IDeviceRequestCompletionCallback_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceRequestCompletionCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceRequestCompletionCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x999bad24_9acd_45bb_8669_2a2fc0288b04);

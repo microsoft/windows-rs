@@ -18,14 +18,10 @@ pub mod Vpn;
 pub mod XboxLive;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEndpointPair(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEndpointPair {
     type Vtable = IEndpointPair_Vtbl;
-}
-impl ::core::clone::Clone for IEndpointPair {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEndpointPair {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33a0aa36_f8fa_4b30_b856_76517c3bd06d);
@@ -45,14 +41,10 @@ pub struct IEndpointPair_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEndpointPairFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEndpointPairFactory {
     type Vtable = IEndpointPairFactory_Vtbl;
-}
-impl ::core::clone::Clone for IEndpointPairFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEndpointPairFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb609d971_64e0_442b_aa6f_cc8c8f181f78);
@@ -65,14 +57,10 @@ pub struct IEndpointPairFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostName(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHostName {
     type Vtable = IHostName_Vtbl;
-}
-impl ::core::clone::Clone for IHostName {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostName {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbf8ecaad_ed96_49a7_9084_d416cae88dcb);
@@ -93,14 +81,10 @@ pub struct IHostName_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostNameFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHostNameFactory {
     type Vtable = IHostNameFactory_Vtbl;
-}
-impl ::core::clone::Clone for IHostNameFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostNameFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x458c23ed_712f_4576_adf1_c20b2c643558);
@@ -113,14 +97,10 @@ pub struct IHostNameFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostNameStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHostNameStatics {
     type Vtable = IHostNameStatics_Vtbl;
-}
-impl ::core::clone::Clone for IHostNameStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostNameStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf68cd4bf_a388_4e8b_91ea_54dd6dd901c0);
@@ -133,6 +113,7 @@ pub struct IHostNameStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Networking\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EndpointPair(::windows_core::IUnknown);
 impl EndpointPair {
     pub fn LocalHostName(&self) -> ::windows_core::Result<HostName> {
@@ -201,24 +182,8 @@ impl EndpointPair {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for EndpointPair {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EndpointPair {}
-impl ::core::fmt::Debug for EndpointPair {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EndpointPair").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EndpointPair {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.EndpointPair;{33a0aa36-f8fa-4b30-b856-76517c3bd06d})");
-}
-impl ::core::clone::Clone for EndpointPair {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EndpointPair {
     type Vtable = IEndpointPair_Vtbl;
@@ -234,6 +199,7 @@ unsafe impl ::core::marker::Send for EndpointPair {}
 unsafe impl ::core::marker::Sync for EndpointPair {}
 #[doc = "*Required features: `\"Networking\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct HostName(::windows_core::IUnknown);
 impl HostName {
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -315,24 +281,8 @@ impl HostName {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for HostName {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HostName {}
-impl ::core::fmt::Debug for HostName {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HostName").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for HostName {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.HostName;{bf8ecaad-ed96-49a7-9084-d416cae88dcb})");
-}
-impl ::core::clone::Clone for HostName {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for HostName {
     type Vtable = IHostName_Vtbl;

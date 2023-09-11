@@ -16,30 +16,15 @@ pub mod Printing;
 pub mod Printing3D;
 #[doc = "*Required features: `\"Graphics\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGeometrySource2D(::windows_core::IUnknown);
 impl IGeometrySource2D {}
 ::windows_core::imp::interface_hierarchy!(IGeometrySource2D, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IGeometrySource2D {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGeometrySource2D {}
-impl ::core::fmt::Debug for IGeometrySource2D {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGeometrySource2D").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IGeometrySource2D {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{caff7902-670c-4181-a624-da977203b845}");
 }
 unsafe impl ::windows_core::Interface for IGeometrySource2D {
     type Vtable = IGeometrySource2D_Vtbl;
-}
-impl ::core::clone::Clone for IGeometrySource2D {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGeometrySource2D {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcaff7902_670c_4181_a624_da977203b845);

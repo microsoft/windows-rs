@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDataAccountPartnerAccountInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserDataAccountPartnerAccountInfo {
     type Vtable = IUserDataAccountPartnerAccountInfo_Vtbl;
-}
-impl ::core::clone::Clone for IUserDataAccountPartnerAccountInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDataAccountPartnerAccountInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5f200037_f6ef_4ec3_8630_012c59c1149f);
@@ -22,14 +18,10 @@ pub struct IUserDataAccountPartnerAccountInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDataAccountProviderAddAccountOperation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserDataAccountProviderAddAccountOperation {
     type Vtable = IUserDataAccountProviderAddAccountOperation_Vtbl;
-}
-impl ::core::clone::Clone for IUserDataAccountProviderAddAccountOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDataAccountProviderAddAccountOperation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb9c72530_3f84_4b5d_8eaa_45e97aa842ed);
@@ -47,6 +39,7 @@ pub struct IUserDataAccountProviderAddAccountOperation_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDataAccountProviderOperation(::windows_core::IUnknown);
 impl IUserDataAccountProviderOperation {
     pub fn Kind(&self) -> ::windows_core::Result<UserDataAccountProviderOperationKind> {
@@ -58,27 +51,11 @@ impl IUserDataAccountProviderOperation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUserDataAccountProviderOperation, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IUserDataAccountProviderOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUserDataAccountProviderOperation {}
-impl ::core::fmt::Debug for IUserDataAccountProviderOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUserDataAccountProviderOperation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IUserDataAccountProviderOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{a20aad63-888c-4a62-a3dd-34d07a802b2b}");
 }
 unsafe impl ::windows_core::Interface for IUserDataAccountProviderOperation {
     type Vtable = IUserDataAccountProviderOperation_Vtbl;
-}
-impl ::core::clone::Clone for IUserDataAccountProviderOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDataAccountProviderOperation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa20aad63_888c_4a62_a3dd_34d07a802b2b);
@@ -91,14 +68,10 @@ pub struct IUserDataAccountProviderOperation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDataAccountProviderResolveErrorsOperation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserDataAccountProviderResolveErrorsOperation {
     type Vtable = IUserDataAccountProviderResolveErrorsOperation_Vtbl;
-}
-impl ::core::clone::Clone for IUserDataAccountProviderResolveErrorsOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDataAccountProviderResolveErrorsOperation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6235dc15_bfcb_41e1_9957_9759a28846cc);
@@ -112,14 +85,10 @@ pub struct IUserDataAccountProviderResolveErrorsOperation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDataAccountProviderSettingsOperation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserDataAccountProviderSettingsOperation {
     type Vtable = IUserDataAccountProviderSettingsOperation_Vtbl;
-}
-impl ::core::clone::Clone for IUserDataAccountProviderSettingsOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDataAccountProviderSettingsOperation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92034db7_8648_4f30_acfa_3002658ca80d);
@@ -133,6 +102,7 @@ pub struct IUserDataAccountProviderSettingsOperation_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataAccountPartnerAccountInfo(::windows_core::IUnknown);
 impl UserDataAccountPartnerAccountInfo {
     pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -157,24 +127,8 @@ impl UserDataAccountPartnerAccountInfo {
         }
     }
 }
-impl ::core::cmp::PartialEq for UserDataAccountPartnerAccountInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataAccountPartnerAccountInfo {}
-impl ::core::fmt::Debug for UserDataAccountPartnerAccountInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataAccountPartnerAccountInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserDataAccountPartnerAccountInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountPartnerAccountInfo;{5f200037-f6ef-4ec3-8630-012c59c1149f})");
-}
-impl ::core::clone::Clone for UserDataAccountPartnerAccountInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserDataAccountPartnerAccountInfo {
     type Vtable = IUserDataAccountPartnerAccountInfo_Vtbl;
@@ -190,6 +144,7 @@ unsafe impl ::core::marker::Send for UserDataAccountPartnerAccountInfo {}
 unsafe impl ::core::marker::Sync for UserDataAccountPartnerAccountInfo {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataAccountProviderAddAccountOperation(::windows_core::IUnknown);
 impl UserDataAccountProviderAddAccountOperation {
     pub fn ContentKinds(&self) -> ::windows_core::Result<super::UserDataAccountContentKinds> {
@@ -220,24 +175,8 @@ impl UserDataAccountProviderAddAccountOperation {
         }
     }
 }
-impl ::core::cmp::PartialEq for UserDataAccountProviderAddAccountOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataAccountProviderAddAccountOperation {}
-impl ::core::fmt::Debug for UserDataAccountProviderAddAccountOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataAccountProviderAddAccountOperation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserDataAccountProviderAddAccountOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderAddAccountOperation;{b9c72530-3f84-4b5d-8eaa-45e97aa842ed})");
-}
-impl ::core::clone::Clone for UserDataAccountProviderAddAccountOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserDataAccountProviderAddAccountOperation {
     type Vtable = IUserDataAccountProviderAddAccountOperation_Vtbl;
@@ -254,6 +193,7 @@ unsafe impl ::core::marker::Send for UserDataAccountProviderAddAccountOperation 
 unsafe impl ::core::marker::Sync for UserDataAccountProviderAddAccountOperation {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataAccountProviderResolveErrorsOperation(::windows_core::IUnknown);
 impl UserDataAccountProviderResolveErrorsOperation {
     pub fn Kind(&self) -> ::windows_core::Result<UserDataAccountProviderOperationKind> {
@@ -275,24 +215,8 @@ impl UserDataAccountProviderResolveErrorsOperation {
         unsafe { (::windows_core::Interface::vtable(this).ReportCompleted)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for UserDataAccountProviderResolveErrorsOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataAccountProviderResolveErrorsOperation {}
-impl ::core::fmt::Debug for UserDataAccountProviderResolveErrorsOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataAccountProviderResolveErrorsOperation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserDataAccountProviderResolveErrorsOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderResolveErrorsOperation;{6235dc15-bfcb-41e1-9957-9759a28846cc})");
-}
-impl ::core::clone::Clone for UserDataAccountProviderResolveErrorsOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserDataAccountProviderResolveErrorsOperation {
     type Vtable = IUserDataAccountProviderResolveErrorsOperation_Vtbl;
@@ -309,6 +233,7 @@ unsafe impl ::core::marker::Send for UserDataAccountProviderResolveErrorsOperati
 unsafe impl ::core::marker::Sync for UserDataAccountProviderResolveErrorsOperation {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserDataAccountProviderSettingsOperation(::windows_core::IUnknown);
 impl UserDataAccountProviderSettingsOperation {
     pub fn Kind(&self) -> ::windows_core::Result<UserDataAccountProviderOperationKind> {
@@ -330,24 +255,8 @@ impl UserDataAccountProviderSettingsOperation {
         unsafe { (::windows_core::Interface::vtable(this).ReportCompleted)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for UserDataAccountProviderSettingsOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataAccountProviderSettingsOperation {}
-impl ::core::fmt::Debug for UserDataAccountProviderSettingsOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataAccountProviderSettingsOperation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserDataAccountProviderSettingsOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderSettingsOperation;{92034db7-8648-4f30-acfa-3002658ca80d})");
-}
-impl ::core::clone::Clone for UserDataAccountProviderSettingsOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserDataAccountProviderSettingsOperation {
     type Vtable = IUserDataAccountProviderSettingsOperation_Vtbl;

@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVariablePhotoCapturedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVariablePhotoCapturedEventArgs {
     type Vtable = IVariablePhotoCapturedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IVariablePhotoCapturedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVariablePhotoCapturedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd1eb4c5c_1b53_4e4a_8b5c_db7887ac949b);
@@ -29,14 +25,10 @@ pub struct IVariablePhotoCapturedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVariablePhotoSequenceCapture(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVariablePhotoSequenceCapture {
     type Vtable = IVariablePhotoSequenceCapture_Vtbl;
-}
-impl ::core::clone::Clone for IVariablePhotoSequenceCapture {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVariablePhotoSequenceCapture {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd0112d1d_031e_4041_a6d6_bd742476a8ee);
@@ -76,14 +68,10 @@ pub struct IVariablePhotoSequenceCapture_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVariablePhotoSequenceCapture2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVariablePhotoSequenceCapture2 {
     type Vtable = IVariablePhotoSequenceCapture2_Vtbl;
-}
-impl ::core::clone::Clone for IVariablePhotoSequenceCapture2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVariablePhotoSequenceCapture2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfe2c62bc_50b0_43e3_917c_e3b92798942f);
@@ -99,6 +87,7 @@ pub struct IVariablePhotoSequenceCapture2_Vtbl {
 }
 #[doc = "*Required features: `\"Media_Capture_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VariablePhotoCapturedEventArgs(::windows_core::IUnknown);
 impl VariablePhotoCapturedEventArgs {
     pub fn Frame(&self) -> ::windows_core::Result<super::CapturedFrame> {
@@ -134,24 +123,8 @@ impl VariablePhotoCapturedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for VariablePhotoCapturedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VariablePhotoCapturedEventArgs {}
-impl ::core::fmt::Debug for VariablePhotoCapturedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VariablePhotoCapturedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VariablePhotoCapturedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Core.VariablePhotoCapturedEventArgs;{d1eb4c5c-1b53-4e4a-8b5c-db7887ac949b})");
-}
-impl ::core::clone::Clone for VariablePhotoCapturedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VariablePhotoCapturedEventArgs {
     type Vtable = IVariablePhotoCapturedEventArgs_Vtbl;
@@ -167,6 +140,7 @@ unsafe impl ::core::marker::Send for VariablePhotoCapturedEventArgs {}
 unsafe impl ::core::marker::Sync for VariablePhotoCapturedEventArgs {}
 #[doc = "*Required features: `\"Media_Capture_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VariablePhotoSequenceCapture(::windows_core::IUnknown);
 impl VariablePhotoSequenceCapture {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -242,24 +216,8 @@ impl VariablePhotoSequenceCapture {
         }
     }
 }
-impl ::core::cmp::PartialEq for VariablePhotoSequenceCapture {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VariablePhotoSequenceCapture {}
-impl ::core::fmt::Debug for VariablePhotoSequenceCapture {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VariablePhotoSequenceCapture").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VariablePhotoSequenceCapture {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Core.VariablePhotoSequenceCapture;{d0112d1d-031e-4041-a6d6-bd742476a8ee})");
-}
-impl ::core::clone::Clone for VariablePhotoSequenceCapture {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VariablePhotoSequenceCapture {
     type Vtable = IVariablePhotoSequenceCapture_Vtbl;

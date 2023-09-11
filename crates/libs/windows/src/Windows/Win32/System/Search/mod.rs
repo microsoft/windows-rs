@@ -1835,6 +1835,7 @@ pub unsafe fn dbprtypeW(param0: i32) -> ::windows_core::PWSTR {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DataSource(::windows_core::IUnknown);
 impl DataSource {
     pub unsafe fn getDataMember(&self, bstrdm: *const u16, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -1863,24 +1864,8 @@ impl DataSource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(DataSource, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for DataSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataSource {}
-impl ::core::fmt::Debug for DataSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for DataSource {
     type Vtable = DataSource_Vtbl;
-}
-impl ::core::clone::Clone for DataSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for DataSource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7c0ffab3_cd84_11d0_949a_00a0c91110ed);
@@ -1897,6 +1882,7 @@ pub struct DataSource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DataSourceListener(::windows_core::IUnknown);
 impl DataSourceListener {
     pub unsafe fn dataMemberChanged(&self, bstrdm: *const u16) -> ::windows_core::Result<()> {
@@ -1910,24 +1896,8 @@ impl DataSourceListener {
     }
 }
 ::windows_core::imp::interface_hierarchy!(DataSourceListener, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for DataSourceListener {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataSourceListener {}
-impl ::core::fmt::Debug for DataSourceListener {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataSourceListener").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for DataSourceListener {
     type Vtable = DataSourceListener_Vtbl;
-}
-impl ::core::clone::Clone for DataSourceListener {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for DataSourceListener {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7c0ffab2_cd84_11d0_949a_00a0c91110ed);
@@ -1943,34 +1913,15 @@ pub struct DataSourceListener_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DataSourceObject(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl DataSourceObject {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(DataSourceObject, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for DataSourceObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for DataSourceObject {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for DataSourceObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataSourceObject").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for DataSourceObject {
     type Vtable = DataSourceObject_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for DataSourceObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for DataSourceObject {
@@ -1984,6 +1935,7 @@ pub struct DataSourceObject_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAccessor(::windows_core::IUnknown);
 impl IAccessor {
     pub unsafe fn AddRefAccessor<P0>(&self, haccessor: P0, pcrefcount: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()>
@@ -2013,24 +1965,8 @@ impl IAccessor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAccessor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAccessor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAccessor {}
-impl ::core::fmt::Debug for IAccessor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAccessor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAccessor {
     type Vtable = IAccessor_Vtbl;
-}
-impl ::core::clone::Clone for IAccessor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAccessor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a8c_2a1c_11ce_ade5_00aa0044773d);
@@ -2052,6 +1988,7 @@ pub struct IAccessor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAlterIndex(::windows_core::IUnknown);
 impl IAlterIndex {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -2061,24 +1998,8 @@ impl IAlterIndex {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAlterIndex, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAlterIndex {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAlterIndex {}
-impl ::core::fmt::Debug for IAlterIndex {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAlterIndex").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAlterIndex {
     type Vtable = IAlterIndex_Vtbl;
-}
-impl ::core::clone::Clone for IAlterIndex {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAlterIndex {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733aa6_2a1c_11ce_ade5_00aa0044773d);
@@ -2094,6 +2015,7 @@ pub struct IAlterIndex_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAlterTable(::windows_core::IUnknown);
 impl IAlterTable {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -2108,24 +2030,8 @@ impl IAlterTable {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAlterTable, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAlterTable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAlterTable {}
-impl ::core::fmt::Debug for IAlterTable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAlterTable").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAlterTable {
     type Vtable = IAlterTable_Vtbl;
-}
-impl ::core::clone::Clone for IAlterTable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAlterTable {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733aa5_2a1c_11ce_ade5_00aa0044773d);
@@ -2145,6 +2051,7 @@ pub struct IAlterTable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBindResource(::windows_core::IUnknown);
 impl IBindResource {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2159,24 +2066,8 @@ impl IBindResource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IBindResource, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IBindResource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IBindResource {}
-impl ::core::fmt::Debug for IBindResource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBindResource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IBindResource {
     type Vtable = IBindResource_Vtbl;
-}
-impl ::core::clone::Clone for IBindResource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBindResource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733ab1_2a1c_11ce_ade5_00aa0044773d);
@@ -2192,6 +2083,7 @@ pub struct IBindResource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IChapteredRowset(::windows_core::IUnknown);
 impl IChapteredRowset {
     pub unsafe fn AddRefChapter(&self, hchapter: usize, pcrefcount: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -2202,24 +2094,8 @@ impl IChapteredRowset {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IChapteredRowset, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IChapteredRowset {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IChapteredRowset {}
-impl ::core::fmt::Debug for IChapteredRowset {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IChapteredRowset").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IChapteredRowset {
     type Vtable = IChapteredRowset_Vtbl;
-}
-impl ::core::clone::Clone for IChapteredRowset {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IChapteredRowset {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a93_2a1c_11ce_ade5_00aa0044773d);
@@ -2233,6 +2109,7 @@ pub struct IChapteredRowset_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IColumnMapper(::windows_core::IUnknown);
 impl IColumnMapper {
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -2258,24 +2135,8 @@ impl IColumnMapper {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IColumnMapper, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IColumnMapper {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IColumnMapper {}
-impl ::core::fmt::Debug for IColumnMapper {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IColumnMapper").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IColumnMapper {
     type Vtable = IColumnMapper_Vtbl;
-}
-impl ::core::clone::Clone for IColumnMapper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IColumnMapper {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b63e37a_9ccc_11d0_bcdb_00805fccce04);
@@ -2300,6 +2161,7 @@ pub struct IColumnMapper_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IColumnMapperCreator(::windows_core::IUnknown);
 impl IColumnMapperCreator {
     pub unsafe fn GetColumnMapper<P0, P1>(&self, wcsmachinename: P0, wcscatalogname: P1) -> ::windows_core::Result<IColumnMapper>
@@ -2312,24 +2174,8 @@ impl IColumnMapperCreator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IColumnMapperCreator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IColumnMapperCreator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IColumnMapperCreator {}
-impl ::core::fmt::Debug for IColumnMapperCreator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IColumnMapperCreator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IColumnMapperCreator {
     type Vtable = IColumnMapperCreator_Vtbl;
-}
-impl ::core::clone::Clone for IColumnMapperCreator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IColumnMapperCreator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b63e37b_9ccc_11d0_bcdb_00805fccce04);
@@ -2342,6 +2188,7 @@ pub struct IColumnMapperCreator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IColumnsInfo(::windows_core::IUnknown);
 impl IColumnsInfo {
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`*"]
@@ -2356,24 +2203,8 @@ impl IColumnsInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IColumnsInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IColumnsInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IColumnsInfo {}
-impl ::core::fmt::Debug for IColumnsInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IColumnsInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IColumnsInfo {
     type Vtable = IColumnsInfo_Vtbl;
-}
-impl ::core::clone::Clone for IColumnsInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IColumnsInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a11_2a1c_11ce_ade5_00aa0044773d);
@@ -2393,6 +2224,7 @@ pub struct IColumnsInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IColumnsInfo2(::windows_core::IUnknown);
 impl IColumnsInfo2 {
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`*"]
@@ -2412,24 +2244,8 @@ impl IColumnsInfo2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IColumnsInfo2, ::windows_core::IUnknown, IColumnsInfo);
-impl ::core::cmp::PartialEq for IColumnsInfo2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IColumnsInfo2 {}
-impl ::core::fmt::Debug for IColumnsInfo2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IColumnsInfo2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IColumnsInfo2 {
     type Vtable = IColumnsInfo2_Vtbl;
-}
-impl ::core::clone::Clone for IColumnsInfo2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IColumnsInfo2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733ab8_2a1c_11ce_ade5_00aa0044773d);
@@ -2445,6 +2261,7 @@ pub struct IColumnsInfo2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IColumnsRowset(::windows_core::IUnknown);
 impl IColumnsRowset {
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -2462,24 +2279,8 @@ impl IColumnsRowset {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IColumnsRowset, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IColumnsRowset {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IColumnsRowset {}
-impl ::core::fmt::Debug for IColumnsRowset {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IColumnsRowset").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IColumnsRowset {
     type Vtable = IColumnsRowset_Vtbl;
-}
-impl ::core::clone::Clone for IColumnsRowset {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IColumnsRowset {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a10_2a1c_11ce_ade5_00aa0044773d);
@@ -2499,6 +2300,7 @@ pub struct IColumnsRowset_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICommand(::windows_core::IUnknown);
 impl ICommand {
     pub unsafe fn Cancel(&self) -> ::windows_core::Result<()> {
@@ -2516,24 +2318,8 @@ impl ICommand {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICommand, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICommand {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICommand {}
-impl ::core::fmt::Debug for ICommand {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICommand").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICommand {
     type Vtable = ICommand_Vtbl;
-}
-impl ::core::clone::Clone for ICommand {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICommand {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a63_2a1c_11ce_ade5_00aa0044773d);
@@ -2548,6 +2334,7 @@ pub struct ICommand_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICommandCost(::windows_core::IUnknown);
 impl ICommandCost {
     pub unsafe fn GetAccumulatedCost<P0>(&self, pwszrowsetname: P0, pccostlimits: *mut u32, prgcostlimits: *mut *mut DBCOST) -> ::windows_core::Result<()>
@@ -2588,24 +2375,8 @@ impl ICommandCost {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICommandCost, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICommandCost {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICommandCost {}
-impl ::core::fmt::Debug for ICommandCost {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICommandCost").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICommandCost {
     type Vtable = ICommandCost_Vtbl;
-}
-impl ::core::clone::Clone for ICommandCost {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICommandCost {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a4e_2a1c_11ce_ade5_00aa0044773d);
@@ -2623,6 +2394,7 @@ pub struct ICommandCost_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICommandPersist(::windows_core::IUnknown);
 impl ICommandPersist {
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -2648,24 +2420,8 @@ impl ICommandPersist {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICommandPersist, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICommandPersist {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICommandPersist {}
-impl ::core::fmt::Debug for ICommandPersist {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICommandPersist").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICommandPersist {
     type Vtable = ICommandPersist_Vtbl;
-}
-impl ::core::clone::Clone for ICommandPersist {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICommandPersist {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733aa7_2a1c_11ce_ade5_00aa0044773d);
@@ -2693,6 +2449,7 @@ pub struct ICommandPersist_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICommandPrepare(::windows_core::IUnknown);
 impl ICommandPrepare {
     pub unsafe fn Prepare(&self, cexpectedruns: u32) -> ::windows_core::Result<()> {
@@ -2703,24 +2460,8 @@ impl ICommandPrepare {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICommandPrepare, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICommandPrepare {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICommandPrepare {}
-impl ::core::fmt::Debug for ICommandPrepare {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICommandPrepare").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICommandPrepare {
     type Vtable = ICommandPrepare_Vtbl;
-}
-impl ::core::clone::Clone for ICommandPrepare {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICommandPrepare {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a26_2a1c_11ce_ade5_00aa0044773d);
@@ -2734,6 +2475,7 @@ pub struct ICommandPrepare_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICommandProperties(::windows_core::IUnknown);
 impl ICommandProperties {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -2748,24 +2490,8 @@ impl ICommandProperties {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICommandProperties, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICommandProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICommandProperties {}
-impl ::core::fmt::Debug for ICommandProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICommandProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICommandProperties {
     type Vtable = ICommandProperties_Vtbl;
-}
-impl ::core::clone::Clone for ICommandProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICommandProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a79_2a1c_11ce_ade5_00aa0044773d);
@@ -2785,6 +2511,7 @@ pub struct ICommandProperties_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICommandStream(::windows_core::IUnknown);
 impl ICommandStream {
     pub unsafe fn GetCommandStream(&self, piid: ::core::option::Option<*mut ::windows_core::GUID>, pguiddialect: ::core::option::Option<*mut ::windows_core::GUID>, ppcommandstream: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()> {
@@ -2798,24 +2525,8 @@ impl ICommandStream {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICommandStream, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICommandStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICommandStream {}
-impl ::core::fmt::Debug for ICommandStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICommandStream").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICommandStream {
     type Vtable = ICommandStream_Vtbl;
-}
-impl ::core::clone::Clone for ICommandStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICommandStream {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733abf_2a1c_11ce_ade5_00aa0044773d);
@@ -2829,6 +2540,7 @@ pub struct ICommandStream_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICommandText(::windows_core::IUnknown);
 impl ICommandText {
     pub unsafe fn Cancel(&self) -> ::windows_core::Result<()> {
@@ -2855,24 +2567,8 @@ impl ICommandText {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICommandText, ::windows_core::IUnknown, ICommand);
-impl ::core::cmp::PartialEq for ICommandText {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICommandText {}
-impl ::core::fmt::Debug for ICommandText {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICommandText").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICommandText {
     type Vtable = ICommandText_Vtbl;
-}
-impl ::core::clone::Clone for ICommandText {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICommandText {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a27_2a1c_11ce_ade5_00aa0044773d);
@@ -2886,6 +2582,7 @@ pub struct ICommandText_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICommandValidate(::windows_core::IUnknown);
 impl ICommandValidate {
     pub unsafe fn ValidateCompletely(&self) -> ::windows_core::Result<()> {
@@ -2896,24 +2593,8 @@ impl ICommandValidate {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICommandValidate, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICommandValidate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICommandValidate {}
-impl ::core::fmt::Debug for ICommandValidate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICommandValidate").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICommandValidate {
     type Vtable = ICommandValidate_Vtbl;
-}
-impl ::core::clone::Clone for ICommandValidate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICommandValidate {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a18_2a1c_11ce_ade5_00aa0044773d);
@@ -2927,6 +2608,7 @@ pub struct ICommandValidate_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICommandWithParameters(::windows_core::IUnknown);
 impl ICommandWithParameters {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2942,24 +2624,8 @@ impl ICommandWithParameters {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICommandWithParameters, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICommandWithParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICommandWithParameters {}
-impl ::core::fmt::Debug for ICommandWithParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICommandWithParameters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICommandWithParameters {
     type Vtable = ICommandWithParameters_Vtbl;
-}
-impl ::core::clone::Clone for ICommandWithParameters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICommandWithParameters {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a64_2a1c_11ce_ade5_00aa0044773d);
@@ -2978,6 +2644,7 @@ pub struct ICommandWithParameters_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICondition(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICondition {
@@ -3054,28 +2721,8 @@ impl ICondition {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICondition, ::windows_core::IUnknown, super::Com::IPersist, super::Com::IPersistStream);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICondition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICondition {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICondition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICondition").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICondition {
     type Vtable = ICondition_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICondition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICondition {
@@ -3106,6 +2753,7 @@ pub struct ICondition_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICondition2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICondition2 {
@@ -3191,28 +2839,8 @@ impl ICondition2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICondition2, ::windows_core::IUnknown, super::Com::IPersist, super::Com::IPersistStream, ICondition);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICondition2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICondition2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICondition2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICondition2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICondition2 {
     type Vtable = ICondition2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICondition2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICondition2 {
@@ -3231,6 +2859,7 @@ pub struct ICondition2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConditionFactory(::windows_core::IUnknown);
 impl IConditionFactory {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -3278,24 +2907,8 @@ impl IConditionFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IConditionFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IConditionFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IConditionFactory {}
-impl ::core::fmt::Debug for IConditionFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IConditionFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IConditionFactory {
     type Vtable = IConditionFactory_Vtbl;
-}
-impl ::core::clone::Clone for IConditionFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConditionFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa5efe073_b16f_474f_9f3e_9f8b497a3e08);
@@ -3323,6 +2936,7 @@ pub struct IConditionFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConditionFactory2(::windows_core::IUnknown);
 impl IConditionFactory2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -3463,24 +3077,8 @@ impl IConditionFactory2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IConditionFactory2, ::windows_core::IUnknown, IConditionFactory);
-impl ::core::cmp::PartialEq for IConditionFactory2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IConditionFactory2 {}
-impl ::core::fmt::Debug for IConditionFactory2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IConditionFactory2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IConditionFactory2 {
     type Vtable = IConditionFactory2_Vtbl;
-}
-impl ::core::clone::Clone for IConditionFactory2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConditionFactory2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71d222e1_432f_429e_8c13_b6dafde5077a);
@@ -3528,6 +3126,7 @@ pub struct IConditionFactory2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConditionGenerator(::windows_core::IUnknown);
 impl IConditionGenerator {
     pub unsafe fn Initialize<P0>(&self, pschemaprovider: P0) -> ::windows_core::Result<()>
@@ -3571,24 +3170,8 @@ impl IConditionGenerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IConditionGenerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IConditionGenerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IConditionGenerator {}
-impl ::core::fmt::Debug for IConditionGenerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IConditionGenerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IConditionGenerator {
     type Vtable = IConditionGenerator_Vtbl;
-}
-impl ::core::clone::Clone for IConditionGenerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConditionGenerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92d2cc58_4386_45a3_b98c_7e0ce64a4117);
@@ -3610,6 +3193,7 @@ pub struct IConditionGenerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConvertType(::windows_core::IUnknown);
 impl IConvertType {
     pub unsafe fn CanConvert(&self, wfromtype: u16, wtotype: u16, dwconvertflags: u32) -> ::windows_core::Result<()> {
@@ -3617,24 +3201,8 @@ impl IConvertType {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IConvertType, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IConvertType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IConvertType {}
-impl ::core::fmt::Debug for IConvertType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IConvertType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IConvertType {
     type Vtable = IConvertType_Vtbl;
-}
-impl ::core::clone::Clone for IConvertType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConvertType {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a88_2a1c_11ce_ade5_00aa0044773d);
@@ -3647,6 +3215,7 @@ pub struct IConvertType_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICreateRow(::windows_core::IUnknown);
 impl ICreateRow {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -3661,24 +3230,8 @@ impl ICreateRow {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICreateRow, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICreateRow {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICreateRow {}
-impl ::core::fmt::Debug for ICreateRow {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICreateRow").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICreateRow {
     type Vtable = ICreateRow_Vtbl;
-}
-impl ::core::clone::Clone for ICreateRow {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICreateRow {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733ab2_2a1c_11ce_ade5_00aa0044773d);
@@ -3694,6 +3247,7 @@ pub struct ICreateRow_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDBAsynchNotify(::windows_core::IUnknown);
 impl IDBAsynchNotify {
     pub unsafe fn OnLowResource(&self, dwreserved: usize) -> ::windows_core::Result<()> {
@@ -3713,24 +3267,8 @@ impl IDBAsynchNotify {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDBAsynchNotify, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDBAsynchNotify {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDBAsynchNotify {}
-impl ::core::fmt::Debug for IDBAsynchNotify {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDBAsynchNotify").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDBAsynchNotify {
     type Vtable = IDBAsynchNotify_Vtbl;
-}
-impl ::core::clone::Clone for IDBAsynchNotify {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDBAsynchNotify {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a96_2a1c_11ce_ade5_00aa0044773d);
@@ -3745,6 +3283,7 @@ pub struct IDBAsynchNotify_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDBAsynchStatus(::windows_core::IUnknown);
 impl IDBAsynchStatus {
     pub unsafe fn Abort(&self, hchapter: usize, eoperation: u32) -> ::windows_core::Result<()> {
@@ -3755,24 +3294,8 @@ impl IDBAsynchStatus {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDBAsynchStatus, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDBAsynchStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDBAsynchStatus {}
-impl ::core::fmt::Debug for IDBAsynchStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDBAsynchStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDBAsynchStatus {
     type Vtable = IDBAsynchStatus_Vtbl;
-}
-impl ::core::clone::Clone for IDBAsynchStatus {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDBAsynchStatus {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a95_2a1c_11ce_ade5_00aa0044773d);
@@ -3786,6 +3309,7 @@ pub struct IDBAsynchStatus_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDBBinderProperties(::windows_core::IUnknown);
 impl IDBBinderProperties {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -3808,24 +3332,8 @@ impl IDBBinderProperties {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDBBinderProperties, ::windows_core::IUnknown, IDBProperties);
-impl ::core::cmp::PartialEq for IDBBinderProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDBBinderProperties {}
-impl ::core::fmt::Debug for IDBBinderProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDBBinderProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDBBinderProperties {
     type Vtable = IDBBinderProperties_Vtbl;
-}
-impl ::core::clone::Clone for IDBBinderProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDBBinderProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733ab3_2a1c_11ce_ade5_00aa0044773d);
@@ -3838,6 +3346,7 @@ pub struct IDBBinderProperties_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDBCreateCommand(::windows_core::IUnknown);
 impl IDBCreateCommand {
     pub unsafe fn CreateCommand<P0>(&self, punkouter: P0, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -3849,24 +3358,8 @@ impl IDBCreateCommand {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDBCreateCommand, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDBCreateCommand {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDBCreateCommand {}
-impl ::core::fmt::Debug for IDBCreateCommand {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDBCreateCommand").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDBCreateCommand {
     type Vtable = IDBCreateCommand_Vtbl;
-}
-impl ::core::clone::Clone for IDBCreateCommand {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDBCreateCommand {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a1d_2a1c_11ce_ade5_00aa0044773d);
@@ -3879,6 +3372,7 @@ pub struct IDBCreateCommand_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDBCreateSession(::windows_core::IUnknown);
 impl IDBCreateSession {
     pub unsafe fn CreateSession<P0>(&self, punkouter: P0, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -3890,24 +3384,8 @@ impl IDBCreateSession {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDBCreateSession, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDBCreateSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDBCreateSession {}
-impl ::core::fmt::Debug for IDBCreateSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDBCreateSession").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDBCreateSession {
     type Vtable = IDBCreateSession_Vtbl;
-}
-impl ::core::clone::Clone for IDBCreateSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDBCreateSession {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a5d_2a1c_11ce_ade5_00aa0044773d);
@@ -3920,6 +3398,7 @@ pub struct IDBCreateSession_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDBDataSourceAdmin(::windows_core::IUnknown);
 impl IDBDataSourceAdmin {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -3945,24 +3424,8 @@ impl IDBDataSourceAdmin {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDBDataSourceAdmin, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDBDataSourceAdmin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDBDataSourceAdmin {}
-impl ::core::fmt::Debug for IDBDataSourceAdmin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDBDataSourceAdmin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDBDataSourceAdmin {
     type Vtable = IDBDataSourceAdmin_Vtbl;
-}
-impl ::core::clone::Clone for IDBDataSourceAdmin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDBDataSourceAdmin {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a7a_2a1c_11ce_ade5_00aa0044773d);
@@ -3987,6 +3450,7 @@ pub struct IDBDataSourceAdmin_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDBInfo(::windows_core::IUnknown);
 impl IDBInfo {
     pub unsafe fn GetKeywords(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -4000,24 +3464,8 @@ impl IDBInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDBInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDBInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDBInfo {}
-impl ::core::fmt::Debug for IDBInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDBInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDBInfo {
     type Vtable = IDBInfo_Vtbl;
-}
-impl ::core::clone::Clone for IDBInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDBInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a89_2a1c_11ce_ade5_00aa0044773d);
@@ -4034,6 +3482,7 @@ pub struct IDBInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDBInitialize(::windows_core::IUnknown);
 impl IDBInitialize {
     pub unsafe fn Initialize(&self) -> ::windows_core::Result<()> {
@@ -4044,24 +3493,8 @@ impl IDBInitialize {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDBInitialize, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDBInitialize {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDBInitialize {}
-impl ::core::fmt::Debug for IDBInitialize {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDBInitialize").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDBInitialize {
     type Vtable = IDBInitialize_Vtbl;
-}
-impl ::core::clone::Clone for IDBInitialize {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDBInitialize {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a8b_2a1c_11ce_ade5_00aa0044773d);
@@ -4075,6 +3508,7 @@ pub struct IDBInitialize_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDBPromptInitialize(::windows_core::IUnknown);
 impl IDBPromptInitialize {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4100,24 +3534,8 @@ impl IDBPromptInitialize {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDBPromptInitialize, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDBPromptInitialize {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDBPromptInitialize {}
-impl ::core::fmt::Debug for IDBPromptInitialize {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDBPromptInitialize").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDBPromptInitialize {
     type Vtable = IDBPromptInitialize_Vtbl;
-}
-impl ::core::clone::Clone for IDBPromptInitialize {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDBPromptInitialize {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2206ccb0_19c1_11d1_89e0_00c04fd7a829);
@@ -4137,6 +3555,7 @@ pub struct IDBPromptInitialize_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDBProperties(::windows_core::IUnknown);
 impl IDBProperties {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -4156,24 +3575,8 @@ impl IDBProperties {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDBProperties, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDBProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDBProperties {}
-impl ::core::fmt::Debug for IDBProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDBProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDBProperties {
     type Vtable = IDBProperties_Vtbl;
-}
-impl ::core::clone::Clone for IDBProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDBProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a8a_2a1c_11ce_ade5_00aa0044773d);
@@ -4197,6 +3600,7 @@ pub struct IDBProperties_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDBSchemaCommand(::windows_core::IUnknown);
 impl IDBSchemaCommand {
     pub unsafe fn GetCommand<P0>(&self, punkouter: P0, rguidschema: *const ::windows_core::GUID) -> ::windows_core::Result<ICommand>
@@ -4211,24 +3615,8 @@ impl IDBSchemaCommand {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDBSchemaCommand, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDBSchemaCommand {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDBSchemaCommand {}
-impl ::core::fmt::Debug for IDBSchemaCommand {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDBSchemaCommand").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDBSchemaCommand {
     type Vtable = IDBSchemaCommand_Vtbl;
-}
-impl ::core::clone::Clone for IDBSchemaCommand {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDBSchemaCommand {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a50_2a1c_11ce_ade5_00aa0044773d);
@@ -4242,6 +3630,7 @@ pub struct IDBSchemaCommand_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDBSchemaRowset(::windows_core::IUnknown);
 impl IDBSchemaRowset {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -4257,24 +3646,8 @@ impl IDBSchemaRowset {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDBSchemaRowset, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDBSchemaRowset {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDBSchemaRowset {}
-impl ::core::fmt::Debug for IDBSchemaRowset {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDBSchemaRowset").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDBSchemaRowset {
     type Vtable = IDBSchemaRowset_Vtbl;
-}
-impl ::core::clone::Clone for IDBSchemaRowset {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDBSchemaRowset {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a7b_2a1c_11ce_ade5_00aa0044773d);
@@ -4291,6 +3664,7 @@ pub struct IDBSchemaRowset_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDCInfo(::windows_core::IUnknown);
 impl IDCInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -4305,24 +3679,8 @@ impl IDCInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDCInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDCInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDCInfo {}
-impl ::core::fmt::Debug for IDCInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDCInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDCInfo {
     type Vtable = IDCInfo_Vtbl;
-}
-impl ::core::clone::Clone for IDCInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDCInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a9c_2a1c_11ce_ade5_00aa0044773d);
@@ -4342,6 +3700,7 @@ pub struct IDCInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataConvert(::windows_core::IUnknown);
 impl IDataConvert {
     pub unsafe fn DataConvert(&self, wsrctype: u16, wdsttype: u16, cbsrclength: usize, pcbdstlength: ::core::option::Option<*mut usize>, psrc: *const ::core::ffi::c_void, pdst: *mut ::core::ffi::c_void, cbdstmaxlength: usize, dbssrcstatus: u32, pdbsstatus: ::core::option::Option<*mut u32>, bprecision: u8, bscale: u8, dwflags: u32) -> ::windows_core::Result<()> {
@@ -4355,24 +3714,8 @@ impl IDataConvert {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataConvert, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDataConvert {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataConvert {}
-impl ::core::fmt::Debug for IDataConvert {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataConvert").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataConvert {
     type Vtable = IDataConvert_Vtbl;
-}
-impl ::core::clone::Clone for IDataConvert {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataConvert {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a8d_2a1c_11ce_ade5_00aa0044773d);
@@ -4387,6 +3730,7 @@ pub struct IDataConvert_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataInitialize(::windows_core::IUnknown);
 impl IDataInitialize {
     pub unsafe fn GetDataSource<P0, P1>(&self, punkouter: P0, dwclsctx: u32, pwszinitializationstring: P1, riid: *const ::windows_core::GUID, ppdatasource: *mut ::core::option::Option<::windows_core::IUnknown>) -> ::windows_core::Result<()>
@@ -4436,24 +3780,8 @@ impl IDataInitialize {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataInitialize, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDataInitialize {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataInitialize {}
-impl ::core::fmt::Debug for IDataInitialize {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataInitialize").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataInitialize {
     type Vtable = IDataInitialize_Vtbl;
-}
-impl ::core::clone::Clone for IDataInitialize {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataInitialize {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2206ccb1_19c1_11d1_89e0_00c04fd7a829);
@@ -4475,6 +3803,7 @@ pub struct IDataInitialize_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataSourceLocator(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDataSourceLocator {
@@ -4507,28 +3836,8 @@ impl IDataSourceLocator {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDataSourceLocator, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDataSourceLocator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDataSourceLocator {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDataSourceLocator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataSourceLocator").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDataSourceLocator {
     type Vtable = IDataSourceLocator_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDataSourceLocator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDataSourceLocator {
@@ -4558,6 +3867,7 @@ pub struct IDataSourceLocator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEntity(::windows_core::IUnknown);
 impl IEntity {
     pub unsafe fn Name(&self, ppszname: ::core::option::Option<*mut ::windows_core::PWSTR>) -> ::windows_core::Result<()> {
@@ -4607,24 +3917,8 @@ impl IEntity {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEntity, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEntity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEntity {}
-impl ::core::fmt::Debug for IEntity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEntity").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEntity {
     type Vtable = IEntity_Vtbl;
-}
-impl ::core::clone::Clone for IEntity {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEntity {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24264891_e80b_4fd3_b7ce_4ff2fae8931f);
@@ -4644,6 +3938,7 @@ pub struct IEntity_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumItemProperties(::windows_core::IUnknown);
 impl IEnumItemProperties {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -4667,24 +3962,8 @@ impl IEnumItemProperties {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumItemProperties, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumItemProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumItemProperties {}
-impl ::core::fmt::Debug for IEnumItemProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumItemProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumItemProperties {
     type Vtable = IEnumItemProperties_Vtbl;
-}
-impl ::core::clone::Clone for IEnumItemProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumItemProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf72c8d96_6dbd_11d1_a1e8_00c04fc2fbe1);
@@ -4704,6 +3983,7 @@ pub struct IEnumItemProperties_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumSearchRoots(::windows_core::IUnknown);
 impl IEnumSearchRoots {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<ISearchRoot>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -4721,24 +4001,8 @@ impl IEnumSearchRoots {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumSearchRoots, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumSearchRoots {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumSearchRoots {}
-impl ::core::fmt::Debug for IEnumSearchRoots {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumSearchRoots").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumSearchRoots {
     type Vtable = IEnumSearchRoots_Vtbl;
-}
-impl ::core::clone::Clone for IEnumSearchRoots {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumSearchRoots {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab310581_ac80_11d1_8df3_00c04fb6ef52);
@@ -4754,6 +4018,7 @@ pub struct IEnumSearchRoots_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumSearchScopeRules(::windows_core::IUnknown);
 impl IEnumSearchScopeRules {
     pub unsafe fn Next(&self, pprgelt: &mut [::core::option::Option<ISearchScopeRule>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -4771,24 +4036,8 @@ impl IEnumSearchScopeRules {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumSearchScopeRules, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumSearchScopeRules {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumSearchScopeRules {}
-impl ::core::fmt::Debug for IEnumSearchScopeRules {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumSearchScopeRules").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumSearchScopeRules {
     type Vtable = IEnumSearchScopeRules_Vtbl;
-}
-impl ::core::clone::Clone for IEnumSearchScopeRules {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumSearchScopeRules {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab310581_ac80_11d1_8df3_00c04fb6ef54);
@@ -4804,6 +4053,7 @@ pub struct IEnumSearchScopeRules_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumSubscription(::windows_core::IUnknown);
 impl IEnumSubscription {
     pub unsafe fn Next(&self, rgelt: &mut [::windows_core::GUID], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -4825,24 +4075,8 @@ impl IEnumSubscription {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumSubscription, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumSubscription {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumSubscription {}
-impl ::core::fmt::Debug for IEnumSubscription {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumSubscription").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumSubscription {
     type Vtable = IEnumSubscription_Vtbl;
-}
-impl ::core::clone::Clone for IEnumSubscription {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumSubscription {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf72c8d97_6dbd_11d1_a1e8_00c04fc2fbe1);
@@ -4859,6 +4093,7 @@ pub struct IEnumSubscription_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IErrorLookup(::windows_core::IUnknown);
 impl IErrorLookup {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -4874,24 +4109,8 @@ impl IErrorLookup {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IErrorLookup, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IErrorLookup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IErrorLookup {}
-impl ::core::fmt::Debug for IErrorLookup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IErrorLookup").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IErrorLookup {
     type Vtable = IErrorLookup_Vtbl;
-}
-impl ::core::clone::Clone for IErrorLookup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IErrorLookup {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a66_2a1c_11ce_ade5_00aa0044773d);
@@ -4909,6 +4128,7 @@ pub struct IErrorLookup_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IErrorRecords(::windows_core::IUnknown);
 impl IErrorRecords {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -4944,24 +4164,8 @@ impl IErrorRecords {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IErrorRecords, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IErrorRecords {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IErrorRecords {}
-impl ::core::fmt::Debug for IErrorRecords {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IErrorRecords").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IErrorRecords {
     type Vtable = IErrorRecords_Vtbl;
-}
-impl ::core::clone::Clone for IErrorRecords {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IErrorRecords {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a67_2a1c_11ce_ade5_00aa0044773d);
@@ -4988,6 +4192,7 @@ pub struct IErrorRecords_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGetDataSource(::windows_core::IUnknown);
 impl IGetDataSource {
     pub unsafe fn GetDataSource(&self, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -4996,24 +4201,8 @@ impl IGetDataSource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGetDataSource, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGetDataSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGetDataSource {}
-impl ::core::fmt::Debug for IGetDataSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGetDataSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGetDataSource {
     type Vtable = IGetDataSource_Vtbl;
-}
-impl ::core::clone::Clone for IGetDataSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGetDataSource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a75_2a1c_11ce_ade5_00aa0044773d);
@@ -5026,6 +4215,7 @@ pub struct IGetDataSource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGetRow(::windows_core::IUnknown);
 impl IGetRow {
     pub unsafe fn GetRowFromHROW<P0>(&self, punkouter: P0, hrow: usize, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -5041,24 +4231,8 @@ impl IGetRow {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGetRow, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGetRow {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGetRow {}
-impl ::core::fmt::Debug for IGetRow {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGetRow").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGetRow {
     type Vtable = IGetRow_Vtbl;
-}
-impl ::core::clone::Clone for IGetRow {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGetRow {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733aaf_2a1c_11ce_ade5_00aa0044773d);
@@ -5072,6 +4246,7 @@ pub struct IGetRow_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGetSession(::windows_core::IUnknown);
 impl IGetSession {
     pub unsafe fn GetSession(&self, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -5080,24 +4255,8 @@ impl IGetSession {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGetSession, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGetSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGetSession {}
-impl ::core::fmt::Debug for IGetSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGetSession").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGetSession {
     type Vtable = IGetSession_Vtbl;
-}
-impl ::core::clone::Clone for IGetSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGetSession {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733aba_2a1c_11ce_ade5_00aa0044773d);
@@ -5110,6 +4269,7 @@ pub struct IGetSession_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGetSourceRow(::windows_core::IUnknown);
 impl IGetSourceRow {
     pub unsafe fn GetSourceRow(&self, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -5118,24 +4278,8 @@ impl IGetSourceRow {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGetSourceRow, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGetSourceRow {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGetSourceRow {}
-impl ::core::fmt::Debug for IGetSourceRow {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGetSourceRow").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGetSourceRow {
     type Vtable = IGetSourceRow_Vtbl;
-}
-impl ::core::clone::Clone for IGetSourceRow {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGetSourceRow {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733abb_2a1c_11ce_ade5_00aa0044773d);
@@ -5148,6 +4292,7 @@ pub struct IGetSourceRow_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIndexDefinition(::windows_core::IUnknown);
 impl IIndexDefinition {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -5162,24 +4307,8 @@ impl IIndexDefinition {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIndexDefinition, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIndexDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIndexDefinition {}
-impl ::core::fmt::Debug for IIndexDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIndexDefinition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIndexDefinition {
     type Vtable = IIndexDefinition_Vtbl;
-}
-impl ::core::clone::Clone for IIndexDefinition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIndexDefinition {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a68_2a1c_11ce_ade5_00aa0044773d);
@@ -5199,6 +4328,7 @@ pub struct IIndexDefinition_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInterval(::windows_core::IUnknown);
 impl IInterval {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
@@ -5208,24 +4338,8 @@ impl IInterval {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInterval, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInterval {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInterval {}
-impl ::core::fmt::Debug for IInterval {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInterval").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInterval {
     type Vtable = IInterval_Vtbl;
-}
-impl ::core::clone::Clone for IInterval {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInterval {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6bf0a714_3c18_430b_8b5d_83b1c234d3db);
@@ -5241,6 +4355,7 @@ pub struct IInterval_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILoadFilter(::windows_core::IUnknown);
 impl ILoadFilter {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`*"]
@@ -5276,24 +4391,8 @@ impl ILoadFilter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ILoadFilter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ILoadFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILoadFilter {}
-impl ::core::fmt::Debug for ILoadFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILoadFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ILoadFilter {
     type Vtable = ILoadFilter_Vtbl;
-}
-impl ::core::clone::Clone for ILoadFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILoadFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc7310722_ac80_11d1_8df3_00c04fb6ef4f);
@@ -5317,6 +4416,7 @@ pub struct ILoadFilter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILoadFilterWithPrivateComActivation(::windows_core::IUnknown);
 impl ILoadFilterWithPrivateComActivation {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`*"]
@@ -5360,24 +4460,8 @@ impl ILoadFilterWithPrivateComActivation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ILoadFilterWithPrivateComActivation, ::windows_core::IUnknown, ILoadFilter);
-impl ::core::cmp::PartialEq for ILoadFilterWithPrivateComActivation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILoadFilterWithPrivateComActivation {}
-impl ::core::fmt::Debug for ILoadFilterWithPrivateComActivation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILoadFilterWithPrivateComActivation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ILoadFilterWithPrivateComActivation {
     type Vtable = ILoadFilterWithPrivateComActivation_Vtbl;
-}
-impl ::core::clone::Clone for ILoadFilterWithPrivateComActivation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILoadFilterWithPrivateComActivation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x40bdbd34_780b_48d3_9bb6_12ebd4ad2e75);
@@ -5393,6 +4477,7 @@ pub struct ILoadFilterWithPrivateComActivation_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMDDataset(::windows_core::IUnknown);
 impl IMDDataset {
     pub unsafe fn FreeAxisInfo(&self, rgaxisinfo: &[MDAXISINFO]) -> ::windows_core::Result<()> {
@@ -5421,24 +4506,8 @@ impl IMDDataset {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMDDataset, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMDDataset {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMDDataset {}
-impl ::core::fmt::Debug for IMDDataset {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMDDataset").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMDDataset {
     type Vtable = IMDDataset_Vtbl;
-}
-impl ::core::clone::Clone for IMDDataset {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMDDataset {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa07cccd1_8148_11d0_87bb_00c04fc33942);
@@ -5458,6 +4527,7 @@ pub struct IMDDataset_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMDFind(::windows_core::IUnknown);
 impl IMDFind {
     pub unsafe fn FindCell(&self, ulstartingordinal: usize, rgpwszmember: &[::windows_core::PCWSTR]) -> ::windows_core::Result<usize> {
@@ -5470,24 +4540,8 @@ impl IMDFind {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMDFind, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMDFind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMDFind {}
-impl ::core::fmt::Debug for IMDFind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMDFind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMDFind {
     type Vtable = IMDFind_Vtbl;
-}
-impl ::core::clone::Clone for IMDFind {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMDFind {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa07cccd2_8148_11d0_87bb_00c04fc33942);
@@ -5501,6 +4555,7 @@ pub struct IMDFind_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMDRangeRowset(::windows_core::IUnknown);
 impl IMDRangeRowset {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -5513,24 +4568,8 @@ impl IMDRangeRowset {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMDRangeRowset, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMDRangeRowset {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMDRangeRowset {}
-impl ::core::fmt::Debug for IMDRangeRowset {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMDRangeRowset").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMDRangeRowset {
     type Vtable = IMDRangeRowset_Vtbl;
-}
-impl ::core::clone::Clone for IMDRangeRowset {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMDRangeRowset {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733aa0_2a1c_11ce_ade5_00aa0044773d);
@@ -5546,6 +4585,7 @@ pub struct IMDRangeRowset_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMetaData(::windows_core::IUnknown);
 impl IMetaData {
     pub unsafe fn GetData(&self, ppszkey: ::core::option::Option<*mut ::windows_core::PWSTR>, ppszvalue: ::core::option::Option<*mut ::windows_core::PWSTR>) -> ::windows_core::Result<()> {
@@ -5553,24 +4593,8 @@ impl IMetaData {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMetaData, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMetaData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMetaData {}
-impl ::core::fmt::Debug for IMetaData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMetaData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMetaData {
     type Vtable = IMetaData_Vtbl;
-}
-impl ::core::clone::Clone for IMetaData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMetaData {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x780102b0_c43b_4876_bc7b_5e9ba5c88794);
@@ -5583,6 +4607,7 @@ pub struct IMetaData_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMultipleResults(::windows_core::IUnknown);
 impl IMultipleResults {
     pub unsafe fn GetResult<P0>(&self, punkouter: P0, lresultflag: isize, riid: *const ::windows_core::GUID, pcrowsaffected: ::core::option::Option<*mut isize>, pprowset: ::core::option::Option<*mut ::core::option::Option<::windows_core::IUnknown>>) -> ::windows_core::Result<()>
@@ -5593,24 +4618,8 @@ impl IMultipleResults {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMultipleResults, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMultipleResults {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMultipleResults {}
-impl ::core::fmt::Debug for IMultipleResults {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMultipleResults").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMultipleResults {
     type Vtable = IMultipleResults_Vtbl;
-}
-impl ::core::clone::Clone for IMultipleResults {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMultipleResults {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a90_2a1c_11ce_ade5_00aa0044773d);
@@ -5623,6 +4632,7 @@ pub struct IMultipleResults_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INamedEntity(::windows_core::IUnknown);
 impl INamedEntity {
     pub unsafe fn GetValue(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -5634,24 +4644,8 @@ impl INamedEntity {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INamedEntity, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INamedEntity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INamedEntity {}
-impl ::core::fmt::Debug for INamedEntity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INamedEntity").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INamedEntity {
     type Vtable = INamedEntity_Vtbl;
-}
-impl ::core::clone::Clone for INamedEntity {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INamedEntity {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xabdbd0b1_7d54_49fb_ab5c_bff4130004cd);
@@ -5665,6 +4659,7 @@ pub struct INamedEntity_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INamedEntityCollector(::windows_core::IUnknown);
 impl INamedEntityCollector {
     pub unsafe fn Add<P0, P1>(&self, beginspan: u32, endspan: u32, beginactual: u32, endactual: u32, ptype: P0, pszvalue: P1, certainty: NAMED_ENTITY_CERTAINTY) -> ::windows_core::Result<()>
@@ -5676,24 +4671,8 @@ impl INamedEntityCollector {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INamedEntityCollector, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INamedEntityCollector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INamedEntityCollector {}
-impl ::core::fmt::Debug for INamedEntityCollector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INamedEntityCollector").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INamedEntityCollector {
     type Vtable = INamedEntityCollector_Vtbl;
-}
-impl ::core::clone::Clone for INamedEntityCollector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INamedEntityCollector {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaf2440f6_8afc_47d0_9a7f_396a0acfb43d);
@@ -5706,6 +4685,7 @@ pub struct INamedEntityCollector_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IObjectAccessControl(::windows_core::IUnknown);
 impl IObjectAccessControl {
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Storage_IndexServer\"`*"]
@@ -5737,24 +4717,8 @@ impl IObjectAccessControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IObjectAccessControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IObjectAccessControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IObjectAccessControl {}
-impl ::core::fmt::Debug for IObjectAccessControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IObjectAccessControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IObjectAccessControl {
     type Vtable = IObjectAccessControl_Vtbl;
-}
-impl ::core::clone::Clone for IObjectAccessControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IObjectAccessControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733aa3_2a1c_11ce_ade5_00aa0044773d);
@@ -5786,6 +4750,7 @@ pub struct IObjectAccessControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpLockStatus(::windows_core::IUnknown);
 impl IOpLockStatus {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5808,24 +4773,8 @@ impl IOpLockStatus {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpLockStatus, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpLockStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpLockStatus {}
-impl ::core::fmt::Debug for IOpLockStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpLockStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpLockStatus {
     type Vtable = IOpLockStatus_Vtbl;
-}
-impl ::core::clone::Clone for IOpLockStatus {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpLockStatus {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc731065d_ac80_11d1_8df3_00c04fb6ef4f);
@@ -5849,6 +4798,7 @@ pub struct IOpLockStatus_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpenRowset(::windows_core::IUnknown);
 impl IOpenRowset {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -5861,24 +4811,8 @@ impl IOpenRowset {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpenRowset, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpenRowset {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpenRowset {}
-impl ::core::fmt::Debug for IOpenRowset {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpenRowset").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpenRowset {
     type Vtable = IOpenRowset_Vtbl;
-}
-impl ::core::clone::Clone for IOpenRowset {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpenRowset {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a69_2a1c_11ce_ade5_00aa0044773d);
@@ -5894,6 +4828,7 @@ pub struct IOpenRowset_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IParentRowset(::windows_core::IUnknown);
 impl IParentRowset {
     pub unsafe fn GetChildRowset<P0>(&self, punkouter: P0, iordinal: usize, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -5905,24 +4840,8 @@ impl IParentRowset {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IParentRowset, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IParentRowset {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IParentRowset {}
-impl ::core::fmt::Debug for IParentRowset {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IParentRowset").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IParentRowset {
     type Vtable = IParentRowset_Vtbl;
-}
-impl ::core::clone::Clone for IParentRowset {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IParentRowset {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733aaa_2a1c_11ce_ade5_00aa0044773d);
@@ -5935,6 +4854,7 @@ pub struct IParentRowset_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProtocolHandlerSite(::windows_core::IUnknown);
 impl IProtocolHandlerSite {
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -5949,24 +4869,8 @@ impl IProtocolHandlerSite {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IProtocolHandlerSite, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IProtocolHandlerSite {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IProtocolHandlerSite {}
-impl ::core::fmt::Debug for IProtocolHandlerSite {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProtocolHandlerSite").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IProtocolHandlerSite {
     type Vtable = IProtocolHandlerSite_Vtbl;
-}
-impl ::core::clone::Clone for IProtocolHandlerSite {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProtocolHandlerSite {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b63e385_9ccc_11d0_bcdb_00805fccce04);
@@ -5982,6 +4886,7 @@ pub struct IProtocolHandlerSite_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProvideMoniker(::windows_core::IUnknown);
 impl IProvideMoniker {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -5992,24 +4897,8 @@ impl IProvideMoniker {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IProvideMoniker, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IProvideMoniker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IProvideMoniker {}
-impl ::core::fmt::Debug for IProvideMoniker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProvideMoniker").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IProvideMoniker {
     type Vtable = IProvideMoniker_Vtbl;
-}
-impl ::core::clone::Clone for IProvideMoniker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProvideMoniker {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a4d_2a1c_11ce_ade5_00aa0044773d);
@@ -6025,6 +4914,7 @@ pub struct IProvideMoniker_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IQueryParser(::windows_core::IUnknown);
 impl IQueryParser {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -6089,24 +4979,8 @@ impl IQueryParser {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IQueryParser, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IQueryParser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IQueryParser {}
-impl ::core::fmt::Debug for IQueryParser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IQueryParser").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IQueryParser {
     type Vtable = IQueryParser_Vtbl;
-}
-impl ::core::clone::Clone for IQueryParser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IQueryParser {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2ebdee67_3505_43f8_9946_ea44abc8e5b0);
@@ -6144,6 +5018,7 @@ pub struct IQueryParser_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IQueryParserManager(::windows_core::IUnknown);
 impl IQueryParserManager {
     pub unsafe fn CreateLoadedParser<P0, T>(&self, pszcatalog: P0, langidforkeywords: u16) -> ::windows_core::Result<T>
@@ -6171,24 +5046,8 @@ impl IQueryParserManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IQueryParserManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IQueryParserManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IQueryParserManager {}
-impl ::core::fmt::Debug for IQueryParserManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IQueryParserManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IQueryParserManager {
     type Vtable = IQueryParserManager_Vtbl;
-}
-impl ::core::clone::Clone for IQueryParserManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IQueryParserManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa879e3c4_af77_44fb_8f37_ebd1487cf920);
@@ -6209,6 +5068,7 @@ pub struct IQueryParserManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IQuerySolution(::windows_core::IUnknown);
 impl IQuerySolution {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -6271,24 +5131,8 @@ impl IQuerySolution {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IQuerySolution, ::windows_core::IUnknown, IConditionFactory);
-impl ::core::cmp::PartialEq for IQuerySolution {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IQuerySolution {}
-impl ::core::fmt::Debug for IQuerySolution {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IQuerySolution").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IQuerySolution {
     type Vtable = IQuerySolution_Vtbl;
-}
-impl ::core::clone::Clone for IQuerySolution {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IQuerySolution {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd6ebc66b_8921_4193_afdd_a1789fb7ff57);
@@ -6306,6 +5150,7 @@ pub struct IQuerySolution_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IReadData(::windows_core::IUnknown);
 impl IReadData {
     pub unsafe fn ReadData<P0>(&self, hchapter: usize, pbookmark: &[u8], lrowsoffset: isize, haccessor: P0, crows: isize, pcrowsobtained: *mut usize, ppfixeddata: *mut *mut u8, pcbvariabletotal: *mut usize, ppvariabledata: *mut *mut u8) -> ::windows_core::Result<()>
@@ -6319,24 +5164,8 @@ impl IReadData {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IReadData, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IReadData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IReadData {}
-impl ::core::fmt::Debug for IReadData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IReadData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IReadData {
     type Vtable = IReadData_Vtbl;
-}
-impl ::core::clone::Clone for IReadData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IReadData {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a6a_2a1c_11ce_ade5_00aa0044773d);
@@ -6350,6 +5179,7 @@ pub struct IReadData_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRegisterProvider(::windows_core::IUnknown);
 impl IRegisterProvider {
     pub unsafe fn GetURLMapping<P0>(&self, pwszurl: P0, dwreserved: usize) -> ::windows_core::Result<::windows_core::GUID>
@@ -6373,24 +5203,8 @@ impl IRegisterProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRegisterProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRegisterProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRegisterProvider {}
-impl ::core::fmt::Debug for IRegisterProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRegisterProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRegisterProvider {
     type Vtable = IRegisterProvider_Vtbl;
-}
-impl ::core::clone::Clone for IRegisterProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRegisterProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733ab9_2a1c_11ce_ade5_00aa0044773d);
@@ -6405,6 +5219,7 @@ pub struct IRegisterProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRelationship(::windows_core::IUnknown);
 impl IRelationship {
     pub unsafe fn Name(&self, ppszname: ::core::option::Option<*mut ::windows_core::PWSTR>) -> ::windows_core::Result<()> {
@@ -6432,24 +5247,8 @@ impl IRelationship {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRelationship, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRelationship {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRelationship {}
-impl ::core::fmt::Debug for IRelationship {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRelationship").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRelationship {
     type Vtable = IRelationship_Vtbl;
-}
-impl ::core::clone::Clone for IRelationship {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRelationship {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2769280b_5108_498c_9c7f_a51239b63147);
@@ -6469,6 +5268,7 @@ pub struct IRelationship_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRichChunk(::windows_core::IUnknown);
 impl IRichChunk {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
@@ -6478,24 +5278,8 @@ impl IRichChunk {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRichChunk, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRichChunk {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRichChunk {}
-impl ::core::fmt::Debug for IRichChunk {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRichChunk").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRichChunk {
     type Vtable = IRichChunk_Vtbl;
-}
-impl ::core::clone::Clone for IRichChunk {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRichChunk {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4fdef69c_dbc9_454e_9910_b34f3c64b510);
@@ -6511,6 +5295,7 @@ pub struct IRichChunk_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRow(::windows_core::IUnknown);
 impl IRow {
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -6531,24 +5316,8 @@ impl IRow {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRow, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRow {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRow {}
-impl ::core::fmt::Debug for IRow {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRow").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRow {
     type Vtable = IRow_Vtbl;
-}
-impl ::core::clone::Clone for IRow {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRow {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733ab4_2a1c_11ce_ade5_00aa0044773d);
@@ -6569,6 +5338,7 @@ pub struct IRow_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowChange(::windows_core::IUnknown);
 impl IRowChange {
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -6578,24 +5348,8 @@ impl IRowChange {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowChange, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowChange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowChange {}
-impl ::core::fmt::Debug for IRowChange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowChange").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowChange {
     type Vtable = IRowChange_Vtbl;
-}
-impl ::core::clone::Clone for IRowChange {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowChange {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733ab5_2a1c_11ce_ade5_00aa0044773d);
@@ -6611,6 +5365,7 @@ pub struct IRowChange_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowPosition(::windows_core::IUnknown);
 impl IRowPosition {
     pub unsafe fn ClearRowPosition(&self) -> ::windows_core::Result<()> {
@@ -6634,24 +5389,8 @@ impl IRowPosition {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowPosition, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowPosition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowPosition {}
-impl ::core::fmt::Debug for IRowPosition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowPosition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowPosition {
     type Vtable = IRowPosition_Vtbl;
-}
-impl ::core::clone::Clone for IRowPosition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowPosition {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a94_2a1c_11ce_ade5_00aa0044773d);
@@ -6668,6 +5407,7 @@ pub struct IRowPosition_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowPositionChange(::windows_core::IUnknown);
 impl IRowPositionChange {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6680,24 +5420,8 @@ impl IRowPositionChange {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowPositionChange, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowPositionChange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowPositionChange {}
-impl ::core::fmt::Debug for IRowPositionChange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowPositionChange").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowPositionChange {
     type Vtable = IRowPositionChange_Vtbl;
-}
-impl ::core::clone::Clone for IRowPositionChange {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowPositionChange {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0997a571_126e_11d0_9f8a_00a0c9a0631e);
@@ -6713,6 +5437,7 @@ pub struct IRowPositionChange_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowSchemaChange(::windows_core::IUnknown);
 impl IRowSchemaChange {
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -6732,24 +5457,8 @@ impl IRowSchemaChange {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowSchemaChange, ::windows_core::IUnknown, IRowChange);
-impl ::core::cmp::PartialEq for IRowSchemaChange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowSchemaChange {}
-impl ::core::fmt::Debug for IRowSchemaChange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowSchemaChange").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowSchemaChange {
     type Vtable = IRowSchemaChange_Vtbl;
-}
-impl ::core::clone::Clone for IRowSchemaChange {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowSchemaChange {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733aae_2a1c_11ce_ade5_00aa0044773d);
@@ -6769,6 +5478,7 @@ pub struct IRowSchemaChange_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowset(::windows_core::IUnknown);
 impl IRowset {
     pub unsafe fn AddRefRows(&self, crows: usize, rghrows: *const usize, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows_core::Result<()> {
@@ -6791,24 +5501,8 @@ impl IRowset {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowset, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowset {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowset {}
-impl ::core::fmt::Debug for IRowset {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowset").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowset {
     type Vtable = IRowset_Vtbl;
-}
-impl ::core::clone::Clone for IRowset {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowset {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a7c_2a1c_11ce_ade5_00aa0044773d);
@@ -6825,6 +5519,7 @@ pub struct IRowset_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetAsynch(::windows_core::IUnknown);
 impl IRowsetAsynch {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6837,24 +5532,8 @@ impl IRowsetAsynch {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetAsynch, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetAsynch {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetAsynch {}
-impl ::core::fmt::Debug for IRowsetAsynch {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetAsynch").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetAsynch {
     type Vtable = IRowsetAsynch_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetAsynch {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetAsynch {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a0f_2a1c_11ce_ade5_00aa0044773d);
@@ -6871,6 +5550,7 @@ pub struct IRowsetAsynch_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetBookmark(::windows_core::IUnknown);
 impl IRowsetBookmark {
     pub unsafe fn PositionOnBookmark(&self, hchapter: usize, pbookmark: &[u8]) -> ::windows_core::Result<()> {
@@ -6878,24 +5558,8 @@ impl IRowsetBookmark {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetBookmark, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetBookmark {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetBookmark {}
-impl ::core::fmt::Debug for IRowsetBookmark {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetBookmark").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetBookmark {
     type Vtable = IRowsetBookmark_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetBookmark {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetBookmark {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733ac2_2a1c_11ce_ade5_00aa0044773d);
@@ -6908,6 +5572,7 @@ pub struct IRowsetBookmark_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetChange(::windows_core::IUnknown);
 impl IRowsetChange {
     pub unsafe fn DeleteRows(&self, hreserved: usize, crows: usize, rghrows: *const usize, rgrowstatus: *mut u32) -> ::windows_core::Result<()> {
@@ -6928,24 +5593,8 @@ impl IRowsetChange {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetChange, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetChange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetChange {}
-impl ::core::fmt::Debug for IRowsetChange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetChange").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetChange {
     type Vtable = IRowsetChange_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetChange {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetChange {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a05_2a1c_11ce_ade5_00aa0044773d);
@@ -6960,6 +5609,7 @@ pub struct IRowsetChange_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetChangeExtInfo(::windows_core::IUnknown);
 impl IRowsetChangeExtInfo {
     pub unsafe fn GetOriginalRow(&self, hreserved: usize, hrow: usize, phroworiginal: *mut usize) -> ::windows_core::Result<()> {
@@ -6970,24 +5620,8 @@ impl IRowsetChangeExtInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetChangeExtInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetChangeExtInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetChangeExtInfo {}
-impl ::core::fmt::Debug for IRowsetChangeExtInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetChangeExtInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetChangeExtInfo {
     type Vtable = IRowsetChangeExtInfo_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetChangeExtInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetChangeExtInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a8f_2a1c_11ce_ade5_00aa0044773d);
@@ -7001,6 +5635,7 @@ pub struct IRowsetChangeExtInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetChapterMember(::windows_core::IUnknown);
 impl IRowsetChapterMember {
     pub unsafe fn IsRowInChapter(&self, hchapter: usize, hrow: usize) -> ::windows_core::Result<()> {
@@ -7008,24 +5643,8 @@ impl IRowsetChapterMember {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetChapterMember, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetChapterMember {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetChapterMember {}
-impl ::core::fmt::Debug for IRowsetChapterMember {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetChapterMember").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetChapterMember {
     type Vtable = IRowsetChapterMember_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetChapterMember {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetChapterMember {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733aa8_2a1c_11ce_ade5_00aa0044773d);
@@ -7038,6 +5657,7 @@ pub struct IRowsetChapterMember_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetCopyRows(::windows_core::IUnknown);
 impl IRowsetCopyRows {
     pub unsafe fn CloseSource(&self, hsourceid: u16) -> ::windows_core::Result<()> {
@@ -7059,24 +5679,8 @@ impl IRowsetCopyRows {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetCopyRows, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetCopyRows {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetCopyRows {}
-impl ::core::fmt::Debug for IRowsetCopyRows {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetCopyRows").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetCopyRows {
     type Vtable = IRowsetCopyRows_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetCopyRows {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetCopyRows {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a6b_2a1c_11ce_ade5_00aa0044773d);
@@ -7092,6 +5696,7 @@ pub struct IRowsetCopyRows_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetCurrentIndex(::windows_core::IUnknown);
 impl IRowsetCurrentIndex {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -7124,24 +5729,8 @@ impl IRowsetCurrentIndex {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetCurrentIndex, ::windows_core::IUnknown, IRowsetIndex);
-impl ::core::cmp::PartialEq for IRowsetCurrentIndex {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetCurrentIndex {}
-impl ::core::fmt::Debug for IRowsetCurrentIndex {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetCurrentIndex").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetCurrentIndex {
     type Vtable = IRowsetCurrentIndex_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetCurrentIndex {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetCurrentIndex {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733abd_2a1c_11ce_ade5_00aa0044773d);
@@ -7161,6 +5750,7 @@ pub struct IRowsetCurrentIndex_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetEvents(::windows_core::IUnknown);
 impl IRowsetEvents {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
@@ -7185,24 +5775,8 @@ impl IRowsetEvents {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetEvents, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetEvents {}
-impl ::core::fmt::Debug for IRowsetEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetEvents").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetEvents {
     type Vtable = IRowsetEvents_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetEvents {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1551aea5_5d66_4b11_86f5_d5634cb211b9);
@@ -7230,6 +5804,7 @@ pub struct IRowsetEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetExactScroll(::windows_core::IUnknown);
 impl IRowsetExactScroll {
     pub unsafe fn AddRefRows(&self, crows: usize, rghrows: *const usize, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows_core::Result<()> {
@@ -7274,24 +5849,8 @@ impl IRowsetExactScroll {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetExactScroll, ::windows_core::IUnknown, IRowset, IRowsetLocate, IRowsetScroll);
-impl ::core::cmp::PartialEq for IRowsetExactScroll {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetExactScroll {}
-impl ::core::fmt::Debug for IRowsetExactScroll {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetExactScroll").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetExactScroll {
     type Vtable = IRowsetExactScroll_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetExactScroll {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetExactScroll {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a7f_2a1c_11ce_ade5_00aa0044773d);
@@ -7304,6 +5863,7 @@ pub struct IRowsetExactScroll_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetFastLoad(::windows_core::IUnknown);
 impl IRowsetFastLoad {
     pub unsafe fn InsertRow<P0>(&self, haccessor: P0, pdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -7322,24 +5882,8 @@ impl IRowsetFastLoad {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetFastLoad, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetFastLoad {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetFastLoad {}
-impl ::core::fmt::Debug for IRowsetFastLoad {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetFastLoad").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetFastLoad {
     type Vtable = IRowsetFastLoad_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetFastLoad {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetFastLoad {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5cf4ca13_ef21_11d0_97e7_00c04fc2ad98);
@@ -7356,6 +5900,7 @@ pub struct IRowsetFastLoad_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetFind(::windows_core::IUnknown);
 impl IRowsetFind {
     pub unsafe fn FindNextRow<P0>(&self, hchapter: usize, haccessor: P0, pfindvalue: *const ::core::ffi::c_void, compareop: u32, pbookmark: &[u8], lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows_core::Result<()>
@@ -7366,24 +5911,8 @@ impl IRowsetFind {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetFind, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetFind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetFind {}
-impl ::core::fmt::Debug for IRowsetFind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetFind").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetFind {
     type Vtable = IRowsetFind_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetFind {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetFind {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a9d_2a1c_11ce_ade5_00aa0044773d);
@@ -7396,6 +5925,7 @@ pub struct IRowsetFind_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetIdentity(::windows_core::IUnknown);
 impl IRowsetIdentity {
     pub unsafe fn IsSameRow(&self, hthisrow: usize, hthatrow: usize) -> ::windows_core::Result<()> {
@@ -7403,24 +5933,8 @@ impl IRowsetIdentity {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetIdentity, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetIdentity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetIdentity {}
-impl ::core::fmt::Debug for IRowsetIdentity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetIdentity").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetIdentity {
     type Vtable = IRowsetIdentity_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetIdentity {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetIdentity {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a09_2a1c_11ce_ade5_00aa0044773d);
@@ -7433,6 +5947,7 @@ pub struct IRowsetIdentity_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetIndex(::windows_core::IUnknown);
 impl IRowsetIndex {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -7454,24 +5969,8 @@ impl IRowsetIndex {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetIndex, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetIndex {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetIndex {}
-impl ::core::fmt::Debug for IRowsetIndex {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetIndex").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetIndex {
     type Vtable = IRowsetIndex_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetIndex {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetIndex {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a82_2a1c_11ce_ade5_00aa0044773d);
@@ -7489,6 +5988,7 @@ pub struct IRowsetIndex_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetInfo(::windows_core::IUnknown);
 impl IRowsetInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -7506,24 +6006,8 @@ impl IRowsetInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetInfo {}
-impl ::core::fmt::Debug for IRowsetInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetInfo {
     type Vtable = IRowsetInfo_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a55_2a1c_11ce_ade5_00aa0044773d);
@@ -7541,6 +6025,7 @@ pub struct IRowsetInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetKeys(::windows_core::IUnknown);
 impl IRowsetKeys {
     pub unsafe fn ListKeys(&self, pccolumns: *mut usize, prgcolumns: *mut *mut usize) -> ::windows_core::Result<()> {
@@ -7548,24 +6033,8 @@ impl IRowsetKeys {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetKeys, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetKeys {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetKeys {}
-impl ::core::fmt::Debug for IRowsetKeys {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetKeys").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetKeys {
     type Vtable = IRowsetKeys_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetKeys {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetKeys {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a12_2a1c_11ce_ade5_00aa0044773d);
@@ -7578,6 +6047,7 @@ pub struct IRowsetKeys_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetLocate(::windows_core::IUnknown);
 impl IRowsetLocate {
     pub unsafe fn AddRefRows(&self, crows: usize, rghrows: *const usize, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows_core::Result<()> {
@@ -7613,24 +6083,8 @@ impl IRowsetLocate {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetLocate, ::windows_core::IUnknown, IRowset);
-impl ::core::cmp::PartialEq for IRowsetLocate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetLocate {}
-impl ::core::fmt::Debug for IRowsetLocate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetLocate").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetLocate {
     type Vtable = IRowsetLocate_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetLocate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetLocate {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a7d_2a1c_11ce_ade5_00aa0044773d);
@@ -7646,6 +6100,7 @@ pub struct IRowsetLocate_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetNewRowAfter(::windows_core::IUnknown);
 impl IRowsetNewRowAfter {
     pub unsafe fn SetNewDataAfter<P0>(&self, hchapter: usize, pbmprevious: &[u8], haccessor: P0, pdata: *const u8) -> ::windows_core::Result<usize>
@@ -7657,24 +6112,8 @@ impl IRowsetNewRowAfter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetNewRowAfter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetNewRowAfter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetNewRowAfter {}
-impl ::core::fmt::Debug for IRowsetNewRowAfter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetNewRowAfter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetNewRowAfter {
     type Vtable = IRowsetNewRowAfter_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetNewRowAfter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetNewRowAfter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a71_2a1c_11ce_ade5_00aa0044773d);
@@ -7687,6 +6126,7 @@ pub struct IRowsetNewRowAfter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetNextRowset(::windows_core::IUnknown);
 impl IRowsetNextRowset {
     pub unsafe fn GetNextRowset<P0>(&self, punkouter: P0, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -7698,24 +6138,8 @@ impl IRowsetNextRowset {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetNextRowset, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetNextRowset {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetNextRowset {}
-impl ::core::fmt::Debug for IRowsetNextRowset {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetNextRowset").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetNextRowset {
     type Vtable = IRowsetNextRowset_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetNextRowset {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetNextRowset {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a72_2a1c_11ce_ade5_00aa0044773d);
@@ -7728,6 +6152,7 @@ pub struct IRowsetNextRowset_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetNotify(::windows_core::IUnknown);
 impl IRowsetNotify {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7759,24 +6184,8 @@ impl IRowsetNotify {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetNotify, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetNotify {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetNotify {}
-impl ::core::fmt::Debug for IRowsetNotify {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetNotify").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetNotify {
     type Vtable = IRowsetNotify_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetNotify {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetNotify {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a83_2a1c_11ce_ade5_00aa0044773d);
@@ -7800,6 +6209,7 @@ pub struct IRowsetNotify_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetPrioritization(::windows_core::IUnknown);
 impl IRowsetPrioritization {
     pub unsafe fn SetScopePriority(&self, priority: PRIORITY_LEVEL, scopestatisticseventfrequency: u32) -> ::windows_core::Result<()> {
@@ -7813,24 +6223,8 @@ impl IRowsetPrioritization {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetPrioritization, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetPrioritization {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetPrioritization {}
-impl ::core::fmt::Debug for IRowsetPrioritization {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetPrioritization").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetPrioritization {
     type Vtable = IRowsetPrioritization_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetPrioritization {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetPrioritization {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x42811652_079d_481b_87a2_09a69ecc5f44);
@@ -7845,6 +6239,7 @@ pub struct IRowsetPrioritization_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetQueryStatus(::windows_core::IUnknown);
 impl IRowsetQueryStatus {
     pub unsafe fn GetStatus(&self, pdwstatus: *mut u32) -> ::windows_core::Result<()> {
@@ -7855,24 +6250,8 @@ impl IRowsetQueryStatus {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetQueryStatus, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetQueryStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetQueryStatus {}
-impl ::core::fmt::Debug for IRowsetQueryStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetQueryStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetQueryStatus {
     type Vtable = IRowsetQueryStatus_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetQueryStatus {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetQueryStatus {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa7ac77ed_f8d7_11ce_a798_0020f8008024);
@@ -7886,6 +6265,7 @@ pub struct IRowsetQueryStatus_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetRefresh(::windows_core::IUnknown);
 impl IRowsetRefresh {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -7904,24 +6284,8 @@ impl IRowsetRefresh {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetRefresh, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetRefresh {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetRefresh {}
-impl ::core::fmt::Debug for IRowsetRefresh {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetRefresh").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetRefresh {
     type Vtable = IRowsetRefresh_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetRefresh {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetRefresh {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733aa9_2a1c_11ce_ade5_00aa0044773d);
@@ -7938,6 +6302,7 @@ pub struct IRowsetRefresh_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetResynch(::windows_core::IUnknown);
 impl IRowsetResynch {
     pub unsafe fn GetVisibleData<P0>(&self, hrow: usize, haccessor: P0, pdata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -7951,24 +6316,8 @@ impl IRowsetResynch {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetResynch, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetResynch {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetResynch {}
-impl ::core::fmt::Debug for IRowsetResynch {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetResynch").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetResynch {
     type Vtable = IRowsetResynch_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetResynch {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetResynch {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a84_2a1c_11ce_ade5_00aa0044773d);
@@ -7982,6 +6331,7 @@ pub struct IRowsetResynch_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetScroll(::windows_core::IUnknown);
 impl IRowsetScroll {
     pub unsafe fn AddRefRows(&self, crows: usize, rghrows: *const usize, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows_core::Result<()> {
@@ -8023,24 +6373,8 @@ impl IRowsetScroll {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetScroll, ::windows_core::IUnknown, IRowset, IRowsetLocate);
-impl ::core::cmp::PartialEq for IRowsetScroll {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetScroll {}
-impl ::core::fmt::Debug for IRowsetScroll {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetScroll").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetScroll {
     type Vtable = IRowsetScroll_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetScroll {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetScroll {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a7e_2a1c_11ce_ade5_00aa0044773d);
@@ -8054,6 +6388,7 @@ pub struct IRowsetScroll_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetUpdate(::windows_core::IUnknown);
 impl IRowsetUpdate {
     pub unsafe fn DeleteRows(&self, hreserved: usize, crows: usize, rghrows: *const usize, rgrowstatus: *mut u32) -> ::windows_core::Result<()> {
@@ -8092,24 +6427,8 @@ impl IRowsetUpdate {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetUpdate, ::windows_core::IUnknown, IRowsetChange);
-impl ::core::cmp::PartialEq for IRowsetUpdate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetUpdate {}
-impl ::core::fmt::Debug for IRowsetUpdate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetUpdate").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetUpdate {
     type Vtable = IRowsetUpdate_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetUpdate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetUpdate {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a6d_2a1c_11ce_ade5_00aa0044773d);
@@ -8126,6 +6445,7 @@ pub struct IRowsetUpdate_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetView(::windows_core::IUnknown);
 impl IRowsetView {
     pub unsafe fn CreateView<P0>(&self, punkouter: P0, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -8140,24 +6460,8 @@ impl IRowsetView {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetView, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetView {}
-impl ::core::fmt::Debug for IRowsetView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetView").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetView {
     type Vtable = IRowsetView_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetView {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetView {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a99_2a1c_11ce_ade5_00aa0044773d);
@@ -8171,6 +6475,7 @@ pub struct IRowsetView_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetWatchAll(::windows_core::IUnknown);
 impl IRowsetWatchAll {
     pub unsafe fn Acknowledge(&self) -> ::windows_core::Result<()> {
@@ -8184,24 +6489,8 @@ impl IRowsetWatchAll {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetWatchAll, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetWatchAll {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetWatchAll {}
-impl ::core::fmt::Debug for IRowsetWatchAll {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetWatchAll").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetWatchAll {
     type Vtable = IRowsetWatchAll_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetWatchAll {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetWatchAll {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a73_2a1c_11ce_ade5_00aa0044773d);
@@ -8216,6 +6505,7 @@ pub struct IRowsetWatchAll_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetWatchNotify(::windows_core::IUnknown);
 impl IRowsetWatchNotify {
     pub unsafe fn OnChange<P0>(&self, prowset: P0, echangereason: u32) -> ::windows_core::Result<()>
@@ -8226,24 +6516,8 @@ impl IRowsetWatchNotify {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetWatchNotify, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetWatchNotify {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetWatchNotify {}
-impl ::core::fmt::Debug for IRowsetWatchNotify {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetWatchNotify").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetWatchNotify {
     type Vtable = IRowsetWatchNotify_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetWatchNotify {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetWatchNotify {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a44_2a1c_11ce_ade5_00aa0044773d);
@@ -8256,6 +6530,7 @@ pub struct IRowsetWatchNotify_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetWatchRegion(::windows_core::IUnknown);
 impl IRowsetWatchRegion {
     pub unsafe fn Acknowledge(&self) -> ::windows_core::Result<()> {
@@ -8288,24 +6563,8 @@ impl IRowsetWatchRegion {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetWatchRegion, ::windows_core::IUnknown, IRowsetWatchAll);
-impl ::core::cmp::PartialEq for IRowsetWatchRegion {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetWatchRegion {}
-impl ::core::fmt::Debug for IRowsetWatchRegion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetWatchRegion").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetWatchRegion {
     type Vtable = IRowsetWatchRegion_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetWatchRegion {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetWatchRegion {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a45_2a1c_11ce_ade5_00aa0044773d);
@@ -8323,6 +6582,7 @@ pub struct IRowsetWatchRegion_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRowsetWithParameters(::windows_core::IUnknown);
 impl IRowsetWithParameters {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8335,24 +6595,8 @@ impl IRowsetWithParameters {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRowsetWithParameters, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRowsetWithParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRowsetWithParameters {}
-impl ::core::fmt::Debug for IRowsetWithParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRowsetWithParameters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRowsetWithParameters {
     type Vtable = IRowsetWithParameters_Vtbl;
-}
-impl ::core::clone::Clone for IRowsetWithParameters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRowsetWithParameters {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a6e_2a1c_11ce_ade5_00aa0044773d);
@@ -8369,6 +6613,7 @@ pub struct IRowsetWithParameters_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISQLErrorInfo(::windows_core::IUnknown);
 impl ISQLErrorInfo {
     pub unsafe fn GetSQLInfo(&self, pbstrsqlstate: *mut ::windows_core::BSTR, plnativeerror: *mut i32) -> ::windows_core::Result<()> {
@@ -8376,24 +6621,8 @@ impl ISQLErrorInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISQLErrorInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISQLErrorInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISQLErrorInfo {}
-impl ::core::fmt::Debug for ISQLErrorInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISQLErrorInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISQLErrorInfo {
     type Vtable = ISQLErrorInfo_Vtbl;
-}
-impl ::core::clone::Clone for ISQLErrorInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISQLErrorInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a74_2a1c_11ce_ade5_00aa0044773d);
@@ -8406,6 +6635,7 @@ pub struct ISQLErrorInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISQLGetDiagField(::windows_core::IUnknown);
 impl ISQLGetDiagField {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -8415,24 +6645,8 @@ impl ISQLGetDiagField {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISQLGetDiagField, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISQLGetDiagField {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISQLGetDiagField {}
-impl ::core::fmt::Debug for ISQLGetDiagField {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISQLGetDiagField").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISQLGetDiagField {
     type Vtable = ISQLGetDiagField_Vtbl;
-}
-impl ::core::clone::Clone for ISQLGetDiagField {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISQLGetDiagField {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x228972f1_b5ff_11d0_8a80_00c04fd611cd);
@@ -8448,6 +6662,7 @@ pub struct ISQLGetDiagField_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISQLRequestDiagFields(::windows_core::IUnknown);
 impl ISQLRequestDiagFields {
     #[doc = "*Required features: `\"Win32_System_Variant\"`*"]
@@ -8457,24 +6672,8 @@ impl ISQLRequestDiagFields {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISQLRequestDiagFields, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISQLRequestDiagFields {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISQLRequestDiagFields {}
-impl ::core::fmt::Debug for ISQLRequestDiagFields {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISQLRequestDiagFields").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISQLRequestDiagFields {
     type Vtable = ISQLRequestDiagFields_Vtbl;
-}
-impl ::core::clone::Clone for ISQLRequestDiagFields {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISQLRequestDiagFields {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x228972f0_b5ff_11d0_8a80_00c04fd611cd);
@@ -8490,6 +6689,7 @@ pub struct ISQLRequestDiagFields_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISQLServerErrorInfo(::windows_core::IUnknown);
 impl ISQLServerErrorInfo {
     pub unsafe fn GetErrorInfo(&self, pperrorinfo: *mut *mut SSERRORINFO, ppstringsbuffer: *mut *mut u16) -> ::windows_core::Result<()> {
@@ -8497,24 +6697,8 @@ impl ISQLServerErrorInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISQLServerErrorInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISQLServerErrorInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISQLServerErrorInfo {}
-impl ::core::fmt::Debug for ISQLServerErrorInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISQLServerErrorInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISQLServerErrorInfo {
     type Vtable = ISQLServerErrorInfo_Vtbl;
-}
-impl ::core::clone::Clone for ISQLServerErrorInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISQLServerErrorInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5cf4ca12_ef21_11d0_97e7_00c04fc2ad98);
@@ -8527,6 +6711,7 @@ pub struct ISQLServerErrorInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISchemaLocalizerSupport(::windows_core::IUnknown);
 impl ISchemaLocalizerSupport {
     pub unsafe fn Localize<P0>(&self, pszglobalstring: P0) -> ::windows_core::Result<::windows_core::PWSTR>
@@ -8538,24 +6723,8 @@ impl ISchemaLocalizerSupport {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISchemaLocalizerSupport, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISchemaLocalizerSupport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISchemaLocalizerSupport {}
-impl ::core::fmt::Debug for ISchemaLocalizerSupport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISchemaLocalizerSupport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISchemaLocalizerSupport {
     type Vtable = ISchemaLocalizerSupport_Vtbl;
-}
-impl ::core::clone::Clone for ISchemaLocalizerSupport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISchemaLocalizerSupport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xca3fdca2_bfbe_4eed_90d7_0caef0a1bda1);
@@ -8568,6 +6737,7 @@ pub struct ISchemaLocalizerSupport_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISchemaLock(::windows_core::IUnknown);
 impl ISchemaLock {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`*"]
@@ -8585,24 +6755,8 @@ impl ISchemaLock {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISchemaLock, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISchemaLock {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISchemaLock {}
-impl ::core::fmt::Debug for ISchemaLock {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISchemaLock").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISchemaLock {
     type Vtable = ISchemaLock_Vtbl;
-}
-impl ::core::clone::Clone for ISchemaLock {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISchemaLock {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c2389fb_2511_11d4_b258_00c04f7971ce);
@@ -8622,6 +6776,7 @@ pub struct ISchemaLock_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISchemaProvider(::windows_core::IUnknown);
 impl ISchemaProvider {
     pub unsafe fn Entities<T>(&self) -> ::windows_core::Result<T>
@@ -8671,24 +6826,8 @@ impl ISchemaProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISchemaProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISchemaProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISchemaProvider {}
-impl ::core::fmt::Debug for ISchemaProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISchemaProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISchemaProvider {
     type Vtable = ISchemaProvider_Vtbl;
-}
-impl ::core::clone::Clone for ISchemaProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISchemaProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8cf89bcb_394c_49b2_ae28_a59dd4ed7f68);
@@ -8707,6 +6846,7 @@ pub struct ISchemaProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IScopedOperations(::windows_core::IUnknown);
 impl IScopedOperations {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -8748,24 +6888,8 @@ impl IScopedOperations {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IScopedOperations, ::windows_core::IUnknown, IBindResource);
-impl ::core::cmp::PartialEq for IScopedOperations {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IScopedOperations {}
-impl ::core::fmt::Debug for IScopedOperations {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IScopedOperations").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IScopedOperations {
     type Vtable = IScopedOperations_Vtbl;
-}
-impl ::core::clone::Clone for IScopedOperations {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IScopedOperations {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733ab0_2a1c_11ce_ade5_00aa0044773d);
@@ -8790,6 +6914,7 @@ pub struct IScopedOperations_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchCatalogManager(::windows_core::IUnknown);
 impl ISearchCatalogManager {
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -8928,24 +7053,8 @@ impl ISearchCatalogManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISearchCatalogManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISearchCatalogManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISearchCatalogManager {}
-impl ::core::fmt::Debug for ISearchCatalogManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchCatalogManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISearchCatalogManager {
     type Vtable = ISearchCatalogManager_Vtbl;
-}
-impl ::core::clone::Clone for ISearchCatalogManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISearchCatalogManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab310581_ac80_11d1_8df3_00c04fb6ef50);
@@ -9001,6 +7110,7 @@ pub struct ISearchCatalogManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchCatalogManager2(::windows_core::IUnknown);
 impl ISearchCatalogManager2 {
     pub unsafe fn Name(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -9145,24 +7255,8 @@ impl ISearchCatalogManager2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISearchCatalogManager2, ::windows_core::IUnknown, ISearchCatalogManager);
-impl ::core::cmp::PartialEq for ISearchCatalogManager2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISearchCatalogManager2 {}
-impl ::core::fmt::Debug for ISearchCatalogManager2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchCatalogManager2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISearchCatalogManager2 {
     type Vtable = ISearchCatalogManager2_Vtbl;
-}
-impl ::core::clone::Clone for ISearchCatalogManager2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISearchCatalogManager2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7ac3286d_4d1d_4817_84fc_c1c85e3af0d9);
@@ -9175,6 +7269,7 @@ pub struct ISearchCatalogManager2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchCrawlScopeManager(::windows_core::IUnknown);
 impl ISearchCrawlScopeManager {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -9289,24 +7384,8 @@ impl ISearchCrawlScopeManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISearchCrawlScopeManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISearchCrawlScopeManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISearchCrawlScopeManager {}
-impl ::core::fmt::Debug for ISearchCrawlScopeManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchCrawlScopeManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISearchCrawlScopeManager {
     type Vtable = ISearchCrawlScopeManager_Vtbl;
-}
-impl ::core::clone::Clone for ISearchCrawlScopeManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISearchCrawlScopeManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab310581_ac80_11d1_8df3_00c04fb6ef55);
@@ -9355,6 +7434,7 @@ pub struct ISearchCrawlScopeManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchCrawlScopeManager2(::windows_core::IUnknown);
 impl ISearchCrawlScopeManager2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -9474,24 +7554,8 @@ impl ISearchCrawlScopeManager2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISearchCrawlScopeManager2, ::windows_core::IUnknown, ISearchCrawlScopeManager);
-impl ::core::cmp::PartialEq for ISearchCrawlScopeManager2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISearchCrawlScopeManager2 {}
-impl ::core::fmt::Debug for ISearchCrawlScopeManager2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchCrawlScopeManager2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISearchCrawlScopeManager2 {
     type Vtable = ISearchCrawlScopeManager2_Vtbl;
-}
-impl ::core::clone::Clone for ISearchCrawlScopeManager2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISearchCrawlScopeManager2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6292f7ad_4e19_4717_a534_8fc22bcd5ccd);
@@ -9507,6 +7571,7 @@ pub struct ISearchCrawlScopeManager2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchItemsChangedSink(::windows_core::IUnknown);
 impl ISearchItemsChangedSink {
     pub unsafe fn StartedMonitoringScope<P0>(&self, pszurl: P0) -> ::windows_core::Result<()>
@@ -9528,24 +7593,8 @@ impl ISearchItemsChangedSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISearchItemsChangedSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISearchItemsChangedSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISearchItemsChangedSink {}
-impl ::core::fmt::Debug for ISearchItemsChangedSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchItemsChangedSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISearchItemsChangedSink {
     type Vtable = ISearchItemsChangedSink_Vtbl;
-}
-impl ::core::clone::Clone for ISearchItemsChangedSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISearchItemsChangedSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab310581_ac80_11d1_8df3_00c04fb6ef58);
@@ -9563,6 +7612,7 @@ pub struct ISearchItemsChangedSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchLanguageSupport(::windows_core::IUnknown);
 impl ISearchLanguageSupport {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -9599,24 +7649,8 @@ impl ISearchLanguageSupport {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISearchLanguageSupport, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISearchLanguageSupport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISearchLanguageSupport {}
-impl ::core::fmt::Debug for ISearchLanguageSupport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchLanguageSupport").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISearchLanguageSupport {
     type Vtable = ISearchLanguageSupport_Vtbl;
-}
-impl ::core::clone::Clone for ISearchLanguageSupport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISearchLanguageSupport {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24c3cbaa_ebc1_491a_9ef1_9f6d8deb1b8f);
@@ -9639,6 +7673,7 @@ pub struct ISearchLanguageSupport_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchManager(::windows_core::IUnknown);
 impl ISearchManager {
     pub unsafe fn GetIndexerVersionStr(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -9716,24 +7751,8 @@ impl ISearchManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISearchManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISearchManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISearchManager {}
-impl ::core::fmt::Debug for ISearchManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISearchManager {
     type Vtable = ISearchManager_Vtbl;
-}
-impl ::core::clone::Clone for ISearchManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISearchManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab310581_ac80_11d1_8df3_00c04fb6ef69);
@@ -9770,6 +7789,7 @@ pub struct ISearchManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchManager2(::windows_core::IUnknown);
 impl ISearchManager2 {
     pub unsafe fn GetIndexerVersionStr(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -9860,24 +7880,8 @@ impl ISearchManager2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISearchManager2, ::windows_core::IUnknown, ISearchManager);
-impl ::core::cmp::PartialEq for ISearchManager2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISearchManager2 {}
-impl ::core::fmt::Debug for ISearchManager2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchManager2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISearchManager2 {
     type Vtable = ISearchManager2_Vtbl;
-}
-impl ::core::clone::Clone for ISearchManager2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISearchManager2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdbab3f73_db19_4a79_bfc0_a61a93886ddf);
@@ -9891,6 +7895,7 @@ pub struct ISearchManager2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchNotifyInlineSite(::windows_core::IUnknown);
 impl ISearchNotifyInlineSite {
     pub unsafe fn OnItemIndexedStatusChange(&self, sipstatus: SEARCH_INDEXING_PHASE, rgitemstatusentries: &[SEARCH_ITEM_INDEXING_STATUS]) -> ::windows_core::Result<()> {
@@ -9901,24 +7906,8 @@ impl ISearchNotifyInlineSite {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISearchNotifyInlineSite, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISearchNotifyInlineSite {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISearchNotifyInlineSite {}
-impl ::core::fmt::Debug for ISearchNotifyInlineSite {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchNotifyInlineSite").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISearchNotifyInlineSite {
     type Vtable = ISearchNotifyInlineSite_Vtbl;
-}
-impl ::core::clone::Clone for ISearchNotifyInlineSite {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISearchNotifyInlineSite {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5702e61_e75c_4b64_82a1_6cb4f832fccf);
@@ -9932,6 +7921,7 @@ pub struct ISearchNotifyInlineSite_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchPersistentItemsChangedSink(::windows_core::IUnknown);
 impl ISearchPersistentItemsChangedSink {
     pub unsafe fn StartedMonitoringScope<P0>(&self, pszurl: P0) -> ::windows_core::Result<()>
@@ -9951,24 +7941,8 @@ impl ISearchPersistentItemsChangedSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISearchPersistentItemsChangedSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISearchPersistentItemsChangedSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISearchPersistentItemsChangedSink {}
-impl ::core::fmt::Debug for ISearchPersistentItemsChangedSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchPersistentItemsChangedSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISearchPersistentItemsChangedSink {
     type Vtable = ISearchPersistentItemsChangedSink_Vtbl;
-}
-impl ::core::clone::Clone for ISearchPersistentItemsChangedSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISearchPersistentItemsChangedSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa2ffdf9b_4758_4f84_b729_df81a1a0612f);
@@ -9983,6 +7957,7 @@ pub struct ISearchPersistentItemsChangedSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchProtocol(::windows_core::IUnknown);
 impl ISearchProtocol {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -10013,24 +7988,8 @@ impl ISearchProtocol {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISearchProtocol, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISearchProtocol {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISearchProtocol {}
-impl ::core::fmt::Debug for ISearchProtocol {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchProtocol").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISearchProtocol {
     type Vtable = ISearchProtocol_Vtbl;
-}
-impl ::core::clone::Clone for ISearchProtocol {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISearchProtocol {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc73106ba_ac80_11d1_8df3_00c04fb6ef4f);
@@ -10052,6 +8011,7 @@ pub struct ISearchProtocol_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchProtocol2(::windows_core::IUnknown);
 impl ISearchProtocol2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -10091,24 +8051,8 @@ impl ISearchProtocol2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISearchProtocol2, ::windows_core::IUnknown, ISearchProtocol);
-impl ::core::cmp::PartialEq for ISearchProtocol2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISearchProtocol2 {}
-impl ::core::fmt::Debug for ISearchProtocol2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchProtocol2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISearchProtocol2 {
     type Vtable = ISearchProtocol2_Vtbl;
-}
-impl ::core::clone::Clone for ISearchProtocol2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISearchProtocol2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7789f0b2_b5b2_4722_8b65_5dbd150697a9);
@@ -10124,6 +8068,7 @@ pub struct ISearchProtocol2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchProtocolThreadContext(::windows_core::IUnknown);
 impl ISearchProtocolThreadContext {
     pub unsafe fn ThreadInit(&self) -> ::windows_core::Result<()> {
@@ -10137,24 +8082,8 @@ impl ISearchProtocolThreadContext {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISearchProtocolThreadContext, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISearchProtocolThreadContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISearchProtocolThreadContext {}
-impl ::core::fmt::Debug for ISearchProtocolThreadContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchProtocolThreadContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISearchProtocolThreadContext {
     type Vtable = ISearchProtocolThreadContext_Vtbl;
-}
-impl ::core::clone::Clone for ISearchProtocolThreadContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISearchProtocolThreadContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc73106e1_ac80_11d1_8df3_00c04fb6ef4f);
@@ -10169,6 +8098,7 @@ pub struct ISearchProtocolThreadContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchQueryHelper(::windows_core::IUnknown);
 impl ISearchQueryHelper {
     pub unsafe fn ConnectionString(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -10264,24 +8194,8 @@ impl ISearchQueryHelper {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISearchQueryHelper, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISearchQueryHelper {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISearchQueryHelper {}
-impl ::core::fmt::Debug for ISearchQueryHelper {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchQueryHelper").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISearchQueryHelper {
     type Vtable = ISearchQueryHelper_Vtbl;
-}
-impl ::core::clone::Clone for ISearchQueryHelper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISearchQueryHelper {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab310581_ac80_11d1_8df3_00c04fb6ef63);
@@ -10317,6 +8231,7 @@ pub struct ISearchQueryHelper_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchQueryHits(::windows_core::IUnknown);
 impl ISearchQueryHits {
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -10339,24 +8254,8 @@ impl ISearchQueryHits {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISearchQueryHits, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISearchQueryHits {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISearchQueryHits {}
-impl ::core::fmt::Debug for ISearchQueryHits {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchQueryHits").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISearchQueryHits {
     type Vtable = ISearchQueryHits_Vtbl;
-}
-impl ::core::clone::Clone for ISearchQueryHits {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISearchQueryHits {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed8ce7e0_106c_11ce_84e2_00aa004b9986);
@@ -10380,6 +8279,7 @@ pub struct ISearchQueryHits_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchRoot(::windows_core::IUnknown);
 impl ISearchRoot {
     pub unsafe fn SetSchedule<P0>(&self, psztaskarg: P0) -> ::windows_core::Result<()>
@@ -10501,24 +8401,8 @@ impl ISearchRoot {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISearchRoot, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISearchRoot {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISearchRoot {}
-impl ::core::fmt::Debug for ISearchRoot {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchRoot").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISearchRoot {
     type Vtable = ISearchRoot_Vtbl;
-}
-impl ::core::clone::Clone for ISearchRoot {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISearchRoot {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04c18ccf_1f57_4cbd_88cc_3900f5195ce3);
@@ -10576,6 +8460,7 @@ pub struct ISearchRoot_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchScopeRule(::windows_core::IUnknown);
 impl ISearchScopeRule {
     pub unsafe fn PatternOrURL(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -10600,24 +8485,8 @@ impl ISearchScopeRule {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISearchScopeRule, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISearchScopeRule {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISearchScopeRule {}
-impl ::core::fmt::Debug for ISearchScopeRule {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchScopeRule").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISearchScopeRule {
     type Vtable = ISearchScopeRule_Vtbl;
-}
-impl ::core::clone::Clone for ISearchScopeRule {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISearchScopeRule {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab310581_ac80_11d1_8df3_00c04fb6ef53);
@@ -10639,6 +8508,7 @@ pub struct ISearchScopeRule_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchViewChangedSink(::windows_core::IUnknown);
 impl ISearchViewChangedSink {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -10648,24 +8518,8 @@ impl ISearchViewChangedSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISearchViewChangedSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISearchViewChangedSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISearchViewChangedSink {}
-impl ::core::fmt::Debug for ISearchViewChangedSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchViewChangedSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISearchViewChangedSink {
     type Vtable = ISearchViewChangedSink_Vtbl;
-}
-impl ::core::clone::Clone for ISearchViewChangedSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISearchViewChangedSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab310581_ac80_11d1_8df3_00c04fb6ef65);
@@ -10681,6 +8535,7 @@ pub struct ISearchViewChangedSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISecurityInfo(::windows_core::IUnknown);
 impl ISecurityInfo {
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
@@ -10698,24 +8553,8 @@ impl ISecurityInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISecurityInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISecurityInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISecurityInfo {}
-impl ::core::fmt::Debug for ISecurityInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISecurityInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISecurityInfo {
     type Vtable = ISecurityInfo_Vtbl;
-}
-impl ::core::clone::Clone for ISecurityInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISecurityInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733aa4_2a1c_11ce_ade5_00aa0044773d);
@@ -10733,6 +8572,7 @@ pub struct ISecurityInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IService(::windows_core::IUnknown);
 impl IService {
     pub unsafe fn InvokeService<P0>(&self, punkinner: P0) -> ::windows_core::Result<()>
@@ -10743,24 +8583,8 @@ impl IService {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IService, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IService {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IService {}
-impl ::core::fmt::Debug for IService {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IService").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IService {
     type Vtable = IService_Vtbl;
-}
-impl ::core::clone::Clone for IService {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IService {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x06210e88_01f5_11d1_b512_0080c781c384);
@@ -10773,6 +8597,7 @@ pub struct IService_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISessionProperties(::windows_core::IUnknown);
 impl ISessionProperties {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -10787,24 +8612,8 @@ impl ISessionProperties {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISessionProperties, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISessionProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISessionProperties {}
-impl ::core::fmt::Debug for ISessionProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISessionProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISessionProperties {
     type Vtable = ISessionProperties_Vtbl;
-}
-impl ::core::clone::Clone for ISessionProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISessionProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a85_2a1c_11ce_ade5_00aa0044773d);
@@ -10824,6 +8633,7 @@ pub struct ISessionProperties_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISimpleCommandCreator(::windows_core::IUnknown);
 impl ISimpleCommandCreator {
     pub unsafe fn CreateICommand<P0>(&self, ppiunknown: *mut ::core::option::Option<::windows_core::IUnknown>, pouterunk: P0) -> ::windows_core::Result<()>
@@ -10847,24 +8657,8 @@ impl ISimpleCommandCreator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISimpleCommandCreator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISimpleCommandCreator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISimpleCommandCreator {}
-impl ::core::fmt::Debug for ISimpleCommandCreator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISimpleCommandCreator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISimpleCommandCreator {
     type Vtable = ISimpleCommandCreator_Vtbl;
-}
-impl ::core::clone::Clone for ISimpleCommandCreator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISimpleCommandCreator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e341ab7_02d0_11d1_900c_00a0c9063796);
@@ -10879,6 +8673,7 @@ pub struct ISimpleCommandCreator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISourcesRowset(::windows_core::IUnknown);
 impl ISourcesRowset {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -10891,24 +8686,8 @@ impl ISourcesRowset {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISourcesRowset, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISourcesRowset {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISourcesRowset {}
-impl ::core::fmt::Debug for ISourcesRowset {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISourcesRowset").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISourcesRowset {
     type Vtable = ISourcesRowset_Vtbl;
-}
-impl ::core::clone::Clone for ISourcesRowset {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISourcesRowset {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a1e_2a1c_11ce_ade5_00aa0044773d);
@@ -10924,6 +8703,7 @@ pub struct ISourcesRowset_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStemmer(::windows_core::IUnknown);
 impl IStemmer {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -10943,24 +8723,8 @@ impl IStemmer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStemmer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IStemmer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStemmer {}
-impl ::core::fmt::Debug for IStemmer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStemmer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStemmer {
     type Vtable = IStemmer_Vtbl;
-}
-impl ::core::clone::Clone for IStemmer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStemmer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefbaf140_7f42_11ce_be57_00aa0051fe20);
@@ -10978,6 +8742,7 @@ pub struct IStemmer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISubscriptionItem(::windows_core::IUnknown);
 impl ISubscriptionItem {
     pub unsafe fn GetCookie(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -11009,24 +8774,8 @@ impl ISubscriptionItem {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISubscriptionItem, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISubscriptionItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISubscriptionItem {}
-impl ::core::fmt::Debug for ISubscriptionItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISubscriptionItem").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISubscriptionItem {
     type Vtable = ISubscriptionItem_Vtbl;
-}
-impl ::core::clone::Clone for ISubscriptionItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISubscriptionItem {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa97559f8_6c4a_11d1_a1e8_00c04fc2fbe1);
@@ -11051,6 +8800,7 @@ pub struct ISubscriptionItem_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISubscriptionMgr(::windows_core::IUnknown);
 impl ISubscriptionMgr {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -11114,24 +8864,8 @@ impl ISubscriptionMgr {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISubscriptionMgr, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISubscriptionMgr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISubscriptionMgr {}
-impl ::core::fmt::Debug for ISubscriptionMgr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISubscriptionMgr").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISubscriptionMgr {
     type Vtable = ISubscriptionMgr_Vtbl;
-}
-impl ::core::clone::Clone for ISubscriptionMgr {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISubscriptionMgr {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x085fb2c0_0df8_11d1_8f4b_00a0c905413f);
@@ -11169,6 +8903,7 @@ pub struct ISubscriptionMgr_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISubscriptionMgr2(::windows_core::IUnknown);
 impl ISubscriptionMgr2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -11259,24 +8994,8 @@ impl ISubscriptionMgr2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISubscriptionMgr2, ::windows_core::IUnknown, ISubscriptionMgr);
-impl ::core::cmp::PartialEq for ISubscriptionMgr2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISubscriptionMgr2 {}
-impl ::core::fmt::Debug for ISubscriptionMgr2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISubscriptionMgr2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISubscriptionMgr2 {
     type Vtable = ISubscriptionMgr2_Vtbl;
-}
-impl ::core::clone::Clone for ISubscriptionMgr2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISubscriptionMgr2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x614bc270_aedf_11d1_a1f9_00c04fc2fbe1);
@@ -11295,6 +9014,7 @@ pub struct ISubscriptionMgr2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITableCreation(::windows_core::IUnknown);
 impl ITableCreation {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -11350,24 +9070,8 @@ impl ITableCreation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITableCreation, ::windows_core::IUnknown, ITableDefinition);
-impl ::core::cmp::PartialEq for ITableCreation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITableCreation {}
-impl ::core::fmt::Debug for ITableCreation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITableCreation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITableCreation {
     type Vtable = ITableCreation_Vtbl;
-}
-impl ::core::clone::Clone for ITableCreation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITableCreation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733abc_2a1c_11ce_ade5_00aa0044773d);
@@ -11383,6 +9087,7 @@ pub struct ITableCreation_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITableDefinition(::windows_core::IUnknown);
 impl ITableDefinition {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -11422,24 +9127,8 @@ impl ITableDefinition {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITableDefinition, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITableDefinition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITableDefinition {}
-impl ::core::fmt::Debug for ITableDefinition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITableDefinition").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITableDefinition {
     type Vtable = ITableDefinition_Vtbl;
-}
-impl ::core::clone::Clone for ITableDefinition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITableDefinition {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a86_2a1c_11ce_ade5_00aa0044773d);
@@ -11467,6 +9156,7 @@ pub struct ITableDefinition_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITableDefinitionWithConstraints(::windows_core::IUnknown);
 impl ITableDefinitionWithConstraints {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_IndexServer\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -11540,24 +9230,8 @@ impl ITableDefinitionWithConstraints {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITableDefinitionWithConstraints, ::windows_core::IUnknown, ITableDefinition, ITableCreation);
-impl ::core::cmp::PartialEq for ITableDefinitionWithConstraints {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITableDefinitionWithConstraints {}
-impl ::core::fmt::Debug for ITableDefinitionWithConstraints {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITableDefinitionWithConstraints").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITableDefinitionWithConstraints {
     type Vtable = ITableDefinitionWithConstraints_Vtbl;
-}
-impl ::core::clone::Clone for ITableDefinitionWithConstraints {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITableDefinitionWithConstraints {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733aab_2a1c_11ce_ade5_00aa0044773d);
@@ -11581,6 +9255,7 @@ pub struct ITableDefinitionWithConstraints_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITableRename(::windows_core::IUnknown);
 impl ITableRename {
     #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`*"]
@@ -11595,24 +9270,8 @@ impl ITableRename {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITableRename, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITableRename {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITableRename {}
-impl ::core::fmt::Debug for ITableRename {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITableRename").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITableRename {
     type Vtable = ITableRename_Vtbl;
-}
-impl ::core::clone::Clone for ITableRename {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITableRename {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a77_2a1c_11ce_ade5_00aa0044773d);
@@ -11632,6 +9291,7 @@ pub struct ITableRename_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITokenCollection(::windows_core::IUnknown);
 impl ITokenCollection {
     pub unsafe fn NumberOfTokens(&self, pcount: *const u32) -> ::windows_core::Result<()> {
@@ -11642,24 +9302,8 @@ impl ITokenCollection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITokenCollection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITokenCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITokenCollection {}
-impl ::core::fmt::Debug for ITokenCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITokenCollection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITokenCollection {
     type Vtable = ITokenCollection_Vtbl;
-}
-impl ::core::clone::Clone for ITokenCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITokenCollection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x22d8b4f2_f577_4adb_a335_c2ae88416fab);
@@ -11673,6 +9317,7 @@ pub struct ITokenCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITransactionJoin(::windows_core::IUnknown);
 impl ITransactionJoin {
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
@@ -11692,24 +9337,8 @@ impl ITransactionJoin {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITransactionJoin, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITransactionJoin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITransactionJoin {}
-impl ::core::fmt::Debug for ITransactionJoin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITransactionJoin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITransactionJoin {
     type Vtable = ITransactionJoin_Vtbl;
-}
-impl ::core::clone::Clone for ITransactionJoin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITransactionJoin {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a5e_2a1c_11ce_ade5_00aa0044773d);
@@ -11730,6 +9359,7 @@ pub struct ITransactionJoin_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_DistributedTransactionCoordinator\"`*"]
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITransactionLocal(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 impl ITransactionLocal {
@@ -11773,28 +9403,8 @@ impl ITransactionLocal {
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 ::windows_core::imp::interface_hierarchy!(ITransactionLocal, ::windows_core::IUnknown, super::DistributedTransactionCoordinator::ITransaction);
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
-impl ::core::cmp::PartialEq for ITransactionLocal {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
-impl ::core::cmp::Eq for ITransactionLocal {}
-#[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
-impl ::core::fmt::Debug for ITransactionLocal {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITransactionLocal").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 unsafe impl ::windows_core::Interface for ITransactionLocal {
     type Vtable = ITransactionLocal_Vtbl;
-}
-#[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
-impl ::core::clone::Clone for ITransactionLocal {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
 unsafe impl ::windows_core::ComInterface for ITransactionLocal {
@@ -11816,6 +9426,7 @@ pub struct ITransactionLocal_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITransactionObject(::windows_core::IUnknown);
 impl ITransactionObject {
     #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
@@ -11826,24 +9437,8 @@ impl ITransactionObject {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITransactionObject, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITransactionObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITransactionObject {}
-impl ::core::fmt::Debug for ITransactionObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITransactionObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITransactionObject {
     type Vtable = ITransactionObject_Vtbl;
-}
-impl ::core::clone::Clone for ITransactionObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITransactionObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a60_2a1c_11ce_ade5_00aa0044773d);
@@ -11859,6 +9454,7 @@ pub struct ITransactionObject_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITrusteeAdmin(::windows_core::IUnknown);
 impl ITrusteeAdmin {
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
@@ -11888,24 +9484,8 @@ impl ITrusteeAdmin {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITrusteeAdmin, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITrusteeAdmin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITrusteeAdmin {}
-impl ::core::fmt::Debug for ITrusteeAdmin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITrusteeAdmin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITrusteeAdmin {
     type Vtable = ITrusteeAdmin_Vtbl;
-}
-impl ::core::clone::Clone for ITrusteeAdmin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITrusteeAdmin {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733aa1_2a1c_11ce_ade5_00aa0044773d);
@@ -11937,6 +9517,7 @@ pub struct ITrusteeAdmin_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITrusteeGroupAdmin(::windows_core::IUnknown);
 impl ITrusteeGroupAdmin {
     #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
@@ -11967,24 +9548,8 @@ impl ITrusteeGroupAdmin {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITrusteeGroupAdmin, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITrusteeGroupAdmin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITrusteeGroupAdmin {}
-impl ::core::fmt::Debug for ITrusteeGroupAdmin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITrusteeGroupAdmin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITrusteeGroupAdmin {
     type Vtable = ITrusteeGroupAdmin_Vtbl;
-}
-impl ::core::clone::Clone for ITrusteeGroupAdmin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITrusteeGroupAdmin {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733aa2_2a1c_11ce_ade5_00aa0044773d);
@@ -12016,6 +9581,7 @@ pub struct ITrusteeGroupAdmin_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUMS(::std::ptr::NonNull<::std::ffi::c_void>);
 impl IUMS {
     pub unsafe fn SqlUmsSuspend(&self, ticks: u32) {
@@ -12036,24 +9602,8 @@ impl IUMS {
         (::windows_core::Interface::vtable(self).SqlUmsFIsPremptive)(::windows_core::Interface::as_raw(self))
     }
 }
-impl ::core::cmp::PartialEq for IUMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUMS {}
-impl ::core::fmt::Debug for IUMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUMS").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUMS {
     type Vtable = IUMS_Vtbl;
-}
-impl ::core::clone::Clone for IUMS {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12069,6 +9619,7 @@ pub struct IUMS_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUMSInitialize(::windows_core::IUnknown);
 impl IUMSInitialize {
     pub unsafe fn Initialize(&self, pums: *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -12076,24 +9627,8 @@ impl IUMSInitialize {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUMSInitialize, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUMSInitialize {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUMSInitialize {}
-impl ::core::fmt::Debug for IUMSInitialize {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUMSInitialize").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUMSInitialize {
     type Vtable = IUMSInitialize_Vtbl;
-}
-impl ::core::clone::Clone for IUMSInitialize {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUMSInitialize {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5cf4ca14_ef21_11d0_97e7_00c04fc2ad98);
@@ -12106,6 +9641,7 @@ pub struct IUMSInitialize_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUrlAccessor(::windows_core::IUnknown);
 impl IUrlAccessor {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
@@ -12163,24 +9699,8 @@ impl IUrlAccessor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUrlAccessor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUrlAccessor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUrlAccessor {}
-impl ::core::fmt::Debug for IUrlAccessor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUrlAccessor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUrlAccessor {
     type Vtable = IUrlAccessor_Vtbl;
-}
-impl ::core::clone::Clone for IUrlAccessor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUrlAccessor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b63e318_9ccc_11d0_bcdb_00805fccce04);
@@ -12217,6 +9737,7 @@ pub struct IUrlAccessor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUrlAccessor2(::windows_core::IUnknown);
 impl IUrlAccessor2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
@@ -12283,24 +9804,8 @@ impl IUrlAccessor2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUrlAccessor2, ::windows_core::IUnknown, IUrlAccessor);
-impl ::core::cmp::PartialEq for IUrlAccessor2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUrlAccessor2 {}
-impl ::core::fmt::Debug for IUrlAccessor2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUrlAccessor2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUrlAccessor2 {
     type Vtable = IUrlAccessor2_Vtbl;
-}
-impl ::core::clone::Clone for IUrlAccessor2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUrlAccessor2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc7310734_ac80_11d1_8df3_00c04fb6ef4f);
@@ -12315,6 +9820,7 @@ pub struct IUrlAccessor2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUrlAccessor3(::windows_core::IUnknown);
 impl IUrlAccessor3 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
@@ -12389,24 +9895,8 @@ impl IUrlAccessor3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUrlAccessor3, ::windows_core::IUnknown, IUrlAccessor, IUrlAccessor2);
-impl ::core::cmp::PartialEq for IUrlAccessor3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUrlAccessor3 {}
-impl ::core::fmt::Debug for IUrlAccessor3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUrlAccessor3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUrlAccessor3 {
     type Vtable = IUrlAccessor3_Vtbl;
-}
-impl ::core::clone::Clone for IUrlAccessor3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUrlAccessor3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6fbc7005_0455_4874_b8ff_7439450241a3);
@@ -12422,6 +9912,7 @@ pub struct IUrlAccessor3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUrlAccessor4(::windows_core::IUnknown);
 impl IUrlAccessor4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Variant\"`*"]
@@ -12508,24 +9999,8 @@ impl IUrlAccessor4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUrlAccessor4, ::windows_core::IUnknown, IUrlAccessor, IUrlAccessor2, IUrlAccessor3);
-impl ::core::cmp::PartialEq for IUrlAccessor4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUrlAccessor4 {}
-impl ::core::fmt::Debug for IUrlAccessor4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUrlAccessor4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUrlAccessor4 {
     type Vtable = IUrlAccessor4_Vtbl;
-}
-impl ::core::clone::Clone for IUrlAccessor4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUrlAccessor4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5cc51041_c8d2_41d7_bca3_9e9e286297dc);
@@ -12545,6 +10020,7 @@ pub struct IUrlAccessor4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IViewChapter(::windows_core::IUnknown);
 impl IViewChapter {
     pub unsafe fn GetSpecification(&self, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -12556,24 +10032,8 @@ impl IViewChapter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IViewChapter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IViewChapter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IViewChapter {}
-impl ::core::fmt::Debug for IViewChapter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IViewChapter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IViewChapter {
     type Vtable = IViewChapter_Vtbl;
-}
-impl ::core::clone::Clone for IViewChapter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IViewChapter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a98_2a1c_11ce_ade5_00aa0044773d);
@@ -12587,6 +10047,7 @@ pub struct IViewChapter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IViewFilter(::windows_core::IUnknown);
 impl IViewFilter {
     pub unsafe fn GetFilter<P0>(&self, haccessor: P0, pcrows: *mut usize, pcompareops: *mut *mut u32, pcriteriadata: *mut ::core::ffi::c_void) -> ::windows_core::Result<()>
@@ -12608,24 +10069,8 @@ impl IViewFilter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IViewFilter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IViewFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IViewFilter {}
-impl ::core::fmt::Debug for IViewFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IViewFilter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IViewFilter {
     type Vtable = IViewFilter_Vtbl;
-}
-impl ::core::clone::Clone for IViewFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IViewFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a9b_2a1c_11ce_ade5_00aa0044773d);
@@ -12643,6 +10088,7 @@ pub struct IViewFilter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IViewRowset(::windows_core::IUnknown);
 impl IViewRowset {
     pub unsafe fn GetSpecification(&self, riid: *const ::windows_core::GUID) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -12658,24 +10104,8 @@ impl IViewRowset {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IViewRowset, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IViewRowset {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IViewRowset {}
-impl ::core::fmt::Debug for IViewRowset {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IViewRowset").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IViewRowset {
     type Vtable = IViewRowset_Vtbl;
-}
-impl ::core::clone::Clone for IViewRowset {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IViewRowset {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a97_2a1c_11ce_ade5_00aa0044773d);
@@ -12689,6 +10119,7 @@ pub struct IViewRowset_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IViewSort(::windows_core::IUnknown);
 impl IViewSort {
     pub unsafe fn GetSortOrder(&self, pcvalues: *mut usize, prgcolumns: *mut *mut usize, prgorders: *mut *mut u32) -> ::windows_core::Result<()> {
@@ -12699,24 +10130,8 @@ impl IViewSort {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IViewSort, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IViewSort {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IViewSort {}
-impl ::core::fmt::Debug for IViewSort {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IViewSort").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IViewSort {
     type Vtable = IViewSort_Vtbl;
-}
-impl ::core::clone::Clone for IViewSort {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IViewSort {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c733a9a_2a1c_11ce_ade5_00aa0044773d);
@@ -12730,6 +10145,7 @@ pub struct IViewSort_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWordBreaker(::windows_core::IUnknown);
 impl IWordBreaker {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12762,24 +10178,8 @@ impl IWordBreaker {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWordBreaker, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWordBreaker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWordBreaker {}
-impl ::core::fmt::Debug for IWordBreaker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWordBreaker").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWordBreaker {
     type Vtable = IWordBreaker_Vtbl;
-}
-impl ::core::clone::Clone for IWordBreaker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWordBreaker {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd53552c8_77e3_101a_b552_08002b33b0e6);
@@ -12801,6 +10201,7 @@ pub struct IWordBreaker_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWordFormSink(::windows_core::IUnknown);
 impl IWordFormSink {
     pub unsafe fn PutAltWord<P0>(&self, pwcinbuf: P0, cwc: u32) -> ::windows_core::Result<()>
@@ -12817,24 +10218,8 @@ impl IWordFormSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWordFormSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWordFormSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWordFormSink {}
-impl ::core::fmt::Debug for IWordFormSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWordFormSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWordFormSink {
     type Vtable = IWordFormSink_Vtbl;
-}
-impl ::core::clone::Clone for IWordFormSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWordFormSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfe77c330_7f42_11ce_be57_00aa0051fe20);
@@ -12848,6 +10233,7 @@ pub struct IWordFormSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWordSink(::windows_core::IUnknown);
 impl IWordSink {
     pub unsafe fn PutWord<P0>(&self, cwc: u32, pwcinbuf: P0, cwcsrclen: u32, cwcsrcpos: u32) -> ::windows_core::Result<()>
@@ -12875,24 +10261,8 @@ impl IWordSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWordSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWordSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWordSink {}
-impl ::core::fmt::Debug for IWordSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWordSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWordSink {
     type Vtable = IWordSink_Vtbl;
-}
-impl ::core::clone::Clone for IWordSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWordSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc907054_c058_101a_b554_08002b33b0e6);
@@ -12912,6 +10282,7 @@ pub struct IWordSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct OLEDBSimpleProvider(::windows_core::IUnknown);
 impl OLEDBSimpleProvider {
     pub unsafe fn getRowCount(&self) -> ::windows_core::Result<isize> {
@@ -12982,24 +10353,8 @@ impl OLEDBSimpleProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(OLEDBSimpleProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for OLEDBSimpleProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for OLEDBSimpleProvider {}
-impl ::core::fmt::Debug for OLEDBSimpleProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OLEDBSimpleProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for OLEDBSimpleProvider {
     type Vtable = OLEDBSimpleProvider_Vtbl;
-}
-impl ::core::clone::Clone for OLEDBSimpleProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for OLEDBSimpleProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe0e270c0_c0be_11d0_8fe4_00a0c90a6341);
@@ -13037,6 +10392,7 @@ pub struct OLEDBSimpleProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct OLEDBSimpleProviderListener(::windows_core::IUnknown);
 impl OLEDBSimpleProviderListener {
     pub unsafe fn aboutToChangeCell(&self, irow: isize, icolumn: isize) -> ::windows_core::Result<()> {
@@ -13065,24 +10421,8 @@ impl OLEDBSimpleProviderListener {
     }
 }
 ::windows_core::imp::interface_hierarchy!(OLEDBSimpleProviderListener, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for OLEDBSimpleProviderListener {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for OLEDBSimpleProviderListener {}
-impl ::core::fmt::Debug for OLEDBSimpleProviderListener {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OLEDBSimpleProviderListener").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for OLEDBSimpleProviderListener {
     type Vtable = OLEDBSimpleProviderListener_Vtbl;
-}
-impl ::core::clone::Clone for OLEDBSimpleProviderListener {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for OLEDBSimpleProviderListener {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe0e270c1_c0be_11d0_8fe4_00a0c90a6341);
