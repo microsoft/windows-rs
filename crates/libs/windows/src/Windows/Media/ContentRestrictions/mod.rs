@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContentRestrictionsBrowsePolicy(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContentRestrictionsBrowsePolicy {
     type Vtable = IContentRestrictionsBrowsePolicy_Vtbl;
-}
-impl ::core::clone::Clone for IContentRestrictionsBrowsePolicy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContentRestrictionsBrowsePolicy {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c0133a4_442e_461a_8757_fad2f5bd37e4);
@@ -28,14 +24,10 @@ pub struct IContentRestrictionsBrowsePolicy_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRatedContentDescription(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRatedContentDescription {
     type Vtable = IRatedContentDescription_Vtbl;
-}
-impl ::core::clone::Clone for IRatedContentDescription {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRatedContentDescription {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x694866df_66b2_4dc3_96b1_f090eedee255);
@@ -69,14 +61,10 @@ pub struct IRatedContentDescription_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRatedContentDescriptionFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRatedContentDescriptionFactory {
     type Vtable = IRatedContentDescriptionFactory_Vtbl;
-}
-impl ::core::clone::Clone for IRatedContentDescriptionFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRatedContentDescriptionFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2e38df62_9b90_4fa6_89c1_4b8d2ffb3573);
@@ -89,14 +77,10 @@ pub struct IRatedContentDescriptionFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRatedContentRestrictions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRatedContentRestrictions {
     type Vtable = IRatedContentRestrictions_Vtbl;
-}
-impl ::core::clone::Clone for IRatedContentRestrictions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRatedContentRestrictions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3f7f23cb_ba07_4401_a49d_8b9222205723);
@@ -128,14 +112,10 @@ pub struct IRatedContentRestrictions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRatedContentRestrictionsFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRatedContentRestrictionsFactory {
     type Vtable = IRatedContentRestrictionsFactory_Vtbl;
-}
-impl ::core::clone::Clone for IRatedContentRestrictionsFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRatedContentRestrictionsFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb4b2996_c3bd_4910_9619_97cfd0694d56);
@@ -148,6 +128,7 @@ pub struct IRatedContentRestrictionsFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContentRestrictionsBrowsePolicy(::windows_core::IUnknown);
 impl ContentRestrictionsBrowsePolicy {
     pub fn GeographicRegion(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -176,24 +157,8 @@ impl ContentRestrictionsBrowsePolicy {
         }
     }
 }
-impl ::core::cmp::PartialEq for ContentRestrictionsBrowsePolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContentRestrictionsBrowsePolicy {}
-impl ::core::fmt::Debug for ContentRestrictionsBrowsePolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContentRestrictionsBrowsePolicy").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ContentRestrictionsBrowsePolicy {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.ContentRestrictions.ContentRestrictionsBrowsePolicy;{8c0133a4-442e-461a-8757-fad2f5bd37e4})");
-}
-impl ::core::clone::Clone for ContentRestrictionsBrowsePolicy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ContentRestrictionsBrowsePolicy {
     type Vtable = IContentRestrictionsBrowsePolicy_Vtbl;
@@ -209,6 +174,7 @@ unsafe impl ::core::marker::Send for ContentRestrictionsBrowsePolicy {}
 unsafe impl ::core::marker::Sync for ContentRestrictionsBrowsePolicy {}
 #[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RatedContentDescription(::windows_core::IUnknown);
 impl RatedContentDescription {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -292,24 +258,8 @@ impl RatedContentDescription {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for RatedContentDescription {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RatedContentDescription {}
-impl ::core::fmt::Debug for RatedContentDescription {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RatedContentDescription").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RatedContentDescription {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.ContentRestrictions.RatedContentDescription;{694866df-66b2-4dc3-96b1-f090eedee255})");
-}
-impl ::core::clone::Clone for RatedContentDescription {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RatedContentDescription {
     type Vtable = IRatedContentDescription_Vtbl;
@@ -325,6 +275,7 @@ unsafe impl ::core::marker::Send for RatedContentDescription {}
 unsafe impl ::core::marker::Sync for RatedContentDescription {}
 #[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RatedContentRestrictions(::windows_core::IUnknown);
 impl RatedContentRestrictions {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -397,24 +348,8 @@ impl RatedContentRestrictions {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for RatedContentRestrictions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RatedContentRestrictions {}
-impl ::core::fmt::Debug for RatedContentRestrictions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RatedContentRestrictions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RatedContentRestrictions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Media.ContentRestrictions.RatedContentRestrictions;{3f7f23cb-ba07-4401-a49d-8b9222205723})");
-}
-impl ::core::clone::Clone for RatedContentRestrictions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RatedContentRestrictions {
     type Vtable = IRatedContentRestrictions_Vtbl;

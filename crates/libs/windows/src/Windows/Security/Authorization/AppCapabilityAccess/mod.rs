@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppCapability(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppCapability {
     type Vtable = IAppCapability_Vtbl;
-}
-impl ::core::clone::Clone for IAppCapability {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppCapability {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c49d915_8a2a_4295_9437_2df7c396aff4);
@@ -37,14 +33,10 @@ pub struct IAppCapability_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppCapability2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppCapability2 {
     type Vtable = IAppCapability2_Vtbl;
-}
-impl ::core::clone::Clone for IAppCapability2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppCapability2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x11c7ccb6_c74f_50a3_b960_88008767d939);
@@ -58,14 +50,10 @@ pub struct IAppCapability2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppCapabilityAccessChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppCapabilityAccessChangedEventArgs {
     type Vtable = IAppCapabilityAccessChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IAppCapabilityAccessChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppCapabilityAccessChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a578d15_bdd7_457e_8cca_6f53bd2e5944);
@@ -77,14 +65,10 @@ pub struct IAppCapabilityAccessChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppCapabilityStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAppCapabilityStatics {
     type Vtable = IAppCapabilityStatics_Vtbl;
-}
-impl ::core::clone::Clone for IAppCapabilityStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppCapabilityStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7c353e2a_46ee_44e5_af3d_6ad3fc49bd22);
@@ -109,6 +93,7 @@ pub struct IAppCapabilityStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Security_Authorization_AppCapabilityAccess\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppCapability(::windows_core::IUnknown);
 impl AppCapability {
     pub fn CapabilityName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -218,24 +203,8 @@ impl AppCapability {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for AppCapability {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppCapability {}
-impl ::core::fmt::Debug for AppCapability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppCapability").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppCapability {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authorization.AppCapabilityAccess.AppCapability;{4c49d915-8a2a-4295-9437-2df7c396aff4})");
-}
-impl ::core::clone::Clone for AppCapability {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppCapability {
     type Vtable = IAppCapability_Vtbl;
@@ -251,26 +220,11 @@ unsafe impl ::core::marker::Send for AppCapability {}
 unsafe impl ::core::marker::Sync for AppCapability {}
 #[doc = "*Required features: `\"Security_Authorization_AppCapabilityAccess\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppCapabilityAccessChangedEventArgs(::windows_core::IUnknown);
 impl AppCapabilityAccessChangedEventArgs {}
-impl ::core::cmp::PartialEq for AppCapabilityAccessChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppCapabilityAccessChangedEventArgs {}
-impl ::core::fmt::Debug for AppCapabilityAccessChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppCapabilityAccessChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AppCapabilityAccessChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessChangedEventArgs;{0a578d15-bdd7-457e-8cca-6f53bd2e5944})");
-}
-impl ::core::clone::Clone for AppCapabilityAccessChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AppCapabilityAccessChangedEventArgs {
     type Vtable = IAppCapabilityAccessChangedEventArgs_Vtbl;

@@ -141,6 +141,7 @@ pub unsafe fn NdfRepairIncident(handle: *const ::core::ffi::c_void, repairex: *c
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetDiagExtensibleHelper(::windows_core::IUnknown);
 impl INetDiagExtensibleHelper {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -150,24 +151,8 @@ impl INetDiagExtensibleHelper {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetDiagExtensibleHelper, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetDiagExtensibleHelper {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetDiagExtensibleHelper {}
-impl ::core::fmt::Debug for INetDiagExtensibleHelper {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetDiagExtensibleHelper").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetDiagExtensibleHelper {
     type Vtable = INetDiagExtensibleHelper_Vtbl;
-}
-impl ::core::clone::Clone for INetDiagExtensibleHelper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetDiagExtensibleHelper {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0b35748_ebf5_11d8_bbe9_505054503030);
@@ -183,6 +168,7 @@ pub struct INetDiagExtensibleHelper_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetDiagHelper(::windows_core::IUnknown);
 impl INetDiagHelper {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -270,24 +256,8 @@ impl INetDiagHelper {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetDiagHelper, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetDiagHelper {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetDiagHelper {}
-impl ::core::fmt::Debug for INetDiagHelper {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetDiagHelper").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetDiagHelper {
     type Vtable = INetDiagHelper_Vtbl;
-}
-impl ::core::clone::Clone for INetDiagHelper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetDiagHelper {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0b35746_ebf5_11d8_bbe9_505054503030);
@@ -347,6 +317,7 @@ pub struct INetDiagHelper_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetDiagHelperEx(::windows_core::IUnknown);
 impl INetDiagHelperEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -365,24 +336,8 @@ impl INetDiagHelperEx {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetDiagHelperEx, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetDiagHelperEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetDiagHelperEx {}
-impl ::core::fmt::Debug for INetDiagHelperEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetDiagHelperEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetDiagHelperEx {
     type Vtable = INetDiagHelperEx_Vtbl;
-}
-impl ::core::clone::Clone for INetDiagHelperEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetDiagHelperEx {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x972dab4d_e4e3_4fc6_ae54_5f65ccde4a15);
@@ -400,6 +355,7 @@ pub struct INetDiagHelperEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetDiagHelperInfo(::windows_core::IUnknown);
 impl INetDiagHelperInfo {
     pub unsafe fn GetAttributeInfo(&self, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> ::windows_core::Result<()> {
@@ -407,24 +363,8 @@ impl INetDiagHelperInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetDiagHelperInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetDiagHelperInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetDiagHelperInfo {}
-impl ::core::fmt::Debug for INetDiagHelperInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetDiagHelperInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetDiagHelperInfo {
     type Vtable = INetDiagHelperInfo_Vtbl;
-}
-impl ::core::clone::Clone for INetDiagHelperInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetDiagHelperInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0b35747_ebf5_11d8_bbe9_505054503030);
@@ -437,6 +377,7 @@ pub struct INetDiagHelperInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetDiagHelperUtilFactory(::windows_core::IUnknown);
 impl INetDiagHelperUtilFactory {
     pub unsafe fn CreateUtilityInstance<T>(&self) -> ::windows_core::Result<T>
@@ -448,24 +389,8 @@ impl INetDiagHelperUtilFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetDiagHelperUtilFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetDiagHelperUtilFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetDiagHelperUtilFactory {}
-impl ::core::fmt::Debug for INetDiagHelperUtilFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetDiagHelperUtilFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetDiagHelperUtilFactory {
     type Vtable = INetDiagHelperUtilFactory_Vtbl;
-}
-impl ::core::clone::Clone for INetDiagHelperUtilFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetDiagHelperUtilFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x104613fb_bc57_4178_95ba_88809698354a);

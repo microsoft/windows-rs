@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IImageFeatureDescriptor(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IImageFeatureDescriptor {
     type Vtable = IImageFeatureDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IImageFeatureDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IImageFeatureDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x365585a5_171a_4a2a_985f_265159d3895a);
@@ -29,14 +25,10 @@ pub struct IImageFeatureDescriptor_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IImageFeatureDescriptor2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IImageFeatureDescriptor2 {
     type Vtable = IImageFeatureDescriptor2_Vtbl;
-}
-impl ::core::clone::Clone for IImageFeatureDescriptor2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IImageFeatureDescriptor2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2b27cca7_d533_5862_bb98_1611b155b0e1);
@@ -49,14 +41,10 @@ pub struct IImageFeatureDescriptor2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IImageFeatureValue(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IImageFeatureValue {
     type Vtable = IImageFeatureValue_Vtbl;
-}
-impl ::core::clone::Clone for IImageFeatureValue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IImageFeatureValue {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf0414fd9_c9aa_4405_b7fb_94f87c8a3037);
@@ -72,14 +60,10 @@ pub struct IImageFeatureValue_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IImageFeatureValueStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IImageFeatureValueStatics {
     type Vtable = IImageFeatureValueStatics_Vtbl;
-}
-impl ::core::clone::Clone for IImageFeatureValueStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IImageFeatureValueStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1bc317fd_23cb_4610_b085_c8e1c87ebaa0);
@@ -95,14 +79,10 @@ pub struct IImageFeatureValueStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILearningModel(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILearningModel {
     type Vtable = ILearningModel_Vtbl;
-}
-impl ::core::clone::Clone for ILearningModel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILearningModel {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b8e4920_489f_4e86_9128_265a327b78fa);
@@ -131,14 +111,10 @@ pub struct ILearningModel_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILearningModelBinding(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILearningModelBinding {
     type Vtable = ILearningModelBinding_Vtbl;
-}
-impl ::core::clone::Clone for ILearningModelBinding {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILearningModelBinding {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xea312f20_168f_4f8c_94fe_2e7ac31b4aa8);
@@ -156,14 +132,10 @@ pub struct ILearningModelBinding_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILearningModelBindingFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILearningModelBindingFactory {
     type Vtable = ILearningModelBindingFactory_Vtbl;
-}
-impl ::core::clone::Clone for ILearningModelBindingFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILearningModelBindingFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc95f7a7a_e788_475e_8917_23aa381faf0b);
@@ -176,14 +148,10 @@ pub struct ILearningModelBindingFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILearningModelDevice(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILearningModelDevice {
     type Vtable = ILearningModelDevice_Vtbl;
-}
-impl ::core::clone::Clone for ILearningModelDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILearningModelDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5c2c8fe_3f56_4a8c_ac5f_fdb92d8b8252);
@@ -203,14 +171,10 @@ pub struct ILearningModelDevice_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILearningModelDeviceFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILearningModelDeviceFactory {
     type Vtable = ILearningModelDeviceFactory_Vtbl;
-}
-impl ::core::clone::Clone for ILearningModelDeviceFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILearningModelDeviceFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9cffd74d_b1e5_4f20_80ad_0a56690db06b);
@@ -223,14 +187,10 @@ pub struct ILearningModelDeviceFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILearningModelDeviceStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILearningModelDeviceStatics {
     type Vtable = ILearningModelDeviceStatics_Vtbl;
-}
-impl ::core::clone::Clone for ILearningModelDeviceStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILearningModelDeviceStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49f32107_a8bf_42bb_92c7_10b12dc5d21f);
@@ -246,14 +206,10 @@ pub struct ILearningModelDeviceStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILearningModelEvaluationResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILearningModelEvaluationResult {
     type Vtable = ILearningModelEvaluationResult_Vtbl;
-}
-impl ::core::clone::Clone for ILearningModelEvaluationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILearningModelEvaluationResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2f9bfcd_960e_49c0_8593_eb190ae3eee2);
@@ -272,6 +228,7 @@ pub struct ILearningModelEvaluationResult_Vtbl {
 }
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILearningModelFeatureDescriptor(::windows_core::IUnknown);
 impl ILearningModelFeatureDescriptor {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -304,27 +261,11 @@ impl ILearningModelFeatureDescriptor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ILearningModelFeatureDescriptor, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for ILearningModelFeatureDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILearningModelFeatureDescriptor {}
-impl ::core::fmt::Debug for ILearningModelFeatureDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILearningModelFeatureDescriptor").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ILearningModelFeatureDescriptor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{bc08cf7c-6ed0-4004-97ba-b9a2eecd2b4f}");
 }
 unsafe impl ::windows_core::Interface for ILearningModelFeatureDescriptor {
     type Vtable = ILearningModelFeatureDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for ILearningModelFeatureDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILearningModelFeatureDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbc08cf7c_6ed0_4004_97ba_b9a2eecd2b4f);
@@ -340,6 +281,7 @@ pub struct ILearningModelFeatureDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILearningModelFeatureValue(::windows_core::IUnknown);
 impl ILearningModelFeatureValue {
     pub fn Kind(&self) -> ::windows_core::Result<LearningModelFeatureKind> {
@@ -351,27 +293,11 @@ impl ILearningModelFeatureValue {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ILearningModelFeatureValue, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for ILearningModelFeatureValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILearningModelFeatureValue {}
-impl ::core::fmt::Debug for ILearningModelFeatureValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILearningModelFeatureValue").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ILearningModelFeatureValue {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{f51005db-4085-4dfe-9fed-95eb0c0cf75c}");
 }
 unsafe impl ::windows_core::Interface for ILearningModelFeatureValue {
     type Vtable = ILearningModelFeatureValue_Vtbl;
-}
-impl ::core::clone::Clone for ILearningModelFeatureValue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILearningModelFeatureValue {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf51005db_4085_4dfe_9fed_95eb0c0cf75c);
@@ -384,30 +310,15 @@ pub struct ILearningModelFeatureValue_Vtbl {
 }
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILearningModelOperatorProvider(::windows_core::IUnknown);
 impl ILearningModelOperatorProvider {}
 ::windows_core::imp::interface_hierarchy!(ILearningModelOperatorProvider, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for ILearningModelOperatorProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ILearningModelOperatorProvider {}
-impl ::core::fmt::Debug for ILearningModelOperatorProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ILearningModelOperatorProvider").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ILearningModelOperatorProvider {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{2a222e5d-afb1-47ed-bfad-b5b3a459ec04}");
 }
 unsafe impl ::windows_core::Interface for ILearningModelOperatorProvider {
     type Vtable = ILearningModelOperatorProvider_Vtbl;
-}
-impl ::core::clone::Clone for ILearningModelOperatorProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILearningModelOperatorProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2a222e5d_afb1_47ed_bfad_b5b3a459ec04);
@@ -419,14 +330,10 @@ pub struct ILearningModelOperatorProvider_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILearningModelSession(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILearningModelSession {
     type Vtable = ILearningModelSession_Vtbl;
-}
-impl ::core::clone::Clone for ILearningModelSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILearningModelSession {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8e58f8f6_b787_4c11_90f0_7129aeca74a9);
@@ -457,14 +364,10 @@ pub struct ILearningModelSession_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILearningModelSessionFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILearningModelSessionFactory {
     type Vtable = ILearningModelSessionFactory_Vtbl;
-}
-impl ::core::clone::Clone for ILearningModelSessionFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILearningModelSessionFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f6b881d_1c9b_47b6_bfe0_f1cf62a67579);
@@ -478,14 +381,10 @@ pub struct ILearningModelSessionFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILearningModelSessionFactory2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILearningModelSessionFactory2 {
     type Vtable = ILearningModelSessionFactory2_Vtbl;
-}
-impl ::core::clone::Clone for ILearningModelSessionFactory2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILearningModelSessionFactory2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e5c88bf_0a1f_5fec_ade0_2fd91e4ef29b);
@@ -498,14 +397,10 @@ pub struct ILearningModelSessionFactory2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILearningModelSessionOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILearningModelSessionOptions {
     type Vtable = ILearningModelSessionOptions_Vtbl;
-}
-impl ::core::clone::Clone for ILearningModelSessionOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILearningModelSessionOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb8f63fa1_134d_5133_8cff_3a5c3c263beb);
@@ -519,14 +414,10 @@ pub struct ILearningModelSessionOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILearningModelSessionOptions2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILearningModelSessionOptions2 {
     type Vtable = ILearningModelSessionOptions2_Vtbl;
-}
-impl ::core::clone::Clone for ILearningModelSessionOptions2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILearningModelSessionOptions2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6fcd1dc4_175f_5bd2_8de5_2f2006a25adf);
@@ -540,14 +431,10 @@ pub struct ILearningModelSessionOptions2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILearningModelSessionOptions3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILearningModelSessionOptions3 {
     type Vtable = ILearningModelSessionOptions3_Vtbl;
-}
-impl ::core::clone::Clone for ILearningModelSessionOptions3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILearningModelSessionOptions3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x58e15cee_d8c2_56fc_92e8_76d751081086);
@@ -560,14 +447,10 @@ pub struct ILearningModelSessionOptions3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILearningModelStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILearningModelStatics {
     type Vtable = ILearningModelStatics_Vtbl;
-}
-impl ::core::clone::Clone for ILearningModelStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILearningModelStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe3b977e8_6952_4e47_8ef4_1f7f07897c6d);
@@ -605,14 +488,10 @@ pub struct ILearningModelStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMapFeatureDescriptor(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMapFeatureDescriptor {
     type Vtable = IMapFeatureDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IMapFeatureDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMapFeatureDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x530424bd_a257_436d_9e60_c2981f7cc5c4);
@@ -626,14 +505,10 @@ pub struct IMapFeatureDescriptor_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISequenceFeatureDescriptor(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISequenceFeatureDescriptor {
     type Vtable = ISequenceFeatureDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for ISequenceFeatureDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISequenceFeatureDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x84f6945a_562b_4d62_a851_739aced96668);
@@ -646,6 +521,7 @@ pub struct ISequenceFeatureDescriptor_Vtbl {
 }
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensor(::windows_core::IUnknown);
 impl ITensor {
     pub fn TensorKind(&self) -> ::windows_core::Result<TensorKind> {
@@ -674,27 +550,11 @@ impl ITensor {
 }
 ::windows_core::imp::interface_hierarchy!(ITensor, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<ILearningModelFeatureValue> for ITensor {}
-impl ::core::cmp::PartialEq for ITensor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITensor {}
-impl ::core::fmt::Debug for ITensor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITensor").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ITensor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{05489593-a305-4a25-ad09-440119b4b7f6}");
 }
 unsafe impl ::windows_core::Interface for ITensor {
     type Vtable = ITensor_Vtbl;
-}
-impl ::core::clone::Clone for ITensor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05489593_a305_4a25_ad09_440119b4b7f6);
@@ -711,14 +571,10 @@ pub struct ITensor_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorBoolean(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorBoolean {
     type Vtable = ITensorBoolean_Vtbl;
-}
-impl ::core::clone::Clone for ITensorBoolean {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorBoolean {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x50f311ed_29e9_4a5c_a44d_8fc512584eed);
@@ -734,14 +590,10 @@ pub struct ITensorBoolean_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorBooleanStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorBooleanStatics {
     type Vtable = ITensorBooleanStatics_Vtbl;
-}
-impl ::core::clone::Clone for ITensorBooleanStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorBooleanStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2796862c_2357_49a7_b476_d0aa3dfe6866);
@@ -766,14 +618,10 @@ pub struct ITensorBooleanStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorBooleanStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorBooleanStatics2 {
     type Vtable = ITensorBooleanStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ITensorBooleanStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorBooleanStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa3a4a501_6a2d_52d7_b04b_c435baee0115);
@@ -790,14 +638,10 @@ pub struct ITensorBooleanStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorDouble(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorDouble {
     type Vtable = ITensorDouble_Vtbl;
-}
-impl ::core::clone::Clone for ITensorDouble {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorDouble {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x91e41252_7a8f_4f0e_a28f_9637ffc8a3d0);
@@ -813,14 +657,10 @@ pub struct ITensorDouble_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorDoubleStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorDoubleStatics {
     type Vtable = ITensorDoubleStatics_Vtbl;
-}
-impl ::core::clone::Clone for ITensorDoubleStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorDoubleStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa86693c5_9538_44e7_a3ca_5df374a5a70c);
@@ -845,14 +685,10 @@ pub struct ITensorDoubleStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorDoubleStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorDoubleStatics2 {
     type Vtable = ITensorDoubleStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ITensorDoubleStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorDoubleStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x93a570de_5e9a_5094_85c8_592c655e68ac);
@@ -869,14 +705,10 @@ pub struct ITensorDoubleStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorFeatureDescriptor(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorFeatureDescriptor {
     type Vtable = ITensorFeatureDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for ITensorFeatureDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorFeatureDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x74455c80_946a_4310_a19c_ee0af028fce4);
@@ -893,14 +725,10 @@ pub struct ITensorFeatureDescriptor_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorFloat(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorFloat {
     type Vtable = ITensorFloat_Vtbl;
-}
-impl ::core::clone::Clone for ITensorFloat {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorFloat {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2282d82_aa02_42c8_a0c8_df1efc9676e1);
@@ -916,14 +744,10 @@ pub struct ITensorFloat_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorFloat16Bit(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorFloat16Bit {
     type Vtable = ITensorFloat16Bit_Vtbl;
-}
-impl ::core::clone::Clone for ITensorFloat16Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorFloat16Bit {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ab994fc_5b89_4c3c_b5e4_5282a5316c0a);
@@ -939,14 +763,10 @@ pub struct ITensorFloat16Bit_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorFloat16BitStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorFloat16BitStatics {
     type Vtable = ITensorFloat16BitStatics_Vtbl;
-}
-impl ::core::clone::Clone for ITensorFloat16BitStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorFloat16BitStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa52db6f5_318a_44d4_820b_0cdc7054a84a);
@@ -971,14 +791,10 @@ pub struct ITensorFloat16BitStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorFloat16BitStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorFloat16BitStatics2 {
     type Vtable = ITensorFloat16BitStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ITensorFloat16BitStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorFloat16BitStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x68545726_2dc7_51bf_b470_0b344cc2a1bc);
@@ -995,14 +811,10 @@ pub struct ITensorFloat16BitStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorFloatStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorFloatStatics {
     type Vtable = ITensorFloatStatics_Vtbl;
-}
-impl ::core::clone::Clone for ITensorFloatStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorFloatStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdbcd395b_3ba3_452f_b10d_3c135e573fa9);
@@ -1027,14 +839,10 @@ pub struct ITensorFloatStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorFloatStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorFloatStatics2 {
     type Vtable = ITensorFloatStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ITensorFloatStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorFloatStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x24610bc1_5e44_5713_b281_8f4ad4d555e8);
@@ -1051,14 +859,10 @@ pub struct ITensorFloatStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorInt16Bit(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorInt16Bit {
     type Vtable = ITensorInt16Bit_Vtbl;
-}
-impl ::core::clone::Clone for ITensorInt16Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorInt16Bit {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98a32d39_e6d6_44af_8afa_baebc44dc020);
@@ -1074,14 +878,10 @@ pub struct ITensorInt16Bit_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorInt16BitStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorInt16BitStatics {
     type Vtable = ITensorInt16BitStatics_Vtbl;
-}
-impl ::core::clone::Clone for ITensorInt16BitStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorInt16BitStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x98646293_266e_4b1a_821f_e60d70898b91);
@@ -1106,14 +906,10 @@ pub struct ITensorInt16BitStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorInt16BitStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorInt16BitStatics2 {
     type Vtable = ITensorInt16BitStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ITensorInt16BitStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorInt16BitStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0cd70cf4_696c_5e5f_95d8_5ebf9670148b);
@@ -1130,14 +926,10 @@ pub struct ITensorInt16BitStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorInt32Bit(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorInt32Bit {
     type Vtable = ITensorInt32Bit_Vtbl;
-}
-impl ::core::clone::Clone for ITensorInt32Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorInt32Bit {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c0c28d3_207c_4486_a7d2_884522c5e589);
@@ -1153,14 +945,10 @@ pub struct ITensorInt32Bit_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorInt32BitStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorInt32BitStatics {
     type Vtable = ITensorInt32BitStatics_Vtbl;
-}
-impl ::core::clone::Clone for ITensorInt32BitStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorInt32BitStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6539864b_52fa_4e35_907c_834cac417b50);
@@ -1185,14 +973,10 @@ pub struct ITensorInt32BitStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorInt32BitStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorInt32BitStatics2 {
     type Vtable = ITensorInt32BitStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ITensorInt32BitStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorInt32BitStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7c4b079a_e956_5ce0_a3bd_157d9d79b5ec);
@@ -1209,14 +993,10 @@ pub struct ITensorInt32BitStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorInt64Bit(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorInt64Bit {
     type Vtable = ITensorInt64Bit_Vtbl;
-}
-impl ::core::clone::Clone for ITensorInt64Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorInt64Bit {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x499665ba_1fa2_45ad_af25_a0bd9bda4c87);
@@ -1232,14 +1012,10 @@ pub struct ITensorInt64Bit_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorInt64BitStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorInt64BitStatics {
     type Vtable = ITensorInt64BitStatics_Vtbl;
-}
-impl ::core::clone::Clone for ITensorInt64BitStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorInt64BitStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9648ad9d_1198_4d74_9517_783ab62b9cc2);
@@ -1264,14 +1040,10 @@ pub struct ITensorInt64BitStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorInt64BitStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorInt64BitStatics2 {
     type Vtable = ITensorInt64BitStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ITensorInt64BitStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorInt64BitStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d3d9dcb_ff40_5ec2_89fe_084e2b6bc6db);
@@ -1288,14 +1060,10 @@ pub struct ITensorInt64BitStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorInt8Bit(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorInt8Bit {
     type Vtable = ITensorInt8Bit_Vtbl;
-}
-impl ::core::clone::Clone for ITensorInt8Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorInt8Bit {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcddd97c5_ffd8_4fef_aefb_30e1a485b2ee);
@@ -1311,14 +1079,10 @@ pub struct ITensorInt8Bit_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorInt8BitStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorInt8BitStatics {
     type Vtable = ITensorInt8BitStatics_Vtbl;
-}
-impl ::core::clone::Clone for ITensorInt8BitStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorInt8BitStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb1a12284_095c_4c76_a661_ac4cee1f3e8b);
@@ -1343,14 +1107,10 @@ pub struct ITensorInt8BitStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorInt8BitStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorInt8BitStatics2 {
     type Vtable = ITensorInt8BitStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ITensorInt8BitStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorInt8BitStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0d59637_c468_56fb_9535_c052bdb93dc0);
@@ -1367,14 +1127,10 @@ pub struct ITensorInt8BitStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorString(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorString {
     type Vtable = ITensorString_Vtbl;
-}
-impl ::core::clone::Clone for ITensorString {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorString {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x582335c8_bdb1_4610_bc75_35e9cbf009b7);
@@ -1390,14 +1146,10 @@ pub struct ITensorString_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorStringStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorStringStatics {
     type Vtable = ITensorStringStatics_Vtbl;
-}
-impl ::core::clone::Clone for ITensorStringStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorStringStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x83623324_cf26_4f17_a2d4_20ef8d097d53);
@@ -1422,14 +1174,10 @@ pub struct ITensorStringStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorStringStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorStringStatics2 {
     type Vtable = ITensorStringStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ITensorStringStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorStringStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9e355ed0_c8e2_5254_9137_0193a3668fd8);
@@ -1442,14 +1190,10 @@ pub struct ITensorStringStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorUInt16Bit(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorUInt16Bit {
     type Vtable = ITensorUInt16Bit_Vtbl;
-}
-impl ::core::clone::Clone for ITensorUInt16Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorUInt16Bit {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x68140f4b_23c0_42f3_81f6_a891c011bc3f);
@@ -1465,14 +1209,10 @@ pub struct ITensorUInt16Bit_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorUInt16BitStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorUInt16BitStatics {
     type Vtable = ITensorUInt16BitStatics_Vtbl;
-}
-impl ::core::clone::Clone for ITensorUInt16BitStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorUInt16BitStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5df745dd_028a_481a_a27c_c7e6435e52dd);
@@ -1497,14 +1237,10 @@ pub struct ITensorUInt16BitStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorUInt16BitStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorUInt16BitStatics2 {
     type Vtable = ITensorUInt16BitStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ITensorUInt16BitStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorUInt16BitStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8af40c64_d69f_5315_9348_490877bbd642);
@@ -1521,14 +1257,10 @@ pub struct ITensorUInt16BitStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorUInt32Bit(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorUInt32Bit {
     type Vtable = ITensorUInt32Bit_Vtbl;
-}
-impl ::core::clone::Clone for ITensorUInt32Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorUInt32Bit {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd8c9c2ff_7511_45a3_bfac_c38f370d2237);
@@ -1544,14 +1276,10 @@ pub struct ITensorUInt32Bit_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorUInt32BitStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorUInt32BitStatics {
     type Vtable = ITensorUInt32BitStatics_Vtbl;
-}
-impl ::core::clone::Clone for ITensorUInt32BitStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorUInt32BitStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x417c3837_e773_4378_8e7f_0cc33dbea697);
@@ -1576,14 +1304,10 @@ pub struct ITensorUInt32BitStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorUInt32BitStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorUInt32BitStatics2 {
     type Vtable = ITensorUInt32BitStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ITensorUInt32BitStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorUInt32BitStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xef1a1f1c_314e_569d_b496_5c8447d20cd2);
@@ -1600,14 +1324,10 @@ pub struct ITensorUInt32BitStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorUInt64Bit(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorUInt64Bit {
     type Vtable = ITensorUInt64Bit_Vtbl;
-}
-impl ::core::clone::Clone for ITensorUInt64Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorUInt64Bit {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2e70ffad_04bf_4825_839a_82baef8c7886);
@@ -1623,14 +1343,10 @@ pub struct ITensorUInt64Bit_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorUInt64BitStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorUInt64BitStatics {
     type Vtable = ITensorUInt64BitStatics_Vtbl;
-}
-impl ::core::clone::Clone for ITensorUInt64BitStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorUInt64BitStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7a7e20eb_242f_47cb_a9c6_f602ecfbfee4);
@@ -1655,14 +1371,10 @@ pub struct ITensorUInt64BitStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorUInt64BitStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorUInt64BitStatics2 {
     type Vtable = ITensorUInt64BitStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ITensorUInt64BitStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorUInt64BitStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x085a687d_67e1_5b1e_b232_4fabe9ca20b3);
@@ -1679,14 +1391,10 @@ pub struct ITensorUInt64BitStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorUInt8Bit(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorUInt8Bit {
     type Vtable = ITensorUInt8Bit_Vtbl;
-}
-impl ::core::clone::Clone for ITensorUInt8Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorUInt8Bit {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x58e1ae27_622b_48e3_be22_d867aed1daac);
@@ -1702,14 +1410,10 @@ pub struct ITensorUInt8Bit_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorUInt8BitStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorUInt8BitStatics {
     type Vtable = ITensorUInt8BitStatics_Vtbl;
-}
-impl ::core::clone::Clone for ITensorUInt8BitStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorUInt8BitStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05f67583_bc24_4220_8a41_2dcd8c5ed33c);
@@ -1734,14 +1438,10 @@ pub struct ITensorUInt8BitStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITensorUInt8BitStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITensorUInt8BitStatics2 {
     type Vtable = ITensorUInt8BitStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ITensorUInt8BitStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITensorUInt8BitStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2ba042d6_373e_5a3a_a2fc_a6c41bd52789);
@@ -1758,6 +1458,7 @@ pub struct ITensorUInt8BitStatics2_Vtbl {
 }
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ImageFeatureDescriptor(::windows_core::IUnknown);
 impl ImageFeatureDescriptor {
     #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
@@ -1828,24 +1529,8 @@ impl ImageFeatureDescriptor {
         }
     }
 }
-impl ::core::cmp::PartialEq for ImageFeatureDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ImageFeatureDescriptor {}
-impl ::core::fmt::Debug for ImageFeatureDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ImageFeatureDescriptor").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ImageFeatureDescriptor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.ImageFeatureDescriptor;{365585a5-171a-4a2a-985f-265159d3895a})");
-}
-impl ::core::clone::Clone for ImageFeatureDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ImageFeatureDescriptor {
     type Vtable = IImageFeatureDescriptor_Vtbl;
@@ -1862,6 +1547,7 @@ unsafe impl ::core::marker::Send for ImageFeatureDescriptor {}
 unsafe impl ::core::marker::Sync for ImageFeatureDescriptor {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ImageFeatureValue(::windows_core::IUnknown);
 impl ImageFeatureValue {
     #[doc = "*Required features: `\"Media\"`*"]
@@ -1897,24 +1583,8 @@ impl ImageFeatureValue {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for ImageFeatureValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ImageFeatureValue {}
-impl ::core::fmt::Debug for ImageFeatureValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ImageFeatureValue").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ImageFeatureValue {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.ImageFeatureValue;{f0414fd9-c9aa-4405-b7fb-94f87c8a3037})");
-}
-impl ::core::clone::Clone for ImageFeatureValue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ImageFeatureValue {
     type Vtable = IImageFeatureValue_Vtbl;
@@ -1931,6 +1601,7 @@ unsafe impl ::core::marker::Send for ImageFeatureValue {}
 unsafe impl ::core::marker::Sync for ImageFeatureValue {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LearningModel(::windows_core::IUnknown);
 impl LearningModel {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2091,24 +1762,8 @@ impl LearningModel {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for LearningModel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LearningModel {}
-impl ::core::fmt::Debug for LearningModel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LearningModel").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LearningModel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModel;{5b8e4920-489f-4e86-9128-265a327b78fa})");
-}
-impl ::core::clone::Clone for LearningModel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LearningModel {
     type Vtable = ILearningModel_Vtbl;
@@ -2126,6 +1781,7 @@ unsafe impl ::core::marker::Send for LearningModel {}
 unsafe impl ::core::marker::Sync for LearningModel {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LearningModelBinding(::windows_core::IUnknown);
 impl LearningModelBinding {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2206,24 +1862,8 @@ impl LearningModelBinding {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for LearningModelBinding {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LearningModelBinding {}
-impl ::core::fmt::Debug for LearningModelBinding {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LearningModelBinding").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LearningModelBinding {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelBinding;{ea312f20-168f-4f8c-94fe-2e7ac31b4aa8})");
-}
-impl ::core::clone::Clone for LearningModelBinding {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LearningModelBinding {
     type Vtable = ILearningModelBinding_Vtbl;
@@ -2259,6 +1899,7 @@ unsafe impl ::core::marker::Send for LearningModelBinding {}
 unsafe impl ::core::marker::Sync for LearningModelBinding {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LearningModelDevice(::windows_core::IUnknown);
 impl LearningModelDevice {
     #[doc = "*Required features: `\"Graphics\"`*"]
@@ -2307,24 +1948,8 @@ impl LearningModelDevice {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for LearningModelDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LearningModelDevice {}
-impl ::core::fmt::Debug for LearningModelDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LearningModelDevice").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LearningModelDevice {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelDevice;{f5c2c8fe-3f56-4a8c-ac5f-fdb92d8b8252})");
-}
-impl ::core::clone::Clone for LearningModelDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LearningModelDevice {
     type Vtable = ILearningModelDevice_Vtbl;
@@ -2340,6 +1965,7 @@ unsafe impl ::core::marker::Send for LearningModelDevice {}
 unsafe impl ::core::marker::Sync for LearningModelDevice {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LearningModelEvaluationResult(::windows_core::IUnknown);
 impl LearningModelEvaluationResult {
     pub fn CorrelationId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2373,24 +1999,8 @@ impl LearningModelEvaluationResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for LearningModelEvaluationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LearningModelEvaluationResult {}
-impl ::core::fmt::Debug for LearningModelEvaluationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LearningModelEvaluationResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LearningModelEvaluationResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelEvaluationResult;{b2f9bfcd-960e-49c0-8593-eb190ae3eee2})");
-}
-impl ::core::clone::Clone for LearningModelEvaluationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LearningModelEvaluationResult {
     type Vtable = ILearningModelEvaluationResult_Vtbl;
@@ -2406,6 +2016,7 @@ unsafe impl ::core::marker::Send for LearningModelEvaluationResult {}
 unsafe impl ::core::marker::Sync for LearningModelEvaluationResult {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LearningModelSession(::windows_core::IUnknown);
 impl LearningModelSession {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2524,24 +2135,8 @@ impl LearningModelSession {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for LearningModelSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LearningModelSession {}
-impl ::core::fmt::Debug for LearningModelSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LearningModelSession").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LearningModelSession {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelSession;{8e58f8f6-b787-4c11-90f0-7129aeca74a9})");
-}
-impl ::core::clone::Clone for LearningModelSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LearningModelSession {
     type Vtable = ILearningModelSession_Vtbl;
@@ -2559,6 +2154,7 @@ unsafe impl ::core::marker::Send for LearningModelSession {}
 unsafe impl ::core::marker::Sync for LearningModelSession {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LearningModelSessionOptions(::windows_core::IUnknown);
 impl LearningModelSessionOptions {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2595,24 +2191,8 @@ impl LearningModelSessionOptions {
         unsafe { (::windows_core::Interface::vtable(this).OverrideNamedDimension)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(name), dimension).ok() }
     }
 }
-impl ::core::cmp::PartialEq for LearningModelSessionOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LearningModelSessionOptions {}
-impl ::core::fmt::Debug for LearningModelSessionOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LearningModelSessionOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LearningModelSessionOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelSessionOptions;{b8f63fa1-134d-5133-8cff-3a5c3c263beb})");
-}
-impl ::core::clone::Clone for LearningModelSessionOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LearningModelSessionOptions {
     type Vtable = ILearningModelSessionOptions_Vtbl;
@@ -2628,6 +2208,7 @@ unsafe impl ::core::marker::Send for LearningModelSessionOptions {}
 unsafe impl ::core::marker::Sync for LearningModelSessionOptions {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MapFeatureDescriptor(::windows_core::IUnknown);
 impl MapFeatureDescriptor {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2673,24 +2254,8 @@ impl MapFeatureDescriptor {
         }
     }
 }
-impl ::core::cmp::PartialEq for MapFeatureDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapFeatureDescriptor {}
-impl ::core::fmt::Debug for MapFeatureDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapFeatureDescriptor").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MapFeatureDescriptor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.MapFeatureDescriptor;{530424bd-a257-436d-9e60-c2981f7cc5c4})");
-}
-impl ::core::clone::Clone for MapFeatureDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MapFeatureDescriptor {
     type Vtable = IMapFeatureDescriptor_Vtbl;
@@ -2707,6 +2272,7 @@ unsafe impl ::core::marker::Send for MapFeatureDescriptor {}
 unsafe impl ::core::marker::Sync for MapFeatureDescriptor {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SequenceFeatureDescriptor(::windows_core::IUnknown);
 impl SequenceFeatureDescriptor {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2745,24 +2311,8 @@ impl SequenceFeatureDescriptor {
         }
     }
 }
-impl ::core::cmp::PartialEq for SequenceFeatureDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SequenceFeatureDescriptor {}
-impl ::core::fmt::Debug for SequenceFeatureDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SequenceFeatureDescriptor").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SequenceFeatureDescriptor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.SequenceFeatureDescriptor;{84f6945a-562b-4d62-a851-739aced96668})");
-}
-impl ::core::clone::Clone for SequenceFeatureDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SequenceFeatureDescriptor {
     type Vtable = ISequenceFeatureDescriptor_Vtbl;
@@ -2779,6 +2329,7 @@ unsafe impl ::core::marker::Send for SequenceFeatureDescriptor {}
 unsafe impl ::core::marker::Sync for SequenceFeatureDescriptor {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorBoolean(::windows_core::IUnknown);
 impl TensorBoolean {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2896,24 +2447,8 @@ impl TensorBoolean {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for TensorBoolean {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorBoolean {}
-impl ::core::fmt::Debug for TensorBoolean {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorBoolean").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TensorBoolean {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorBoolean;{50f311ed-29e9-4a5c-a44d-8fc512584eed})");
-}
-impl ::core::clone::Clone for TensorBoolean {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TensorBoolean {
     type Vtable = ITensorBoolean_Vtbl;
@@ -2935,6 +2470,7 @@ unsafe impl ::core::marker::Send for TensorBoolean {}
 unsafe impl ::core::marker::Sync for TensorBoolean {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorDouble(::windows_core::IUnknown);
 impl TensorDouble {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3052,24 +2588,8 @@ impl TensorDouble {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for TensorDouble {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorDouble {}
-impl ::core::fmt::Debug for TensorDouble {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorDouble").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TensorDouble {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorDouble;{91e41252-7a8f-4f0e-a28f-9637ffc8a3d0})");
-}
-impl ::core::clone::Clone for TensorDouble {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TensorDouble {
     type Vtable = ITensorDouble_Vtbl;
@@ -3091,6 +2611,7 @@ unsafe impl ::core::marker::Send for TensorDouble {}
 unsafe impl ::core::marker::Sync for TensorDouble {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorFeatureDescriptor(::windows_core::IUnknown);
 impl TensorFeatureDescriptor {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -3138,24 +2659,8 @@ impl TensorFeatureDescriptor {
         }
     }
 }
-impl ::core::cmp::PartialEq for TensorFeatureDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorFeatureDescriptor {}
-impl ::core::fmt::Debug for TensorFeatureDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorFeatureDescriptor").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TensorFeatureDescriptor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorFeatureDescriptor;{74455c80-946a-4310-a19c-ee0af028fce4})");
-}
-impl ::core::clone::Clone for TensorFeatureDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TensorFeatureDescriptor {
     type Vtable = ITensorFeatureDescriptor_Vtbl;
@@ -3172,6 +2677,7 @@ unsafe impl ::core::marker::Send for TensorFeatureDescriptor {}
 unsafe impl ::core::marker::Sync for TensorFeatureDescriptor {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorFloat(::windows_core::IUnknown);
 impl TensorFloat {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3289,24 +2795,8 @@ impl TensorFloat {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for TensorFloat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorFloat {}
-impl ::core::fmt::Debug for TensorFloat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorFloat").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TensorFloat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorFloat;{f2282d82-aa02-42c8-a0c8-df1efc9676e1})");
-}
-impl ::core::clone::Clone for TensorFloat {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TensorFloat {
     type Vtable = ITensorFloat_Vtbl;
@@ -3328,6 +2818,7 @@ unsafe impl ::core::marker::Send for TensorFloat {}
 unsafe impl ::core::marker::Sync for TensorFloat {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorFloat16Bit(::windows_core::IUnknown);
 impl TensorFloat16Bit {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3445,24 +2936,8 @@ impl TensorFloat16Bit {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for TensorFloat16Bit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorFloat16Bit {}
-impl ::core::fmt::Debug for TensorFloat16Bit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorFloat16Bit").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TensorFloat16Bit {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorFloat16Bit;{0ab994fc-5b89-4c3c-b5e4-5282a5316c0a})");
-}
-impl ::core::clone::Clone for TensorFloat16Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TensorFloat16Bit {
     type Vtable = ITensorFloat16Bit_Vtbl;
@@ -3484,6 +2959,7 @@ unsafe impl ::core::marker::Send for TensorFloat16Bit {}
 unsafe impl ::core::marker::Sync for TensorFloat16Bit {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorInt16Bit(::windows_core::IUnknown);
 impl TensorInt16Bit {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3601,24 +3077,8 @@ impl TensorInt16Bit {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for TensorInt16Bit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorInt16Bit {}
-impl ::core::fmt::Debug for TensorInt16Bit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorInt16Bit").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TensorInt16Bit {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt16Bit;{98a32d39-e6d6-44af-8afa-baebc44dc020})");
-}
-impl ::core::clone::Clone for TensorInt16Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TensorInt16Bit {
     type Vtable = ITensorInt16Bit_Vtbl;
@@ -3640,6 +3100,7 @@ unsafe impl ::core::marker::Send for TensorInt16Bit {}
 unsafe impl ::core::marker::Sync for TensorInt16Bit {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorInt32Bit(::windows_core::IUnknown);
 impl TensorInt32Bit {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3757,24 +3218,8 @@ impl TensorInt32Bit {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for TensorInt32Bit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorInt32Bit {}
-impl ::core::fmt::Debug for TensorInt32Bit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorInt32Bit").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TensorInt32Bit {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt32Bit;{2c0c28d3-207c-4486-a7d2-884522c5e589})");
-}
-impl ::core::clone::Clone for TensorInt32Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TensorInt32Bit {
     type Vtable = ITensorInt32Bit_Vtbl;
@@ -3796,6 +3241,7 @@ unsafe impl ::core::marker::Send for TensorInt32Bit {}
 unsafe impl ::core::marker::Sync for TensorInt32Bit {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorInt64Bit(::windows_core::IUnknown);
 impl TensorInt64Bit {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3913,24 +3359,8 @@ impl TensorInt64Bit {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for TensorInt64Bit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorInt64Bit {}
-impl ::core::fmt::Debug for TensorInt64Bit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorInt64Bit").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TensorInt64Bit {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt64Bit;{499665ba-1fa2-45ad-af25-a0bd9bda4c87})");
-}
-impl ::core::clone::Clone for TensorInt64Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TensorInt64Bit {
     type Vtable = ITensorInt64Bit_Vtbl;
@@ -3952,6 +3382,7 @@ unsafe impl ::core::marker::Send for TensorInt64Bit {}
 unsafe impl ::core::marker::Sync for TensorInt64Bit {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorInt8Bit(::windows_core::IUnknown);
 impl TensorInt8Bit {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4069,24 +3500,8 @@ impl TensorInt8Bit {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for TensorInt8Bit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorInt8Bit {}
-impl ::core::fmt::Debug for TensorInt8Bit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorInt8Bit").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TensorInt8Bit {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt8Bit;{cddd97c5-ffd8-4fef-aefb-30e1a485b2ee})");
-}
-impl ::core::clone::Clone for TensorInt8Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TensorInt8Bit {
     type Vtable = ITensorInt8Bit_Vtbl;
@@ -4108,6 +3523,7 @@ unsafe impl ::core::marker::Send for TensorInt8Bit {}
 unsafe impl ::core::marker::Sync for TensorInt8Bit {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorString(::windows_core::IUnknown);
 impl TensorString {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4214,24 +3630,8 @@ impl TensorString {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for TensorString {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorString {}
-impl ::core::fmt::Debug for TensorString {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorString").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TensorString {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorString;{582335c8-bdb1-4610-bc75-35e9cbf009b7})");
-}
-impl ::core::clone::Clone for TensorString {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TensorString {
     type Vtable = ITensorString_Vtbl;
@@ -4253,6 +3653,7 @@ unsafe impl ::core::marker::Send for TensorString {}
 unsafe impl ::core::marker::Sync for TensorString {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorUInt16Bit(::windows_core::IUnknown);
 impl TensorUInt16Bit {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4370,24 +3771,8 @@ impl TensorUInt16Bit {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for TensorUInt16Bit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorUInt16Bit {}
-impl ::core::fmt::Debug for TensorUInt16Bit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorUInt16Bit").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TensorUInt16Bit {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt16Bit;{68140f4b-23c0-42f3-81f6-a891c011bc3f})");
-}
-impl ::core::clone::Clone for TensorUInt16Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TensorUInt16Bit {
     type Vtable = ITensorUInt16Bit_Vtbl;
@@ -4409,6 +3794,7 @@ unsafe impl ::core::marker::Send for TensorUInt16Bit {}
 unsafe impl ::core::marker::Sync for TensorUInt16Bit {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorUInt32Bit(::windows_core::IUnknown);
 impl TensorUInt32Bit {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4526,24 +3912,8 @@ impl TensorUInt32Bit {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for TensorUInt32Bit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorUInt32Bit {}
-impl ::core::fmt::Debug for TensorUInt32Bit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorUInt32Bit").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TensorUInt32Bit {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt32Bit;{d8c9c2ff-7511-45a3-bfac-c38f370d2237})");
-}
-impl ::core::clone::Clone for TensorUInt32Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TensorUInt32Bit {
     type Vtable = ITensorUInt32Bit_Vtbl;
@@ -4565,6 +3935,7 @@ unsafe impl ::core::marker::Send for TensorUInt32Bit {}
 unsafe impl ::core::marker::Sync for TensorUInt32Bit {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorUInt64Bit(::windows_core::IUnknown);
 impl TensorUInt64Bit {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4682,24 +4053,8 @@ impl TensorUInt64Bit {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for TensorUInt64Bit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorUInt64Bit {}
-impl ::core::fmt::Debug for TensorUInt64Bit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorUInt64Bit").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TensorUInt64Bit {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt64Bit;{2e70ffad-04bf-4825-839a-82baef8c7886})");
-}
-impl ::core::clone::Clone for TensorUInt64Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TensorUInt64Bit {
     type Vtable = ITensorUInt64Bit_Vtbl;
@@ -4721,6 +4076,7 @@ unsafe impl ::core::marker::Send for TensorUInt64Bit {}
 unsafe impl ::core::marker::Sync for TensorUInt64Bit {}
 #[doc = "*Required features: `\"AI_MachineLearning\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TensorUInt8Bit(::windows_core::IUnknown);
 impl TensorUInt8Bit {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4838,24 +4194,8 @@ impl TensorUInt8Bit {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for TensorUInt8Bit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorUInt8Bit {}
-impl ::core::fmt::Debug for TensorUInt8Bit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TensorUInt8Bit").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TensorUInt8Bit {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt8Bit;{58e1ae27-622b-48e3-be22-d867aed1daac})");
-}
-impl ::core::clone::Clone for TensorUInt8Bit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TensorUInt8Bit {
     type Vtable = ITensorUInt8Bit_Vtbl;

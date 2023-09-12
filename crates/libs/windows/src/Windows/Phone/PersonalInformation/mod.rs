@@ -2,14 +2,10 @@
 pub mod Provisioning;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactAddress(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContactAddress {
     type Vtable = IContactAddress_Vtbl;
-}
-impl ::core::clone::Clone for IContactAddress {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactAddress {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5f24f927_94a9_44a2_a155_2d0b37d1dccd);
@@ -31,14 +27,10 @@ pub struct IContactAddress_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactChangeRecord(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContactChangeRecord {
     type Vtable = IContactChangeRecord_Vtbl;
-}
-impl ::core::clone::Clone for IContactChangeRecord {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactChangeRecord {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb9d3f78f_513b_4742_be00_cc5c5c236b04);
@@ -54,6 +46,7 @@ pub struct IContactChangeRecord_Vtbl {
 }
 #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactInformation(::windows_core::IUnknown);
 impl IContactInformation {
     pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -170,27 +163,11 @@ impl IContactInformation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContactInformation, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IContactInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactInformation {}
-impl ::core::fmt::Debug for IContactInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactInformation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IContactInformation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{e2b51ffc-e792-4ab7-b15b-f2e078664dea}");
 }
 unsafe impl ::windows_core::Interface for IContactInformation {
     type Vtable = IContactInformation_Vtbl;
-}
-impl ::core::clone::Clone for IContactInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactInformation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2b51ffc_e792_4ab7_b15b_f2e078664dea);
@@ -236,6 +213,7 @@ pub struct IContactInformation_Vtbl {
 }
 #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactInformation2(::windows_core::IUnknown);
 impl IContactInformation2 {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -255,27 +233,11 @@ impl IContactInformation2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContactInformation2, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IContactInformation2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContactInformation2 {}
-impl ::core::fmt::Debug for IContactInformation2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContactInformation2").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IContactInformation2 {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{3198b20c-621e-4668-ac38-d667b87d06d5}");
 }
 unsafe impl ::windows_core::Interface for IContactInformation2 {
     type Vtable = IContactInformation2_Vtbl;
-}
-impl ::core::clone::Clone for IContactInformation2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactInformation2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3198b20c_621e_4668_ac38_d667b87d06d5);
@@ -295,14 +257,10 @@ pub struct IContactInformation2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactInformationStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContactInformationStatics {
     type Vtable = IContactInformationStatics_Vtbl;
-}
-impl ::core::clone::Clone for IContactInformationStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactInformationStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f67bb29_03d0_4be6_b2a5_fb13859f1202);
@@ -318,14 +276,10 @@ pub struct IContactInformationStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactQueryOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContactQueryOptions {
     type Vtable = IContactQueryOptions_Vtbl;
-}
-impl ::core::clone::Clone for IContactQueryOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactQueryOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x580cab76_3f31_46c1_9a50_424a53dacae3);
@@ -343,14 +297,10 @@ pub struct IContactQueryOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactQueryResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContactQueryResult {
     type Vtable = IContactQueryResult_Vtbl;
-}
-impl ::core::clone::Clone for IContactQueryResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactQueryResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc03db722_ecdb_4700_857e_3e786426b04b);
@@ -375,14 +325,10 @@ pub struct IContactQueryResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactStore(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContactStore {
     type Vtable = IContactStore_Vtbl;
-}
-impl ::core::clone::Clone for IContactStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactStore {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2cd6fef_2bfd_4fad_8552_4e698097e8eb);
@@ -425,14 +371,10 @@ pub struct IContactStore_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactStore2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContactStore2 {
     type Vtable = IContactStore2_Vtbl;
-}
-impl ::core::clone::Clone for IContactStore2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactStore2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x65f1b64f_d653_43a7_b236_b30c0f4d7269);
@@ -448,14 +390,10 @@ pub struct IContactStore2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactStoreStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContactStoreStatics {
     type Vtable = IContactStoreStatics_Vtbl;
-}
-impl ::core::clone::Clone for IContactStoreStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactStoreStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa804fe22_4beb_44cc_a572_67a5b92e8567);
@@ -475,14 +413,10 @@ pub struct IContactStoreStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKnownContactPropertiesStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKnownContactPropertiesStatics {
     type Vtable = IKnownContactPropertiesStatics_Vtbl;
-}
-impl ::core::clone::Clone for IKnownContactPropertiesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKnownContactPropertiesStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd5812b01_2ced_4ee6_b1d6_094bf88ef0b6);
@@ -529,14 +463,10 @@ pub struct IKnownContactPropertiesStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoredContact(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoredContact {
     type Vtable = IStoredContact_Vtbl;
-}
-impl ::core::clone::Clone for IStoredContact {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoredContact {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb070b7b1_263d_4e71_abe7_591d2466570e);
@@ -564,14 +494,10 @@ pub struct IStoredContact_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStoredContactFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStoredContactFactory {
     type Vtable = IStoredContactFactory_Vtbl;
-}
-impl ::core::clone::Clone for IStoredContactFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStoredContactFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49ede921_c225_4fd9_89c5_cecc2c8a4b79);
@@ -585,6 +511,7 @@ pub struct IStoredContactFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContactAddress(::windows_core::IUnknown);
 impl ContactAddress {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -650,24 +577,8 @@ impl ContactAddress {
         unsafe { (::windows_core::Interface::vtable(this).SetStreetAddress)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ContactAddress {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactAddress {}
-impl ::core::fmt::Debug for ContactAddress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactAddress").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ContactAddress {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.ContactAddress;{5f24f927-94a9-44a2-a155-2d0b37d1dccd})");
-}
-impl ::core::clone::Clone for ContactAddress {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ContactAddress {
     type Vtable = IContactAddress_Vtbl;
@@ -683,6 +594,7 @@ unsafe impl ::core::marker::Send for ContactAddress {}
 unsafe impl ::core::marker::Sync for ContactAddress {}
 #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContactChangeRecord(::windows_core::IUnknown);
 impl ContactChangeRecord {
     pub fn ChangeType(&self) -> ::windows_core::Result<ContactChangeType> {
@@ -714,24 +626,8 @@ impl ContactChangeRecord {
         }
     }
 }
-impl ::core::cmp::PartialEq for ContactChangeRecord {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactChangeRecord {}
-impl ::core::fmt::Debug for ContactChangeRecord {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactChangeRecord").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ContactChangeRecord {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.ContactChangeRecord;{b9d3f78f-513b-4742-be00-cc5c5c236b04})");
-}
-impl ::core::clone::Clone for ContactChangeRecord {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ContactChangeRecord {
     type Vtable = IContactChangeRecord_Vtbl;
@@ -747,6 +643,7 @@ unsafe impl ::core::marker::Send for ContactChangeRecord {}
 unsafe impl ::core::marker::Sync for ContactChangeRecord {}
 #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContactInformation(::windows_core::IUnknown);
 impl ContactInformation {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -885,24 +782,8 @@ impl ContactInformation {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for ContactInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactInformation {}
-impl ::core::fmt::Debug for ContactInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactInformation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ContactInformation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.ContactInformation;{e2b51ffc-e792-4ab7-b15b-f2e078664dea})");
-}
-impl ::core::clone::Clone for ContactInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ContactInformation {
     type Vtable = IContactInformation_Vtbl;
@@ -919,6 +800,7 @@ unsafe impl ::core::marker::Send for ContactInformation {}
 unsafe impl ::core::marker::Sync for ContactInformation {}
 #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContactQueryOptions(::windows_core::IUnknown);
 impl ContactQueryOptions {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -949,24 +831,8 @@ impl ContactQueryOptions {
         unsafe { (::windows_core::Interface::vtable(this).SetOrderBy)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ContactQueryOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactQueryOptions {}
-impl ::core::fmt::Debug for ContactQueryOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactQueryOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ContactQueryOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.ContactQueryOptions;{580cab76-3f31-46c1-9a50-424a53dacae3})");
-}
-impl ::core::clone::Clone for ContactQueryOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ContactQueryOptions {
     type Vtable = IContactQueryOptions_Vtbl;
@@ -982,6 +848,7 @@ unsafe impl ::core::marker::Send for ContactQueryOptions {}
 unsafe impl ::core::marker::Sync for ContactQueryOptions {}
 #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContactQueryResult(::windows_core::IUnknown);
 impl ContactQueryResult {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1019,24 +886,8 @@ impl ContactQueryResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for ContactQueryResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactQueryResult {}
-impl ::core::fmt::Debug for ContactQueryResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactQueryResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ContactQueryResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.ContactQueryResult;{c03db722-ecdb-4700-857e-3e786426b04b})");
-}
-impl ::core::clone::Clone for ContactQueryResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ContactQueryResult {
     type Vtable = IContactQueryResult_Vtbl;
@@ -1052,6 +903,7 @@ unsafe impl ::core::marker::Send for ContactQueryResult {}
 unsafe impl ::core::marker::Sync for ContactQueryResult {}
 #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContactStore(::windows_core::IUnknown);
 impl ContactStore {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1175,24 +1027,8 @@ impl ContactStore {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for ContactStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactStore {}
-impl ::core::fmt::Debug for ContactStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactStore").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ContactStore {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.ContactStore;{b2cd6fef-2bfd-4fad-8552-4e698097e8eb})");
-}
-impl ::core::clone::Clone for ContactStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ContactStore {
     type Vtable = IContactStore_Vtbl;
@@ -1430,6 +1266,7 @@ impl ::windows_core::RuntimeName for KnownContactProperties {
 }
 #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StoredContact(::windows_core::IUnknown);
 impl StoredContact {
     pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1636,24 +1473,8 @@ impl StoredContact {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for StoredContact {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoredContact {}
-impl ::core::fmt::Debug for StoredContact {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoredContact").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StoredContact {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Phone.PersonalInformation.StoredContact;{b070b7b1-263d-4e71-abe7-591d2466570e})");
-}
-impl ::core::clone::Clone for StoredContact {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StoredContact {
     type Vtable = IStoredContact_Vtbl;

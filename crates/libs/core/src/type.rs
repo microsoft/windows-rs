@@ -15,7 +15,7 @@ pub struct ValueType;
 pub struct CopyType;
 
 #[doc(hidden)]
-pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized {
+pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized + Clone {
     type Abi;
     type Default;
 

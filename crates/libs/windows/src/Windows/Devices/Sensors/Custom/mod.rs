@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICustomSensor(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICustomSensor {
     type Vtable = ICustomSensor_Vtbl;
-}
-impl ::core::clone::Clone for ICustomSensor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICustomSensor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa136f9ad_4034_4b4d_99dd_531aac649c09);
@@ -32,14 +28,10 @@ pub struct ICustomSensor_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICustomSensor2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICustomSensor2 {
     type Vtable = ICustomSensor2_Vtbl;
-}
-impl ::core::clone::Clone for ICustomSensor2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICustomSensor2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20db3111_ec58_4d9f_bfbd_e77825088510);
@@ -54,14 +46,10 @@ pub struct ICustomSensor2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICustomSensorReading(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICustomSensorReading {
     type Vtable = ICustomSensorReading_Vtbl;
-}
-impl ::core::clone::Clone for ICustomSensorReading {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICustomSensorReading {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64004f4d_446a_4366_a87a_5f963268ec53);
@@ -81,14 +69,10 @@ pub struct ICustomSensorReading_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICustomSensorReading2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICustomSensorReading2 {
     type Vtable = ICustomSensorReading2_Vtbl;
-}
-impl ::core::clone::Clone for ICustomSensorReading2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICustomSensorReading2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x223c98ea_bf73_4992_9a48_d3c897594ccb);
@@ -104,14 +88,10 @@ pub struct ICustomSensorReading2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICustomSensorReadingChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICustomSensorReadingChangedEventArgs {
     type Vtable = ICustomSensorReadingChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for ICustomSensorReadingChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICustomSensorReadingChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b202023_cffd_4cc1_8ff0_e21823d76fcc);
@@ -124,14 +104,10 @@ pub struct ICustomSensorReadingChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICustomSensorStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICustomSensorStatics {
     type Vtable = ICustomSensorStatics_Vtbl;
-}
-impl ::core::clone::Clone for ICustomSensorStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICustomSensorStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x992052cf_f422_4c7d_836b_e7dc74a7124b);
@@ -148,6 +124,7 @@ pub struct ICustomSensorStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Sensors_Custom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CustomSensor(::windows_core::IUnknown);
 impl CustomSensor {
     pub fn GetCurrentReading(&self) -> ::windows_core::Result<CustomSensorReading> {
@@ -238,24 +215,8 @@ impl CustomSensor {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for CustomSensor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CustomSensor {}
-impl ::core::fmt::Debug for CustomSensor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CustomSensor").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CustomSensor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Custom.CustomSensor;{a136f9ad-4034-4b4d-99dd-531aac649c09})");
-}
-impl ::core::clone::Clone for CustomSensor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CustomSensor {
     type Vtable = ICustomSensor_Vtbl;
@@ -271,6 +232,7 @@ unsafe impl ::core::marker::Send for CustomSensor {}
 unsafe impl ::core::marker::Sync for CustomSensor {}
 #[doc = "*Required features: `\"Devices_Sensors_Custom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CustomSensorReading(::windows_core::IUnknown);
 impl CustomSensorReading {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -301,24 +263,8 @@ impl CustomSensorReading {
         }
     }
 }
-impl ::core::cmp::PartialEq for CustomSensorReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CustomSensorReading {}
-impl ::core::fmt::Debug for CustomSensorReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CustomSensorReading").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CustomSensorReading {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Custom.CustomSensorReading;{64004f4d-446a-4366-a87a-5f963268ec53})");
-}
-impl ::core::clone::Clone for CustomSensorReading {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CustomSensorReading {
     type Vtable = ICustomSensorReading_Vtbl;
@@ -334,6 +280,7 @@ unsafe impl ::core::marker::Send for CustomSensorReading {}
 unsafe impl ::core::marker::Sync for CustomSensorReading {}
 #[doc = "*Required features: `\"Devices_Sensors_Custom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CustomSensorReadingChangedEventArgs(::windows_core::IUnknown);
 impl CustomSensorReadingChangedEventArgs {
     pub fn Reading(&self) -> ::windows_core::Result<CustomSensorReading> {
@@ -344,24 +291,8 @@ impl CustomSensorReadingChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for CustomSensorReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CustomSensorReadingChangedEventArgs {}
-impl ::core::fmt::Debug for CustomSensorReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CustomSensorReadingChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CustomSensorReadingChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Custom.CustomSensorReadingChangedEventArgs;{6b202023-cffd-4cc1-8ff0-e21823d76fcc})");
-}
-impl ::core::clone::Clone for CustomSensorReadingChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CustomSensorReadingChangedEventArgs {
     type Vtable = ICustomSensorReadingChangedEventArgs_Vtbl;

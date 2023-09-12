@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IItemEnumerator(::windows_core::IUnknown);
 impl IItemEnumerator {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -19,24 +20,8 @@ impl IItemEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IItemEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IItemEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IItemEnumerator {}
-impl ::core::fmt::Debug for IItemEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IItemEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IItemEnumerator {
     type Vtable = IItemEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IItemEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IItemEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f7d7bb7_20b3_11da_81a5_0030f1642e3c);
@@ -57,6 +42,7 @@ pub struct IItemEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISettingsContext(::windows_core::IUnknown);
 impl ISettingsContext {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -103,24 +89,8 @@ impl ISettingsContext {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISettingsContext, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISettingsContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISettingsContext {}
-impl ::core::fmt::Debug for ISettingsContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISettingsContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISettingsContext {
     type Vtable = ISettingsContext_Vtbl;
-}
-impl ::core::clone::Clone for ISettingsContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISettingsContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f7d7bbd_20b3_11da_81a5_0030f1642e3c);
@@ -145,6 +115,7 @@ pub struct ISettingsContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISettingsEngine(::windows_core::IUnknown);
 impl ISettingsEngine {
     pub unsafe fn GetNamespaces(&self, flags: WcmNamespaceEnumerationFlags, reserved: *const ::core::ffi::c_void) -> ::windows_core::Result<IItemEnumerator> {
@@ -232,24 +203,8 @@ impl ISettingsEngine {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISettingsEngine, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISettingsEngine {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISettingsEngine {}
-impl ::core::fmt::Debug for ISettingsEngine {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISettingsEngine").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISettingsEngine {
     type Vtable = ISettingsEngine_Vtbl;
-}
-impl ::core::clone::Clone for ISettingsEngine {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISettingsEngine {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f7d7bb9_20b3_11da_81a5_0030f1642e3c);
@@ -283,6 +238,7 @@ pub struct ISettingsEngine_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISettingsIdentity(::windows_core::IUnknown);
 impl ISettingsIdentity {
     pub unsafe fn GetAttribute<P0>(&self, reserved: *const ::core::ffi::c_void, name: P0) -> ::windows_core::Result<::windows_core::BSTR>
@@ -308,24 +264,8 @@ impl ISettingsIdentity {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISettingsIdentity, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISettingsIdentity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISettingsIdentity {}
-impl ::core::fmt::Debug for ISettingsIdentity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISettingsIdentity").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISettingsIdentity {
     type Vtable = ISettingsIdentity_Vtbl;
-}
-impl ::core::clone::Clone for ISettingsIdentity {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISettingsIdentity {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f7d7bb6_20b3_11da_81a5_0030f1642e3c);
@@ -341,6 +281,7 @@ pub struct ISettingsIdentity_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISettingsItem(::windows_core::IUnknown);
 impl ISettingsItem {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -459,24 +400,8 @@ impl ISettingsItem {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISettingsItem, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISettingsItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISettingsItem {}
-impl ::core::fmt::Debug for ISettingsItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISettingsItem").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISettingsItem {
     type Vtable = ISettingsItem_Vtbl;
-}
-impl ::core::clone::Clone for ISettingsItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISettingsItem {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f7d7bbb_20b3_11da_81a5_0030f1642e3c);
@@ -531,6 +456,7 @@ pub struct ISettingsItem_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISettingsNamespace(::windows_core::IUnknown);
 impl ISettingsNamespace {
     pub unsafe fn GetIdentity(&self) -> ::windows_core::Result<ISettingsIdentity> {
@@ -581,24 +507,8 @@ impl ISettingsNamespace {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISettingsNamespace, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISettingsNamespace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISettingsNamespace {}
-impl ::core::fmt::Debug for ISettingsNamespace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISettingsNamespace").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISettingsNamespace {
     type Vtable = ISettingsNamespace_Vtbl;
-}
-impl ::core::clone::Clone for ISettingsNamespace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISettingsNamespace {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f7d7bba_20b3_11da_81a5_0030f1642e3c);
@@ -623,6 +533,7 @@ pub struct ISettingsNamespace_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISettingsResult(::windows_core::IUnknown);
 impl ISettingsResult {
     pub unsafe fn GetDescription(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -651,24 +562,8 @@ impl ISettingsResult {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISettingsResult, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISettingsResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISettingsResult {}
-impl ::core::fmt::Debug for ISettingsResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISettingsResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISettingsResult {
     type Vtable = ISettingsResult_Vtbl;
-}
-impl ::core::clone::Clone for ISettingsResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISettingsResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f7d7bbc_20b3_11da_81a5_0030f1642e3c);
@@ -686,6 +581,7 @@ pub struct ISettingsResult_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITargetInfo(::windows_core::IUnknown);
 impl ITargetInfo {
     pub unsafe fn GetTargetMode(&self) -> ::windows_core::Result<WcmTargetMode> {
@@ -818,24 +714,8 @@ impl ITargetInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITargetInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITargetInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITargetInfo {}
-impl ::core::fmt::Debug for ITargetInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITargetInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITargetInfo {
     type Vtable = ITargetInfo_Vtbl;
-}
-impl ::core::clone::Clone for ITargetInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITargetInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f7d7bb8_20b3_11da_81a5_0030f1642e3c);

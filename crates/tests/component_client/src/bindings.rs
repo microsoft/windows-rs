@@ -9,6 +9,7 @@
 )]
 pub mod Nested {
     #[repr(transparent)]
+    #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
     pub struct IThing(::windows_core::IUnknown);
     impl IThing {
         pub fn Method(&self) -> ::windows_core::Result<()> {
@@ -26,28 +27,12 @@ pub mod Nested {
         ::windows_core::IUnknown,
         ::windows_core::IInspectable
     );
-    impl ::core::cmp::PartialEq for IThing {
-        fn eq(&self, other: &Self) -> bool {
-            self.0 == other.0
-        }
-    }
-    impl ::core::cmp::Eq for IThing {}
-    impl ::core::fmt::Debug for IThing {
-        fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-            f.debug_tuple("IThing").field(&self.0).finish()
-        }
-    }
     impl ::windows_core::RuntimeType for IThing {
         const SIGNATURE: ::windows_core::imp::ConstBuffer =
             ::windows_core::imp::ConstBuffer::from_slice(b"{5448be22-9873-5ae6-9106-f6e8455d2fdd}");
     }
     unsafe impl ::windows_core::Interface for IThing {
         type Vtable = IThing_Vtbl;
-    }
-    impl ::core::clone::Clone for IThing {
-        fn clone(&self) -> Self {
-            Self(self.0.clone())
-        }
     }
     unsafe impl ::windows_core::ComInterface for IThing {
         const IID: ::windows_core::GUID =
@@ -63,14 +48,10 @@ pub mod Nested {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClass(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClass {
     type Vtable = IClass_Vtbl;
-}
-impl ::core::clone::Clone for IClass {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClass {
     const IID: ::windows_core::GUID =
@@ -123,6 +104,7 @@ pub struct IClass_Vtbl {
     ) -> ::windows_core::HRESULT,
 }
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Class(::windows_core::IUnknown);
 impl Class {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -240,27 +222,11 @@ impl Class {
         }
     }
 }
-impl ::core::cmp::PartialEq for Class {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Class {}
-impl ::core::fmt::Debug for Class {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Class").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Class {
     const SIGNATURE: ::windows_core::imp::ConstBuffer =
         ::windows_core::imp::ConstBuffer::from_slice(
             b"rc(test_component.Class;{97540591-1323-59c0-9ae0-f510cae62e54})",
         );
-}
-impl ::core::clone::Clone for Class {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Class {
     type Vtable = IClass_Vtbl;
@@ -341,6 +307,7 @@ impl ::windows_core::RuntimeType for Flags {
         ::windows_core::imp::ConstBuffer::from_slice(b"enum(test_component.Flags;u4)");
 }
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Callback(pub ::windows_core::IUnknown);
 impl Callback {
     pub fn new<F: FnMut(i32) -> ::windows_core::Result<i32> + ::core::marker::Send + 'static>(
@@ -429,24 +396,8 @@ impl<F: FnMut(i32) -> ::windows_core::Result<i32> + ::core::marker::Send + 'stat
         }
     }
 }
-impl ::core::cmp::PartialEq for Callback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Callback {}
-impl ::core::fmt::Debug for Callback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Callback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for Callback {
     type Vtable = Callback_Vtbl;
-}
-impl ::core::clone::Clone for Callback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for Callback {
     const IID: ::windows_core::GUID =

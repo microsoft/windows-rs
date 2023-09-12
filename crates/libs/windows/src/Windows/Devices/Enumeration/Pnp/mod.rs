@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPnpObject(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPnpObject {
     type Vtable = IPnpObject_Vtbl;
-}
-impl ::core::clone::Clone for IPnpObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPnpObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95c66258_733b_4a8f_93a3_db078ac870c1);
@@ -26,14 +22,10 @@ pub struct IPnpObject_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPnpObjectStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPnpObjectStatics {
     type Vtable = IPnpObjectStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPnpObjectStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPnpObjectStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb3c32a3d_d168_4660_bbf3_a733b14b6e01);
@@ -65,14 +57,10 @@ pub struct IPnpObjectStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPnpObjectUpdate(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPnpObjectUpdate {
     type Vtable = IPnpObjectUpdate_Vtbl;
-}
-impl ::core::clone::Clone for IPnpObjectUpdate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPnpObjectUpdate {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f59e812_001e_4844_bcc6_432886856a17);
@@ -90,14 +78,10 @@ pub struct IPnpObjectUpdate_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPnpObjectWatcher(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPnpObjectWatcher {
     type Vtable = IPnpObjectWatcher_Vtbl;
-}
-impl ::core::clone::Clone for IPnpObjectWatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPnpObjectWatcher {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x83c95ca8_4772_4a7a_aca8_e48c42a89c44);
@@ -152,6 +136,7 @@ pub struct IPnpObjectWatcher_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PnpObject(::windows_core::IUnknown);
 impl PnpObject {
     pub fn Type(&self) -> ::windows_core::Result<PnpObjectType> {
@@ -245,24 +230,8 @@ impl PnpObject {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for PnpObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PnpObject {}
-impl ::core::fmt::Debug for PnpObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PnpObject").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PnpObject {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObject;{95c66258-733b-4a8f-93a3-db078ac870c1})");
-}
-impl ::core::clone::Clone for PnpObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PnpObject {
     type Vtable = IPnpObject_Vtbl;
@@ -279,6 +248,7 @@ unsafe impl ::core::marker::Sync for PnpObject {}
 #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PnpObjectCollection(::windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl PnpObjectCollection {
@@ -332,28 +302,8 @@ impl PnpObjectCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for PnpObjectCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for PnpObjectCollection {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for PnpObjectCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PnpObjectCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::RuntimeType for PnpObjectCollection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObjectCollection;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Devices.Enumeration.Pnp.PnpObject;{95c66258-733b-4a8f-93a3-db078ac870c1})))");
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::clone::Clone for PnpObjectCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows_core::Interface for PnpObjectCollection {
@@ -395,6 +345,7 @@ unsafe impl ::core::marker::Send for PnpObjectCollection {}
 unsafe impl ::core::marker::Sync for PnpObjectCollection {}
 #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PnpObjectUpdate(::windows_core::IUnknown);
 impl PnpObjectUpdate {
     pub fn Type(&self) -> ::windows_core::Result<PnpObjectType> {
@@ -421,24 +372,8 @@ impl PnpObjectUpdate {
         }
     }
 }
-impl ::core::cmp::PartialEq for PnpObjectUpdate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PnpObjectUpdate {}
-impl ::core::fmt::Debug for PnpObjectUpdate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PnpObjectUpdate").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PnpObjectUpdate {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObjectUpdate;{6f59e812-001e-4844-bcc6-432886856a17})");
-}
-impl ::core::clone::Clone for PnpObjectUpdate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PnpObjectUpdate {
     type Vtable = IPnpObjectUpdate_Vtbl;
@@ -454,6 +389,7 @@ unsafe impl ::core::marker::Send for PnpObjectUpdate {}
 unsafe impl ::core::marker::Sync for PnpObjectUpdate {}
 #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PnpObjectWatcher(::windows_core::IUnknown);
 impl PnpObjectWatcher {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -562,24 +498,8 @@ impl PnpObjectWatcher {
         unsafe { (::windows_core::Interface::vtable(this).Stop)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for PnpObjectWatcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PnpObjectWatcher {}
-impl ::core::fmt::Debug for PnpObjectWatcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PnpObjectWatcher").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PnpObjectWatcher {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.Pnp.PnpObjectWatcher;{83c95ca8-4772-4a7a-aca8-e48c42a89c44})");
-}
-impl ::core::clone::Clone for PnpObjectWatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PnpObjectWatcher {
     type Vtable = IPnpObjectWatcher_Vtbl;

@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_WinRT_Display\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDisplayDeviceInterop(::windows_core::IUnknown);
 impl IDisplayDeviceInterop {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
@@ -22,24 +23,8 @@ impl IDisplayDeviceInterop {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDisplayDeviceInterop, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDisplayDeviceInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDisplayDeviceInterop {}
-impl ::core::fmt::Debug for IDisplayDeviceInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDisplayDeviceInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDisplayDeviceInterop {
     type Vtable = IDisplayDeviceInterop_Vtbl;
-}
-impl ::core::clone::Clone for IDisplayDeviceInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDisplayDeviceInterop {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64338358_366a_471b_bd56_dd8ef48e439b);
@@ -59,6 +44,7 @@ pub struct IDisplayDeviceInterop_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Display\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDisplayPathInterop(::windows_core::IUnknown);
 impl IDisplayPathInterop {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -73,24 +59,8 @@ impl IDisplayPathInterop {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDisplayPathInterop, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDisplayPathInterop {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDisplayPathInterop {}
-impl ::core::fmt::Debug for IDisplayPathInterop {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDisplayPathInterop").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDisplayPathInterop {
     type Vtable = IDisplayPathInterop_Vtbl;
-}
-impl ::core::clone::Clone for IDisplayPathInterop {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDisplayPathInterop {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa6ba4205_e59e_4e71_b25b_4e436d21ee3d);

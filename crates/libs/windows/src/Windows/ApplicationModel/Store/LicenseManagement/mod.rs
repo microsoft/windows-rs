@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILicenseManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILicenseManagerStatics {
     type Vtable = ILicenseManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for ILicenseManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILicenseManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5ac3ae0_da47_4f20_9a23_09182c9476ff);
@@ -27,14 +23,10 @@ pub struct ILicenseManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILicenseManagerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILicenseManagerStatics2 {
     type Vtable = ILicenseManagerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ILicenseManagerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILicenseManagerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xab2ec47b_1f79_4480_b87e_2c499e601ba3);
@@ -50,14 +42,10 @@ pub struct ILicenseManagerStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILicenseSatisfactionInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILicenseSatisfactionInfo {
     type Vtable = ILicenseSatisfactionInfo_Vtbl;
-}
-impl ::core::clone::Clone for ILicenseSatisfactionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILicenseSatisfactionInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ccbb08f_db31_48d5_8384_fa17c81474e2);
@@ -76,14 +64,10 @@ pub struct ILicenseSatisfactionInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILicenseSatisfactionResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILicenseSatisfactionResult {
     type Vtable = ILicenseSatisfactionResult_Vtbl;
-}
-impl ::core::clone::Clone for ILicenseSatisfactionResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILicenseSatisfactionResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3c674f73_3c87_4ee1_8201_f428359bd3af);
@@ -148,6 +132,7 @@ impl ::windows_core::RuntimeName for LicenseManager {
 }
 #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LicenseSatisfactionInfo(::windows_core::IUnknown);
 impl LicenseSatisfactionInfo {
     pub fn SatisfiedByDevice(&self) -> ::windows_core::Result<bool> {
@@ -200,24 +185,8 @@ impl LicenseSatisfactionInfo {
         }
     }
 }
-impl ::core::cmp::PartialEq for LicenseSatisfactionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LicenseSatisfactionInfo {}
-impl ::core::fmt::Debug for LicenseSatisfactionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LicenseSatisfactionInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LicenseSatisfactionInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionInfo;{3ccbb08f-db31-48d5-8384-fa17c81474e2})");
-}
-impl ::core::clone::Clone for LicenseSatisfactionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LicenseSatisfactionInfo {
     type Vtable = ILicenseSatisfactionInfo_Vtbl;
@@ -233,6 +202,7 @@ unsafe impl ::core::marker::Send for LicenseSatisfactionInfo {}
 unsafe impl ::core::marker::Sync for LicenseSatisfactionInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LicenseSatisfactionResult(::windows_core::IUnknown);
 impl LicenseSatisfactionResult {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -252,24 +222,8 @@ impl LicenseSatisfactionResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for LicenseSatisfactionResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LicenseSatisfactionResult {}
-impl ::core::fmt::Debug for LicenseSatisfactionResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LicenseSatisfactionResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LicenseSatisfactionResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionResult;{3c674f73-3c87-4ee1-8201-f428359bd3af})");
-}
-impl ::core::clone::Clone for LicenseSatisfactionResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LicenseSatisfactionResult {
     type Vtable = ILicenseSatisfactionResult_Vtbl;

@@ -1,34 +1,15 @@
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AppEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl AppEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(AppEvents, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for AppEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for AppEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for AppEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for AppEvents {
     type Vtable = AppEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for AppEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for AppEvents {
@@ -43,6 +24,7 @@ pub struct AppEvents_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Column(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl Column {
@@ -91,28 +73,8 @@ impl Column {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(Column, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for Column {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for Column {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for Column {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Column").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for Column {
     type Vtable = Column_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for Column {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for Column {
@@ -145,6 +107,7 @@ pub struct Column_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Columns(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl Columns {
@@ -166,28 +129,8 @@ impl Columns {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(Columns, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for Columns {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for Columns {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for Columns {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Columns").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for Columns {
     type Vtable = Columns_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for Columns {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for Columns {
@@ -208,6 +151,7 @@ pub struct Columns_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContextMenu(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ContextMenu {
@@ -229,28 +173,8 @@ impl ContextMenu {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ContextMenu, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ContextMenu {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ContextMenu {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ContextMenu {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContextMenu").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ContextMenu {
     type Vtable = ContextMenu_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ContextMenu {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ContextMenu {
@@ -271,6 +195,7 @@ pub struct ContextMenu_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Document(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl Document {
@@ -364,28 +289,8 @@ impl Document {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(Document, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for Document {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for Document {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for Document {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Document").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for Document {
     type Vtable = Document_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for Document {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for Document {
@@ -443,6 +348,7 @@ pub struct Document_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Extension(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl Extension {
@@ -488,28 +394,8 @@ impl Extension {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(Extension, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for Extension {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for Extension {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for Extension {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Extension").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for Extension {
     type Vtable = Extension_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for Extension {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for Extension {
@@ -540,6 +426,7 @@ pub struct Extension_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Extensions(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl Extensions {
@@ -561,28 +448,8 @@ impl Extensions {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(Extensions, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for Extensions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for Extensions {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for Extensions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Extensions").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for Extensions {
     type Vtable = Extensions_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for Extensions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for Extensions {
@@ -603,6 +470,7 @@ pub struct Extensions_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Frame(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl Frame {
@@ -647,28 +515,8 @@ impl Frame {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(Frame, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for Frame {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for Frame {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for Frame {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Frame").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for Frame {
     type Vtable = Frame_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for Frame {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for Frame {
@@ -693,6 +541,7 @@ pub struct Frame_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IColumnData(::windows_core::IUnknown);
 impl IColumnData {
     pub unsafe fn SetColumnConfigData(&self, pcolid: *const SColumnSetID, pcolsetdata: *const MMC_COLUMN_SET_DATA) -> ::windows_core::Result<()> {
@@ -711,24 +560,8 @@ impl IColumnData {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IColumnData, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IColumnData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IColumnData {}
-impl ::core::fmt::Debug for IColumnData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IColumnData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IColumnData {
     type Vtable = IColumnData_Vtbl;
-}
-impl ::core::clone::Clone for IColumnData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IColumnData {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x547c1354_024d_11d3_a707_00c04f8ef4cb);
@@ -744,6 +577,7 @@ pub struct IColumnData_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IComponent(::windows_core::IUnknown);
 impl IComponent {
     pub unsafe fn Initialize<P0>(&self, lpconsole: P0) -> ::windows_core::Result<()>
@@ -790,24 +624,8 @@ impl IComponent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IComponent, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IComponent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IComponent {}
-impl ::core::fmt::Debug for IComponent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IComponent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IComponent {
     type Vtable = IComponent_Vtbl;
-}
-impl ::core::clone::Clone for IComponent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IComponent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43136eb2_d36c_11cf_adbc_00aa00a80033);
@@ -838,6 +656,7 @@ pub struct IComponent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IComponent2(::windows_core::IUnknown);
 impl IComponent2 {
     pub unsafe fn Initialize<P0>(&self, lpconsole: P0) -> ::windows_core::Result<()>
@@ -896,24 +715,8 @@ impl IComponent2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IComponent2, ::windows_core::IUnknown, IComponent);
-impl ::core::cmp::PartialEq for IComponent2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IComponent2 {}
-impl ::core::fmt::Debug for IComponent2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IComponent2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IComponent2 {
     type Vtable = IComponent2_Vtbl;
-}
-impl ::core::clone::Clone for IComponent2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IComponent2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x79a2d615_4a10_4ed4_8c65_8633f9335095);
@@ -931,6 +734,7 @@ pub struct IComponent2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IComponentData(::windows_core::IUnknown);
 impl IComponentData {
     pub unsafe fn Initialize<P0>(&self, punknown: P0) -> ::windows_core::Result<()>
@@ -978,24 +782,8 @@ impl IComponentData {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IComponentData, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IComponentData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IComponentData {}
-impl ::core::fmt::Debug for IComponentData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IComponentData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IComponentData {
     type Vtable = IComponentData_Vtbl;
-}
-impl ::core::clone::Clone for IComponentData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IComponentData {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x955ab28a_5218_11d0_a985_00c04fd8d565);
@@ -1026,6 +814,7 @@ pub struct IComponentData_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IComponentData2(::windows_core::IUnknown);
 impl IComponentData2 {
     pub unsafe fn Initialize<P0>(&self, punknown: P0) -> ::windows_core::Result<()>
@@ -1079,24 +868,8 @@ impl IComponentData2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IComponentData2, ::windows_core::IUnknown, IComponentData);
-impl ::core::cmp::PartialEq for IComponentData2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IComponentData2 {}
-impl ::core::fmt::Debug for IComponentData2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IComponentData2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IComponentData2 {
     type Vtable = IComponentData2_Vtbl;
-}
-impl ::core::clone::Clone for IComponentData2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IComponentData2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcca0f2d2_82de_41b5_bf47_3b2076273d5c);
@@ -1112,6 +885,7 @@ pub struct IComponentData2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConsole(::windows_core::IUnknown);
 impl IConsole {
     pub unsafe fn SetHeader<P0>(&self, pheader: P0) -> ::windows_core::Result<()>
@@ -1173,24 +947,8 @@ impl IConsole {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IConsole, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IConsole {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IConsole {}
-impl ::core::fmt::Debug for IConsole {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IConsole").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IConsole {
     type Vtable = IConsole_Vtbl;
-}
-impl ::core::clone::Clone for IConsole {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConsole {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43136eb1_d36c_11cf_adbc_00aa00a80033);
@@ -1219,6 +977,7 @@ pub struct IConsole_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConsole2(::windows_core::IUnknown);
 impl IConsole2 {
     pub unsafe fn SetHeader<P0>(&self, pheader: P0) -> ::windows_core::Result<()>
@@ -1297,24 +1056,8 @@ impl IConsole2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IConsole2, ::windows_core::IUnknown, IConsole);
-impl ::core::cmp::PartialEq for IConsole2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IConsole2 {}
-impl ::core::fmt::Debug for IConsole2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IConsole2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IConsole2 {
     type Vtable = IConsole2_Vtbl;
-}
-impl ::core::clone::Clone for IConsole2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConsole2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x103d842a_aa63_11d1_a7e1_00c04fd8d565);
@@ -1332,6 +1075,7 @@ pub struct IConsole2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConsole3(::windows_core::IUnknown);
 impl IConsole3 {
     pub unsafe fn SetHeader<P0>(&self, pheader: P0) -> ::windows_core::Result<()>
@@ -1413,24 +1157,8 @@ impl IConsole3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IConsole3, ::windows_core::IUnknown, IConsole, IConsole2);
-impl ::core::cmp::PartialEq for IConsole3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IConsole3 {}
-impl ::core::fmt::Debug for IConsole3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IConsole3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IConsole3 {
     type Vtable = IConsole3_Vtbl;
-}
-impl ::core::clone::Clone for IConsole3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConsole3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f85efdb_d0e1_498c_8d4a_d010dfdd404f);
@@ -1443,6 +1171,7 @@ pub struct IConsole3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConsoleNameSpace(::windows_core::IUnknown);
 impl IConsoleNameSpace {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1474,24 +1203,8 @@ impl IConsoleNameSpace {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IConsoleNameSpace, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IConsoleNameSpace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IConsoleNameSpace {}
-impl ::core::fmt::Debug for IConsoleNameSpace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IConsoleNameSpace").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IConsoleNameSpace {
     type Vtable = IConsoleNameSpace_Vtbl;
-}
-impl ::core::clone::Clone for IConsoleNameSpace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConsoleNameSpace {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbedeb620_f24d_11cf_8afc_00aa003ca9f6);
@@ -1519,6 +1232,7 @@ pub struct IConsoleNameSpace_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConsoleNameSpace2(::windows_core::IUnknown);
 impl IConsoleNameSpace2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1556,24 +1270,8 @@ impl IConsoleNameSpace2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IConsoleNameSpace2, ::windows_core::IUnknown, IConsoleNameSpace);
-impl ::core::cmp::PartialEq for IConsoleNameSpace2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IConsoleNameSpace2 {}
-impl ::core::fmt::Debug for IConsoleNameSpace2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IConsoleNameSpace2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IConsoleNameSpace2 {
     type Vtable = IConsoleNameSpace2_Vtbl;
-}
-impl ::core::clone::Clone for IConsoleNameSpace2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConsoleNameSpace2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x255f18cc_65db_11d1_a7dc_00c04fd8d565);
@@ -1587,6 +1285,7 @@ pub struct IConsoleNameSpace2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConsolePower(::windows_core::IUnknown);
 impl IConsolePower {
     pub unsafe fn SetExecutionState(&self, dwadd: u32, dwremove: u32) -> ::windows_core::Result<()> {
@@ -1597,24 +1296,8 @@ impl IConsolePower {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IConsolePower, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IConsolePower {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IConsolePower {}
-impl ::core::fmt::Debug for IConsolePower {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IConsolePower").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IConsolePower {
     type Vtable = IConsolePower_Vtbl;
-}
-impl ::core::clone::Clone for IConsolePower {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConsolePower {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1cfbdd0e_62ca_49ce_a3af_dbb2de61b068);
@@ -1628,6 +1311,7 @@ pub struct IConsolePower_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConsolePowerSink(::windows_core::IUnknown);
 impl IConsolePowerSink {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1641,24 +1325,8 @@ impl IConsolePowerSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IConsolePowerSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IConsolePowerSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IConsolePowerSink {}
-impl ::core::fmt::Debug for IConsolePowerSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IConsolePowerSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IConsolePowerSink {
     type Vtable = IConsolePowerSink_Vtbl;
-}
-impl ::core::clone::Clone for IConsolePowerSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConsolePowerSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3333759f_fe4f_4975_b143_fec0a5dd6d65);
@@ -1674,6 +1342,7 @@ pub struct IConsolePowerSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConsoleVerb(::windows_core::IUnknown);
 impl IConsoleVerb {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1699,24 +1368,8 @@ impl IConsoleVerb {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IConsoleVerb, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IConsoleVerb {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IConsoleVerb {}
-impl ::core::fmt::Debug for IConsoleVerb {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IConsoleVerb").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IConsoleVerb {
     type Vtable = IConsoleVerb_Vtbl;
-}
-impl ::core::clone::Clone for IConsoleVerb {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConsoleVerb {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe49f7a60_74af_11d0_a286_00c04fd8fe93);
@@ -1738,6 +1391,7 @@ pub struct IConsoleVerb_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContextMenuCallback(::windows_core::IUnknown);
 impl IContextMenuCallback {
     pub unsafe fn AddItem(&self, pitem: *const CONTEXTMENUITEM) -> ::windows_core::Result<()> {
@@ -1745,24 +1399,8 @@ impl IContextMenuCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContextMenuCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IContextMenuCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContextMenuCallback {}
-impl ::core::fmt::Debug for IContextMenuCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContextMenuCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IContextMenuCallback {
     type Vtable = IContextMenuCallback_Vtbl;
-}
-impl ::core::clone::Clone for IContextMenuCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContextMenuCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43136eb7_d36c_11cf_adbc_00aa00a80033);
@@ -1775,6 +1413,7 @@ pub struct IContextMenuCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContextMenuCallback2(::windows_core::IUnknown);
 impl IContextMenuCallback2 {
     pub unsafe fn AddItem(&self, pitem: *const CONTEXTMENUITEM2) -> ::windows_core::Result<()> {
@@ -1782,24 +1421,8 @@ impl IContextMenuCallback2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContextMenuCallback2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IContextMenuCallback2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContextMenuCallback2 {}
-impl ::core::fmt::Debug for IContextMenuCallback2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContextMenuCallback2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IContextMenuCallback2 {
     type Vtable = IContextMenuCallback2_Vtbl;
-}
-impl ::core::clone::Clone for IContextMenuCallback2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContextMenuCallback2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe178bc0e_2ed0_4b5e_8097_42c9087e8b33);
@@ -1812,6 +1435,7 @@ pub struct IContextMenuCallback2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContextMenuProvider(::windows_core::IUnknown);
 impl IContextMenuProvider {
     pub unsafe fn AddItem(&self, pitem: *const CONTEXTMENUITEM) -> ::windows_core::Result<()> {
@@ -1848,24 +1472,8 @@ impl IContextMenuProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContextMenuProvider, ::windows_core::IUnknown, IContextMenuCallback);
-impl ::core::cmp::PartialEq for IContextMenuProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContextMenuProvider {}
-impl ::core::fmt::Debug for IContextMenuProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContextMenuProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IContextMenuProvider {
     type Vtable = IContextMenuProvider_Vtbl;
-}
-impl ::core::clone::Clone for IContextMenuProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContextMenuProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43136eb6_d36c_11cf_adbc_00aa00a80033);
@@ -1890,6 +1498,7 @@ pub struct IContextMenuProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IControlbar(::windows_core::IUnknown);
 impl IControlbar {
     pub unsafe fn Create<P0>(&self, ntype: MMC_CONTROL_TYPE, pextendcontrolbar: P0) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -1913,24 +1522,8 @@ impl IControlbar {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IControlbar, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IControlbar {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IControlbar {}
-impl ::core::fmt::Debug for IControlbar {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IControlbar").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IControlbar {
     type Vtable = IControlbar_Vtbl;
-}
-impl ::core::clone::Clone for IControlbar {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IControlbar {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69fb811e_6c1c_11d0_a2cb_00c04fd909dd);
@@ -1945,6 +1538,7 @@ pub struct IControlbar_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDisplayHelp(::windows_core::IUnknown);
 impl IDisplayHelp {
     pub unsafe fn ShowTopic<P0>(&self, pszhelptopic: P0) -> ::windows_core::Result<()>
@@ -1955,24 +1549,8 @@ impl IDisplayHelp {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDisplayHelp, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDisplayHelp {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDisplayHelp {}
-impl ::core::fmt::Debug for IDisplayHelp {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDisplayHelp").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDisplayHelp {
     type Vtable = IDisplayHelp_Vtbl;
-}
-impl ::core::clone::Clone for IDisplayHelp {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDisplayHelp {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc593830_b926_11d1_8063_0000f875a9ce);
@@ -1985,6 +1563,7 @@ pub struct IDisplayHelp_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumTASK(::windows_core::IUnknown);
 impl IEnumTASK {
     pub unsafe fn Next(&self, rgelt: &mut [MMC_TASK], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -2002,24 +1581,8 @@ impl IEnumTASK {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumTASK, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumTASK {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumTASK {}
-impl ::core::fmt::Debug for IEnumTASK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumTASK").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumTASK {
     type Vtable = IEnumTASK_Vtbl;
-}
-impl ::core::clone::Clone for IEnumTASK {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumTASK {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x338698b1_5a02_11d1_9fec_00600832db4a);
@@ -2035,6 +1598,7 @@ pub struct IEnumTASK_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IExtendContextMenu(::windows_core::IUnknown);
 impl IExtendContextMenu {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2056,24 +1620,8 @@ impl IExtendContextMenu {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IExtendContextMenu, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IExtendContextMenu {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IExtendContextMenu {}
-impl ::core::fmt::Debug for IExtendContextMenu {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IExtendContextMenu").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IExtendContextMenu {
     type Vtable = IExtendContextMenu_Vtbl;
-}
-impl ::core::clone::Clone for IExtendContextMenu {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IExtendContextMenu {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f3b7a4f_cfac_11cf_b8e3_00c04fd8d5b0);
@@ -2093,6 +1641,7 @@ pub struct IExtendContextMenu_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IExtendControlbar(::windows_core::IUnknown);
 impl IExtendControlbar {
     pub unsafe fn SetControlbar<P0>(&self, pcontrolbar: P0) -> ::windows_core::Result<()>
@@ -2112,24 +1661,8 @@ impl IExtendControlbar {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IExtendControlbar, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IExtendControlbar {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IExtendControlbar {}
-impl ::core::fmt::Debug for IExtendControlbar {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IExtendControlbar").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IExtendControlbar {
     type Vtable = IExtendControlbar_Vtbl;
-}
-impl ::core::clone::Clone for IExtendControlbar {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IExtendControlbar {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x49506520_6f40_11d0_a98b_00c04fd8d565);
@@ -2146,6 +1679,7 @@ pub struct IExtendControlbar_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IExtendPropertySheet(::windows_core::IUnknown);
 impl IExtendPropertySheet {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2167,24 +1701,8 @@ impl IExtendPropertySheet {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IExtendPropertySheet, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IExtendPropertySheet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IExtendPropertySheet {}
-impl ::core::fmt::Debug for IExtendPropertySheet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IExtendPropertySheet").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IExtendPropertySheet {
     type Vtable = IExtendPropertySheet_Vtbl;
-}
-impl ::core::clone::Clone for IExtendPropertySheet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IExtendPropertySheet {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x85de64dc_ef21_11cf_a285_00c04fd8dbe6);
@@ -2204,6 +1722,7 @@ pub struct IExtendPropertySheet_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IExtendPropertySheet2(::windows_core::IUnknown);
 impl IExtendPropertySheet2 {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2233,24 +1752,8 @@ impl IExtendPropertySheet2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IExtendPropertySheet2, ::windows_core::IUnknown, IExtendPropertySheet);
-impl ::core::cmp::PartialEq for IExtendPropertySheet2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IExtendPropertySheet2 {}
-impl ::core::fmt::Debug for IExtendPropertySheet2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IExtendPropertySheet2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IExtendPropertySheet2 {
     type Vtable = IExtendPropertySheet2_Vtbl;
-}
-impl ::core::clone::Clone for IExtendPropertySheet2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IExtendPropertySheet2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb7a87232_4a51_11d1_a7ea_00c04fd909dd);
@@ -2266,6 +1769,7 @@ pub struct IExtendPropertySheet2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IExtendTaskPad(::windows_core::IUnknown);
 impl IExtendTaskPad {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -2316,24 +1820,8 @@ impl IExtendTaskPad {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IExtendTaskPad, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IExtendTaskPad {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IExtendTaskPad {}
-impl ::core::fmt::Debug for IExtendTaskPad {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IExtendTaskPad").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IExtendTaskPad {
     type Vtable = IExtendTaskPad_Vtbl;
-}
-impl ::core::clone::Clone for IExtendTaskPad {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IExtendTaskPad {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8dee6511_554d_11d1_9fea_00600832db4a);
@@ -2357,6 +1845,7 @@ pub struct IExtendTaskPad_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IExtendView(::windows_core::IUnknown);
 impl IExtendView {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2370,24 +1859,8 @@ impl IExtendView {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IExtendView, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IExtendView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IExtendView {}
-impl ::core::fmt::Debug for IExtendView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IExtendView").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IExtendView {
     type Vtable = IExtendView_Vtbl;
-}
-impl ::core::clone::Clone for IExtendView {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IExtendView {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x89995cee_d2ed_4c0e_ae5e_df7e76f3fa53);
@@ -2403,6 +1876,7 @@ pub struct IExtendView_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHeaderCtrl(::windows_core::IUnknown);
 impl IHeaderCtrl {
     pub unsafe fn InsertColumn<P0>(&self, ncol: i32, title: P0, nformat: i32, nwidth: i32) -> ::windows_core::Result<()>
@@ -2433,24 +1907,8 @@ impl IHeaderCtrl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHeaderCtrl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHeaderCtrl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHeaderCtrl {}
-impl ::core::fmt::Debug for IHeaderCtrl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHeaderCtrl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHeaderCtrl {
     type Vtable = IHeaderCtrl_Vtbl;
-}
-impl ::core::clone::Clone for IHeaderCtrl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHeaderCtrl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43136eb3_d36c_11cf_adbc_00aa00a80033);
@@ -2468,6 +1926,7 @@ pub struct IHeaderCtrl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHeaderCtrl2(::windows_core::IUnknown);
 impl IHeaderCtrl2 {
     pub unsafe fn InsertColumn<P0>(&self, ncol: i32, title: P0, nformat: i32, nwidth: i32) -> ::windows_core::Result<()>
@@ -2507,24 +1966,8 @@ impl IHeaderCtrl2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHeaderCtrl2, ::windows_core::IUnknown, IHeaderCtrl);
-impl ::core::cmp::PartialEq for IHeaderCtrl2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHeaderCtrl2 {}
-impl ::core::fmt::Debug for IHeaderCtrl2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHeaderCtrl2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHeaderCtrl2 {
     type Vtable = IHeaderCtrl2_Vtbl;
-}
-impl ::core::clone::Clone for IHeaderCtrl2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHeaderCtrl2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9757abb8_1b32_11d1_a7ce_00c04fd8d565);
@@ -2539,6 +1982,7 @@ pub struct IHeaderCtrl2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IImageList(::windows_core::IUnknown);
 impl IImageList {
     pub unsafe fn ImageListSetIcon(&self, picon: *const isize, nloc: i32) -> ::windows_core::Result<()> {
@@ -2554,24 +1998,8 @@ impl IImageList {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IImageList, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IImageList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IImageList {}
-impl ::core::fmt::Debug for IImageList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IImageList").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IImageList {
     type Vtable = IImageList_Vtbl;
-}
-impl ::core::clone::Clone for IImageList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IImageList {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43136eb8_d36c_11cf_adbc_00aa00a80033);
@@ -2588,6 +2016,7 @@ pub struct IImageList_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMMCVersionInfo(::windows_core::IUnknown);
 impl IMMCVersionInfo {
     pub unsafe fn GetMMCVersion(&self, pversionmajor: *mut i32, pversionminor: *mut i32) -> ::windows_core::Result<()> {
@@ -2595,24 +2024,8 @@ impl IMMCVersionInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMMCVersionInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMMCVersionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMMCVersionInfo {}
-impl ::core::fmt::Debug for IMMCVersionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMMCVersionInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMMCVersionInfo {
     type Vtable = IMMCVersionInfo_Vtbl;
-}
-impl ::core::clone::Clone for IMMCVersionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMMCVersionInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8d2c5fe_cdcb_4b9d_bde5_a27343ff54bc);
@@ -2625,6 +2038,7 @@ pub struct IMMCVersionInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMenuButton(::windows_core::IUnknown);
 impl IMenuButton {
     pub unsafe fn AddButton<P0, P1>(&self, idcommand: i32, lpbuttontext: P0, lptooltiptext: P1) -> ::windows_core::Result<()>
@@ -2651,24 +2065,8 @@ impl IMenuButton {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMenuButton, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMenuButton {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMenuButton {}
-impl ::core::fmt::Debug for IMenuButton {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMenuButton").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMenuButton {
     type Vtable = IMenuButton_Vtbl;
-}
-impl ::core::clone::Clone for IMenuButton {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMenuButton {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x951ed750_d080_11d0_b197_000000000000);
@@ -2686,6 +2084,7 @@ pub struct IMenuButton_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMessageView(::windows_core::IUnknown);
 impl IMessageView {
     pub unsafe fn SetTitleText<P0>(&self, psztitletext: P0) -> ::windows_core::Result<()>
@@ -2708,24 +2107,8 @@ impl IMessageView {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMessageView, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMessageView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMessageView {}
-impl ::core::fmt::Debug for IMessageView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMessageView").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMessageView {
     type Vtable = IMessageView_Vtbl;
-}
-impl ::core::clone::Clone for IMessageView {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMessageView {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x80f94174_fccc_11d2_b991_00c04f8ecd78);
@@ -2741,6 +2124,7 @@ pub struct IMessageView_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INodeProperties(::windows_core::IUnknown);
 impl INodeProperties {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2755,24 +2139,8 @@ impl INodeProperties {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INodeProperties, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INodeProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INodeProperties {}
-impl ::core::fmt::Debug for INodeProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INodeProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INodeProperties {
     type Vtable = INodeProperties_Vtbl;
-}
-impl ::core::clone::Clone for INodeProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INodeProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x15bc4d24_a522_4406_aa55_0749537a6865);
@@ -2788,6 +2156,7 @@ pub struct INodeProperties_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPropertySheetCallback(::windows_core::IUnknown);
 impl IPropertySheetCallback {
     #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -2808,24 +2177,8 @@ impl IPropertySheetCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPropertySheetCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPropertySheetCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPropertySheetCallback {}
-impl ::core::fmt::Debug for IPropertySheetCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPropertySheetCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPropertySheetCallback {
     type Vtable = IPropertySheetCallback_Vtbl;
-}
-impl ::core::clone::Clone for IPropertySheetCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPropertySheetCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x85de64dd_ef21_11cf_a285_00c04fd8dbe6);
@@ -2845,6 +2198,7 @@ pub struct IPropertySheetCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPropertySheetProvider(::windows_core::IUnknown);
 impl IPropertySheetProvider {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2884,24 +2238,8 @@ impl IPropertySheetProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPropertySheetProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPropertySheetProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPropertySheetProvider {}
-impl ::core::fmt::Debug for IPropertySheetProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPropertySheetProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPropertySheetProvider {
     type Vtable = IPropertySheetProvider_Vtbl;
-}
-impl ::core::clone::Clone for IPropertySheetProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPropertySheetProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x85de64de_ef21_11cf_a285_00c04fd8dbe6);
@@ -2927,6 +2265,7 @@ pub struct IPropertySheetProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRequiredExtensions(::windows_core::IUnknown);
 impl IRequiredExtensions {
     pub unsafe fn EnableAllExtensions(&self) -> ::windows_core::Result<()> {
@@ -2942,24 +2281,8 @@ impl IRequiredExtensions {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRequiredExtensions, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRequiredExtensions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRequiredExtensions {}
-impl ::core::fmt::Debug for IRequiredExtensions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRequiredExtensions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRequiredExtensions {
     type Vtable = IRequiredExtensions_Vtbl;
-}
-impl ::core::clone::Clone for IRequiredExtensions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRequiredExtensions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x72782d7a_a4a0_11d1_af0f_00c04fb6dd2c);
@@ -2974,6 +2297,7 @@ pub struct IRequiredExtensions_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IResultData(::windows_core::IUnknown);
 impl IResultData {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3046,24 +2370,8 @@ impl IResultData {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IResultData, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IResultData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IResultData {}
-impl ::core::fmt::Debug for IResultData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IResultData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IResultData {
     type Vtable = IResultData_Vtbl;
-}
-impl ::core::clone::Clone for IResultData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IResultData {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x31da5fa0_e0eb_11cf_9f21_00aa003ca9f6);
@@ -3108,6 +2416,7 @@ pub struct IResultData_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IResultData2(::windows_core::IUnknown);
 impl IResultData2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3183,24 +2492,8 @@ impl IResultData2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IResultData2, ::windows_core::IUnknown, IResultData);
-impl ::core::cmp::PartialEq for IResultData2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IResultData2 {}
-impl ::core::fmt::Debug for IResultData2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IResultData2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IResultData2 {
     type Vtable = IResultData2_Vtbl;
-}
-impl ::core::clone::Clone for IResultData2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IResultData2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f36e0eb_a7f1_4a81_be5a_9247f7de4b1b);
@@ -3213,6 +2506,7 @@ pub struct IResultData2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IResultDataCompare(::windows_core::IUnknown);
 impl IResultDataCompare {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3225,24 +2519,8 @@ impl IResultDataCompare {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IResultDataCompare, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IResultDataCompare {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IResultDataCompare {}
-impl ::core::fmt::Debug for IResultDataCompare {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IResultDataCompare").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IResultDataCompare {
     type Vtable = IResultDataCompare_Vtbl;
-}
-impl ::core::clone::Clone for IResultDataCompare {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IResultDataCompare {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe8315a52_7a1a_11d0_a2d2_00c04fd909dd);
@@ -3258,6 +2536,7 @@ pub struct IResultDataCompare_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IResultDataCompareEx(::windows_core::IUnknown);
 impl IResultDataCompareEx {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3268,24 +2547,8 @@ impl IResultDataCompareEx {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IResultDataCompareEx, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IResultDataCompareEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IResultDataCompareEx {}
-impl ::core::fmt::Debug for IResultDataCompareEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IResultDataCompareEx").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IResultDataCompareEx {
     type Vtable = IResultDataCompareEx_Vtbl;
-}
-impl ::core::clone::Clone for IResultDataCompareEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IResultDataCompareEx {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x96933476_0251_11d3_aeb0_00c04f8ecd78);
@@ -3301,6 +2564,7 @@ pub struct IResultDataCompareEx_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IResultOwnerData(::windows_core::IUnknown);
 impl IResultOwnerData {
     pub unsafe fn FindItem(&self, pfindinfo: *const RESULTFINDINFO) -> ::windows_core::Result<i32> {
@@ -3320,24 +2584,8 @@ impl IResultOwnerData {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IResultOwnerData, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IResultOwnerData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IResultOwnerData {}
-impl ::core::fmt::Debug for IResultOwnerData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IResultOwnerData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IResultOwnerData {
     type Vtable = IResultOwnerData_Vtbl;
-}
-impl ::core::clone::Clone for IResultOwnerData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IResultOwnerData {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9cb396d8_ea83_11d0_aef1_00c04fb6dd2c);
@@ -3355,6 +2603,7 @@ pub struct IResultOwnerData_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISnapinAbout(::windows_core::IUnknown);
 impl ISnapinAbout {
     pub unsafe fn GetSnapinDescription(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -3382,24 +2631,8 @@ impl ISnapinAbout {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISnapinAbout, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISnapinAbout {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISnapinAbout {}
-impl ::core::fmt::Debug for ISnapinAbout {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISnapinAbout").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISnapinAbout {
     type Vtable = ISnapinAbout_Vtbl;
-}
-impl ::core::clone::Clone for ISnapinAbout {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISnapinAbout {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1245208c_a151_11d0_a7d7_00c04fd909dd);
@@ -3422,6 +2655,7 @@ pub struct ISnapinAbout_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISnapinHelp(::windows_core::IUnknown);
 impl ISnapinHelp {
     pub unsafe fn GetHelpTopic(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -3430,24 +2664,8 @@ impl ISnapinHelp {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISnapinHelp, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISnapinHelp {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISnapinHelp {}
-impl ::core::fmt::Debug for ISnapinHelp {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISnapinHelp").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISnapinHelp {
     type Vtable = ISnapinHelp_Vtbl;
-}
-impl ::core::clone::Clone for ISnapinHelp {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISnapinHelp {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa6b15ace_df59_11d0_a7dd_00c04fd909dd);
@@ -3460,6 +2678,7 @@ pub struct ISnapinHelp_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISnapinHelp2(::windows_core::IUnknown);
 impl ISnapinHelp2 {
     pub unsafe fn GetHelpTopic(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -3472,24 +2691,8 @@ impl ISnapinHelp2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISnapinHelp2, ::windows_core::IUnknown, ISnapinHelp);
-impl ::core::cmp::PartialEq for ISnapinHelp2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISnapinHelp2 {}
-impl ::core::fmt::Debug for ISnapinHelp2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISnapinHelp2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISnapinHelp2 {
     type Vtable = ISnapinHelp2_Vtbl;
-}
-impl ::core::clone::Clone for ISnapinHelp2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISnapinHelp2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4861a010_20f9_11d2_a510_00c04fb6dd2c);
@@ -3502,6 +2705,7 @@ pub struct ISnapinHelp2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISnapinProperties(::windows_core::IUnknown);
 impl ISnapinProperties {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -3525,24 +2729,8 @@ impl ISnapinProperties {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISnapinProperties, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISnapinProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISnapinProperties {}
-impl ::core::fmt::Debug for ISnapinProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISnapinProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISnapinProperties {
     type Vtable = ISnapinProperties_Vtbl;
-}
-impl ::core::clone::Clone for ISnapinProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISnapinProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf7889da9_4a02_4837_bf89_1a6f2a021010);
@@ -3563,6 +2751,7 @@ pub struct ISnapinProperties_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISnapinPropertiesCallback(::windows_core::IUnknown);
 impl ISnapinPropertiesCallback {
     pub unsafe fn AddPropertyName<P0>(&self, pszpropname: P0, dwflags: u32) -> ::windows_core::Result<()>
@@ -3573,24 +2762,8 @@ impl ISnapinPropertiesCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISnapinPropertiesCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISnapinPropertiesCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISnapinPropertiesCallback {}
-impl ::core::fmt::Debug for ISnapinPropertiesCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISnapinPropertiesCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISnapinPropertiesCallback {
     type Vtable = ISnapinPropertiesCallback_Vtbl;
-}
-impl ::core::clone::Clone for ISnapinPropertiesCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISnapinPropertiesCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa50fa2e5_7e61_45eb_a8d4_9a07b3e851a8);
@@ -3603,6 +2776,7 @@ pub struct ISnapinPropertiesCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStringTable(::windows_core::IUnknown);
 impl IStringTable {
     pub unsafe fn AddString<P0>(&self, pszadd: P0) -> ::windows_core::Result<u32>
@@ -3640,24 +2814,8 @@ impl IStringTable {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStringTable, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IStringTable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStringTable {}
-impl ::core::fmt::Debug for IStringTable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStringTable").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStringTable {
     type Vtable = IStringTable_Vtbl;
-}
-impl ::core::clone::Clone for IStringTable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStringTable {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xde40b7a4_0f65_11d2_8e25_00c04f8ecd78);
@@ -3679,6 +2837,7 @@ pub struct IStringTable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IToolbar(::windows_core::IUnknown);
 impl IToolbar {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -3715,24 +2874,8 @@ impl IToolbar {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IToolbar, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IToolbar {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IToolbar {}
-impl ::core::fmt::Debug for IToolbar {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IToolbar").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IToolbar {
     type Vtable = IToolbar_Vtbl;
-}
-impl ::core::clone::Clone for IToolbar {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IToolbar {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43136eb9_d36c_11cf_adbc_00aa00a80033);
@@ -3759,6 +2902,7 @@ pub struct IToolbar_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IViewExtensionCallback(::windows_core::IUnknown);
 impl IViewExtensionCallback {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3768,24 +2912,8 @@ impl IViewExtensionCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IViewExtensionCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IViewExtensionCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IViewExtensionCallback {}
-impl ::core::fmt::Debug for IViewExtensionCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IViewExtensionCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IViewExtensionCallback {
     type Vtable = IViewExtensionCallback_Vtbl;
-}
-impl ::core::clone::Clone for IViewExtensionCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IViewExtensionCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x34dd928a_7599_41e5_9f5e_d6bc3062c2da);
@@ -3802,6 +2930,7 @@ pub struct IViewExtensionCallback_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MenuItem(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl MenuItem {
@@ -3834,28 +2963,8 @@ impl MenuItem {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(MenuItem, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for MenuItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for MenuItem {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for MenuItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MenuItem").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for MenuItem {
     type Vtable = MenuItem_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for MenuItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for MenuItem {
@@ -3879,6 +2988,7 @@ pub struct MenuItem_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Node(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl Node {
@@ -3911,28 +3021,8 @@ impl Node {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(Node, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for Node {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for Node {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for Node {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Node").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for Node {
     type Vtable = Node_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for Node {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for Node {
@@ -3955,6 +3045,7 @@ pub struct Node_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Nodes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl Nodes {
@@ -3976,28 +3067,8 @@ impl Nodes {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(Nodes, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for Nodes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for Nodes {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for Nodes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Nodes").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for Nodes {
     type Vtable = Nodes_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for Nodes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for Nodes {
@@ -4018,6 +3089,7 @@ pub struct Nodes_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Properties(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl Properties {
@@ -4048,28 +3120,8 @@ impl Properties {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(Properties, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for Properties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for Properties {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for Properties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Properties").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for Properties {
     type Vtable = Properties_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for Properties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for Properties {
@@ -4091,6 +3143,7 @@ pub struct Properties_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Property(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl Property {
@@ -4113,28 +3166,8 @@ impl Property {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(Property, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for Property {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for Property {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for Property {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Property").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for Property {
     type Vtable = Property_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for Property {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for Property {
@@ -4158,6 +3191,7 @@ pub struct Property_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ScopeNamespace(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ScopeNamespace {
@@ -4206,28 +3240,8 @@ impl ScopeNamespace {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ScopeNamespace, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ScopeNamespace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ScopeNamespace {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ScopeNamespace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ScopeNamespace").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ScopeNamespace {
     type Vtable = ScopeNamespace_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ScopeNamespace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ScopeNamespace {
@@ -4262,6 +3276,7 @@ pub struct ScopeNamespace_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SnapIn(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl SnapIn {
@@ -4305,28 +3320,8 @@ impl SnapIn {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(SnapIn, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for SnapIn {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for SnapIn {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for SnapIn {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SnapIn").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for SnapIn {
     type Vtable = SnapIn_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for SnapIn {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for SnapIn {
@@ -4357,6 +3352,7 @@ pub struct SnapIn_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SnapIns(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl SnapIns {
@@ -4395,28 +3391,8 @@ impl SnapIns {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(SnapIns, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for SnapIns {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for SnapIns {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for SnapIns {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SnapIns").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for SnapIns {
     type Vtable = SnapIns_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for SnapIns {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for SnapIns {
@@ -4445,6 +3421,7 @@ pub struct SnapIns_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct View(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl View {
@@ -4693,28 +3670,8 @@ impl View {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(View, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for View {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for View {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for View {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("View").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for View {
     type Vtable = View_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for View {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for View {
@@ -4846,6 +3803,7 @@ pub struct View_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Views(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl Views {
@@ -4875,28 +3833,8 @@ impl Views {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(Views, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for Views {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for Views {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for Views {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Views").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for Views {
     type Vtable = Views_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for Views {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for Views {
@@ -4921,6 +3859,7 @@ pub struct Views_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct _AppEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _AppEvents {
@@ -5024,28 +3963,8 @@ impl _AppEvents {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(_AppEvents, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _AppEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _AppEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _AppEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_AppEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for _AppEvents {
     type Vtable = _AppEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _AppEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for _AppEvents {
@@ -5105,6 +4024,7 @@ pub struct _AppEvents_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct _Application(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _Application {
@@ -5170,28 +4090,8 @@ impl _Application {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(_Application, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _Application {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _Application {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _Application {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_Application").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for _Application {
     type Vtable = _Application_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _Application {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for _Application {
@@ -5233,6 +4133,7 @@ pub struct _Application_Vtbl {
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct _EventConnector(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _EventConnector {
@@ -5251,28 +4152,8 @@ impl _EventConnector {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(_EventConnector, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _EventConnector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _EventConnector {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _EventConnector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_EventConnector").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for _EventConnector {
     type Vtable = _EventConnector_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _EventConnector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for _EventConnector {

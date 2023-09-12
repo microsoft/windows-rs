@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailDataProviderConnection(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailDataProviderConnection {
     type Vtable = IEmailDataProviderConnection_Vtbl;
-}
-impl ::core::clone::Clone for IEmailDataProviderConnection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailDataProviderConnection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3b9c9dc7_37b2_4bf0_ae30_7b644a1c96e1);
@@ -140,14 +136,10 @@ pub struct IEmailDataProviderConnection_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailDataProviderTriggerDetails(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailDataProviderTriggerDetails {
     type Vtable = IEmailDataProviderTriggerDetails_Vtbl;
-}
-impl ::core::clone::Clone for IEmailDataProviderTriggerDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailDataProviderTriggerDetails {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f3e4e50_341e_45f3_bba0_84a005e1319a);
@@ -160,14 +152,10 @@ pub struct IEmailDataProviderTriggerDetails_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxCreateFolderRequest(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxCreateFolderRequest {
     type Vtable = IEmailMailboxCreateFolderRequest_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxCreateFolderRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxCreateFolderRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x184d3775_c921_4c39_a309_e16c9f22b04b);
@@ -190,14 +178,10 @@ pub struct IEmailMailboxCreateFolderRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxCreateFolderRequestEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxCreateFolderRequestEventArgs {
     type Vtable = IEmailMailboxCreateFolderRequestEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxCreateFolderRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxCreateFolderRequestEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03e4c02c_241c_4ea9_a68f_ff20bc5afc85);
@@ -214,14 +198,10 @@ pub struct IEmailMailboxCreateFolderRequestEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxDeleteFolderRequest(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxDeleteFolderRequest {
     type Vtable = IEmailMailboxDeleteFolderRequest_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxDeleteFolderRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxDeleteFolderRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9469e88a_a931_4779_923d_09a3ea292e29);
@@ -243,14 +223,10 @@ pub struct IEmailMailboxDeleteFolderRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxDeleteFolderRequestEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxDeleteFolderRequestEventArgs {
     type Vtable = IEmailMailboxDeleteFolderRequestEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxDeleteFolderRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxDeleteFolderRequestEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb4d32d06_2332_4678_8378_28b579336846);
@@ -267,14 +243,10 @@ pub struct IEmailMailboxDeleteFolderRequestEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxDownloadAttachmentRequest(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxDownloadAttachmentRequest {
     type Vtable = IEmailMailboxDownloadAttachmentRequest_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxDownloadAttachmentRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxDownloadAttachmentRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b1dbbb4_750c_48e1_bce4_8d589684ffbc);
@@ -297,14 +269,10 @@ pub struct IEmailMailboxDownloadAttachmentRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxDownloadAttachmentRequestEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxDownloadAttachmentRequestEventArgs {
     type Vtable = IEmailMailboxDownloadAttachmentRequestEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxDownloadAttachmentRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxDownloadAttachmentRequestEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xccddc46d_ffa8_4877_9f9d_fed7bcaf4104);
@@ -321,14 +289,10 @@ pub struct IEmailMailboxDownloadAttachmentRequestEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxDownloadMessageRequest(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxDownloadMessageRequest {
     type Vtable = IEmailMailboxDownloadMessageRequest_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxDownloadMessageRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxDownloadMessageRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x497b4187_5b4d_4b23_816c_f3842beb753e);
@@ -350,14 +314,10 @@ pub struct IEmailMailboxDownloadMessageRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxDownloadMessageRequestEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxDownloadMessageRequestEventArgs {
     type Vtable = IEmailMailboxDownloadMessageRequestEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxDownloadMessageRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxDownloadMessageRequestEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x470409ad_d0a0_4a5b_bb2a_37621039c53e);
@@ -374,14 +334,10 @@ pub struct IEmailMailboxDownloadMessageRequestEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxEmptyFolderRequest(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxEmptyFolderRequest {
     type Vtable = IEmailMailboxEmptyFolderRequest_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxEmptyFolderRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxEmptyFolderRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfe4b03ab_f86d_46d9_b4ce_bc8a6d9e9268);
@@ -403,14 +359,10 @@ pub struct IEmailMailboxEmptyFolderRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxEmptyFolderRequestEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxEmptyFolderRequestEventArgs {
     type Vtable = IEmailMailboxEmptyFolderRequestEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxEmptyFolderRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxEmptyFolderRequestEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7183f484_985a_4ac0_b33f_ee0e2627a3c0);
@@ -427,14 +379,10 @@ pub struct IEmailMailboxEmptyFolderRequestEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxForwardMeetingRequest(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxForwardMeetingRequest {
     type Vtable = IEmailMailboxForwardMeetingRequest_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxForwardMeetingRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxForwardMeetingRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x616d6af1_70d4_4832_b869_b80542ae9be8);
@@ -464,14 +412,10 @@ pub struct IEmailMailboxForwardMeetingRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxForwardMeetingRequestEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxForwardMeetingRequestEventArgs {
     type Vtable = IEmailMailboxForwardMeetingRequestEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxForwardMeetingRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxForwardMeetingRequestEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2bd8f33a_2974_4759_a5a5_58f44d3c0275);
@@ -488,14 +432,10 @@ pub struct IEmailMailboxForwardMeetingRequestEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxGetAutoReplySettingsRequest(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxGetAutoReplySettingsRequest {
     type Vtable = IEmailMailboxGetAutoReplySettingsRequest_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxGetAutoReplySettingsRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxGetAutoReplySettingsRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b380789_1e88_4e01_84cc_1386ad9a2c2f);
@@ -517,14 +457,10 @@ pub struct IEmailMailboxGetAutoReplySettingsRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxGetAutoReplySettingsRequestEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxGetAutoReplySettingsRequestEventArgs {
     type Vtable = IEmailMailboxGetAutoReplySettingsRequestEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxGetAutoReplySettingsRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxGetAutoReplySettingsRequestEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd79f55c2_fd45_4004_8a91_9bacf38b7022);
@@ -541,14 +477,10 @@ pub struct IEmailMailboxGetAutoReplySettingsRequestEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxMoveFolderRequest(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxMoveFolderRequest {
     type Vtable = IEmailMailboxMoveFolderRequest_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxMoveFolderRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxMoveFolderRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x10ba2856_4a95_4068_91cc_67cc7acf454f);
@@ -572,14 +504,10 @@ pub struct IEmailMailboxMoveFolderRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxMoveFolderRequestEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxMoveFolderRequestEventArgs {
     type Vtable = IEmailMailboxMoveFolderRequestEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxMoveFolderRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxMoveFolderRequestEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38623020_14ba_4c88_8698_7239e3c8aaa7);
@@ -596,14 +524,10 @@ pub struct IEmailMailboxMoveFolderRequestEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxProposeNewTimeForMeetingRequest(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxProposeNewTimeForMeetingRequest {
     type Vtable = IEmailMailboxProposeNewTimeForMeetingRequest_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxProposeNewTimeForMeetingRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxProposeNewTimeForMeetingRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5aeff152_9799_4f9f_a399_ff07f3eef04e);
@@ -635,14 +559,10 @@ pub struct IEmailMailboxProposeNewTimeForMeetingRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxProposeNewTimeForMeetingRequestEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxProposeNewTimeForMeetingRequestEventArgs {
     type Vtable = IEmailMailboxProposeNewTimeForMeetingRequestEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxProposeNewTimeForMeetingRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxProposeNewTimeForMeetingRequestEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb480b98_33ad_4a67_8251_0f9c249b6a20);
@@ -659,14 +579,10 @@ pub struct IEmailMailboxProposeNewTimeForMeetingRequestEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxResolveRecipientsRequest(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxResolveRecipientsRequest {
     type Vtable = IEmailMailboxResolveRecipientsRequest_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxResolveRecipientsRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxResolveRecipientsRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefa4cf70_7b39_4c9b_811e_41eaf43a332d);
@@ -691,14 +607,10 @@ pub struct IEmailMailboxResolveRecipientsRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxResolveRecipientsRequestEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxResolveRecipientsRequestEventArgs {
     type Vtable = IEmailMailboxResolveRecipientsRequestEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxResolveRecipientsRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxResolveRecipientsRequestEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x260f9e02_b2cf_40f8_8c28_e3ed43b1e89a);
@@ -715,14 +627,10 @@ pub struct IEmailMailboxResolveRecipientsRequestEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxServerSearchReadBatchRequest(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxServerSearchReadBatchRequest {
     type Vtable = IEmailMailboxServerSearchReadBatchRequest_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxServerSearchReadBatchRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxServerSearchReadBatchRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x090eebdf_5a96_41d3_8ad8_34912f9aa60e);
@@ -751,14 +659,10 @@ pub struct IEmailMailboxServerSearchReadBatchRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxServerSearchReadBatchRequestEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxServerSearchReadBatchRequestEventArgs {
     type Vtable = IEmailMailboxServerSearchReadBatchRequestEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxServerSearchReadBatchRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxServerSearchReadBatchRequestEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x14101b4e_ed9e_45d1_ad7a_cc9b7f643ae2);
@@ -775,14 +679,10 @@ pub struct IEmailMailboxServerSearchReadBatchRequestEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxSetAutoReplySettingsRequest(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxSetAutoReplySettingsRequest {
     type Vtable = IEmailMailboxSetAutoReplySettingsRequest_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxSetAutoReplySettingsRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxSetAutoReplySettingsRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75a422d0_a88e_4e54_8dc7_c243186b774e);
@@ -804,14 +704,10 @@ pub struct IEmailMailboxSetAutoReplySettingsRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxSetAutoReplySettingsRequestEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxSetAutoReplySettingsRequestEventArgs {
     type Vtable = IEmailMailboxSetAutoReplySettingsRequestEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxSetAutoReplySettingsRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxSetAutoReplySettingsRequestEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x09da11ad_d7ca_4087_ac86_53fa67f76246);
@@ -828,14 +724,10 @@ pub struct IEmailMailboxSetAutoReplySettingsRequestEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxSyncManagerSyncRequest(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxSyncManagerSyncRequest {
     type Vtable = IEmailMailboxSyncManagerSyncRequest_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxSyncManagerSyncRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxSyncManagerSyncRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e10e8e4_7e67_405a_b673_dc60c91090fc);
@@ -856,14 +748,10 @@ pub struct IEmailMailboxSyncManagerSyncRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxSyncManagerSyncRequestEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxSyncManagerSyncRequestEventArgs {
     type Vtable = IEmailMailboxSyncManagerSyncRequestEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxSyncManagerSyncRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxSyncManagerSyncRequestEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x439a031a_8fcc_4ae5_b9b5_d434e0a65aa8);
@@ -880,14 +768,10 @@ pub struct IEmailMailboxSyncManagerSyncRequestEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxUpdateMeetingResponseRequest(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxUpdateMeetingResponseRequest {
     type Vtable = IEmailMailboxUpdateMeetingResponseRequest_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxUpdateMeetingResponseRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxUpdateMeetingResponseRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b99ac93_b2cf_4888_ba4f_306b6b66df30);
@@ -913,14 +797,10 @@ pub struct IEmailMailboxUpdateMeetingResponseRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxUpdateMeetingResponseRequestEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxUpdateMeetingResponseRequestEventArgs {
     type Vtable = IEmailMailboxUpdateMeetingResponseRequestEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxUpdateMeetingResponseRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxUpdateMeetingResponseRequestEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6898d761_56c9_4f17_be31_66fda94ba159);
@@ -937,14 +817,10 @@ pub struct IEmailMailboxUpdateMeetingResponseRequestEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxValidateCertificatesRequest(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxValidateCertificatesRequest {
     type Vtable = IEmailMailboxValidateCertificatesRequest_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxValidateCertificatesRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxValidateCertificatesRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa94d3931_e11a_4f97_b81a_187a70a8f41a);
@@ -969,14 +845,10 @@ pub struct IEmailMailboxValidateCertificatesRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEmailMailboxValidateCertificatesRequestEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEmailMailboxValidateCertificatesRequestEventArgs {
     type Vtable = IEmailMailboxValidateCertificatesRequestEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IEmailMailboxValidateCertificatesRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEmailMailboxValidateCertificatesRequestEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2583bf17_02ff_49fe_a73c_03f37566c691);
@@ -993,6 +865,7 @@ pub struct IEmailMailboxValidateCertificatesRequestEventArgs_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailDataProviderConnection(::windows_core::IUnknown);
 impl EmailDataProviderConnection {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1270,24 +1143,8 @@ impl EmailDataProviderConnection {
         unsafe { (::windows_core::Interface::vtable(this).Start)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for EmailDataProviderConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailDataProviderConnection {}
-impl ::core::fmt::Debug for EmailDataProviderConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailDataProviderConnection").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailDataProviderConnection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailDataProviderConnection;{3b9c9dc7-37b2-4bf0-ae30-7b644a1c96e1})");
-}
-impl ::core::clone::Clone for EmailDataProviderConnection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailDataProviderConnection {
     type Vtable = IEmailDataProviderConnection_Vtbl;
@@ -1303,6 +1160,7 @@ unsafe impl ::core::marker::Send for EmailDataProviderConnection {}
 unsafe impl ::core::marker::Sync for EmailDataProviderConnection {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailDataProviderTriggerDetails(::windows_core::IUnknown);
 impl EmailDataProviderTriggerDetails {
     pub fn Connection(&self) -> ::windows_core::Result<EmailDataProviderConnection> {
@@ -1313,24 +1171,8 @@ impl EmailDataProviderTriggerDetails {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailDataProviderTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailDataProviderTriggerDetails {}
-impl ::core::fmt::Debug for EmailDataProviderTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailDataProviderTriggerDetails").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailDataProviderTriggerDetails {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailDataProviderTriggerDetails;{8f3e4e50-341e-45f3-bba0-84a005e1319a})");
-}
-impl ::core::clone::Clone for EmailDataProviderTriggerDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailDataProviderTriggerDetails {
     type Vtable = IEmailDataProviderTriggerDetails_Vtbl;
@@ -1346,6 +1188,7 @@ unsafe impl ::core::marker::Send for EmailDataProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for EmailDataProviderTriggerDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxCreateFolderRequest(::windows_core::IUnknown);
 impl EmailMailboxCreateFolderRequest {
     pub fn EmailMailboxId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1391,24 +1234,8 @@ impl EmailMailboxCreateFolderRequest {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxCreateFolderRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxCreateFolderRequest {}
-impl ::core::fmt::Debug for EmailMailboxCreateFolderRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxCreateFolderRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxCreateFolderRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxCreateFolderRequest;{184d3775-c921-4c39-a309-e16c9f22b04b})");
-}
-impl ::core::clone::Clone for EmailMailboxCreateFolderRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxCreateFolderRequest {
     type Vtable = IEmailMailboxCreateFolderRequest_Vtbl;
@@ -1424,6 +1251,7 @@ unsafe impl ::core::marker::Send for EmailMailboxCreateFolderRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxCreateFolderRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxCreateFolderRequestEventArgs(::windows_core::IUnknown);
 impl EmailMailboxCreateFolderRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<EmailMailboxCreateFolderRequest> {
@@ -1443,24 +1271,8 @@ impl EmailMailboxCreateFolderRequestEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxCreateFolderRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxCreateFolderRequestEventArgs {}
-impl ::core::fmt::Debug for EmailMailboxCreateFolderRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxCreateFolderRequestEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxCreateFolderRequestEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxCreateFolderRequestEventArgs;{03e4c02c-241c-4ea9-a68f-ff20bc5afc85})");
-}
-impl ::core::clone::Clone for EmailMailboxCreateFolderRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxCreateFolderRequestEventArgs {
     type Vtable = IEmailMailboxCreateFolderRequestEventArgs_Vtbl;
@@ -1476,6 +1288,7 @@ unsafe impl ::core::marker::Send for EmailMailboxCreateFolderRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxCreateFolderRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxDeleteFolderRequest(::windows_core::IUnknown);
 impl EmailMailboxDeleteFolderRequest {
     pub fn EmailMailboxId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1511,24 +1324,8 @@ impl EmailMailboxDeleteFolderRequest {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxDeleteFolderRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxDeleteFolderRequest {}
-impl ::core::fmt::Debug for EmailMailboxDeleteFolderRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxDeleteFolderRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxDeleteFolderRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxDeleteFolderRequest;{9469e88a-a931-4779-923d-09a3ea292e29})");
-}
-impl ::core::clone::Clone for EmailMailboxDeleteFolderRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxDeleteFolderRequest {
     type Vtable = IEmailMailboxDeleteFolderRequest_Vtbl;
@@ -1544,6 +1341,7 @@ unsafe impl ::core::marker::Send for EmailMailboxDeleteFolderRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxDeleteFolderRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxDeleteFolderRequestEventArgs(::windows_core::IUnknown);
 impl EmailMailboxDeleteFolderRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<EmailMailboxDeleteFolderRequest> {
@@ -1563,24 +1361,8 @@ impl EmailMailboxDeleteFolderRequestEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxDeleteFolderRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxDeleteFolderRequestEventArgs {}
-impl ::core::fmt::Debug for EmailMailboxDeleteFolderRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxDeleteFolderRequestEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxDeleteFolderRequestEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxDeleteFolderRequestEventArgs;{b4d32d06-2332-4678-8378-28b579336846})");
-}
-impl ::core::clone::Clone for EmailMailboxDeleteFolderRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxDeleteFolderRequestEventArgs {
     type Vtable = IEmailMailboxDeleteFolderRequestEventArgs_Vtbl;
@@ -1596,6 +1378,7 @@ unsafe impl ::core::marker::Send for EmailMailboxDeleteFolderRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxDeleteFolderRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxDownloadAttachmentRequest(::windows_core::IUnknown);
 impl EmailMailboxDownloadAttachmentRequest {
     pub fn EmailMailboxId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1638,24 +1421,8 @@ impl EmailMailboxDownloadAttachmentRequest {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxDownloadAttachmentRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxDownloadAttachmentRequest {}
-impl ::core::fmt::Debug for EmailMailboxDownloadAttachmentRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxDownloadAttachmentRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxDownloadAttachmentRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadAttachmentRequest;{0b1dbbb4-750c-48e1-bce4-8d589684ffbc})");
-}
-impl ::core::clone::Clone for EmailMailboxDownloadAttachmentRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxDownloadAttachmentRequest {
     type Vtable = IEmailMailboxDownloadAttachmentRequest_Vtbl;
@@ -1671,6 +1438,7 @@ unsafe impl ::core::marker::Send for EmailMailboxDownloadAttachmentRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxDownloadAttachmentRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxDownloadAttachmentRequestEventArgs(::windows_core::IUnknown);
 impl EmailMailboxDownloadAttachmentRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<EmailMailboxDownloadAttachmentRequest> {
@@ -1690,24 +1458,8 @@ impl EmailMailboxDownloadAttachmentRequestEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxDownloadAttachmentRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxDownloadAttachmentRequestEventArgs {}
-impl ::core::fmt::Debug for EmailMailboxDownloadAttachmentRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxDownloadAttachmentRequestEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxDownloadAttachmentRequestEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadAttachmentRequestEventArgs;{ccddc46d-ffa8-4877-9f9d-fed7bcaf4104})");
-}
-impl ::core::clone::Clone for EmailMailboxDownloadAttachmentRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxDownloadAttachmentRequestEventArgs {
     type Vtable = IEmailMailboxDownloadAttachmentRequestEventArgs_Vtbl;
@@ -1723,6 +1475,7 @@ unsafe impl ::core::marker::Send for EmailMailboxDownloadAttachmentRequestEventA
 unsafe impl ::core::marker::Sync for EmailMailboxDownloadAttachmentRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxDownloadMessageRequest(::windows_core::IUnknown);
 impl EmailMailboxDownloadMessageRequest {
     pub fn EmailMailboxId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1758,24 +1511,8 @@ impl EmailMailboxDownloadMessageRequest {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxDownloadMessageRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxDownloadMessageRequest {}
-impl ::core::fmt::Debug for EmailMailboxDownloadMessageRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxDownloadMessageRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxDownloadMessageRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadMessageRequest;{497b4187-5b4d-4b23-816c-f3842beb753e})");
-}
-impl ::core::clone::Clone for EmailMailboxDownloadMessageRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxDownloadMessageRequest {
     type Vtable = IEmailMailboxDownloadMessageRequest_Vtbl;
@@ -1791,6 +1528,7 @@ unsafe impl ::core::marker::Send for EmailMailboxDownloadMessageRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxDownloadMessageRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxDownloadMessageRequestEventArgs(::windows_core::IUnknown);
 impl EmailMailboxDownloadMessageRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<EmailMailboxDownloadMessageRequest> {
@@ -1810,24 +1548,8 @@ impl EmailMailboxDownloadMessageRequestEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxDownloadMessageRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxDownloadMessageRequestEventArgs {}
-impl ::core::fmt::Debug for EmailMailboxDownloadMessageRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxDownloadMessageRequestEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxDownloadMessageRequestEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadMessageRequestEventArgs;{470409ad-d0a0-4a5b-bb2a-37621039c53e})");
-}
-impl ::core::clone::Clone for EmailMailboxDownloadMessageRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxDownloadMessageRequestEventArgs {
     type Vtable = IEmailMailboxDownloadMessageRequestEventArgs_Vtbl;
@@ -1843,6 +1565,7 @@ unsafe impl ::core::marker::Send for EmailMailboxDownloadMessageRequestEventArgs
 unsafe impl ::core::marker::Sync for EmailMailboxDownloadMessageRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxEmptyFolderRequest(::windows_core::IUnknown);
 impl EmailMailboxEmptyFolderRequest {
     pub fn EmailMailboxId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1878,24 +1601,8 @@ impl EmailMailboxEmptyFolderRequest {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxEmptyFolderRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxEmptyFolderRequest {}
-impl ::core::fmt::Debug for EmailMailboxEmptyFolderRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxEmptyFolderRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxEmptyFolderRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxEmptyFolderRequest;{fe4b03ab-f86d-46d9-b4ce-bc8a6d9e9268})");
-}
-impl ::core::clone::Clone for EmailMailboxEmptyFolderRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxEmptyFolderRequest {
     type Vtable = IEmailMailboxEmptyFolderRequest_Vtbl;
@@ -1911,6 +1618,7 @@ unsafe impl ::core::marker::Send for EmailMailboxEmptyFolderRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxEmptyFolderRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxEmptyFolderRequestEventArgs(::windows_core::IUnknown);
 impl EmailMailboxEmptyFolderRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<EmailMailboxEmptyFolderRequest> {
@@ -1930,24 +1638,8 @@ impl EmailMailboxEmptyFolderRequestEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxEmptyFolderRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxEmptyFolderRequestEventArgs {}
-impl ::core::fmt::Debug for EmailMailboxEmptyFolderRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxEmptyFolderRequestEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxEmptyFolderRequestEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxEmptyFolderRequestEventArgs;{7183f484-985a-4ac0-b33f-ee0e2627a3c0})");
-}
-impl ::core::clone::Clone for EmailMailboxEmptyFolderRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxEmptyFolderRequestEventArgs {
     type Vtable = IEmailMailboxEmptyFolderRequestEventArgs_Vtbl;
@@ -1963,6 +1655,7 @@ unsafe impl ::core::marker::Send for EmailMailboxEmptyFolderRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxEmptyFolderRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxForwardMeetingRequest(::windows_core::IUnknown);
 impl EmailMailboxForwardMeetingRequest {
     pub fn EmailMailboxId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2035,24 +1728,8 @@ impl EmailMailboxForwardMeetingRequest {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxForwardMeetingRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxForwardMeetingRequest {}
-impl ::core::fmt::Debug for EmailMailboxForwardMeetingRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxForwardMeetingRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxForwardMeetingRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxForwardMeetingRequest;{616d6af1-70d4-4832-b869-b80542ae9be8})");
-}
-impl ::core::clone::Clone for EmailMailboxForwardMeetingRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxForwardMeetingRequest {
     type Vtable = IEmailMailboxForwardMeetingRequest_Vtbl;
@@ -2068,6 +1745,7 @@ unsafe impl ::core::marker::Send for EmailMailboxForwardMeetingRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxForwardMeetingRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxForwardMeetingRequestEventArgs(::windows_core::IUnknown);
 impl EmailMailboxForwardMeetingRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<EmailMailboxForwardMeetingRequest> {
@@ -2087,24 +1765,8 @@ impl EmailMailboxForwardMeetingRequestEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxForwardMeetingRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxForwardMeetingRequestEventArgs {}
-impl ::core::fmt::Debug for EmailMailboxForwardMeetingRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxForwardMeetingRequestEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxForwardMeetingRequestEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxForwardMeetingRequestEventArgs;{2bd8f33a-2974-4759-a5a5-58f44d3c0275})");
-}
-impl ::core::clone::Clone for EmailMailboxForwardMeetingRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxForwardMeetingRequestEventArgs {
     type Vtable = IEmailMailboxForwardMeetingRequestEventArgs_Vtbl;
@@ -2120,6 +1782,7 @@ unsafe impl ::core::marker::Send for EmailMailboxForwardMeetingRequestEventArgs 
 unsafe impl ::core::marker::Sync for EmailMailboxForwardMeetingRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxGetAutoReplySettingsRequest(::windows_core::IUnknown);
 impl EmailMailboxGetAutoReplySettingsRequest {
     pub fn EmailMailboxId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2158,24 +1821,8 @@ impl EmailMailboxGetAutoReplySettingsRequest {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxGetAutoReplySettingsRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxGetAutoReplySettingsRequest {}
-impl ::core::fmt::Debug for EmailMailboxGetAutoReplySettingsRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxGetAutoReplySettingsRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxGetAutoReplySettingsRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxGetAutoReplySettingsRequest;{9b380789-1e88-4e01-84cc-1386ad9a2c2f})");
-}
-impl ::core::clone::Clone for EmailMailboxGetAutoReplySettingsRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxGetAutoReplySettingsRequest {
     type Vtable = IEmailMailboxGetAutoReplySettingsRequest_Vtbl;
@@ -2191,6 +1838,7 @@ unsafe impl ::core::marker::Send for EmailMailboxGetAutoReplySettingsRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxGetAutoReplySettingsRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxGetAutoReplySettingsRequestEventArgs(::windows_core::IUnknown);
 impl EmailMailboxGetAutoReplySettingsRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<EmailMailboxGetAutoReplySettingsRequest> {
@@ -2210,24 +1858,8 @@ impl EmailMailboxGetAutoReplySettingsRequestEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxGetAutoReplySettingsRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxGetAutoReplySettingsRequestEventArgs {}
-impl ::core::fmt::Debug for EmailMailboxGetAutoReplySettingsRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxGetAutoReplySettingsRequestEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxGetAutoReplySettingsRequestEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxGetAutoReplySettingsRequestEventArgs;{d79f55c2-fd45-4004-8a91-9bacf38b7022})");
-}
-impl ::core::clone::Clone for EmailMailboxGetAutoReplySettingsRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxGetAutoReplySettingsRequestEventArgs {
     type Vtable = IEmailMailboxGetAutoReplySettingsRequestEventArgs_Vtbl;
@@ -2243,6 +1875,7 @@ unsafe impl ::core::marker::Send for EmailMailboxGetAutoReplySettingsRequestEven
 unsafe impl ::core::marker::Sync for EmailMailboxGetAutoReplySettingsRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxMoveFolderRequest(::windows_core::IUnknown);
 impl EmailMailboxMoveFolderRequest {
     pub fn EmailMailboxId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2292,24 +1925,8 @@ impl EmailMailboxMoveFolderRequest {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxMoveFolderRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxMoveFolderRequest {}
-impl ::core::fmt::Debug for EmailMailboxMoveFolderRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxMoveFolderRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxMoveFolderRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxMoveFolderRequest;{10ba2856-4a95-4068-91cc-67cc7acf454f})");
-}
-impl ::core::clone::Clone for EmailMailboxMoveFolderRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxMoveFolderRequest {
     type Vtable = IEmailMailboxMoveFolderRequest_Vtbl;
@@ -2325,6 +1942,7 @@ unsafe impl ::core::marker::Send for EmailMailboxMoveFolderRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxMoveFolderRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxMoveFolderRequestEventArgs(::windows_core::IUnknown);
 impl EmailMailboxMoveFolderRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<EmailMailboxMoveFolderRequest> {
@@ -2344,24 +1962,8 @@ impl EmailMailboxMoveFolderRequestEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxMoveFolderRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxMoveFolderRequestEventArgs {}
-impl ::core::fmt::Debug for EmailMailboxMoveFolderRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxMoveFolderRequestEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxMoveFolderRequestEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxMoveFolderRequestEventArgs;{38623020-14ba-4c88-8698-7239e3c8aaa7})");
-}
-impl ::core::clone::Clone for EmailMailboxMoveFolderRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxMoveFolderRequestEventArgs {
     type Vtable = IEmailMailboxMoveFolderRequestEventArgs_Vtbl;
@@ -2377,6 +1979,7 @@ unsafe impl ::core::marker::Send for EmailMailboxMoveFolderRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxMoveFolderRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxProposeNewTimeForMeetingRequest(::windows_core::IUnknown);
 impl EmailMailboxProposeNewTimeForMeetingRequest {
     pub fn EmailMailboxId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2444,24 +2047,8 @@ impl EmailMailboxProposeNewTimeForMeetingRequest {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxProposeNewTimeForMeetingRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxProposeNewTimeForMeetingRequest {}
-impl ::core::fmt::Debug for EmailMailboxProposeNewTimeForMeetingRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxProposeNewTimeForMeetingRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxProposeNewTimeForMeetingRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxProposeNewTimeForMeetingRequest;{5aeff152-9799-4f9f-a399-ff07f3eef04e})");
-}
-impl ::core::clone::Clone for EmailMailboxProposeNewTimeForMeetingRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxProposeNewTimeForMeetingRequest {
     type Vtable = IEmailMailboxProposeNewTimeForMeetingRequest_Vtbl;
@@ -2477,6 +2064,7 @@ unsafe impl ::core::marker::Send for EmailMailboxProposeNewTimeForMeetingRequest
 unsafe impl ::core::marker::Sync for EmailMailboxProposeNewTimeForMeetingRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxProposeNewTimeForMeetingRequestEventArgs(::windows_core::IUnknown);
 impl EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<EmailMailboxProposeNewTimeForMeetingRequest> {
@@ -2496,24 +2084,8 @@ impl EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {}
-impl ::core::fmt::Debug for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxProposeNewTimeForMeetingRequestEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxProposeNewTimeForMeetingRequestEventArgs;{fb480b98-33ad-4a67-8251-0f9c249b6a20})");
-}
-impl ::core::clone::Clone for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
     type Vtable = IEmailMailboxProposeNewTimeForMeetingRequestEventArgs_Vtbl;
@@ -2529,6 +2101,7 @@ unsafe impl ::core::marker::Send for EmailMailboxProposeNewTimeForMeetingRequest
 unsafe impl ::core::marker::Sync for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxResolveRecipientsRequest(::windows_core::IUnknown);
 impl EmailMailboxResolveRecipientsRequest {
     pub fn EmailMailboxId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2569,24 +2142,8 @@ impl EmailMailboxResolveRecipientsRequest {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxResolveRecipientsRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxResolveRecipientsRequest {}
-impl ::core::fmt::Debug for EmailMailboxResolveRecipientsRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxResolveRecipientsRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxResolveRecipientsRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxResolveRecipientsRequest;{efa4cf70-7b39-4c9b-811e-41eaf43a332d})");
-}
-impl ::core::clone::Clone for EmailMailboxResolveRecipientsRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxResolveRecipientsRequest {
     type Vtable = IEmailMailboxResolveRecipientsRequest_Vtbl;
@@ -2602,6 +2159,7 @@ unsafe impl ::core::marker::Send for EmailMailboxResolveRecipientsRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxResolveRecipientsRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxResolveRecipientsRequestEventArgs(::windows_core::IUnknown);
 impl EmailMailboxResolveRecipientsRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<EmailMailboxResolveRecipientsRequest> {
@@ -2621,24 +2179,8 @@ impl EmailMailboxResolveRecipientsRequestEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxResolveRecipientsRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxResolveRecipientsRequestEventArgs {}
-impl ::core::fmt::Debug for EmailMailboxResolveRecipientsRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxResolveRecipientsRequestEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxResolveRecipientsRequestEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxResolveRecipientsRequestEventArgs;{260f9e02-b2cf-40f8-8c28-e3ed43b1e89a})");
-}
-impl ::core::clone::Clone for EmailMailboxResolveRecipientsRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxResolveRecipientsRequestEventArgs {
     type Vtable = IEmailMailboxResolveRecipientsRequestEventArgs_Vtbl;
@@ -2654,6 +2196,7 @@ unsafe impl ::core::marker::Send for EmailMailboxResolveRecipientsRequestEventAr
 unsafe impl ::core::marker::Sync for EmailMailboxResolveRecipientsRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxServerSearchReadBatchRequest(::windows_core::IUnknown);
 impl EmailMailboxServerSearchReadBatchRequest {
     pub fn SessionId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2722,24 +2265,8 @@ impl EmailMailboxServerSearchReadBatchRequest {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxServerSearchReadBatchRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxServerSearchReadBatchRequest {}
-impl ::core::fmt::Debug for EmailMailboxServerSearchReadBatchRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxServerSearchReadBatchRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxServerSearchReadBatchRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxServerSearchReadBatchRequest;{090eebdf-5a96-41d3-8ad8-34912f9aa60e})");
-}
-impl ::core::clone::Clone for EmailMailboxServerSearchReadBatchRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxServerSearchReadBatchRequest {
     type Vtable = IEmailMailboxServerSearchReadBatchRequest_Vtbl;
@@ -2755,6 +2282,7 @@ unsafe impl ::core::marker::Send for EmailMailboxServerSearchReadBatchRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxServerSearchReadBatchRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxServerSearchReadBatchRequestEventArgs(::windows_core::IUnknown);
 impl EmailMailboxServerSearchReadBatchRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<EmailMailboxServerSearchReadBatchRequest> {
@@ -2774,24 +2302,8 @@ impl EmailMailboxServerSearchReadBatchRequestEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxServerSearchReadBatchRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxServerSearchReadBatchRequestEventArgs {}
-impl ::core::fmt::Debug for EmailMailboxServerSearchReadBatchRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxServerSearchReadBatchRequestEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxServerSearchReadBatchRequestEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxServerSearchReadBatchRequestEventArgs;{14101b4e-ed9e-45d1-ad7a-cc9b7f643ae2})");
-}
-impl ::core::clone::Clone for EmailMailboxServerSearchReadBatchRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxServerSearchReadBatchRequestEventArgs {
     type Vtable = IEmailMailboxServerSearchReadBatchRequestEventArgs_Vtbl;
@@ -2807,6 +2319,7 @@ unsafe impl ::core::marker::Send for EmailMailboxServerSearchReadBatchRequestEve
 unsafe impl ::core::marker::Sync for EmailMailboxServerSearchReadBatchRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxSetAutoReplySettingsRequest(::windows_core::IUnknown);
 impl EmailMailboxSetAutoReplySettingsRequest {
     pub fn EmailMailboxId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2842,24 +2355,8 @@ impl EmailMailboxSetAutoReplySettingsRequest {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxSetAutoReplySettingsRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxSetAutoReplySettingsRequest {}
-impl ::core::fmt::Debug for EmailMailboxSetAutoReplySettingsRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxSetAutoReplySettingsRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxSetAutoReplySettingsRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxSetAutoReplySettingsRequest;{75a422d0-a88e-4e54-8dc7-c243186b774e})");
-}
-impl ::core::clone::Clone for EmailMailboxSetAutoReplySettingsRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxSetAutoReplySettingsRequest {
     type Vtable = IEmailMailboxSetAutoReplySettingsRequest_Vtbl;
@@ -2875,6 +2372,7 @@ unsafe impl ::core::marker::Send for EmailMailboxSetAutoReplySettingsRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxSetAutoReplySettingsRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxSetAutoReplySettingsRequestEventArgs(::windows_core::IUnknown);
 impl EmailMailboxSetAutoReplySettingsRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<EmailMailboxSetAutoReplySettingsRequest> {
@@ -2894,24 +2392,8 @@ impl EmailMailboxSetAutoReplySettingsRequestEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxSetAutoReplySettingsRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxSetAutoReplySettingsRequestEventArgs {}
-impl ::core::fmt::Debug for EmailMailboxSetAutoReplySettingsRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxSetAutoReplySettingsRequestEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxSetAutoReplySettingsRequestEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxSetAutoReplySettingsRequestEventArgs;{09da11ad-d7ca-4087-ac86-53fa67f76246})");
-}
-impl ::core::clone::Clone for EmailMailboxSetAutoReplySettingsRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxSetAutoReplySettingsRequestEventArgs {
     type Vtable = IEmailMailboxSetAutoReplySettingsRequestEventArgs_Vtbl;
@@ -2927,6 +2409,7 @@ unsafe impl ::core::marker::Send for EmailMailboxSetAutoReplySettingsRequestEven
 unsafe impl ::core::marker::Sync for EmailMailboxSetAutoReplySettingsRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxSyncManagerSyncRequest(::windows_core::IUnknown);
 impl EmailMailboxSyncManagerSyncRequest {
     pub fn EmailMailboxId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2955,24 +2438,8 @@ impl EmailMailboxSyncManagerSyncRequest {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxSyncManagerSyncRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxSyncManagerSyncRequest {}
-impl ::core::fmt::Debug for EmailMailboxSyncManagerSyncRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxSyncManagerSyncRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxSyncManagerSyncRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxSyncManagerSyncRequest;{4e10e8e4-7e67-405a-b673-dc60c91090fc})");
-}
-impl ::core::clone::Clone for EmailMailboxSyncManagerSyncRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxSyncManagerSyncRequest {
     type Vtable = IEmailMailboxSyncManagerSyncRequest_Vtbl;
@@ -2988,6 +2455,7 @@ unsafe impl ::core::marker::Send for EmailMailboxSyncManagerSyncRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxSyncManagerSyncRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxSyncManagerSyncRequestEventArgs(::windows_core::IUnknown);
 impl EmailMailboxSyncManagerSyncRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<EmailMailboxSyncManagerSyncRequest> {
@@ -3007,24 +2475,8 @@ impl EmailMailboxSyncManagerSyncRequestEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxSyncManagerSyncRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxSyncManagerSyncRequestEventArgs {}
-impl ::core::fmt::Debug for EmailMailboxSyncManagerSyncRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxSyncManagerSyncRequestEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxSyncManagerSyncRequestEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxSyncManagerSyncRequestEventArgs;{439a031a-8fcc-4ae5-b9b5-d434e0a65aa8})");
-}
-impl ::core::clone::Clone for EmailMailboxSyncManagerSyncRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxSyncManagerSyncRequestEventArgs {
     type Vtable = IEmailMailboxSyncManagerSyncRequestEventArgs_Vtbl;
@@ -3040,6 +2492,7 @@ unsafe impl ::core::marker::Send for EmailMailboxSyncManagerSyncRequestEventArgs
 unsafe impl ::core::marker::Sync for EmailMailboxSyncManagerSyncRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxUpdateMeetingResponseRequest(::windows_core::IUnknown);
 impl EmailMailboxUpdateMeetingResponseRequest {
     pub fn EmailMailboxId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -3103,24 +2556,8 @@ impl EmailMailboxUpdateMeetingResponseRequest {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxUpdateMeetingResponseRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxUpdateMeetingResponseRequest {}
-impl ::core::fmt::Debug for EmailMailboxUpdateMeetingResponseRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxUpdateMeetingResponseRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxUpdateMeetingResponseRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxUpdateMeetingResponseRequest;{5b99ac93-b2cf-4888-ba4f-306b6b66df30})");
-}
-impl ::core::clone::Clone for EmailMailboxUpdateMeetingResponseRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxUpdateMeetingResponseRequest {
     type Vtable = IEmailMailboxUpdateMeetingResponseRequest_Vtbl;
@@ -3136,6 +2573,7 @@ unsafe impl ::core::marker::Send for EmailMailboxUpdateMeetingResponseRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxUpdateMeetingResponseRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxUpdateMeetingResponseRequestEventArgs(::windows_core::IUnknown);
 impl EmailMailboxUpdateMeetingResponseRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<EmailMailboxUpdateMeetingResponseRequest> {
@@ -3155,24 +2593,8 @@ impl EmailMailboxUpdateMeetingResponseRequestEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxUpdateMeetingResponseRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxUpdateMeetingResponseRequestEventArgs {}
-impl ::core::fmt::Debug for EmailMailboxUpdateMeetingResponseRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxUpdateMeetingResponseRequestEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxUpdateMeetingResponseRequestEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxUpdateMeetingResponseRequestEventArgs;{6898d761-56c9-4f17-be31-66fda94ba159})");
-}
-impl ::core::clone::Clone for EmailMailboxUpdateMeetingResponseRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxUpdateMeetingResponseRequestEventArgs {
     type Vtable = IEmailMailboxUpdateMeetingResponseRequestEventArgs_Vtbl;
@@ -3188,6 +2610,7 @@ unsafe impl ::core::marker::Send for EmailMailboxUpdateMeetingResponseRequestEve
 unsafe impl ::core::marker::Sync for EmailMailboxUpdateMeetingResponseRequestEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxValidateCertificatesRequest(::windows_core::IUnknown);
 impl EmailMailboxValidateCertificatesRequest {
     pub fn EmailMailboxId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -3228,24 +2651,8 @@ impl EmailMailboxValidateCertificatesRequest {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxValidateCertificatesRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxValidateCertificatesRequest {}
-impl ::core::fmt::Debug for EmailMailboxValidateCertificatesRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxValidateCertificatesRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxValidateCertificatesRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxValidateCertificatesRequest;{a94d3931-e11a-4f97-b81a-187a70a8f41a})");
-}
-impl ::core::clone::Clone for EmailMailboxValidateCertificatesRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxValidateCertificatesRequest {
     type Vtable = IEmailMailboxValidateCertificatesRequest_Vtbl;
@@ -3261,6 +2668,7 @@ unsafe impl ::core::marker::Send for EmailMailboxValidateCertificatesRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxValidateCertificatesRequest {}
 #[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EmailMailboxValidateCertificatesRequestEventArgs(::windows_core::IUnknown);
 impl EmailMailboxValidateCertificatesRequestEventArgs {
     pub fn Request(&self) -> ::windows_core::Result<EmailMailboxValidateCertificatesRequest> {
@@ -3280,24 +2688,8 @@ impl EmailMailboxValidateCertificatesRequestEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for EmailMailboxValidateCertificatesRequestEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxValidateCertificatesRequestEventArgs {}
-impl ::core::fmt::Debug for EmailMailboxValidateCertificatesRequestEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EmailMailboxValidateCertificatesRequestEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EmailMailboxValidateCertificatesRequestEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxValidateCertificatesRequestEventArgs;{2583bf17-02ff-49fe-a73c-03f37566c691})");
-}
-impl ::core::clone::Clone for EmailMailboxValidateCertificatesRequestEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EmailMailboxValidateCertificatesRequestEventArgs {
     type Vtable = IEmailMailboxValidateCertificatesRequestEventArgs_Vtbl;

@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAlternateWordForm(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAlternateWordForm {
     type Vtable = IAlternateWordForm_Vtbl;
-}
-impl ::core::clone::Clone for IAlternateWordForm {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAlternateWordForm {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x47396c1e_51b9_4207_9146_248e636a1d1d);
@@ -22,14 +18,10 @@ pub struct IAlternateWordForm_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISelectableWordSegment(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISelectableWordSegment {
     type Vtable = ISelectableWordSegment_Vtbl;
-}
-impl ::core::clone::Clone for ISelectableWordSegment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISelectableWordSegment {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x916a4cb7_8aa7_4c78_b374_5dedb752e60b);
@@ -43,14 +35,10 @@ pub struct ISelectableWordSegment_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISelectableWordsSegmenter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISelectableWordsSegmenter {
     type Vtable = ISelectableWordsSegmenter_Vtbl;
-}
-impl ::core::clone::Clone for ISelectableWordsSegmenter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISelectableWordsSegmenter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6dc31e7_4b13_45c5_8897_7d71269e085d);
@@ -72,14 +60,10 @@ pub struct ISelectableWordsSegmenter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISelectableWordsSegmenterFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISelectableWordsSegmenterFactory {
     type Vtable = ISelectableWordsSegmenterFactory_Vtbl;
-}
-impl ::core::clone::Clone for ISelectableWordsSegmenterFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISelectableWordsSegmenterFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c7a7648_6057_4339_bc70_f210010a4150);
@@ -92,14 +76,10 @@ pub struct ISelectableWordsSegmenterFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISemanticTextQuery(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISemanticTextQuery {
     type Vtable = ISemanticTextQuery_Vtbl;
-}
-impl ::core::clone::Clone for ISemanticTextQuery {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISemanticTextQuery {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a1cab51_1fb2_4909_80b8_35731a2b3e7f);
@@ -119,14 +99,10 @@ pub struct ISemanticTextQuery_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISemanticTextQueryFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISemanticTextQueryFactory {
     type Vtable = ISemanticTextQueryFactory_Vtbl;
-}
-impl ::core::clone::Clone for ISemanticTextQueryFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISemanticTextQueryFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x238c0503_f995_4587_8777_a2b7d80acfef);
@@ -140,14 +116,10 @@ pub struct ISemanticTextQueryFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextConversionGenerator(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITextConversionGenerator {
     type Vtable = ITextConversionGenerator_Vtbl;
-}
-impl ::core::clone::Clone for ITextConversionGenerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextConversionGenerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x03606a5e_2aa9_4ab6_af8b_a562b63a8992);
@@ -169,14 +141,10 @@ pub struct ITextConversionGenerator_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextConversionGeneratorFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITextConversionGeneratorFactory {
     type Vtable = ITextConversionGeneratorFactory_Vtbl;
-}
-impl ::core::clone::Clone for ITextConversionGeneratorFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextConversionGeneratorFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfcaa3781_3083_49ab_be15_56dfbbb74d6f);
@@ -189,14 +157,10 @@ pub struct ITextConversionGeneratorFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextPhoneme(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITextPhoneme {
     type Vtable = ITextPhoneme_Vtbl;
-}
-impl ::core::clone::Clone for ITextPhoneme {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextPhoneme {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9362a40a_9b7a_4569_94cf_d84f2f38cf9b);
@@ -210,14 +174,10 @@ pub struct ITextPhoneme_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextPredictionGenerator(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITextPredictionGenerator {
     type Vtable = ITextPredictionGenerator_Vtbl;
-}
-impl ::core::clone::Clone for ITextPredictionGenerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextPredictionGenerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5eacab07_abf1_4cb6_9d9e_326f2b468756);
@@ -239,14 +199,10 @@ pub struct ITextPredictionGenerator_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextPredictionGenerator2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITextPredictionGenerator2 {
     type Vtable = ITextPredictionGenerator2_Vtbl;
-}
-impl ::core::clone::Clone for ITextPredictionGenerator2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextPredictionGenerator2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb84723b8_2c77_486a_900a_a3453eedc15d);
@@ -274,14 +230,10 @@ pub struct ITextPredictionGenerator2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextPredictionGeneratorFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITextPredictionGeneratorFactory {
     type Vtable = ITextPredictionGeneratorFactory_Vtbl;
-}
-impl ::core::clone::Clone for ITextPredictionGeneratorFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextPredictionGeneratorFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7257b416_8ba2_4751_9d30_9d85435653a2);
@@ -294,14 +246,10 @@ pub struct ITextPredictionGeneratorFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextReverseConversionGenerator(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITextReverseConversionGenerator {
     type Vtable = ITextReverseConversionGenerator_Vtbl;
-}
-impl ::core::clone::Clone for ITextReverseConversionGenerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextReverseConversionGenerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51e7f514_9c51_4d86_ae1b_b498fbad8313);
@@ -319,14 +267,10 @@ pub struct ITextReverseConversionGenerator_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextReverseConversionGenerator2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITextReverseConversionGenerator2 {
     type Vtable = ITextReverseConversionGenerator2_Vtbl;
-}
-impl ::core::clone::Clone for ITextReverseConversionGenerator2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextReverseConversionGenerator2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1aafd2ec_85d6_46fd_828a_3a4830fa6e18);
@@ -342,14 +286,10 @@ pub struct ITextReverseConversionGenerator2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextReverseConversionGeneratorFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITextReverseConversionGeneratorFactory {
     type Vtable = ITextReverseConversionGeneratorFactory_Vtbl;
-}
-impl ::core::clone::Clone for ITextReverseConversionGeneratorFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextReverseConversionGeneratorFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x63bed326_1fda_41f6_89d5_23ddea3c729a);
@@ -362,14 +302,10 @@ pub struct ITextReverseConversionGeneratorFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUnicodeCharactersStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUnicodeCharactersStatics {
     type Vtable = IUnicodeCharactersStatics_Vtbl;
-}
-impl ::core::clone::Clone for IUnicodeCharactersStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUnicodeCharactersStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x97909e87_9291_4f91_b6c8_b6e359d7a7fb);
@@ -398,14 +334,10 @@ pub struct IUnicodeCharactersStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWordSegment(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWordSegment {
     type Vtable = IWordSegment_Vtbl;
-}
-impl ::core::clone::Clone for IWordSegment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWordSegment {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd2d4ba6d_987c_4cc0_b6bd_d49a11b38f9a);
@@ -423,14 +355,10 @@ pub struct IWordSegment_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWordsSegmenter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWordsSegmenter {
     type Vtable = IWordsSegmenter_Vtbl;
-}
-impl ::core::clone::Clone for IWordsSegmenter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWordsSegmenter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x86b4d4d1_b2fe_4e34_a81d_66640300454f);
@@ -452,14 +380,10 @@ pub struct IWordsSegmenter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWordsSegmenterFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWordsSegmenterFactory {
     type Vtable = IWordsSegmenterFactory_Vtbl;
-}
-impl ::core::clone::Clone for IWordsSegmenterFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWordsSegmenterFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe6977274_fc35_455c_8bfb_6d7f4653ca97);
@@ -472,6 +396,7 @@ pub struct IWordsSegmenterFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AlternateWordForm(::windows_core::IUnknown);
 impl AlternateWordForm {
     pub fn SourceTextSegment(&self) -> ::windows_core::Result<TextSegment> {
@@ -496,24 +421,8 @@ impl AlternateWordForm {
         }
     }
 }
-impl ::core::cmp::PartialEq for AlternateWordForm {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AlternateWordForm {}
-impl ::core::fmt::Debug for AlternateWordForm {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AlternateWordForm").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AlternateWordForm {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Text.AlternateWordForm;{47396c1e-51b9-4207-9146-248e636a1d1d})");
-}
-impl ::core::clone::Clone for AlternateWordForm {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AlternateWordForm {
     type Vtable = IAlternateWordForm_Vtbl;
@@ -529,6 +438,7 @@ unsafe impl ::core::marker::Send for AlternateWordForm {}
 unsafe impl ::core::marker::Sync for AlternateWordForm {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SelectableWordSegment(::windows_core::IUnknown);
 impl SelectableWordSegment {
     pub fn Text(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -546,24 +456,8 @@ impl SelectableWordSegment {
         }
     }
 }
-impl ::core::cmp::PartialEq for SelectableWordSegment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SelectableWordSegment {}
-impl ::core::fmt::Debug for SelectableWordSegment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SelectableWordSegment").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SelectableWordSegment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Text.SelectableWordSegment;{916a4cb7-8aa7-4c78-b374-5dedb752e60b})");
-}
-impl ::core::clone::Clone for SelectableWordSegment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SelectableWordSegment {
     type Vtable = ISelectableWordSegment_Vtbl;
@@ -579,6 +473,7 @@ unsafe impl ::core::marker::Send for SelectableWordSegment {}
 unsafe impl ::core::marker::Sync for SelectableWordSegment {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SelectableWordsSegmenter(::windows_core::IUnknown);
 impl SelectableWordsSegmenter {
     pub fn ResolvedLanguage(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -625,24 +520,8 @@ impl SelectableWordsSegmenter {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for SelectableWordsSegmenter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SelectableWordsSegmenter {}
-impl ::core::fmt::Debug for SelectableWordsSegmenter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SelectableWordsSegmenter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SelectableWordsSegmenter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Text.SelectableWordsSegmenter;{f6dc31e7-4b13-45c5-8897-7d71269e085d})");
-}
-impl ::core::clone::Clone for SelectableWordsSegmenter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SelectableWordsSegmenter {
     type Vtable = ISelectableWordsSegmenter_Vtbl;
@@ -658,6 +537,7 @@ unsafe impl ::core::marker::Send for SelectableWordsSegmenter {}
 unsafe impl ::core::marker::Sync for SelectableWordsSegmenter {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SemanticTextQuery(::windows_core::IUnknown);
 impl SemanticTextQuery {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -696,24 +576,8 @@ impl SemanticTextQuery {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for SemanticTextQuery {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SemanticTextQuery {}
-impl ::core::fmt::Debug for SemanticTextQuery {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SemanticTextQuery").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SemanticTextQuery {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Text.SemanticTextQuery;{6a1cab51-1fb2-4909-80b8-35731a2b3e7f})");
-}
-impl ::core::clone::Clone for SemanticTextQuery {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SemanticTextQuery {
     type Vtable = ISemanticTextQuery_Vtbl;
@@ -729,6 +593,7 @@ unsafe impl ::core::marker::Send for SemanticTextQuery {}
 unsafe impl ::core::marker::Sync for SemanticTextQuery {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TextConversionGenerator(::windows_core::IUnknown);
 impl TextConversionGenerator {
     pub fn ResolvedLanguage(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -775,24 +640,8 @@ impl TextConversionGenerator {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for TextConversionGenerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TextConversionGenerator {}
-impl ::core::fmt::Debug for TextConversionGenerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextConversionGenerator").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TextConversionGenerator {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Text.TextConversionGenerator;{03606a5e-2aa9-4ab6-af8b-a562b63a8992})");
-}
-impl ::core::clone::Clone for TextConversionGenerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TextConversionGenerator {
     type Vtable = ITextConversionGenerator_Vtbl;
@@ -808,6 +657,7 @@ unsafe impl ::core::marker::Send for TextConversionGenerator {}
 unsafe impl ::core::marker::Sync for TextConversionGenerator {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TextPhoneme(::windows_core::IUnknown);
 impl TextPhoneme {
     pub fn DisplayText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -825,24 +675,8 @@ impl TextPhoneme {
         }
     }
 }
-impl ::core::cmp::PartialEq for TextPhoneme {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TextPhoneme {}
-impl ::core::fmt::Debug for TextPhoneme {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextPhoneme").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TextPhoneme {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Text.TextPhoneme;{9362a40a-9b7a-4569-94cf-d84f2f38cf9b})");
-}
-impl ::core::clone::Clone for TextPhoneme {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TextPhoneme {
     type Vtable = ITextPhoneme_Vtbl;
@@ -858,6 +692,7 @@ unsafe impl ::core::marker::Send for TextPhoneme {}
 unsafe impl ::core::marker::Sync for TextPhoneme {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TextPredictionGenerator(::windows_core::IUnknown);
 impl TextPredictionGenerator {
     pub fn ResolvedLanguage(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -943,24 +778,8 @@ impl TextPredictionGenerator {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for TextPredictionGenerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TextPredictionGenerator {}
-impl ::core::fmt::Debug for TextPredictionGenerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextPredictionGenerator").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TextPredictionGenerator {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Text.TextPredictionGenerator;{5eacab07-abf1-4cb6-9d9e-326f2b468756})");
-}
-impl ::core::clone::Clone for TextPredictionGenerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TextPredictionGenerator {
     type Vtable = ITextPredictionGenerator_Vtbl;
@@ -976,6 +795,7 @@ unsafe impl ::core::marker::Send for TextPredictionGenerator {}
 unsafe impl ::core::marker::Sync for TextPredictionGenerator {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TextReverseConversionGenerator(::windows_core::IUnknown);
 impl TextReverseConversionGenerator {
     pub fn ResolvedLanguage(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1022,24 +842,8 @@ impl TextReverseConversionGenerator {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for TextReverseConversionGenerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TextReverseConversionGenerator {}
-impl ::core::fmt::Debug for TextReverseConversionGenerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextReverseConversionGenerator").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TextReverseConversionGenerator {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Text.TextReverseConversionGenerator;{51e7f514-9c51-4d86-ae1b-b498fbad8313})");
-}
-impl ::core::clone::Clone for TextReverseConversionGenerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TextReverseConversionGenerator {
     type Vtable = ITextReverseConversionGenerator_Vtbl;
@@ -1166,6 +970,7 @@ impl ::windows_core::RuntimeName for UnicodeCharacters {
 }
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WordSegment(::windows_core::IUnknown);
 impl WordSegment {
     pub fn Text(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1192,24 +997,8 @@ impl WordSegment {
         }
     }
 }
-impl ::core::cmp::PartialEq for WordSegment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WordSegment {}
-impl ::core::fmt::Debug for WordSegment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WordSegment").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WordSegment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Text.WordSegment;{d2d4ba6d-987c-4cc0-b6bd-d49a11b38f9a})");
-}
-impl ::core::clone::Clone for WordSegment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WordSegment {
     type Vtable = IWordSegment_Vtbl;
@@ -1225,6 +1014,7 @@ unsafe impl ::core::marker::Send for WordSegment {}
 unsafe impl ::core::marker::Sync for WordSegment {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WordsSegmenter(::windows_core::IUnknown);
 impl WordsSegmenter {
     pub fn ResolvedLanguage(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1271,24 +1061,8 @@ impl WordsSegmenter {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for WordsSegmenter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WordsSegmenter {}
-impl ::core::fmt::Debug for WordsSegmenter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WordsSegmenter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WordsSegmenter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Text.WordsSegmenter;{86b4d4d1-b2fe-4e34-a81d-66640300454f})");
-}
-impl ::core::clone::Clone for WordsSegmenter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WordsSegmenter {
     type Vtable = IWordsSegmenter_Vtbl;
@@ -1526,6 +1300,7 @@ impl ::core::default::Default for TextSegment {
 #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SelectableWordSegmentsTokenizingHandler(pub ::windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl SelectableWordSegmentsTokenizingHandler {
@@ -1585,28 +1360,8 @@ impl<F: FnMut(::core::option::Option<&super::super::Foundation::Collections::IIt
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for SelectableWordSegmentsTokenizingHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for SelectableWordSegmentsTokenizingHandler {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for SelectableWordSegmentsTokenizingHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SelectableWordSegmentsTokenizingHandler").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows_core::Interface for SelectableWordSegmentsTokenizingHandler {
     type Vtable = SelectableWordSegmentsTokenizingHandler_Vtbl;
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::clone::Clone for SelectableWordSegmentsTokenizingHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows_core::ComInterface for SelectableWordSegmentsTokenizingHandler {
@@ -1629,6 +1384,7 @@ pub struct SelectableWordSegmentsTokenizingHandler_Vtbl {
 #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WordSegmentsTokenizingHandler(pub ::windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl WordSegmentsTokenizingHandler {
@@ -1688,28 +1444,8 @@ impl<F: FnMut(::core::option::Option<&super::super::Foundation::Collections::IIt
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for WordSegmentsTokenizingHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for WordSegmentsTokenizingHandler {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for WordSegmentsTokenizingHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WordSegmentsTokenizingHandler").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows_core::Interface for WordSegmentsTokenizingHandler {
     type Vtable = WordSegmentsTokenizingHandler_Vtbl;
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::clone::Clone for WordSegmentsTokenizingHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows_core::ComInterface for WordSegmentsTokenizingHandler {

@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ID2D1SimplifiedGeometrySink(::windows_core::IUnknown);
 impl ID2D1SimplifiedGeometrySink {
     pub unsafe fn SetFillMode(&self, fillmode: D2D1_FILL_MODE) {
@@ -25,26 +26,10 @@ impl ID2D1SimplifiedGeometrySink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ID2D1SimplifiedGeometrySink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ID2D1SimplifiedGeometrySink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1SimplifiedGeometrySink {}
-impl ::core::fmt::Debug for ID2D1SimplifiedGeometrySink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1SimplifiedGeometrySink").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for ID2D1SimplifiedGeometrySink {}
 unsafe impl ::core::marker::Sync for ID2D1SimplifiedGeometrySink {}
 unsafe impl ::windows_core::Interface for ID2D1SimplifiedGeometrySink {
     type Vtable = ID2D1SimplifiedGeometrySink_Vtbl;
-}
-impl ::core::clone::Clone for ID2D1SimplifiedGeometrySink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ID2D1SimplifiedGeometrySink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cd9069e_12e2_11dc_9fed_001143a055f9);

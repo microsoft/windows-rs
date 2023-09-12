@@ -2,14 +2,10 @@
 pub mod Preview;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKeyboardCapabilities(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKeyboardCapabilities {
     type Vtable = IKeyboardCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for IKeyboardCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKeyboardCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a3f9b56_6798_4bbc_833e_0f34b17c65ff);
@@ -22,14 +18,10 @@ pub struct IKeyboardCapabilities_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMouseCapabilities(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMouseCapabilities {
     type Vtable = IMouseCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for IMouseCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMouseCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbca5e023_7dd9_4b6b_9a92_55d43cb38f73);
@@ -46,14 +38,10 @@ pub struct IMouseCapabilities_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMouseDevice(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMouseDevice {
     type Vtable = IMouseDevice_Vtbl;
-}
-impl ::core::clone::Clone for IMouseDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMouseDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88edf458_f2c8_49f4_be1f_c256b388bc11);
@@ -73,14 +61,10 @@ pub struct IMouseDevice_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMouseDeviceStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMouseDeviceStatics {
     type Vtable = IMouseDeviceStatics_Vtbl;
-}
-impl ::core::clone::Clone for IMouseDeviceStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMouseDeviceStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x484a9045_6d70_49db_8e68_46ffbd17d38d);
@@ -93,14 +77,10 @@ pub struct IMouseDeviceStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMouseEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMouseEventArgs {
     type Vtable = IMouseEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMouseEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMouseEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf625aa5d_2354_4cc7_9230_96941c969fde);
@@ -113,14 +93,10 @@ pub struct IMouseEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPenButtonListener(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPenButtonListener {
     type Vtable = IPenButtonListener_Vtbl;
-}
-impl ::core::clone::Clone for IPenButtonListener {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPenButtonListener {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8245c376_1ee3_53f7_b1f7_8334a16f2815);
@@ -165,14 +141,10 @@ pub struct IPenButtonListener_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPenButtonListenerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPenButtonListenerStatics {
     type Vtable = IPenButtonListenerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPenButtonListenerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPenButtonListenerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x19a8a584_862f_5f69_bfea_05f6584f133f);
@@ -185,14 +157,10 @@ pub struct IPenButtonListenerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPenDevice(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPenDevice {
     type Vtable = IPenDevice_Vtbl;
-}
-impl ::core::clone::Clone for IPenDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPenDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x31856eba_a738_5a8c_b8f6_f97ef68d18ef);
@@ -205,14 +173,10 @@ pub struct IPenDevice_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPenDevice2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPenDevice2 {
     type Vtable = IPenDevice2_Vtbl;
-}
-impl ::core::clone::Clone for IPenDevice2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPenDevice2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0207d327_7fb8_5566_8c34_f8342037b7f9);
@@ -228,14 +192,10 @@ pub struct IPenDevice2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPenDeviceStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPenDeviceStatics {
     type Vtable = IPenDeviceStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPenDeviceStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPenDeviceStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9dfbbe01_0966_5180_bcb4_b85060e39479);
@@ -248,14 +208,10 @@ pub struct IPenDeviceStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPenDockListener(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPenDockListener {
     type Vtable = IPenDockListener_Vtbl;
-}
-impl ::core::clone::Clone for IPenDockListener {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPenDockListener {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x759f4d90_1dc0_55cb_ad18_b9101456f592);
@@ -292,14 +248,10 @@ pub struct IPenDockListener_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPenDockListenerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPenDockListenerStatics {
     type Vtable = IPenDockListenerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPenDockListenerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPenDockListenerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcab75e9a_0016_5c72_969e_a97e11992a93);
@@ -312,14 +264,10 @@ pub struct IPenDockListenerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPenDockedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPenDockedEventArgs {
     type Vtable = IPenDockedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IPenDockedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPenDockedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd4277c6_ca63_5d4e_9ed3_a28a54521c8c);
@@ -331,14 +279,10 @@ pub struct IPenDockedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPenTailButtonClickedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPenTailButtonClickedEventArgs {
     type Vtable = IPenTailButtonClickedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IPenTailButtonClickedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPenTailButtonClickedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d2fb7b6_6ad3_5d3e_ab29_05ea2410e390);
@@ -350,14 +294,10 @@ pub struct IPenTailButtonClickedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPenTailButtonDoubleClickedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPenTailButtonDoubleClickedEventArgs {
     type Vtable = IPenTailButtonDoubleClickedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IPenTailButtonDoubleClickedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPenTailButtonDoubleClickedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x846321a2_618a_5478_b04c_b358231da4a7);
@@ -369,14 +309,10 @@ pub struct IPenTailButtonDoubleClickedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPenTailButtonLongPressedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPenTailButtonLongPressedEventArgs {
     type Vtable = IPenTailButtonLongPressedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IPenTailButtonLongPressedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPenTailButtonLongPressedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf37c606e_c60a_5f42_b818_a53112406c13);
@@ -388,14 +324,10 @@ pub struct IPenTailButtonLongPressedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPenUndockedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPenUndockedEventArgs {
     type Vtable = IPenUndockedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IPenUndockedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPenUndockedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xccd09150_261b_59e6_a5d4_c1964cd03feb);
@@ -407,14 +339,10 @@ pub struct IPenUndockedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPointerDevice(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPointerDevice {
     type Vtable = IPointerDevice_Vtbl;
-}
-impl ::core::clone::Clone for IPointerDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPointerDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x93c9bafc_ebcb_467e_82c6_276feae36b5a);
@@ -441,14 +369,10 @@ pub struct IPointerDevice_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPointerDevice2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPointerDevice2 {
     type Vtable = IPointerDevice2_Vtbl;
-}
-impl ::core::clone::Clone for IPointerDevice2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPointerDevice2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf8a6d2a0_c484_489f_ae3e_30d2ee1ffd3e);
@@ -461,14 +385,10 @@ pub struct IPointerDevice2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPointerDeviceStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPointerDeviceStatics {
     type Vtable = IPointerDeviceStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPointerDeviceStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPointerDeviceStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd8b89aa1_d1c6_416e_bd8d_5790914dc563);
@@ -485,14 +405,10 @@ pub struct IPointerDeviceStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITouchCapabilities(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITouchCapabilities {
     type Vtable = ITouchCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for ITouchCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITouchCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20dd55f9_13f1_46c8_9285_2c05fa3eda6f);
@@ -506,6 +422,7 @@ pub struct ITouchCapabilities_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct KeyboardCapabilities(::windows_core::IUnknown);
 impl KeyboardCapabilities {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -523,24 +440,8 @@ impl KeyboardCapabilities {
         }
     }
 }
-impl ::core::cmp::PartialEq for KeyboardCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KeyboardCapabilities {}
-impl ::core::fmt::Debug for KeyboardCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeyboardCapabilities").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for KeyboardCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.KeyboardCapabilities;{3a3f9b56-6798-4bbc-833e-0f34b17c65ff})");
-}
-impl ::core::clone::Clone for KeyboardCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for KeyboardCapabilities {
     type Vtable = IKeyboardCapabilities_Vtbl;
@@ -556,6 +457,7 @@ unsafe impl ::core::marker::Send for KeyboardCapabilities {}
 unsafe impl ::core::marker::Sync for KeyboardCapabilities {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MouseCapabilities(::windows_core::IUnknown);
 impl MouseCapabilities {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -601,24 +503,8 @@ impl MouseCapabilities {
         }
     }
 }
-impl ::core::cmp::PartialEq for MouseCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MouseCapabilities {}
-impl ::core::fmt::Debug for MouseCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MouseCapabilities").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MouseCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.MouseCapabilities;{bca5e023-7dd9-4b6b-9a92-55d43cb38f73})");
-}
-impl ::core::clone::Clone for MouseCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MouseCapabilities {
     type Vtable = IMouseCapabilities_Vtbl;
@@ -634,6 +520,7 @@ unsafe impl ::core::marker::Send for MouseCapabilities {}
 unsafe impl ::core::marker::Sync for MouseCapabilities {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MouseDevice(::windows_core::IUnknown);
 impl MouseDevice {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -666,24 +553,8 @@ impl MouseDevice {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for MouseDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MouseDevice {}
-impl ::core::fmt::Debug for MouseDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MouseDevice").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MouseDevice {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.MouseDevice;{88edf458-f2c8-49f4-be1f-c256b388bc11})");
-}
-impl ::core::clone::Clone for MouseDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MouseDevice {
     type Vtable = IMouseDevice_Vtbl;
@@ -697,6 +568,7 @@ impl ::windows_core::RuntimeName for MouseDevice {
 ::windows_core::imp::interface_hierarchy!(MouseDevice, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MouseEventArgs(::windows_core::IUnknown);
 impl MouseEventArgs {
     pub fn MouseDelta(&self) -> ::windows_core::Result<MouseDelta> {
@@ -707,24 +579,8 @@ impl MouseEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MouseEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MouseEventArgs {}
-impl ::core::fmt::Debug for MouseEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MouseEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MouseEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.MouseEventArgs;{f625aa5d-2354-4cc7-9230-96941c969fde})");
-}
-impl ::core::clone::Clone for MouseEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MouseEventArgs {
     type Vtable = IMouseEventArgs_Vtbl;
@@ -738,6 +594,7 @@ impl ::windows_core::RuntimeName for MouseEventArgs {
 ::windows_core::imp::interface_hierarchy!(MouseEventArgs, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PenButtonListener(::windows_core::IUnknown);
 impl PenButtonListener {
     pub fn IsSupported(&self) -> ::windows_core::Result<bool> {
@@ -831,24 +688,8 @@ impl PenButtonListener {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for PenButtonListener {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PenButtonListener {}
-impl ::core::fmt::Debug for PenButtonListener {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PenButtonListener").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PenButtonListener {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenButtonListener;{8245c376-1ee3-53f7-b1f7-8334a16f2815})");
-}
-impl ::core::clone::Clone for PenButtonListener {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PenButtonListener {
     type Vtable = IPenButtonListener_Vtbl;
@@ -864,6 +705,7 @@ unsafe impl ::core::marker::Send for PenButtonListener {}
 unsafe impl ::core::marker::Sync for PenButtonListener {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PenDevice(::windows_core::IUnknown);
 impl PenDevice {
     pub fn PenId(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -894,24 +736,8 @@ impl PenDevice {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for PenDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PenDevice {}
-impl ::core::fmt::Debug for PenDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PenDevice").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PenDevice {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenDevice;{31856eba-a738-5a8c-b8f6-f97ef68d18ef})");
-}
-impl ::core::clone::Clone for PenDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PenDevice {
     type Vtable = IPenDevice_Vtbl;
@@ -927,6 +753,7 @@ unsafe impl ::core::marker::Send for PenDevice {}
 unsafe impl ::core::marker::Sync for PenDevice {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PenDockListener(::windows_core::IUnknown);
 impl PenDockListener {
     pub fn IsSupported(&self) -> ::windows_core::Result<bool> {
@@ -1002,24 +829,8 @@ impl PenDockListener {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for PenDockListener {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PenDockListener {}
-impl ::core::fmt::Debug for PenDockListener {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PenDockListener").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PenDockListener {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenDockListener;{759f4d90-1dc0-55cb-ad18-b9101456f592})");
-}
-impl ::core::clone::Clone for PenDockListener {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PenDockListener {
     type Vtable = IPenDockListener_Vtbl;
@@ -1035,26 +846,11 @@ unsafe impl ::core::marker::Send for PenDockListener {}
 unsafe impl ::core::marker::Sync for PenDockListener {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PenDockedEventArgs(::windows_core::IUnknown);
 impl PenDockedEventArgs {}
-impl ::core::cmp::PartialEq for PenDockedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PenDockedEventArgs {}
-impl ::core::fmt::Debug for PenDockedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PenDockedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PenDockedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenDockedEventArgs;{fd4277c6-ca63-5d4e-9ed3-a28a54521c8c})");
-}
-impl ::core::clone::Clone for PenDockedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PenDockedEventArgs {
     type Vtable = IPenDockedEventArgs_Vtbl;
@@ -1070,26 +866,11 @@ unsafe impl ::core::marker::Send for PenDockedEventArgs {}
 unsafe impl ::core::marker::Sync for PenDockedEventArgs {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PenTailButtonClickedEventArgs(::windows_core::IUnknown);
 impl PenTailButtonClickedEventArgs {}
-impl ::core::cmp::PartialEq for PenTailButtonClickedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PenTailButtonClickedEventArgs {}
-impl ::core::fmt::Debug for PenTailButtonClickedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PenTailButtonClickedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PenTailButtonClickedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenTailButtonClickedEventArgs;{5d2fb7b6-6ad3-5d3e-ab29-05ea2410e390})");
-}
-impl ::core::clone::Clone for PenTailButtonClickedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PenTailButtonClickedEventArgs {
     type Vtable = IPenTailButtonClickedEventArgs_Vtbl;
@@ -1105,26 +886,11 @@ unsafe impl ::core::marker::Send for PenTailButtonClickedEventArgs {}
 unsafe impl ::core::marker::Sync for PenTailButtonClickedEventArgs {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PenTailButtonDoubleClickedEventArgs(::windows_core::IUnknown);
 impl PenTailButtonDoubleClickedEventArgs {}
-impl ::core::cmp::PartialEq for PenTailButtonDoubleClickedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PenTailButtonDoubleClickedEventArgs {}
-impl ::core::fmt::Debug for PenTailButtonDoubleClickedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PenTailButtonDoubleClickedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PenTailButtonDoubleClickedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenTailButtonDoubleClickedEventArgs;{846321a2-618a-5478-b04c-b358231da4a7})");
-}
-impl ::core::clone::Clone for PenTailButtonDoubleClickedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PenTailButtonDoubleClickedEventArgs {
     type Vtable = IPenTailButtonDoubleClickedEventArgs_Vtbl;
@@ -1140,26 +906,11 @@ unsafe impl ::core::marker::Send for PenTailButtonDoubleClickedEventArgs {}
 unsafe impl ::core::marker::Sync for PenTailButtonDoubleClickedEventArgs {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PenTailButtonLongPressedEventArgs(::windows_core::IUnknown);
 impl PenTailButtonLongPressedEventArgs {}
-impl ::core::cmp::PartialEq for PenTailButtonLongPressedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PenTailButtonLongPressedEventArgs {}
-impl ::core::fmt::Debug for PenTailButtonLongPressedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PenTailButtonLongPressedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PenTailButtonLongPressedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenTailButtonLongPressedEventArgs;{f37c606e-c60a-5f42-b818-a53112406c13})");
-}
-impl ::core::clone::Clone for PenTailButtonLongPressedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PenTailButtonLongPressedEventArgs {
     type Vtable = IPenTailButtonLongPressedEventArgs_Vtbl;
@@ -1175,26 +926,11 @@ unsafe impl ::core::marker::Send for PenTailButtonLongPressedEventArgs {}
 unsafe impl ::core::marker::Sync for PenTailButtonLongPressedEventArgs {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PenUndockedEventArgs(::windows_core::IUnknown);
 impl PenUndockedEventArgs {}
-impl ::core::cmp::PartialEq for PenUndockedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PenUndockedEventArgs {}
-impl ::core::fmt::Debug for PenUndockedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PenUndockedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PenUndockedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PenUndockedEventArgs;{ccd09150-261b-59e6-a5d4-c1964cd03feb})");
-}
-impl ::core::clone::Clone for PenUndockedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PenUndockedEventArgs {
     type Vtable = IPenUndockedEventArgs_Vtbl;
@@ -1210,6 +946,7 @@ unsafe impl ::core::marker::Send for PenUndockedEventArgs {}
 unsafe impl ::core::marker::Sync for PenUndockedEventArgs {}
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PointerDevice(::windows_core::IUnknown);
 impl PointerDevice {
     pub fn PointerDeviceType(&self) -> ::windows_core::Result<PointerDeviceType> {
@@ -1287,24 +1024,8 @@ impl PointerDevice {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for PointerDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PointerDevice {}
-impl ::core::fmt::Debug for PointerDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PointerDevice").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PointerDevice {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.PointerDevice;{93c9bafc-ebcb-467e-82c6-276feae36b5a})");
-}
-impl ::core::clone::Clone for PointerDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PointerDevice {
     type Vtable = IPointerDevice_Vtbl;
@@ -1318,6 +1039,7 @@ impl ::windows_core::RuntimeName for PointerDevice {
 ::windows_core::imp::interface_hierarchy!(PointerDevice, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct TouchCapabilities(::windows_core::IUnknown);
 impl TouchCapabilities {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1342,24 +1064,8 @@ impl TouchCapabilities {
         }
     }
 }
-impl ::core::cmp::PartialEq for TouchCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TouchCapabilities {}
-impl ::core::fmt::Debug for TouchCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TouchCapabilities").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for TouchCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Input.TouchCapabilities;{20dd55f9-13f1-46c8-9285-2c05fa3eda6f})");
-}
-impl ::core::clone::Clone for TouchCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for TouchCapabilities {
     type Vtable = ITouchCapabilities_Vtbl;

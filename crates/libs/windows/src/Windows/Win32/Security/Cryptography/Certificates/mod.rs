@@ -197,6 +197,7 @@ where
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAlternativeName(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAlternativeName {
@@ -244,28 +245,8 @@ impl IAlternativeName {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IAlternativeName, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IAlternativeName {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IAlternativeName {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IAlternativeName {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAlternativeName").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IAlternativeName {
     type Vtable = IAlternativeName_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IAlternativeName {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IAlternativeName {
@@ -293,6 +274,7 @@ pub struct IAlternativeName_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAlternativeNames(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAlternativeNames {
@@ -328,28 +310,8 @@ impl IAlternativeNames {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IAlternativeNames, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IAlternativeNames {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IAlternativeNames {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IAlternativeNames {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAlternativeNames").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IAlternativeNames {
     type Vtable = IAlternativeNames_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IAlternativeNames {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IAlternativeNames {
@@ -376,6 +338,7 @@ pub struct IAlternativeNames_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBinaryConverter(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IBinaryConverter {
@@ -405,28 +368,8 @@ impl IBinaryConverter {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IBinaryConverter, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IBinaryConverter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IBinaryConverter {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IBinaryConverter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBinaryConverter").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IBinaryConverter {
     type Vtable = IBinaryConverter_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IBinaryConverter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IBinaryConverter {
@@ -450,6 +393,7 @@ pub struct IBinaryConverter_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBinaryConverter2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IBinaryConverter2 {
@@ -491,28 +435,8 @@ impl IBinaryConverter2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IBinaryConverter2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IBinaryConverter);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IBinaryConverter2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IBinaryConverter2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IBinaryConverter2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IBinaryConverter2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IBinaryConverter2 {
     type Vtable = IBinaryConverter2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IBinaryConverter2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IBinaryConverter2 {
@@ -535,6 +459,7 @@ pub struct IBinaryConverter2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICEnroll(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICEnroll {
@@ -819,28 +744,8 @@ impl ICEnroll {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICEnroll, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICEnroll {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICEnroll {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICEnroll {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICEnroll").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICEnroll {
     type Vtable = ICEnroll_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICEnroll {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICEnroll {
@@ -929,6 +834,7 @@ pub struct ICEnroll_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICEnroll2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICEnroll2 {
@@ -1254,28 +1160,8 @@ impl ICEnroll2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICEnroll2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICEnroll);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICEnroll2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICEnroll2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICEnroll2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICEnroll2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICEnroll2 {
     type Vtable = ICEnroll2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICEnroll2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICEnroll2 {
@@ -1308,6 +1194,7 @@ pub struct ICEnroll2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICEnroll3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICEnroll3 {
@@ -1713,28 +1600,8 @@ impl ICEnroll3 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICEnroll3, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICEnroll, ICEnroll2);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICEnroll3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICEnroll3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICEnroll3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICEnroll3").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICEnroll3 {
     type Vtable = ICEnroll3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICEnroll3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICEnroll3 {
@@ -1784,6 +1651,7 @@ pub struct ICEnroll3_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICEnroll4(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICEnroll4 {
@@ -2389,28 +2257,8 @@ impl ICEnroll4 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICEnroll4, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICEnroll, ICEnroll2, ICEnroll3);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICEnroll4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICEnroll4 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICEnroll4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICEnroll4").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICEnroll4 {
     type Vtable = ICEnroll4_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICEnroll4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICEnroll4 {
@@ -2470,6 +2318,7 @@ pub struct ICEnroll4_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertAdmin(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertAdmin {
@@ -2546,28 +2395,8 @@ impl ICertAdmin {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertAdmin, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertAdmin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertAdmin {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertAdmin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertAdmin").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertAdmin {
     type Vtable = ICertAdmin_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertAdmin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertAdmin {
@@ -2595,6 +2424,7 @@ pub struct ICertAdmin_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertAdmin2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertAdmin2 {
@@ -2758,28 +2588,8 @@ impl ICertAdmin2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertAdmin2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertAdmin);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertAdmin2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertAdmin2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertAdmin2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertAdmin2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertAdmin2 {
     type Vtable = ICertAdmin2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertAdmin2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertAdmin2 {
@@ -2817,6 +2627,7 @@ pub struct ICertAdmin2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertConfig(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertConfig {
@@ -2843,28 +2654,8 @@ impl ICertConfig {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertConfig, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertConfig {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertConfig {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertConfig {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertConfig").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertConfig {
     type Vtable = ICertConfig_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertConfig {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertConfig {
@@ -2883,6 +2674,7 @@ pub struct ICertConfig_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertConfig2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertConfig2 {
@@ -2915,28 +2707,8 @@ impl ICertConfig2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertConfig2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertConfig);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertConfig2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertConfig2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertConfig2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertConfig2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertConfig2 {
     type Vtable = ICertConfig2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertConfig2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertConfig2 {
@@ -2952,6 +2724,7 @@ pub struct ICertConfig2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertEncodeAltName(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertEncodeAltName {
@@ -2990,28 +2763,8 @@ impl ICertEncodeAltName {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertEncodeAltName, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertEncodeAltName {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertEncodeAltName {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertEncodeAltName {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertEncodeAltName").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertEncodeAltName {
     type Vtable = ICertEncodeAltName_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertEncodeAltName {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertEncodeAltName {
@@ -3033,6 +2786,7 @@ pub struct ICertEncodeAltName_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertEncodeAltName2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertEncodeAltName2 {
@@ -3091,28 +2845,8 @@ impl ICertEncodeAltName2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertEncodeAltName2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertEncodeAltName);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertEncodeAltName2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertEncodeAltName2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertEncodeAltName2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertEncodeAltName2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertEncodeAltName2 {
     type Vtable = ICertEncodeAltName2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertEncodeAltName2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertEncodeAltName2 {
@@ -3131,6 +2865,7 @@ pub struct ICertEncodeAltName2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertEncodeBitString(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertEncodeBitString {
@@ -3159,28 +2894,8 @@ impl ICertEncodeBitString {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertEncodeBitString, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertEncodeBitString {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertEncodeBitString {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertEncodeBitString {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertEncodeBitString").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertEncodeBitString {
     type Vtable = ICertEncodeBitString_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertEncodeBitString {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertEncodeBitString {
@@ -3199,6 +2914,7 @@ pub struct ICertEncodeBitString_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertEncodeBitString2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertEncodeBitString2 {
@@ -3244,28 +2960,8 @@ impl ICertEncodeBitString2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertEncodeBitString2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertEncodeBitString);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertEncodeBitString2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertEncodeBitString2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertEncodeBitString2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertEncodeBitString2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertEncodeBitString2 {
     type Vtable = ICertEncodeBitString2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertEncodeBitString2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertEncodeBitString2 {
@@ -3283,6 +2979,7 @@ pub struct ICertEncodeBitString2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertEncodeCRLDistInfo(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertEncodeCRLDistInfo {
@@ -3328,28 +3025,8 @@ impl ICertEncodeCRLDistInfo {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertEncodeCRLDistInfo, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertEncodeCRLDistInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertEncodeCRLDistInfo {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertEncodeCRLDistInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertEncodeCRLDistInfo").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertEncodeCRLDistInfo {
     type Vtable = ICertEncodeCRLDistInfo_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertEncodeCRLDistInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertEncodeCRLDistInfo {
@@ -3373,6 +3050,7 @@ pub struct ICertEncodeCRLDistInfo_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertEncodeCRLDistInfo2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertEncodeCRLDistInfo2 {
@@ -3428,28 +3106,8 @@ impl ICertEncodeCRLDistInfo2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertEncodeCRLDistInfo2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertEncodeCRLDistInfo);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertEncodeCRLDistInfo2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertEncodeCRLDistInfo2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertEncodeCRLDistInfo2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertEncodeCRLDistInfo2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertEncodeCRLDistInfo2 {
     type Vtable = ICertEncodeCRLDistInfo2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertEncodeCRLDistInfo2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertEncodeCRLDistInfo2 {
@@ -3466,6 +3124,7 @@ pub struct ICertEncodeCRLDistInfo2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertEncodeDateArray(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertEncodeDateArray {
@@ -3497,28 +3156,8 @@ impl ICertEncodeDateArray {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertEncodeDateArray, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertEncodeDateArray {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertEncodeDateArray {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertEncodeDateArray {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertEncodeDateArray").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertEncodeDateArray {
     type Vtable = ICertEncodeDateArray_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertEncodeDateArray {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertEncodeDateArray {
@@ -3539,6 +3178,7 @@ pub struct ICertEncodeDateArray_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertEncodeDateArray2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertEncodeDateArray2 {
@@ -3580,28 +3220,8 @@ impl ICertEncodeDateArray2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertEncodeDateArray2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertEncodeDateArray);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertEncodeDateArray2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertEncodeDateArray2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertEncodeDateArray2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertEncodeDateArray2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertEncodeDateArray2 {
     type Vtable = ICertEncodeDateArray2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertEncodeDateArray2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertEncodeDateArray2 {
@@ -3618,6 +3238,7 @@ pub struct ICertEncodeDateArray2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertEncodeLongArray(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertEncodeLongArray {
@@ -3649,28 +3270,8 @@ impl ICertEncodeLongArray {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertEncodeLongArray, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertEncodeLongArray {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertEncodeLongArray {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertEncodeLongArray {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertEncodeLongArray").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertEncodeLongArray {
     type Vtable = ICertEncodeLongArray_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertEncodeLongArray {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertEncodeLongArray {
@@ -3691,6 +3292,7 @@ pub struct ICertEncodeLongArray_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertEncodeLongArray2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertEncodeLongArray2 {
@@ -3732,28 +3334,8 @@ impl ICertEncodeLongArray2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertEncodeLongArray2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertEncodeLongArray);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertEncodeLongArray2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertEncodeLongArray2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertEncodeLongArray2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertEncodeLongArray2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertEncodeLongArray2 {
     type Vtable = ICertEncodeLongArray2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertEncodeLongArray2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertEncodeLongArray2 {
@@ -3770,6 +3352,7 @@ pub struct ICertEncodeLongArray2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertEncodeStringArray(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertEncodeStringArray {
@@ -3808,28 +3391,8 @@ impl ICertEncodeStringArray {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertEncodeStringArray, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertEncodeStringArray {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertEncodeStringArray {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertEncodeStringArray {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertEncodeStringArray").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertEncodeStringArray {
     type Vtable = ICertEncodeStringArray_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertEncodeStringArray {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertEncodeStringArray {
@@ -3851,6 +3414,7 @@ pub struct ICertEncodeStringArray_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertEncodeStringArray2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertEncodeStringArray2 {
@@ -3899,28 +3463,8 @@ impl ICertEncodeStringArray2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertEncodeStringArray2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertEncodeStringArray);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertEncodeStringArray2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertEncodeStringArray2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertEncodeStringArray2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertEncodeStringArray2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertEncodeStringArray2 {
     type Vtable = ICertEncodeStringArray2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertEncodeStringArray2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertEncodeStringArray2 {
@@ -3937,6 +3481,7 @@ pub struct ICertEncodeStringArray2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertExit(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertExit {
@@ -3958,28 +3503,8 @@ impl ICertExit {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertExit, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertExit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertExit {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertExit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertExit").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertExit {
     type Vtable = ICertExit_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertExit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertExit {
@@ -3997,6 +3522,7 @@ pub struct ICertExit_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertExit2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertExit2 {
@@ -4024,28 +3550,8 @@ impl ICertExit2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertExit2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertExit);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertExit2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertExit2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertExit2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertExit2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertExit2 {
     type Vtable = ICertExit2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertExit2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertExit2 {
@@ -4064,6 +3570,7 @@ pub struct ICertExit2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertGetConfig(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertGetConfig {
@@ -4075,28 +3582,8 @@ impl ICertGetConfig {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertGetConfig, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertGetConfig {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertGetConfig {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertGetConfig {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertGetConfig").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertGetConfig {
     type Vtable = ICertGetConfig_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertGetConfig {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertGetConfig {
@@ -4112,6 +3599,7 @@ pub struct ICertGetConfig_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertManageModule(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertManageModule {
@@ -4147,28 +3635,8 @@ impl ICertManageModule {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertManageModule, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertManageModule {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertManageModule {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertManageModule {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertManageModule").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertManageModule {
     type Vtable = ICertManageModule_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertManageModule {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertManageModule {
@@ -4192,6 +3660,7 @@ pub struct ICertManageModule_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPolicy(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPolicy {
@@ -4219,28 +3688,8 @@ impl ICertPolicy {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertPolicy, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertPolicy {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertPolicy").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertPolicy {
     type Vtable = ICertPolicy_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertPolicy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertPolicy {
@@ -4259,6 +3708,7 @@ pub struct ICertPolicy_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPolicy2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPolicy2 {
@@ -4292,28 +3742,8 @@ impl ICertPolicy2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertPolicy2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertPolicy);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertPolicy2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertPolicy2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertPolicy2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertPolicy2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertPolicy2 {
     type Vtable = ICertPolicy2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertPolicy2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertPolicy2 {
@@ -4332,6 +3762,7 @@ pub struct ICertPolicy2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertProperties(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertProperties {
@@ -4376,28 +3807,8 @@ impl ICertProperties {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertProperties, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertProperties {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertProperties").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertProperties {
     type Vtable = ICertProperties_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertProperties {
@@ -4428,6 +3839,7 @@ pub struct ICertProperties_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertProperty(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertProperty {
@@ -4479,28 +3891,8 @@ impl ICertProperty {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertProperty, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertProperty {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertProperty").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertProperty {
     type Vtable = ICertProperty_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertProperty {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertProperty {
@@ -4531,6 +3923,7 @@ pub struct ICertProperty_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyArchived(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyArchived {
@@ -4596,28 +3989,8 @@ impl ICertPropertyArchived {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertPropertyArchived, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertPropertyArchived {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertPropertyArchived {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertPropertyArchived {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertPropertyArchived").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertPropertyArchived {
     type Vtable = ICertPropertyArchived_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertPropertyArchived {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertPropertyArchived {
@@ -4640,6 +4013,7 @@ pub struct ICertPropertyArchived_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyArchivedKeyHash(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyArchivedKeyHash {
@@ -4701,28 +4075,8 @@ impl ICertPropertyArchivedKeyHash {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertPropertyArchivedKeyHash, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertPropertyArchivedKeyHash {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertPropertyArchivedKeyHash {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertPropertyArchivedKeyHash {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertPropertyArchivedKeyHash").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertPropertyArchivedKeyHash {
     type Vtable = ICertPropertyArchivedKeyHash_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertPropertyArchivedKeyHash {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertPropertyArchivedKeyHash {
@@ -4739,6 +4093,7 @@ pub struct ICertPropertyArchivedKeyHash_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyAutoEnroll(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyAutoEnroll {
@@ -4800,28 +4155,8 @@ impl ICertPropertyAutoEnroll {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertPropertyAutoEnroll, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertPropertyAutoEnroll {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertPropertyAutoEnroll {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertPropertyAutoEnroll {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertPropertyAutoEnroll").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertPropertyAutoEnroll {
     type Vtable = ICertPropertyAutoEnroll_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertPropertyAutoEnroll {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertPropertyAutoEnroll {
@@ -4838,6 +4173,7 @@ pub struct ICertPropertyAutoEnroll_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyBackedUp(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyBackedUp {
@@ -4915,28 +4251,8 @@ impl ICertPropertyBackedUp {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertPropertyBackedUp, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertPropertyBackedUp {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertPropertyBackedUp {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertPropertyBackedUp {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertPropertyBackedUp").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertPropertyBackedUp {
     type Vtable = ICertPropertyBackedUp_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertPropertyBackedUp {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertPropertyBackedUp {
@@ -4964,6 +4280,7 @@ pub struct ICertPropertyBackedUp_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyDescription(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyDescription {
@@ -5025,28 +4342,8 @@ impl ICertPropertyDescription {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertPropertyDescription, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertPropertyDescription {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertPropertyDescription {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertPropertyDescription {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertPropertyDescription").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertPropertyDescription {
     type Vtable = ICertPropertyDescription_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertPropertyDescription {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertPropertyDescription {
@@ -5063,6 +4360,7 @@ pub struct ICertPropertyDescription_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyEnrollment(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyEnrollment {
@@ -5138,28 +4436,8 @@ impl ICertPropertyEnrollment {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertPropertyEnrollment, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertPropertyEnrollment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertPropertyEnrollment {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertPropertyEnrollment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertPropertyEnrollment").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertPropertyEnrollment {
     type Vtable = ICertPropertyEnrollment_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertPropertyEnrollment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertPropertyEnrollment {
@@ -5179,6 +4457,7 @@ pub struct ICertPropertyEnrollment_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyEnrollmentPolicyServer(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyEnrollmentPolicyServer {
@@ -5271,28 +4550,8 @@ impl ICertPropertyEnrollmentPolicyServer {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertPropertyEnrollmentPolicyServer, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertPropertyEnrollmentPolicyServer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertPropertyEnrollmentPolicyServer {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertPropertyEnrollmentPolicyServer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertPropertyEnrollmentPolicyServer").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertPropertyEnrollmentPolicyServer {
     type Vtable = ICertPropertyEnrollmentPolicyServer_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertPropertyEnrollmentPolicyServer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertPropertyEnrollmentPolicyServer {
@@ -5316,6 +4575,7 @@ pub struct ICertPropertyEnrollmentPolicyServer_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyFriendlyName(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyFriendlyName {
@@ -5377,28 +4637,8 @@ impl ICertPropertyFriendlyName {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertPropertyFriendlyName, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertPropertyFriendlyName {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertPropertyFriendlyName {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertPropertyFriendlyName {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertPropertyFriendlyName").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertPropertyFriendlyName {
     type Vtable = ICertPropertyFriendlyName_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertPropertyFriendlyName {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertPropertyFriendlyName {
@@ -5415,6 +4655,7 @@ pub struct ICertPropertyFriendlyName_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyKeyProvInfo(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyKeyProvInfo {
@@ -5480,28 +4721,8 @@ impl ICertPropertyKeyProvInfo {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertPropertyKeyProvInfo, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertPropertyKeyProvInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertPropertyKeyProvInfo {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertPropertyKeyProvInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertPropertyKeyProvInfo").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertPropertyKeyProvInfo {
     type Vtable = ICertPropertyKeyProvInfo_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertPropertyKeyProvInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertPropertyKeyProvInfo {
@@ -5524,6 +4745,7 @@ pub struct ICertPropertyKeyProvInfo_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyRenewal(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyRenewal {
@@ -5594,28 +4816,8 @@ impl ICertPropertyRenewal {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertPropertyRenewal, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertPropertyRenewal {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertPropertyRenewal {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertPropertyRenewal {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertPropertyRenewal").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertPropertyRenewal {
     type Vtable = ICertPropertyRenewal_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertPropertyRenewal {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertPropertyRenewal {
@@ -5636,6 +4838,7 @@ pub struct ICertPropertyRenewal_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertyRequestOriginator(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertyRequestOriginator {
@@ -5700,28 +4903,8 @@ impl ICertPropertyRequestOriginator {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertPropertyRequestOriginator, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertPropertyRequestOriginator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertPropertyRequestOriginator {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertPropertyRequestOriginator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertPropertyRequestOriginator").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertPropertyRequestOriginator {
     type Vtable = ICertPropertyRequestOriginator_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertPropertyRequestOriginator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertPropertyRequestOriginator {
@@ -5739,6 +4922,7 @@ pub struct ICertPropertyRequestOriginator_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertPropertySHA1Hash(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertPropertySHA1Hash {
@@ -5800,28 +4984,8 @@ impl ICertPropertySHA1Hash {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertPropertySHA1Hash, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertProperty);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertPropertySHA1Hash {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertPropertySHA1Hash {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertPropertySHA1Hash {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertPropertySHA1Hash").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertPropertySHA1Hash {
     type Vtable = ICertPropertySHA1Hash_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertPropertySHA1Hash {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertPropertySHA1Hash {
@@ -5838,6 +5002,7 @@ pub struct ICertPropertySHA1Hash_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertRequest {
@@ -5884,28 +5049,8 @@ impl ICertRequest {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertRequest, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertRequest {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertRequest").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertRequest {
     type Vtable = ICertRequest_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertRequest {
@@ -5927,6 +5072,7 @@ pub struct ICertRequest_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertRequest2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertRequest2 {
@@ -6014,28 +5160,8 @@ impl ICertRequest2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertRequest2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertRequest);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertRequest2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertRequest2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertRequest2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertRequest2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertRequest2 {
     type Vtable = ICertRequest2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertRequest2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertRequest2 {
@@ -6062,6 +5188,7 @@ pub struct ICertRequest2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertRequest3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertRequest3 {
@@ -6175,28 +5302,8 @@ impl ICertRequest3 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertRequest3, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertRequest, ICertRequest2);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertRequest3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertRequest3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertRequest3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertRequest3").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertRequest3 {
     type Vtable = ICertRequest3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertRequest3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertRequest3 {
@@ -6217,6 +5324,7 @@ pub struct ICertRequest3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertRequestD(::windows_core::IUnknown);
 impl ICertRequestD {
     pub unsafe fn Request<P0, P1>(&self, dwflags: u32, pwszauthority: P0, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: P1, pctbrequest: *const CERTTRANSBLOB, pctbcertchain: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows_core::Result<()>
@@ -6241,24 +5349,8 @@ impl ICertRequestD {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICertRequestD, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICertRequestD {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICertRequestD {}
-impl ::core::fmt::Debug for ICertRequestD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertRequestD").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICertRequestD {
     type Vtable = ICertRequestD_Vtbl;
-}
-impl ::core::clone::Clone for ICertRequestD {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICertRequestD {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd99e6e70_fc88_11d0_b498_00a0c90312f3);
@@ -6273,6 +5365,7 @@ pub struct ICertRequestD_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertRequestD2(::windows_core::IUnknown);
 impl ICertRequestD2 {
     pub unsafe fn Request<P0, P1>(&self, dwflags: u32, pwszauthority: P0, pdwrequestid: *mut u32, pdwdisposition: *mut u32, pwszattributes: P1, pctbrequest: *const CERTTRANSBLOB, pctbcertchain: *mut CERTTRANSBLOB, pctbencodedcert: *mut CERTTRANSBLOB, pctbdispositionmessage: *mut CERTTRANSBLOB) -> ::windows_core::Result<()>
@@ -6324,24 +5417,8 @@ impl ICertRequestD2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICertRequestD2, ::windows_core::IUnknown, ICertRequestD);
-impl ::core::cmp::PartialEq for ICertRequestD2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICertRequestD2 {}
-impl ::core::fmt::Debug for ICertRequestD2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertRequestD2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICertRequestD2 {
     type Vtable = ICertRequestD2_Vtbl;
-}
-impl ::core::clone::Clone for ICertRequestD2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICertRequestD2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5422fd3a_d4b8_4cef_a12e_e87d4ca22e90);
@@ -6358,6 +5435,7 @@ pub struct ICertRequestD2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertServerExit(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertServerExit {
@@ -6426,28 +5504,8 @@ impl ICertServerExit {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertServerExit, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertServerExit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertServerExit {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertServerExit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertServerExit").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertServerExit {
     type Vtable = ICertServerExit_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertServerExit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertServerExit {
@@ -6483,6 +5541,7 @@ pub struct ICertServerExit_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertServerPolicy(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertServerPolicy {
@@ -6567,28 +5626,8 @@ impl ICertServerPolicy {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertServerPolicy, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertServerPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertServerPolicy {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertServerPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertServerPolicy").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertServerPolicy {
     type Vtable = ICertServerPolicy_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertServerPolicy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertServerPolicy {
@@ -6632,6 +5671,7 @@ pub struct ICertServerPolicy_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertView(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertView {
@@ -6677,28 +5717,8 @@ impl ICertView {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertView, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertView {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertView").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertView {
     type Vtable = ICertView_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertView {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertView {
@@ -6730,6 +5750,7 @@ pub struct ICertView_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertView2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertView2 {
@@ -6778,28 +5799,8 @@ impl ICertView2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertView2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertView);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertView2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertView2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertView2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertView2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertView2 {
     type Vtable = ICertView2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertView2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertView2 {
@@ -6815,6 +5816,7 @@ pub struct ICertView2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertificateAttestationChallenge(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertificateAttestationChallenge {
@@ -6836,28 +5838,8 @@ impl ICertificateAttestationChallenge {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertificateAttestationChallenge, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertificateAttestationChallenge {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertificateAttestationChallenge {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertificateAttestationChallenge {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertificateAttestationChallenge").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertificateAttestationChallenge {
     type Vtable = ICertificateAttestationChallenge_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertificateAttestationChallenge {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertificateAttestationChallenge {
@@ -6875,6 +5857,7 @@ pub struct ICertificateAttestationChallenge_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertificateAttestationChallenge2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertificateAttestationChallenge2 {
@@ -6908,28 +5891,8 @@ impl ICertificateAttestationChallenge2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertificateAttestationChallenge2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, ICertificateAttestationChallenge);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertificateAttestationChallenge2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertificateAttestationChallenge2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertificateAttestationChallenge2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertificateAttestationChallenge2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertificateAttestationChallenge2 {
     type Vtable = ICertificateAttestationChallenge2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertificateAttestationChallenge2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertificateAttestationChallenge2 {
@@ -6946,6 +5909,7 @@ pub struct ICertificateAttestationChallenge2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertificatePolicies(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertificatePolicies {
@@ -6981,28 +5945,8 @@ impl ICertificatePolicies {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertificatePolicies, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertificatePolicies {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertificatePolicies {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertificatePolicies {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertificatePolicies").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertificatePolicies {
     type Vtable = ICertificatePolicies_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertificatePolicies {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertificatePolicies {
@@ -7029,6 +5973,7 @@ pub struct ICertificatePolicies_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertificatePolicy(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertificatePolicy {
@@ -7056,28 +6001,8 @@ impl ICertificatePolicy {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertificatePolicy, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertificatePolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertificatePolicy {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertificatePolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertificatePolicy").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertificatePolicy {
     type Vtable = ICertificatePolicy_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertificatePolicy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertificatePolicy {
@@ -7104,6 +6029,7 @@ pub struct ICertificatePolicy_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertificationAuthorities(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertificationAuthorities {
@@ -7151,28 +6077,8 @@ impl ICertificationAuthorities {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertificationAuthorities, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertificationAuthorities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertificationAuthorities {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertificationAuthorities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertificationAuthorities").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertificationAuthorities {
     type Vtable = ICertificationAuthorities_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertificationAuthorities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertificationAuthorities {
@@ -7204,6 +6110,7 @@ pub struct ICertificationAuthorities_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICertificationAuthority(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICertificationAuthority {
@@ -7217,28 +6124,8 @@ impl ICertificationAuthority {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICertificationAuthority, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICertificationAuthority {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICertificationAuthority {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICertificationAuthority {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICertificationAuthority").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICertificationAuthority {
     type Vtable = ICertificationAuthority_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICertificationAuthority {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICertificationAuthority {
@@ -7257,6 +6144,7 @@ pub struct ICertificationAuthority_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICryptAttribute(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICryptAttribute {
@@ -7292,28 +6180,8 @@ impl ICryptAttribute {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICryptAttribute, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICryptAttribute {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICryptAttribute {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICryptAttribute {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICryptAttribute").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICryptAttribute {
     type Vtable = ICryptAttribute_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICryptAttribute {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICryptAttribute {
@@ -7344,6 +6212,7 @@ pub struct ICryptAttribute_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICryptAttributes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICryptAttributes {
@@ -7396,28 +6265,8 @@ impl ICryptAttributes {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICryptAttributes, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICryptAttributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICryptAttributes {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICryptAttributes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICryptAttributes").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICryptAttributes {
     type Vtable = ICryptAttributes_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICryptAttributes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICryptAttributes {
@@ -7452,6 +6301,7 @@ pub struct ICryptAttributes_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICspAlgorithm(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICspAlgorithm {
@@ -7503,28 +6353,8 @@ impl ICspAlgorithm {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICspAlgorithm, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICspAlgorithm {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICspAlgorithm {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICspAlgorithm {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICspAlgorithm").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICspAlgorithm {
     type Vtable = ICspAlgorithm_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICspAlgorithm {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICspAlgorithm {
@@ -7555,6 +6385,7 @@ pub struct ICspAlgorithm_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICspAlgorithms(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICspAlgorithms {
@@ -7608,28 +6439,8 @@ impl ICspAlgorithms {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICspAlgorithms, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICspAlgorithms {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICspAlgorithms {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICspAlgorithms {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICspAlgorithms").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICspAlgorithms {
     type Vtable = ICspAlgorithms_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICspAlgorithms {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICspAlgorithms {
@@ -7664,6 +6475,7 @@ pub struct ICspAlgorithms_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICspInformation(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICspInformation {
@@ -7772,28 +6584,8 @@ impl ICspInformation {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICspInformation, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICspInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICspInformation {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICspInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICspInformation").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICspInformation {
     type Vtable = ICspInformation_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICspInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICspInformation {
@@ -7858,6 +6650,7 @@ pub struct ICspInformation_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICspInformations(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICspInformations {
@@ -7941,28 +6734,8 @@ impl ICspInformations {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICspInformations, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICspInformations {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICspInformations {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICspInformations {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICspInformations").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICspInformations {
     type Vtable = ICspInformations_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICspInformations {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICspInformations {
@@ -8010,6 +6783,7 @@ pub struct ICspInformations_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICspStatus(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICspStatus {
@@ -8055,28 +6829,8 @@ impl ICspStatus {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICspStatus, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICspStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICspStatus {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICspStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICspStatus").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICspStatus {
     type Vtable = ICspStatus_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICspStatus {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICspStatus {
@@ -8110,6 +6864,7 @@ pub struct ICspStatus_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICspStatuses(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICspStatuses {
@@ -8180,28 +6935,8 @@ impl ICspStatuses {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICspStatuses, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICspStatuses {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICspStatuses {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICspStatuses {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICspStatuses").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICspStatuses {
     type Vtable = ICspStatuses_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICspStatuses {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICspStatuses {
@@ -8243,6 +6978,7 @@ pub struct ICspStatuses_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnroll(::windows_core::IUnknown);
 impl IEnroll {
     pub unsafe fn createFilePKCS10WStr<P0, P1, P2>(&self, dnname: P0, usage: P1, wszpkcs10filename: P2) -> ::windows_core::Result<()>
@@ -8560,24 +7296,8 @@ impl IEnroll {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnroll, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnroll {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnroll {}
-impl ::core::fmt::Debug for IEnroll {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnroll").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnroll {
     type Vtable = IEnroll_Vtbl;
-}
-impl ::core::clone::Clone for IEnroll {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnroll {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xacaa7838_4585_11d1_ab57_00c04fc295e1);
@@ -8704,6 +7424,7 @@ pub struct IEnroll_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnroll2(::windows_core::IUnknown);
 impl IEnroll2 {
     pub unsafe fn createFilePKCS10WStr<P0, P1, P2>(&self, dnname: P0, usage: P1, wszpkcs10filename: P2) -> ::windows_core::Result<()>
@@ -9114,24 +7835,8 @@ impl IEnroll2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnroll2, ::windows_core::IUnknown, IEnroll);
-impl ::core::cmp::PartialEq for IEnroll2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnroll2 {}
-impl ::core::fmt::Debug for IEnroll2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnroll2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnroll2 {
     type Vtable = IEnroll2_Vtbl;
-}
-impl ::core::clone::Clone for IEnroll2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnroll2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc080e199_b7df_11d2_a421_00c04f79fe8e);
@@ -9182,6 +7887,7 @@ pub struct IEnroll2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnroll4(::windows_core::IUnknown);
 impl IEnroll4 {
     pub unsafe fn createFilePKCS10WStr<P0, P1, P2>(&self, dnname: P0, usage: P1, wszpkcs10filename: P2) -> ::windows_core::Result<()>
@@ -9754,24 +8460,8 @@ impl IEnroll4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnroll4, ::windows_core::IUnknown, IEnroll, IEnroll2);
-impl ::core::cmp::PartialEq for IEnroll4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnroll4 {}
-impl ::core::fmt::Debug for IEnroll4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnroll4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnroll4 {
     type Vtable = IEnroll4_Vtbl;
-}
-impl ::core::clone::Clone for IEnroll4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnroll4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf8053fe5_78f4_448f_a0db_41d61b73446b);
@@ -9840,6 +8530,7 @@ pub struct IEnroll4_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumCERTVIEWATTRIBUTE(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumCERTVIEWATTRIBUTE {
@@ -9868,28 +8559,8 @@ impl IEnumCERTVIEWATTRIBUTE {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IEnumCERTVIEWATTRIBUTE, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IEnumCERTVIEWATTRIBUTE {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IEnumCERTVIEWATTRIBUTE {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IEnumCERTVIEWATTRIBUTE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumCERTVIEWATTRIBUTE").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IEnumCERTVIEWATTRIBUTE {
     type Vtable = IEnumCERTVIEWATTRIBUTE_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IEnumCERTVIEWATTRIBUTE {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IEnumCERTVIEWATTRIBUTE {
@@ -9913,6 +8584,7 @@ pub struct IEnumCERTVIEWATTRIBUTE_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumCERTVIEWCOLUMN(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumCERTVIEWCOLUMN {
@@ -9955,28 +8627,8 @@ impl IEnumCERTVIEWCOLUMN {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IEnumCERTVIEWCOLUMN, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IEnumCERTVIEWCOLUMN {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IEnumCERTVIEWCOLUMN {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IEnumCERTVIEWCOLUMN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumCERTVIEWCOLUMN").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IEnumCERTVIEWCOLUMN {
     type Vtable = IEnumCERTVIEWCOLUMN_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IEnumCERTVIEWCOLUMN {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IEnumCERTVIEWCOLUMN {
@@ -10007,6 +8659,7 @@ pub struct IEnumCERTVIEWCOLUMN_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumCERTVIEWEXTENSION(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumCERTVIEWEXTENSION {
@@ -10040,28 +8693,8 @@ impl IEnumCERTVIEWEXTENSION {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IEnumCERTVIEWEXTENSION, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IEnumCERTVIEWEXTENSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IEnumCERTVIEWEXTENSION {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IEnumCERTVIEWEXTENSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumCERTVIEWEXTENSION").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IEnumCERTVIEWEXTENSION {
     type Vtable = IEnumCERTVIEWEXTENSION_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IEnumCERTVIEWEXTENSION {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IEnumCERTVIEWEXTENSION {
@@ -10089,6 +8722,7 @@ pub struct IEnumCERTVIEWEXTENSION_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumCERTVIEWROW(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumCERTVIEWROW {
@@ -10132,28 +8766,8 @@ impl IEnumCERTVIEWROW {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IEnumCERTVIEWROW, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IEnumCERTVIEWROW {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IEnumCERTVIEWROW {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IEnumCERTVIEWROW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumCERTVIEWROW").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IEnumCERTVIEWROW {
     type Vtable = IEnumCERTVIEWROW_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IEnumCERTVIEWROW {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IEnumCERTVIEWROW {
@@ -10187,6 +8801,7 @@ pub struct IEnumCERTVIEWROW_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INDESPolicy(::windows_core::IUnknown);
 impl INDESPolicy {
     pub unsafe fn Initialize(&self) -> ::windows_core::Result<()> {
@@ -10221,24 +8836,8 @@ impl INDESPolicy {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INDESPolicy, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INDESPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INDESPolicy {}
-impl ::core::fmt::Debug for INDESPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INDESPolicy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INDESPolicy {
     type Vtable = INDESPolicy_Vtbl;
-}
-impl ::core::clone::Clone for INDESPolicy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INDESPolicy {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x13ca515d_431d_46cc_8c2e_1da269bbd625);
@@ -10259,6 +8858,7 @@ pub struct INDESPolicy_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOCSPAdmin(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IOCSPAdmin {
@@ -10342,28 +8942,8 @@ impl IOCSPAdmin {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IOCSPAdmin, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IOCSPAdmin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IOCSPAdmin {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IOCSPAdmin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOCSPAdmin").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IOCSPAdmin {
     type Vtable = IOCSPAdmin_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IOCSPAdmin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IOCSPAdmin {
@@ -10406,6 +8986,7 @@ pub struct IOCSPAdmin_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOCSPCAConfiguration(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IOCSPCAConfiguration {
@@ -10528,28 +9109,8 @@ impl IOCSPCAConfiguration {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IOCSPCAConfiguration, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IOCSPCAConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IOCSPCAConfiguration {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IOCSPCAConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOCSPCAConfiguration").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IOCSPCAConfiguration {
     type Vtable = IOCSPCAConfiguration_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IOCSPCAConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IOCSPCAConfiguration {
@@ -10612,6 +9173,7 @@ pub struct IOCSPCAConfiguration_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOCSPCAConfigurationCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IOCSPCAConfigurationCollection {
@@ -10657,28 +9219,8 @@ impl IOCSPCAConfigurationCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IOCSPCAConfigurationCollection, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IOCSPCAConfigurationCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IOCSPCAConfigurationCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IOCSPCAConfigurationCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOCSPCAConfigurationCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IOCSPCAConfigurationCollection {
     type Vtable = IOCSPCAConfigurationCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IOCSPCAConfigurationCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IOCSPCAConfigurationCollection {
@@ -10708,6 +9250,7 @@ pub struct IOCSPCAConfigurationCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOCSPProperty(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IOCSPProperty {
@@ -10736,28 +9279,8 @@ impl IOCSPProperty {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IOCSPProperty, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IOCSPProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IOCSPProperty {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IOCSPProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOCSPProperty").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IOCSPProperty {
     type Vtable = IOCSPProperty_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IOCSPProperty {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IOCSPProperty {
@@ -10785,6 +9308,7 @@ pub struct IOCSPProperty_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOCSPPropertyCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IOCSPPropertyCollection {
@@ -10841,28 +9365,8 @@ impl IOCSPPropertyCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IOCSPPropertyCollection, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IOCSPPropertyCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IOCSPPropertyCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IOCSPPropertyCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOCSPPropertyCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IOCSPPropertyCollection {
     type Vtable = IOCSPPropertyCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IOCSPPropertyCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IOCSPPropertyCollection {
@@ -10900,6 +9404,7 @@ pub struct IOCSPPropertyCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IObjectId(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IObjectId {
@@ -10944,28 +9449,8 @@ impl IObjectId {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IObjectId, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IObjectId {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IObjectId {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IObjectId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IObjectId").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IObjectId {
     type Vtable = IObjectId_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IObjectId {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IObjectId {
@@ -10988,6 +9473,7 @@ pub struct IObjectId_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IObjectIds(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IObjectIds {
@@ -11031,28 +9517,8 @@ impl IObjectIds {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IObjectIds, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IObjectIds {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IObjectIds {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IObjectIds {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IObjectIds").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IObjectIds {
     type Vtable = IObjectIds_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IObjectIds {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IObjectIds {
@@ -11083,6 +9549,7 @@ pub struct IObjectIds_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPolicyQualifier(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPolicyQualifier {
@@ -11114,28 +9581,8 @@ impl IPolicyQualifier {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPolicyQualifier, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPolicyQualifier {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPolicyQualifier {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPolicyQualifier {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPolicyQualifier").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPolicyQualifier {
     type Vtable = IPolicyQualifier_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPolicyQualifier {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPolicyQualifier {
@@ -11158,6 +9605,7 @@ pub struct IPolicyQualifier_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPolicyQualifiers(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPolicyQualifiers {
@@ -11193,28 +9641,8 @@ impl IPolicyQualifiers {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IPolicyQualifiers, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IPolicyQualifiers {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IPolicyQualifiers {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IPolicyQualifiers {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPolicyQualifiers").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IPolicyQualifiers {
     type Vtable = IPolicyQualifiers_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IPolicyQualifiers {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IPolicyQualifiers {
@@ -11241,6 +9669,7 @@ pub struct IPolicyQualifiers_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISignerCertificate(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISignerCertificate {
@@ -11310,28 +9739,8 @@ impl ISignerCertificate {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISignerCertificate, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISignerCertificate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISignerCertificate {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISignerCertificate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISignerCertificate").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISignerCertificate {
     type Vtable = ISignerCertificate_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISignerCertificate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISignerCertificate {
@@ -11372,6 +9781,7 @@ pub struct ISignerCertificate_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISignerCertificates(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISignerCertificates {
@@ -11416,28 +9826,8 @@ impl ISignerCertificates {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISignerCertificates, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISignerCertificates {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISignerCertificates {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISignerCertificates {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISignerCertificates").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISignerCertificates {
     type Vtable = ISignerCertificates_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISignerCertificates {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISignerCertificates {
@@ -11468,6 +9858,7 @@ pub struct ISignerCertificates_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISmimeCapabilities(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISmimeCapabilities {
@@ -11519,28 +9910,8 @@ impl ISmimeCapabilities {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISmimeCapabilities, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISmimeCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISmimeCapabilities {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISmimeCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISmimeCapabilities").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISmimeCapabilities {
     type Vtable = ISmimeCapabilities_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISmimeCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISmimeCapabilities {
@@ -11575,6 +9946,7 @@ pub struct ISmimeCapabilities_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISmimeCapability(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISmimeCapability {
@@ -11600,28 +9972,8 @@ impl ISmimeCapability {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISmimeCapability, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISmimeCapability {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISmimeCapability {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISmimeCapability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISmimeCapability").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISmimeCapability {
     type Vtable = ISmimeCapability_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISmimeCapability {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISmimeCapability {
@@ -11645,6 +9997,7 @@ pub struct ISmimeCapability_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX500DistinguishedName(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX500DistinguishedName {
@@ -11672,28 +10025,8 @@ impl IX500DistinguishedName {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX500DistinguishedName, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX500DistinguishedName {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX500DistinguishedName {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX500DistinguishedName {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX500DistinguishedName").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX500DistinguishedName {
     type Vtable = IX500DistinguishedName_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX500DistinguishedName {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX500DistinguishedName {
@@ -11712,6 +10045,7 @@ pub struct IX500DistinguishedName_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509Attribute(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509Attribute {
@@ -11738,28 +10072,8 @@ impl IX509Attribute {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509Attribute, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509Attribute {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509Attribute {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509Attribute {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509Attribute").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509Attribute {
     type Vtable = IX509Attribute_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509Attribute {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509Attribute {
@@ -11783,6 +10097,7 @@ pub struct IX509Attribute_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509AttributeArchiveKey(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509AttributeArchiveKey {
@@ -11839,28 +10154,8 @@ impl IX509AttributeArchiveKey {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509AttributeArchiveKey, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509Attribute);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509AttributeArchiveKey {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509AttributeArchiveKey {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509AttributeArchiveKey {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509AttributeArchiveKey").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509AttributeArchiveKey {
     type Vtable = IX509AttributeArchiveKey_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509AttributeArchiveKey {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509AttributeArchiveKey {
@@ -11886,6 +10181,7 @@ pub struct IX509AttributeArchiveKey_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509AttributeArchiveKeyHash(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509AttributeArchiveKeyHash {
@@ -11928,28 +10224,8 @@ impl IX509AttributeArchiveKeyHash {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509AttributeArchiveKeyHash, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509Attribute);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509AttributeArchiveKeyHash {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509AttributeArchiveKeyHash {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509AttributeArchiveKeyHash {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509AttributeArchiveKeyHash").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509AttributeArchiveKeyHash {
     type Vtable = IX509AttributeArchiveKeyHash_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509AttributeArchiveKeyHash {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509AttributeArchiveKeyHash {
@@ -11967,6 +10243,7 @@ pub struct IX509AttributeArchiveKeyHash_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509AttributeClientId(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509AttributeClientId {
@@ -12023,28 +10300,8 @@ impl IX509AttributeClientId {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509AttributeClientId, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509Attribute);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509AttributeClientId {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509AttributeClientId {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509AttributeClientId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509AttributeClientId").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509AttributeClientId {
     type Vtable = IX509AttributeClientId_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509AttributeClientId {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509AttributeClientId {
@@ -12065,6 +10322,7 @@ pub struct IX509AttributeClientId_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509AttributeCspProvider(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509AttributeCspProvider {
@@ -12116,28 +10374,8 @@ impl IX509AttributeCspProvider {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509AttributeCspProvider, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509Attribute);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509AttributeCspProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509AttributeCspProvider {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509AttributeCspProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509AttributeCspProvider").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509AttributeCspProvider {
     type Vtable = IX509AttributeCspProvider_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509AttributeCspProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509AttributeCspProvider {
@@ -12157,6 +10395,7 @@ pub struct IX509AttributeCspProvider_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509AttributeExtensions(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509AttributeExtensions {
@@ -12203,28 +10442,8 @@ impl IX509AttributeExtensions {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509AttributeExtensions, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509Attribute);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509AttributeExtensions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509AttributeExtensions {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509AttributeExtensions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509AttributeExtensions").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509AttributeExtensions {
     type Vtable = IX509AttributeExtensions_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509AttributeExtensions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509AttributeExtensions {
@@ -12248,6 +10467,7 @@ pub struct IX509AttributeExtensions_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509AttributeOSVersion(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509AttributeOSVersion {
@@ -12290,28 +10510,8 @@ impl IX509AttributeOSVersion {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509AttributeOSVersion, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509Attribute);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509AttributeOSVersion {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509AttributeOSVersion {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509AttributeOSVersion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509AttributeOSVersion").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509AttributeOSVersion {
     type Vtable = IX509AttributeOSVersion_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509AttributeOSVersion {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509AttributeOSVersion {
@@ -12329,6 +10529,7 @@ pub struct IX509AttributeOSVersion_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509AttributeRenewalCertificate(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509AttributeRenewalCertificate {
@@ -12371,28 +10572,8 @@ impl IX509AttributeRenewalCertificate {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509AttributeRenewalCertificate, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509Attribute);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509AttributeRenewalCertificate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509AttributeRenewalCertificate {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509AttributeRenewalCertificate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509AttributeRenewalCertificate").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509AttributeRenewalCertificate {
     type Vtable = IX509AttributeRenewalCertificate_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509AttributeRenewalCertificate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509AttributeRenewalCertificate {
@@ -12410,6 +10591,7 @@ pub struct IX509AttributeRenewalCertificate_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509Attributes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509Attributes {
@@ -12445,28 +10627,8 @@ impl IX509Attributes {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509Attributes, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509Attributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509Attributes {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509Attributes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509Attributes").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509Attributes {
     type Vtable = IX509Attributes_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509Attributes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509Attributes {
@@ -12493,6 +10655,7 @@ pub struct IX509Attributes_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509CertificateRequest(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateRequest {
@@ -12631,28 +10794,8 @@ impl IX509CertificateRequest {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509CertificateRequest, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509CertificateRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509CertificateRequest {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509CertificateRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509CertificateRequest").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509CertificateRequest {
     type Vtable = IX509CertificateRequest_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509CertificateRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509CertificateRequest {
@@ -12725,6 +10868,7 @@ pub struct IX509CertificateRequest_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509CertificateRequestCertificate(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateRequestCertificate {
@@ -13090,28 +11234,8 @@ impl IX509CertificateRequestCertificate {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509CertificateRequestCertificate, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs10);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509CertificateRequestCertificate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509CertificateRequestCertificate {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509CertificateRequestCertificate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509CertificateRequestCertificate").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509CertificateRequestCertificate {
     type Vtable = IX509CertificateRequestCertificate_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509CertificateRequestCertificate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509CertificateRequestCertificate {
@@ -13152,6 +11276,7 @@ pub struct IX509CertificateRequestCertificate_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509CertificateRequestCertificate2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateRequestCertificate2 {
@@ -13548,28 +11673,8 @@ impl IX509CertificateRequestCertificate2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509CertificateRequestCertificate2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs10, IX509CertificateRequestCertificate);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509CertificateRequestCertificate2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509CertificateRequestCertificate2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509CertificateRequestCertificate2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509CertificateRequestCertificate2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509CertificateRequestCertificate2 {
     type Vtable = IX509CertificateRequestCertificate2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509CertificateRequestCertificate2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509CertificateRequestCertificate2 {
@@ -13600,6 +11705,7 @@ pub struct IX509CertificateRequestCertificate2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509CertificateRequestCmc(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateRequestCmc {
@@ -13920,28 +12026,8 @@ impl IX509CertificateRequestCmc {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509CertificateRequestCmc, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs7);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509CertificateRequestCmc {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509CertificateRequestCmc {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509CertificateRequestCmc {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509CertificateRequestCmc").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509CertificateRequestCmc {
     type Vtable = IX509CertificateRequestCmc_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509CertificateRequestCmc {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509CertificateRequestCmc {
@@ -14021,6 +12107,7 @@ pub struct IX509CertificateRequestCmc_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509CertificateRequestCmc2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateRequestCmc2 {
@@ -14384,28 +12471,8 @@ impl IX509CertificateRequestCmc2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509CertificateRequestCmc2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs7, IX509CertificateRequestCmc);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509CertificateRequestCmc2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509CertificateRequestCmc2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509CertificateRequestCmc2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509CertificateRequestCmc2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509CertificateRequestCmc2 {
     type Vtable = IX509CertificateRequestCmc2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509CertificateRequestCmc2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509CertificateRequestCmc2 {
@@ -14441,6 +12508,7 @@ pub struct IX509CertificateRequestCmc2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509CertificateRequestPkcs10(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateRequestPkcs10 {
@@ -14746,28 +12814,8 @@ impl IX509CertificateRequestPkcs10 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509CertificateRequestPkcs10, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509CertificateRequestPkcs10 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509CertificateRequestPkcs10 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509CertificateRequestPkcs10 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509CertificateRequestPkcs10").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509CertificateRequestPkcs10 {
     type Vtable = IX509CertificateRequestPkcs10_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509CertificateRequestPkcs10 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509CertificateRequestPkcs10 {
@@ -14867,6 +12915,7 @@ pub struct IX509CertificateRequestPkcs10_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509CertificateRequestPkcs10V2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateRequestPkcs10V2 {
@@ -15213,28 +13262,8 @@ impl IX509CertificateRequestPkcs10V2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509CertificateRequestPkcs10V2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs10);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509CertificateRequestPkcs10V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509CertificateRequestPkcs10V2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509CertificateRequestPkcs10V2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509CertificateRequestPkcs10V2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509CertificateRequestPkcs10V2 {
     type Vtable = IX509CertificateRequestPkcs10V2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509CertificateRequestPkcs10V2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509CertificateRequestPkcs10V2 {
@@ -15269,6 +13298,7 @@ pub struct IX509CertificateRequestPkcs10V2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509CertificateRequestPkcs10V3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateRequestPkcs10V3 {
@@ -15676,28 +13706,8 @@ impl IX509CertificateRequestPkcs10V3 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509CertificateRequestPkcs10V3, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs10, IX509CertificateRequestPkcs10V2);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509CertificateRequestPkcs10V3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509CertificateRequestPkcs10V3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509CertificateRequestPkcs10V3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509CertificateRequestPkcs10V3").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509CertificateRequestPkcs10V3 {
     type Vtable = IX509CertificateRequestPkcs10V3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509CertificateRequestPkcs10V3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509CertificateRequestPkcs10V3 {
@@ -15738,6 +13748,7 @@ pub struct IX509CertificateRequestPkcs10V3_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509CertificateRequestPkcs10V4(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateRequestPkcs10V4 {
@@ -16166,28 +14177,8 @@ impl IX509CertificateRequestPkcs10V4 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509CertificateRequestPkcs10V4, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs10, IX509CertificateRequestPkcs10V2, IX509CertificateRequestPkcs10V3);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509CertificateRequestPkcs10V4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509CertificateRequestPkcs10V4 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509CertificateRequestPkcs10V4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509CertificateRequestPkcs10V4").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509CertificateRequestPkcs10V4 {
     type Vtable = IX509CertificateRequestPkcs10V4_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509CertificateRequestPkcs10V4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509CertificateRequestPkcs10V4 {
@@ -16212,6 +14203,7 @@ pub struct IX509CertificateRequestPkcs10V4_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509CertificateRequestPkcs7(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateRequestPkcs7 {
@@ -16403,28 +14395,8 @@ impl IX509CertificateRequestPkcs7 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509CertificateRequestPkcs7, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509CertificateRequestPkcs7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509CertificateRequestPkcs7 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509CertificateRequestPkcs7 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509CertificateRequestPkcs7").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509CertificateRequestPkcs7 {
     type Vtable = IX509CertificateRequestPkcs7_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509CertificateRequestPkcs7 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509CertificateRequestPkcs7 {
@@ -16459,6 +14431,7 @@ pub struct IX509CertificateRequestPkcs7_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509CertificateRequestPkcs7V2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateRequestPkcs7V2 {
@@ -16679,28 +14652,8 @@ impl IX509CertificateRequestPkcs7V2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509CertificateRequestPkcs7V2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509CertificateRequest, IX509CertificateRequestPkcs7);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509CertificateRequestPkcs7V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509CertificateRequestPkcs7V2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509CertificateRequestPkcs7V2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509CertificateRequestPkcs7V2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509CertificateRequestPkcs7V2 {
     type Vtable = IX509CertificateRequestPkcs7V2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509CertificateRequestPkcs7V2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509CertificateRequestPkcs7V2 {
@@ -16731,6 +14684,7 @@ pub struct IX509CertificateRequestPkcs7V2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509CertificateRevocationList(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateRevocationList {
@@ -16899,28 +14853,8 @@ impl IX509CertificateRevocationList {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509CertificateRevocationList, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509CertificateRevocationList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509CertificateRevocationList {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509CertificateRevocationList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509CertificateRevocationList").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509CertificateRevocationList {
     type Vtable = IX509CertificateRevocationList_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509CertificateRevocationList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509CertificateRevocationList {
@@ -17011,6 +14945,7 @@ pub struct IX509CertificateRevocationList_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509CertificateRevocationListEntries(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateRevocationListEntries {
@@ -17061,28 +14996,8 @@ impl IX509CertificateRevocationListEntries {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509CertificateRevocationListEntries, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509CertificateRevocationListEntries {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509CertificateRevocationListEntries {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509CertificateRevocationListEntries {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509CertificateRevocationListEntries").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509CertificateRevocationListEntries {
     type Vtable = IX509CertificateRevocationListEntries_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509CertificateRevocationListEntries {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509CertificateRevocationListEntries {
@@ -17114,6 +15029,7 @@ pub struct IX509CertificateRevocationListEntries_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509CertificateRevocationListEntry(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateRevocationListEntry {
@@ -17154,28 +15070,8 @@ impl IX509CertificateRevocationListEntry {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509CertificateRevocationListEntry, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509CertificateRevocationListEntry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509CertificateRevocationListEntry {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509CertificateRevocationListEntry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509CertificateRevocationListEntry").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509CertificateRevocationListEntry {
     type Vtable = IX509CertificateRevocationListEntry_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509CertificateRevocationListEntry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509CertificateRevocationListEntry {
@@ -17203,6 +15099,7 @@ pub struct IX509CertificateRevocationListEntry_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509CertificateTemplate(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateTemplate {
@@ -17216,28 +15113,8 @@ impl IX509CertificateTemplate {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509CertificateTemplate, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509CertificateTemplate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509CertificateTemplate {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509CertificateTemplate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509CertificateTemplate").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509CertificateTemplate {
     type Vtable = IX509CertificateTemplate_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509CertificateTemplate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509CertificateTemplate {
@@ -17256,6 +15133,7 @@ pub struct IX509CertificateTemplate_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509CertificateTemplateWritable(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateTemplateWritable {
@@ -17294,28 +15172,8 @@ impl IX509CertificateTemplateWritable {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509CertificateTemplateWritable, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509CertificateTemplateWritable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509CertificateTemplateWritable {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509CertificateTemplateWritable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509CertificateTemplateWritable").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509CertificateTemplateWritable {
     type Vtable = IX509CertificateTemplateWritable_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509CertificateTemplateWritable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509CertificateTemplateWritable {
@@ -17347,6 +15205,7 @@ pub struct IX509CertificateTemplateWritable_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509CertificateTemplates(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509CertificateTemplates {
@@ -17400,28 +15259,8 @@ impl IX509CertificateTemplates {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509CertificateTemplates, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509CertificateTemplates {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509CertificateTemplates {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509CertificateTemplates {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509CertificateTemplates").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509CertificateTemplates {
     type Vtable = IX509CertificateTemplates_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509CertificateTemplates {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509CertificateTemplates {
@@ -17456,6 +15295,7 @@ pub struct IX509CertificateTemplates_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509EndorsementKey(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509EndorsementKey {
@@ -17525,28 +15365,8 @@ impl IX509EndorsementKey {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509EndorsementKey, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509EndorsementKey {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509EndorsementKey {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509EndorsementKey {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509EndorsementKey").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509EndorsementKey {
     type Vtable = IX509EndorsementKey_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509EndorsementKey {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509EndorsementKey {
@@ -17584,6 +15404,7 @@ pub struct IX509EndorsementKey_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509Enrollment(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509Enrollment {
@@ -17708,28 +15529,8 @@ impl IX509Enrollment {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509Enrollment, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509Enrollment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509Enrollment {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509Enrollment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509Enrollment").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509Enrollment {
     type Vtable = IX509Enrollment_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509Enrollment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509Enrollment {
@@ -17785,6 +15586,7 @@ pub struct IX509Enrollment_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509Enrollment2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509Enrollment2 {
@@ -17943,28 +15745,8 @@ impl IX509Enrollment2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509Enrollment2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509Enrollment);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509Enrollment2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509Enrollment2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509Enrollment2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509Enrollment2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509Enrollment2 {
     type Vtable = IX509Enrollment2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509Enrollment2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509Enrollment2 {
@@ -17993,6 +15775,7 @@ pub struct IX509Enrollment2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509EnrollmentHelper(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509EnrollmentHelper {
@@ -18028,28 +15811,8 @@ impl IX509EnrollmentHelper {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509EnrollmentHelper, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509EnrollmentHelper {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509EnrollmentHelper {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509EnrollmentHelper {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509EnrollmentHelper").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509EnrollmentHelper {
     type Vtable = IX509EnrollmentHelper_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509EnrollmentHelper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509EnrollmentHelper {
@@ -18068,6 +15831,7 @@ pub struct IX509EnrollmentHelper_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509EnrollmentPolicyServer(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509EnrollmentPolicyServer {
@@ -18199,28 +15963,8 @@ impl IX509EnrollmentPolicyServer {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509EnrollmentPolicyServer, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509EnrollmentPolicyServer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509EnrollmentPolicyServer {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509EnrollmentPolicyServer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509EnrollmentPolicyServer").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509EnrollmentPolicyServer {
     type Vtable = IX509EnrollmentPolicyServer_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509EnrollmentPolicyServer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509EnrollmentPolicyServer {
@@ -18292,6 +16036,7 @@ pub struct IX509EnrollmentPolicyServer_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509EnrollmentStatus(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509EnrollmentStatus {
@@ -18347,28 +16092,8 @@ impl IX509EnrollmentStatus {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509EnrollmentStatus, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509EnrollmentStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509EnrollmentStatus {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509EnrollmentStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509EnrollmentStatus").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509EnrollmentStatus {
     type Vtable = IX509EnrollmentStatus_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509EnrollmentStatus {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509EnrollmentStatus {
@@ -18395,6 +16120,7 @@ pub struct IX509EnrollmentStatus_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509EnrollmentWebClassFactory(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509EnrollmentWebClassFactory {
@@ -18409,28 +16135,8 @@ impl IX509EnrollmentWebClassFactory {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509EnrollmentWebClassFactory, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509EnrollmentWebClassFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509EnrollmentWebClassFactory {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509EnrollmentWebClassFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509EnrollmentWebClassFactory").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509EnrollmentWebClassFactory {
     type Vtable = IX509EnrollmentWebClassFactory_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509EnrollmentWebClassFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509EnrollmentWebClassFactory {
@@ -18446,6 +16152,7 @@ pub struct IX509EnrollmentWebClassFactory_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509Extension(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509Extension {
@@ -18486,28 +16193,8 @@ impl IX509Extension {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509Extension, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509Extension {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509Extension {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509Extension {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509Extension").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509Extension {
     type Vtable = IX509Extension_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509Extension {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509Extension {
@@ -18539,6 +16226,7 @@ pub struct IX509Extension_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionAlternativeNames(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionAlternativeNames {
@@ -18599,28 +16287,8 @@ impl IX509ExtensionAlternativeNames {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509ExtensionAlternativeNames, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509ExtensionAlternativeNames {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509ExtensionAlternativeNames {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509ExtensionAlternativeNames {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509ExtensionAlternativeNames").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509ExtensionAlternativeNames {
     type Vtable = IX509ExtensionAlternativeNames_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509ExtensionAlternativeNames {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509ExtensionAlternativeNames {
@@ -18644,6 +16312,7 @@ pub struct IX509ExtensionAlternativeNames_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionAuthorityKeyIdentifier(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionAuthorityKeyIdentifier {
@@ -18700,28 +16369,8 @@ impl IX509ExtensionAuthorityKeyIdentifier {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509ExtensionAuthorityKeyIdentifier, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509ExtensionAuthorityKeyIdentifier {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509ExtensionAuthorityKeyIdentifier {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509ExtensionAuthorityKeyIdentifier {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509ExtensionAuthorityKeyIdentifier").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509ExtensionAuthorityKeyIdentifier {
     type Vtable = IX509ExtensionAuthorityKeyIdentifier_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509ExtensionAuthorityKeyIdentifier {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509ExtensionAuthorityKeyIdentifier {
@@ -18739,6 +16388,7 @@ pub struct IX509ExtensionAuthorityKeyIdentifier_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionBasicConstraints(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionBasicConstraints {
@@ -18803,28 +16453,8 @@ impl IX509ExtensionBasicConstraints {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509ExtensionBasicConstraints, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509ExtensionBasicConstraints {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509ExtensionBasicConstraints {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509ExtensionBasicConstraints {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509ExtensionBasicConstraints").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509ExtensionBasicConstraints {
     type Vtable = IX509ExtensionBasicConstraints_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509ExtensionBasicConstraints {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509ExtensionBasicConstraints {
@@ -18849,6 +16479,7 @@ pub struct IX509ExtensionBasicConstraints_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionCertificatePolicies(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionCertificatePolicies {
@@ -18909,28 +16540,8 @@ impl IX509ExtensionCertificatePolicies {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509ExtensionCertificatePolicies, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509ExtensionCertificatePolicies {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509ExtensionCertificatePolicies {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509ExtensionCertificatePolicies {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509ExtensionCertificatePolicies").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509ExtensionCertificatePolicies {
     type Vtable = IX509ExtensionCertificatePolicies_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509ExtensionCertificatePolicies {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509ExtensionCertificatePolicies {
@@ -18954,6 +16565,7 @@ pub struct IX509ExtensionCertificatePolicies_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionEnhancedKeyUsage(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionEnhancedKeyUsage {
@@ -19014,28 +16626,8 @@ impl IX509ExtensionEnhancedKeyUsage {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509ExtensionEnhancedKeyUsage, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509ExtensionEnhancedKeyUsage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509ExtensionEnhancedKeyUsage {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509ExtensionEnhancedKeyUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509ExtensionEnhancedKeyUsage").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509ExtensionEnhancedKeyUsage {
     type Vtable = IX509ExtensionEnhancedKeyUsage_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509ExtensionEnhancedKeyUsage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509ExtensionEnhancedKeyUsage {
@@ -19059,6 +16651,7 @@ pub struct IX509ExtensionEnhancedKeyUsage_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionKeyUsage(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionKeyUsage {
@@ -19112,28 +16705,8 @@ impl IX509ExtensionKeyUsage {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509ExtensionKeyUsage, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509ExtensionKeyUsage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509ExtensionKeyUsage {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509ExtensionKeyUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509ExtensionKeyUsage").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509ExtensionKeyUsage {
     type Vtable = IX509ExtensionKeyUsage_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509ExtensionKeyUsage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509ExtensionKeyUsage {
@@ -19151,6 +16724,7 @@ pub struct IX509ExtensionKeyUsage_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionMSApplicationPolicies(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionMSApplicationPolicies {
@@ -19211,28 +16785,8 @@ impl IX509ExtensionMSApplicationPolicies {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509ExtensionMSApplicationPolicies, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509ExtensionMSApplicationPolicies {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509ExtensionMSApplicationPolicies {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509ExtensionMSApplicationPolicies {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509ExtensionMSApplicationPolicies").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509ExtensionMSApplicationPolicies {
     type Vtable = IX509ExtensionMSApplicationPolicies_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509ExtensionMSApplicationPolicies {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509ExtensionMSApplicationPolicies {
@@ -19256,6 +16810,7 @@ pub struct IX509ExtensionMSApplicationPolicies_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionSmimeCapabilities(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionSmimeCapabilities {
@@ -19316,28 +16871,8 @@ impl IX509ExtensionSmimeCapabilities {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509ExtensionSmimeCapabilities, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509ExtensionSmimeCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509ExtensionSmimeCapabilities {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509ExtensionSmimeCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509ExtensionSmimeCapabilities").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509ExtensionSmimeCapabilities {
     type Vtable = IX509ExtensionSmimeCapabilities_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509ExtensionSmimeCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509ExtensionSmimeCapabilities {
@@ -19361,6 +16896,7 @@ pub struct IX509ExtensionSmimeCapabilities_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionSubjectKeyIdentifier(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionSubjectKeyIdentifier {
@@ -19417,28 +16953,8 @@ impl IX509ExtensionSubjectKeyIdentifier {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509ExtensionSubjectKeyIdentifier, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509ExtensionSubjectKeyIdentifier {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509ExtensionSubjectKeyIdentifier {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509ExtensionSubjectKeyIdentifier {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509ExtensionSubjectKeyIdentifier").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509ExtensionSubjectKeyIdentifier {
     type Vtable = IX509ExtensionSubjectKeyIdentifier_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509ExtensionSubjectKeyIdentifier {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509ExtensionSubjectKeyIdentifier {
@@ -19456,6 +16972,7 @@ pub struct IX509ExtensionSubjectKeyIdentifier_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionTemplate(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionTemplate {
@@ -19524,28 +17041,8 @@ impl IX509ExtensionTemplate {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509ExtensionTemplate, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509ExtensionTemplate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509ExtensionTemplate {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509ExtensionTemplate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509ExtensionTemplate").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509ExtensionTemplate {
     type Vtable = IX509ExtensionTemplate_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509ExtensionTemplate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509ExtensionTemplate {
@@ -19571,6 +17068,7 @@ pub struct IX509ExtensionTemplate_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509ExtensionTemplateName(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509ExtensionTemplateName {
@@ -19627,28 +17125,8 @@ impl IX509ExtensionTemplateName {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509ExtensionTemplateName, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509Extension);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509ExtensionTemplateName {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509ExtensionTemplateName {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509ExtensionTemplateName {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509ExtensionTemplateName").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509ExtensionTemplateName {
     type Vtable = IX509ExtensionTemplateName_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509ExtensionTemplateName {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509ExtensionTemplateName {
@@ -19666,6 +17144,7 @@ pub struct IX509ExtensionTemplateName_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509Extensions(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509Extensions {
@@ -19718,28 +17197,8 @@ impl IX509Extensions {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509Extensions, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509Extensions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509Extensions {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509Extensions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509Extensions").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509Extensions {
     type Vtable = IX509Extensions_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509Extensions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509Extensions {
@@ -19774,6 +17233,7 @@ pub struct IX509Extensions_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509MachineEnrollmentFactory(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509MachineEnrollmentFactory {
@@ -19790,28 +17250,8 @@ impl IX509MachineEnrollmentFactory {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509MachineEnrollmentFactory, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509MachineEnrollmentFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509MachineEnrollmentFactory {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509MachineEnrollmentFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509MachineEnrollmentFactory").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509MachineEnrollmentFactory {
     type Vtable = IX509MachineEnrollmentFactory_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509MachineEnrollmentFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509MachineEnrollmentFactory {
@@ -19830,6 +17270,7 @@ pub struct IX509MachineEnrollmentFactory_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509NameValuePair(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509NameValuePair {
@@ -19852,28 +17293,8 @@ impl IX509NameValuePair {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509NameValuePair, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509NameValuePair {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509NameValuePair {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509NameValuePair {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509NameValuePair").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509NameValuePair {
     type Vtable = IX509NameValuePair_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509NameValuePair {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509NameValuePair {
@@ -19891,6 +17312,7 @@ pub struct IX509NameValuePair_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509NameValuePairs(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509NameValuePairs {
@@ -19926,28 +17348,8 @@ impl IX509NameValuePairs {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509NameValuePairs, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509NameValuePairs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509NameValuePairs {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509NameValuePairs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509NameValuePairs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509NameValuePairs {
     type Vtable = IX509NameValuePairs_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509NameValuePairs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509NameValuePairs {
@@ -19974,6 +17376,7 @@ pub struct IX509NameValuePairs_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509PolicyServerListManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509PolicyServerListManager {
@@ -20012,28 +17415,8 @@ impl IX509PolicyServerListManager {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509PolicyServerListManager, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509PolicyServerListManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509PolicyServerListManager {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509PolicyServerListManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509PolicyServerListManager").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509PolicyServerListManager {
     type Vtable = IX509PolicyServerListManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509PolicyServerListManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509PolicyServerListManager {
@@ -20061,6 +17444,7 @@ pub struct IX509PolicyServerListManager_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509PolicyServerUrl(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509PolicyServerUrl {
@@ -20132,28 +17516,8 @@ impl IX509PolicyServerUrl {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509PolicyServerUrl, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509PolicyServerUrl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509PolicyServerUrl {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509PolicyServerUrl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509PolicyServerUrl").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509PolicyServerUrl {
     type Vtable = IX509PolicyServerUrl_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509PolicyServerUrl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509PolicyServerUrl {
@@ -20189,6 +17553,7 @@ pub struct IX509PolicyServerUrl_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509PrivateKey(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509PrivateKey {
@@ -20490,28 +17855,8 @@ impl IX509PrivateKey {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509PrivateKey, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509PrivateKey {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509PrivateKey {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509PrivateKey {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509PrivateKey").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509PrivateKey {
     type Vtable = IX509PrivateKey_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509PrivateKey {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509PrivateKey {
@@ -20635,6 +17980,7 @@ pub struct IX509PrivateKey_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509PrivateKey2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509PrivateKey2 {
@@ -20980,28 +18326,8 @@ impl IX509PrivateKey2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509PrivateKey2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509PrivateKey);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509PrivateKey2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509PrivateKey2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509PrivateKey2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509PrivateKey2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509PrivateKey2 {
     type Vtable = IX509PrivateKey2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509PrivateKey2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509PrivateKey2 {
@@ -21026,6 +18352,7 @@ pub struct IX509PrivateKey2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509PublicKey(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509PublicKey {
@@ -21071,28 +18398,8 @@ impl IX509PublicKey {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509PublicKey, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509PublicKey {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509PublicKey {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509PublicKey {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509PublicKey").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509PublicKey {
     type Vtable = IX509PublicKey_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509PublicKey {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509PublicKey {
@@ -21120,6 +18427,7 @@ pub struct IX509PublicKey_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509SCEPEnrollment(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509SCEPEnrollment {
@@ -21254,28 +18562,8 @@ impl IX509SCEPEnrollment {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509SCEPEnrollment, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509SCEPEnrollment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509SCEPEnrollment {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509SCEPEnrollment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509SCEPEnrollment").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509SCEPEnrollment {
     type Vtable = IX509SCEPEnrollment_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509SCEPEnrollment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509SCEPEnrollment {
@@ -21339,6 +18627,7 @@ pub struct IX509SCEPEnrollment_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509SCEPEnrollment2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509SCEPEnrollment2 {
@@ -21502,28 +18791,8 @@ impl IX509SCEPEnrollment2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509SCEPEnrollment2, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch, IX509SCEPEnrollment);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509SCEPEnrollment2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509SCEPEnrollment2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509SCEPEnrollment2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509SCEPEnrollment2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509SCEPEnrollment2 {
     type Vtable = IX509SCEPEnrollment2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509SCEPEnrollment2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509SCEPEnrollment2 {
@@ -21544,6 +18813,7 @@ pub struct IX509SCEPEnrollment2_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509SCEPEnrollmentHelper(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509SCEPEnrollmentHelper {
@@ -21588,28 +18858,8 @@ impl IX509SCEPEnrollmentHelper {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509SCEPEnrollmentHelper, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509SCEPEnrollmentHelper {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509SCEPEnrollmentHelper {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509SCEPEnrollmentHelper {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509SCEPEnrollmentHelper").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509SCEPEnrollmentHelper {
     type Vtable = IX509SCEPEnrollmentHelper_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509SCEPEnrollmentHelper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509SCEPEnrollmentHelper {
@@ -21636,6 +18886,7 @@ pub struct IX509SCEPEnrollmentHelper_Vtbl {
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Certificates\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IX509SignatureInformation(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IX509SignatureInformation {
@@ -21728,28 +18979,8 @@ impl IX509SignatureInformation {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IX509SignatureInformation, ::windows_core::IUnknown, super::super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IX509SignatureInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IX509SignatureInformation {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IX509SignatureInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IX509SignatureInformation").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IX509SignatureInformation {
     type Vtable = IX509SignatureInformation_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IX509SignatureInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IX509SignatureInformation {

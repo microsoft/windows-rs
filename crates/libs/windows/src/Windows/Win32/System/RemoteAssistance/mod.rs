@@ -1,34 +1,15 @@
 #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DRendezvousSessionEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl DRendezvousSessionEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(DRendezvousSessionEvents, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for DRendezvousSessionEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for DRendezvousSessionEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for DRendezvousSessionEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DRendezvousSessionEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for DRendezvousSessionEvents {
     type Vtable = DRendezvousSessionEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for DRendezvousSessionEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for DRendezvousSessionEvents {
@@ -42,6 +23,7 @@ pub struct DRendezvousSessionEvents_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRendezvousApplication(::windows_core::IUnknown);
 impl IRendezvousApplication {
     pub unsafe fn SetRendezvousSession<P0>(&self, prendezvoussession: P0) -> ::windows_core::Result<()>
@@ -52,24 +34,8 @@ impl IRendezvousApplication {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRendezvousApplication, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRendezvousApplication {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRendezvousApplication {}
-impl ::core::fmt::Debug for IRendezvousApplication {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRendezvousApplication").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRendezvousApplication {
     type Vtable = IRendezvousApplication_Vtbl;
-}
-impl ::core::clone::Clone for IRendezvousApplication {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRendezvousApplication {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f4d070b_a275_49fb_b10d_8ec26387b50d);
@@ -82,6 +48,7 @@ pub struct IRendezvousApplication_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRendezvousSession(::windows_core::IUnknown);
 impl IRendezvousSession {
     pub unsafe fn State(&self) -> ::windows_core::Result<RENDEZVOUS_SESSION_STATE> {
@@ -110,24 +77,8 @@ impl IRendezvousSession {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRendezvousSession, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRendezvousSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRendezvousSession {}
-impl ::core::fmt::Debug for IRendezvousSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRendezvousSession").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRendezvousSession {
     type Vtable = IRendezvousSession_Vtbl;
-}
-impl ::core::clone::Clone for IRendezvousSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRendezvousSession {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9ba4b1dd_8b0c_48b7_9e7c_2f25857c8df5);

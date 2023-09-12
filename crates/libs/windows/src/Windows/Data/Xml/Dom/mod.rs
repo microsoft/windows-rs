@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDtdEntity(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDtdEntity {
     type Vtable = IDtdEntity_Vtbl;
-}
-impl ::core::clone::Clone for IDtdEntity {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDtdEntity {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a0b5ffc_63b4_480f_9e6a_8a92816aade4);
@@ -22,14 +18,10 @@ pub struct IDtdEntity_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDtdNotation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDtdNotation {
     type Vtable = IDtdNotation_Vtbl;
-}
-impl ::core::clone::Clone for IDtdNotation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDtdNotation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8cb4e04d_6d46_4edb_ab73_df83c51ad397);
@@ -43,14 +35,10 @@ pub struct IDtdNotation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlAttribute(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXmlAttribute {
     type Vtable = IXmlAttribute_Vtbl;
-}
-impl ::core::clone::Clone for IXmlAttribute {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlAttribute {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xac144aa4_b4f1_4db6_b206_8a22c308db0a);
@@ -66,14 +54,10 @@ pub struct IXmlAttribute_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlCDataSection(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXmlCDataSection {
     type Vtable = IXmlCDataSection_Vtbl;
-}
-impl ::core::clone::Clone for IXmlCDataSection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlCDataSection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4d04b46f_c8bd_45b4_8899_0400d7c2c60f);
@@ -85,6 +69,7 @@ pub struct IXmlCDataSection_Vtbl {
 }
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlCharacterData(::windows_core::IUnknown);
 impl IXmlCharacterData {
     pub fn Data(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -357,27 +342,11 @@ impl IXmlCharacterData {
 impl ::windows_core::CanTryInto<IXmlNode> for IXmlCharacterData {}
 impl ::windows_core::CanTryInto<IXmlNodeSelector> for IXmlCharacterData {}
 impl ::windows_core::CanTryInto<IXmlNodeSerializer> for IXmlCharacterData {}
-impl ::core::cmp::PartialEq for IXmlCharacterData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXmlCharacterData {}
-impl ::core::fmt::Debug for IXmlCharacterData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXmlCharacterData").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IXmlCharacterData {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{132e42ab-4e36-4df6-b1c8-0ce62fd88b26}");
 }
 unsafe impl ::windows_core::Interface for IXmlCharacterData {
     type Vtable = IXmlCharacterData_Vtbl;
-}
-impl ::core::clone::Clone for IXmlCharacterData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlCharacterData {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x132e42ab_4e36_4df6_b1c8_0ce62fd88b26);
@@ -397,14 +366,10 @@ pub struct IXmlCharacterData_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlComment(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXmlComment {
     type Vtable = IXmlComment_Vtbl;
-}
-impl ::core::clone::Clone for IXmlComment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlComment {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbca474d5_b61f_4611_9cac_2e92e3476d47);
@@ -416,14 +381,10 @@ pub struct IXmlComment_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlDocument(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXmlDocument {
     type Vtable = IXmlDocument_Vtbl;
-}
-impl ::core::clone::Clone for IXmlDocument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlDocument {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf7f3a506_1e87_42d6_bcfb_b8c809fa5494);
@@ -452,14 +413,10 @@ pub struct IXmlDocument_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlDocumentFragment(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXmlDocumentFragment {
     type Vtable = IXmlDocumentFragment_Vtbl;
-}
-impl ::core::clone::Clone for IXmlDocumentFragment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlDocumentFragment {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2ea6a96_0c21_44a5_8bc9_9e4a262708ec);
@@ -471,14 +428,10 @@ pub struct IXmlDocumentFragment_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlDocumentIO(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXmlDocumentIO {
     type Vtable = IXmlDocumentIO_Vtbl;
-}
-impl ::core::clone::Clone for IXmlDocumentIO {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlDocumentIO {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6cd0e74e_ee65_4489_9ebf_ca43e87ba637);
@@ -496,14 +449,10 @@ pub struct IXmlDocumentIO_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlDocumentIO2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXmlDocumentIO2 {
     type Vtable = IXmlDocumentIO2_Vtbl;
-}
-impl ::core::clone::Clone for IXmlDocumentIO2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlDocumentIO2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d034661_7bd8_4ad5_9ebf_81e6347263b1);
@@ -523,14 +472,10 @@ pub struct IXmlDocumentIO2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlDocumentStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXmlDocumentStatics {
     type Vtable = IXmlDocumentStatics_Vtbl;
-}
-impl ::core::clone::Clone for IXmlDocumentStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlDocumentStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5543d254_d757_4b79_9539_232b18f50bf1);
@@ -558,14 +503,10 @@ pub struct IXmlDocumentStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlDocumentType(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXmlDocumentType {
     type Vtable = IXmlDocumentType_Vtbl;
-}
-impl ::core::clone::Clone for IXmlDocumentType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlDocumentType {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf7342425_9781_4964_8e94_9b1c6dfc9bc7);
@@ -580,14 +521,10 @@ pub struct IXmlDocumentType_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlDomImplementation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXmlDomImplementation {
     type Vtable = IXmlDomImplementation_Vtbl;
-}
-impl ::core::clone::Clone for IXmlDomImplementation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlDomImplementation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6de58132_f11d_4fbb_8cc6_583cba93112f);
@@ -600,14 +537,10 @@ pub struct IXmlDomImplementation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlElement(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXmlElement {
     type Vtable = IXmlElement_Vtbl;
-}
-impl ::core::clone::Clone for IXmlElement {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlElement {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2dfb8a1f_6b10_4ef8_9f83_efcce8faec37);
@@ -632,14 +565,10 @@ pub struct IXmlElement_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlEntityReference(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXmlEntityReference {
     type Vtable = IXmlEntityReference_Vtbl;
-}
-impl ::core::clone::Clone for IXmlEntityReference {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlEntityReference {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2e2f47bc_c3d0_4ccf_bb86_0ab8c36a61cf);
@@ -651,14 +580,10 @@ pub struct IXmlEntityReference_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlLoadSettings(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXmlLoadSettings {
     type Vtable = IXmlLoadSettings_Vtbl;
-}
-impl ::core::clone::Clone for IXmlLoadSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlLoadSettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x58aa07a8_fed6_46f7_b4c5_fb1ba72108d6);
@@ -680,14 +605,10 @@ pub struct IXmlLoadSettings_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlNamedNodeMap(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXmlNamedNodeMap {
     type Vtable = IXmlNamedNodeMap_Vtbl;
-}
-impl ::core::clone::Clone for IXmlNamedNodeMap {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlNamedNodeMap {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb3a69eb0_aab0_4b82_a6fa_b1453f7c021b);
@@ -707,6 +628,7 @@ pub struct IXmlNamedNodeMap_Vtbl {
 }
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlNode(::windows_core::IUnknown);
 impl IXmlNode {
     pub fn NodeValue(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
@@ -937,27 +859,11 @@ impl IXmlNode {
 ::windows_core::imp::interface_hierarchy!(IXmlNode, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<IXmlNodeSelector> for IXmlNode {}
 impl ::windows_core::CanTryInto<IXmlNodeSerializer> for IXmlNode {}
-impl ::core::cmp::PartialEq for IXmlNode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXmlNode {}
-impl ::core::fmt::Debug for IXmlNode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXmlNode").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IXmlNode {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{1c741d59-2122-47d5-a856-83f3d4214875}");
 }
 unsafe impl ::windows_core::Interface for IXmlNode {
     type Vtable = IXmlNode_Vtbl;
-}
-impl ::core::clone::Clone for IXmlNode {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlNode {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1c741d59_2122_47d5_a856_83f3d4214875);
@@ -992,14 +898,10 @@ pub struct IXmlNode_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlNodeList(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXmlNodeList {
     type Vtable = IXmlNodeList_Vtbl;
-}
-impl ::core::clone::Clone for IXmlNodeList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlNodeList {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c60ad77_83a4_4ec1_9c54_7ba429e13da6);
@@ -1013,6 +915,7 @@ pub struct IXmlNodeList_Vtbl {
 }
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlNodeSelector(::windows_core::IUnknown);
 impl IXmlNodeSelector {
     pub fn SelectSingleNode(&self, xpath: &::windows_core::HSTRING) -> ::windows_core::Result<IXmlNode> {
@@ -1051,27 +954,11 @@ impl IXmlNodeSelector {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXmlNodeSelector, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IXmlNodeSelector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXmlNodeSelector {}
-impl ::core::fmt::Debug for IXmlNodeSelector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXmlNodeSelector").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IXmlNodeSelector {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{63dbba8b-d0db-4fe1-b745-f9433afdc25b}");
 }
 unsafe impl ::windows_core::Interface for IXmlNodeSelector {
     type Vtable = IXmlNodeSelector_Vtbl;
-}
-impl ::core::clone::Clone for IXmlNodeSelector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlNodeSelector {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x63dbba8b_d0db_4fe1_b745_f9433afdc25b);
@@ -1087,6 +974,7 @@ pub struct IXmlNodeSelector_Vtbl {
 }
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlNodeSerializer(::windows_core::IUnknown);
 impl IXmlNodeSerializer {
     pub fn GetXml(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1109,27 +997,11 @@ impl IXmlNodeSerializer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXmlNodeSerializer, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IXmlNodeSerializer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXmlNodeSerializer {}
-impl ::core::fmt::Debug for IXmlNodeSerializer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXmlNodeSerializer").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IXmlNodeSerializer {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{5cc5b382-e6dd-4991-abef-06d8d2e7bd0c}");
 }
 unsafe impl ::windows_core::Interface for IXmlNodeSerializer {
     type Vtable = IXmlNodeSerializer_Vtbl;
-}
-impl ::core::clone::Clone for IXmlNodeSerializer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlNodeSerializer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5cc5b382_e6dd_4991_abef_06d8d2e7bd0c);
@@ -1144,14 +1016,10 @@ pub struct IXmlNodeSerializer_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlProcessingInstruction(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXmlProcessingInstruction {
     type Vtable = IXmlProcessingInstruction_Vtbl;
-}
-impl ::core::clone::Clone for IXmlProcessingInstruction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlProcessingInstruction {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2707fd1e_1e92_4ece_b6f4_26f069078ddc);
@@ -1166,6 +1034,7 @@ pub struct IXmlProcessingInstruction_Vtbl {
 }
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlText(::windows_core::IUnknown);
 impl IXmlText {
     pub fn SplitText(&self, offset: u32) -> ::windows_core::Result<IXmlText> {
@@ -1446,27 +1315,11 @@ impl ::windows_core::CanTryInto<IXmlCharacterData> for IXmlText {}
 impl ::windows_core::CanTryInto<IXmlNode> for IXmlText {}
 impl ::windows_core::CanTryInto<IXmlNodeSelector> for IXmlText {}
 impl ::windows_core::CanTryInto<IXmlNodeSerializer> for IXmlText {}
-impl ::core::cmp::PartialEq for IXmlText {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXmlText {}
-impl ::core::fmt::Debug for IXmlText {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXmlText").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IXmlText {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{f931a4cb-308d-4760-a1d5-43b67450ac7e}");
 }
 unsafe impl ::windows_core::Interface for IXmlText {
     type Vtable = IXmlText_Vtbl;
-}
-impl ::core::clone::Clone for IXmlText {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlText {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf931a4cb_308d_4760_a1d5_43b67450ac7e);
@@ -1479,6 +1332,7 @@ pub struct IXmlText_Vtbl {
 }
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DtdEntity(::windows_core::IUnknown);
 impl DtdEntity {
     pub fn PublicId(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
@@ -1727,24 +1581,8 @@ impl DtdEntity {
         unsafe { (::windows_core::Interface::vtable(this).SetInnerText)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for DtdEntity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DtdEntity {}
-impl ::core::fmt::Debug for DtdEntity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DtdEntity").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DtdEntity {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.DtdEntity;{6a0b5ffc-63b4-480f-9e6a-8a92816aade4})");
-}
-impl ::core::clone::Clone for DtdEntity {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DtdEntity {
     type Vtable = IDtdEntity_Vtbl;
@@ -1763,6 +1601,7 @@ unsafe impl ::core::marker::Send for DtdEntity {}
 unsafe impl ::core::marker::Sync for DtdEntity {}
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DtdNotation(::windows_core::IUnknown);
 impl DtdNotation {
     pub fn PublicId(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
@@ -2004,24 +1843,8 @@ impl DtdNotation {
         unsafe { (::windows_core::Interface::vtable(this).SetInnerText)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for DtdNotation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DtdNotation {}
-impl ::core::fmt::Debug for DtdNotation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DtdNotation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DtdNotation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.DtdNotation;{8cb4e04d-6d46-4edb-ab73-df83c51ad397})");
-}
-impl ::core::clone::Clone for DtdNotation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DtdNotation {
     type Vtable = IDtdNotation_Vtbl;
@@ -2040,6 +1863,7 @@ unsafe impl ::core::marker::Send for DtdNotation {}
 unsafe impl ::core::marker::Sync for DtdNotation {}
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlAttribute(::windows_core::IUnknown);
 impl XmlAttribute {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2292,24 +2116,8 @@ impl XmlAttribute {
         unsafe { (::windows_core::Interface::vtable(this).SetInnerText)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for XmlAttribute {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlAttribute {}
-impl ::core::fmt::Debug for XmlAttribute {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlAttribute").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XmlAttribute {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlAttribute;{ac144aa4-b4f1-4db6-b206-8a22c308db0a})");
-}
-impl ::core::clone::Clone for XmlAttribute {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XmlAttribute {
     type Vtable = IXmlAttribute_Vtbl;
@@ -2328,6 +2136,7 @@ unsafe impl ::core::marker::Send for XmlAttribute {}
 unsafe impl ::core::marker::Sync for XmlAttribute {}
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlCDataSection(::windows_core::IUnknown);
 impl XmlCDataSection {
     pub fn Data(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2603,24 +2412,8 @@ impl XmlCDataSection {
         }
     }
 }
-impl ::core::cmp::PartialEq for XmlCDataSection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlCDataSection {}
-impl ::core::fmt::Debug for XmlCDataSection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlCDataSection").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XmlCDataSection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlCDataSection;{4d04b46f-c8bd-45b4-8899-0400d7c2c60f})");
-}
-impl ::core::clone::Clone for XmlCDataSection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XmlCDataSection {
     type Vtable = IXmlCDataSection_Vtbl;
@@ -2641,6 +2434,7 @@ unsafe impl ::core::marker::Send for XmlCDataSection {}
 unsafe impl ::core::marker::Sync for XmlCDataSection {}
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlComment(::windows_core::IUnknown);
 impl XmlComment {
     pub fn Data(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2909,24 +2703,8 @@ impl XmlComment {
         unsafe { (::windows_core::Interface::vtable(this).SetInnerText)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for XmlComment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlComment {}
-impl ::core::fmt::Debug for XmlComment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlComment").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XmlComment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlComment;{bca474d5-b61f-4611-9cac-2e92e3476d47})");
-}
-impl ::core::clone::Clone for XmlComment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XmlComment {
     type Vtable = IXmlComment_Vtbl;
@@ -2946,6 +2724,7 @@ unsafe impl ::core::marker::Send for XmlComment {}
 unsafe impl ::core::marker::Sync for XmlComment {}
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlDocument(::windows_core::IUnknown);
 impl XmlDocument {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -3401,24 +3180,8 @@ impl XmlDocument {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for XmlDocument {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlDocument {}
-impl ::core::fmt::Debug for XmlDocument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlDocument").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XmlDocument {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDocument;{f7f3a506-1e87-42d6-bcfb-b8c809fa5494})");
-}
-impl ::core::clone::Clone for XmlDocument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XmlDocument {
     type Vtable = IXmlDocument_Vtbl;
@@ -3437,6 +3200,7 @@ unsafe impl ::core::marker::Send for XmlDocument {}
 unsafe impl ::core::marker::Sync for XmlDocument {}
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlDocumentFragment(::windows_core::IUnknown);
 impl XmlDocumentFragment {
     pub fn NodeValue(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
@@ -3664,24 +3428,8 @@ impl XmlDocumentFragment {
         unsafe { (::windows_core::Interface::vtable(this).SetInnerText)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for XmlDocumentFragment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlDocumentFragment {}
-impl ::core::fmt::Debug for XmlDocumentFragment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlDocumentFragment").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XmlDocumentFragment {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDocumentFragment;{e2ea6a96-0c21-44a5-8bc9-9e4a262708ec})");
-}
-impl ::core::clone::Clone for XmlDocumentFragment {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XmlDocumentFragment {
     type Vtable = IXmlDocumentFragment_Vtbl;
@@ -3700,6 +3448,7 @@ unsafe impl ::core::marker::Send for XmlDocumentFragment {}
 unsafe impl ::core::marker::Sync for XmlDocumentFragment {}
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlDocumentType(::windows_core::IUnknown);
 impl XmlDocumentType {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -3948,24 +3697,8 @@ impl XmlDocumentType {
         unsafe { (::windows_core::Interface::vtable(this).SetInnerText)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for XmlDocumentType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlDocumentType {}
-impl ::core::fmt::Debug for XmlDocumentType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlDocumentType").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XmlDocumentType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDocumentType;{f7342425-9781-4964-8e94-9b1c6dfc9bc7})");
-}
-impl ::core::clone::Clone for XmlDocumentType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XmlDocumentType {
     type Vtable = IXmlDocumentType_Vtbl;
@@ -3984,6 +3717,7 @@ unsafe impl ::core::marker::Send for XmlDocumentType {}
 unsafe impl ::core::marker::Sync for XmlDocumentType {}
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlDomImplementation(::windows_core::IUnknown);
 impl XmlDomImplementation {
     pub fn HasFeature<P0>(&self, feature: &::windows_core::HSTRING, version: P0) -> ::windows_core::Result<bool>
@@ -3997,24 +3731,8 @@ impl XmlDomImplementation {
         }
     }
 }
-impl ::core::cmp::PartialEq for XmlDomImplementation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlDomImplementation {}
-impl ::core::fmt::Debug for XmlDomImplementation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlDomImplementation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XmlDomImplementation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDomImplementation;{6de58132-f11d-4fbb-8cc6-583cba93112f})");
-}
-impl ::core::clone::Clone for XmlDomImplementation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XmlDomImplementation {
     type Vtable = IXmlDomImplementation_Vtbl;
@@ -4030,6 +3748,7 @@ unsafe impl ::core::marker::Send for XmlDomImplementation {}
 unsafe impl ::core::marker::Sync for XmlDomImplementation {}
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlElement(::windows_core::IUnknown);
 impl XmlElement {
     pub fn TagName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -4357,24 +4076,8 @@ impl XmlElement {
         unsafe { (::windows_core::Interface::vtable(this).SetInnerText)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for XmlElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlElement {}
-impl ::core::fmt::Debug for XmlElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlElement").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XmlElement {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlElement;{2dfb8a1f-6b10-4ef8-9f83-efcce8faec37})");
-}
-impl ::core::clone::Clone for XmlElement {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XmlElement {
     type Vtable = IXmlElement_Vtbl;
@@ -4393,6 +4096,7 @@ unsafe impl ::core::marker::Send for XmlElement {}
 unsafe impl ::core::marker::Sync for XmlElement {}
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlEntityReference(::windows_core::IUnknown);
 impl XmlEntityReference {
     pub fn NodeValue(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
@@ -4620,24 +4324,8 @@ impl XmlEntityReference {
         unsafe { (::windows_core::Interface::vtable(this).SetInnerText)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for XmlEntityReference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlEntityReference {}
-impl ::core::fmt::Debug for XmlEntityReference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlEntityReference").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XmlEntityReference {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlEntityReference;{2e2f47bc-c3d0-4ccf-bb86-0ab8c36a61cf})");
-}
-impl ::core::clone::Clone for XmlEntityReference {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XmlEntityReference {
     type Vtable = IXmlEntityReference_Vtbl;
@@ -4656,6 +4344,7 @@ unsafe impl ::core::marker::Send for XmlEntityReference {}
 unsafe impl ::core::marker::Sync for XmlEntityReference {}
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlLoadSettings(::windows_core::IUnknown);
 impl XmlLoadSettings {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -4721,24 +4410,8 @@ impl XmlLoadSettings {
         unsafe { (::windows_core::Interface::vtable(this).SetElementContentWhiteSpace)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for XmlLoadSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlLoadSettings {}
-impl ::core::fmt::Debug for XmlLoadSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlLoadSettings").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XmlLoadSettings {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlLoadSettings;{58aa07a8-fed6-46f7-b4c5-fb1ba72108d6})");
-}
-impl ::core::clone::Clone for XmlLoadSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XmlLoadSettings {
     type Vtable = IXmlLoadSettings_Vtbl;
@@ -4754,6 +4427,7 @@ unsafe impl ::core::marker::Send for XmlLoadSettings {}
 unsafe impl ::core::marker::Sync for XmlLoadSettings {}
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlNamedNodeMap(::windows_core::IUnknown);
 impl XmlNamedNodeMap {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4873,24 +4547,8 @@ impl XmlNamedNodeMap {
         }
     }
 }
-impl ::core::cmp::PartialEq for XmlNamedNodeMap {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlNamedNodeMap {}
-impl ::core::fmt::Debug for XmlNamedNodeMap {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlNamedNodeMap").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XmlNamedNodeMap {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlNamedNodeMap;{b3a69eb0-aab0-4b82-a6fa-b1453f7c021b})");
-}
-impl ::core::clone::Clone for XmlNamedNodeMap {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XmlNamedNodeMap {
     type Vtable = IXmlNamedNodeMap_Vtbl;
@@ -4926,6 +4584,7 @@ unsafe impl ::core::marker::Send for XmlNamedNodeMap {}
 unsafe impl ::core::marker::Sync for XmlNamedNodeMap {}
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlNodeList(::windows_core::IUnknown);
 impl XmlNodeList {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -4991,24 +4650,8 @@ impl XmlNodeList {
         }
     }
 }
-impl ::core::cmp::PartialEq for XmlNodeList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlNodeList {}
-impl ::core::fmt::Debug for XmlNodeList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlNodeList").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XmlNodeList {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlNodeList;{8c60ad77-83a4-4ec1-9c54-7ba429e13da6})");
-}
-impl ::core::clone::Clone for XmlNodeList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XmlNodeList {
     type Vtable = IXmlNodeList_Vtbl;
@@ -5044,6 +4687,7 @@ unsafe impl ::core::marker::Send for XmlNodeList {}
 unsafe impl ::core::marker::Sync for XmlNodeList {}
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlProcessingInstruction(::windows_core::IUnknown);
 impl XmlProcessingInstruction {
     pub fn NodeValue(&self) -> ::windows_core::Result<::windows_core::IInspectable> {
@@ -5289,24 +4933,8 @@ impl XmlProcessingInstruction {
         unsafe { (::windows_core::Interface::vtable(this).SetData)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for XmlProcessingInstruction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlProcessingInstruction {}
-impl ::core::fmt::Debug for XmlProcessingInstruction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlProcessingInstruction").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XmlProcessingInstruction {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlProcessingInstruction;{2707fd1e-1e92-4ece-b6f4-26f069078ddc})");
-}
-impl ::core::clone::Clone for XmlProcessingInstruction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XmlProcessingInstruction {
     type Vtable = IXmlProcessingInstruction_Vtbl;
@@ -5325,6 +4953,7 @@ unsafe impl ::core::marker::Send for XmlProcessingInstruction {}
 unsafe impl ::core::marker::Sync for XmlProcessingInstruction {}
 #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XmlText(::windows_core::IUnknown);
 impl XmlText {
     pub fn Data(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -5600,24 +5229,8 @@ impl XmlText {
         }
     }
 }
-impl ::core::cmp::PartialEq for XmlText {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XmlText {}
-impl ::core::fmt::Debug for XmlText {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XmlText").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XmlText {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlText;{f931a4cb-308d-4760-a1d5-43b67450ac7e})");
-}
-impl ::core::clone::Clone for XmlText {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XmlText {
     type Vtable = IXmlText_Vtbl;

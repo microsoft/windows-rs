@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumSpObjectTokens(::windows_core::IUnknown);
 impl IEnumSpObjectTokens {
     pub unsafe fn Next(&self, celt: u32, pelt: *mut ::core::option::Option<ISpObjectToken>, pceltfetched: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -24,24 +25,8 @@ impl IEnumSpObjectTokens {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumSpObjectTokens, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumSpObjectTokens {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumSpObjectTokens {}
-impl ::core::fmt::Debug for IEnumSpObjectTokens {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumSpObjectTokens").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumSpObjectTokens {
     type Vtable = IEnumSpObjectTokens_Vtbl;
-}
-impl ::core::clone::Clone for IEnumSpObjectTokens {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumSpObjectTokens {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x06b64f9e_7fda_11d2_b4f2_00c04f797396);
@@ -60,6 +45,7 @@ pub struct IEnumSpObjectTokens_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpAudio(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpAudio {
@@ -171,28 +157,8 @@ impl ISpAudio {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpAudio, ::windows_core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream, ISpStreamFormat);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpAudio {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpAudio {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpAudio {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpAudio").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpAudio {
     type Vtable = ISpAudio_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpAudio {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpAudio {
@@ -226,6 +192,7 @@ pub struct ISpAudio_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpContainerLexicon(::windows_core::IUnknown);
 impl ISpContainerLexicon {
     pub unsafe fn GetPronunciations<P0>(&self, pszword: P0, langid: u16, dwflags: u32, pwordpronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> ::windows_core::Result<()>
@@ -263,24 +230,8 @@ impl ISpContainerLexicon {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpContainerLexicon, ::windows_core::IUnknown, ISpLexicon);
-impl ::core::cmp::PartialEq for ISpContainerLexicon {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpContainerLexicon {}
-impl ::core::fmt::Debug for ISpContainerLexicon {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpContainerLexicon").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpContainerLexicon {
     type Vtable = ISpContainerLexicon_Vtbl;
-}
-impl ::core::clone::Clone for ISpContainerLexicon {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpContainerLexicon {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8565572f_c094_41cc_b56e_10bd9c3ff044);
@@ -293,6 +244,7 @@ pub struct ISpContainerLexicon_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpDataKey(::windows_core::IUnknown);
 impl ISpDataKey {
     pub unsafe fn SetData<P0>(&self, pszvaluename: P0, cbdata: u32, pdata: *const u8) -> ::windows_core::Result<()>
@@ -369,24 +321,8 @@ impl ISpDataKey {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpDataKey, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpDataKey {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpDataKey {}
-impl ::core::fmt::Debug for ISpDataKey {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpDataKey").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpDataKey {
     type Vtable = ISpDataKey_Vtbl;
-}
-impl ::core::clone::Clone for ISpDataKey {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpDataKey {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x14056581_e16c_11d2_bb90_00c04f8ee6c0);
@@ -410,6 +346,7 @@ pub struct ISpDataKey_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpDisplayAlternates(::windows_core::IUnknown);
 impl ISpDisplayAlternates {
     pub unsafe fn GetDisplayAlternates(&self, pphrase: *const SPDISPLAYPHRASE, crequestcount: u32, ppcomemphrases: *mut *mut SPDISPLAYPHRASE, pcphrasesreturned: *mut u32) -> ::windows_core::Result<()> {
@@ -420,24 +357,8 @@ impl ISpDisplayAlternates {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpDisplayAlternates, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpDisplayAlternates {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpDisplayAlternates {}
-impl ::core::fmt::Debug for ISpDisplayAlternates {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpDisplayAlternates").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpDisplayAlternates {
     type Vtable = ISpDisplayAlternates_Vtbl;
-}
-impl ::core::clone::Clone for ISpDisplayAlternates {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpDisplayAlternates {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc8d7c7e2_0dde_44b7_afe3_b0c991fbeb5e);
@@ -451,6 +372,7 @@ pub struct ISpDisplayAlternates_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpEnginePronunciation(::windows_core::IUnknown);
 impl ISpEnginePronunciation {
     pub unsafe fn Normalize<P0, P1, P2>(&self, pszword: P0, pszleftcontext: P1, pszrightcontext: P2, langid: u16, pnormalizationlist: *mut SPNORMALIZATIONLIST) -> ::windows_core::Result<()>
@@ -471,24 +393,8 @@ impl ISpEnginePronunciation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpEnginePronunciation, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpEnginePronunciation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpEnginePronunciation {}
-impl ::core::fmt::Debug for ISpEnginePronunciation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpEnginePronunciation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpEnginePronunciation {
     type Vtable = ISpEnginePronunciation_Vtbl;
-}
-impl ::core::clone::Clone for ISpEnginePronunciation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpEnginePronunciation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc360ce4b_76d1_4214_ad68_52657d5083da);
@@ -502,6 +408,7 @@ pub struct ISpEnginePronunciation_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpEventSink(::windows_core::IUnknown);
 impl ISpEventSink {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -514,24 +421,8 @@ impl ISpEventSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpEventSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpEventSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpEventSink {}
-impl ::core::fmt::Debug for ISpEventSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpEventSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpEventSink {
     type Vtable = ISpEventSink_Vtbl;
-}
-impl ::core::clone::Clone for ISpEventSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpEventSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbe7a9cc9_5f9e_11d2_960f_00c04f8ee628);
@@ -548,6 +439,7 @@ pub struct ISpEventSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpEventSource(::windows_core::IUnknown);
 impl ISpEventSource {
     pub unsafe fn SetNotifySink<P0>(&self, pnotifysink: P0) -> ::windows_core::Result<()>
@@ -609,24 +501,8 @@ impl ISpEventSource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpEventSource, ::windows_core::IUnknown, ISpNotifySource);
-impl ::core::cmp::PartialEq for ISpEventSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpEventSource {}
-impl ::core::fmt::Debug for ISpEventSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpEventSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpEventSource {
     type Vtable = ISpEventSource_Vtbl;
-}
-impl ::core::clone::Clone for ISpEventSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpEventSource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbe7a9cce_5f9e_11d2_960f_00c04f8ee628);
@@ -644,6 +520,7 @@ pub struct ISpEventSource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpEventSource2(::windows_core::IUnknown);
 impl ISpEventSource2 {
     pub unsafe fn SetNotifySink<P0>(&self, pnotifysink: P0) -> ::windows_core::Result<()>
@@ -710,24 +587,8 @@ impl ISpEventSource2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpEventSource2, ::windows_core::IUnknown, ISpNotifySource, ISpEventSource);
-impl ::core::cmp::PartialEq for ISpEventSource2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpEventSource2 {}
-impl ::core::fmt::Debug for ISpEventSource2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpEventSource2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpEventSource2 {
     type Vtable = ISpEventSource2_Vtbl;
-}
-impl ::core::clone::Clone for ISpEventSource2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpEventSource2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2373a435_6a4b_429e_a6ac_d4231a61975b);
@@ -743,6 +604,7 @@ pub struct ISpEventSource2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpGrammarBuilder(::windows_core::IUnknown);
 impl ISpGrammarBuilder {
     pub unsafe fn ResetGrammar(&self, newlanguage: u16) -> ::windows_core::Result<()> {
@@ -803,24 +665,8 @@ impl ISpGrammarBuilder {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpGrammarBuilder, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpGrammarBuilder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpGrammarBuilder {}
-impl ::core::fmt::Debug for ISpGrammarBuilder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpGrammarBuilder").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpGrammarBuilder {
     type Vtable = ISpGrammarBuilder_Vtbl;
-}
-impl ::core::clone::Clone for ISpGrammarBuilder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpGrammarBuilder {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8137828f_591a_4a42_be58_49ea7ebaac68);
@@ -849,6 +695,7 @@ pub struct ISpGrammarBuilder_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpGrammarBuilder2(::windows_core::IUnknown);
 impl ISpGrammarBuilder2 {
     pub unsafe fn AddTextSubset<P0, P1, P2>(&self, hfromstate: P0, htostate: P1, psz: P2, ematchmode: SPMATCHINGMODE) -> ::windows_core::Result<()>
@@ -864,24 +711,8 @@ impl ISpGrammarBuilder2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpGrammarBuilder2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpGrammarBuilder2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpGrammarBuilder2 {}
-impl ::core::fmt::Debug for ISpGrammarBuilder2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpGrammarBuilder2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpGrammarBuilder2 {
     type Vtable = ISpGrammarBuilder2_Vtbl;
-}
-impl ::core::clone::Clone for ISpGrammarBuilder2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpGrammarBuilder2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8ab10026_20cc_4b20_8c22_a49c9ba78f60);
@@ -895,6 +726,7 @@ pub struct ISpGrammarBuilder2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpLexicon(::windows_core::IUnknown);
 impl ISpLexicon {
     pub unsafe fn GetPronunciations<P0>(&self, pszword: P0, langid: u16, dwflags: u32, pwordpronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> ::windows_core::Result<()>
@@ -926,24 +758,8 @@ impl ISpLexicon {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpLexicon, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpLexicon {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpLexicon {}
-impl ::core::fmt::Debug for ISpLexicon {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpLexicon").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpLexicon {
     type Vtable = ISpLexicon_Vtbl;
-}
-impl ::core::clone::Clone for ISpLexicon {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpLexicon {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda41a7c2_5383_4db2_916b_6c1719e3db58);
@@ -962,6 +778,7 @@ pub struct ISpLexicon_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpMMSysAudio(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpMMSysAudio {
@@ -1088,28 +905,8 @@ impl ISpMMSysAudio {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpMMSysAudio, ::windows_core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream, ISpStreamFormat, ISpAudio);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpMMSysAudio {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpMMSysAudio {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpMMSysAudio {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpMMSysAudio").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpMMSysAudio {
     type Vtable = ISpMMSysAudio_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpMMSysAudio {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpMMSysAudio {
@@ -1128,6 +925,7 @@ pub struct ISpMMSysAudio_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpNotifyCallback(::std::ptr::NonNull<::std::ffi::c_void>);
 impl ISpNotifyCallback {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1140,24 +938,8 @@ impl ISpNotifyCallback {
         (::windows_core::Interface::vtable(self).NotifyCallback)(::windows_core::Interface::as_raw(self), wparam.into_param().abi(), lparam.into_param().abi()).ok()
     }
 }
-impl ::core::cmp::PartialEq for ISpNotifyCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpNotifyCallback {}
-impl ::core::fmt::Debug for ISpNotifyCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpNotifyCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpNotifyCallback {
     type Vtable = ISpNotifyCallback_Vtbl;
-}
-impl ::core::clone::Clone for ISpNotifyCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1169,6 +951,7 @@ pub struct ISpNotifyCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpNotifySink(::windows_core::IUnknown);
 impl ISpNotifySink {
     pub unsafe fn Notify(&self) -> ::windows_core::Result<()> {
@@ -1176,24 +959,8 @@ impl ISpNotifySink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpNotifySink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpNotifySink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpNotifySink {}
-impl ::core::fmt::Debug for ISpNotifySink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpNotifySink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpNotifySink {
     type Vtable = ISpNotifySink_Vtbl;
-}
-impl ::core::clone::Clone for ISpNotifySink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpNotifySink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x259684dc_37c3_11d2_9603_00c04f8ee628);
@@ -1206,6 +973,7 @@ pub struct ISpNotifySink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpNotifySource(::windows_core::IUnknown);
 impl ISpNotifySource {
     pub unsafe fn SetNotifySink<P0>(&self, pnotifysink: P0) -> ::windows_core::Result<()>
@@ -1256,24 +1024,8 @@ impl ISpNotifySource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpNotifySource, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpNotifySource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpNotifySource {}
-impl ::core::fmt::Debug for ISpNotifySource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpNotifySource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpNotifySource {
     type Vtable = ISpNotifySource_Vtbl;
-}
-impl ::core::clone::Clone for ISpNotifySource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpNotifySource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5eff4aef_8487_11d2_961c_00c04f8ee628);
@@ -1304,6 +1056,7 @@ pub struct ISpNotifySource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpNotifyTranslator(::windows_core::IUnknown);
 impl ISpNotifyTranslator {
     pub unsafe fn Notify(&self) -> ::windows_core::Result<()> {
@@ -1357,24 +1110,8 @@ impl ISpNotifyTranslator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpNotifyTranslator, ::windows_core::IUnknown, ISpNotifySink);
-impl ::core::cmp::PartialEq for ISpNotifyTranslator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpNotifyTranslator {}
-impl ::core::fmt::Debug for ISpNotifyTranslator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpNotifyTranslator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpNotifyTranslator {
     type Vtable = ISpNotifyTranslator_Vtbl;
-}
-impl ::core::clone::Clone for ISpNotifyTranslator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpNotifyTranslator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaca16614_5d3d_11d2_960e_00c04f8ee628);
@@ -1407,6 +1144,7 @@ pub struct ISpNotifyTranslator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpObjectToken(::windows_core::IUnknown);
 impl ISpObjectToken {
     pub unsafe fn SetData<P0>(&self, pszvaluename: P0, cbdata: u32, pdata: *const u8) -> ::windows_core::Result<()>
@@ -1555,24 +1293,8 @@ impl ISpObjectToken {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpObjectToken, ::windows_core::IUnknown, ISpDataKey);
-impl ::core::cmp::PartialEq for ISpObjectToken {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpObjectToken {}
-impl ::core::fmt::Debug for ISpObjectToken {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpObjectToken").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpObjectToken {
     type Vtable = ISpObjectToken_Vtbl;
-}
-impl ::core::clone::Clone for ISpObjectToken {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpObjectToken {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x14056589_e16c_11d2_bb90_00c04f8ee6c0);
@@ -1609,6 +1331,7 @@ pub struct ISpObjectToken_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpObjectTokenCategory(::windows_core::IUnknown);
 impl ISpObjectTokenCategory {
     pub unsafe fn SetData<P0>(&self, pszvaluename: P0, cbdata: u32, pdata: *const u8) -> ::windows_core::Result<()>
@@ -1720,24 +1443,8 @@ impl ISpObjectTokenCategory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpObjectTokenCategory, ::windows_core::IUnknown, ISpDataKey);
-impl ::core::cmp::PartialEq for ISpObjectTokenCategory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpObjectTokenCategory {}
-impl ::core::fmt::Debug for ISpObjectTokenCategory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpObjectTokenCategory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpObjectTokenCategory {
     type Vtable = ISpObjectTokenCategory_Vtbl;
-}
-impl ::core::clone::Clone for ISpObjectTokenCategory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpObjectTokenCategory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2d3d3845_39af_4850_bbf9_40b49780011d);
@@ -1758,6 +1465,7 @@ pub struct ISpObjectTokenCategory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpObjectTokenInit(::windows_core::IUnknown);
 impl ISpObjectTokenInit {
     pub unsafe fn SetData<P0>(&self, pszvaluename: P0, cbdata: u32, pdata: *const u8) -> ::windows_core::Result<()>
@@ -1914,24 +1622,8 @@ impl ISpObjectTokenInit {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpObjectTokenInit, ::windows_core::IUnknown, ISpDataKey, ISpObjectToken);
-impl ::core::cmp::PartialEq for ISpObjectTokenInit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpObjectTokenInit {}
-impl ::core::fmt::Debug for ISpObjectTokenInit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpObjectTokenInit").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpObjectTokenInit {
     type Vtable = ISpObjectTokenInit_Vtbl;
-}
-impl ::core::clone::Clone for ISpObjectTokenInit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpObjectTokenInit {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb8aab0cf_346f_49d8_9499_c8b03f161d51);
@@ -1944,6 +1636,7 @@ pub struct ISpObjectTokenInit_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpObjectWithToken(::windows_core::IUnknown);
 impl ISpObjectWithToken {
     pub unsafe fn SetObjectToken<P0>(&self, ptoken: P0) -> ::windows_core::Result<()>
@@ -1958,24 +1651,8 @@ impl ISpObjectWithToken {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpObjectWithToken, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpObjectWithToken {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpObjectWithToken {}
-impl ::core::fmt::Debug for ISpObjectWithToken {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpObjectWithToken").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpObjectWithToken {
     type Vtable = ISpObjectWithToken_Vtbl;
-}
-impl ::core::clone::Clone for ISpObjectWithToken {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpObjectWithToken {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b559f40_e952_11d2_bb91_00c04f8ee6c0);
@@ -1989,6 +1666,7 @@ pub struct ISpObjectWithToken_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpPhoneConverter(::windows_core::IUnknown);
 impl ISpPhoneConverter {
     pub unsafe fn SetObjectToken<P0>(&self, ptoken: P0) -> ::windows_core::Result<()>
@@ -2013,24 +1691,8 @@ impl ISpPhoneConverter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpPhoneConverter, ::windows_core::IUnknown, ISpObjectWithToken);
-impl ::core::cmp::PartialEq for ISpPhoneConverter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpPhoneConverter {}
-impl ::core::fmt::Debug for ISpPhoneConverter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpPhoneConverter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpPhoneConverter {
     type Vtable = ISpPhoneConverter_Vtbl;
-}
-impl ::core::clone::Clone for ISpPhoneConverter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpPhoneConverter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8445c581_0cac_4a38_abfe_9b2ce2826455);
@@ -2044,6 +1706,7 @@ pub struct ISpPhoneConverter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpPhoneticAlphabetConverter(::windows_core::IUnknown);
 impl ISpPhoneticAlphabetConverter {
     pub unsafe fn GetLangId(&self) -> ::windows_core::Result<u16> {
@@ -2070,24 +1733,8 @@ impl ISpPhoneticAlphabetConverter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpPhoneticAlphabetConverter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpPhoneticAlphabetConverter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpPhoneticAlphabetConverter {}
-impl ::core::fmt::Debug for ISpPhoneticAlphabetConverter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpPhoneticAlphabetConverter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpPhoneticAlphabetConverter {
     type Vtable = ISpPhoneticAlphabetConverter_Vtbl;
-}
-impl ::core::clone::Clone for ISpPhoneticAlphabetConverter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpPhoneticAlphabetConverter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x133adcd4_19b4_4020_9fdc_842e78253b17);
@@ -2107,6 +1754,7 @@ pub struct ISpPhoneticAlphabetConverter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpPhoneticAlphabetSelection(::windows_core::IUnknown);
 impl ISpPhoneticAlphabetSelection {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2125,24 +1773,8 @@ impl ISpPhoneticAlphabetSelection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpPhoneticAlphabetSelection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpPhoneticAlphabetSelection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpPhoneticAlphabetSelection {}
-impl ::core::fmt::Debug for ISpPhoneticAlphabetSelection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpPhoneticAlphabetSelection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpPhoneticAlphabetSelection {
     type Vtable = ISpPhoneticAlphabetSelection_Vtbl;
-}
-impl ::core::clone::Clone for ISpPhoneticAlphabetSelection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpPhoneticAlphabetSelection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2745efd_42ce_48ca_81f1_a96e02538a90);
@@ -2162,6 +1794,7 @@ pub struct ISpPhoneticAlphabetSelection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpPhrase(::windows_core::IUnknown);
 impl ISpPhrase {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -2187,24 +1820,8 @@ impl ISpPhrase {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpPhrase, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpPhrase {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpPhrase {}
-impl ::core::fmt::Debug for ISpPhrase {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpPhrase").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpPhrase {
     type Vtable = ISpPhrase_Vtbl;
-}
-impl ::core::clone::Clone for ISpPhrase {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpPhrase {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1a5c0354_b621_4b5a_8791_d306ed379e53);
@@ -2226,6 +1843,7 @@ pub struct ISpPhrase_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpPhrase2(::windows_core::IUnknown);
 impl ISpPhrase2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -2263,24 +1881,8 @@ impl ISpPhrase2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpPhrase2, ::windows_core::IUnknown, ISpPhrase);
-impl ::core::cmp::PartialEq for ISpPhrase2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpPhrase2 {}
-impl ::core::fmt::Debug for ISpPhrase2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpPhrase2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpPhrase2 {
     type Vtable = ISpPhrase2_Vtbl;
-}
-impl ::core::clone::Clone for ISpPhrase2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpPhrase2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf264da52_e457_4696_b856_a737b717af79);
@@ -2298,6 +1900,7 @@ pub struct ISpPhrase2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpPhraseAlt(::windows_core::IUnknown);
 impl ISpPhraseAlt {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -2329,24 +1932,8 @@ impl ISpPhraseAlt {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpPhraseAlt, ::windows_core::IUnknown, ISpPhrase);
-impl ::core::cmp::PartialEq for ISpPhraseAlt {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpPhraseAlt {}
-impl ::core::fmt::Debug for ISpPhraseAlt {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpPhraseAlt").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpPhraseAlt {
     type Vtable = ISpPhraseAlt_Vtbl;
-}
-impl ::core::clone::Clone for ISpPhraseAlt {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpPhraseAlt {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8fcebc98_4e49_4067_9c6c_d86a0e092e3d);
@@ -2360,6 +1947,7 @@ pub struct ISpPhraseAlt_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpProperties(::windows_core::IUnknown);
 impl ISpProperties {
     pub unsafe fn SetPropertyNum<P0>(&self, pname: P0, lvalue: i32) -> ::windows_core::Result<()>
@@ -2390,24 +1978,8 @@ impl ISpProperties {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpProperties, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpProperties {}
-impl ::core::fmt::Debug for ISpProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpProperties").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpProperties {
     type Vtable = ISpProperties_Vtbl;
-}
-impl ::core::clone::Clone for ISpProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b4fb971_b115_4de1_ad97_e482e3bf6ee4);
@@ -2423,6 +1995,7 @@ pub struct ISpProperties_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpRecoContext(::windows_core::IUnknown);
 impl ISpRecoContext {
     pub unsafe fn SetNotifySink<P0>(&self, pnotifysink: P0) -> ::windows_core::Result<()>
@@ -2560,24 +2133,8 @@ impl ISpRecoContext {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpRecoContext, ::windows_core::IUnknown, ISpNotifySource, ISpEventSource);
-impl ::core::cmp::PartialEq for ISpRecoContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpRecoContext {}
-impl ::core::fmt::Debug for ISpRecoContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpRecoContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpRecoContext {
     type Vtable = ISpRecoContext_Vtbl;
-}
-impl ::core::clone::Clone for ISpRecoContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpRecoContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf740a62f_7c15_489e_8234_940a33d9272d);
@@ -2619,6 +2176,7 @@ pub struct ISpRecoContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpRecoContext2(::windows_core::IUnknown);
 impl ISpRecoContext2 {
     pub unsafe fn SetGrammarOptions(&self, egrammaroptions: u32) -> ::windows_core::Result<()> {
@@ -2636,24 +2194,8 @@ impl ISpRecoContext2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpRecoContext2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpRecoContext2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpRecoContext2 {}
-impl ::core::fmt::Debug for ISpRecoContext2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpRecoContext2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpRecoContext2 {
     type Vtable = ISpRecoContext2_Vtbl;
-}
-impl ::core::clone::Clone for ISpRecoContext2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpRecoContext2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbead311c_52ff_437f_9464_6b21054ca73d);
@@ -2668,6 +2210,7 @@ pub struct ISpRecoContext2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpRecoGrammar(::windows_core::IUnknown);
 impl ISpRecoGrammar {
     pub unsafe fn ResetGrammar(&self, newlanguage: u16) -> ::windows_core::Result<()> {
@@ -2813,24 +2356,8 @@ impl ISpRecoGrammar {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpRecoGrammar, ::windows_core::IUnknown, ISpGrammarBuilder);
-impl ::core::cmp::PartialEq for ISpRecoGrammar {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpRecoGrammar {}
-impl ::core::fmt::Debug for ISpRecoGrammar {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpRecoGrammar").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpRecoGrammar {
     type Vtable = ISpRecoGrammar_Vtbl;
-}
-impl ::core::clone::Clone for ISpRecoGrammar {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpRecoGrammar {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2177db29_7f45_47d0_8554_067e91c80502);
@@ -2866,6 +2393,7 @@ pub struct ISpRecoGrammar_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpRecoGrammar2(::windows_core::IUnknown);
 impl ISpRecoGrammar2 {
     pub unsafe fn GetRules(&self, ppcomemrules: *mut *mut SPRULE, punumrules: *mut u32) -> ::windows_core::Result<()> {
@@ -2919,24 +2447,8 @@ impl ISpRecoGrammar2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpRecoGrammar2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpRecoGrammar2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpRecoGrammar2 {}
-impl ::core::fmt::Debug for ISpRecoGrammar2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpRecoGrammar2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpRecoGrammar2 {
     type Vtable = ISpRecoGrammar2_Vtbl;
-}
-impl ::core::clone::Clone for ISpRecoGrammar2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpRecoGrammar2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4b37bc9e_9ed6_44a3_93d3_18f022b79ec3);
@@ -2962,6 +2474,7 @@ pub struct ISpRecoGrammar2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpRecoResult(::windows_core::IUnknown);
 impl ISpRecoResult {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -3016,24 +2529,8 @@ impl ISpRecoResult {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpRecoResult, ::windows_core::IUnknown, ISpPhrase);
-impl ::core::cmp::PartialEq for ISpRecoResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpRecoResult {}
-impl ::core::fmt::Debug for ISpRecoResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpRecoResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpRecoResult {
     type Vtable = ISpRecoResult_Vtbl;
-}
-impl ::core::clone::Clone for ISpRecoResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpRecoResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20b053be_e235_43cd_9a2a_8d17a48b7842);
@@ -3061,6 +2558,7 @@ pub struct ISpRecoResult_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpRecoResult2(::windows_core::IUnknown);
 impl ISpRecoResult2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -3137,24 +2635,8 @@ impl ISpRecoResult2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpRecoResult2, ::windows_core::IUnknown, ISpPhrase, ISpRecoResult);
-impl ::core::cmp::PartialEq for ISpRecoResult2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpRecoResult2 {}
-impl ::core::fmt::Debug for ISpRecoResult2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpRecoResult2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpRecoResult2 {
     type Vtable = ISpRecoResult2_Vtbl;
-}
-impl ::core::clone::Clone for ISpRecoResult2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpRecoResult2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27cac6c4_88f2_41f2_8817_0c95e59f1e6e);
@@ -3172,6 +2654,7 @@ pub struct ISpRecoResult2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpRecognizer(::windows_core::IUnknown);
 impl ISpRecognizer {
     pub unsafe fn SetPropertyNum<P0>(&self, pname: P0, lvalue: i32) -> ::windows_core::Result<()>
@@ -3286,24 +2769,8 @@ impl ISpRecognizer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpRecognizer, ::windows_core::IUnknown, ISpProperties);
-impl ::core::cmp::PartialEq for ISpRecognizer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpRecognizer {}
-impl ::core::fmt::Debug for ISpRecognizer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpRecognizer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpRecognizer {
     type Vtable = ISpRecognizer_Vtbl;
-}
-impl ::core::clone::Clone for ISpRecognizer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpRecognizer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2b5f241_daa0_4507_9e16_5a1eaa2b7a5c);
@@ -3346,6 +2813,7 @@ pub struct ISpRecognizer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpRecognizer2(::windows_core::IUnknown);
 impl ISpRecognizer2 {
     pub unsafe fn EmulateRecognitionEx<P0>(&self, pphrase: P0, dwcompareflags: u32) -> ::windows_core::Result<()>
@@ -3368,24 +2836,8 @@ impl ISpRecognizer2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpRecognizer2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpRecognizer2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpRecognizer2 {}
-impl ::core::fmt::Debug for ISpRecognizer2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpRecognizer2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpRecognizer2 {
     type Vtable = ISpRecognizer2_Vtbl;
-}
-impl ::core::clone::Clone for ISpRecognizer2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpRecognizer2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8fc6d974_c81e_4098_93c5_0147f61ed4d3);
@@ -3403,6 +2855,7 @@ pub struct ISpRecognizer2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpRegDataKey(::windows_core::IUnknown);
 impl ISpRegDataKey {
     pub unsafe fn SetData<P0>(&self, pszvaluename: P0, cbdata: u32, pdata: *const u8) -> ::windows_core::Result<()>
@@ -3488,24 +2941,8 @@ impl ISpRegDataKey {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpRegDataKey, ::windows_core::IUnknown, ISpDataKey);
-impl ::core::cmp::PartialEq for ISpRegDataKey {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpRegDataKey {}
-impl ::core::fmt::Debug for ISpRegDataKey {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpRegDataKey").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpRegDataKey {
     type Vtable = ISpRegDataKey_Vtbl;
-}
-impl ::core::clone::Clone for ISpRegDataKey {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpRegDataKey {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x92a66e2b_c830_4149_83df_6fc2ba1e7a5b);
@@ -3522,6 +2959,7 @@ pub struct ISpRegDataKey_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpResourceManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpResourceManager {
@@ -3548,28 +2986,8 @@ impl ISpResourceManager {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpResourceManager, ::windows_core::IUnknown, super::super::System::Com::IServiceProvider);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpResourceManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpResourceManager {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpResourceManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpResourceManager").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpResourceManager {
     type Vtable = ISpResourceManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpResourceManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpResourceManager {
@@ -3588,6 +3006,7 @@ pub struct ISpResourceManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpSerializeState(::windows_core::IUnknown);
 impl ISpSerializeState {
     pub unsafe fn GetSerializedState(&self, ppbdata: *mut *mut u8, pulsize: *mut u32, dwreserved: u32) -> ::windows_core::Result<()> {
@@ -3598,24 +3017,8 @@ impl ISpSerializeState {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpSerializeState, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpSerializeState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpSerializeState {}
-impl ::core::fmt::Debug for ISpSerializeState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpSerializeState").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpSerializeState {
     type Vtable = ISpSerializeState_Vtbl;
-}
-impl ::core::clone::Clone for ISpSerializeState {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpSerializeState {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x21b501a0_0ec7_46c9_92c3_a2bc784c54b9);
@@ -3629,6 +3032,7 @@ pub struct ISpSerializeState_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpShortcut(::windows_core::IUnknown);
 impl ISpShortcut {
     pub unsafe fn AddShortcut<P0, P1>(&self, pszdisplay: P0, langid: u16, pszspoken: P1, shtype: SPSHORTCUTTYPE) -> ::windows_core::Result<()>
@@ -3666,24 +3070,8 @@ impl ISpShortcut {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpShortcut, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpShortcut {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpShortcut {}
-impl ::core::fmt::Debug for ISpShortcut {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpShortcut").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpShortcut {
     type Vtable = ISpShortcut_Vtbl;
-}
-impl ::core::clone::Clone for ISpShortcut {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpShortcut {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3df681e2_ea56_11d9_8bde_f66bad1e3f3a);
@@ -3704,6 +3092,7 @@ pub struct ISpShortcut_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpStream(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpStream {
@@ -3801,28 +3190,8 @@ impl ISpStream {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpStream, ::windows_core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream, ISpStreamFormat);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpStream {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpStream").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpStream {
     type Vtable = ISpStream_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpStream {
@@ -3850,6 +3219,7 @@ pub struct ISpStream_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpStreamFormat(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpStreamFormat {
@@ -3922,28 +3292,8 @@ impl ISpStreamFormat {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpStreamFormat, ::windows_core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpStreamFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpStreamFormat {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpStreamFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpStreamFormat").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpStreamFormat {
     type Vtable = ISpStreamFormat_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpStreamFormat {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpStreamFormat {
@@ -3962,6 +3312,7 @@ pub struct ISpStreamFormat_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpStreamFormatConverter(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpStreamFormatConverter {
@@ -4066,28 +3417,8 @@ impl ISpStreamFormatConverter {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpStreamFormatConverter, ::windows_core::IUnknown, super::super::System::Com::ISequentialStream, super::super::System::Com::IStream, ISpStreamFormat);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpStreamFormatConverter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpStreamFormatConverter {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpStreamFormatConverter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpStreamFormatConverter").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpStreamFormatConverter {
     type Vtable = ISpStreamFormatConverter_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpStreamFormatConverter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpStreamFormatConverter {
@@ -4116,6 +3447,7 @@ pub struct ISpStreamFormatConverter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpTranscript(::windows_core::IUnknown);
 impl ISpTranscript {
     pub unsafe fn GetTranscript(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -4130,24 +3462,8 @@ impl ISpTranscript {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpTranscript, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpTranscript {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpTranscript {}
-impl ::core::fmt::Debug for ISpTranscript {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpTranscript").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpTranscript {
     type Vtable = ISpTranscript_Vtbl;
-}
-impl ::core::clone::Clone for ISpTranscript {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpTranscript {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x10f63bce_201a_11d3_ac70_00c04f8ee6c0);
@@ -4161,6 +3477,7 @@ pub struct ISpTranscript_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpVoice(::windows_core::IUnknown);
 impl ISpVoice {
     pub unsafe fn SetNotifySink<P0>(&self, pnotifysink: P0) -> ::windows_core::Result<()>
@@ -4336,24 +3653,8 @@ impl ISpVoice {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpVoice, ::windows_core::IUnknown, ISpNotifySource, ISpEventSource);
-impl ::core::cmp::PartialEq for ISpVoice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpVoice {}
-impl ::core::fmt::Debug for ISpVoice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpVoice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpVoice {
     type Vtable = ISpVoice_Vtbl;
-}
-impl ::core::clone::Clone for ISpVoice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpVoice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c44df74_72b9_4992_a1ec_ef996e0422d4);
@@ -4408,6 +3709,7 @@ pub struct ISpVoice_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Speech\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpXMLRecoResult(::windows_core::IUnknown);
 impl ISpXMLRecoResult {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -4468,24 +3770,8 @@ impl ISpXMLRecoResult {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpXMLRecoResult, ::windows_core::IUnknown, ISpPhrase, ISpRecoResult);
-impl ::core::cmp::PartialEq for ISpXMLRecoResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpXMLRecoResult {}
-impl ::core::fmt::Debug for ISpXMLRecoResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpXMLRecoResult").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpXMLRecoResult {
     type Vtable = ISpXMLRecoResult_Vtbl;
-}
-impl ::core::clone::Clone for ISpXMLRecoResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpXMLRecoResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae39362b_45a8_4074_9b9e_ccf49aa2d0b6);
@@ -4500,6 +3786,7 @@ pub struct ISpXMLRecoResult_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechAudio(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechAudio {
@@ -4577,28 +3864,8 @@ impl ISpeechAudio {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechAudio, ::windows_core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechAudio {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechAudio {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechAudio {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechAudio").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechAudio {
     type Vtable = ISpeechAudio_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechAudio {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechAudio {
@@ -4631,6 +3898,7 @@ pub struct ISpeechAudio_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechAudioBufferInfo(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechAudioBufferInfo {
@@ -4659,28 +3927,8 @@ impl ISpeechAudioBufferInfo {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechAudioBufferInfo, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechAudioBufferInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechAudioBufferInfo {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechAudioBufferInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechAudioBufferInfo").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechAudioBufferInfo {
     type Vtable = ISpeechAudioBufferInfo_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechAudioBufferInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechAudioBufferInfo {
@@ -4701,6 +3949,7 @@ pub struct ISpeechAudioBufferInfo_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechAudioFormat(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechAudioFormat {
@@ -4739,28 +3988,8 @@ impl ISpeechAudioFormat {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechAudioFormat, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechAudioFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechAudioFormat {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechAudioFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechAudioFormat").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechAudioFormat {
     type Vtable = ISpeechAudioFormat_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechAudioFormat {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechAudioFormat {
@@ -4787,6 +4016,7 @@ pub struct ISpeechAudioFormat_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechAudioStatus(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechAudioStatus {
@@ -4818,28 +4048,8 @@ impl ISpeechAudioStatus {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechAudioStatus, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechAudioStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechAudioStatus {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechAudioStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechAudioStatus").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechAudioStatus {
     type Vtable = ISpeechAudioStatus_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechAudioStatus {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechAudioStatus {
@@ -4865,6 +4075,7 @@ pub struct ISpeechAudioStatus_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechBaseStream(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechBaseStream {
@@ -4903,28 +4114,8 @@ impl ISpeechBaseStream {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechBaseStream, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechBaseStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechBaseStream {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechBaseStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechBaseStream").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechBaseStream {
     type Vtable = ISpeechBaseStream_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechBaseStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechBaseStream {
@@ -4959,6 +4150,7 @@ pub struct ISpeechBaseStream_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechCustomStream(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechCustomStream {
@@ -5007,28 +4199,8 @@ impl ISpeechCustomStream {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechCustomStream, ::windows_core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechCustomStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechCustomStream {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechCustomStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechCustomStream").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechCustomStream {
     type Vtable = ISpeechCustomStream_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechCustomStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechCustomStream {
@@ -5045,6 +4217,7 @@ pub struct ISpeechCustomStream_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechDataKey(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechDataKey {
@@ -5134,28 +4307,8 @@ impl ISpeechDataKey {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechDataKey, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechDataKey {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechDataKey {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechDataKey {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechDataKey").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechDataKey {
     type Vtable = ISpeechDataKey_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechDataKey {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechDataKey {
@@ -5194,6 +4347,7 @@ pub struct ISpeechDataKey_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechFileStream(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechFileStream {
@@ -5244,28 +4398,8 @@ impl ISpeechFileStream {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechFileStream, ::windows_core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechFileStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechFileStream {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechFileStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechFileStream").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechFileStream {
     type Vtable = ISpeechFileStream_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechFileStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechFileStream {
@@ -5285,6 +4419,7 @@ pub struct ISpeechFileStream_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechGrammarRule(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechGrammarRule {
@@ -5326,28 +4461,8 @@ impl ISpeechGrammarRule {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechGrammarRule, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechGrammarRule {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechGrammarRule {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechGrammarRule {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechGrammarRule").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechGrammarRule {
     type Vtable = ISpeechGrammarRule_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechGrammarRule {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechGrammarRule {
@@ -5375,6 +4490,7 @@ pub struct ISpeechGrammarRule_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechGrammarRuleState(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechGrammarRuleState {
@@ -5424,28 +4540,8 @@ impl ISpeechGrammarRuleState {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechGrammarRuleState, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechGrammarRuleState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechGrammarRuleState {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechGrammarRuleState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechGrammarRuleState").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechGrammarRuleState {
     type Vtable = ISpeechGrammarRuleState_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechGrammarRuleState {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechGrammarRuleState {
@@ -5480,6 +4576,7 @@ pub struct ISpeechGrammarRuleState_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechGrammarRuleStateTransition(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechGrammarRuleStateTransition {
@@ -5527,28 +4624,8 @@ impl ISpeechGrammarRuleStateTransition {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechGrammarRuleStateTransition, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechGrammarRuleStateTransition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechGrammarRuleStateTransition {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechGrammarRuleStateTransition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechGrammarRuleStateTransition").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechGrammarRuleStateTransition {
     type Vtable = ISpeechGrammarRuleStateTransition_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechGrammarRuleStateTransition {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechGrammarRuleStateTransition {
@@ -5583,6 +4660,7 @@ pub struct ISpeechGrammarRuleStateTransition_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechGrammarRuleStateTransitions(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechGrammarRuleStateTransitions {
@@ -5604,28 +4682,8 @@ impl ISpeechGrammarRuleStateTransitions {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechGrammarRuleStateTransitions, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechGrammarRuleStateTransitions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechGrammarRuleStateTransitions {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechGrammarRuleStateTransitions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechGrammarRuleStateTransitions").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechGrammarRuleStateTransitions {
     type Vtable = ISpeechGrammarRuleStateTransitions_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechGrammarRuleStateTransitions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechGrammarRuleStateTransitions {
@@ -5646,6 +4704,7 @@ pub struct ISpeechGrammarRuleStateTransitions_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechGrammarRules(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechGrammarRules {
@@ -5696,28 +4755,8 @@ impl ISpeechGrammarRules {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechGrammarRules, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechGrammarRules {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechGrammarRules {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechGrammarRules {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechGrammarRules").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechGrammarRules {
     type Vtable = ISpeechGrammarRules_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechGrammarRules {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechGrammarRules {
@@ -5755,6 +4794,7 @@ pub struct ISpeechGrammarRules_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechLexicon(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechLexicon {
@@ -5815,28 +4855,8 @@ impl ISpeechLexicon {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechLexicon, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechLexicon {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechLexicon {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechLexicon {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechLexicon").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechLexicon {
     type Vtable = ISpeechLexicon_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechLexicon {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechLexicon {
@@ -5874,6 +4894,7 @@ pub struct ISpeechLexicon_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechLexiconPronunciation(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechLexiconPronunciation {
@@ -5903,28 +4924,8 @@ impl ISpeechLexiconPronunciation {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechLexiconPronunciation, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechLexiconPronunciation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechLexiconPronunciation {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechLexiconPronunciation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechLexiconPronunciation").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechLexiconPronunciation {
     type Vtable = ISpeechLexiconPronunciation_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechLexiconPronunciation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechLexiconPronunciation {
@@ -5947,6 +4948,7 @@ pub struct ISpeechLexiconPronunciation_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechLexiconPronunciations(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechLexiconPronunciations {
@@ -5968,28 +4970,8 @@ impl ISpeechLexiconPronunciations {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechLexiconPronunciations, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechLexiconPronunciations {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechLexiconPronunciations {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechLexiconPronunciations {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechLexiconPronunciations").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechLexiconPronunciations {
     type Vtable = ISpeechLexiconPronunciations_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechLexiconPronunciations {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechLexiconPronunciations {
@@ -6010,6 +4992,7 @@ pub struct ISpeechLexiconPronunciations_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechLexiconWord(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechLexiconWord {
@@ -6035,28 +5018,8 @@ impl ISpeechLexiconWord {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechLexiconWord, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechLexiconWord {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechLexiconWord {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechLexiconWord {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechLexiconWord").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechLexiconWord {
     type Vtable = ISpeechLexiconWord_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechLexiconWord {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechLexiconWord {
@@ -6078,6 +5041,7 @@ pub struct ISpeechLexiconWord_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechLexiconWords(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechLexiconWords {
@@ -6099,28 +5063,8 @@ impl ISpeechLexiconWords {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechLexiconWords, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechLexiconWords {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechLexiconWords {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechLexiconWords {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechLexiconWords").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechLexiconWords {
     type Vtable = ISpeechLexiconWords_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechLexiconWords {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechLexiconWords {
@@ -6141,6 +5085,7 @@ pub struct ISpeechLexiconWords_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechMMSysAudio(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechMMSysAudio {
@@ -6236,28 +5181,8 @@ impl ISpeechMMSysAudio {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechMMSysAudio, ::windows_core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream, ISpeechAudio);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechMMSysAudio {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechMMSysAudio {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechMMSysAudio {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechMMSysAudio").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechMMSysAudio {
     type Vtable = ISpeechMMSysAudio_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechMMSysAudio {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechMMSysAudio {
@@ -6277,6 +5202,7 @@ pub struct ISpeechMMSysAudio_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechMemoryStream(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechMemoryStream {
@@ -6326,28 +5252,8 @@ impl ISpeechMemoryStream {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechMemoryStream, ::windows_core::IUnknown, super::super::System::Com::IDispatch, ISpeechBaseStream);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechMemoryStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechMemoryStream {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechMemoryStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechMemoryStream").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechMemoryStream {
     type Vtable = ISpeechMemoryStream_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechMemoryStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechMemoryStream {
@@ -6370,6 +5276,7 @@ pub struct ISpeechMemoryStream_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechObjectToken(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechObjectToken {
@@ -6475,28 +5382,8 @@ impl ISpeechObjectToken {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechObjectToken, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechObjectToken {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechObjectToken {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechObjectToken {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechObjectToken").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechObjectToken {
     type Vtable = ISpeechObjectToken_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechObjectToken {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechObjectToken {
@@ -6545,6 +5432,7 @@ pub struct ISpeechObjectToken_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechObjectTokenCategory(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechObjectTokenCategory {
@@ -6591,28 +5479,8 @@ impl ISpeechObjectTokenCategory {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechObjectTokenCategory, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechObjectTokenCategory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechObjectTokenCategory {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechObjectTokenCategory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechObjectTokenCategory").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechObjectTokenCategory {
     type Vtable = ISpeechObjectTokenCategory_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechObjectTokenCategory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechObjectTokenCategory {
@@ -6642,6 +5510,7 @@ pub struct ISpeechObjectTokenCategory_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechObjectTokens(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechObjectTokens {
@@ -6663,28 +5532,8 @@ impl ISpeechObjectTokens {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechObjectTokens, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechObjectTokens {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechObjectTokens {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechObjectTokens {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechObjectTokens").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechObjectTokens {
     type Vtable = ISpeechObjectTokens_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechObjectTokens {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechObjectTokens {
@@ -6705,6 +5554,7 @@ pub struct ISpeechObjectTokens_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechPhoneConverter(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhoneConverter {
@@ -6734,28 +5584,8 @@ impl ISpeechPhoneConverter {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechPhoneConverter, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechPhoneConverter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechPhoneConverter {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechPhoneConverter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechPhoneConverter").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechPhoneConverter {
     type Vtable = ISpeechPhoneConverter_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechPhoneConverter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechPhoneConverter {
@@ -6780,6 +5610,7 @@ pub struct ISpeechPhoneConverter_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechPhraseAlternate(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseAlternate {
@@ -6810,28 +5641,8 @@ impl ISpeechPhraseAlternate {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechPhraseAlternate, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechPhraseAlternate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechPhraseAlternate {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechPhraseAlternate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechPhraseAlternate").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechPhraseAlternate {
     type Vtable = ISpeechPhraseAlternate_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechPhraseAlternate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechPhraseAlternate {
@@ -6857,6 +5668,7 @@ pub struct ISpeechPhraseAlternate_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechPhraseAlternates(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseAlternates {
@@ -6878,28 +5690,8 @@ impl ISpeechPhraseAlternates {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechPhraseAlternates, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechPhraseAlternates {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechPhraseAlternates {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechPhraseAlternates {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechPhraseAlternates").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechPhraseAlternates {
     type Vtable = ISpeechPhraseAlternates_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechPhraseAlternates {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechPhraseAlternates {
@@ -6920,6 +5712,7 @@ pub struct ISpeechPhraseAlternates_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechPhraseElement(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseElement {
@@ -6981,28 +5774,8 @@ impl ISpeechPhraseElement {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechPhraseElement, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechPhraseElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechPhraseElement {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechPhraseElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechPhraseElement").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechPhraseElement {
     type Vtable = ISpeechPhraseElement_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechPhraseElement {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechPhraseElement {
@@ -7033,6 +5806,7 @@ pub struct ISpeechPhraseElement_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechPhraseElements(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseElements {
@@ -7054,28 +5828,8 @@ impl ISpeechPhraseElements {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechPhraseElements, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechPhraseElements {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechPhraseElements {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechPhraseElements {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechPhraseElements").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechPhraseElements {
     type Vtable = ISpeechPhraseElements_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechPhraseElements {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechPhraseElements {
@@ -7096,6 +5850,7 @@ pub struct ISpeechPhraseElements_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechPhraseInfo(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseInfo {
@@ -7195,28 +5950,8 @@ impl ISpeechPhraseInfo {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechPhraseInfo, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechPhraseInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechPhraseInfo {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechPhraseInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechPhraseInfo").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechPhraseInfo {
     type Vtable = ISpeechPhraseInfo_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechPhraseInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechPhraseInfo {
@@ -7280,6 +6015,7 @@ pub struct ISpeechPhraseInfo_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechPhraseInfoBuilder(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseInfoBuilder {
@@ -7293,28 +6029,8 @@ impl ISpeechPhraseInfoBuilder {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechPhraseInfoBuilder, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechPhraseInfoBuilder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechPhraseInfoBuilder {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechPhraseInfoBuilder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechPhraseInfoBuilder").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechPhraseInfoBuilder {
     type Vtable = ISpeechPhraseInfoBuilder_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechPhraseInfoBuilder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechPhraseInfoBuilder {
@@ -7333,6 +6049,7 @@ pub struct ISpeechPhraseInfoBuilder_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechPhraseProperties(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseProperties {
@@ -7354,28 +6071,8 @@ impl ISpeechPhraseProperties {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechPhraseProperties, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechPhraseProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechPhraseProperties {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechPhraseProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechPhraseProperties").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechPhraseProperties {
     type Vtable = ISpeechPhraseProperties_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechPhraseProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechPhraseProperties {
@@ -7396,6 +6093,7 @@ pub struct ISpeechPhraseProperties_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechPhraseProperty(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseProperty {
@@ -7445,28 +6143,8 @@ impl ISpeechPhraseProperty {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechPhraseProperty, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechPhraseProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechPhraseProperty {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechPhraseProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechPhraseProperty").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechPhraseProperty {
     type Vtable = ISpeechPhraseProperty_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechPhraseProperty {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechPhraseProperty {
@@ -7499,6 +6177,7 @@ pub struct ISpeechPhraseProperty_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechPhraseReplacement(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseReplacement {
@@ -7522,28 +6201,8 @@ impl ISpeechPhraseReplacement {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechPhraseReplacement, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechPhraseReplacement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechPhraseReplacement {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechPhraseReplacement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechPhraseReplacement").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechPhraseReplacement {
     type Vtable = ISpeechPhraseReplacement_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechPhraseReplacement {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechPhraseReplacement {
@@ -7562,6 +6221,7 @@ pub struct ISpeechPhraseReplacement_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechPhraseReplacements(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseReplacements {
@@ -7583,28 +6243,8 @@ impl ISpeechPhraseReplacements {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechPhraseReplacements, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechPhraseReplacements {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechPhraseReplacements {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechPhraseReplacements {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechPhraseReplacements").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechPhraseReplacements {
     type Vtable = ISpeechPhraseReplacements_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechPhraseReplacements {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechPhraseReplacements {
@@ -7625,6 +6265,7 @@ pub struct ISpeechPhraseReplacements_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechPhraseRule(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseRule {
@@ -7668,28 +6309,8 @@ impl ISpeechPhraseRule {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechPhraseRule, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechPhraseRule {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechPhraseRule {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechPhraseRule {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechPhraseRule").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechPhraseRule {
     type Vtable = ISpeechPhraseRule_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechPhraseRule {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechPhraseRule {
@@ -7718,6 +6339,7 @@ pub struct ISpeechPhraseRule_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechPhraseRules(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechPhraseRules {
@@ -7739,28 +6361,8 @@ impl ISpeechPhraseRules {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechPhraseRules, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechPhraseRules {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechPhraseRules {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechPhraseRules {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechPhraseRules").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechPhraseRules {
     type Vtable = ISpeechPhraseRules_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechPhraseRules {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechPhraseRules {
@@ -7781,6 +6383,7 @@ pub struct ISpeechPhraseRules_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechRecoContext(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechRecoContext {
@@ -7908,28 +6511,8 @@ impl ISpeechRecoContext {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechRecoContext, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechRecoContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechRecoContext {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechRecoContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechRecoContext").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechRecoContext {
     type Vtable = ISpeechRecoContext_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechRecoContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechRecoContext {
@@ -7999,6 +6582,7 @@ pub struct ISpeechRecoContext_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechRecoGrammar(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechRecoGrammar {
@@ -8111,28 +6695,8 @@ impl ISpeechRecoGrammar {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechRecoGrammar, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechRecoGrammar {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechRecoGrammar {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechRecoGrammar {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechRecoGrammar").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechRecoGrammar {
     type Vtable = ISpeechRecoGrammar_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechRecoGrammar {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechRecoGrammar {
@@ -8190,6 +6754,7 @@ pub struct ISpeechRecoGrammar_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechRecoResult(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechRecoResult {
@@ -8254,28 +6819,8 @@ impl ISpeechRecoResult {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechRecoResult, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechRecoResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechRecoResult {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechRecoResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechRecoResult").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechRecoResult {
     type Vtable = ISpeechRecoResult_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechRecoResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechRecoResult {
@@ -8324,6 +6869,7 @@ pub struct ISpeechRecoResult_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechRecoResult2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechRecoResult2 {
@@ -8397,28 +6943,8 @@ impl ISpeechRecoResult2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechRecoResult2, ::windows_core::IUnknown, super::super::System::Com::IDispatch, ISpeechRecoResult);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechRecoResult2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechRecoResult2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechRecoResult2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechRecoResult2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechRecoResult2 {
     type Vtable = ISpeechRecoResult2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechRecoResult2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechRecoResult2 {
@@ -8437,6 +6963,7 @@ pub struct ISpeechRecoResult2_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechRecoResultDispatch(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechRecoResultDispatch {
@@ -8519,28 +7046,8 @@ impl ISpeechRecoResultDispatch {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechRecoResultDispatch, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechRecoResultDispatch {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechRecoResultDispatch {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechRecoResultDispatch {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechRecoResultDispatch").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechRecoResultDispatch {
     type Vtable = ISpeechRecoResultDispatch_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechRecoResultDispatch {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechRecoResultDispatch {
@@ -8598,6 +7105,7 @@ pub struct ISpeechRecoResultDispatch_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechRecoResultTimes(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechRecoResultTimes {
@@ -8627,28 +7135,8 @@ impl ISpeechRecoResultTimes {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechRecoResultTimes, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechRecoResultTimes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechRecoResultTimes {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechRecoResultTimes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechRecoResultTimes").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechRecoResultTimes {
     type Vtable = ISpeechRecoResultTimes_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechRecoResultTimes {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechRecoResultTimes {
@@ -8676,6 +7164,7 @@ pub struct ISpeechRecoResultTimes_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechRecognizer(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechRecognizer {
@@ -8872,28 +7361,8 @@ impl ISpeechRecognizer {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechRecognizer, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechRecognizer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechRecognizer {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechRecognizer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechRecognizer").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechRecognizer {
     type Vtable = ISpeechRecognizer_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechRecognizer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechRecognizer {
@@ -9006,6 +7475,7 @@ pub struct ISpeechRecognizer_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechRecognizerStatus(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechRecognizerStatus {
@@ -9043,28 +7513,8 @@ impl ISpeechRecognizerStatus {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechRecognizerStatus, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechRecognizerStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechRecognizerStatus {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechRecognizerStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechRecognizerStatus").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechRecognizerStatus {
     type Vtable = ISpeechRecognizerStatus_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechRecognizerStatus {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechRecognizerStatus {
@@ -9094,6 +7544,7 @@ pub struct ISpeechRecognizerStatus_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechResourceLoader(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechResourceLoader {
@@ -9122,28 +7573,8 @@ impl ISpeechResourceLoader {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechResourceLoader, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechResourceLoader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechResourceLoader {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechResourceLoader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechResourceLoader").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechResourceLoader {
     type Vtable = ISpeechResourceLoader_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechResourceLoader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechResourceLoader {
@@ -9164,6 +7595,7 @@ pub struct ISpeechResourceLoader_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechTextSelectionInformation(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechTextSelectionInformation {
@@ -9199,28 +7631,8 @@ impl ISpeechTextSelectionInformation {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechTextSelectionInformation, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechTextSelectionInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechTextSelectionInformation {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechTextSelectionInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechTextSelectionInformation").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechTextSelectionInformation {
     type Vtable = ISpeechTextSelectionInformation_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechTextSelectionInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechTextSelectionInformation {
@@ -9243,6 +7655,7 @@ pub struct ISpeechTextSelectionInformation_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechVoice(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechVoice {
@@ -9431,28 +7844,8 @@ impl ISpeechVoice {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechVoice, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechVoice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechVoice {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechVoice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechVoice").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechVoice {
     type Vtable = ISpeechVoice_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechVoice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechVoice {
@@ -9544,6 +7937,7 @@ pub struct ISpeechVoice_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechVoiceStatus(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechVoiceStatus {
@@ -9599,28 +7993,8 @@ impl ISpeechVoiceStatus {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechVoiceStatus, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechVoiceStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechVoiceStatus {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechVoiceStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechVoiceStatus").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechVoiceStatus {
     type Vtable = ISpeechVoiceStatus_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechVoiceStatus {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechVoiceStatus {
@@ -9647,6 +8021,7 @@ pub struct ISpeechVoiceStatus_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechWaveFormatEx(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechWaveFormatEx {
@@ -9707,28 +8082,8 @@ impl ISpeechWaveFormatEx {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechWaveFormatEx, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechWaveFormatEx {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechWaveFormatEx {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechWaveFormatEx {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechWaveFormatEx").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechWaveFormatEx {
     type Vtable = ISpeechWaveFormatEx_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechWaveFormatEx {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechWaveFormatEx {
@@ -9763,6 +8118,7 @@ pub struct ISpeechWaveFormatEx_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpeechXMLRecoResult(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISpeechXMLRecoResult {
@@ -9836,28 +8192,8 @@ impl ISpeechXMLRecoResult {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISpeechXMLRecoResult, ::windows_core::IUnknown, super::super::System::Com::IDispatch, ISpeechRecoResult);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISpeechXMLRecoResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISpeechXMLRecoResult {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISpeechXMLRecoResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpeechXMLRecoResult").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISpeechXMLRecoResult {
     type Vtable = ISpeechXMLRecoResult_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISpeechXMLRecoResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISpeechXMLRecoResult {
@@ -9877,34 +8213,15 @@ pub struct ISpeechXMLRecoResult_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct _ISpeechRecoContextEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _ISpeechRecoContextEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(_ISpeechRecoContextEvents, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _ISpeechRecoContextEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _ISpeechRecoContextEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _ISpeechRecoContextEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_ISpeechRecoContextEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for _ISpeechRecoContextEvents {
     type Vtable = _ISpeechRecoContextEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _ISpeechRecoContextEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for _ISpeechRecoContextEvents {
@@ -9919,34 +8236,15 @@ pub struct _ISpeechRecoContextEvents_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct _ISpeechVoiceEvents(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl _ISpeechVoiceEvents {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(_ISpeechVoiceEvents, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _ISpeechVoiceEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _ISpeechVoiceEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _ISpeechVoiceEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_ISpeechVoiceEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for _ISpeechVoiceEvents {
     type Vtable = _ISpeechVoiceEvents_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _ISpeechVoiceEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for _ISpeechVoiceEvents {

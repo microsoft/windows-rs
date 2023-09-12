@@ -1470,6 +1470,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAVIEditStream(::windows_core::IUnknown);
 impl IAVIEditStream {
     pub unsafe fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: *mut ::core::option::Option<IAVIStream>) -> ::windows_core::Result<()> {
@@ -1495,24 +1496,8 @@ impl IAVIEditStream {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAVIEditStream, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAVIEditStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAVIEditStream {}
-impl ::core::fmt::Debug for IAVIEditStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAVIEditStream").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAVIEditStream {
     type Vtable = IAVIEditStream_Vtbl;
-}
-impl ::core::clone::Clone for IAVIEditStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAVIEditStream {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00020024_0000_0000_c000_000000000046);
@@ -1532,6 +1517,7 @@ pub struct IAVIEditStream_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAVIFile(::windows_core::IUnknown);
 impl IAVIFile {
     pub unsafe fn Info(&self, pfi: *mut AVIFILEINFOW, lsize: i32) -> ::windows_core::Result<()> {
@@ -1559,24 +1545,8 @@ impl IAVIFile {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAVIFile, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAVIFile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAVIFile {}
-impl ::core::fmt::Debug for IAVIFile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAVIFile").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAVIFile {
     type Vtable = IAVIFile_Vtbl;
-}
-impl ::core::clone::Clone for IAVIFile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAVIFile {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00020020_0000_0000_c000_000000000046);
@@ -1599,6 +1569,7 @@ pub struct IAVIFile_Vtbl {
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAVIPersistFile(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAVIPersistFile {
@@ -1651,28 +1622,8 @@ impl IAVIPersistFile {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IAVIPersistFile, ::windows_core::IUnknown, super::super::System::Com::IPersist, super::super::System::Com::IPersistFile);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IAVIPersistFile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IAVIPersistFile {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IAVIPersistFile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAVIPersistFile").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IAVIPersistFile {
     type Vtable = IAVIPersistFile_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IAVIPersistFile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IAVIPersistFile {
@@ -1687,6 +1638,7 @@ pub struct IAVIPersistFile_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAVIStream(::windows_core::IUnknown);
 impl IAVIStream {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1734,24 +1686,8 @@ impl IAVIStream {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAVIStream, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAVIStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAVIStream {}
-impl ::core::fmt::Debug for IAVIStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAVIStream").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAVIStream {
     type Vtable = IAVIStream_Vtbl;
-}
-impl ::core::clone::Clone for IAVIStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAVIStream {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00020021_0000_0000_c000_000000000046);
@@ -1783,6 +1719,7 @@ pub struct IAVIStream_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAVIStreaming(::windows_core::IUnknown);
 impl IAVIStreaming {
     pub unsafe fn Begin(&self, lstart: i32, lend: i32, lrate: i32) -> ::windows_core::Result<()> {
@@ -1793,24 +1730,8 @@ impl IAVIStreaming {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAVIStreaming, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAVIStreaming {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAVIStreaming {}
-impl ::core::fmt::Debug for IAVIStreaming {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAVIStreaming").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAVIStreaming {
     type Vtable = IAVIStreaming_Vtbl;
-}
-impl ::core::clone::Clone for IAVIStreaming {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAVIStreaming {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00020022_0000_0000_c000_000000000046);
@@ -1824,6 +1745,7 @@ pub struct IAVIStreaming_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Multimedia\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGetFrame(::windows_core::IUnknown);
 impl IGetFrame {
     pub unsafe fn GetFrame(&self, lpos: i32) -> *mut ::core::ffi::c_void {
@@ -1842,24 +1764,8 @@ impl IGetFrame {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGetFrame, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGetFrame {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGetFrame {}
-impl ::core::fmt::Debug for IGetFrame {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGetFrame").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGetFrame {
     type Vtable = IGetFrame_Vtbl;
-}
-impl ::core::clone::Clone for IGetFrame {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGetFrame {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00020023_0000_0000_c000_000000000046);

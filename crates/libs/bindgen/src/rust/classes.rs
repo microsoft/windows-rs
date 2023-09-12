@@ -86,6 +86,7 @@ fn gen_class(writer: &Writer, def: TypeDef) -> TokenStream {
             #doc
             #features
             #[repr(transparent)]
+            #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
             pub struct #name(::windows_core::IUnknown);
             #features
             impl #name {
@@ -95,7 +96,6 @@ fn gen_class(writer: &Writer, def: TypeDef) -> TokenStream {
             }
         };
 
-        tokens.combine(&writer.interface_core_traits(def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
         tokens.combine(&writer.interface_winrt_trait(def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
         tokens.combine(&writer.interface_trait(def, &[], &name, &TokenStream::new(), &features, true));
         tokens.combine(&writer.runtime_name_trait(def, &[], &name, &TokenStream::new(), &features));

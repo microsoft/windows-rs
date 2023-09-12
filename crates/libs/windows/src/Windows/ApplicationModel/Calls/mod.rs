@@ -4,14 +4,10 @@ pub mod Background;
 pub mod Provider;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICallAnswerEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICallAnswerEventArgs {
     type Vtable = ICallAnswerEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for ICallAnswerEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICallAnswerEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd789617_2dd7_4c8c_b2bd_95d17a5bb733);
@@ -24,14 +20,10 @@ pub struct ICallAnswerEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICallRejectEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICallRejectEventArgs {
     type Vtable = ICallRejectEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for ICallRejectEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICallRejectEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda47fad7_13d4_4d92_a1c2_b77811ee37ec);
@@ -44,14 +36,10 @@ pub struct ICallRejectEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICallStateChangeEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICallStateChangeEventArgs {
     type Vtable = ICallStateChangeEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for ICallStateChangeEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICallStateChangeEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeab2349e_66f5_47f9_9fb5_459c5198c720);
@@ -64,14 +52,10 @@ pub struct ICallStateChangeEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILockScreenCallEndCallDeferral(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILockScreenCallEndCallDeferral {
     type Vtable = ILockScreenCallEndCallDeferral_Vtbl;
-}
-impl ::core::clone::Clone for ILockScreenCallEndCallDeferral {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILockScreenCallEndCallDeferral {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2dd7ed0d_98ed_4041_9632_50ff812b773f);
@@ -84,14 +68,10 @@ pub struct ILockScreenCallEndCallDeferral_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILockScreenCallEndRequestedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILockScreenCallEndRequestedEventArgs {
     type Vtable = ILockScreenCallEndRequestedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for ILockScreenCallEndRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILockScreenCallEndRequestedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8190a363_6f27_46e9_aeb6_c0ae83e47dc7);
@@ -108,14 +88,10 @@ pub struct ILockScreenCallEndRequestedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILockScreenCallUI(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILockScreenCallUI {
     type Vtable = ILockScreenCallUI_Vtbl;
-}
-impl ::core::clone::Clone for ILockScreenCallUI {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILockScreenCallUI {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc596fd8d_73c9_4a14_b021_ec1c50a3b727);
@@ -146,14 +122,10 @@ pub struct ILockScreenCallUI_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMuteChangeEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMuteChangeEventArgs {
     type Vtable = IMuteChangeEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IMuteChangeEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMuteChangeEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8585e159_0c41_432c_814d_c5f1fdf530be);
@@ -166,14 +138,10 @@ pub struct IMuteChangeEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCall(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneCall {
     type Vtable = IPhoneCall_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneCall {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneCall {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc14ed0f8_c17d_59d2_9628_66e545b6cd21);
@@ -263,14 +231,10 @@ pub struct IPhoneCall_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallBlockingStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneCallBlockingStatics {
     type Vtable = IPhoneCallBlockingStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneCallBlockingStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneCallBlockingStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x19646f84_2b79_26f1_a46f_694be043f313);
@@ -290,14 +254,10 @@ pub struct IPhoneCallBlockingStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallHistoryEntry(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneCallHistoryEntry {
     type Vtable = IPhoneCallHistoryEntry_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneCallHistoryEntry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneCallHistoryEntry {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfab0e129_32a4_4b85_83d1_f90d8c23a857);
@@ -355,14 +315,10 @@ pub struct IPhoneCallHistoryEntry_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallHistoryEntryAddress(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneCallHistoryEntryAddress {
     type Vtable = IPhoneCallHistoryEntryAddress_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneCallHistoryEntryAddress {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneCallHistoryEntryAddress {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30f159da_3955_4042_84e6_66eebf82e67f);
@@ -382,14 +338,10 @@ pub struct IPhoneCallHistoryEntryAddress_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallHistoryEntryAddressFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneCallHistoryEntryAddressFactory {
     type Vtable = IPhoneCallHistoryEntryAddressFactory_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneCallHistoryEntryAddressFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneCallHistoryEntryAddressFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfb0fadba_c7f0_4bb6_9f6b_ba5d73209aca);
@@ -402,14 +354,10 @@ pub struct IPhoneCallHistoryEntryAddressFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallHistoryEntryQueryOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneCallHistoryEntryQueryOptions {
     type Vtable = IPhoneCallHistoryEntryQueryOptions_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneCallHistoryEntryQueryOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneCallHistoryEntryQueryOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c5fe15c_8bed_40ca_b06e_c4ca8eae5c87);
@@ -427,14 +375,10 @@ pub struct IPhoneCallHistoryEntryQueryOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallHistoryEntryReader(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneCallHistoryEntryReader {
     type Vtable = IPhoneCallHistoryEntryReader_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneCallHistoryEntryReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneCallHistoryEntryReader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x61ece4be_8d86_479f_8404_a9846920fee6);
@@ -450,14 +394,10 @@ pub struct IPhoneCallHistoryEntryReader_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallHistoryManagerForUser(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneCallHistoryManagerForUser {
     type Vtable = IPhoneCallHistoryManagerForUser_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneCallHistoryManagerForUser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneCallHistoryManagerForUser {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd925c523_f55f_4353_9db4_0205a5265a55);
@@ -477,14 +417,10 @@ pub struct IPhoneCallHistoryManagerForUser_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallHistoryManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneCallHistoryManagerStatics {
     type Vtable = IPhoneCallHistoryManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneCallHistoryManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneCallHistoryManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5a6da39_b31f_4f45_ac8e_1b08893c1b50);
@@ -500,14 +436,10 @@ pub struct IPhoneCallHistoryManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallHistoryManagerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneCallHistoryManagerStatics2 {
     type Vtable = IPhoneCallHistoryManagerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneCallHistoryManagerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneCallHistoryManagerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefd474f0_a2db_4188_9e92_bc3cfa6813cf);
@@ -523,14 +455,10 @@ pub struct IPhoneCallHistoryManagerStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallHistoryStore(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneCallHistoryStore {
     type Vtable = IPhoneCallHistoryStore_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneCallHistoryStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneCallHistoryStore {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2f907db8_b40e_422b_8545_cb1910a61c52);
@@ -584,14 +512,10 @@ pub struct IPhoneCallHistoryStore_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneCallInfo {
     type Vtable = IPhoneCallInfo_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneCallInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneCallInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x22b42577_3e4d_5dc6_89c2_469fe5ffc189);
@@ -612,14 +536,10 @@ pub struct IPhoneCallInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneCallManagerStatics {
     type Vtable = IPhoneCallManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneCallManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneCallManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x60edac78_78a6_4872_a3ef_98325ec8b843);
@@ -632,14 +552,10 @@ pub struct IPhoneCallManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallManagerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneCallManagerStatics2 {
     type Vtable = IPhoneCallManagerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneCallManagerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneCallManagerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc7e3c8bc_2370_431c_98fd_43be5f03086d);
@@ -666,14 +582,10 @@ pub struct IPhoneCallManagerStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneCallStatics {
     type Vtable = IPhoneCallStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneCallStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneCallStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2218eeab_f60b_53e7_ba13_5aeafbc22957);
@@ -686,14 +598,10 @@ pub struct IPhoneCallStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallStore(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneCallStore {
     type Vtable = IPhoneCallStore_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneCallStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneCallStore {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5f610748_18a6_4173_86d1_28be9dc62dba);
@@ -714,14 +622,10 @@ pub struct IPhoneCallStore_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallVideoCapabilities(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneCallVideoCapabilities {
     type Vtable = IPhoneCallVideoCapabilities_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneCallVideoCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneCallVideoCapabilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x02382786_b16a_4fdb_be3b_c4240e13ad0d);
@@ -734,14 +638,10 @@ pub struct IPhoneCallVideoCapabilities_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallVideoCapabilitiesManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneCallVideoCapabilitiesManagerStatics {
     type Vtable = IPhoneCallVideoCapabilitiesManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneCallVideoCapabilitiesManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneCallVideoCapabilitiesManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf3c64b56_f00b_4a1c_a0c6_ee1910749ce7);
@@ -757,14 +657,10 @@ pub struct IPhoneCallVideoCapabilitiesManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneCallsResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneCallsResult {
     type Vtable = IPhoneCallsResult_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneCallsResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneCallsResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1bfad365_57cf_57dd_986d_b057c91eac33);
@@ -781,14 +677,10 @@ pub struct IPhoneCallsResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneDialOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneDialOptions {
     type Vtable = IPhoneDialOptions_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneDialOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneDialOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb639c4b8_f06f_36cb_a863_823742b5f2d4);
@@ -824,14 +716,10 @@ pub struct IPhoneDialOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneLine(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneLine {
     type Vtable = IPhoneLine_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneLine {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneLine {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27c66f30_6a69_34ca_a2ba_65302530c311);
@@ -872,14 +760,10 @@ pub struct IPhoneLine_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneLine2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneLine2 {
     type Vtable = IPhoneLine2_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneLine2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneLine2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0167f56a_5344_5d64_8af3_a31a950e916a);
@@ -896,14 +780,10 @@ pub struct IPhoneLine2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneLine3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneLine3 {
     type Vtable = IPhoneLine3_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneLine3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneLine3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2e33cf7_2406_57f3_826a_e5a5f40d6fb5);
@@ -925,14 +805,10 @@ pub struct IPhoneLine3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneLineCellularDetails(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneLineCellularDetails {
     type Vtable = IPhoneLineCellularDetails_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneLineCellularDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneLineCellularDetails {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x192601d5_147c_4769_b673_98a5ec8426cb);
@@ -949,14 +825,10 @@ pub struct IPhoneLineCellularDetails_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneLineConfiguration(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneLineConfiguration {
     type Vtable = IPhoneLineConfiguration_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneLineConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneLineConfiguration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfe265862_f64f_4312_b2a8_4e257721aa95);
@@ -973,14 +845,10 @@ pub struct IPhoneLineConfiguration_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneLineDialResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneLineDialResult {
     type Vtable = IPhoneLineDialResult_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneLineDialResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneLineDialResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe825a30a_5c7f_546f_b918_3ad2fe70fb34);
@@ -994,14 +862,10 @@ pub struct IPhoneLineDialResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneLineStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneLineStatics {
     type Vtable = IPhoneLineStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneLineStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneLineStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf38b5f23_ceb0_404f_bcf2_ba9f697d8adf);
@@ -1017,14 +881,10 @@ pub struct IPhoneLineStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneLineTransportDevice(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneLineTransportDevice {
     type Vtable = IPhoneLineTransportDevice_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneLineTransportDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneLineTransportDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xefa8f889_cffa_59f4_97e4_74705b7dc490);
@@ -1058,14 +918,10 @@ pub struct IPhoneLineTransportDevice_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneLineTransportDevice2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneLineTransportDevice2 {
     type Vtable = IPhoneLineTransportDevice2_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneLineTransportDevice2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneLineTransportDevice2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64c885f2_ecf4_5761_8c04_3c248ce61690);
@@ -1095,14 +951,10 @@ pub struct IPhoneLineTransportDevice2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneLineTransportDeviceStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneLineTransportDeviceStatics {
     type Vtable = IPhoneLineTransportDeviceStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneLineTransportDeviceStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneLineTransportDeviceStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f3121ac_d609_51a1_96f3_fb00d1819252);
@@ -1117,14 +969,10 @@ pub struct IPhoneLineTransportDeviceStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneLineWatcher(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneLineWatcher {
     type Vtable = IPhoneLineWatcher_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneLineWatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneLineWatcher {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a45cd0a_6323_44e0_a6f6_9f21f64dc90a);
@@ -1179,14 +1027,10 @@ pub struct IPhoneLineWatcher_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneLineWatcherEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneLineWatcherEventArgs {
     type Vtable = IPhoneLineWatcherEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneLineWatcherEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneLineWatcherEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd07c753e_9e12_4a37_82b7_ad535dad6a67);
@@ -1199,14 +1043,10 @@ pub struct IPhoneLineWatcherEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhoneVoicemail(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPhoneVoicemail {
     type Vtable = IPhoneVoicemail_Vtbl;
-}
-impl ::core::clone::Clone for IPhoneVoicemail {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhoneVoicemail {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc9ce77f6_6e9f_3a8b_b727_6e0cf6998224);
@@ -1225,14 +1065,10 @@ pub struct IPhoneVoicemail_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVoipCallCoordinator(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVoipCallCoordinator {
     type Vtable = IVoipCallCoordinator_Vtbl;
-}
-impl ::core::clone::Clone for IVoipCallCoordinator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVoipCallCoordinator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f118bcf_e8ef_4434_9c5f_a8d893fafe79);
@@ -1270,14 +1106,10 @@ pub struct IVoipCallCoordinator_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVoipCallCoordinator2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVoipCallCoordinator2 {
     type Vtable = IVoipCallCoordinator2_Vtbl;
-}
-impl ::core::clone::Clone for IVoipCallCoordinator2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVoipCallCoordinator2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbeb4a9f3_c704_4234_89ce_e88cc0d28fbe);
@@ -1290,14 +1122,10 @@ pub struct IVoipCallCoordinator2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVoipCallCoordinator3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVoipCallCoordinator3 {
     type Vtable = IVoipCallCoordinator3_Vtbl;
-}
-impl ::core::clone::Clone for IVoipCallCoordinator3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVoipCallCoordinator3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x338d0cbf_9b55_4021_87ca_e64b9bd666c7);
@@ -1314,14 +1142,10 @@ pub struct IVoipCallCoordinator3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVoipCallCoordinator4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVoipCallCoordinator4 {
     type Vtable = IVoipCallCoordinator4_Vtbl;
-}
-impl ::core::clone::Clone for IVoipCallCoordinator4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVoipCallCoordinator4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x83737239_9311_468f_bb49_47e0dfb5d93e);
@@ -1337,14 +1161,10 @@ pub struct IVoipCallCoordinator4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVoipCallCoordinatorStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVoipCallCoordinatorStatics {
     type Vtable = IVoipCallCoordinatorStatics_Vtbl;
-}
-impl ::core::clone::Clone for IVoipCallCoordinatorStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVoipCallCoordinatorStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f5d1f2b_e04a_4d10_b31a_a55c922cc2fb);
@@ -1357,14 +1177,10 @@ pub struct IVoipCallCoordinatorStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVoipPhoneCall(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVoipPhoneCall {
     type Vtable = IVoipPhoneCall_Vtbl;
-}
-impl ::core::clone::Clone for IVoipPhoneCall {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVoipPhoneCall {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6cf1f19a_7794_4a5a_8c68_ae87947a6990);
@@ -1432,14 +1248,10 @@ pub struct IVoipPhoneCall_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVoipPhoneCall2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVoipPhoneCall2 {
     type Vtable = IVoipPhoneCall2_Vtbl;
-}
-impl ::core::clone::Clone for IVoipPhoneCall2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVoipPhoneCall2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x741b46e1_245f_41f3_9399_3141d25b52e3);
@@ -1452,14 +1264,10 @@ pub struct IVoipPhoneCall2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVoipPhoneCall3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVoipPhoneCall3 {
     type Vtable = IVoipPhoneCall3_Vtbl;
-}
-impl ::core::clone::Clone for IVoipPhoneCall3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVoipPhoneCall3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d891522_e258_4aa9_907a_1aa413c25523);
@@ -1472,6 +1280,7 @@ pub struct IVoipPhoneCall3_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CallAnswerEventArgs(::windows_core::IUnknown);
 impl CallAnswerEventArgs {
     pub fn AcceptedMedia(&self) -> ::windows_core::Result<VoipPhoneCallMedia> {
@@ -1482,24 +1291,8 @@ impl CallAnswerEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for CallAnswerEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CallAnswerEventArgs {}
-impl ::core::fmt::Debug for CallAnswerEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CallAnswerEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CallAnswerEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.CallAnswerEventArgs;{fd789617-2dd7-4c8c-b2bd-95d17a5bb733})");
-}
-impl ::core::clone::Clone for CallAnswerEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CallAnswerEventArgs {
     type Vtable = ICallAnswerEventArgs_Vtbl;
@@ -1515,6 +1308,7 @@ unsafe impl ::core::marker::Send for CallAnswerEventArgs {}
 unsafe impl ::core::marker::Sync for CallAnswerEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CallRejectEventArgs(::windows_core::IUnknown);
 impl CallRejectEventArgs {
     pub fn RejectReason(&self) -> ::windows_core::Result<VoipPhoneCallRejectReason> {
@@ -1525,24 +1319,8 @@ impl CallRejectEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for CallRejectEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CallRejectEventArgs {}
-impl ::core::fmt::Debug for CallRejectEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CallRejectEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CallRejectEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.CallRejectEventArgs;{da47fad7-13d4-4d92-a1c2-b77811ee37ec})");
-}
-impl ::core::clone::Clone for CallRejectEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CallRejectEventArgs {
     type Vtable = ICallRejectEventArgs_Vtbl;
@@ -1558,6 +1336,7 @@ unsafe impl ::core::marker::Send for CallRejectEventArgs {}
 unsafe impl ::core::marker::Sync for CallRejectEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CallStateChangeEventArgs(::windows_core::IUnknown);
 impl CallStateChangeEventArgs {
     pub fn State(&self) -> ::windows_core::Result<VoipPhoneCallState> {
@@ -1568,24 +1347,8 @@ impl CallStateChangeEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for CallStateChangeEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CallStateChangeEventArgs {}
-impl ::core::fmt::Debug for CallStateChangeEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CallStateChangeEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CallStateChangeEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.CallStateChangeEventArgs;{eab2349e-66f5-47f9-9fb5-459c5198c720})");
-}
-impl ::core::clone::Clone for CallStateChangeEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CallStateChangeEventArgs {
     type Vtable = ICallStateChangeEventArgs_Vtbl;
@@ -1601,6 +1364,7 @@ unsafe impl ::core::marker::Send for CallStateChangeEventArgs {}
 unsafe impl ::core::marker::Sync for CallStateChangeEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LockScreenCallEndCallDeferral(::windows_core::IUnknown);
 impl LockScreenCallEndCallDeferral {
     pub fn Complete(&self) -> ::windows_core::Result<()> {
@@ -1608,24 +1372,8 @@ impl LockScreenCallEndCallDeferral {
         unsafe { (::windows_core::Interface::vtable(this).Complete)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for LockScreenCallEndCallDeferral {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LockScreenCallEndCallDeferral {}
-impl ::core::fmt::Debug for LockScreenCallEndCallDeferral {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LockScreenCallEndCallDeferral").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LockScreenCallEndCallDeferral {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.LockScreenCallEndCallDeferral;{2dd7ed0d-98ed-4041-9632-50ff812b773f})");
-}
-impl ::core::clone::Clone for LockScreenCallEndCallDeferral {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LockScreenCallEndCallDeferral {
     type Vtable = ILockScreenCallEndCallDeferral_Vtbl;
@@ -1641,6 +1389,7 @@ unsafe impl ::core::marker::Send for LockScreenCallEndCallDeferral {}
 unsafe impl ::core::marker::Sync for LockScreenCallEndCallDeferral {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LockScreenCallEndRequestedEventArgs(::windows_core::IUnknown);
 impl LockScreenCallEndRequestedEventArgs {
     pub fn GetDeferral(&self) -> ::windows_core::Result<LockScreenCallEndCallDeferral> {
@@ -1660,24 +1409,8 @@ impl LockScreenCallEndRequestedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for LockScreenCallEndRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LockScreenCallEndRequestedEventArgs {}
-impl ::core::fmt::Debug for LockScreenCallEndRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LockScreenCallEndRequestedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LockScreenCallEndRequestedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.LockScreenCallEndRequestedEventArgs;{8190a363-6f27-46e9-aeb6-c0ae83e47dc7})");
-}
-impl ::core::clone::Clone for LockScreenCallEndRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LockScreenCallEndRequestedEventArgs {
     type Vtable = ILockScreenCallEndRequestedEventArgs_Vtbl;
@@ -1693,6 +1426,7 @@ unsafe impl ::core::marker::Send for LockScreenCallEndRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for LockScreenCallEndRequestedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct LockScreenCallUI(::windows_core::IUnknown);
 impl LockScreenCallUI {
     pub fn Dismiss(&self) -> ::windows_core::Result<()> {
@@ -1747,24 +1481,8 @@ impl LockScreenCallUI {
         unsafe { (::windows_core::Interface::vtable(this).SetCallTitle)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for LockScreenCallUI {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LockScreenCallUI {}
-impl ::core::fmt::Debug for LockScreenCallUI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LockScreenCallUI").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for LockScreenCallUI {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.LockScreenCallUI;{c596fd8d-73c9-4a14-b021-ec1c50a3b727})");
-}
-impl ::core::clone::Clone for LockScreenCallUI {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for LockScreenCallUI {
     type Vtable = ILockScreenCallUI_Vtbl;
@@ -1780,6 +1498,7 @@ unsafe impl ::core::marker::Send for LockScreenCallUI {}
 unsafe impl ::core::marker::Sync for LockScreenCallUI {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MuteChangeEventArgs(::windows_core::IUnknown);
 impl MuteChangeEventArgs {
     pub fn Muted(&self) -> ::windows_core::Result<bool> {
@@ -1790,24 +1509,8 @@ impl MuteChangeEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for MuteChangeEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MuteChangeEventArgs {}
-impl ::core::fmt::Debug for MuteChangeEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MuteChangeEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MuteChangeEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.MuteChangeEventArgs;{8585e159-0c41-432c-814d-c5f1fdf530be})");
-}
-impl ::core::clone::Clone for MuteChangeEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MuteChangeEventArgs {
     type Vtable = IMuteChangeEventArgs_Vtbl;
@@ -1823,6 +1526,7 @@ unsafe impl ::core::marker::Send for MuteChangeEventArgs {}
 unsafe impl ::core::marker::Sync for MuteChangeEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneCall(::windows_core::IUnknown);
 impl PhoneCall {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2079,24 +1783,8 @@ impl PhoneCall {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for PhoneCall {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCall {}
-impl ::core::fmt::Debug for PhoneCall {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCall").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneCall {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCall;{c14ed0f8-c17d-59d2-9628-66e545b6cd21})");
-}
-impl ::core::clone::Clone for PhoneCall {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneCall {
     type Vtable = IPhoneCall_Vtbl;
@@ -2153,6 +1841,7 @@ impl ::windows_core::RuntimeName for PhoneCallBlocking {
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneCallHistoryEntry(::windows_core::IUnknown);
 impl PhoneCallHistoryEntry {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2367,24 +2056,8 @@ impl PhoneCallHistoryEntry {
         unsafe { (::windows_core::Interface::vtable(this).SetStartTime)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for PhoneCallHistoryEntry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallHistoryEntry {}
-impl ::core::fmt::Debug for PhoneCallHistoryEntry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallHistoryEntry").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneCallHistoryEntry {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryEntry;{fab0e129-32a4-4b85-83d1-f90d8c23a857})");
-}
-impl ::core::clone::Clone for PhoneCallHistoryEntry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneCallHistoryEntry {
     type Vtable = IPhoneCallHistoryEntry_Vtbl;
@@ -2400,6 +2073,7 @@ unsafe impl ::core::marker::Send for PhoneCallHistoryEntry {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryEntry {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneCallHistoryEntryAddress(::windows_core::IUnknown);
 impl PhoneCallHistoryEntryAddress {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2465,24 +2139,8 @@ impl PhoneCallHistoryEntryAddress {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for PhoneCallHistoryEntryAddress {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallHistoryEntryAddress {}
-impl ::core::fmt::Debug for PhoneCallHistoryEntryAddress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallHistoryEntryAddress").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneCallHistoryEntryAddress {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryAddress;{30f159da-3955-4042-84e6-66eebf82e67f})");
-}
-impl ::core::clone::Clone for PhoneCallHistoryEntryAddress {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneCallHistoryEntryAddress {
     type Vtable = IPhoneCallHistoryEntryAddress_Vtbl;
@@ -2498,6 +2156,7 @@ unsafe impl ::core::marker::Send for PhoneCallHistoryEntryAddress {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryEntryAddress {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneCallHistoryEntryQueryOptions(::windows_core::IUnknown);
 impl PhoneCallHistoryEntryQueryOptions {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2528,24 +2187,8 @@ impl PhoneCallHistoryEntryQueryOptions {
         }
     }
 }
-impl ::core::cmp::PartialEq for PhoneCallHistoryEntryQueryOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallHistoryEntryQueryOptions {}
-impl ::core::fmt::Debug for PhoneCallHistoryEntryQueryOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallHistoryEntryQueryOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneCallHistoryEntryQueryOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryOptions;{9c5fe15c-8bed-40ca-b06e-c4ca8eae5c87})");
-}
-impl ::core::clone::Clone for PhoneCallHistoryEntryQueryOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneCallHistoryEntryQueryOptions {
     type Vtable = IPhoneCallHistoryEntryQueryOptions_Vtbl;
@@ -2561,6 +2204,7 @@ unsafe impl ::core::marker::Send for PhoneCallHistoryEntryQueryOptions {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryEntryQueryOptions {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneCallHistoryEntryReader(::windows_core::IUnknown);
 impl PhoneCallHistoryEntryReader {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2573,24 +2217,8 @@ impl PhoneCallHistoryEntryReader {
         }
     }
 }
-impl ::core::cmp::PartialEq for PhoneCallHistoryEntryReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallHistoryEntryReader {}
-impl ::core::fmt::Debug for PhoneCallHistoryEntryReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallHistoryEntryReader").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneCallHistoryEntryReader {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryReader;{61ece4be-8d86-479f-8404-a9846920fee6})");
-}
-impl ::core::clone::Clone for PhoneCallHistoryEntryReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneCallHistoryEntryReader {
     type Vtable = IPhoneCallHistoryEntryReader_Vtbl;
@@ -2642,6 +2270,7 @@ impl ::windows_core::RuntimeName for PhoneCallHistoryManager {
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneCallHistoryManagerForUser(::windows_core::IUnknown);
 impl PhoneCallHistoryManagerForUser {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2663,24 +2292,8 @@ impl PhoneCallHistoryManagerForUser {
         }
     }
 }
-impl ::core::cmp::PartialEq for PhoneCallHistoryManagerForUser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallHistoryManagerForUser {}
-impl ::core::fmt::Debug for PhoneCallHistoryManagerForUser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallHistoryManagerForUser").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneCallHistoryManagerForUser {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryManagerForUser;{d925c523-f55f-4353-9db4-0205a5265a55})");
-}
-impl ::core::clone::Clone for PhoneCallHistoryManagerForUser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneCallHistoryManagerForUser {
     type Vtable = IPhoneCallHistoryManagerForUser_Vtbl;
@@ -2696,6 +2309,7 @@ unsafe impl ::core::marker::Send for PhoneCallHistoryManagerForUser {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryManagerForUser {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneCallHistoryStore(::windows_core::IUnknown);
 impl PhoneCallHistoryStore {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2827,24 +2441,8 @@ impl PhoneCallHistoryStore {
         }
     }
 }
-impl ::core::cmp::PartialEq for PhoneCallHistoryStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallHistoryStore {}
-impl ::core::fmt::Debug for PhoneCallHistoryStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallHistoryStore").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneCallHistoryStore {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallHistoryStore;{2f907db8-b40e-422b-8545-cb1910a61c52})");
-}
-impl ::core::clone::Clone for PhoneCallHistoryStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneCallHistoryStore {
     type Vtable = IPhoneCallHistoryStore_Vtbl;
@@ -2860,6 +2458,7 @@ unsafe impl ::core::marker::Send for PhoneCallHistoryStore {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryStore {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneCallInfo(::windows_core::IUnknown);
 impl PhoneCallInfo {
     pub fn LineId(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -2907,24 +2506,8 @@ impl PhoneCallInfo {
         }
     }
 }
-impl ::core::cmp::PartialEq for PhoneCallInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallInfo {}
-impl ::core::fmt::Debug for PhoneCallInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneCallInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallInfo;{22b42577-3e4d-5dc6-89c2-469fe5ffc189})");
-}
-impl ::core::clone::Clone for PhoneCallInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneCallInfo {
     type Vtable = IPhoneCallInfo_Vtbl;
@@ -2999,6 +2582,7 @@ impl ::windows_core::RuntimeName for PhoneCallManager {
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneCallStore(::windows_core::IUnknown);
 impl PhoneCallStore {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3027,24 +2611,8 @@ impl PhoneCallStore {
         }
     }
 }
-impl ::core::cmp::PartialEq for PhoneCallStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallStore {}
-impl ::core::fmt::Debug for PhoneCallStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallStore").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneCallStore {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallStore;{5f610748-18a6-4173-86d1-28be9dc62dba})");
-}
-impl ::core::clone::Clone for PhoneCallStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneCallStore {
     type Vtable = IPhoneCallStore_Vtbl;
@@ -3060,6 +2628,7 @@ unsafe impl ::core::marker::Send for PhoneCallStore {}
 unsafe impl ::core::marker::Sync for PhoneCallStore {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneCallVideoCapabilities(::windows_core::IUnknown);
 impl PhoneCallVideoCapabilities {
     pub fn IsVideoCallingCapable(&self) -> ::windows_core::Result<bool> {
@@ -3070,24 +2639,8 @@ impl PhoneCallVideoCapabilities {
         }
     }
 }
-impl ::core::cmp::PartialEq for PhoneCallVideoCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallVideoCapabilities {}
-impl ::core::fmt::Debug for PhoneCallVideoCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallVideoCapabilities").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneCallVideoCapabilities {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallVideoCapabilities;{02382786-b16a-4fdb-be3b-c4240e13ad0d})");
-}
-impl ::core::clone::Clone for PhoneCallVideoCapabilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneCallVideoCapabilities {
     type Vtable = IPhoneCallVideoCapabilities_Vtbl;
@@ -3123,6 +2676,7 @@ impl ::windows_core::RuntimeName for PhoneCallVideoCapabilitiesManager {
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneCallsResult(::windows_core::IUnknown);
 impl PhoneCallsResult {
     pub fn OperationStatus(&self) -> ::windows_core::Result<PhoneLineOperationStatus> {
@@ -3142,24 +2696,8 @@ impl PhoneCallsResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for PhoneCallsResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallsResult {}
-impl ::core::fmt::Debug for PhoneCallsResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallsResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneCallsResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneCallsResult;{1bfad365-57cf-57dd-986d-b057c91eac33})");
-}
-impl ::core::clone::Clone for PhoneCallsResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneCallsResult {
     type Vtable = IPhoneCallsResult_Vtbl;
@@ -3175,6 +2713,7 @@ unsafe impl ::core::marker::Send for PhoneCallsResult {}
 unsafe impl ::core::marker::Sync for PhoneCallsResult {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneDialOptions(::windows_core::IUnknown);
 impl PhoneDialOptions {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -3265,24 +2804,8 @@ impl PhoneDialOptions {
         unsafe { (::windows_core::Interface::vtable(this).SetAudioEndpoint)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for PhoneDialOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneDialOptions {}
-impl ::core::fmt::Debug for PhoneDialOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneDialOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneDialOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneDialOptions;{b639c4b8-f06f-36cb-a863-823742b5f2d4})");
-}
-impl ::core::clone::Clone for PhoneDialOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneDialOptions {
     type Vtable = IPhoneDialOptions_Vtbl;
@@ -3298,6 +2821,7 @@ unsafe impl ::core::marker::Send for PhoneDialOptions {}
 unsafe impl ::core::marker::Sync for PhoneDialOptions {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneLine(::windows_core::IUnknown);
 impl PhoneLine {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3483,24 +3007,8 @@ impl PhoneLine {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for PhoneLine {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneLine {}
-impl ::core::fmt::Debug for PhoneLine {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneLine").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneLine {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLine;{27c66f30-6a69-34ca-a2ba-65302530c311})");
-}
-impl ::core::clone::Clone for PhoneLine {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneLine {
     type Vtable = IPhoneLine_Vtbl;
@@ -3516,6 +3024,7 @@ unsafe impl ::core::marker::Send for PhoneLine {}
 unsafe impl ::core::marker::Sync for PhoneLine {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneLineCellularDetails(::windows_core::IUnknown);
 impl PhoneLineCellularDetails {
     pub fn SimState(&self) -> ::windows_core::Result<PhoneSimState> {
@@ -3554,24 +3063,8 @@ impl PhoneLineCellularDetails {
         }
     }
 }
-impl ::core::cmp::PartialEq for PhoneLineCellularDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneLineCellularDetails {}
-impl ::core::fmt::Debug for PhoneLineCellularDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneLineCellularDetails").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneLineCellularDetails {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineCellularDetails;{192601d5-147c-4769-b673-98a5ec8426cb})");
-}
-impl ::core::clone::Clone for PhoneLineCellularDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneLineCellularDetails {
     type Vtable = IPhoneLineCellularDetails_Vtbl;
@@ -3587,6 +3080,7 @@ unsafe impl ::core::marker::Send for PhoneLineCellularDetails {}
 unsafe impl ::core::marker::Sync for PhoneLineCellularDetails {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneLineConfiguration(::windows_core::IUnknown);
 impl PhoneLineConfiguration {
     pub fn IsVideoCallingEnabled(&self) -> ::windows_core::Result<bool> {
@@ -3606,24 +3100,8 @@ impl PhoneLineConfiguration {
         }
     }
 }
-impl ::core::cmp::PartialEq for PhoneLineConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneLineConfiguration {}
-impl ::core::fmt::Debug for PhoneLineConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneLineConfiguration").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneLineConfiguration {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineConfiguration;{fe265862-f64f-4312-b2a8-4e257721aa95})");
-}
-impl ::core::clone::Clone for PhoneLineConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneLineConfiguration {
     type Vtable = IPhoneLineConfiguration_Vtbl;
@@ -3639,6 +3117,7 @@ unsafe impl ::core::marker::Send for PhoneLineConfiguration {}
 unsafe impl ::core::marker::Sync for PhoneLineConfiguration {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneLineDialResult(::windows_core::IUnknown);
 impl PhoneLineDialResult {
     pub fn DialCallStatus(&self) -> ::windows_core::Result<PhoneCallOperationStatus> {
@@ -3656,24 +3135,8 @@ impl PhoneLineDialResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for PhoneLineDialResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneLineDialResult {}
-impl ::core::fmt::Debug for PhoneLineDialResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneLineDialResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneLineDialResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineDialResult;{e825a30a-5c7f-546f-b918-3ad2fe70fb34})");
-}
-impl ::core::clone::Clone for PhoneLineDialResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneLineDialResult {
     type Vtable = IPhoneLineDialResult_Vtbl;
@@ -3689,6 +3152,7 @@ unsafe impl ::core::marker::Send for PhoneLineDialResult {}
 unsafe impl ::core::marker::Sync for PhoneLineDialResult {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneLineTransportDevice(::windows_core::IUnknown);
 impl PhoneLineTransportDevice {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -3837,24 +3301,8 @@ impl PhoneLineTransportDevice {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for PhoneLineTransportDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneLineTransportDevice {}
-impl ::core::fmt::Debug for PhoneLineTransportDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneLineTransportDevice").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneLineTransportDevice {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineTransportDevice;{efa8f889-cffa-59f4-97e4-74705b7dc490})");
-}
-impl ::core::clone::Clone for PhoneLineTransportDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneLineTransportDevice {
     type Vtable = IPhoneLineTransportDevice_Vtbl;
@@ -3870,6 +3318,7 @@ unsafe impl ::core::marker::Send for PhoneLineTransportDevice {}
 unsafe impl ::core::marker::Sync for PhoneLineTransportDevice {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneLineWatcher(::windows_core::IUnknown);
 impl PhoneLineWatcher {
     pub fn Start(&self) -> ::windows_core::Result<()> {
@@ -3978,24 +3427,8 @@ impl PhoneLineWatcher {
         }
     }
 }
-impl ::core::cmp::PartialEq for PhoneLineWatcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneLineWatcher {}
-impl ::core::fmt::Debug for PhoneLineWatcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneLineWatcher").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneLineWatcher {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineWatcher;{8a45cd0a-6323-44e0-a6f6-9f21f64dc90a})");
-}
-impl ::core::clone::Clone for PhoneLineWatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneLineWatcher {
     type Vtable = IPhoneLineWatcher_Vtbl;
@@ -4011,6 +3444,7 @@ unsafe impl ::core::marker::Send for PhoneLineWatcher {}
 unsafe impl ::core::marker::Sync for PhoneLineWatcher {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneLineWatcherEventArgs(::windows_core::IUnknown);
 impl PhoneLineWatcherEventArgs {
     pub fn LineId(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -4021,24 +3455,8 @@ impl PhoneLineWatcherEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for PhoneLineWatcherEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneLineWatcherEventArgs {}
-impl ::core::fmt::Debug for PhoneLineWatcherEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneLineWatcherEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneLineWatcherEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneLineWatcherEventArgs;{d07c753e-9e12-4a37-82b7-ad535dad6a67})");
-}
-impl ::core::clone::Clone for PhoneLineWatcherEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneLineWatcherEventArgs {
     type Vtable = IPhoneLineWatcherEventArgs_Vtbl;
@@ -4054,6 +3472,7 @@ unsafe impl ::core::marker::Send for PhoneLineWatcherEventArgs {}
 unsafe impl ::core::marker::Sync for PhoneLineWatcherEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PhoneVoicemail(::windows_core::IUnknown);
 impl PhoneVoicemail {
     pub fn Number(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -4087,24 +3506,8 @@ impl PhoneVoicemail {
         }
     }
 }
-impl ::core::cmp::PartialEq for PhoneVoicemail {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneVoicemail {}
-impl ::core::fmt::Debug for PhoneVoicemail {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneVoicemail").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PhoneVoicemail {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.PhoneVoicemail;{c9ce77f6-6e9f-3a8b-b727-6e0cf6998224})");
-}
-impl ::core::clone::Clone for PhoneVoicemail {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PhoneVoicemail {
     type Vtable = IPhoneVoicemail_Vtbl;
@@ -4120,6 +3523,7 @@ unsafe impl ::core::marker::Send for PhoneVoicemail {}
 unsafe impl ::core::marker::Sync for PhoneVoicemail {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VoipCallCoordinator(::windows_core::IUnknown);
 impl VoipCallCoordinator {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4256,24 +3660,8 @@ impl VoipCallCoordinator {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for VoipCallCoordinator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VoipCallCoordinator {}
-impl ::core::fmt::Debug for VoipCallCoordinator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoipCallCoordinator").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VoipCallCoordinator {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.VoipCallCoordinator;{4f118bcf-e8ef-4434-9c5f-a8d893fafe79})");
-}
-impl ::core::clone::Clone for VoipCallCoordinator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VoipCallCoordinator {
     type Vtable = IVoipCallCoordinator_Vtbl;
@@ -4289,6 +3677,7 @@ unsafe impl ::core::marker::Send for VoipCallCoordinator {}
 unsafe impl ::core::marker::Sync for VoipCallCoordinator {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VoipPhoneCall(::windows_core::IUnknown);
 impl VoipPhoneCall {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4443,24 +3832,8 @@ impl VoipPhoneCall {
         unsafe { (::windows_core::Interface::vtable(this).NotifyCallAccepted)(::windows_core::Interface::as_raw(this), media).ok() }
     }
 }
-impl ::core::cmp::PartialEq for VoipPhoneCall {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VoipPhoneCall {}
-impl ::core::fmt::Debug for VoipPhoneCall {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoipPhoneCall").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VoipPhoneCall {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.VoipPhoneCall;{6cf1f19a-7794-4a5a-8c68-ae87947a6990})");
-}
-impl ::core::clone::Clone for VoipPhoneCall {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VoipPhoneCall {
     type Vtable = IVoipPhoneCall_Vtbl;

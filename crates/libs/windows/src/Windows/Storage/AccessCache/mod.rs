@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IItemRemovedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IItemRemovedEventArgs {
     type Vtable = IItemRemovedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IItemRemovedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IItemRemovedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x59677e5c_55be_4c66_ba66_5eaea79d2631);
@@ -20,14 +16,10 @@ pub struct IItemRemovedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorageApplicationPermissionsStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorageApplicationPermissionsStatics {
     type Vtable = IStorageApplicationPermissionsStatics_Vtbl;
-}
-impl ::core::clone::Clone for IStorageApplicationPermissionsStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorageApplicationPermissionsStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4391dfaa_d033_48f9_8060_3ec847d2e3f1);
@@ -41,14 +33,10 @@ pub struct IStorageApplicationPermissionsStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorageApplicationPermissionsStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorageApplicationPermissionsStatics2 {
     type Vtable = IStorageApplicationPermissionsStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IStorageApplicationPermissionsStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorageApplicationPermissionsStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x072716ec_aa05_4294_9a11_1a3d04519ad0);
@@ -68,6 +56,7 @@ pub struct IStorageApplicationPermissionsStatics2_Vtbl {
 }
 #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorageItemAccessList(::windows_core::IUnknown);
 impl IStorageItemAccessList {
     pub fn AddOverloadDefaultMetadata<P0>(&self, file: P0) -> ::windows_core::Result<::windows_core::HSTRING>
@@ -201,27 +190,11 @@ impl IStorageItemAccessList {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStorageItemAccessList, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IStorageItemAccessList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStorageItemAccessList {}
-impl ::core::fmt::Debug for IStorageItemAccessList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStorageItemAccessList").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IStorageItemAccessList {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{2caff6ad-de90-47f5-b2c3-dd36c9fdd453}");
 }
 unsafe impl ::windows_core::Interface for IStorageItemAccessList {
     type Vtable = IStorageItemAccessList_Vtbl;
-}
-impl ::core::clone::Clone for IStorageItemAccessList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorageItemAccessList {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2caff6ad_de90_47f5_b2c3_dd36c9fdd453);
@@ -270,14 +243,10 @@ pub struct IStorageItemAccessList_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorageItemMostRecentlyUsedList(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorageItemMostRecentlyUsedList {
     type Vtable = IStorageItemMostRecentlyUsedList_Vtbl;
-}
-impl ::core::clone::Clone for IStorageItemMostRecentlyUsedList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorageItemMostRecentlyUsedList {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x016239d5_510d_411e_8cf1_c3d1effa4c33);
@@ -297,14 +266,10 @@ pub struct IStorageItemMostRecentlyUsedList_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorageItemMostRecentlyUsedList2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorageItemMostRecentlyUsedList2 {
     type Vtable = IStorageItemMostRecentlyUsedList2_Vtbl;
-}
-impl ::core::clone::Clone for IStorageItemMostRecentlyUsedList2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorageItemMostRecentlyUsedList2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xda481ea0_ed8d_4731_a1db_e44ee2204093);
@@ -319,6 +284,7 @@ pub struct IStorageItemMostRecentlyUsedList2_Vtbl {
 #[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AccessListEntryView(::windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl AccessListEntryView {
@@ -372,28 +338,8 @@ impl AccessListEntryView {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for AccessListEntryView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for AccessListEntryView {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for AccessListEntryView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccessListEntryView").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::RuntimeType for AccessListEntryView {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.AccessListEntryView;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};struct(Windows.Storage.AccessCache.AccessListEntry;string;string)))");
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::clone::Clone for AccessListEntryView {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows_core::Interface for AccessListEntryView {
@@ -431,6 +377,7 @@ impl ::windows_core::CanTryInto<super::super::Foundation::Collections::IIterable
 impl ::windows_core::CanTryInto<super::super::Foundation::Collections::IVectorView<AccessListEntry>> for AccessListEntryView {}
 #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ItemRemovedEventArgs(::windows_core::IUnknown);
 impl ItemRemovedEventArgs {
     pub fn RemovedEntry(&self) -> ::windows_core::Result<AccessListEntry> {
@@ -441,24 +388,8 @@ impl ItemRemovedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for ItemRemovedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ItemRemovedEventArgs {}
-impl ::core::fmt::Debug for ItemRemovedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ItemRemovedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ItemRemovedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.ItemRemovedEventArgs;{59677e5c-55be-4c66-ba66-5eaea79d2631})");
-}
-impl ::core::clone::Clone for ItemRemovedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ItemRemovedEventArgs {
     type Vtable = IItemRemovedEventArgs_Vtbl;
@@ -523,6 +454,7 @@ impl ::windows_core::RuntimeName for StorageApplicationPermissions {
 }
 #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorageItemAccessList(::windows_core::IUnknown);
 impl StorageItemAccessList {
     pub fn AddOverloadDefaultMetadata<P0>(&self, file: P0) -> ::windows_core::Result<::windows_core::HSTRING>
@@ -655,24 +587,8 @@ impl StorageItemAccessList {
         }
     }
 }
-impl ::core::cmp::PartialEq for StorageItemAccessList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageItemAccessList {}
-impl ::core::fmt::Debug for StorageItemAccessList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageItemAccessList").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StorageItemAccessList {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.StorageItemAccessList;{2caff6ad-de90-47f5-b2c3-dd36c9fdd453})");
-}
-impl ::core::clone::Clone for StorageItemAccessList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StorageItemAccessList {
     type Vtable = IStorageItemAccessList_Vtbl;
@@ -687,6 +603,7 @@ impl ::windows_core::RuntimeName for StorageItemAccessList {
 impl ::windows_core::CanTryInto<IStorageItemAccessList> for StorageItemAccessList {}
 #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorageItemMostRecentlyUsedList(::windows_core::IUnknown);
 impl StorageItemMostRecentlyUsedList {
     pub fn AddOverloadDefaultMetadata<P0>(&self, file: P0) -> ::windows_core::Result<::windows_core::HSTRING>
@@ -854,24 +771,8 @@ impl StorageItemMostRecentlyUsedList {
         unsafe { (::windows_core::Interface::vtable(this).AddOrReplaceWithMetadataAndVisibility)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(token), file.try_into_param()?.abi(), ::core::mem::transmute_copy(metadata), visibility).ok() }
     }
 }
-impl ::core::cmp::PartialEq for StorageItemMostRecentlyUsedList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageItemMostRecentlyUsedList {}
-impl ::core::fmt::Debug for StorageItemMostRecentlyUsedList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageItemMostRecentlyUsedList").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StorageItemMostRecentlyUsedList {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.StorageItemMostRecentlyUsedList;{016239d5-510d-411e-8cf1-c3d1effa4c33})");
-}
-impl ::core::clone::Clone for StorageItemMostRecentlyUsedList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StorageItemMostRecentlyUsedList {
     type Vtable = IStorageItemMostRecentlyUsedList_Vtbl;

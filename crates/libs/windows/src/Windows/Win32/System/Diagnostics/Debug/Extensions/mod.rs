@@ -48,6 +48,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DebugBaseEventCallbacks(::windows_core::IUnknown);
 impl DebugBaseEventCallbacks {
     pub unsafe fn GetInterestMask(&self) -> ::windows_core::Result<u32> {
@@ -111,24 +112,8 @@ impl DebugBaseEventCallbacks {
     }
 }
 ::windows_core::imp::interface_hierarchy!(DebugBaseEventCallbacks, ::windows_core::IUnknown, IDebugEventCallbacks);
-impl ::core::cmp::PartialEq for DebugBaseEventCallbacks {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DebugBaseEventCallbacks {}
-impl ::core::fmt::Debug for DebugBaseEventCallbacks {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DebugBaseEventCallbacks").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for DebugBaseEventCallbacks {
     type Vtable = DebugBaseEventCallbacks_Vtbl;
-}
-impl ::core::clone::Clone for DebugBaseEventCallbacks {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for DebugBaseEventCallbacks {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -140,6 +125,7 @@ pub struct DebugBaseEventCallbacks_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DebugBaseEventCallbacksWide(::windows_core::IUnknown);
 impl DebugBaseEventCallbacksWide {
     pub unsafe fn GetInterestMask(&self) -> ::windows_core::Result<u32> {
@@ -203,24 +189,8 @@ impl DebugBaseEventCallbacksWide {
     }
 }
 ::windows_core::imp::interface_hierarchy!(DebugBaseEventCallbacksWide, ::windows_core::IUnknown, IDebugEventCallbacksWide);
-impl ::core::cmp::PartialEq for DebugBaseEventCallbacksWide {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DebugBaseEventCallbacksWide {}
-impl ::core::fmt::Debug for DebugBaseEventCallbacksWide {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DebugBaseEventCallbacksWide").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for DebugBaseEventCallbacksWide {
     type Vtable = DebugBaseEventCallbacksWide_Vtbl;
-}
-impl ::core::clone::Clone for DebugBaseEventCallbacksWide {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for DebugBaseEventCallbacksWide {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -232,6 +202,7 @@ pub struct DebugBaseEventCallbacksWide_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICodeAddressConcept(::windows_core::IUnknown);
 impl ICodeAddressConcept {
     pub unsafe fn GetContainingSymbol<P0>(&self, pcontextobject: P0) -> ::windows_core::Result<IDebugHostSymbol>
@@ -243,24 +214,8 @@ impl ICodeAddressConcept {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICodeAddressConcept, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICodeAddressConcept {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICodeAddressConcept {}
-impl ::core::fmt::Debug for ICodeAddressConcept {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICodeAddressConcept").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICodeAddressConcept {
     type Vtable = ICodeAddressConcept_Vtbl;
-}
-impl ::core::clone::Clone for ICodeAddressConcept {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICodeAddressConcept {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc7371568_5c78_4a00_a4ab_6ef8823184cb);
@@ -273,6 +228,7 @@ pub struct ICodeAddressConcept_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IComparableConcept(::windows_core::IUnknown);
 impl IComparableConcept {
     pub unsafe fn CompareObjects<P0, P1>(&self, contextobject: P0, otherobject: P1) -> ::windows_core::Result<i32>
@@ -285,24 +241,8 @@ impl IComparableConcept {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IComparableConcept, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IComparableConcept {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IComparableConcept {}
-impl ::core::fmt::Debug for IComparableConcept {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IComparableConcept").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IComparableConcept {
     type Vtable = IComparableConcept_Vtbl;
-}
-impl ::core::clone::Clone for IComparableConcept {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IComparableConcept {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa7830646_9f0c_4a31_ba19_503f33e6c8a3);
@@ -315,6 +255,7 @@ pub struct IComparableConcept_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataModelConcept(::windows_core::IUnknown);
 impl IDataModelConcept {
     pub unsafe fn InitializeObject<P0, P1, P2>(&self, modelobject: P0, matchingtypesignature: P1, wildcardmatches: P2) -> ::windows_core::Result<()>
@@ -331,24 +272,8 @@ impl IDataModelConcept {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataModelConcept, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDataModelConcept {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataModelConcept {}
-impl ::core::fmt::Debug for IDataModelConcept {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataModelConcept").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataModelConcept {
     type Vtable = IDataModelConcept_Vtbl;
-}
-impl ::core::clone::Clone for IDataModelConcept {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataModelConcept {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfcb98d1d_1114_4fbf_b24c_effcb5def0d3);
@@ -362,6 +287,7 @@ pub struct IDataModelConcept_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataModelManager(::windows_core::IUnknown);
 impl IDataModelManager {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
@@ -497,24 +423,8 @@ impl IDataModelManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataModelManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDataModelManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataModelManager {}
-impl ::core::fmt::Debug for IDataModelManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataModelManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataModelManager {
     type Vtable = IDataModelManager_Vtbl;
-}
-impl ::core::clone::Clone for IDataModelManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataModelManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73fe19f4_a110_4500_8ed9_3c28896f508c);
@@ -552,6 +462,7 @@ pub struct IDataModelManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataModelManager2(::windows_core::IUnknown);
 impl IDataModelManager2 {
     pub unsafe fn Close(&self) -> ::windows_core::Result<()> {
@@ -707,24 +618,8 @@ impl IDataModelManager2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataModelManager2, ::windows_core::IUnknown, IDataModelManager);
-impl ::core::cmp::PartialEq for IDataModelManager2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataModelManager2 {}
-impl ::core::fmt::Debug for IDataModelManager2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataModelManager2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataModelManager2 {
     type Vtable = IDataModelManager2_Vtbl;
-}
-impl ::core::clone::Clone for IDataModelManager2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataModelManager2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf412c5ea_2284_4622_a660_a697160d3312);
@@ -741,6 +636,7 @@ pub struct IDataModelManager2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataModelNameBinder(::windows_core::IUnknown);
 impl IDataModelNameBinder {
     pub unsafe fn BindValue<P0, P1>(&self, contextobject: P0, name: P1, value: *mut ::core::option::Option<IModelObject>, metadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>) -> ::windows_core::Result<()>
@@ -773,24 +669,8 @@ impl IDataModelNameBinder {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataModelNameBinder, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDataModelNameBinder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataModelNameBinder {}
-impl ::core::fmt::Debug for IDataModelNameBinder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataModelNameBinder").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataModelNameBinder {
     type Vtable = IDataModelNameBinder_Vtbl;
-}
-impl ::core::clone::Clone for IDataModelNameBinder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataModelNameBinder {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaf352b7b_8292_4c01_b360_2dc3696c65e7);
@@ -806,6 +686,7 @@ pub struct IDataModelNameBinder_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataModelScript(::windows_core::IUnknown);
 impl IDataModelScript {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -847,24 +728,8 @@ impl IDataModelScript {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataModelScript, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDataModelScript {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataModelScript {}
-impl ::core::fmt::Debug for IDataModelScript {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataModelScript").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataModelScript {
     type Vtable = IDataModelScript_Vtbl;
-}
-impl ::core::clone::Clone for IDataModelScript {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataModelScript {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b4d30fc_b14a_49f8_8d87_d9a1480c97f7);
@@ -886,6 +751,7 @@ pub struct IDataModelScript_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataModelScriptClient(::windows_core::IUnknown);
 impl IDataModelScriptClient {
     pub unsafe fn ReportError<P0>(&self, errclass: ErrorClass, hrfail: ::windows_core::HRESULT, message: P0, line: u32, position: u32) -> ::windows_core::Result<()>
@@ -896,24 +762,8 @@ impl IDataModelScriptClient {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataModelScriptClient, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDataModelScriptClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataModelScriptClient {}
-impl ::core::fmt::Debug for IDataModelScriptClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataModelScriptClient").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataModelScriptClient {
     type Vtable = IDataModelScriptClient_Vtbl;
-}
-impl ::core::clone::Clone for IDataModelScriptClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataModelScriptClient {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3b362b0e_89f0_46c6_a663_dfdc95194aef);
@@ -926,6 +776,7 @@ pub struct IDataModelScriptClient_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataModelScriptDebug(::windows_core::IUnknown);
 impl IDataModelScriptDebug {
     pub unsafe fn GetDebugState(&self) -> ScriptDebugState {
@@ -971,24 +822,8 @@ impl IDataModelScriptDebug {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataModelScriptDebug, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDataModelScriptDebug {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataModelScriptDebug {}
-impl ::core::fmt::Debug for IDataModelScriptDebug {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataModelScriptDebug").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataModelScriptDebug {
     type Vtable = IDataModelScriptDebug_Vtbl;
-}
-impl ::core::clone::Clone for IDataModelScriptDebug {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataModelScriptDebug {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xde8e0945_9750_4471_ab76_a8f79d6ec350);
@@ -1010,6 +845,7 @@ pub struct IDataModelScriptDebug_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataModelScriptDebug2(::windows_core::IUnknown);
 impl IDataModelScriptDebug2 {
     pub unsafe fn GetDebugState(&self) -> ScriptDebugState {
@@ -1062,24 +898,8 @@ impl IDataModelScriptDebug2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataModelScriptDebug2, ::windows_core::IUnknown, IDataModelScriptDebug);
-impl ::core::cmp::PartialEq for IDataModelScriptDebug2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataModelScriptDebug2 {}
-impl ::core::fmt::Debug for IDataModelScriptDebug2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataModelScriptDebug2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataModelScriptDebug2 {
     type Vtable = IDataModelScriptDebug2_Vtbl;
-}
-impl ::core::clone::Clone for IDataModelScriptDebug2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataModelScriptDebug2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcbb10ed3_839e_426c_9243_e23535c1ae1a);
@@ -1092,6 +912,7 @@ pub struct IDataModelScriptDebug2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataModelScriptDebugBreakpoint(::windows_core::IUnknown);
 impl IDataModelScriptDebugBreakpoint {
     pub unsafe fn GetId(&self) -> u64 {
@@ -1114,24 +935,8 @@ impl IDataModelScriptDebugBreakpoint {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataModelScriptDebugBreakpoint, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDataModelScriptDebugBreakpoint {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataModelScriptDebugBreakpoint {}
-impl ::core::fmt::Debug for IDataModelScriptDebugBreakpoint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataModelScriptDebugBreakpoint").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataModelScriptDebugBreakpoint {
     type Vtable = IDataModelScriptDebugBreakpoint_Vtbl;
-}
-impl ::core::clone::Clone for IDataModelScriptDebugBreakpoint {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataModelScriptDebugBreakpoint {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6bb27b35_02e6_47cb_90a0_5371244032de);
@@ -1149,6 +954,7 @@ pub struct IDataModelScriptDebugBreakpoint_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataModelScriptDebugBreakpointEnumerator(::windows_core::IUnknown);
 impl IDataModelScriptDebugBreakpointEnumerator {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
@@ -1160,24 +966,8 @@ impl IDataModelScriptDebugBreakpointEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataModelScriptDebugBreakpointEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDataModelScriptDebugBreakpointEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataModelScriptDebugBreakpointEnumerator {}
-impl ::core::fmt::Debug for IDataModelScriptDebugBreakpointEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataModelScriptDebugBreakpointEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataModelScriptDebugBreakpointEnumerator {
     type Vtable = IDataModelScriptDebugBreakpointEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IDataModelScriptDebugBreakpointEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataModelScriptDebugBreakpointEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x39484a75_b4f3_4799_86da_691afa57b299);
@@ -1191,6 +981,7 @@ pub struct IDataModelScriptDebugBreakpointEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataModelScriptDebugClient(::windows_core::IUnknown);
 impl IDataModelScriptDebugClient {
     pub unsafe fn NotifyDebugEvent<P0, P1>(&self, peventinfo: *const ScriptDebugEventInformation, pscript: P0, peventdataobject: P1, resumeeventkind: *mut ScriptExecutionKind) -> ::windows_core::Result<()>
@@ -1202,24 +993,8 @@ impl IDataModelScriptDebugClient {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataModelScriptDebugClient, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDataModelScriptDebugClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataModelScriptDebugClient {}
-impl ::core::fmt::Debug for IDataModelScriptDebugClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataModelScriptDebugClient").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataModelScriptDebugClient {
     type Vtable = IDataModelScriptDebugClient_Vtbl;
-}
-impl ::core::clone::Clone for IDataModelScriptDebugClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataModelScriptDebugClient {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53159b6d_d4c4_471b_a863_5b110ca800ca);
@@ -1232,6 +1007,7 @@ pub struct IDataModelScriptDebugClient_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataModelScriptDebugStack(::windows_core::IUnknown);
 impl IDataModelScriptDebugStack {
     pub unsafe fn GetFrameCount(&self) -> u64 {
@@ -1243,24 +1019,8 @@ impl IDataModelScriptDebugStack {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataModelScriptDebugStack, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDataModelScriptDebugStack {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataModelScriptDebugStack {}
-impl ::core::fmt::Debug for IDataModelScriptDebugStack {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataModelScriptDebugStack").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataModelScriptDebugStack {
     type Vtable = IDataModelScriptDebugStack_Vtbl;
-}
-impl ::core::clone::Clone for IDataModelScriptDebugStack {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataModelScriptDebugStack {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x051364dd_e449_443e_9762_fe578f4a5473);
@@ -1274,6 +1034,7 @@ pub struct IDataModelScriptDebugStack_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataModelScriptDebugStackFrame(::windows_core::IUnknown);
 impl IDataModelScriptDebugStackFrame {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -1307,24 +1068,8 @@ impl IDataModelScriptDebugStackFrame {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataModelScriptDebugStackFrame, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDataModelScriptDebugStackFrame {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataModelScriptDebugStackFrame {}
-impl ::core::fmt::Debug for IDataModelScriptDebugStackFrame {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataModelScriptDebugStackFrame").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataModelScriptDebugStackFrame {
     type Vtable = IDataModelScriptDebugStackFrame_Vtbl;
-}
-impl ::core::clone::Clone for IDataModelScriptDebugStackFrame {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataModelScriptDebugStackFrame {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdec6ed5e_6360_4941_ab4c_a26409de4f82);
@@ -1343,6 +1088,7 @@ pub struct IDataModelScriptDebugStackFrame_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataModelScriptDebugVariableSetEnumerator(::windows_core::IUnknown);
 impl IDataModelScriptDebugVariableSetEnumerator {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
@@ -1353,24 +1099,8 @@ impl IDataModelScriptDebugVariableSetEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataModelScriptDebugVariableSetEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDataModelScriptDebugVariableSetEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataModelScriptDebugVariableSetEnumerator {}
-impl ::core::fmt::Debug for IDataModelScriptDebugVariableSetEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataModelScriptDebugVariableSetEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataModelScriptDebugVariableSetEnumerator {
     type Vtable = IDataModelScriptDebugVariableSetEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IDataModelScriptDebugVariableSetEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataModelScriptDebugVariableSetEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f9feed7_d045_4ac3_98a8_a98942cf6a35);
@@ -1384,6 +1114,7 @@ pub struct IDataModelScriptDebugVariableSetEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataModelScriptHostContext(::windows_core::IUnknown);
 impl IDataModelScriptHostContext {
     pub unsafe fn NotifyScriptChange<P0>(&self, script: P0, changekind: ScriptChangeKind) -> ::windows_core::Result<()>
@@ -1398,24 +1129,8 @@ impl IDataModelScriptHostContext {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataModelScriptHostContext, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDataModelScriptHostContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataModelScriptHostContext {}
-impl ::core::fmt::Debug for IDataModelScriptHostContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataModelScriptHostContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataModelScriptHostContext {
     type Vtable = IDataModelScriptHostContext_Vtbl;
-}
-impl ::core::clone::Clone for IDataModelScriptHostContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataModelScriptHostContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x014d366a_1f23_4981_9219_b2db8b402054);
@@ -1429,6 +1144,7 @@ pub struct IDataModelScriptHostContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataModelScriptManager(::windows_core::IUnknown);
 impl IDataModelScriptManager {
     pub unsafe fn GetDefaultNameBinder(&self) -> ::windows_core::Result<IDataModelNameBinder> {
@@ -1467,24 +1183,8 @@ impl IDataModelScriptManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataModelScriptManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDataModelScriptManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataModelScriptManager {}
-impl ::core::fmt::Debug for IDataModelScriptManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataModelScriptManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataModelScriptManager {
     type Vtable = IDataModelScriptManager_Vtbl;
-}
-impl ::core::clone::Clone for IDataModelScriptManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataModelScriptManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6fd11e33_e5ad_410b_8011_68c6bc4bf80d);
@@ -1502,6 +1202,7 @@ pub struct IDataModelScriptManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataModelScriptProvider(::windows_core::IUnknown);
 impl IDataModelScriptProvider {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -1526,24 +1227,8 @@ impl IDataModelScriptProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataModelScriptProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDataModelScriptProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataModelScriptProvider {}
-impl ::core::fmt::Debug for IDataModelScriptProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataModelScriptProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataModelScriptProvider {
     type Vtable = IDataModelScriptProvider_Vtbl;
-}
-impl ::core::clone::Clone for IDataModelScriptProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataModelScriptProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x513461e0_4fca_48ce_8658_32f3e2056f3b);
@@ -1560,6 +1245,7 @@ pub struct IDataModelScriptProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataModelScriptProviderEnumerator(::windows_core::IUnknown);
 impl IDataModelScriptProviderEnumerator {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
@@ -1571,24 +1257,8 @@ impl IDataModelScriptProviderEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataModelScriptProviderEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDataModelScriptProviderEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataModelScriptProviderEnumerator {}
-impl ::core::fmt::Debug for IDataModelScriptProviderEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataModelScriptProviderEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataModelScriptProviderEnumerator {
     type Vtable = IDataModelScriptProviderEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IDataModelScriptProviderEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataModelScriptProviderEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95ba00e2_704a_4fe2_a8f1_a7e7d8fb0941);
@@ -1602,6 +1272,7 @@ pub struct IDataModelScriptProviderEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataModelScriptTemplate(::windows_core::IUnknown);
 impl IDataModelScriptTemplate {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -1620,24 +1291,8 @@ impl IDataModelScriptTemplate {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataModelScriptTemplate, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDataModelScriptTemplate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataModelScriptTemplate {}
-impl ::core::fmt::Debug for IDataModelScriptTemplate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataModelScriptTemplate").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataModelScriptTemplate {
     type Vtable = IDataModelScriptTemplate_Vtbl;
-}
-impl ::core::clone::Clone for IDataModelScriptTemplate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataModelScriptTemplate {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1303dec4_fa3b_4f1b_9224_b953d16babb5);
@@ -1655,6 +1310,7 @@ pub struct IDataModelScriptTemplate_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDataModelScriptTemplateEnumerator(::windows_core::IUnknown);
 impl IDataModelScriptTemplateEnumerator {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
@@ -1666,24 +1322,8 @@ impl IDataModelScriptTemplateEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDataModelScriptTemplateEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDataModelScriptTemplateEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDataModelScriptTemplateEnumerator {}
-impl ::core::fmt::Debug for IDataModelScriptTemplateEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDataModelScriptTemplateEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDataModelScriptTemplateEnumerator {
     type Vtable = IDataModelScriptTemplateEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IDataModelScriptTemplateEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDataModelScriptTemplateEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69ce6ae2_2268_4e6f_b062_20ce62bfe677);
@@ -1697,6 +1337,7 @@ pub struct IDataModelScriptTemplateEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugAdvanced(::windows_core::IUnknown);
 impl IDebugAdvanced {
     pub unsafe fn GetThreadContext(&self, context: *mut ::core::ffi::c_void, contextsize: u32) -> ::windows_core::Result<()> {
@@ -1707,24 +1348,8 @@ impl IDebugAdvanced {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugAdvanced, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugAdvanced {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugAdvanced {}
-impl ::core::fmt::Debug for IDebugAdvanced {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugAdvanced").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugAdvanced {
     type Vtable = IDebugAdvanced_Vtbl;
-}
-impl ::core::clone::Clone for IDebugAdvanced {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugAdvanced {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2df5f53_071f_47bd_9de6_5734c3fed689);
@@ -1738,6 +1363,7 @@ pub struct IDebugAdvanced_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugAdvanced2(::windows_core::IUnknown);
 impl IDebugAdvanced2 {
     pub unsafe fn GetThreadContext(&self, context: *mut ::core::ffi::c_void, contextsize: u32) -> ::windows_core::Result<()> {
@@ -1769,24 +1395,8 @@ impl IDebugAdvanced2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugAdvanced2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugAdvanced2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugAdvanced2 {}
-impl ::core::fmt::Debug for IDebugAdvanced2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugAdvanced2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugAdvanced2 {
     type Vtable = IDebugAdvanced2_Vtbl;
-}
-impl ::core::clone::Clone for IDebugAdvanced2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugAdvanced2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x716d14c9_119b_4ba5_af1f_0890e672416a);
@@ -1805,6 +1415,7 @@ pub struct IDebugAdvanced2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugAdvanced3(::windows_core::IUnknown);
 impl IDebugAdvanced3 {
     pub unsafe fn GetThreadContext(&self, context: *mut ::core::ffi::c_void, contextsize: u32) -> ::windows_core::Result<()> {
@@ -1851,24 +1462,8 @@ impl IDebugAdvanced3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugAdvanced3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugAdvanced3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugAdvanced3 {}
-impl ::core::fmt::Debug for IDebugAdvanced3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugAdvanced3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugAdvanced3 {
     type Vtable = IDebugAdvanced3_Vtbl;
-}
-impl ::core::clone::Clone for IDebugAdvanced3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugAdvanced3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcba4abb4_84c4_444d_87ca_a04e13286739);
@@ -1890,6 +1485,7 @@ pub struct IDebugAdvanced3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugAdvanced4(::windows_core::IUnknown);
 impl IDebugAdvanced4 {
     pub unsafe fn GetThreadContext(&self, context: *mut ::core::ffi::c_void, contextsize: u32) -> ::windows_core::Result<()> {
@@ -1952,24 +1548,8 @@ impl IDebugAdvanced4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugAdvanced4, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugAdvanced4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugAdvanced4 {}
-impl ::core::fmt::Debug for IDebugAdvanced4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugAdvanced4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugAdvanced4 {
     type Vtable = IDebugAdvanced4_Vtbl;
-}
-impl ::core::clone::Clone for IDebugAdvanced4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugAdvanced4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd1069067_2a65_4bf0_ae97_76184b67856b);
@@ -1992,6 +1572,7 @@ pub struct IDebugAdvanced4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugBreakpoint(::windows_core::IUnknown);
 impl IDebugBreakpoint {
     pub unsafe fn GetId(&self) -> ::windows_core::Result<u32> {
@@ -2072,24 +1653,8 @@ impl IDebugBreakpoint {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugBreakpoint, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugBreakpoint {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugBreakpoint {}
-impl ::core::fmt::Debug for IDebugBreakpoint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugBreakpoint").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugBreakpoint {
     type Vtable = IDebugBreakpoint_Vtbl;
-}
-impl ::core::clone::Clone for IDebugBreakpoint {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugBreakpoint {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5bd9d474_5975_423a_b88b_65a8e7110e65);
@@ -2122,6 +1687,7 @@ pub struct IDebugBreakpoint_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugBreakpoint2(::windows_core::IUnknown);
 impl IDebugBreakpoint2 {
     pub unsafe fn GetId(&self) -> ::windows_core::Result<u32> {
@@ -2220,24 +1786,8 @@ impl IDebugBreakpoint2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugBreakpoint2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugBreakpoint2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugBreakpoint2 {}
-impl ::core::fmt::Debug for IDebugBreakpoint2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugBreakpoint2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugBreakpoint2 {
     type Vtable = IDebugBreakpoint2_Vtbl;
-}
-impl ::core::clone::Clone for IDebugBreakpoint2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugBreakpoint2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b278d20_79f2_426e_a3f9_c1ddf375d48e);
@@ -2274,6 +1824,7 @@ pub struct IDebugBreakpoint2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugBreakpoint3(::windows_core::IUnknown);
 impl IDebugBreakpoint3 {
     pub unsafe fn GetId(&self) -> ::windows_core::Result<u32> {
@@ -2376,24 +1927,8 @@ impl IDebugBreakpoint3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugBreakpoint3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugBreakpoint3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugBreakpoint3 {}
-impl ::core::fmt::Debug for IDebugBreakpoint3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugBreakpoint3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugBreakpoint3 {
     type Vtable = IDebugBreakpoint3_Vtbl;
-}
-impl ::core::clone::Clone for IDebugBreakpoint3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugBreakpoint3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38f5c249_b448_43bb_9835_579d4ec02249);
@@ -2431,6 +1966,7 @@ pub struct IDebugBreakpoint3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugClient(::windows_core::IUnknown);
 impl IDebugClient {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> ::windows_core::Result<()>
@@ -2650,24 +2186,8 @@ impl IDebugClient {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugClient, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugClient {}
-impl ::core::fmt::Debug for IDebugClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugClient").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugClient {
     type Vtable = IDebugClient_Vtbl;
-}
-impl ::core::clone::Clone for IDebugClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugClient {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27fe5639_8407_4f47_8364_ee118fb08ac8);
@@ -2724,6 +2244,7 @@ pub struct IDebugClient_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugClient2(::windows_core::IUnknown);
 impl IDebugClient2 {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> ::windows_core::Result<()>
@@ -2974,24 +2495,8 @@ impl IDebugClient2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugClient2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugClient2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugClient2 {}
-impl ::core::fmt::Debug for IDebugClient2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugClient2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugClient2 {
     type Vtable = IDebugClient2_Vtbl;
-}
-impl ::core::clone::Clone for IDebugClient2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugClient2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xedbed635_372e_4dab_bbfe_ed0d2f63be81);
@@ -3056,6 +2561,7 @@ pub struct IDebugClient2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugClient3(::windows_core::IUnknown);
 impl IDebugClient3 {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> ::windows_core::Result<()>
@@ -3340,24 +2846,8 @@ impl IDebugClient3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugClient3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugClient3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugClient3 {}
-impl ::core::fmt::Debug for IDebugClient3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugClient3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugClient3 {
     type Vtable = IDebugClient3_Vtbl;
-}
-impl ::core::clone::Clone for IDebugClient3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugClient3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd492d7f_71b8_4ad6_a8dc_1c887479ff91);
@@ -3426,6 +2916,7 @@ pub struct IDebugClient3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugClient4(::windows_core::IUnknown);
 impl IDebugClient4 {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> ::windows_core::Result<()>
@@ -3739,24 +3230,8 @@ impl IDebugClient4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugClient4, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugClient4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugClient4 {}
-impl ::core::fmt::Debug for IDebugClient4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugClient4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugClient4 {
     type Vtable = IDebugClient4_Vtbl;
-}
-impl ::core::clone::Clone for IDebugClient4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugClient4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xca83c3de_5089_4cf8_93c8_d892387f2a5e);
@@ -3831,6 +3306,7 @@ pub struct IDebugClient4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugClient5(::windows_core::IUnknown);
 impl IDebugClient5 {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> ::windows_core::Result<()>
@@ -4301,24 +3777,8 @@ impl IDebugClient5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugClient5, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugClient5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugClient5 {}
-impl ::core::fmt::Debug for IDebugClient5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugClient5").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugClient5 {
     type Vtable = IDebugClient5_Vtbl;
-}
-impl ::core::clone::Clone for IDebugClient5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugClient5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe3acb9d7_7ec2_4f0c_a0da_e81e0cbbe628);
@@ -4422,6 +3882,7 @@ pub struct IDebugClient5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugClient6(::windows_core::IUnknown);
 impl IDebugClient6 {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> ::windows_core::Result<()>
@@ -4898,24 +4359,8 @@ impl IDebugClient6 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugClient6, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugClient6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugClient6 {}
-impl ::core::fmt::Debug for IDebugClient6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugClient6").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugClient6 {
     type Vtable = IDebugClient6_Vtbl;
-}
-impl ::core::clone::Clone for IDebugClient6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugClient6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfd28b4c5_c498_4686_a28e_62cad2154eb3);
@@ -5020,6 +4465,7 @@ pub struct IDebugClient6_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugClient7(::windows_core::IUnknown);
 impl IDebugClient7 {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> ::windows_core::Result<()>
@@ -5499,24 +4945,8 @@ impl IDebugClient7 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugClient7, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugClient7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugClient7 {}
-impl ::core::fmt::Debug for IDebugClient7 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugClient7").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugClient7 {
     type Vtable = IDebugClient7_Vtbl;
-}
-impl ::core::clone::Clone for IDebugClient7 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugClient7 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x13586be3_542e_481e_b1f2_8497ba74f9a9);
@@ -5622,6 +5052,7 @@ pub struct IDebugClient7_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugClient8(::windows_core::IUnknown);
 impl IDebugClient8 {
     pub unsafe fn AttachKernel<P0>(&self, flags: u32, connectoptions: P0) -> ::windows_core::Result<()>
@@ -6107,24 +5538,8 @@ impl IDebugClient8 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugClient8, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugClient8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugClient8 {}
-impl ::core::fmt::Debug for IDebugClient8 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugClient8").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugClient8 {
     type Vtable = IDebugClient8_Vtbl;
-}
-impl ::core::clone::Clone for IDebugClient8 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugClient8 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcec43add_6375_469e_83d5_414e4033c19a);
@@ -6231,6 +5646,7 @@ pub struct IDebugClient8_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugControl(::windows_core::IUnknown);
 impl IDebugControl {
     pub unsafe fn GetInterrupt(&self) -> ::windows_core::Result<()> {
@@ -6656,24 +6072,8 @@ impl IDebugControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugControl {}
-impl ::core::fmt::Debug for IDebugControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugControl {
     type Vtable = IDebugControl_Vtbl;
-}
-impl ::core::clone::Clone for IDebugControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5182e668_105e_416e_ad92_24ef800424ba);
@@ -6807,6 +6207,7 @@ pub struct IDebugControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugControl2(::windows_core::IUnknown);
 impl IDebugControl2 {
     pub unsafe fn GetInterrupt(&self) -> ::windows_core::Result<()> {
@@ -7278,24 +6679,8 @@ impl IDebugControl2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugControl2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugControl2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugControl2 {}
-impl ::core::fmt::Debug for IDebugControl2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugControl2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugControl2 {
     type Vtable = IDebugControl2_Vtbl;
-}
-impl ::core::clone::Clone for IDebugControl2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugControl2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd4366723_44df_4bed_8c7e_4c05424f4588);
@@ -7437,6 +6822,7 @@ pub struct IDebugControl2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugControl3(::windows_core::IUnknown);
 impl IDebugControl3 {
     pub unsafe fn GetInterrupt(&self) -> ::windows_core::Result<()> {
@@ -7969,24 +7355,8 @@ impl IDebugControl3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugControl3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugControl3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugControl3 {}
-impl ::core::fmt::Debug for IDebugControl3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugControl3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugControl3 {
     type Vtable = IDebugControl3_Vtbl;
-}
-impl ::core::clone::Clone for IDebugControl3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugControl3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7df74a86_b03f_407f_90ab_a20dadcead08);
@@ -8141,6 +7511,7 @@ pub struct IDebugControl3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugControl4(::windows_core::IUnknown);
 impl IDebugControl4 {
     pub unsafe fn GetInterrupt(&self) -> ::windows_core::Result<()> {
@@ -8977,24 +8348,8 @@ impl IDebugControl4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugControl4, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugControl4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugControl4 {}
-impl ::core::fmt::Debug for IDebugControl4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugControl4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugControl4 {
     type Vtable = IDebugControl4_Vtbl;
-}
-impl ::core::clone::Clone for IDebugControl4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugControl4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x94e60ce9_9b41_4b19_9fc0_6d9eb35272b3);
@@ -9220,6 +8575,7 @@ pub struct IDebugControl4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugControl5(::windows_core::IUnknown);
 impl IDebugControl5 {
     pub unsafe fn GetInterrupt(&self) -> ::windows_core::Result<()> {
@@ -10080,24 +9436,8 @@ impl IDebugControl5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugControl5, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugControl5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugControl5 {}
-impl ::core::fmt::Debug for IDebugControl5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugControl5").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugControl5 {
     type Vtable = IDebugControl5_Vtbl;
-}
-impl ::core::clone::Clone for IDebugControl5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugControl5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb2ffe162_2412_429f_8d1d_5bf6dd824696);
@@ -10340,6 +9680,7 @@ pub struct IDebugControl5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugControl6(::windows_core::IUnknown);
 impl IDebugControl6 {
     pub unsafe fn GetInterrupt(&self) -> ::windows_core::Result<()> {
@@ -11207,24 +10548,8 @@ impl IDebugControl6 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugControl6, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugControl6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugControl6 {}
-impl ::core::fmt::Debug for IDebugControl6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugControl6").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugControl6 {
     type Vtable = IDebugControl6_Vtbl;
-}
-impl ::core::clone::Clone for IDebugControl6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugControl6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbc0d583f_126d_43a1_9cc4_a860ab1d537b);
@@ -11469,6 +10794,7 @@ pub struct IDebugControl6_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugControl7(::windows_core::IUnknown);
 impl IDebugControl7 {
     pub unsafe fn GetInterrupt(&self) -> ::windows_core::Result<()> {
@@ -12339,24 +11665,8 @@ impl IDebugControl7 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugControl7, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugControl7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugControl7 {}
-impl ::core::fmt::Debug for IDebugControl7 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugControl7").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugControl7 {
     type Vtable = IDebugControl7_Vtbl;
-}
-impl ::core::clone::Clone for IDebugControl7 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugControl7 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb86fb3b1_80d4_475b_aea3_cf06539cf63a);
@@ -12602,6 +11912,7 @@ pub struct IDebugControl7_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugDataSpaces(::windows_core::IUnknown);
 impl IDebugDataSpaces {
     pub unsafe fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -12668,24 +11979,8 @@ impl IDebugDataSpaces {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugDataSpaces, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugDataSpaces {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugDataSpaces {}
-impl ::core::fmt::Debug for IDebugDataSpaces {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugDataSpaces").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugDataSpaces {
     type Vtable = IDebugDataSpaces_Vtbl;
-}
-impl ::core::clone::Clone for IDebugDataSpaces {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugDataSpaces {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88f7dfab_3ea7_4c3a_aefb_c4e8106173aa);
@@ -12717,6 +12012,7 @@ pub struct IDebugDataSpaces_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugDataSpaces2(::windows_core::IUnknown);
 impl IDebugDataSpaces2 {
     pub unsafe fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -12804,24 +12100,8 @@ impl IDebugDataSpaces2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugDataSpaces2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugDataSpaces2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugDataSpaces2 {}
-impl ::core::fmt::Debug for IDebugDataSpaces2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugDataSpaces2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugDataSpaces2 {
     type Vtable = IDebugDataSpaces2_Vtbl;
-}
-impl ::core::clone::Clone for IDebugDataSpaces2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugDataSpaces2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7a5e852f_96e9_468f_ac1b_0b3addc4a049);
@@ -12862,6 +12142,7 @@ pub struct IDebugDataSpaces2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugDataSpaces3(::windows_core::IUnknown);
 impl IDebugDataSpaces3 {
     pub unsafe fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -12967,24 +12248,8 @@ impl IDebugDataSpaces3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugDataSpaces3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugDataSpaces3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugDataSpaces3 {}
-impl ::core::fmt::Debug for IDebugDataSpaces3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugDataSpaces3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugDataSpaces3 {
     type Vtable = IDebugDataSpaces3_Vtbl;
-}
-impl ::core::clone::Clone for IDebugDataSpaces3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugDataSpaces3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x23f79d6c_8aaf_4f7c_a607_9995f5407e63);
@@ -13033,6 +12298,7 @@ pub struct IDebugDataSpaces3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugDataSpaces4(::windows_core::IUnknown);
 impl IDebugDataSpaces4 {
     pub unsafe fn ReadVirtual(&self, offset: u64, buffer: *mut ::core::ffi::c_void, buffersize: u32, bytesread: ::core::option::Option<*mut u32>) -> ::windows_core::Result<()> {
@@ -13170,24 +12436,8 @@ impl IDebugDataSpaces4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugDataSpaces4, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugDataSpaces4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugDataSpaces4 {}
-impl ::core::fmt::Debug for IDebugDataSpaces4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugDataSpaces4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugDataSpaces4 {
     type Vtable = IDebugDataSpaces4_Vtbl;
-}
-impl ::core::clone::Clone for IDebugDataSpaces4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugDataSpaces4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd98ada1f_29e9_4ef5_a6c0_e53349883212);
@@ -13246,6 +12496,7 @@ pub struct IDebugDataSpaces4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugEventCallbacks(::windows_core::IUnknown);
 impl IDebugEventCallbacks {
     pub unsafe fn GetInterestMask(&self) -> ::windows_core::Result<u32> {
@@ -13309,24 +12560,8 @@ impl IDebugEventCallbacks {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugEventCallbacks, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugEventCallbacks {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugEventCallbacks {}
-impl ::core::fmt::Debug for IDebugEventCallbacks {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugEventCallbacks").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugEventCallbacks {
     type Vtable = IDebugEventCallbacks_Vtbl;
-}
-impl ::core::clone::Clone for IDebugEventCallbacks {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugEventCallbacks {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x337be28b_5036_4d72_b6bf_c45fbb9f2eaa);
@@ -13355,6 +12590,7 @@ pub struct IDebugEventCallbacks_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugEventCallbacksWide(::windows_core::IUnknown);
 impl IDebugEventCallbacksWide {
     pub unsafe fn GetInterestMask(&self) -> ::windows_core::Result<u32> {
@@ -13418,24 +12654,8 @@ impl IDebugEventCallbacksWide {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugEventCallbacksWide, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugEventCallbacksWide {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugEventCallbacksWide {}
-impl ::core::fmt::Debug for IDebugEventCallbacksWide {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugEventCallbacksWide").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugEventCallbacksWide {
     type Vtable = IDebugEventCallbacksWide_Vtbl;
-}
-impl ::core::clone::Clone for IDebugEventCallbacksWide {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugEventCallbacksWide {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0690e046_9c23_45ac_a04f_987ac29ad0d3);
@@ -13464,6 +12684,7 @@ pub struct IDebugEventCallbacksWide_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugEventContextCallbacks(::windows_core::IUnknown);
 impl IDebugEventContextCallbacks {
     pub unsafe fn GetInterestMask(&self) -> ::windows_core::Result<u32> {
@@ -13527,24 +12748,8 @@ impl IDebugEventContextCallbacks {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugEventContextCallbacks, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugEventContextCallbacks {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugEventContextCallbacks {}
-impl ::core::fmt::Debug for IDebugEventContextCallbacks {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugEventContextCallbacks").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugEventContextCallbacks {
     type Vtable = IDebugEventContextCallbacks_Vtbl;
-}
-impl ::core::clone::Clone for IDebugEventContextCallbacks {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugEventContextCallbacks {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x61a4905b_23f9_4247_b3c5_53d087529ab7);
@@ -13573,6 +12778,7 @@ pub struct IDebugEventContextCallbacks_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugFAEntryTags(::std::ptr::NonNull<::std::ffi::c_void>);
 impl IDebugFAEntryTags {
     pub unsafe fn GetType(&self, tag: DEBUG_FLR_PARAM_TYPE) -> FA_ENTRY_TYPE {
@@ -13605,24 +12811,8 @@ impl IDebugFAEntryTags {
         (::windows_core::Interface::vtable(self).IsValidTagToSet)(::windows_core::Interface::as_raw(self), tag)
     }
 }
-impl ::core::cmp::PartialEq for IDebugFAEntryTags {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugFAEntryTags {}
-impl ::core::fmt::Debug for IDebugFAEntryTags {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugFAEntryTags").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugFAEntryTags {
     type Vtable = IDebugFAEntryTags_Vtbl;
-}
-impl ::core::clone::Clone for IDebugFAEntryTags {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -13639,6 +12829,7 @@ pub struct IDebugFAEntryTags_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugFailureAnalysis(::windows_core::IUnknown);
 impl IDebugFailureAnalysis {
     pub unsafe fn GetFailureClass(&self) -> u32 {
@@ -13673,24 +12864,8 @@ impl IDebugFailureAnalysis {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugFailureAnalysis, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugFailureAnalysis {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugFailureAnalysis {}
-impl ::core::fmt::Debug for IDebugFailureAnalysis {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugFailureAnalysis").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugFailureAnalysis {
     type Vtable = IDebugFailureAnalysis_Vtbl;
-}
-impl ::core::clone::Clone for IDebugFailureAnalysis {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugFailureAnalysis {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed0de363_451f_4943_820c_62dccdfa7e6d);
@@ -13712,6 +12887,7 @@ pub struct IDebugFailureAnalysis_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugFailureAnalysis2(::windows_core::IUnknown);
 impl IDebugFailureAnalysis2 {
     pub unsafe fn GetFailureClass(&self) -> u32 {
@@ -13804,24 +12980,8 @@ impl IDebugFailureAnalysis2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugFailureAnalysis2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugFailureAnalysis2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugFailureAnalysis2 {}
-impl ::core::fmt::Debug for IDebugFailureAnalysis2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugFailureAnalysis2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugFailureAnalysis2 {
     type Vtable = IDebugFailureAnalysis2_Vtbl;
-}
-impl ::core::clone::Clone for IDebugFailureAnalysis2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugFailureAnalysis2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xea15c288_8226_4b70_acf6_0be6b189e3ad);
@@ -13859,6 +13019,7 @@ pub struct IDebugFailureAnalysis2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugFailureAnalysis3(::windows_core::IUnknown);
 impl IDebugFailureAnalysis3 {
     pub unsafe fn GetFailureClass(&self) -> u32 {
@@ -14041,24 +13202,8 @@ impl IDebugFailureAnalysis3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugFailureAnalysis3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugFailureAnalysis3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugFailureAnalysis3 {}
-impl ::core::fmt::Debug for IDebugFailureAnalysis3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugFailureAnalysis3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugFailureAnalysis3 {
     type Vtable = IDebugFailureAnalysis3_Vtbl;
-}
-impl ::core::clone::Clone for IDebugFailureAnalysis3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugFailureAnalysis3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3627dc67_fd45_42ff_9ba4_4a67ee64619f);
@@ -14122,6 +13267,7 @@ pub struct IDebugFailureAnalysis3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHost(::windows_core::IUnknown);
 impl IDebugHost {
     pub unsafe fn GetHostDefinedInterface(&self) -> ::windows_core::Result<::windows_core::IUnknown> {
@@ -14138,24 +13284,8 @@ impl IDebugHost {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHost, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugHost {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHost {}
-impl ::core::fmt::Debug for IDebugHost {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHost").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHost {
     type Vtable = IDebugHost_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHost {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHost {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb8c74943_6b2c_4eeb_b5c5_35d378a6d99d);
@@ -14170,6 +13300,7 @@ pub struct IDebugHost_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostBaseClass(::windows_core::IUnknown);
 impl IDebugHostBaseClass {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
@@ -14212,24 +13343,8 @@ impl IDebugHostBaseClass {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostBaseClass, ::windows_core::IUnknown, IDebugHostSymbol);
-impl ::core::cmp::PartialEq for IDebugHostBaseClass {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostBaseClass {}
-impl ::core::fmt::Debug for IDebugHostBaseClass {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostBaseClass").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostBaseClass {
     type Vtable = IDebugHostBaseClass_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostBaseClass {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostBaseClass {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb94d57d2_390b_40f7_b5b4_b6db897d974b);
@@ -14242,6 +13357,7 @@ pub struct IDebugHostBaseClass_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostConstant(::windows_core::IUnknown);
 impl IDebugHostConstant {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
@@ -14286,24 +13402,8 @@ impl IDebugHostConstant {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostConstant, ::windows_core::IUnknown, IDebugHostSymbol);
-impl ::core::cmp::PartialEq for IDebugHostConstant {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostConstant {}
-impl ::core::fmt::Debug for IDebugHostConstant {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostConstant").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostConstant {
     type Vtable = IDebugHostConstant_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostConstant {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostConstant {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x62787edc_fa76_4690_bd71_5e8c3e2937ec);
@@ -14319,6 +13419,7 @@ pub struct IDebugHostConstant_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostContext(::windows_core::IUnknown);
 impl IDebugHostContext {
     pub unsafe fn IsEqualTo<P0>(&self, pcontext: P0) -> ::windows_core::Result<bool>
@@ -14330,24 +13431,8 @@ impl IDebugHostContext {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostContext, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugHostContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostContext {}
-impl ::core::fmt::Debug for IDebugHostContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostContext {
     type Vtable = IDebugHostContext_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa68c70d8_5ec0_46e5_b775_3134a48ea2e3);
@@ -14360,6 +13445,7 @@ pub struct IDebugHostContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostData(::windows_core::IUnknown);
 impl IDebugHostData {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
@@ -14412,24 +13498,8 @@ impl IDebugHostData {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostData, ::windows_core::IUnknown, IDebugHostSymbol);
-impl ::core::cmp::PartialEq for IDebugHostData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostData {}
-impl ::core::fmt::Debug for IDebugHostData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostData {
     type Vtable = IDebugHostData_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostData {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa3d64993_826c_44fa_897d_926f2fe7ad0b);
@@ -14447,6 +13517,7 @@ pub struct IDebugHostData_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostErrorSink(::windows_core::IUnknown);
 impl IDebugHostErrorSink {
     pub unsafe fn ReportError<P0>(&self, errclass: ErrorClass, hrerror: ::windows_core::HRESULT, message: P0) -> ::windows_core::Result<()>
@@ -14457,24 +13528,8 @@ impl IDebugHostErrorSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostErrorSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugHostErrorSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostErrorSink {}
-impl ::core::fmt::Debug for IDebugHostErrorSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostErrorSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostErrorSink {
     type Vtable = IDebugHostErrorSink_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostErrorSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostErrorSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc8ff0f0b_fce9_467e_8bb3_5d69ef109c00);
@@ -14487,6 +13542,7 @@ pub struct IDebugHostErrorSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostEvaluator(::windows_core::IUnknown);
 impl IDebugHostEvaluator {
     pub unsafe fn EvaluateExpression<P0, P1, P2>(&self, context: P0, expression: P1, bindingcontext: P2, result: *mut ::core::option::Option<IModelObject>, metadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>) -> ::windows_core::Result<()>
@@ -14507,24 +13563,8 @@ impl IDebugHostEvaluator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostEvaluator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugHostEvaluator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostEvaluator {}
-impl ::core::fmt::Debug for IDebugHostEvaluator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostEvaluator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostEvaluator {
     type Vtable = IDebugHostEvaluator_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostEvaluator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostEvaluator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0fef9a21_577e_4997_ac7b_1c4883241d99);
@@ -14538,6 +13578,7 @@ pub struct IDebugHostEvaluator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostEvaluator2(::windows_core::IUnknown);
 impl IDebugHostEvaluator2 {
     pub unsafe fn EvaluateExpression<P0, P1, P2>(&self, context: P0, expression: P1, bindingcontext: P2, result: *mut ::core::option::Option<IModelObject>, metadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>) -> ::windows_core::Result<()>
@@ -14565,24 +13606,8 @@ impl IDebugHostEvaluator2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostEvaluator2, ::windows_core::IUnknown, IDebugHostEvaluator);
-impl ::core::cmp::PartialEq for IDebugHostEvaluator2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostEvaluator2 {}
-impl ::core::fmt::Debug for IDebugHostEvaluator2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostEvaluator2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostEvaluator2 {
     type Vtable = IDebugHostEvaluator2_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostEvaluator2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostEvaluator2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa117a435_1fb4_4092_a2ab_a929576c1e87);
@@ -14595,6 +13620,7 @@ pub struct IDebugHostEvaluator2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostExtensibility(::windows_core::IUnknown);
 impl IDebugHostExtensibility {
     pub unsafe fn CreateFunctionAlias<P0, P1>(&self, aliasname: P0, functionobject: P1) -> ::windows_core::Result<()>
@@ -14612,24 +13638,8 @@ impl IDebugHostExtensibility {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostExtensibility, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugHostExtensibility {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostExtensibility {}
-impl ::core::fmt::Debug for IDebugHostExtensibility {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostExtensibility").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostExtensibility {
     type Vtable = IDebugHostExtensibility_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostExtensibility {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostExtensibility {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3c2b24e1_11d0_4f86_8ae5_4df166f73253);
@@ -14643,6 +13653,7 @@ pub struct IDebugHostExtensibility_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostField(::windows_core::IUnknown);
 impl IDebugHostField {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
@@ -14699,24 +13710,8 @@ impl IDebugHostField {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostField, ::windows_core::IUnknown, IDebugHostSymbol);
-impl ::core::cmp::PartialEq for IDebugHostField {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostField {}
-impl ::core::fmt::Debug for IDebugHostField {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostField").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostField {
     type Vtable = IDebugHostField_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostField {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostField {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe06f6495_16bc_4cc9_b11d_2a6b23fa72f3);
@@ -14735,6 +13730,7 @@ pub struct IDebugHostField_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostMemory(::windows_core::IUnknown);
 impl IDebugHostMemory {
     pub unsafe fn ReadBytes<P0>(&self, context: P0, location: Location, buffer: *mut ::core::ffi::c_void, buffersize: u64, bytesread: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
@@ -14770,24 +13766,8 @@ impl IDebugHostMemory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostMemory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugHostMemory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostMemory {}
-impl ::core::fmt::Debug for IDebugHostMemory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostMemory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostMemory {
     type Vtable = IDebugHostMemory_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostMemory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostMemory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x212149c9_9183_4a3e_b00e_4fd1dc95339b);
@@ -14804,6 +13784,7 @@ pub struct IDebugHostMemory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostMemory2(::windows_core::IUnknown);
 impl IDebugHostMemory2 {
     pub unsafe fn ReadBytes<P0>(&self, context: P0, location: Location, buffer: *mut ::core::ffi::c_void, buffersize: u64, bytesread: ::core::option::Option<*mut u64>) -> ::windows_core::Result<()>
@@ -14846,24 +13827,8 @@ impl IDebugHostMemory2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostMemory2, ::windows_core::IUnknown, IDebugHostMemory);
-impl ::core::cmp::PartialEq for IDebugHostMemory2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostMemory2 {}
-impl ::core::fmt::Debug for IDebugHostMemory2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostMemory2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostMemory2 {
     type Vtable = IDebugHostMemory2_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostMemory2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostMemory2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeea033de_38f6_416b_a251_1d3771001270);
@@ -14876,6 +13841,7 @@ pub struct IDebugHostMemory2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostModule(::windows_core::IUnknown);
 impl IDebugHostModule {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
@@ -14943,24 +13909,8 @@ impl IDebugHostModule {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostModule, ::windows_core::IUnknown, IDebugHostSymbol);
-impl ::core::cmp::PartialEq for IDebugHostModule {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostModule {}
-impl ::core::fmt::Debug for IDebugHostModule {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostModule").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostModule {
     type Vtable = IDebugHostModule_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostModule {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostModule {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc9ba3e18_d070_4378_bbd0_34613b346e1e);
@@ -14978,6 +13928,7 @@ pub struct IDebugHostModule_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostModule2(::windows_core::IUnknown);
 impl IDebugHostModule2 {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
@@ -15048,24 +13999,8 @@ impl IDebugHostModule2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostModule2, ::windows_core::IUnknown, IDebugHostSymbol, IDebugHostModule);
-impl ::core::cmp::PartialEq for IDebugHostModule2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostModule2 {}
-impl ::core::fmt::Debug for IDebugHostModule2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostModule2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostModule2 {
     type Vtable = IDebugHostModule2_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostModule2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostModule2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb51887e8_bcd0_4e8f_a8c7_434398b78c37);
@@ -15078,6 +14013,7 @@ pub struct IDebugHostModule2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostModuleSignature(::windows_core::IUnknown);
 impl IDebugHostModuleSignature {
     pub unsafe fn IsMatch<P0>(&self, pmodule: P0) -> ::windows_core::Result<bool>
@@ -15089,24 +14025,8 @@ impl IDebugHostModuleSignature {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostModuleSignature, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugHostModuleSignature {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostModuleSignature {}
-impl ::core::fmt::Debug for IDebugHostModuleSignature {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostModuleSignature").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostModuleSignature {
     type Vtable = IDebugHostModuleSignature_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostModuleSignature {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostModuleSignature {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x31e53a5a_01ee_4bbb_b899_4b46ae7d595c);
@@ -15119,6 +14039,7 @@ pub struct IDebugHostModuleSignature_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostPublic(::windows_core::IUnknown);
 impl IDebugHostPublic {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
@@ -15165,24 +14086,8 @@ impl IDebugHostPublic {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostPublic, ::windows_core::IUnknown, IDebugHostSymbol);
-impl ::core::cmp::PartialEq for IDebugHostPublic {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostPublic {}
-impl ::core::fmt::Debug for IDebugHostPublic {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostPublic").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostPublic {
     type Vtable = IDebugHostPublic_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostPublic {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostPublic {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c597ac9_fb4d_4f6d_9f39_22488539f8f4);
@@ -15196,6 +14101,7 @@ pub struct IDebugHostPublic_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostScriptHost(::windows_core::IUnknown);
 impl IDebugHostScriptHost {
     pub unsafe fn CreateContext<P0>(&self, script: P0) -> ::windows_core::Result<IDataModelScriptHostContext>
@@ -15207,24 +14113,8 @@ impl IDebugHostScriptHost {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostScriptHost, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugHostScriptHost {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostScriptHost {}
-impl ::core::fmt::Debug for IDebugHostScriptHost {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostScriptHost").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostScriptHost {
     type Vtable = IDebugHostScriptHost_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostScriptHost {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostScriptHost {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb70334a4_b92c_4570_93a1_d3eb686649a0);
@@ -15237,6 +14127,7 @@ pub struct IDebugHostScriptHost_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostStatus(::windows_core::IUnknown);
 impl IDebugHostStatus {
     pub unsafe fn PollUserInterrupt(&self) -> ::windows_core::Result<bool> {
@@ -15245,24 +14136,8 @@ impl IDebugHostStatus {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostStatus, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugHostStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostStatus {}
-impl ::core::fmt::Debug for IDebugHostStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostStatus {
     type Vtable = IDebugHostStatus_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostStatus {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostStatus {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4f3e1ce2_86b2_4c7a_9c65_d0a9d0eecf44);
@@ -15275,6 +14150,7 @@ pub struct IDebugHostStatus_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostSymbol(::windows_core::IUnknown);
 impl IDebugHostSymbol {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
@@ -15313,24 +14189,8 @@ impl IDebugHostSymbol {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostSymbol, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugHostSymbol {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostSymbol {}
-impl ::core::fmt::Debug for IDebugHostSymbol {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostSymbol").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostSymbol {
     type Vtable = IDebugHostSymbol_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostSymbol {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostSymbol {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0f819103_87de_4e96_8277_e05cd441fb22);
@@ -15349,6 +14209,7 @@ pub struct IDebugHostSymbol_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostSymbol2(::windows_core::IUnknown);
 impl IDebugHostSymbol2 {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
@@ -15391,24 +14252,8 @@ impl IDebugHostSymbol2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostSymbol2, ::windows_core::IUnknown, IDebugHostSymbol);
-impl ::core::cmp::PartialEq for IDebugHostSymbol2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostSymbol2 {}
-impl ::core::fmt::Debug for IDebugHostSymbol2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostSymbol2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostSymbol2 {
     type Vtable = IDebugHostSymbol2_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostSymbol2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostSymbol2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x21515b67_6720_4257_8a68_077dc944471c);
@@ -15421,6 +14266,7 @@ pub struct IDebugHostSymbol2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostSymbolEnumerator(::windows_core::IUnknown);
 impl IDebugHostSymbolEnumerator {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
@@ -15432,24 +14278,8 @@ impl IDebugHostSymbolEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostSymbolEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugHostSymbolEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostSymbolEnumerator {}
-impl ::core::fmt::Debug for IDebugHostSymbolEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostSymbolEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostSymbolEnumerator {
     type Vtable = IDebugHostSymbolEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostSymbolEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostSymbolEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28d96c86_10a3_4976_b14e_eaef4790aa1f);
@@ -15463,6 +14293,7 @@ pub struct IDebugHostSymbolEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostSymbols(::windows_core::IUnknown);
 impl IDebugHostSymbols {
     pub unsafe fn CreateModuleSignature<P0, P1, P2>(&self, pwszmodulename: P0, pwszminversion: P1, pwszmaxversion: P2) -> ::windows_core::Result<IDebugHostModuleSignature>
@@ -15523,24 +14354,8 @@ impl IDebugHostSymbols {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostSymbols, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugHostSymbols {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostSymbols {}
-impl ::core::fmt::Debug for IDebugHostSymbols {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostSymbols").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostSymbols {
     type Vtable = IDebugHostSymbols_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostSymbols {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostSymbols {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x854fd751_c2e1_4eb2_b525_6619cb97a588);
@@ -15559,6 +14374,7 @@ pub struct IDebugHostSymbols_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostType(::windows_core::IUnknown);
 impl IDebugHostType {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
@@ -15670,24 +14486,8 @@ impl IDebugHostType {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostType, ::windows_core::IUnknown, IDebugHostSymbol);
-impl ::core::cmp::PartialEq for IDebugHostType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostType {}
-impl ::core::fmt::Debug for IDebugHostType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostType").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostType {
     type Vtable = IDebugHostType_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostType {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3aadc353_2b14_4abb_9893_5e03458e07ee);
@@ -15718,6 +14518,7 @@ pub struct IDebugHostType_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostType2(::windows_core::IUnknown);
 impl IDebugHostType2 {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
@@ -15849,24 +14650,8 @@ impl IDebugHostType2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostType2, ::windows_core::IUnknown, IDebugHostSymbol, IDebugHostType);
-impl ::core::cmp::PartialEq for IDebugHostType2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostType2 {}
-impl ::core::fmt::Debug for IDebugHostType2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostType2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostType2 {
     type Vtable = IDebugHostType2_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostType2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostType2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb28632b9_8506_4676_87ce_8f7e05e59876);
@@ -15883,6 +14668,7 @@ pub struct IDebugHostType2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugHostTypeSignature(::windows_core::IUnknown);
 impl IDebugHostTypeSignature {
     pub unsafe fn GetHashCode(&self) -> ::windows_core::Result<u32> {
@@ -15904,24 +14690,8 @@ impl IDebugHostTypeSignature {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugHostTypeSignature, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugHostTypeSignature {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugHostTypeSignature {}
-impl ::core::fmt::Debug for IDebugHostTypeSignature {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugHostTypeSignature").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugHostTypeSignature {
     type Vtable = IDebugHostTypeSignature_Vtbl;
-}
-impl ::core::clone::Clone for IDebugHostTypeSignature {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugHostTypeSignature {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3aadc353_2b14_4abb_9893_5e03458e07ee);
@@ -15936,6 +14706,7 @@ pub struct IDebugHostTypeSignature_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugInputCallbacks(::windows_core::IUnknown);
 impl IDebugInputCallbacks {
     pub unsafe fn StartInput(&self, buffersize: u32) -> ::windows_core::Result<()> {
@@ -15946,24 +14717,8 @@ impl IDebugInputCallbacks {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugInputCallbacks, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugInputCallbacks {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugInputCallbacks {}
-impl ::core::fmt::Debug for IDebugInputCallbacks {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugInputCallbacks").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugInputCallbacks {
     type Vtable = IDebugInputCallbacks_Vtbl;
-}
-impl ::core::clone::Clone for IDebugInputCallbacks {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugInputCallbacks {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f50e42c_f136_499e_9a97_73036c94ed2d);
@@ -15977,6 +14732,7 @@ pub struct IDebugInputCallbacks_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugOutputCallbacks(::windows_core::IUnknown);
 impl IDebugOutputCallbacks {
     pub unsafe fn Output<P0>(&self, mask: u32, text: P0) -> ::windows_core::Result<()>
@@ -15987,24 +14743,8 @@ impl IDebugOutputCallbacks {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugOutputCallbacks, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugOutputCallbacks {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugOutputCallbacks {}
-impl ::core::fmt::Debug for IDebugOutputCallbacks {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugOutputCallbacks").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugOutputCallbacks {
     type Vtable = IDebugOutputCallbacks_Vtbl;
-}
-impl ::core::clone::Clone for IDebugOutputCallbacks {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugOutputCallbacks {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4bf58045_d654_4c40_b0af_683090f356dc);
@@ -16017,6 +14757,7 @@ pub struct IDebugOutputCallbacks_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugOutputCallbacks2(::windows_core::IUnknown);
 impl IDebugOutputCallbacks2 {
     pub unsafe fn Output<P0>(&self, mask: u32, text: P0) -> ::windows_core::Result<()>
@@ -16037,24 +14778,8 @@ impl IDebugOutputCallbacks2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugOutputCallbacks2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugOutputCallbacks2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugOutputCallbacks2 {}
-impl ::core::fmt::Debug for IDebugOutputCallbacks2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugOutputCallbacks2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugOutputCallbacks2 {
     type Vtable = IDebugOutputCallbacks2_Vtbl;
-}
-impl ::core::clone::Clone for IDebugOutputCallbacks2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugOutputCallbacks2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x67721fe9_56d2_4a44_a325_2b65513ce6eb);
@@ -16069,6 +14794,7 @@ pub struct IDebugOutputCallbacks2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugOutputCallbacksWide(::windows_core::IUnknown);
 impl IDebugOutputCallbacksWide {
     pub unsafe fn Output<P0>(&self, mask: u32, text: P0) -> ::windows_core::Result<()>
@@ -16079,24 +14805,8 @@ impl IDebugOutputCallbacksWide {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugOutputCallbacksWide, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugOutputCallbacksWide {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugOutputCallbacksWide {}
-impl ::core::fmt::Debug for IDebugOutputCallbacksWide {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugOutputCallbacksWide").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugOutputCallbacksWide {
     type Vtable = IDebugOutputCallbacksWide_Vtbl;
-}
-impl ::core::clone::Clone for IDebugOutputCallbacksWide {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugOutputCallbacksWide {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c7fd663_c394_4e26_8ef1_34ad5ed3764c);
@@ -16109,6 +14819,7 @@ pub struct IDebugOutputCallbacksWide_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugOutputStream(::windows_core::IUnknown);
 impl IDebugOutputStream {
     pub unsafe fn Write<P0>(&self, psz: P0) -> ::windows_core::Result<()>
@@ -16119,24 +14830,8 @@ impl IDebugOutputStream {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugOutputStream, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugOutputStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugOutputStream {}
-impl ::core::fmt::Debug for IDebugOutputStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugOutputStream").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugOutputStream {
     type Vtable = IDebugOutputStream_Vtbl;
-}
-impl ::core::clone::Clone for IDebugOutputStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugOutputStream {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7782d8f2_2b85_4059_ab88_28ceddca1c80);
@@ -16149,6 +14844,7 @@ pub struct IDebugOutputStream_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugPlmClient(::windows_core::IUnknown);
 impl IDebugPlmClient {
     pub unsafe fn LaunchPlmPackageForDebugWide<P0, P1, P2>(&self, server: u64, timeout: u32, packagefullname: P0, appname: P1, arguments: P2, processid: *mut u32, threadid: *mut u32) -> ::windows_core::Result<()>
@@ -16161,24 +14857,8 @@ impl IDebugPlmClient {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugPlmClient, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugPlmClient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugPlmClient {}
-impl ::core::fmt::Debug for IDebugPlmClient {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugPlmClient").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugPlmClient {
     type Vtable = IDebugPlmClient_Vtbl;
-}
-impl ::core::clone::Clone for IDebugPlmClient {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugPlmClient {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa02b66c4_aea3_4234_a9f7_fe4c383d4e29);
@@ -16191,6 +14871,7 @@ pub struct IDebugPlmClient_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugPlmClient2(::windows_core::IUnknown);
 impl IDebugPlmClient2 {
     pub unsafe fn LaunchPlmPackageForDebugWide<P0, P1, P2>(&self, server: u64, timeout: u32, packagefullname: P0, appname: P1, arguments: P2, processid: *mut u32, threadid: *mut u32) -> ::windows_core::Result<()>
@@ -16210,24 +14891,8 @@ impl IDebugPlmClient2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugPlmClient2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugPlmClient2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugPlmClient2 {}
-impl ::core::fmt::Debug for IDebugPlmClient2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugPlmClient2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugPlmClient2 {
     type Vtable = IDebugPlmClient2_Vtbl;
-}
-impl ::core::clone::Clone for IDebugPlmClient2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugPlmClient2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x597c980d_e7bd_4309_962c_9d9b69a7372c);
@@ -16241,6 +14906,7 @@ pub struct IDebugPlmClient2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugPlmClient3(::windows_core::IUnknown);
 impl IDebugPlmClient3 {
     pub unsafe fn LaunchPlmPackageForDebugWide<P0, P1, P2>(&self, server: u64, timeout: u32, packagefullname: P0, appname: P1, arguments: P2, processid: *mut u32, threadid: *mut u32) -> ::windows_core::Result<()>
@@ -16318,24 +14984,8 @@ impl IDebugPlmClient3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugPlmClient3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugPlmClient3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugPlmClient3 {}
-impl ::core::fmt::Debug for IDebugPlmClient3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugPlmClient3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugPlmClient3 {
     type Vtable = IDebugPlmClient3_Vtbl;
-}
-impl ::core::clone::Clone for IDebugPlmClient3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugPlmClient3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd4a5dbd1_ca02_4d90_856a_2a92bfd0f20f);
@@ -16358,6 +15008,7 @@ pub struct IDebugPlmClient3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugRegisters(::windows_core::IUnknown);
 impl IDebugRegisters {
     pub unsafe fn GetNumberRegisters(&self) -> ::windows_core::Result<u32> {
@@ -16411,24 +15062,8 @@ impl IDebugRegisters {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugRegisters, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugRegisters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugRegisters {}
-impl ::core::fmt::Debug for IDebugRegisters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugRegisters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugRegisters {
     type Vtable = IDebugRegisters_Vtbl;
-}
-impl ::core::clone::Clone for IDebugRegisters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugRegisters {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xce289126_9e84_45a7_937e_67bb18691493);
@@ -16463,6 +15098,7 @@ pub struct IDebugRegisters_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugRegisters2(::windows_core::IUnknown);
 impl IDebugRegisters2 {
     pub unsafe fn GetNumberRegisters(&self) -> ::windows_core::Result<u32> {
@@ -16585,24 +15221,8 @@ impl IDebugRegisters2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugRegisters2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugRegisters2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugRegisters2 {}
-impl ::core::fmt::Debug for IDebugRegisters2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugRegisters2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugRegisters2 {
     type Vtable = IDebugRegisters2_Vtbl;
-}
-impl ::core::clone::Clone for IDebugRegisters2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugRegisters2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1656afa9_19c6_4e3a_97e7_5dc9160cf9c4);
@@ -16664,6 +15284,7 @@ pub struct IDebugRegisters2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugSymbolGroup(::windows_core::IUnknown);
 impl IDebugSymbolGroup {
     pub unsafe fn GetNumberSymbols(&self) -> ::windows_core::Result<u32> {
@@ -16716,24 +15337,8 @@ impl IDebugSymbolGroup {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugSymbolGroup, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugSymbolGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugSymbolGroup {}
-impl ::core::fmt::Debug for IDebugSymbolGroup {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugSymbolGroup").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugSymbolGroup {
     type Vtable = IDebugSymbolGroup_Vtbl;
-}
-impl ::core::clone::Clone for IDebugSymbolGroup {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugSymbolGroup {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2528316_0f1a_4431_aeed_11d096e1e2ab);
@@ -16758,6 +15363,7 @@ pub struct IDebugSymbolGroup_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugSymbolGroup2(::windows_core::IUnknown);
 impl IDebugSymbolGroup2 {
     pub unsafe fn GetNumberSymbols(&self) -> ::windows_core::Result<u32> {
@@ -16864,24 +15470,8 @@ impl IDebugSymbolGroup2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugSymbolGroup2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugSymbolGroup2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugSymbolGroup2 {}
-impl ::core::fmt::Debug for IDebugSymbolGroup2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugSymbolGroup2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugSymbolGroup2 {
     type Vtable = IDebugSymbolGroup2_Vtbl;
-}
-impl ::core::clone::Clone for IDebugSymbolGroup2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugSymbolGroup2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a7ccc5f_fb5e_4dcc_b41c_6c20307bccc7);
@@ -16919,6 +15509,7 @@ pub struct IDebugSymbolGroup2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugSymbols(::windows_core::IUnknown);
 impl IDebugSymbols {
     pub unsafe fn GetSymbolOptions(&self) -> ::windows_core::Result<u32> {
@@ -17153,24 +15744,8 @@ impl IDebugSymbols {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugSymbols, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugSymbols {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugSymbols {}
-impl ::core::fmt::Debug for IDebugSymbols {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugSymbols").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugSymbols {
     type Vtable = IDebugSymbols_Vtbl;
-}
-impl ::core::clone::Clone for IDebugSymbols {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugSymbols {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c31e98c_983a_48a5_9016_6fe5d667a950);
@@ -17237,6 +15812,7 @@ pub struct IDebugSymbols_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugSymbols2(::windows_core::IUnknown);
 impl IDebugSymbols2 {
     pub unsafe fn GetSymbolOptions(&self) -> ::windows_core::Result<u32> {
@@ -17499,24 +16075,8 @@ impl IDebugSymbols2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugSymbols2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugSymbols2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugSymbols2 {}
-impl ::core::fmt::Debug for IDebugSymbols2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugSymbols2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugSymbols2 {
     type Vtable = IDebugSymbols2_Vtbl;
-}
-impl ::core::clone::Clone for IDebugSymbols2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugSymbols2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3a707211_afdd_4495_ad4f_56fecdf8163f);
@@ -17591,6 +16151,7 @@ pub struct IDebugSymbols2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugSymbols3(::windows_core::IUnknown);
 impl IDebugSymbols3 {
     pub unsafe fn GetSymbolOptions(&self) -> ::windows_core::Result<u32> {
@@ -18157,24 +16718,8 @@ impl IDebugSymbols3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugSymbols3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugSymbols3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugSymbols3 {}
-impl ::core::fmt::Debug for IDebugSymbols3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugSymbols3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugSymbols3 {
     type Vtable = IDebugSymbols3_Vtbl;
-}
-impl ::core::clone::Clone for IDebugSymbols3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugSymbols3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf02fbecc_50ac_4f36_9ad9_c975e8f32ff8);
@@ -18315,6 +16860,7 @@ pub struct IDebugSymbols3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugSymbols4(::windows_core::IUnknown);
 impl IDebugSymbols4 {
     pub unsafe fn GetSymbolOptions(&self) -> ::windows_core::Result<u32> {
@@ -18906,24 +17452,8 @@ impl IDebugSymbols4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugSymbols4, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugSymbols4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugSymbols4 {}
-impl ::core::fmt::Debug for IDebugSymbols4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugSymbols4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugSymbols4 {
     type Vtable = IDebugSymbols4_Vtbl;
-}
-impl ::core::clone::Clone for IDebugSymbols4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugSymbols4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe391bbd8_9d8c_4418_840b_c006592a1752);
@@ -19077,6 +17607,7 @@ pub struct IDebugSymbols4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugSymbols5(::windows_core::IUnknown);
 impl IDebugSymbols5 {
     pub unsafe fn GetSymbolOptions(&self) -> ::windows_core::Result<u32> {
@@ -19675,24 +18206,8 @@ impl IDebugSymbols5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugSymbols5, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugSymbols5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugSymbols5 {}
-impl ::core::fmt::Debug for IDebugSymbols5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugSymbols5").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugSymbols5 {
     type Vtable = IDebugSymbols5_Vtbl;
-}
-impl ::core::clone::Clone for IDebugSymbols5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugSymbols5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc65fa83e_1e69_475e_8e0e_b5d79e9cc17e);
@@ -19848,6 +18363,7 @@ pub struct IDebugSymbols5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugSystemObjects(::windows_core::IUnknown);
 impl IDebugSystemObjects {
     pub unsafe fn GetEventThread(&self) -> ::windows_core::Result<u32> {
@@ -19962,24 +18478,8 @@ impl IDebugSystemObjects {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugSystemObjects, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugSystemObjects {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugSystemObjects {}
-impl ::core::fmt::Debug for IDebugSystemObjects {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugSystemObjects").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugSystemObjects {
     type Vtable = IDebugSystemObjects_Vtbl;
-}
-impl ::core::clone::Clone for IDebugSystemObjects {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugSystemObjects {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b86fe2c_2c4f_4f0c_9da2_174311acc327);
@@ -20020,6 +18520,7 @@ pub struct IDebugSystemObjects_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugSystemObjects2(::windows_core::IUnknown);
 impl IDebugSystemObjects2 {
     pub unsafe fn GetEventThread(&self) -> ::windows_core::Result<u32> {
@@ -20152,24 +18653,8 @@ impl IDebugSystemObjects2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugSystemObjects2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugSystemObjects2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugSystemObjects2 {}
-impl ::core::fmt::Debug for IDebugSystemObjects2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugSystemObjects2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugSystemObjects2 {
     type Vtable = IDebugSystemObjects2_Vtbl;
-}
-impl ::core::clone::Clone for IDebugSystemObjects2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugSystemObjects2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ae9f5ff_1852_4679_b055_494bee6407ee);
@@ -20215,6 +18700,7 @@ pub struct IDebugSystemObjects2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugSystemObjects3(::windows_core::IUnknown);
 impl IDebugSystemObjects3 {
     pub unsafe fn GetEventThread(&self) -> ::windows_core::Result<u32> {
@@ -20379,24 +18865,8 @@ impl IDebugSystemObjects3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugSystemObjects3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugSystemObjects3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugSystemObjects3 {}
-impl ::core::fmt::Debug for IDebugSystemObjects3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugSystemObjects3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugSystemObjects3 {
     type Vtable = IDebugSystemObjects3_Vtbl;
-}
-impl ::core::clone::Clone for IDebugSystemObjects3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugSystemObjects3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe9676e2f_e286_4ea3_b0f9_dfe5d9fc330e);
@@ -20451,6 +18921,7 @@ pub struct IDebugSystemObjects3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugSystemObjects4(::windows_core::IUnknown);
 impl IDebugSystemObjects4 {
     pub unsafe fn GetEventThread(&self) -> ::windows_core::Result<u32> {
@@ -20621,24 +19092,8 @@ impl IDebugSystemObjects4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugSystemObjects4, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugSystemObjects4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugSystemObjects4 {}
-impl ::core::fmt::Debug for IDebugSystemObjects4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugSystemObjects4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugSystemObjects4 {
     type Vtable = IDebugSystemObjects4_Vtbl;
-}
-impl ::core::clone::Clone for IDebugSystemObjects4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugSystemObjects4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x489468e6_7d0f_4af5_87ab_25207454d553);
@@ -20695,6 +19150,7 @@ pub struct IDebugSystemObjects4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDynamicConceptProviderConcept(::windows_core::IUnknown);
 impl IDynamicConceptProviderConcept {
     pub unsafe fn GetConcept<P0>(&self, contextobject: P0, conceptid: *const ::windows_core::GUID, conceptinterface: *mut ::core::option::Option<::windows_core::IUnknown>, conceptmetadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>, hasconcept: *mut bool) -> ::windows_core::Result<()>
@@ -20728,24 +19184,8 @@ impl IDynamicConceptProviderConcept {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDynamicConceptProviderConcept, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDynamicConceptProviderConcept {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDynamicConceptProviderConcept {}
-impl ::core::fmt::Debug for IDynamicConceptProviderConcept {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDynamicConceptProviderConcept").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDynamicConceptProviderConcept {
     type Vtable = IDynamicConceptProviderConcept_Vtbl;
-}
-impl ::core::clone::Clone for IDynamicConceptProviderConcept {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDynamicConceptProviderConcept {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95a7f7dd_602e_483f_9d06_a15c0ee13174);
@@ -20762,6 +19202,7 @@ pub struct IDynamicConceptProviderConcept_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDynamicKeyProviderConcept(::windows_core::IUnknown);
 impl IDynamicKeyProviderConcept {
     pub unsafe fn GetKey<P0, P1>(&self, contextobject: P0, key: P1, keyvalue: ::core::option::Option<*mut ::core::option::Option<IModelObject>>, metadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>, haskey: ::core::option::Option<*mut bool>) -> ::windows_core::Result<()>
@@ -20789,24 +19230,8 @@ impl IDynamicKeyProviderConcept {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDynamicKeyProviderConcept, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDynamicKeyProviderConcept {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDynamicKeyProviderConcept {}
-impl ::core::fmt::Debug for IDynamicKeyProviderConcept {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDynamicKeyProviderConcept").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDynamicKeyProviderConcept {
     type Vtable = IDynamicKeyProviderConcept_Vtbl;
-}
-impl ::core::clone::Clone for IDynamicKeyProviderConcept {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDynamicKeyProviderConcept {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe7983fa1_80a7_498c_988f_518ddc5d4025);
@@ -20821,6 +19246,7 @@ pub struct IDynamicKeyProviderConcept_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEquatableConcept(::windows_core::IUnknown);
 impl IEquatableConcept {
     pub unsafe fn AreObjectsEqual<P0, P1>(&self, contextobject: P0, otherobject: P1) -> ::windows_core::Result<bool>
@@ -20833,24 +19259,8 @@ impl IEquatableConcept {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEquatableConcept, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEquatableConcept {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEquatableConcept {}
-impl ::core::fmt::Debug for IEquatableConcept {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEquatableConcept").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEquatableConcept {
     type Vtable = IEquatableConcept_Vtbl;
-}
-impl ::core::clone::Clone for IEquatableConcept {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEquatableConcept {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc52d5d3d_609d_4d5d_8a82_46b0acdec4f4);
@@ -20863,6 +19273,7 @@ pub struct IEquatableConcept_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostDataModelAccess(::windows_core::IUnknown);
 impl IHostDataModelAccess {
     pub unsafe fn GetDataModel(&self, manager: *mut ::core::option::Option<IDataModelManager>, host: *mut ::core::option::Option<IDebugHost>) -> ::windows_core::Result<()> {
@@ -20870,24 +19281,8 @@ impl IHostDataModelAccess {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHostDataModelAccess, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHostDataModelAccess {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHostDataModelAccess {}
-impl ::core::fmt::Debug for IHostDataModelAccess {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHostDataModelAccess").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHostDataModelAccess {
     type Vtable = IHostDataModelAccess_Vtbl;
-}
-impl ::core::clone::Clone for IHostDataModelAccess {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostDataModelAccess {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2bce54e_4835_4f8a_836e_7981e29904d1);
@@ -20900,6 +19295,7 @@ pub struct IHostDataModelAccess_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIndexableConcept(::windows_core::IUnknown);
 impl IIndexableConcept {
     pub unsafe fn GetDimensionality<P0>(&self, contextobject: P0) -> ::windows_core::Result<u64>
@@ -20924,24 +19320,8 @@ impl IIndexableConcept {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIndexableConcept, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIndexableConcept {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIndexableConcept {}
-impl ::core::fmt::Debug for IIndexableConcept {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIndexableConcept").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIndexableConcept {
     type Vtable = IIndexableConcept_Vtbl;
-}
-impl ::core::clone::Clone for IIndexableConcept {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIndexableConcept {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd1fad99f_3f53_4457_850c_8051df2d3fb5);
@@ -20956,6 +19336,7 @@ pub struct IIndexableConcept_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IIterableConcept(::windows_core::IUnknown);
 impl IIterableConcept {
     pub unsafe fn GetDefaultIndexDimensionality<P0>(&self, contextobject: P0) -> ::windows_core::Result<u64>
@@ -20974,24 +19355,8 @@ impl IIterableConcept {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IIterableConcept, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IIterableConcept {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IIterableConcept {}
-impl ::core::fmt::Debug for IIterableConcept {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIterableConcept").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IIterableConcept {
     type Vtable = IIterableConcept_Vtbl;
-}
-impl ::core::clone::Clone for IIterableConcept {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IIterableConcept {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5d49d0c_0b02_4301_9c9b_b3a6037628f3);
@@ -21005,6 +19370,7 @@ pub struct IIterableConcept_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKeyEnumerator(::windows_core::IUnknown);
 impl IKeyEnumerator {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
@@ -21015,24 +19381,8 @@ impl IKeyEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKeyEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKeyEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKeyEnumerator {}
-impl ::core::fmt::Debug for IKeyEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKeyEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKeyEnumerator {
     type Vtable = IKeyEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IKeyEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKeyEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x345fa92e_5e00_4319_9cae_971f7601cdcf);
@@ -21046,6 +19396,7 @@ pub struct IKeyEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKeyStore(::windows_core::IUnknown);
 impl IKeyStore {
     pub unsafe fn GetKey<P0>(&self, key: P0, object: ::core::option::Option<*mut ::core::option::Option<IModelObject>>, metadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>) -> ::windows_core::Result<()>
@@ -21080,24 +19431,8 @@ impl IKeyStore {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IKeyStore, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IKeyStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IKeyStore {}
-impl ::core::fmt::Debug for IKeyStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKeyStore").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IKeyStore {
     type Vtable = IKeyStore_Vtbl;
-}
-impl ::core::clone::Clone for IKeyStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKeyStore {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0fc7557d_401d_4fca_9365_da1e9850697c);
@@ -21114,6 +19449,7 @@ pub struct IKeyStore_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IModelIterator(::windows_core::IUnknown);
 impl IModelIterator {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
@@ -21124,24 +19460,8 @@ impl IModelIterator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IModelIterator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IModelIterator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IModelIterator {}
-impl ::core::fmt::Debug for IModelIterator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IModelIterator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IModelIterator {
     type Vtable = IModelIterator_Vtbl;
-}
-impl ::core::clone::Clone for IModelIterator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IModelIterator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe4622136_927d_4490_874f_581f3e4e3688);
@@ -21155,6 +19475,7 @@ pub struct IModelIterator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IModelKeyReference(::windows_core::IUnknown);
 impl IModelKeyReference {
     pub unsafe fn GetKeyName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -21190,24 +19511,8 @@ impl IModelKeyReference {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IModelKeyReference, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IModelKeyReference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IModelKeyReference {}
-impl ::core::fmt::Debug for IModelKeyReference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IModelKeyReference").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IModelKeyReference {
     type Vtable = IModelKeyReference_Vtbl;
-}
-impl ::core::clone::Clone for IModelKeyReference {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IModelKeyReference {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5253dcf8_5aff_4c62_b302_56a289e00998);
@@ -21226,6 +19531,7 @@ pub struct IModelKeyReference_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IModelKeyReference2(::windows_core::IUnknown);
 impl IModelKeyReference2 {
     pub unsafe fn GetKeyName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -21267,24 +19573,8 @@ impl IModelKeyReference2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IModelKeyReference2, ::windows_core::IUnknown, IModelKeyReference);
-impl ::core::cmp::PartialEq for IModelKeyReference2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IModelKeyReference2 {}
-impl ::core::fmt::Debug for IModelKeyReference2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IModelKeyReference2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IModelKeyReference2 {
     type Vtable = IModelKeyReference2_Vtbl;
-}
-impl ::core::clone::Clone for IModelKeyReference2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IModelKeyReference2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x80e2f7c5_7159_4e92_887e_7e0347e88406);
@@ -21297,6 +19587,7 @@ pub struct IModelKeyReference2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IModelMethod(::windows_core::IUnknown);
 impl IModelMethod {
     pub unsafe fn Call<P0>(&self, pcontextobject: P0, pparguments: &[::core::option::Option<IModelObject>], ppresult: *mut ::core::option::Option<IModelObject>, ppmetadata: ::core::option::Option<*mut ::core::option::Option<IKeyStore>>) -> ::windows_core::Result<()>
@@ -21307,24 +19598,8 @@ impl IModelMethod {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IModelMethod, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IModelMethod {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IModelMethod {}
-impl ::core::fmt::Debug for IModelMethod {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IModelMethod").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IModelMethod {
     type Vtable = IModelMethod_Vtbl;
-}
-impl ::core::clone::Clone for IModelMethod {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IModelMethod {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x80600c1f_b90b_4896_82ad_1c00207909e8);
@@ -21337,6 +19612,7 @@ pub struct IModelMethod_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IModelObject(::windows_core::IUnknown);
 impl IModelObject {
     pub unsafe fn GetContext(&self) -> ::windows_core::Result<IDebugHostContext> {
@@ -21510,24 +19786,8 @@ impl IModelObject {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IModelObject, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IModelObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IModelObject {}
-impl ::core::fmt::Debug for IModelObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IModelObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IModelObject {
     type Vtable = IModelObject_Vtbl;
-}
-impl ::core::clone::Clone for IModelObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IModelObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe28c7893_3f4b_4b96_baca_293cdc55f45d);
@@ -21578,6 +19838,7 @@ pub struct IModelObject_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IModelPropertyAccessor(::windows_core::IUnknown);
 impl IModelPropertyAccessor {
     pub unsafe fn GetValue<P0, P1>(&self, key: P0, contextobject: P1) -> ::windows_core::Result<IModelObject>
@@ -21598,24 +19859,8 @@ impl IModelPropertyAccessor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IModelPropertyAccessor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IModelPropertyAccessor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IModelPropertyAccessor {}
-impl ::core::fmt::Debug for IModelPropertyAccessor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IModelPropertyAccessor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IModelPropertyAccessor {
     type Vtable = IModelPropertyAccessor_Vtbl;
-}
-impl ::core::clone::Clone for IModelPropertyAccessor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IModelPropertyAccessor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5a0c63d9_0526_42b8_960c_9516a3254c85);
@@ -21629,6 +19874,7 @@ pub struct IModelPropertyAccessor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPreferredRuntimeTypeConcept(::windows_core::IUnknown);
 impl IPreferredRuntimeTypeConcept {
     pub unsafe fn CastToPreferredRuntimeType<P0>(&self, contextobject: P0) -> ::windows_core::Result<IModelObject>
@@ -21640,24 +19886,8 @@ impl IPreferredRuntimeTypeConcept {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPreferredRuntimeTypeConcept, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPreferredRuntimeTypeConcept {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPreferredRuntimeTypeConcept {}
-impl ::core::fmt::Debug for IPreferredRuntimeTypeConcept {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPreferredRuntimeTypeConcept").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPreferredRuntimeTypeConcept {
     type Vtable = IPreferredRuntimeTypeConcept_Vtbl;
-}
-impl ::core::clone::Clone for IPreferredRuntimeTypeConcept {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPreferredRuntimeTypeConcept {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9d6c1d7b_a76f_4618_8068_5f76bd9a4e8a);
@@ -21670,6 +19900,7 @@ pub struct IPreferredRuntimeTypeConcept_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawEnumerator(::windows_core::IUnknown);
 impl IRawEnumerator {
     pub unsafe fn Reset(&self) -> ::windows_core::Result<()> {
@@ -21680,24 +19911,8 @@ impl IRawEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IRawEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IRawEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRawEnumerator {}
-impl ::core::fmt::Debug for IRawEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRawEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IRawEnumerator {
     type Vtable = IRawEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IRawEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRawEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe13613f9_3a3c_40b5_8f48_1e5ebfb9b21b);
@@ -21711,6 +19926,7 @@ pub struct IRawEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug_Extensions\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStringDisplayableConcept(::windows_core::IUnknown);
 impl IStringDisplayableConcept {
     pub unsafe fn ToDisplayString<P0, P1>(&self, contextobject: P0, metadata: P1) -> ::windows_core::Result<::windows_core::BSTR>
@@ -21723,24 +19939,8 @@ impl IStringDisplayableConcept {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStringDisplayableConcept, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IStringDisplayableConcept {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStringDisplayableConcept {}
-impl ::core::fmt::Debug for IStringDisplayableConcept {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStringDisplayableConcept").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IStringDisplayableConcept {
     type Vtable = IStringDisplayableConcept_Vtbl;
-}
-impl ::core::clone::Clone for IStringDisplayableConcept {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStringDisplayableConcept {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd28e8d70_6c00_4205_940d_501016601ea3);

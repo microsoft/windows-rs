@@ -54,6 +54,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIAdapter(::windows_core::IUnknown);
 impl IDXGIAdapter {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -90,26 +91,10 @@ impl IDXGIAdapter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIAdapter, ::windows_core::IUnknown, IDXGIObject);
-impl ::core::cmp::PartialEq for IDXGIAdapter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIAdapter {}
-impl ::core::fmt::Debug for IDXGIAdapter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIAdapter").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIAdapter {}
 unsafe impl ::core::marker::Sync for IDXGIAdapter {}
 unsafe impl ::windows_core::Interface for IDXGIAdapter {
     type Vtable = IDXGIAdapter_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIAdapter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIAdapter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2411e7e1_12ac_4ccf_bd14_9798e8534dc0);
@@ -127,6 +112,7 @@ pub struct IDXGIAdapter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIAdapter1(::windows_core::IUnknown);
 impl IDXGIAdapter1 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -168,26 +154,10 @@ impl IDXGIAdapter1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIAdapter1, ::windows_core::IUnknown, IDXGIObject, IDXGIAdapter);
-impl ::core::cmp::PartialEq for IDXGIAdapter1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIAdapter1 {}
-impl ::core::fmt::Debug for IDXGIAdapter1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIAdapter1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIAdapter1 {}
 unsafe impl ::core::marker::Sync for IDXGIAdapter1 {}
 unsafe impl ::windows_core::Interface for IDXGIAdapter1 {
     type Vtable = IDXGIAdapter1_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIAdapter1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIAdapter1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x29038f61_3839_4626_91fd_086879011a05);
@@ -203,6 +173,7 @@ pub struct IDXGIAdapter1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIAdapter2(::windows_core::IUnknown);
 impl IDXGIAdapter2 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -249,26 +220,10 @@ impl IDXGIAdapter2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIAdapter2, ::windows_core::IUnknown, IDXGIObject, IDXGIAdapter, IDXGIAdapter1);
-impl ::core::cmp::PartialEq for IDXGIAdapter2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIAdapter2 {}
-impl ::core::fmt::Debug for IDXGIAdapter2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIAdapter2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIAdapter2 {}
 unsafe impl ::core::marker::Sync for IDXGIAdapter2 {}
 unsafe impl ::windows_core::Interface for IDXGIAdapter2 {
     type Vtable = IDXGIAdapter2_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIAdapter2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIAdapter2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0aa1ae0a_fa0e_4b84_8644_e05ff8e5acb5);
@@ -284,6 +239,7 @@ pub struct IDXGIAdapter2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIAdapter3(::windows_core::IUnknown);
 impl IDXGIAdapter3 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -360,26 +316,10 @@ impl IDXGIAdapter3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIAdapter3, ::windows_core::IUnknown, IDXGIObject, IDXGIAdapter, IDXGIAdapter1, IDXGIAdapter2);
-impl ::core::cmp::PartialEq for IDXGIAdapter3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIAdapter3 {}
-impl ::core::fmt::Debug for IDXGIAdapter3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIAdapter3").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIAdapter3 {}
 unsafe impl ::core::marker::Sync for IDXGIAdapter3 {}
 unsafe impl ::windows_core::Interface for IDXGIAdapter3 {
     type Vtable = IDXGIAdapter3_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIAdapter3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIAdapter3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x645967a4_1392_4310_a798_8053ce3e93fd);
@@ -403,6 +343,7 @@ pub struct IDXGIAdapter3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIAdapter4(::windows_core::IUnknown);
 impl IDXGIAdapter4 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -484,26 +425,10 @@ impl IDXGIAdapter4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIAdapter4, ::windows_core::IUnknown, IDXGIObject, IDXGIAdapter, IDXGIAdapter1, IDXGIAdapter2, IDXGIAdapter3);
-impl ::core::cmp::PartialEq for IDXGIAdapter4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIAdapter4 {}
-impl ::core::fmt::Debug for IDXGIAdapter4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIAdapter4").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIAdapter4 {}
 unsafe impl ::core::marker::Sync for IDXGIAdapter4 {}
 unsafe impl ::windows_core::Interface for IDXGIAdapter4 {
     type Vtable = IDXGIAdapter4_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIAdapter4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIAdapter4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3c8d99d1_4fbf_4181_a82c_af66bf7bd24e);
@@ -519,6 +444,7 @@ pub struct IDXGIAdapter4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIDebug(::windows_core::IUnknown);
 impl IDXGIDebug {
     pub unsafe fn ReportLiveObjects(&self, apiid: ::windows_core::GUID, flags: DXGI_DEBUG_RLO_FLAGS) -> ::windows_core::Result<()> {
@@ -526,26 +452,10 @@ impl IDXGIDebug {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIDebug, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDXGIDebug {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIDebug {}
-impl ::core::fmt::Debug for IDXGIDebug {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIDebug").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIDebug {}
 unsafe impl ::core::marker::Sync for IDXGIDebug {}
 unsafe impl ::windows_core::Interface for IDXGIDebug {
     type Vtable = IDXGIDebug_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIDebug {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIDebug {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x119e7452_de9e_40fe_8806_88f90c12b441);
@@ -558,6 +468,7 @@ pub struct IDXGIDebug_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIDebug1(::windows_core::IUnknown);
 impl IDXGIDebug1 {
     pub unsafe fn ReportLiveObjects(&self, apiid: ::windows_core::GUID, flags: DXGI_DEBUG_RLO_FLAGS) -> ::windows_core::Result<()> {
@@ -576,26 +487,10 @@ impl IDXGIDebug1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIDebug1, ::windows_core::IUnknown, IDXGIDebug);
-impl ::core::cmp::PartialEq for IDXGIDebug1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIDebug1 {}
-impl ::core::fmt::Debug for IDXGIDebug1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIDebug1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIDebug1 {}
 unsafe impl ::core::marker::Sync for IDXGIDebug1 {}
 unsafe impl ::windows_core::Interface for IDXGIDebug1 {
     type Vtable = IDXGIDebug1_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIDebug1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIDebug1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5a05f0c_16f2_4adf_9f4d_a8c4d58ac550);
@@ -613,6 +508,7 @@ pub struct IDXGIDebug1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIDecodeSwapChain(::windows_core::IUnknown);
 impl IDXGIDecodeSwapChain {
     pub unsafe fn PresentBuffer(&self, buffertopresent: u32, syncinterval: u32, flags: u32) -> ::windows_core::HRESULT {
@@ -654,26 +550,10 @@ impl IDXGIDecodeSwapChain {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIDecodeSwapChain, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDXGIDecodeSwapChain {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIDecodeSwapChain {}
-impl ::core::fmt::Debug for IDXGIDecodeSwapChain {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIDecodeSwapChain").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIDecodeSwapChain {}
 unsafe impl ::core::marker::Sync for IDXGIDecodeSwapChain {}
 unsafe impl ::windows_core::Interface for IDXGIDecodeSwapChain {
     type Vtable = IDXGIDecodeSwapChain_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIDecodeSwapChain {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIDecodeSwapChain {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2633066b_4514_4c7a_8fd8_12ea98059d18);
@@ -706,6 +586,7 @@ pub struct IDXGIDecodeSwapChain_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIDevice(::windows_core::IUnknown);
 impl IDXGIDevice {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -748,26 +629,10 @@ impl IDXGIDevice {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIDevice, ::windows_core::IUnknown, IDXGIObject);
-impl ::core::cmp::PartialEq for IDXGIDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIDevice {}
-impl ::core::fmt::Debug for IDXGIDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIDevice").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIDevice {}
 unsafe impl ::core::marker::Sync for IDXGIDevice {}
 unsafe impl ::windows_core::Interface for IDXGIDevice {
     type Vtable = IDXGIDevice_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54ec77fa_1377_44e6_8c32_88fd5f44c84c);
@@ -787,6 +652,7 @@ pub struct IDXGIDevice_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIDevice1(::windows_core::IUnknown);
 impl IDXGIDevice1 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -836,26 +702,10 @@ impl IDXGIDevice1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIDevice1, ::windows_core::IUnknown, IDXGIObject, IDXGIDevice);
-impl ::core::cmp::PartialEq for IDXGIDevice1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIDevice1 {}
-impl ::core::fmt::Debug for IDXGIDevice1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIDevice1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIDevice1 {}
 unsafe impl ::core::marker::Sync for IDXGIDevice1 {}
 unsafe impl ::windows_core::Interface for IDXGIDevice1 {
     type Vtable = IDXGIDevice1_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIDevice1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIDevice1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x77db970f_6276_48ba_ba28_070143b4392c);
@@ -869,6 +719,7 @@ pub struct IDXGIDevice1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIDevice2(::windows_core::IUnknown);
 impl IDXGIDevice2 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -934,26 +785,10 @@ impl IDXGIDevice2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIDevice2, ::windows_core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1);
-impl ::core::cmp::PartialEq for IDXGIDevice2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIDevice2 {}
-impl ::core::fmt::Debug for IDXGIDevice2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIDevice2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIDevice2 {}
 unsafe impl ::core::marker::Sync for IDXGIDevice2 {}
 unsafe impl ::windows_core::Interface for IDXGIDevice2 {
     type Vtable = IDXGIDevice2_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIDevice2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIDevice2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05008617_fbfd_4051_a790_144884b4f6a9);
@@ -974,6 +809,7 @@ pub struct IDXGIDevice2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIDevice3(::windows_core::IUnknown);
 impl IDXGIDevice3 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -1042,26 +878,10 @@ impl IDXGIDevice3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIDevice3, ::windows_core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1, IDXGIDevice2);
-impl ::core::cmp::PartialEq for IDXGIDevice3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIDevice3 {}
-impl ::core::fmt::Debug for IDXGIDevice3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIDevice3").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIDevice3 {}
 unsafe impl ::core::marker::Sync for IDXGIDevice3 {}
 unsafe impl ::windows_core::Interface for IDXGIDevice3 {
     type Vtable = IDXGIDevice3_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIDevice3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIDevice3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6007896c_3244_4afd_bf18_a6d3beda5023);
@@ -1074,6 +894,7 @@ pub struct IDXGIDevice3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIDevice4(::windows_core::IUnknown);
 impl IDXGIDevice4 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -1148,26 +969,10 @@ impl IDXGIDevice4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIDevice4, ::windows_core::IUnknown, IDXGIObject, IDXGIDevice, IDXGIDevice1, IDXGIDevice2, IDXGIDevice3);
-impl ::core::cmp::PartialEq for IDXGIDevice4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIDevice4 {}
-impl ::core::fmt::Debug for IDXGIDevice4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIDevice4").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIDevice4 {}
 unsafe impl ::core::marker::Sync for IDXGIDevice4 {}
 unsafe impl ::windows_core::Interface for IDXGIDevice4 {
     type Vtable = IDXGIDevice4_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIDevice4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIDevice4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x95b4f95f_d8da_4ca4_9ee6_3b76d5968a10);
@@ -1181,6 +986,7 @@ pub struct IDXGIDevice4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIDeviceSubObject(::windows_core::IUnknown);
 impl IDXGIDeviceSubObject {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -1211,26 +1017,10 @@ impl IDXGIDeviceSubObject {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIDeviceSubObject, ::windows_core::IUnknown, IDXGIObject);
-impl ::core::cmp::PartialEq for IDXGIDeviceSubObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIDeviceSubObject {}
-impl ::core::fmt::Debug for IDXGIDeviceSubObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIDeviceSubObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIDeviceSubObject {}
 unsafe impl ::core::marker::Sync for IDXGIDeviceSubObject {}
 unsafe impl ::windows_core::Interface for IDXGIDeviceSubObject {
     type Vtable = IDXGIDeviceSubObject_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIDeviceSubObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIDeviceSubObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d3e0379_f9de_4d58_bb6c_18d62992f1a6);
@@ -1243,6 +1033,7 @@ pub struct IDXGIDeviceSubObject_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIDisplayControl(::windows_core::IUnknown);
 impl IDXGIDisplayControl {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1260,26 +1051,10 @@ impl IDXGIDisplayControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIDisplayControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDXGIDisplayControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIDisplayControl {}
-impl ::core::fmt::Debug for IDXGIDisplayControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIDisplayControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIDisplayControl {}
 unsafe impl ::core::marker::Sync for IDXGIDisplayControl {}
 unsafe impl ::windows_core::Interface for IDXGIDisplayControl {
     type Vtable = IDXGIDisplayControl_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIDisplayControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIDisplayControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xea9dbf1a_c88e_4486_854a_98aa0138f30c);
@@ -1299,6 +1074,7 @@ pub struct IDXGIDisplayControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIFactory(::windows_core::IUnknown);
 impl IDXGIFactory {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -1357,26 +1133,10 @@ impl IDXGIFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIFactory, ::windows_core::IUnknown, IDXGIObject);
-impl ::core::cmp::PartialEq for IDXGIFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIFactory {}
-impl ::core::fmt::Debug for IDXGIFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIFactory {}
 unsafe impl ::core::marker::Sync for IDXGIFactory {}
 unsafe impl ::windows_core::Interface for IDXGIFactory {
     type Vtable = IDXGIFactory_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b7166ec_21c7_44ae_b21a_c9ae321ae369);
@@ -1405,6 +1165,7 @@ pub struct IDXGIFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIFactory1(::windows_core::IUnknown);
 impl IDXGIFactory1 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -1472,26 +1233,10 @@ impl IDXGIFactory1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIFactory1, ::windows_core::IUnknown, IDXGIObject, IDXGIFactory);
-impl ::core::cmp::PartialEq for IDXGIFactory1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIFactory1 {}
-impl ::core::fmt::Debug for IDXGIFactory1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIFactory1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIFactory1 {}
 unsafe impl ::core::marker::Sync for IDXGIFactory1 {}
 unsafe impl ::windows_core::Interface for IDXGIFactory1 {
     type Vtable = IDXGIFactory1_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIFactory1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIFactory1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x770aae78_f26f_4dba_a829_253c83d1b387);
@@ -1508,6 +1253,7 @@ pub struct IDXGIFactory1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIFactory2(::windows_core::IUnknown);
 impl IDXGIFactory2 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -1663,26 +1409,10 @@ impl IDXGIFactory2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIFactory2, ::windows_core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1);
-impl ::core::cmp::PartialEq for IDXGIFactory2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIFactory2 {}
-impl ::core::fmt::Debug for IDXGIFactory2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIFactory2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIFactory2 {}
 unsafe impl ::core::marker::Sync for IDXGIFactory2 {}
 unsafe impl ::windows_core::Interface for IDXGIFactory2 {
     type Vtable = IDXGIFactory2_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIFactory2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIFactory2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x50c83a1c_e072_4c48_87b0_3630fa36a6d0);
@@ -1732,6 +1462,7 @@ pub struct IDXGIFactory2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIFactory3(::windows_core::IUnknown);
 impl IDXGIFactory3 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -1890,26 +1621,10 @@ impl IDXGIFactory3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIFactory3, ::windows_core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2);
-impl ::core::cmp::PartialEq for IDXGIFactory3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIFactory3 {}
-impl ::core::fmt::Debug for IDXGIFactory3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIFactory3").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIFactory3 {}
 unsafe impl ::core::marker::Sync for IDXGIFactory3 {}
 unsafe impl ::windows_core::Interface for IDXGIFactory3 {
     type Vtable = IDXGIFactory3_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIFactory3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIFactory3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x25483823_cd46_4c7d_86ca_47aa95b837bd);
@@ -1922,6 +1637,7 @@ pub struct IDXGIFactory3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIFactory4(::windows_core::IUnknown);
 impl IDXGIFactory4 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -2096,26 +1812,10 @@ impl IDXGIFactory4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIFactory4, ::windows_core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3);
-impl ::core::cmp::PartialEq for IDXGIFactory4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIFactory4 {}
-impl ::core::fmt::Debug for IDXGIFactory4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIFactory4").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIFactory4 {}
 unsafe impl ::core::marker::Sync for IDXGIFactory4 {}
 unsafe impl ::windows_core::Interface for IDXGIFactory4 {
     type Vtable = IDXGIFactory4_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIFactory4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIFactory4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1bc6ea02_ef36_464f_bf0c_21ca39e5168a);
@@ -2132,6 +1832,7 @@ pub struct IDXGIFactory4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIFactory5(::windows_core::IUnknown);
 impl IDXGIFactory5 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -2309,26 +2010,10 @@ impl IDXGIFactory5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIFactory5, ::windows_core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3, IDXGIFactory4);
-impl ::core::cmp::PartialEq for IDXGIFactory5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIFactory5 {}
-impl ::core::fmt::Debug for IDXGIFactory5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIFactory5").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIFactory5 {}
 unsafe impl ::core::marker::Sync for IDXGIFactory5 {}
 unsafe impl ::windows_core::Interface for IDXGIFactory5 {
     type Vtable = IDXGIFactory5_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIFactory5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIFactory5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7632e1f5_ee65_4dca_87fd_84cd75f8838d);
@@ -2341,6 +2026,7 @@ pub struct IDXGIFactory5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIFactory6(::windows_core::IUnknown);
 impl IDXGIFactory6 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -2525,26 +2211,10 @@ impl IDXGIFactory6 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIFactory6, ::windows_core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3, IDXGIFactory4, IDXGIFactory5);
-impl ::core::cmp::PartialEq for IDXGIFactory6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIFactory6 {}
-impl ::core::fmt::Debug for IDXGIFactory6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIFactory6").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIFactory6 {}
 unsafe impl ::core::marker::Sync for IDXGIFactory6 {}
 unsafe impl ::windows_core::Interface for IDXGIFactory6 {
     type Vtable = IDXGIFactory6_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIFactory6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIFactory6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc1b6694f_ff09_44a9_b03c_77900a0a1d17);
@@ -2557,6 +2227,7 @@ pub struct IDXGIFactory6_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIFactory7(::windows_core::IUnknown);
 impl IDXGIFactory7 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -2753,26 +2424,10 @@ impl IDXGIFactory7 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIFactory7, ::windows_core::IUnknown, IDXGIObject, IDXGIFactory, IDXGIFactory1, IDXGIFactory2, IDXGIFactory3, IDXGIFactory4, IDXGIFactory5, IDXGIFactory6);
-impl ::core::cmp::PartialEq for IDXGIFactory7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIFactory7 {}
-impl ::core::fmt::Debug for IDXGIFactory7 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIFactory7").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIFactory7 {}
 unsafe impl ::core::marker::Sync for IDXGIFactory7 {}
 unsafe impl ::windows_core::Interface for IDXGIFactory7 {
     type Vtable = IDXGIFactory7_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIFactory7 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIFactory7 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa4966eed_76db_44da_84c1_ee9a7afb20a8);
@@ -2789,6 +2444,7 @@ pub struct IDXGIFactory7_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIFactoryMedia(::windows_core::IUnknown);
 impl IDXGIFactoryMedia {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
@@ -2816,26 +2472,10 @@ impl IDXGIFactoryMedia {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIFactoryMedia, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDXGIFactoryMedia {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIFactoryMedia {}
-impl ::core::fmt::Debug for IDXGIFactoryMedia {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIFactoryMedia").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIFactoryMedia {}
 unsafe impl ::core::marker::Sync for IDXGIFactoryMedia {}
 unsafe impl ::windows_core::Interface for IDXGIFactoryMedia {
     type Vtable = IDXGIFactoryMedia_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIFactoryMedia {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIFactoryMedia {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x41e7d1f2_a591_4f7b_a2e5_fa9c843e1c12);
@@ -2855,6 +2495,7 @@ pub struct IDXGIFactoryMedia_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIInfoQueue(::windows_core::IUnknown);
 impl IDXGIInfoQueue {
     pub unsafe fn SetMessageCountLimit(&self, producer: ::windows_core::GUID, messagecountlimit: u64) -> ::windows_core::Result<()> {
@@ -3004,26 +2645,10 @@ impl IDXGIInfoQueue {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIInfoQueue, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDXGIInfoQueue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIInfoQueue {}
-impl ::core::fmt::Debug for IDXGIInfoQueue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIInfoQueue").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIInfoQueue {}
 unsafe impl ::core::marker::Sync for IDXGIInfoQueue {}
 unsafe impl ::windows_core::Interface for IDXGIInfoQueue {
     type Vtable = IDXGIInfoQueue_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIInfoQueue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIInfoQueue {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd67441c7_672a_476f_9e82_cd55b44949ce);
@@ -3096,6 +2721,7 @@ pub struct IDXGIInfoQueue_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIKeyedMutex(::windows_core::IUnknown);
 impl IDXGIKeyedMutex {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -3132,26 +2758,10 @@ impl IDXGIKeyedMutex {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIKeyedMutex, ::windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
-impl ::core::cmp::PartialEq for IDXGIKeyedMutex {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIKeyedMutex {}
-impl ::core::fmt::Debug for IDXGIKeyedMutex {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIKeyedMutex").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIKeyedMutex {}
 unsafe impl ::core::marker::Sync for IDXGIKeyedMutex {}
 unsafe impl ::windows_core::Interface for IDXGIKeyedMutex {
     type Vtable = IDXGIKeyedMutex_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIKeyedMutex {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIKeyedMutex {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9d8e1289_d7b3_465f_8126_250e349af85d);
@@ -3165,6 +2775,7 @@ pub struct IDXGIKeyedMutex_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIObject(::windows_core::IUnknown);
 impl IDXGIObject {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -3188,26 +2799,10 @@ impl IDXGIObject {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIObject, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDXGIObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIObject {}
-impl ::core::fmt::Debug for IDXGIObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIObject {}
 unsafe impl ::core::marker::Sync for IDXGIObject {}
 unsafe impl ::windows_core::Interface for IDXGIObject {
     type Vtable = IDXGIObject_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaec22fb8_76f3_4639_9be0_28eb43a67a2e);
@@ -3223,6 +2818,7 @@ pub struct IDXGIObject_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIOutput(::windows_core::IUnknown);
 impl IDXGIOutput {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -3309,26 +2905,10 @@ impl IDXGIOutput {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIOutput, ::windows_core::IUnknown, IDXGIObject);
-impl ::core::cmp::PartialEq for IDXGIOutput {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIOutput {}
-impl ::core::fmt::Debug for IDXGIOutput {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIOutput").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIOutput {}
 unsafe impl ::core::marker::Sync for IDXGIOutput {}
 unsafe impl ::windows_core::Interface for IDXGIOutput {
     type Vtable = IDXGIOutput_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIOutput {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIOutput {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae02eedb_c735_4690_8d52_5a8dc20213aa);
@@ -3373,6 +2953,7 @@ pub struct IDXGIOutput_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIOutput1(::windows_core::IUnknown);
 impl IDXGIOutput1 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -3485,26 +3066,10 @@ impl IDXGIOutput1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIOutput1, ::windows_core::IUnknown, IDXGIObject, IDXGIOutput);
-impl ::core::cmp::PartialEq for IDXGIOutput1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIOutput1 {}
-impl ::core::fmt::Debug for IDXGIOutput1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIOutput1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIOutput1 {}
 unsafe impl ::core::marker::Sync for IDXGIOutput1 {}
 unsafe impl ::windows_core::Interface for IDXGIOutput1 {
     type Vtable = IDXGIOutput1_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIOutput1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIOutput1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00cddea8_939b_4b83_a340_a685226666cc);
@@ -3526,6 +3091,7 @@ pub struct IDXGIOutput1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIOutput2(::windows_core::IUnknown);
 impl IDXGIOutput2 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -3643,26 +3209,10 @@ impl IDXGIOutput2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIOutput2, ::windows_core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1);
-impl ::core::cmp::PartialEq for IDXGIOutput2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIOutput2 {}
-impl ::core::fmt::Debug for IDXGIOutput2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIOutput2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIOutput2 {}
 unsafe impl ::core::marker::Sync for IDXGIOutput2 {}
 unsafe impl ::windows_core::Interface for IDXGIOutput2 {
     type Vtable = IDXGIOutput2_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIOutput2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIOutput2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x595e39d1_2724_4663_99b1_da969de28364);
@@ -3678,6 +3228,7 @@ pub struct IDXGIOutput2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIOutput3(::windows_core::IUnknown);
 impl IDXGIOutput3 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -3804,26 +3355,10 @@ impl IDXGIOutput3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIOutput3, ::windows_core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2);
-impl ::core::cmp::PartialEq for IDXGIOutput3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIOutput3 {}
-impl ::core::fmt::Debug for IDXGIOutput3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIOutput3").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIOutput3 {}
 unsafe impl ::core::marker::Sync for IDXGIOutput3 {}
 unsafe impl ::windows_core::Interface for IDXGIOutput3 {
     type Vtable = IDXGIOutput3_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIOutput3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIOutput3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a6bb301_7e7e_41f4_a8e0_5b32f7f99b18);
@@ -3839,6 +3374,7 @@ pub struct IDXGIOutput3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIOutput4(::windows_core::IUnknown);
 impl IDXGIOutput4 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -3974,26 +3510,10 @@ impl IDXGIOutput4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIOutput4, ::windows_core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2, IDXGIOutput3);
-impl ::core::cmp::PartialEq for IDXGIOutput4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIOutput4 {}
-impl ::core::fmt::Debug for IDXGIOutput4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIOutput4").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIOutput4 {}
 unsafe impl ::core::marker::Sync for IDXGIOutput4 {}
 unsafe impl ::windows_core::Interface for IDXGIOutput4 {
     type Vtable = IDXGIOutput4_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIOutput4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIOutput4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdc7dca35_2196_414d_9f53_617884032a60);
@@ -4009,6 +3529,7 @@ pub struct IDXGIOutput4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIOutput5(::windows_core::IUnknown);
 impl IDXGIOutput5 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -4153,26 +3674,10 @@ impl IDXGIOutput5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIOutput5, ::windows_core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2, IDXGIOutput3, IDXGIOutput4);
-impl ::core::cmp::PartialEq for IDXGIOutput5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIOutput5 {}
-impl ::core::fmt::Debug for IDXGIOutput5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIOutput5").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIOutput5 {}
 unsafe impl ::core::marker::Sync for IDXGIOutput5 {}
 unsafe impl ::windows_core::Interface for IDXGIOutput5 {
     type Vtable = IDXGIOutput5_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIOutput5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIOutput5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x80a07424_ab52_42eb_833c_0c42fd282d98);
@@ -4188,6 +3693,7 @@ pub struct IDXGIOutput5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIOutput6(::windows_core::IUnknown);
 impl IDXGIOutput6 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -4341,26 +3847,10 @@ impl IDXGIOutput6 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIOutput6, ::windows_core::IUnknown, IDXGIObject, IDXGIOutput, IDXGIOutput1, IDXGIOutput2, IDXGIOutput3, IDXGIOutput4, IDXGIOutput5);
-impl ::core::cmp::PartialEq for IDXGIOutput6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIOutput6 {}
-impl ::core::fmt::Debug for IDXGIOutput6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIOutput6").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIOutput6 {}
 unsafe impl ::core::marker::Sync for IDXGIOutput6 {}
 unsafe impl ::windows_core::Interface for IDXGIOutput6 {
     type Vtable = IDXGIOutput6_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIOutput6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIOutput6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x068346e8_aaec_4b84_add7_137f513f77a1);
@@ -4377,6 +3867,7 @@ pub struct IDXGIOutput6_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIOutputDuplication(::windows_core::IUnknown);
 impl IDXGIOutputDuplication {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -4435,26 +3926,10 @@ impl IDXGIOutputDuplication {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIOutputDuplication, ::windows_core::IUnknown, IDXGIObject);
-impl ::core::cmp::PartialEq for IDXGIOutputDuplication {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIOutputDuplication {}
-impl ::core::fmt::Debug for IDXGIOutputDuplication {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIOutputDuplication").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIOutputDuplication {}
 unsafe impl ::core::marker::Sync for IDXGIOutputDuplication {}
 unsafe impl ::windows_core::Interface for IDXGIOutputDuplication {
     type Vtable = IDXGIOutputDuplication_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIOutputDuplication {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIOutputDuplication {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x191cfac3_a341_470d_b26e_a864f428319c);
@@ -4489,6 +3964,7 @@ pub struct IDXGIOutputDuplication_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIResource(::windows_core::IUnknown);
 impl IDXGIResource {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -4536,26 +4012,10 @@ impl IDXGIResource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIResource, ::windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
-impl ::core::cmp::PartialEq for IDXGIResource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIResource {}
-impl ::core::fmt::Debug for IDXGIResource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIResource").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIResource {}
 unsafe impl ::core::marker::Sync for IDXGIResource {}
 unsafe impl ::windows_core::Interface for IDXGIResource {
     type Vtable = IDXGIResource_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIResource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIResource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x035f3ab4_482e_4e50_b41f_8a7f8bd8960b);
@@ -4574,6 +4034,7 @@ pub struct IDXGIResource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGIResource1(::windows_core::IUnknown);
 impl IDXGIResource1 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -4634,26 +4095,10 @@ impl IDXGIResource1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGIResource1, ::windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGIResource);
-impl ::core::cmp::PartialEq for IDXGIResource1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGIResource1 {}
-impl ::core::fmt::Debug for IDXGIResource1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGIResource1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGIResource1 {}
 unsafe impl ::core::marker::Sync for IDXGIResource1 {}
 unsafe impl ::windows_core::Interface for IDXGIResource1 {
     type Vtable = IDXGIResource1_Vtbl;
-}
-impl ::core::clone::Clone for IDXGIResource1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGIResource1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30961379_4609_4a41_998e_54fe567ee0c1);
@@ -4670,6 +4115,7 @@ pub struct IDXGIResource1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGISurface(::windows_core::IUnknown);
 impl IDXGISurface {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -4711,26 +4157,10 @@ impl IDXGISurface {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGISurface, ::windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
-impl ::core::cmp::PartialEq for IDXGISurface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGISurface {}
-impl ::core::fmt::Debug for IDXGISurface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGISurface").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGISurface {}
 unsafe impl ::core::marker::Sync for IDXGISurface {}
 unsafe impl ::windows_core::Interface for IDXGISurface {
     type Vtable = IDXGISurface_Vtbl;
-}
-impl ::core::clone::Clone for IDXGISurface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGISurface {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcafcb56c_6ac3_4889_bf47_9e23bbd260ec);
@@ -4748,6 +4178,7 @@ pub struct IDXGISurface_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGISurface1(::windows_core::IUnknown);
 impl IDXGISurface1 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -4803,26 +4234,10 @@ impl IDXGISurface1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGISurface1, ::windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISurface);
-impl ::core::cmp::PartialEq for IDXGISurface1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGISurface1 {}
-impl ::core::fmt::Debug for IDXGISurface1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGISurface1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGISurface1 {}
 unsafe impl ::core::marker::Sync for IDXGISurface1 {}
 unsafe impl ::windows_core::Interface for IDXGISurface1 {
     type Vtable = IDXGISurface1_Vtbl;
-}
-impl ::core::clone::Clone for IDXGISurface1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGISurface1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4ae63092_6327_4c1b_80ae_bfe12ea32b86);
@@ -4842,6 +4257,7 @@ pub struct IDXGISurface1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGISurface2(::windows_core::IUnknown);
 impl IDXGISurface2 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -4904,26 +4320,10 @@ impl IDXGISurface2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGISurface2, ::windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISurface, IDXGISurface1);
-impl ::core::cmp::PartialEq for IDXGISurface2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGISurface2 {}
-impl ::core::fmt::Debug for IDXGISurface2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGISurface2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGISurface2 {}
 unsafe impl ::core::marker::Sync for IDXGISurface2 {}
 unsafe impl ::windows_core::Interface for IDXGISurface2 {
     type Vtable = IDXGISurface2_Vtbl;
-}
-impl ::core::clone::Clone for IDXGISurface2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGISurface2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaba496dd_b617_4cb8_a866_bc44d7eb1fa2);
@@ -4936,6 +4336,7 @@ pub struct IDXGISurface2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGISwapChain(::windows_core::IUnknown);
 impl IDXGISwapChain {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -5016,26 +4417,10 @@ impl IDXGISwapChain {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGISwapChain, ::windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject);
-impl ::core::cmp::PartialEq for IDXGISwapChain {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGISwapChain {}
-impl ::core::fmt::Debug for IDXGISwapChain {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGISwapChain").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGISwapChain {}
 unsafe impl ::core::marker::Sync for IDXGISwapChain {}
 unsafe impl ::windows_core::Interface for IDXGISwapChain {
     type Vtable = IDXGISwapChain_Vtbl;
-}
-impl ::core::clone::Clone for IDXGISwapChain {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGISwapChain {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x310d36a0_d2e7_4c0a_aa04_6a9d23b8886a);
@@ -5072,6 +4457,7 @@ pub struct IDXGISwapChain_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGISwapChain1(::windows_core::IUnknown);
 impl IDXGISwapChain1 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -5207,26 +4593,10 @@ impl IDXGISwapChain1 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGISwapChain1, ::windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain);
-impl ::core::cmp::PartialEq for IDXGISwapChain1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGISwapChain1 {}
-impl ::core::fmt::Debug for IDXGISwapChain1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGISwapChain1").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGISwapChain1 {}
 unsafe impl ::core::marker::Sync for IDXGISwapChain1 {}
 unsafe impl ::windows_core::Interface for IDXGISwapChain1 {
     type Vtable = IDXGISwapChain1_Vtbl;
-}
-impl ::core::clone::Clone for IDXGISwapChain1 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGISwapChain1 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x790a45f7_0d42_4876_983a_0a55cfe6f4aa);
@@ -5270,6 +4640,7 @@ pub struct IDXGISwapChain1_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGISwapChain2(::windows_core::IUnknown);
 impl IDXGISwapChain2 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -5429,26 +4800,10 @@ impl IDXGISwapChain2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGISwapChain2, ::windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain, IDXGISwapChain1);
-impl ::core::cmp::PartialEq for IDXGISwapChain2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGISwapChain2 {}
-impl ::core::fmt::Debug for IDXGISwapChain2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGISwapChain2").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGISwapChain2 {}
 unsafe impl ::core::marker::Sync for IDXGISwapChain2 {}
 unsafe impl ::windows_core::Interface for IDXGISwapChain2 {
     type Vtable = IDXGISwapChain2_Vtbl;
-}
-impl ::core::clone::Clone for IDXGISwapChain2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGISwapChain2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8be2ac4_199f_4946_b331_79599fb98de7);
@@ -5470,6 +4825,7 @@ pub struct IDXGISwapChain2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGISwapChain3(::windows_core::IUnknown);
 impl IDXGISwapChain3 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -5648,26 +5004,10 @@ impl IDXGISwapChain3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGISwapChain3, ::windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain, IDXGISwapChain1, IDXGISwapChain2);
-impl ::core::cmp::PartialEq for IDXGISwapChain3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGISwapChain3 {}
-impl ::core::fmt::Debug for IDXGISwapChain3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGISwapChain3").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGISwapChain3 {}
 unsafe impl ::core::marker::Sync for IDXGISwapChain3 {}
 unsafe impl ::windows_core::Interface for IDXGISwapChain3 {
     type Vtable = IDXGISwapChain3_Vtbl;
-}
-impl ::core::clone::Clone for IDXGISwapChain3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGISwapChain3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x94d99bdb_f1f8_4ab0_b236_7da0170edab1);
@@ -5692,6 +5032,7 @@ pub struct IDXGISwapChain3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGISwapChain4(::windows_core::IUnknown);
 impl IDXGISwapChain4 {
     pub unsafe fn SetPrivateData(&self, name: *const ::windows_core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -5873,26 +5214,10 @@ impl IDXGISwapChain4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGISwapChain4, ::windows_core::IUnknown, IDXGIObject, IDXGIDeviceSubObject, IDXGISwapChain, IDXGISwapChain1, IDXGISwapChain2, IDXGISwapChain3);
-impl ::core::cmp::PartialEq for IDXGISwapChain4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGISwapChain4 {}
-impl ::core::fmt::Debug for IDXGISwapChain4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGISwapChain4").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGISwapChain4 {}
 unsafe impl ::core::marker::Sync for IDXGISwapChain4 {}
 unsafe impl ::windows_core::Interface for IDXGISwapChain4 {
     type Vtable = IDXGISwapChain4_Vtbl;
-}
-impl ::core::clone::Clone for IDXGISwapChain4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGISwapChain4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d585d5a_bd4a_489e_b1f4_3dbcb6452ffb);
@@ -5905,6 +5230,7 @@ pub struct IDXGISwapChain4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGISwapChainMedia(::windows_core::IUnknown);
 impl IDXGISwapChainMedia {
     pub unsafe fn GetFrameStatisticsMedia(&self, pstats: *mut DXGI_FRAME_STATISTICS_MEDIA) -> ::windows_core::Result<()> {
@@ -5918,26 +5244,10 @@ impl IDXGISwapChainMedia {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGISwapChainMedia, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDXGISwapChainMedia {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGISwapChainMedia {}
-impl ::core::fmt::Debug for IDXGISwapChainMedia {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGISwapChainMedia").field(&self.0).finish()
-    }
-}
 unsafe impl ::core::marker::Send for IDXGISwapChainMedia {}
 unsafe impl ::core::marker::Sync for IDXGISwapChainMedia {}
 unsafe impl ::windows_core::Interface for IDXGISwapChainMedia {
     type Vtable = IDXGISwapChainMedia_Vtbl;
-}
-impl ::core::clone::Clone for IDXGISwapChainMedia {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGISwapChainMedia {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd95b90b_f05f_4f6a_bd65_25bfb264bd84);
@@ -5952,6 +5262,7 @@ pub struct IDXGISwapChainMedia_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDXGraphicsAnalysis(::windows_core::IUnknown);
 impl IDXGraphicsAnalysis {
     pub unsafe fn BeginCapture(&self) {
@@ -5962,24 +5273,8 @@ impl IDXGraphicsAnalysis {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDXGraphicsAnalysis, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDXGraphicsAnalysis {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDXGraphicsAnalysis {}
-impl ::core::fmt::Debug for IDXGraphicsAnalysis {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDXGraphicsAnalysis").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDXGraphicsAnalysis {
     type Vtable = IDXGraphicsAnalysis_Vtbl;
-}
-impl ::core::clone::Clone for IDXGraphicsAnalysis {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDXGraphicsAnalysis {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f251514_9d4d_4902_9d60_18988ab7d4b5);

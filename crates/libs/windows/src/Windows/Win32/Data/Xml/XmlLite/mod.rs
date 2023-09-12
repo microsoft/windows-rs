@@ -74,6 +74,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlReader(::windows_core::IUnknown);
 impl IXmlReader {
     pub unsafe fn SetInput<P0>(&self, pinput: P0) -> ::windows_core::Result<()>
@@ -166,24 +167,8 @@ impl IXmlReader {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXmlReader, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXmlReader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXmlReader {}
-impl ::core::fmt::Debug for IXmlReader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXmlReader").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXmlReader {
     type Vtable = IXmlReader_Vtbl;
-}
-impl ::core::clone::Clone for IXmlReader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlReader {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7279fc81_709d_4095_b63d_69fe4b0d9030);
@@ -227,6 +212,7 @@ pub struct IXmlReader_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlResolver(::windows_core::IUnknown);
 impl IXmlResolver {
     pub unsafe fn ResolveUri<P0, P1, P2>(&self, pwszbaseuri: P0, pwszpublicidentifier: P1, pwszsystemidentifier: P2) -> ::windows_core::Result<::windows_core::IUnknown>
@@ -240,24 +226,8 @@ impl IXmlResolver {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXmlResolver, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXmlResolver {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXmlResolver {}
-impl ::core::fmt::Debug for IXmlResolver {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXmlResolver").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXmlResolver {
     type Vtable = IXmlResolver_Vtbl;
-}
-impl ::core::clone::Clone for IXmlResolver {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlResolver {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7279fc82_709d_4095_b63d_69fe4b0d9030);
@@ -270,6 +240,7 @@ pub struct IXmlResolver_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlWriter(::windows_core::IUnknown);
 impl IXmlWriter {
     pub unsafe fn SetOutput<P0>(&self, poutput: P0) -> ::windows_core::Result<()>
@@ -438,24 +409,8 @@ impl IXmlWriter {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXmlWriter, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXmlWriter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXmlWriter {}
-impl ::core::fmt::Debug for IXmlWriter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXmlWriter").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXmlWriter {
     type Vtable = IXmlWriter_Vtbl;
-}
-impl ::core::clone::Clone for IXmlWriter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlWriter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7279fc88_709d_4095_b63d_69fe4b0d9030);
@@ -505,6 +460,7 @@ pub struct IXmlWriter_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXmlWriterLite(::windows_core::IUnknown);
 impl IXmlWriterLite {
     pub unsafe fn SetOutput<P0>(&self, poutput: P0) -> ::windows_core::Result<()>
@@ -652,24 +608,8 @@ impl IXmlWriterLite {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXmlWriterLite, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXmlWriterLite {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXmlWriterLite {}
-impl ::core::fmt::Debug for IXmlWriterLite {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXmlWriterLite").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXmlWriterLite {
     type Vtable = IXmlWriterLite_Vtbl;
-}
-impl ::core::clone::Clone for IXmlWriterLite {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXmlWriterLite {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x862494c6_1310_4aad_b3cd_2dbeebf670d3);

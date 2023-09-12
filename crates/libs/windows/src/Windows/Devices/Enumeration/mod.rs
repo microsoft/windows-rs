@@ -2,14 +2,10 @@
 pub mod Pnp;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceAccessChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceAccessChangedEventArgs {
     type Vtable = IDeviceAccessChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceAccessChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceAccessChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdeda0bcc_4f9d_4f58_9dba_a9bc800408d5);
@@ -22,14 +18,10 @@ pub struct IDeviceAccessChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceAccessChangedEventArgs2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceAccessChangedEventArgs2 {
     type Vtable = IDeviceAccessChangedEventArgs2_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceAccessChangedEventArgs2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceAccessChangedEventArgs2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x82523262_934b_4b30_a178_adc39f2f2be3);
@@ -42,14 +34,10 @@ pub struct IDeviceAccessChangedEventArgs2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceAccessInformation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceAccessInformation {
     type Vtable = IDeviceAccessInformation_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceAccessInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceAccessInformation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0baa9a73_6de5_4915_8ddd_9a0554a6f545);
@@ -70,14 +58,10 @@ pub struct IDeviceAccessInformation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceAccessInformationStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceAccessInformationStatics {
     type Vtable = IDeviceAccessInformationStatics_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceAccessInformationStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceAccessInformationStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x574bd3d3_5f30_45cd_8a94_724fe5973084);
@@ -92,14 +76,10 @@ pub struct IDeviceAccessInformationStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceConnectionChangeTriggerDetails(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceConnectionChangeTriggerDetails {
     type Vtable = IDeviceConnectionChangeTriggerDetails_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceConnectionChangeTriggerDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceConnectionChangeTriggerDetails {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb8578c0c_bbc1_484b_bffa_7b31dcc200b2);
@@ -112,14 +92,10 @@ pub struct IDeviceConnectionChangeTriggerDetails_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceDisconnectButtonClickedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceDisconnectButtonClickedEventArgs {
     type Vtable = IDeviceDisconnectButtonClickedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceDisconnectButtonClickedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceDisconnectButtonClickedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8e44b56d_f902_4a00_b536_f37992e6a2a7);
@@ -132,14 +108,10 @@ pub struct IDeviceDisconnectButtonClickedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceInformation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceInformation {
     type Vtable = IDeviceInformation_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceInformation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaba0fb95_4398_489d_8e44_e6130927011f);
@@ -169,14 +141,10 @@ pub struct IDeviceInformation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceInformation2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceInformation2 {
     type Vtable = IDeviceInformation2_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceInformation2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceInformation2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf156a638_7997_48d9_a10c_269d46533f48);
@@ -190,14 +158,10 @@ pub struct IDeviceInformation2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceInformationCustomPairing(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceInformationCustomPairing {
     type Vtable = IDeviceInformationCustomPairing_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceInformationCustomPairing {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceInformationCustomPairing {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x85138c02_4ee6_4914_8370_107a39144c0e);
@@ -229,14 +193,10 @@ pub struct IDeviceInformationCustomPairing_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceInformationPairing(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceInformationPairing {
     type Vtable = IDeviceInformationPairing_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceInformationPairing {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceInformationPairing {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c4769f5_f684_40d5_8469_e8dbaab70485);
@@ -258,14 +218,10 @@ pub struct IDeviceInformationPairing_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceInformationPairing2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceInformationPairing2 {
     type Vtable = IDeviceInformationPairing2_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceInformationPairing2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceInformationPairing2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf68612fd_0aee_4328_85cc_1c742bb1790d);
@@ -287,14 +243,10 @@ pub struct IDeviceInformationPairing2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceInformationPairingStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceInformationPairingStatics {
     type Vtable = IDeviceInformationPairingStatics_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceInformationPairingStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceInformationPairingStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe915c408_36d4_49a1_bf13_514173799b6b);
@@ -307,14 +259,10 @@ pub struct IDeviceInformationPairingStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceInformationPairingStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceInformationPairingStatics2 {
     type Vtable = IDeviceInformationPairingStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceInformationPairingStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceInformationPairingStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04de5372_b7b7_476b_a74f_c5836a704d98);
@@ -327,14 +275,10 @@ pub struct IDeviceInformationPairingStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceInformationStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceInformationStatics {
     type Vtable = IDeviceInformationStatics_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceInformationStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceInformationStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc17f100e_3a46_4a78_8013_769dc9b97390);
@@ -377,14 +321,10 @@ pub struct IDeviceInformationStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceInformationStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceInformationStatics2 {
     type Vtable = IDeviceInformationStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceInformationStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceInformationStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x493b4f34_a84f_45fd_9167_15d1cb1bd1f9);
@@ -409,14 +349,10 @@ pub struct IDeviceInformationStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceInformationUpdate(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceInformationUpdate {
     type Vtable = IDeviceInformationUpdate_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceInformationUpdate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceInformationUpdate {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f315305_d972_44b7_a37e_9e822c78213b);
@@ -433,14 +369,10 @@ pub struct IDeviceInformationUpdate_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceInformationUpdate2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceInformationUpdate2 {
     type Vtable = IDeviceInformationUpdate2_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceInformationUpdate2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceInformationUpdate2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d9d148c_a873_485e_baa6_aa620788e3cc);
@@ -453,14 +385,10 @@ pub struct IDeviceInformationUpdate2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDevicePairingRequestedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDevicePairingRequestedEventArgs {
     type Vtable = IDevicePairingRequestedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IDevicePairingRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDevicePairingRequestedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf717fc56_de6b_487f_8376_0180aca69963);
@@ -481,14 +409,10 @@ pub struct IDevicePairingRequestedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDevicePairingRequestedEventArgs2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDevicePairingRequestedEventArgs2 {
     type Vtable = IDevicePairingRequestedEventArgs2_Vtbl;
-}
-impl ::core::clone::Clone for IDevicePairingRequestedEventArgs2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDevicePairingRequestedEventArgs2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc83752d9_e4d3_4db0_a360_a105e437dbdc);
@@ -504,14 +428,10 @@ pub struct IDevicePairingRequestedEventArgs2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDevicePairingResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDevicePairingResult {
     type Vtable = IDevicePairingResult_Vtbl;
-}
-impl ::core::clone::Clone for IDevicePairingResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDevicePairingResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x072b02bf_dd95_4025_9b37_de51adba37b7);
@@ -525,30 +445,15 @@ pub struct IDevicePairingResult_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDevicePairingSettings(::windows_core::IUnknown);
 impl IDevicePairingSettings {}
 ::windows_core::imp::interface_hierarchy!(IDevicePairingSettings, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IDevicePairingSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDevicePairingSettings {}
-impl ::core::fmt::Debug for IDevicePairingSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDevicePairingSettings").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IDevicePairingSettings {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{482cb27c-83bb-420e-be51-6602b222de54}");
 }
 unsafe impl ::windows_core::Interface for IDevicePairingSettings {
     type Vtable = IDevicePairingSettings_Vtbl;
-}
-impl ::core::clone::Clone for IDevicePairingSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDevicePairingSettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x482cb27c_83bb_420e_be51_6602b222de54);
@@ -560,14 +465,10 @@ pub struct IDevicePairingSettings_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDevicePicker(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDevicePicker {
     type Vtable = IDevicePicker_Vtbl;
-}
-impl ::core::clone::Clone for IDevicePicker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDevicePicker {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x84997aa2_034a_4440_8813_7d0bd479bf5a);
@@ -627,14 +528,10 @@ pub struct IDevicePicker_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDevicePickerAppearance(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDevicePickerAppearance {
     type Vtable = IDevicePickerAppearance_Vtbl;
-}
-impl ::core::clone::Clone for IDevicePickerAppearance {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDevicePickerAppearance {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe69a12c6_e627_4ed8_9b6c_460af445e56d);
@@ -696,14 +593,10 @@ pub struct IDevicePickerAppearance_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDevicePickerFilter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDevicePickerFilter {
     type Vtable = IDevicePickerFilter_Vtbl;
-}
-impl ::core::clone::Clone for IDevicePickerFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDevicePickerFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x91db92a2_57cb_48f1_9b59_a59b7a1f02a2);
@@ -723,14 +616,10 @@ pub struct IDevicePickerFilter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceSelectedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceSelectedEventArgs {
     type Vtable = IDeviceSelectedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceSelectedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceSelectedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x269edade_1d2f_4940_8402_4156b81d3c77);
@@ -743,14 +632,10 @@ pub struct IDeviceSelectedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceUnpairingResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceUnpairingResult {
     type Vtable = IDeviceUnpairingResult_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceUnpairingResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceUnpairingResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x66f44ad3_79d9_444b_92cf_a92ef72571c7);
@@ -763,14 +648,10 @@ pub struct IDeviceUnpairingResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceWatcher(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceWatcher {
     type Vtable = IDeviceWatcher_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceWatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceWatcher {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc9eab97d_8f6b_4f96_a9f4_abc814e22271);
@@ -825,14 +706,10 @@ pub struct IDeviceWatcher_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceWatcher2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceWatcher2 {
     type Vtable = IDeviceWatcher2_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceWatcher2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceWatcher2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff08456e_ed14_49e9_9a69_8117c54ae971);
@@ -848,14 +725,10 @@ pub struct IDeviceWatcher2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceWatcherEvent(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceWatcherEvent {
     type Vtable = IDeviceWatcherEvent_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceWatcherEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceWatcherEvent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x74aa9c0b_1dbd_47fd_b635_3cc556d0ff8b);
@@ -870,14 +743,10 @@ pub struct IDeviceWatcherEvent_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceWatcherTriggerDetails(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceWatcherTriggerDetails {
     type Vtable = IDeviceWatcherTriggerDetails_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceWatcherTriggerDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceWatcherTriggerDetails {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38808119_4cb7_4e57_a56d_776d07cbfef9);
@@ -893,14 +762,10 @@ pub struct IDeviceWatcherTriggerDetails_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnclosureLocation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEnclosureLocation {
     type Vtable = IEnclosureLocation_Vtbl;
-}
-impl ::core::clone::Clone for IEnclosureLocation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnclosureLocation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x42340a27_5810_459c_aabb_c65e1f813ecf);
@@ -915,14 +780,10 @@ pub struct IEnclosureLocation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnclosureLocation2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IEnclosureLocation2 {
     type Vtable = IEnclosureLocation2_Vtbl;
-}
-impl ::core::clone::Clone for IEnclosureLocation2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnclosureLocation2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2885995b_e07d_485d_8a9e_bdf29aef4f66);
@@ -935,6 +796,7 @@ pub struct IEnclosureLocation2_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceAccessChangedEventArgs(::windows_core::IUnknown);
 impl DeviceAccessChangedEventArgs {
     pub fn Status(&self) -> ::windows_core::Result<DeviceAccessStatus> {
@@ -952,24 +814,8 @@ impl DeviceAccessChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for DeviceAccessChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceAccessChangedEventArgs {}
-impl ::core::fmt::Debug for DeviceAccessChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceAccessChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DeviceAccessChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceAccessChangedEventArgs;{deda0bcc-4f9d-4f58-9dba-a9bc800408d5})");
-}
-impl ::core::clone::Clone for DeviceAccessChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DeviceAccessChangedEventArgs {
     type Vtable = IDeviceAccessChangedEventArgs_Vtbl;
@@ -985,6 +831,7 @@ unsafe impl ::core::marker::Send for DeviceAccessChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DeviceAccessChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceAccessInformation(::windows_core::IUnknown);
 impl DeviceAccessInformation {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1036,24 +883,8 @@ impl DeviceAccessInformation {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for DeviceAccessInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceAccessInformation {}
-impl ::core::fmt::Debug for DeviceAccessInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceAccessInformation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DeviceAccessInformation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceAccessInformation;{0baa9a73-6de5-4915-8ddd-9a0554a6f545})");
-}
-impl ::core::clone::Clone for DeviceAccessInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DeviceAccessInformation {
     type Vtable = IDeviceAccessInformation_Vtbl;
@@ -1069,6 +900,7 @@ unsafe impl ::core::marker::Send for DeviceAccessInformation {}
 unsafe impl ::core::marker::Sync for DeviceAccessInformation {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceConnectionChangeTriggerDetails(::windows_core::IUnknown);
 impl DeviceConnectionChangeTriggerDetails {
     pub fn DeviceId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1079,24 +911,8 @@ impl DeviceConnectionChangeTriggerDetails {
         }
     }
 }
-impl ::core::cmp::PartialEq for DeviceConnectionChangeTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceConnectionChangeTriggerDetails {}
-impl ::core::fmt::Debug for DeviceConnectionChangeTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceConnectionChangeTriggerDetails").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DeviceConnectionChangeTriggerDetails {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceConnectionChangeTriggerDetails;{b8578c0c-bbc1-484b-bffa-7b31dcc200b2})");
-}
-impl ::core::clone::Clone for DeviceConnectionChangeTriggerDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DeviceConnectionChangeTriggerDetails {
     type Vtable = IDeviceConnectionChangeTriggerDetails_Vtbl;
@@ -1112,6 +928,7 @@ unsafe impl ::core::marker::Send for DeviceConnectionChangeTriggerDetails {}
 unsafe impl ::core::marker::Sync for DeviceConnectionChangeTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceDisconnectButtonClickedEventArgs(::windows_core::IUnknown);
 impl DeviceDisconnectButtonClickedEventArgs {
     pub fn Device(&self) -> ::windows_core::Result<DeviceInformation> {
@@ -1122,24 +939,8 @@ impl DeviceDisconnectButtonClickedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for DeviceDisconnectButtonClickedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceDisconnectButtonClickedEventArgs {}
-impl ::core::fmt::Debug for DeviceDisconnectButtonClickedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceDisconnectButtonClickedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DeviceDisconnectButtonClickedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceDisconnectButtonClickedEventArgs;{8e44b56d-f902-4a00-b536-f37992e6a2a7})");
-}
-impl ::core::clone::Clone for DeviceDisconnectButtonClickedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DeviceDisconnectButtonClickedEventArgs {
     type Vtable = IDeviceDisconnectButtonClickedEventArgs_Vtbl;
@@ -1155,6 +956,7 @@ unsafe impl ::core::marker::Send for DeviceDisconnectButtonClickedEventArgs {}
 unsafe impl ::core::marker::Sync for DeviceDisconnectButtonClickedEventArgs {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceInformation(::windows_core::IUnknown);
 impl DeviceInformation {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1373,24 +1175,8 @@ impl DeviceInformation {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for DeviceInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceInformation {}
-impl ::core::fmt::Debug for DeviceInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceInformation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DeviceInformation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceInformation;{aba0fb95-4398-489d-8e44-e6130927011f})");
-}
-impl ::core::clone::Clone for DeviceInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DeviceInformation {
     type Vtable = IDeviceInformation_Vtbl;
@@ -1407,6 +1193,7 @@ unsafe impl ::core::marker::Sync for DeviceInformation {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceInformationCollection(::windows_core::IUnknown);
 #[cfg(feature = "Foundation_Collections")]
 impl DeviceInformationCollection {
@@ -1460,28 +1247,8 @@ impl DeviceInformationCollection {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for DeviceInformationCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for DeviceInformationCollection {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for DeviceInformationCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceInformationCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
 impl ::windows_core::RuntimeType for DeviceInformationCollection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceInformationCollection;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Devices.Enumeration.DeviceInformation;{aba0fb95-4398-489d-8e44-e6130927011f})))");
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::clone::Clone for DeviceInformationCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows_core::Interface for DeviceInformationCollection {
@@ -1523,6 +1290,7 @@ unsafe impl ::core::marker::Send for DeviceInformationCollection {}
 unsafe impl ::core::marker::Sync for DeviceInformationCollection {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceInformationCustomPairing(::windows_core::IUnknown);
 impl DeviceInformationCustomPairing {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1574,24 +1342,8 @@ impl DeviceInformationCustomPairing {
         unsafe { (::windows_core::Interface::vtable(this).RemovePairingRequested)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl ::core::cmp::PartialEq for DeviceInformationCustomPairing {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceInformationCustomPairing {}
-impl ::core::fmt::Debug for DeviceInformationCustomPairing {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceInformationCustomPairing").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DeviceInformationCustomPairing {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceInformationCustomPairing;{85138c02-4ee6-4914-8370-107a39144c0e})");
-}
-impl ::core::clone::Clone for DeviceInformationCustomPairing {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DeviceInformationCustomPairing {
     type Vtable = IDeviceInformationCustomPairing_Vtbl;
@@ -1607,6 +1359,7 @@ unsafe impl ::core::marker::Send for DeviceInformationCustomPairing {}
 unsafe impl ::core::marker::Sync for DeviceInformationCustomPairing {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceInformationPairing(::windows_core::IUnknown);
 impl DeviceInformationPairing {
     pub fn IsPaired(&self) -> ::windows_core::Result<bool> {
@@ -1699,24 +1452,8 @@ impl DeviceInformationPairing {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for DeviceInformationPairing {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceInformationPairing {}
-impl ::core::fmt::Debug for DeviceInformationPairing {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceInformationPairing").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DeviceInformationPairing {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceInformationPairing;{2c4769f5-f684-40d5-8469-e8dbaab70485})");
-}
-impl ::core::clone::Clone for DeviceInformationPairing {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DeviceInformationPairing {
     type Vtable = IDeviceInformationPairing_Vtbl;
@@ -1732,6 +1469,7 @@ unsafe impl ::core::marker::Send for DeviceInformationPairing {}
 unsafe impl ::core::marker::Sync for DeviceInformationPairing {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceInformationUpdate(::windows_core::IUnknown);
 impl DeviceInformationUpdate {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1758,24 +1496,8 @@ impl DeviceInformationUpdate {
         }
     }
 }
-impl ::core::cmp::PartialEq for DeviceInformationUpdate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceInformationUpdate {}
-impl ::core::fmt::Debug for DeviceInformationUpdate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceInformationUpdate").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DeviceInformationUpdate {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceInformationUpdate;{8f315305-d972-44b7-a37e-9e822c78213b})");
-}
-impl ::core::clone::Clone for DeviceInformationUpdate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DeviceInformationUpdate {
     type Vtable = IDeviceInformationUpdate_Vtbl;
@@ -1791,6 +1513,7 @@ unsafe impl ::core::marker::Send for DeviceInformationUpdate {}
 unsafe impl ::core::marker::Sync for DeviceInformationUpdate {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DevicePairingRequestedEventArgs(::windows_core::IUnknown);
 impl DevicePairingRequestedEventArgs {
     pub fn DeviceInformation(&self) -> ::windows_core::Result<DeviceInformation> {
@@ -1841,24 +1564,8 @@ impl DevicePairingRequestedEventArgs {
         unsafe { (::windows_core::Interface::vtable(this).AcceptWithPasswordCredential)(::windows_core::Interface::as_raw(this), passwordcredential.into_param().abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for DevicePairingRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DevicePairingRequestedEventArgs {}
-impl ::core::fmt::Debug for DevicePairingRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DevicePairingRequestedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DevicePairingRequestedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DevicePairingRequestedEventArgs;{f717fc56-de6b-487f-8376-0180aca69963})");
-}
-impl ::core::clone::Clone for DevicePairingRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DevicePairingRequestedEventArgs {
     type Vtable = IDevicePairingRequestedEventArgs_Vtbl;
@@ -1874,6 +1581,7 @@ unsafe impl ::core::marker::Send for DevicePairingRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for DevicePairingRequestedEventArgs {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DevicePairingResult(::windows_core::IUnknown);
 impl DevicePairingResult {
     pub fn Status(&self) -> ::windows_core::Result<DevicePairingResultStatus> {
@@ -1891,24 +1599,8 @@ impl DevicePairingResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for DevicePairingResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DevicePairingResult {}
-impl ::core::fmt::Debug for DevicePairingResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DevicePairingResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DevicePairingResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DevicePairingResult;{072b02bf-dd95-4025-9b37-de51adba37b7})");
-}
-impl ::core::clone::Clone for DevicePairingResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DevicePairingResult {
     type Vtable = IDevicePairingResult_Vtbl;
@@ -1924,6 +1616,7 @@ unsafe impl ::core::marker::Send for DevicePairingResult {}
 unsafe impl ::core::marker::Sync for DevicePairingResult {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DevicePicker(::windows_core::IUnknown);
 impl DevicePicker {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2052,24 +1745,8 @@ impl DevicePicker {
         unsafe { (::windows_core::Interface::vtable(this).SetDisplayStatus)(::windows_core::Interface::as_raw(this), device.into_param().abi(), ::core::mem::transmute_copy(status), options).ok() }
     }
 }
-impl ::core::cmp::PartialEq for DevicePicker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DevicePicker {}
-impl ::core::fmt::Debug for DevicePicker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DevicePicker").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DevicePicker {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DevicePicker;{84997aa2-034a-4440-8813-7d0bd479bf5a})");
-}
-impl ::core::clone::Clone for DevicePicker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DevicePicker {
     type Vtable = IDevicePicker_Vtbl;
@@ -2085,6 +1762,7 @@ unsafe impl ::core::marker::Send for DevicePicker {}
 unsafe impl ::core::marker::Sync for DevicePicker {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DevicePickerAppearance(::windows_core::IUnknown);
 impl DevicePickerAppearance {
     pub fn Title(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2189,24 +1867,8 @@ impl DevicePickerAppearance {
         unsafe { (::windows_core::Interface::vtable(this).SetSelectedAccentColor)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for DevicePickerAppearance {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DevicePickerAppearance {}
-impl ::core::fmt::Debug for DevicePickerAppearance {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DevicePickerAppearance").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DevicePickerAppearance {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DevicePickerAppearance;{e69a12c6-e627-4ed8-9b6c-460af445e56d})");
-}
-impl ::core::clone::Clone for DevicePickerAppearance {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DevicePickerAppearance {
     type Vtable = IDevicePickerAppearance_Vtbl;
@@ -2222,6 +1884,7 @@ unsafe impl ::core::marker::Send for DevicePickerAppearance {}
 unsafe impl ::core::marker::Sync for DevicePickerAppearance {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DevicePickerFilter(::windows_core::IUnknown);
 impl DevicePickerFilter {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2243,24 +1906,8 @@ impl DevicePickerFilter {
         }
     }
 }
-impl ::core::cmp::PartialEq for DevicePickerFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DevicePickerFilter {}
-impl ::core::fmt::Debug for DevicePickerFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DevicePickerFilter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DevicePickerFilter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DevicePickerFilter;{91db92a2-57cb-48f1-9b59-a59b7a1f02a2})");
-}
-impl ::core::clone::Clone for DevicePickerFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DevicePickerFilter {
     type Vtable = IDevicePickerFilter_Vtbl;
@@ -2276,6 +1923,7 @@ unsafe impl ::core::marker::Send for DevicePickerFilter {}
 unsafe impl ::core::marker::Sync for DevicePickerFilter {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceSelectedEventArgs(::windows_core::IUnknown);
 impl DeviceSelectedEventArgs {
     pub fn SelectedDevice(&self) -> ::windows_core::Result<DeviceInformation> {
@@ -2286,24 +1934,8 @@ impl DeviceSelectedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for DeviceSelectedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceSelectedEventArgs {}
-impl ::core::fmt::Debug for DeviceSelectedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceSelectedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DeviceSelectedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceSelectedEventArgs;{269edade-1d2f-4940-8402-4156b81d3c77})");
-}
-impl ::core::clone::Clone for DeviceSelectedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DeviceSelectedEventArgs {
     type Vtable = IDeviceSelectedEventArgs_Vtbl;
@@ -2320,6 +1952,7 @@ unsafe impl ::core::marker::Sync for DeviceSelectedEventArgs {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Storage_Streams\"`*"]
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceThumbnail(::windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 impl DeviceThumbnail {
@@ -2448,28 +2081,8 @@ impl DeviceThumbnail {
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::core::cmp::PartialEq for DeviceThumbnail {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::cmp::Eq for DeviceThumbnail {}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::fmt::Debug for DeviceThumbnail {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceThumbnail").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Storage_Streams")]
 impl ::windows_core::RuntimeType for DeviceThumbnail {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceThumbnail;{cc254827-4b3d-438f-9232-10c76bc7e038})");
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::clone::Clone for DeviceThumbnail {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows_core::Interface for DeviceThumbnail {
@@ -2503,6 +2116,7 @@ unsafe impl ::core::marker::Send for DeviceThumbnail {}
 unsafe impl ::core::marker::Sync for DeviceThumbnail {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceUnpairingResult(::windows_core::IUnknown);
 impl DeviceUnpairingResult {
     pub fn Status(&self) -> ::windows_core::Result<DeviceUnpairingResultStatus> {
@@ -2513,24 +2127,8 @@ impl DeviceUnpairingResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for DeviceUnpairingResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceUnpairingResult {}
-impl ::core::fmt::Debug for DeviceUnpairingResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceUnpairingResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DeviceUnpairingResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceUnpairingResult;{66f44ad3-79d9-444b-92cf-a92ef72571c7})");
-}
-impl ::core::clone::Clone for DeviceUnpairingResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DeviceUnpairingResult {
     type Vtable = IDeviceUnpairingResult_Vtbl;
@@ -2546,6 +2144,7 @@ unsafe impl ::core::marker::Send for DeviceUnpairingResult {}
 unsafe impl ::core::marker::Sync for DeviceUnpairingResult {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceWatcher(::windows_core::IUnknown);
 impl DeviceWatcher {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2666,24 +2265,8 @@ impl DeviceWatcher {
         }
     }
 }
-impl ::core::cmp::PartialEq for DeviceWatcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceWatcher {}
-impl ::core::fmt::Debug for DeviceWatcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceWatcher").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DeviceWatcher {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceWatcher;{c9eab97d-8f6b-4f96-a9f4-abc814e22271})");
-}
-impl ::core::clone::Clone for DeviceWatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DeviceWatcher {
     type Vtable = IDeviceWatcher_Vtbl;
@@ -2699,6 +2282,7 @@ unsafe impl ::core::marker::Send for DeviceWatcher {}
 unsafe impl ::core::marker::Sync for DeviceWatcher {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceWatcherEvent(::windows_core::IUnknown);
 impl DeviceWatcherEvent {
     pub fn Kind(&self) -> ::windows_core::Result<DeviceWatcherEventKind> {
@@ -2723,24 +2307,8 @@ impl DeviceWatcherEvent {
         }
     }
 }
-impl ::core::cmp::PartialEq for DeviceWatcherEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceWatcherEvent {}
-impl ::core::fmt::Debug for DeviceWatcherEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceWatcherEvent").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DeviceWatcherEvent {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceWatcherEvent;{74aa9c0b-1dbd-47fd-b635-3cc556d0ff8b})");
-}
-impl ::core::clone::Clone for DeviceWatcherEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DeviceWatcherEvent {
     type Vtable = IDeviceWatcherEvent_Vtbl;
@@ -2756,6 +2324,7 @@ unsafe impl ::core::marker::Send for DeviceWatcherEvent {}
 unsafe impl ::core::marker::Sync for DeviceWatcherEvent {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceWatcherTriggerDetails(::windows_core::IUnknown);
 impl DeviceWatcherTriggerDetails {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2768,24 +2337,8 @@ impl DeviceWatcherTriggerDetails {
         }
     }
 }
-impl ::core::cmp::PartialEq for DeviceWatcherTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceWatcherTriggerDetails {}
-impl ::core::fmt::Debug for DeviceWatcherTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceWatcherTriggerDetails").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DeviceWatcherTriggerDetails {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.DeviceWatcherTriggerDetails;{38808119-4cb7-4e57-a56d-776d07cbfef9})");
-}
-impl ::core::clone::Clone for DeviceWatcherTriggerDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DeviceWatcherTriggerDetails {
     type Vtable = IDeviceWatcherTriggerDetails_Vtbl;
@@ -2801,6 +2354,7 @@ unsafe impl ::core::marker::Send for DeviceWatcherTriggerDetails {}
 unsafe impl ::core::marker::Sync for DeviceWatcherTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct EnclosureLocation(::windows_core::IUnknown);
 impl EnclosureLocation {
     pub fn InDock(&self) -> ::windows_core::Result<bool> {
@@ -2832,24 +2386,8 @@ impl EnclosureLocation {
         }
     }
 }
-impl ::core::cmp::PartialEq for EnclosureLocation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EnclosureLocation {}
-impl ::core::fmt::Debug for EnclosureLocation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EnclosureLocation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for EnclosureLocation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Enumeration.EnclosureLocation;{42340a27-5810-459c-aabb-c65e1f813ecf})");
-}
-impl ::core::clone::Clone for EnclosureLocation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for EnclosureLocation {
     type Vtable = IEnclosureLocation_Vtbl;

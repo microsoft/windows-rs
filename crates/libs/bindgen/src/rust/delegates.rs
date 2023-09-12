@@ -72,6 +72,7 @@ fn gen_win_delegate(writer: &Writer, def: TypeDef) -> TokenStream {
         #doc
         #features
         #[repr(transparent)]
+        #[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
         pub struct #ident(pub ::windows_core::IUnknown, #phantoms) where #constraints;
         #features
         impl<#constraints> #ident {
@@ -142,7 +143,6 @@ fn gen_win_delegate(writer: &Writer, def: TypeDef) -> TokenStream {
         }
     };
 
-    tokens.combine(&writer.interface_core_traits(def, generics, &ident, &constraints, &phantoms, &features));
     tokens.combine(&writer.interface_trait(def, generics, &ident, &constraints, &features, true));
     tokens.combine(&writer.interface_winrt_trait(def, generics, &ident, &constraints, &phantoms, &features));
     tokens.combine(&writer.interface_vtbl(def, generics, &ident, &constraints, &features));

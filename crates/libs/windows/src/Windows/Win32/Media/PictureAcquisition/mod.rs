@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhotoAcquire(::windows_core::IUnknown);
 impl IPhotoAcquire {
     pub unsafe fn CreatePhotoSource<P0>(&self, pszdevice: P0) -> ::windows_core::Result<IPhotoAcquireSource>
@@ -29,24 +30,8 @@ impl IPhotoAcquire {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPhotoAcquire, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPhotoAcquire {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPhotoAcquire {}
-impl ::core::fmt::Debug for IPhotoAcquire {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPhotoAcquire").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPhotoAcquire {
     type Vtable = IPhotoAcquire_Vtbl;
-}
-impl ::core::clone::Clone for IPhotoAcquire {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhotoAcquire {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f23353_e31b_4955_a8ad_ca5ebf31e2ce);
@@ -67,6 +52,7 @@ pub struct IPhotoAcquire_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhotoAcquireDeviceSelectionDialog(::windows_core::IUnknown);
 impl IPhotoAcquireDeviceSelectionDialog {
     pub unsafe fn SetTitle<P0>(&self, psztitle: P0) -> ::windows_core::Result<()>
@@ -91,24 +77,8 @@ impl IPhotoAcquireDeviceSelectionDialog {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPhotoAcquireDeviceSelectionDialog, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPhotoAcquireDeviceSelectionDialog {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPhotoAcquireDeviceSelectionDialog {}
-impl ::core::fmt::Debug for IPhotoAcquireDeviceSelectionDialog {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPhotoAcquireDeviceSelectionDialog").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPhotoAcquireDeviceSelectionDialog {
     type Vtable = IPhotoAcquireDeviceSelectionDialog_Vtbl;
-}
-impl ::core::clone::Clone for IPhotoAcquireDeviceSelectionDialog {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhotoAcquireDeviceSelectionDialog {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f28837_55dd_4f37_aaf5_6855a9640467);
@@ -126,6 +96,7 @@ pub struct IPhotoAcquireDeviceSelectionDialog_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhotoAcquireItem(::windows_core::IUnknown);
 impl IPhotoAcquireItem {
     pub unsafe fn GetItemName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -174,24 +145,8 @@ impl IPhotoAcquireItem {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPhotoAcquireItem, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPhotoAcquireItem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPhotoAcquireItem {}
-impl ::core::fmt::Debug for IPhotoAcquireItem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPhotoAcquireItem").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPhotoAcquireItem {
     type Vtable = IPhotoAcquireItem_Vtbl;
-}
-impl ::core::clone::Clone for IPhotoAcquireItem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhotoAcquireItem {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f21c97_28bf_4c02_b842_5e4e90139a30);
@@ -227,6 +182,7 @@ pub struct IPhotoAcquireItem_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhotoAcquireOptionsDialog(::windows_core::IUnknown);
 impl IPhotoAcquireOptionsDialog {
     pub unsafe fn Initialize<P0>(&self, pszregistryroot: P0) -> ::windows_core::Result<()>
@@ -260,24 +216,8 @@ impl IPhotoAcquireOptionsDialog {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPhotoAcquireOptionsDialog, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPhotoAcquireOptionsDialog {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPhotoAcquireOptionsDialog {}
-impl ::core::fmt::Debug for IPhotoAcquireOptionsDialog {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPhotoAcquireOptionsDialog").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPhotoAcquireOptionsDialog {
     type Vtable = IPhotoAcquireOptionsDialog_Vtbl;
-}
-impl ::core::clone::Clone for IPhotoAcquireOptionsDialog {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhotoAcquireOptionsDialog {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f2b3ee_bf64_47ee_89f4_4dedd79643f2);
@@ -300,6 +240,7 @@ pub struct IPhotoAcquireOptionsDialog_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhotoAcquirePlugin(::windows_core::IUnknown);
 impl IPhotoAcquirePlugin {
     pub unsafe fn Initialize<P0, P1>(&self, pphotoacquiresource: P0, pphotoacquireprogresscb: P1) -> ::windows_core::Result<()>
@@ -333,24 +274,8 @@ impl IPhotoAcquirePlugin {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPhotoAcquirePlugin, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPhotoAcquirePlugin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPhotoAcquirePlugin {}
-impl ::core::fmt::Debug for IPhotoAcquirePlugin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPhotoAcquirePlugin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPhotoAcquirePlugin {
     type Vtable = IPhotoAcquirePlugin_Vtbl;
-}
-impl ::core::clone::Clone for IPhotoAcquirePlugin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhotoAcquirePlugin {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f2dceb_ecb8_4f77_8e47_e7a987c83dd0);
@@ -372,6 +297,7 @@ pub struct IPhotoAcquirePlugin_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhotoAcquireProgressCB(::windows_core::IUnknown);
 impl IPhotoAcquireProgressCB {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -480,24 +406,8 @@ impl IPhotoAcquireProgressCB {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPhotoAcquireProgressCB, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPhotoAcquireProgressCB {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPhotoAcquireProgressCB {}
-impl ::core::fmt::Debug for IPhotoAcquireProgressCB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPhotoAcquireProgressCB").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPhotoAcquireProgressCB {
     type Vtable = IPhotoAcquireProgressCB_Vtbl;
-}
-impl ::core::clone::Clone for IPhotoAcquireProgressCB {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhotoAcquireProgressCB {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f2ce1e_935e_4248_892c_130f32c45cb4);
@@ -540,6 +450,7 @@ pub struct IPhotoAcquireProgressCB_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhotoAcquireSettings(::windows_core::IUnknown);
 impl IPhotoAcquireSettings {
     pub unsafe fn InitializeFromRegistry<P0>(&self, pszregistrykey: P0) -> ::windows_core::Result<()>
@@ -609,24 +520,8 @@ impl IPhotoAcquireSettings {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPhotoAcquireSettings, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPhotoAcquireSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPhotoAcquireSettings {}
-impl ::core::fmt::Debug for IPhotoAcquireSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPhotoAcquireSettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPhotoAcquireSettings {
     type Vtable = IPhotoAcquireSettings_Vtbl;
-}
-impl ::core::clone::Clone for IPhotoAcquireSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhotoAcquireSettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f2b868_dd67_487c_9553_049240767e91);
@@ -663,6 +558,7 @@ pub struct IPhotoAcquireSettings_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhotoAcquireSource(::windows_core::IUnknown);
 impl IPhotoAcquireSource {
     pub unsafe fn GetFriendlyName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -704,24 +600,8 @@ impl IPhotoAcquireSource {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPhotoAcquireSource, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPhotoAcquireSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPhotoAcquireSource {}
-impl ::core::fmt::Debug for IPhotoAcquireSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPhotoAcquireSource").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPhotoAcquireSource {
     type Vtable = IPhotoAcquireSource_Vtbl;
-}
-impl ::core::clone::Clone for IPhotoAcquireSource {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhotoAcquireSource {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f2c703_8613_4282_a53b_6ec59c5883ac);
@@ -747,6 +627,7 @@ pub struct IPhotoAcquireSource_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhotoProgressActionCB(::windows_core::IUnknown);
 impl IPhotoProgressActionCB {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -759,24 +640,8 @@ impl IPhotoProgressActionCB {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPhotoProgressActionCB, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPhotoProgressActionCB {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPhotoProgressActionCB {}
-impl ::core::fmt::Debug for IPhotoProgressActionCB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPhotoProgressActionCB").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPhotoProgressActionCB {
     type Vtable = IPhotoProgressActionCB_Vtbl;
-}
-impl ::core::clone::Clone for IPhotoProgressActionCB {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhotoProgressActionCB {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f242d0_b206_4e7d_b4c1_4755bcbb9c9f);
@@ -792,6 +657,7 @@ pub struct IPhotoProgressActionCB_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPhotoProgressDialog(::windows_core::IUnknown);
 impl IPhotoProgressDialog {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -911,24 +777,8 @@ impl IPhotoProgressDialog {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPhotoProgressDialog, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPhotoProgressDialog {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPhotoProgressDialog {}
-impl ::core::fmt::Debug for IPhotoProgressDialog {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPhotoProgressDialog").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPhotoProgressDialog {
     type Vtable = IPhotoProgressDialog_Vtbl;
-}
-impl ::core::clone::Clone for IPhotoProgressDialog {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPhotoProgressDialog {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f246f9_0750_4f08_9381_2cd8e906a4ae);
@@ -985,6 +835,7 @@ pub struct IPhotoProgressDialog_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_PictureAcquisition\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserInputString(::windows_core::IUnknown);
 impl IUserInputString {
     pub unsafe fn GetSubmitButtonText(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -1030,24 +881,8 @@ impl IUserInputString {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUserInputString, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUserInputString {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUserInputString {}
-impl ::core::fmt::Debug for IUserInputString {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUserInputString").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUserInputString {
     type Vtable = IUserInputString_Vtbl;
-}
-impl ::core::clone::Clone for IUserInputString {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserInputString {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00f243a1_205b_45ba_ae26_abbc53aa7a6f);

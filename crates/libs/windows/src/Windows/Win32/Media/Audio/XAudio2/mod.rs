@@ -33,6 +33,7 @@ pub unsafe fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut ::core::option::Optio
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXAPO(::windows_core::IUnknown);
 impl IXAPO {
     pub unsafe fn GetRegistrationProperties(&self) -> ::windows_core::Result<*mut XAPO_REGISTRATION_PROPERTIES> {
@@ -73,24 +74,8 @@ impl IXAPO {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXAPO, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXAPO {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXAPO {}
-impl ::core::fmt::Debug for IXAPO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXAPO").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXAPO {
     type Vtable = IXAPO_Vtbl;
-}
-impl ::core::clone::Clone for IXAPO {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXAPO {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa410b984_9839_4819_a0be_2856ae6b3adb);
@@ -115,6 +100,7 @@ pub struct IXAPO_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXAPOHrtfParameters(::windows_core::IUnknown);
 impl IXAPOHrtfParameters {
     pub unsafe fn SetSourcePosition(&self, position: *const HrtfPosition) -> ::windows_core::Result<()> {
@@ -131,24 +117,8 @@ impl IXAPOHrtfParameters {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXAPOHrtfParameters, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXAPOHrtfParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXAPOHrtfParameters {}
-impl ::core::fmt::Debug for IXAPOHrtfParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXAPOHrtfParameters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXAPOHrtfParameters {
     type Vtable = IXAPOHrtfParameters_Vtbl;
-}
-impl ::core::clone::Clone for IXAPOHrtfParameters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXAPOHrtfParameters {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x15b3cd66_e9de_4464_b6e6_2bc3cf63d455);
@@ -164,6 +134,7 @@ pub struct IXAPOHrtfParameters_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXAPOParameters(::windows_core::IUnknown);
 impl IXAPOParameters {
     pub unsafe fn SetParameters(&self, pparameters: *const ::core::ffi::c_void, parameterbytesize: u32) {
@@ -174,24 +145,8 @@ impl IXAPOParameters {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXAPOParameters, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXAPOParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXAPOParameters {}
-impl ::core::fmt::Debug for IXAPOParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXAPOParameters").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXAPOParameters {
     type Vtable = IXAPOParameters_Vtbl;
-}
-impl ::core::clone::Clone for IXAPOParameters {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXAPOParameters {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x26d95c66_80f2_499a_ad54_5ae7f01c6d98);
@@ -205,6 +160,7 @@ pub struct IXAPOParameters_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXAudio2(::windows_core::IUnknown);
 impl IXAudio2 {
     pub unsafe fn RegisterForCallbacks<P0>(&self, pcallback: P0) -> ::windows_core::Result<()>
@@ -259,24 +215,8 @@ impl IXAudio2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXAudio2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXAudio2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXAudio2 {}
-impl ::core::fmt::Debug for IXAudio2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXAudio2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXAudio2 {
     type Vtable = IXAudio2_Vtbl;
-}
-impl ::core::clone::Clone for IXAudio2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXAudio2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2b02e3cf_2e0b_4ec3_be45_1b2a3fe7210d);
@@ -310,6 +250,7 @@ pub struct IXAudio2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXAudio2EngineCallback(::std::ptr::NonNull<::std::ffi::c_void>);
 impl IXAudio2EngineCallback {
     pub unsafe fn OnProcessingPassStart(&self) {
@@ -322,24 +263,8 @@ impl IXAudio2EngineCallback {
         (::windows_core::Interface::vtable(self).OnCriticalError)(::windows_core::Interface::as_raw(self), error)
     }
 }
-impl ::core::cmp::PartialEq for IXAudio2EngineCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXAudio2EngineCallback {}
-impl ::core::fmt::Debug for IXAudio2EngineCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXAudio2EngineCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXAudio2EngineCallback {
     type Vtable = IXAudio2EngineCallback_Vtbl;
-}
-impl ::core::clone::Clone for IXAudio2EngineCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -350,6 +275,7 @@ pub struct IXAudio2EngineCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXAudio2Extension(::windows_core::IUnknown);
 impl IXAudio2Extension {
     pub unsafe fn GetProcessingQuantum(&self, quantumnumerator: *mut u32, quantumdenominator: *mut u32) {
@@ -360,24 +286,8 @@ impl IXAudio2Extension {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXAudio2Extension, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IXAudio2Extension {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXAudio2Extension {}
-impl ::core::fmt::Debug for IXAudio2Extension {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXAudio2Extension").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXAudio2Extension {
     type Vtable = IXAudio2Extension_Vtbl;
-}
-impl ::core::clone::Clone for IXAudio2Extension {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXAudio2Extension {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x84ac29bb_d619_44d2_b197_e4acf7df3ed6);
@@ -391,6 +301,7 @@ pub struct IXAudio2Extension_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXAudio2MasteringVoice(::std::ptr::NonNull<::std::ffi::c_void>);
 impl IXAudio2MasteringVoice {
     pub unsafe fn GetVoiceDetails(&self) -> XAUDIO2_VOICE_DETAILS {
@@ -484,24 +395,8 @@ impl IXAudio2MasteringVoice {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXAudio2MasteringVoice, IXAudio2Voice);
-impl ::core::cmp::PartialEq for IXAudio2MasteringVoice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXAudio2MasteringVoice {}
-impl ::core::fmt::Debug for IXAudio2MasteringVoice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXAudio2MasteringVoice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXAudio2MasteringVoice {
     type Vtable = IXAudio2MasteringVoice_Vtbl;
-}
-impl ::core::clone::Clone for IXAudio2MasteringVoice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -511,6 +406,7 @@ pub struct IXAudio2MasteringVoice_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXAudio2SourceVoice(::std::ptr::NonNull<::std::ffi::c_void>);
 impl IXAudio2SourceVoice {
     pub unsafe fn GetVoiceDetails(&self) -> XAUDIO2_VOICE_DETAILS {
@@ -632,24 +528,8 @@ impl IXAudio2SourceVoice {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXAudio2SourceVoice, IXAudio2Voice);
-impl ::core::cmp::PartialEq for IXAudio2SourceVoice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXAudio2SourceVoice {}
-impl ::core::fmt::Debug for IXAudio2SourceVoice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXAudio2SourceVoice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXAudio2SourceVoice {
     type Vtable = IXAudio2SourceVoice_Vtbl;
-}
-impl ::core::clone::Clone for IXAudio2SourceVoice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -668,6 +548,7 @@ pub struct IXAudio2SourceVoice_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXAudio2SubmixVoice(::std::ptr::NonNull<::std::ffi::c_void>);
 impl IXAudio2SubmixVoice {
     pub unsafe fn GetVoiceDetails(&self) -> XAUDIO2_VOICE_DETAILS {
@@ -757,24 +638,8 @@ impl IXAudio2SubmixVoice {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IXAudio2SubmixVoice, IXAudio2Voice);
-impl ::core::cmp::PartialEq for IXAudio2SubmixVoice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXAudio2SubmixVoice {}
-impl ::core::fmt::Debug for IXAudio2SubmixVoice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXAudio2SubmixVoice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXAudio2SubmixVoice {
     type Vtable = IXAudio2SubmixVoice_Vtbl;
-}
-impl ::core::clone::Clone for IXAudio2SubmixVoice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -783,6 +648,7 @@ pub struct IXAudio2SubmixVoice_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXAudio2Voice(::std::ptr::NonNull<::std::ffi::c_void>);
 impl IXAudio2Voice {
     pub unsafe fn GetVoiceDetails(&self) -> XAUDIO2_VOICE_DETAILS {
@@ -871,24 +737,8 @@ impl IXAudio2Voice {
         (::windows_core::Interface::vtable(self).DestroyVoice)(::windows_core::Interface::as_raw(self))
     }
 }
-impl ::core::cmp::PartialEq for IXAudio2Voice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXAudio2Voice {}
-impl ::core::fmt::Debug for IXAudio2Voice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXAudio2Voice").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXAudio2Voice {
     type Vtable = IXAudio2Voice_Vtbl;
-}
-impl ::core::clone::Clone for IXAudio2Voice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -921,6 +771,7 @@ pub struct IXAudio2Voice_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXAudio2VoiceCallback(::std::ptr::NonNull<::std::ffi::c_void>);
 impl IXAudio2VoiceCallback {
     pub unsafe fn OnVoiceProcessingPassStart(&self, bytesrequired: u32) {
@@ -945,24 +796,8 @@ impl IXAudio2VoiceCallback {
         (::windows_core::Interface::vtable(self).OnVoiceError)(::windows_core::Interface::as_raw(self), pbuffercontext, error)
     }
 }
-impl ::core::cmp::PartialEq for IXAudio2VoiceCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IXAudio2VoiceCallback {}
-impl ::core::fmt::Debug for IXAudio2VoiceCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IXAudio2VoiceCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IXAudio2VoiceCallback {
     type Vtable = IXAudio2VoiceCallback_Vtbl;
-}
-impl ::core::clone::Clone for IXAudio2VoiceCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[repr(C)]
 #[doc(hidden)]

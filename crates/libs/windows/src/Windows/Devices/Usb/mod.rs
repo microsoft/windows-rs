@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbBulkInEndpointDescriptor(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbBulkInEndpointDescriptor {
     type Vtable = IUsbBulkInEndpointDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IUsbBulkInEndpointDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbBulkInEndpointDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3c6e4846_06cf_42a9_9dc2_971c1b14b6e3);
@@ -22,14 +18,10 @@ pub struct IUsbBulkInEndpointDescriptor_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbBulkInPipe(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbBulkInPipe {
     type Vtable = IUsbBulkInPipe_Vtbl;
-}
-impl ::core::clone::Clone for IUsbBulkInPipe {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbBulkInPipe {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf01d2d3b_4548_4d50_b326_d82cdabe1220);
@@ -54,14 +46,10 @@ pub struct IUsbBulkInPipe_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbBulkOutEndpointDescriptor(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbBulkOutEndpointDescriptor {
     type Vtable = IUsbBulkOutEndpointDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IUsbBulkOutEndpointDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbBulkOutEndpointDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2820847a_ffee_4f60_9be1_956cac3ecb65);
@@ -76,14 +64,10 @@ pub struct IUsbBulkOutEndpointDescriptor_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbBulkOutPipe(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbBulkOutPipe {
     type Vtable = IUsbBulkOutPipe_Vtbl;
-}
-impl ::core::clone::Clone for IUsbBulkOutPipe {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbBulkOutPipe {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8e9ee6e_0115_45aa_8b21_37b225bccee7);
@@ -106,14 +90,10 @@ pub struct IUsbBulkOutPipe_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbConfiguration(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbConfiguration {
     type Vtable = IUsbConfiguration_Vtbl;
-}
-impl ::core::clone::Clone for IUsbConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbConfiguration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x68177429_36a9_46d7_b873_fc689251ec30);
@@ -134,14 +114,10 @@ pub struct IUsbConfiguration_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbConfigurationDescriptor(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbConfigurationDescriptor {
     type Vtable = IUsbConfigurationDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IUsbConfigurationDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbConfigurationDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2176d92_b442_407a_8207_7d646c0385f3);
@@ -157,14 +133,10 @@ pub struct IUsbConfigurationDescriptor_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbConfigurationDescriptorStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbConfigurationDescriptorStatics {
     type Vtable = IUsbConfigurationDescriptorStatics_Vtbl;
-}
-impl ::core::clone::Clone for IUsbConfigurationDescriptorStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbConfigurationDescriptorStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x424ced93_e740_40a1_92bd_da120ea04914);
@@ -178,14 +150,10 @@ pub struct IUsbConfigurationDescriptorStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbControlRequestType(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbControlRequestType {
     type Vtable = IUsbControlRequestType_Vtbl;
-}
-impl ::core::clone::Clone for IUsbControlRequestType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbControlRequestType {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8e9465a6_d73d_46de_94be_aae7f07c0f5c);
@@ -205,14 +173,10 @@ pub struct IUsbControlRequestType_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbDescriptor(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbDescriptor {
     type Vtable = IUsbDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IUsbDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0a89f216_5f9d_4874_8904_da9ad3f5528f);
@@ -230,14 +194,10 @@ pub struct IUsbDescriptor_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbDevice(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbDevice {
     type Vtable = IUsbDevice_Vtbl;
-}
-impl ::core::clone::Clone for IUsbDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5249b992_c456_44d5_ad5e_24f5a089f63b);
@@ -268,14 +228,10 @@ pub struct IUsbDevice_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbDeviceClass(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbDeviceClass {
     type Vtable = IUsbDeviceClass_Vtbl;
-}
-impl ::core::clone::Clone for IUsbDeviceClass {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbDeviceClass {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x051942f9_845e_47eb_b12a_38f2f617afe7);
@@ -305,14 +261,10 @@ pub struct IUsbDeviceClass_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbDeviceClasses(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbDeviceClasses {
     type Vtable = IUsbDeviceClasses_Vtbl;
-}
-impl ::core::clone::Clone for IUsbDeviceClasses {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbDeviceClasses {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x686f955d_9b92_4b30_9781_c22c55ac35cb);
@@ -324,14 +276,10 @@ pub struct IUsbDeviceClasses_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbDeviceClassesStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbDeviceClassesStatics {
     type Vtable = IUsbDeviceClassesStatics_Vtbl;
-}
-impl ::core::clone::Clone for IUsbDeviceClassesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbDeviceClassesStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb20b0527_c580_4599_a165_981b4fd03230);
@@ -352,14 +300,10 @@ pub struct IUsbDeviceClassesStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbDeviceDescriptor(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbDeviceDescriptor {
     type Vtable = IUsbDeviceDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IUsbDeviceDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbDeviceDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1f48d1f6_ba97_4322_b92c_b5b189216588);
@@ -377,14 +321,10 @@ pub struct IUsbDeviceDescriptor_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbDeviceStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbDeviceStatics {
     type Vtable = IUsbDeviceStatics_Vtbl;
-}
-impl ::core::clone::Clone for IUsbDeviceStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbDeviceStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x066b85a2_09b7_4446_8502_6fe6dcaa7309);
@@ -404,14 +344,10 @@ pub struct IUsbDeviceStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbEndpointDescriptor(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbEndpointDescriptor {
     type Vtable = IUsbEndpointDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IUsbEndpointDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbEndpointDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b4862d9_8df7_4b40_ac83_578f139f0575);
@@ -430,14 +366,10 @@ pub struct IUsbEndpointDescriptor_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbEndpointDescriptorStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbEndpointDescriptorStatics {
     type Vtable = IUsbEndpointDescriptorStatics_Vtbl;
-}
-impl ::core::clone::Clone for IUsbEndpointDescriptorStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbEndpointDescriptorStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc890b201_9a6a_495e_a82c_295b9e708106);
@@ -451,14 +383,10 @@ pub struct IUsbEndpointDescriptorStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbInterface(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbInterface {
     type Vtable = IUsbInterface_Vtbl;
-}
-impl ::core::clone::Clone for IUsbInterface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbInterface {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa0322b95_7f47_48ab_a727_678c25be2112);
@@ -495,14 +423,10 @@ pub struct IUsbInterface_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbInterfaceDescriptor(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbInterfaceDescriptor {
     type Vtable = IUsbInterfaceDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IUsbInterfaceDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbInterfaceDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x199670c7_b7ee_4f90_8cd5_94a2e257598a);
@@ -519,14 +443,10 @@ pub struct IUsbInterfaceDescriptor_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbInterfaceDescriptorStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbInterfaceDescriptorStatics {
     type Vtable = IUsbInterfaceDescriptorStatics_Vtbl;
-}
-impl ::core::clone::Clone for IUsbInterfaceDescriptorStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbInterfaceDescriptorStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe34a9ff5_77d6_48b6_b0be_16c6422316fe);
@@ -540,14 +460,10 @@ pub struct IUsbInterfaceDescriptorStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbInterfaceSetting(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbInterfaceSetting {
     type Vtable = IUsbInterfaceSetting_Vtbl;
-}
-impl ::core::clone::Clone for IUsbInterfaceSetting {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbInterfaceSetting {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1827bba7_8da7_4af7_8f4c_7f3032e781f5);
@@ -585,14 +501,10 @@ pub struct IUsbInterfaceSetting_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbInterruptInEndpointDescriptor(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbInterruptInEndpointDescriptor {
     type Vtable = IUsbInterruptInEndpointDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IUsbInterruptInEndpointDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbInterruptInEndpointDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc0528967_c911_4c3a_86b2_419c2da89039);
@@ -611,14 +523,10 @@ pub struct IUsbInterruptInEndpointDescriptor_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbInterruptInEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbInterruptInEventArgs {
     type Vtable = IUsbInterruptInEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IUsbInterruptInEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbInterruptInEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb7b04092_1418_4936_8209_299cf5605583);
@@ -634,14 +542,10 @@ pub struct IUsbInterruptInEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbInterruptInPipe(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbInterruptInPipe {
     type Vtable = IUsbInterruptInPipe_Vtbl;
-}
-impl ::core::clone::Clone for IUsbInterruptInPipe {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbInterruptInPipe {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfa007116_84d7_48c7_8a3f_4c0b235f2ea6);
@@ -666,14 +570,10 @@ pub struct IUsbInterruptInPipe_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbInterruptOutEndpointDescriptor(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbInterruptOutEndpointDescriptor {
     type Vtable = IUsbInterruptOutEndpointDescriptor_Vtbl;
-}
-impl ::core::clone::Clone for IUsbInterruptOutEndpointDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbInterruptOutEndpointDescriptor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc9fed81_10ca_4533_952d_9e278341e80f);
@@ -692,14 +592,10 @@ pub struct IUsbInterruptOutEndpointDescriptor_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbInterruptOutPipe(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbInterruptOutPipe {
     type Vtable = IUsbInterruptOutPipe_Vtbl;
-}
-impl ::core::clone::Clone for IUsbInterruptOutPipe {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbInterruptOutPipe {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe984c8a9_aaf9_49d0_b96c_f661ab4a7f95);
@@ -722,14 +618,10 @@ pub struct IUsbInterruptOutPipe_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbSetupPacket(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbSetupPacket {
     type Vtable = IUsbSetupPacket_Vtbl;
-}
-impl ::core::clone::Clone for IUsbSetupPacket {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbSetupPacket {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x104ba132_c78f_4c51_b654_e49d02f2cb03);
@@ -751,14 +643,10 @@ pub struct IUsbSetupPacket_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUsbSetupPacketFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUsbSetupPacketFactory {
     type Vtable = IUsbSetupPacketFactory_Vtbl;
-}
-impl ::core::clone::Clone for IUsbSetupPacketFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUsbSetupPacketFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc9257d50_1b2e_4a41_a2a7_338f0cef3c14);
@@ -774,6 +662,7 @@ pub struct IUsbSetupPacketFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbBulkInEndpointDescriptor(::windows_core::IUnknown);
 impl UsbBulkInEndpointDescriptor {
     pub fn MaxPacketSize(&self) -> ::windows_core::Result<u32> {
@@ -798,24 +687,8 @@ impl UsbBulkInEndpointDescriptor {
         }
     }
 }
-impl ::core::cmp::PartialEq for UsbBulkInEndpointDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbBulkInEndpointDescriptor {}
-impl ::core::fmt::Debug for UsbBulkInEndpointDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbBulkInEndpointDescriptor").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbBulkInEndpointDescriptor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbBulkInEndpointDescriptor;{3c6e4846-06cf-42a9-9dc2-971c1b14b6e3})");
-}
-impl ::core::clone::Clone for UsbBulkInEndpointDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbBulkInEndpointDescriptor {
     type Vtable = IUsbBulkInEndpointDescriptor_Vtbl;
@@ -831,6 +704,7 @@ unsafe impl ::core::marker::Send for UsbBulkInEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbBulkInEndpointDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbBulkInPipe(::windows_core::IUnknown);
 impl UsbBulkInPipe {
     pub fn MaxTransferSizeBytes(&self) -> ::windows_core::Result<u32> {
@@ -881,24 +755,8 @@ impl UsbBulkInPipe {
         }
     }
 }
-impl ::core::cmp::PartialEq for UsbBulkInPipe {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbBulkInPipe {}
-impl ::core::fmt::Debug for UsbBulkInPipe {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbBulkInPipe").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbBulkInPipe {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbBulkInPipe;{f01d2d3b-4548-4d50-b326-d82cdabe1220})");
-}
-impl ::core::clone::Clone for UsbBulkInPipe {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbBulkInPipe {
     type Vtable = IUsbBulkInPipe_Vtbl;
@@ -914,6 +772,7 @@ unsafe impl ::core::marker::Send for UsbBulkInPipe {}
 unsafe impl ::core::marker::Sync for UsbBulkInPipe {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbBulkOutEndpointDescriptor(::windows_core::IUnknown);
 impl UsbBulkOutEndpointDescriptor {
     pub fn MaxPacketSize(&self) -> ::windows_core::Result<u32> {
@@ -938,24 +797,8 @@ impl UsbBulkOutEndpointDescriptor {
         }
     }
 }
-impl ::core::cmp::PartialEq for UsbBulkOutEndpointDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbBulkOutEndpointDescriptor {}
-impl ::core::fmt::Debug for UsbBulkOutEndpointDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbBulkOutEndpointDescriptor").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbBulkOutEndpointDescriptor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbBulkOutEndpointDescriptor;{2820847a-ffee-4f60-9be1-956cac3ecb65})");
-}
-impl ::core::clone::Clone for UsbBulkOutEndpointDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbBulkOutEndpointDescriptor {
     type Vtable = IUsbBulkOutEndpointDescriptor_Vtbl;
@@ -971,6 +814,7 @@ unsafe impl ::core::marker::Send for UsbBulkOutEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbBulkOutEndpointDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbBulkOutPipe(::windows_core::IUnknown);
 impl UsbBulkOutPipe {
     pub fn EndpointDescriptor(&self) -> ::windows_core::Result<UsbBulkOutEndpointDescriptor> {
@@ -1010,24 +854,8 @@ impl UsbBulkOutPipe {
         }
     }
 }
-impl ::core::cmp::PartialEq for UsbBulkOutPipe {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbBulkOutPipe {}
-impl ::core::fmt::Debug for UsbBulkOutPipe {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbBulkOutPipe").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbBulkOutPipe {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbBulkOutPipe;{a8e9ee6e-0115-45aa-8b21-37b225bccee7})");
-}
-impl ::core::clone::Clone for UsbBulkOutPipe {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbBulkOutPipe {
     type Vtable = IUsbBulkOutPipe_Vtbl;
@@ -1043,6 +871,7 @@ unsafe impl ::core::marker::Send for UsbBulkOutPipe {}
 unsafe impl ::core::marker::Sync for UsbBulkOutPipe {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbConfiguration(::windows_core::IUnknown);
 impl UsbConfiguration {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1071,24 +900,8 @@ impl UsbConfiguration {
         }
     }
 }
-impl ::core::cmp::PartialEq for UsbConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbConfiguration {}
-impl ::core::fmt::Debug for UsbConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbConfiguration").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbConfiguration {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbConfiguration;{68177429-36a9-46d7-b873-fc689251ec30})");
-}
-impl ::core::clone::Clone for UsbConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbConfiguration {
     type Vtable = IUsbConfiguration_Vtbl;
@@ -1104,6 +917,7 @@ unsafe impl ::core::marker::Send for UsbConfiguration {}
 unsafe impl ::core::marker::Sync for UsbConfiguration {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbConfigurationDescriptor(::windows_core::IUnknown);
 impl UsbConfigurationDescriptor {
     pub fn ConfigurationValue(&self) -> ::windows_core::Result<u8> {
@@ -1158,24 +972,8 @@ impl UsbConfigurationDescriptor {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for UsbConfigurationDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbConfigurationDescriptor {}
-impl ::core::fmt::Debug for UsbConfigurationDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbConfigurationDescriptor").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbConfigurationDescriptor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbConfigurationDescriptor;{f2176d92-b442-407a-8207-7d646c0385f3})");
-}
-impl ::core::clone::Clone for UsbConfigurationDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbConfigurationDescriptor {
     type Vtable = IUsbConfigurationDescriptor_Vtbl;
@@ -1191,6 +989,7 @@ unsafe impl ::core::marker::Send for UsbConfigurationDescriptor {}
 unsafe impl ::core::marker::Sync for UsbConfigurationDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbControlRequestType(::windows_core::IUnknown);
 impl UsbControlRequestType {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1245,24 +1044,8 @@ impl UsbControlRequestType {
         unsafe { (::windows_core::Interface::vtable(this).SetAsByte)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for UsbControlRequestType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbControlRequestType {}
-impl ::core::fmt::Debug for UsbControlRequestType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbControlRequestType").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbControlRequestType {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbControlRequestType;{8e9465a6-d73d-46de-94be-aae7f07c0f5c})");
-}
-impl ::core::clone::Clone for UsbControlRequestType {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbControlRequestType {
     type Vtable = IUsbControlRequestType_Vtbl;
@@ -1278,6 +1061,7 @@ unsafe impl ::core::marker::Send for UsbControlRequestType {}
 unsafe impl ::core::marker::Sync for UsbControlRequestType {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbDescriptor(::windows_core::IUnknown);
 impl UsbDescriptor {
     pub fn Length(&self) -> ::windows_core::Result<u8> {
@@ -1304,24 +1088,8 @@ impl UsbDescriptor {
         unsafe { (::windows_core::Interface::vtable(this).ReadDescriptorBuffer)(::windows_core::Interface::as_raw(this), buffer.try_into_param()?.abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for UsbDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbDescriptor {}
-impl ::core::fmt::Debug for UsbDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbDescriptor").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbDescriptor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbDescriptor;{0a89f216-5f9d-4874-8904-da9ad3f5528f})");
-}
-impl ::core::clone::Clone for UsbDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbDescriptor {
     type Vtable = IUsbDescriptor_Vtbl;
@@ -1337,6 +1105,7 @@ unsafe impl ::core::marker::Send for UsbDescriptor {}
 unsafe impl ::core::marker::Sync for UsbDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbDevice(::windows_core::IUnknown);
 impl UsbDevice {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1457,24 +1226,8 @@ impl UsbDevice {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for UsbDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbDevice {}
-impl ::core::fmt::Debug for UsbDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbDevice").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbDevice {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbDevice;{5249b992-c456-44d5-ad5e-24f5a089f63b})");
-}
-impl ::core::clone::Clone for UsbDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbDevice {
     type Vtable = IUsbDevice_Vtbl;
@@ -1492,6 +1245,7 @@ unsafe impl ::core::marker::Send for UsbDevice {}
 unsafe impl ::core::marker::Sync for UsbDevice {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbDeviceClass(::windows_core::IUnknown);
 impl UsbDeviceClass {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1549,24 +1303,8 @@ impl UsbDeviceClass {
         unsafe { (::windows_core::Interface::vtable(this).SetProtocolCode)(::windows_core::Interface::as_raw(this), value.try_into_param()?.abi()).ok() }
     }
 }
-impl ::core::cmp::PartialEq for UsbDeviceClass {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbDeviceClass {}
-impl ::core::fmt::Debug for UsbDeviceClass {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbDeviceClass").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbDeviceClass {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbDeviceClass;{051942f9-845e-47eb-b12a-38f2f617afe7})");
-}
-impl ::core::clone::Clone for UsbDeviceClass {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbDeviceClass {
     type Vtable = IUsbDeviceClass_Vtbl;
@@ -1582,6 +1320,7 @@ unsafe impl ::core::marker::Send for UsbDeviceClass {}
 unsafe impl ::core::marker::Sync for UsbDeviceClass {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbDeviceClasses(::windows_core::IUnknown);
 impl UsbDeviceClasses {
     pub fn CdcControl() -> ::windows_core::Result<UsbDeviceClass> {
@@ -1644,24 +1383,8 @@ impl UsbDeviceClasses {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for UsbDeviceClasses {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbDeviceClasses {}
-impl ::core::fmt::Debug for UsbDeviceClasses {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbDeviceClasses").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbDeviceClasses {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbDeviceClasses;{686f955d-9b92-4b30-9781-c22c55ac35cb})");
-}
-impl ::core::clone::Clone for UsbDeviceClasses {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbDeviceClasses {
     type Vtable = IUsbDeviceClasses_Vtbl;
@@ -1677,6 +1400,7 @@ unsafe impl ::core::marker::Send for UsbDeviceClasses {}
 unsafe impl ::core::marker::Sync for UsbDeviceClasses {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbDeviceDescriptor(::windows_core::IUnknown);
 impl UsbDeviceDescriptor {
     pub fn BcdUsb(&self) -> ::windows_core::Result<u32> {
@@ -1722,24 +1446,8 @@ impl UsbDeviceDescriptor {
         }
     }
 }
-impl ::core::cmp::PartialEq for UsbDeviceDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbDeviceDescriptor {}
-impl ::core::fmt::Debug for UsbDeviceDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbDeviceDescriptor").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbDeviceDescriptor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbDeviceDescriptor;{1f48d1f6-ba97-4322-b92c-b5b189216588})");
-}
-impl ::core::clone::Clone for UsbDeviceDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbDeviceDescriptor {
     type Vtable = IUsbDeviceDescriptor_Vtbl;
@@ -1755,6 +1463,7 @@ unsafe impl ::core::marker::Send for UsbDeviceDescriptor {}
 unsafe impl ::core::marker::Sync for UsbDeviceDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbEndpointDescriptor(::windows_core::IUnknown);
 impl UsbEndpointDescriptor {
     pub fn EndpointNumber(&self) -> ::windows_core::Result<u8> {
@@ -1830,24 +1539,8 @@ impl UsbEndpointDescriptor {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for UsbEndpointDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbEndpointDescriptor {}
-impl ::core::fmt::Debug for UsbEndpointDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbEndpointDescriptor").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbEndpointDescriptor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbEndpointDescriptor;{6b4862d9-8df7-4b40-ac83-578f139f0575})");
-}
-impl ::core::clone::Clone for UsbEndpointDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbEndpointDescriptor {
     type Vtable = IUsbEndpointDescriptor_Vtbl;
@@ -1863,6 +1556,7 @@ unsafe impl ::core::marker::Send for UsbEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbEndpointDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbInterface(::windows_core::IUnknown);
 impl UsbInterface {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1927,24 +1621,8 @@ impl UsbInterface {
         }
     }
 }
-impl ::core::cmp::PartialEq for UsbInterface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbInterface {}
-impl ::core::fmt::Debug for UsbInterface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbInterface").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbInterface {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterface;{a0322b95-7f47-48ab-a727-678c25be2112})");
-}
-impl ::core::clone::Clone for UsbInterface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbInterface {
     type Vtable = IUsbInterface_Vtbl;
@@ -1960,6 +1638,7 @@ unsafe impl ::core::marker::Send for UsbInterface {}
 unsafe impl ::core::marker::Sync for UsbInterface {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbInterfaceDescriptor(::windows_core::IUnknown);
 impl UsbInterfaceDescriptor {
     pub fn ClassCode(&self) -> ::windows_core::Result<u8> {
@@ -2021,24 +1700,8 @@ impl UsbInterfaceDescriptor {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for UsbInterfaceDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbInterfaceDescriptor {}
-impl ::core::fmt::Debug for UsbInterfaceDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbInterfaceDescriptor").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbInterfaceDescriptor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterfaceDescriptor;{199670c7-b7ee-4f90-8cd5-94a2e257598a})");
-}
-impl ::core::clone::Clone for UsbInterfaceDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbInterfaceDescriptor {
     type Vtable = IUsbInterfaceDescriptor_Vtbl;
@@ -2054,6 +1717,7 @@ unsafe impl ::core::marker::Send for UsbInterfaceDescriptor {}
 unsafe impl ::core::marker::Sync for UsbInterfaceDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbInterfaceSetting(::windows_core::IUnknown);
 impl UsbInterfaceSetting {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2125,24 +1789,8 @@ impl UsbInterfaceSetting {
         }
     }
 }
-impl ::core::cmp::PartialEq for UsbInterfaceSetting {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbInterfaceSetting {}
-impl ::core::fmt::Debug for UsbInterfaceSetting {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbInterfaceSetting").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbInterfaceSetting {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterfaceSetting;{1827bba7-8da7-4af7-8f4c-7f3032e781f5})");
-}
-impl ::core::clone::Clone for UsbInterfaceSetting {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbInterfaceSetting {
     type Vtable = IUsbInterfaceSetting_Vtbl;
@@ -2158,6 +1806,7 @@ unsafe impl ::core::marker::Send for UsbInterfaceSetting {}
 unsafe impl ::core::marker::Sync for UsbInterfaceSetting {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbInterruptInEndpointDescriptor(::windows_core::IUnknown);
 impl UsbInterruptInEndpointDescriptor {
     pub fn MaxPacketSize(&self) -> ::windows_core::Result<u32> {
@@ -2191,24 +1840,8 @@ impl UsbInterruptInEndpointDescriptor {
         }
     }
 }
-impl ::core::cmp::PartialEq for UsbInterruptInEndpointDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbInterruptInEndpointDescriptor {}
-impl ::core::fmt::Debug for UsbInterruptInEndpointDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbInterruptInEndpointDescriptor").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbInterruptInEndpointDescriptor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterruptInEndpointDescriptor;{c0528967-c911-4c3a-86b2-419c2da89039})");
-}
-impl ::core::clone::Clone for UsbInterruptInEndpointDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbInterruptInEndpointDescriptor {
     type Vtable = IUsbInterruptInEndpointDescriptor_Vtbl;
@@ -2224,6 +1857,7 @@ unsafe impl ::core::marker::Send for UsbInterruptInEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbInterruptInEndpointDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbInterruptInEventArgs(::windows_core::IUnknown);
 impl UsbInterruptInEventArgs {
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -2236,24 +1870,8 @@ impl UsbInterruptInEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for UsbInterruptInEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbInterruptInEventArgs {}
-impl ::core::fmt::Debug for UsbInterruptInEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbInterruptInEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbInterruptInEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterruptInEventArgs;{b7b04092-1418-4936-8209-299cf5605583})");
-}
-impl ::core::clone::Clone for UsbInterruptInEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbInterruptInEventArgs {
     type Vtable = IUsbInterruptInEventArgs_Vtbl;
@@ -2269,6 +1887,7 @@ unsafe impl ::core::marker::Send for UsbInterruptInEventArgs {}
 unsafe impl ::core::marker::Sync for UsbInterruptInEventArgs {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbInterruptInPipe(::windows_core::IUnknown);
 impl UsbInterruptInPipe {
     pub fn EndpointDescriptor(&self) -> ::windows_core::Result<UsbInterruptInEndpointDescriptor> {
@@ -2306,24 +1925,8 @@ impl UsbInterruptInPipe {
         unsafe { (::windows_core::Interface::vtable(this).RemoveDataReceived)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl ::core::cmp::PartialEq for UsbInterruptInPipe {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbInterruptInPipe {}
-impl ::core::fmt::Debug for UsbInterruptInPipe {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbInterruptInPipe").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbInterruptInPipe {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterruptInPipe;{fa007116-84d7-48c7-8a3f-4c0b235f2ea6})");
-}
-impl ::core::clone::Clone for UsbInterruptInPipe {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbInterruptInPipe {
     type Vtable = IUsbInterruptInPipe_Vtbl;
@@ -2339,6 +1942,7 @@ unsafe impl ::core::marker::Send for UsbInterruptInPipe {}
 unsafe impl ::core::marker::Sync for UsbInterruptInPipe {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbInterruptOutEndpointDescriptor(::windows_core::IUnknown);
 impl UsbInterruptOutEndpointDescriptor {
     pub fn MaxPacketSize(&self) -> ::windows_core::Result<u32> {
@@ -2372,24 +1976,8 @@ impl UsbInterruptOutEndpointDescriptor {
         }
     }
 }
-impl ::core::cmp::PartialEq for UsbInterruptOutEndpointDescriptor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbInterruptOutEndpointDescriptor {}
-impl ::core::fmt::Debug for UsbInterruptOutEndpointDescriptor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbInterruptOutEndpointDescriptor").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbInterruptOutEndpointDescriptor {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor;{cc9fed81-10ca-4533-952d-9e278341e80f})");
-}
-impl ::core::clone::Clone for UsbInterruptOutEndpointDescriptor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbInterruptOutEndpointDescriptor {
     type Vtable = IUsbInterruptOutEndpointDescriptor_Vtbl;
@@ -2405,6 +1993,7 @@ unsafe impl ::core::marker::Send for UsbInterruptOutEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbInterruptOutEndpointDescriptor {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbInterruptOutPipe(::windows_core::IUnknown);
 impl UsbInterruptOutPipe {
     pub fn EndpointDescriptor(&self) -> ::windows_core::Result<UsbInterruptOutEndpointDescriptor> {
@@ -2444,24 +2033,8 @@ impl UsbInterruptOutPipe {
         }
     }
 }
-impl ::core::cmp::PartialEq for UsbInterruptOutPipe {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbInterruptOutPipe {}
-impl ::core::fmt::Debug for UsbInterruptOutPipe {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbInterruptOutPipe").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbInterruptOutPipe {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbInterruptOutPipe;{e984c8a9-aaf9-49d0-b96c-f661ab4a7f95})");
-}
-impl ::core::clone::Clone for UsbInterruptOutPipe {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbInterruptOutPipe {
     type Vtable = IUsbInterruptOutPipe_Vtbl;
@@ -2477,6 +2050,7 @@ unsafe impl ::core::marker::Send for UsbInterruptOutPipe {}
 unsafe impl ::core::marker::Sync for UsbInterruptOutPipe {}
 #[doc = "*Required features: `\"Devices_Usb\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UsbSetupPacket(::windows_core::IUnknown);
 impl UsbSetupPacket {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2561,24 +2135,8 @@ impl UsbSetupPacket {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for UsbSetupPacket {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbSetupPacket {}
-impl ::core::fmt::Debug for UsbSetupPacket {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UsbSetupPacket").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UsbSetupPacket {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Usb.UsbSetupPacket;{104ba132-c78f-4c51-b654-e49d02f2cb03})");
-}
-impl ::core::clone::Clone for UsbSetupPacket {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UsbSetupPacket {
     type Vtable = IUsbSetupPacket_Vtbl;

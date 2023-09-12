@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IQuickLink(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IQuickLink {
     type Vtable = IQuickLink_Vtbl;
-}
-impl ::core::clone::Clone for IQuickLink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IQuickLink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x603e4308_f0be_4adc_acc9_8b27ab9cf556);
@@ -39,14 +35,10 @@ pub struct IQuickLink_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IShareOperation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IShareOperation {
     type Vtable = IShareOperation_Vtbl;
-}
-impl ::core::clone::Clone for IShareOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IShareOperation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2246bab8_d0f8_41c1_a82a_4137db6504fb);
@@ -67,14 +59,10 @@ pub struct IShareOperation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IShareOperation2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IShareOperation2 {
     type Vtable = IShareOperation2_Vtbl;
-}
-impl ::core::clone::Clone for IShareOperation2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IShareOperation2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0ffb97c1_9778_4a09_8e5b_cb5e482d0555);
@@ -87,14 +75,10 @@ pub struct IShareOperation2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IShareOperation3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IShareOperation3 {
     type Vtable = IShareOperation3_Vtbl;
-}
-impl ::core::clone::Clone for IShareOperation3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IShareOperation3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ef6b382_b7a7_4571_a2a6_994a034988b2);
@@ -110,6 +94,7 @@ pub struct IShareOperation3_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct QuickLink(::windows_core::IUnknown);
 impl QuickLink {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -178,24 +163,8 @@ impl QuickLink {
         }
     }
 }
-impl ::core::cmp::PartialEq for QuickLink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for QuickLink {}
-impl ::core::fmt::Debug for QuickLink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("QuickLink").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for QuickLink {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareTarget.QuickLink;{603e4308-f0be-4adc-acc9-8b27ab9cf556})");
-}
-impl ::core::clone::Clone for QuickLink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for QuickLink {
     type Vtable = IQuickLink_Vtbl;
@@ -209,6 +178,7 @@ impl ::windows_core::RuntimeName for QuickLink {
 ::windows_core::imp::interface_hierarchy!(QuickLink, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ShareOperation(::windows_core::IUnknown);
 impl ShareOperation {
     pub fn Data(&self) -> ::windows_core::Result<super::DataPackageView> {
@@ -270,24 +240,8 @@ impl ShareOperation {
         }
     }
 }
-impl ::core::cmp::PartialEq for ShareOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ShareOperation {}
-impl ::core::fmt::Debug for ShareOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ShareOperation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ShareOperation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation;{2246bab8-d0f8-41c1-a82a-4137db6504fb})");
-}
-impl ::core::clone::Clone for ShareOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ShareOperation {
     type Vtable = IShareOperation_Vtbl;

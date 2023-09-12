@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPlatformDiagnosticActionsStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPlatformDiagnosticActionsStatics {
     type Vtable = IPlatformDiagnosticActionsStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPlatformDiagnosticActionsStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPlatformDiagnosticActionsStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc1145cfa_9292_4267_890a_9ea3ed072312);
@@ -36,14 +32,10 @@ pub struct IPlatformDiagnosticActionsStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPlatformDiagnosticTraceInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPlatformDiagnosticTraceInfo {
     type Vtable = IPlatformDiagnosticTraceInfo_Vtbl;
-}
-impl ::core::clone::Clone for IPlatformDiagnosticTraceInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPlatformDiagnosticTraceInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf870ed97_d597_4bf7_88dc_cf5c7dc2a1d2);
@@ -61,14 +53,10 @@ pub struct IPlatformDiagnosticTraceInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPlatformDiagnosticTraceRuntimeInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPlatformDiagnosticTraceRuntimeInfo {
     type Vtable = IPlatformDiagnosticTraceRuntimeInfo_Vtbl;
-}
-impl ::core::clone::Clone for IPlatformDiagnosticTraceRuntimeInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPlatformDiagnosticTraceRuntimeInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3d4d5e2d_01d8_4768_8554_1eb1ca610986);
@@ -151,6 +139,7 @@ impl ::windows_core::RuntimeName for PlatformDiagnosticActions {
 }
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PlatformDiagnosticTraceInfo(::windows_core::IUnknown);
 impl PlatformDiagnosticTraceInfo {
     pub fn ScenarioId(&self) -> ::windows_core::Result<::windows_core::GUID> {
@@ -196,24 +185,8 @@ impl PlatformDiagnosticTraceInfo {
         }
     }
 }
-impl ::core::cmp::PartialEq for PlatformDiagnosticTraceInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlatformDiagnosticTraceInfo {}
-impl ::core::fmt::Debug for PlatformDiagnosticTraceInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlatformDiagnosticTraceInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PlatformDiagnosticTraceInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo;{f870ed97-d597-4bf7-88dc-cf5c7dc2a1d2})");
-}
-impl ::core::clone::Clone for PlatformDiagnosticTraceInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PlatformDiagnosticTraceInfo {
     type Vtable = IPlatformDiagnosticTraceInfo_Vtbl;
@@ -229,6 +202,7 @@ unsafe impl ::core::marker::Send for PlatformDiagnosticTraceInfo {}
 unsafe impl ::core::marker::Sync for PlatformDiagnosticTraceInfo {}
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PlatformDiagnosticTraceRuntimeInfo(::windows_core::IUnknown);
 impl PlatformDiagnosticTraceRuntimeInfo {
     pub fn RuntimeFileTime(&self) -> ::windows_core::Result<i64> {
@@ -246,24 +220,8 @@ impl PlatformDiagnosticTraceRuntimeInfo {
         }
     }
 }
-impl ::core::cmp::PartialEq for PlatformDiagnosticTraceRuntimeInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlatformDiagnosticTraceRuntimeInfo {}
-impl ::core::fmt::Debug for PlatformDiagnosticTraceRuntimeInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlatformDiagnosticTraceRuntimeInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PlatformDiagnosticTraceRuntimeInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceRuntimeInfo;{3d4d5e2d-01d8-4768-8554-1eb1ca610986})");
-}
-impl ::core::clone::Clone for PlatformDiagnosticTraceRuntimeInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PlatformDiagnosticTraceRuntimeInfo {
     type Vtable = IPlatformDiagnosticTraceRuntimeInfo_Vtbl;

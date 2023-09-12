@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHtmlUtilities(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHtmlUtilities {
     type Vtable = IHtmlUtilities_Vtbl;
-}
-impl ::core::clone::Clone for IHtmlUtilities {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHtmlUtilities {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfec00add_2399_4fac_b5a7_05e9acd7181d);

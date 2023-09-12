@@ -2,14 +2,10 @@
 pub mod Core;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContentLinkInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContentLinkInfo {
     type Vtable = IContentLinkInfo_Vtbl;
-}
-impl ::core::clone::Clone for IContentLinkInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContentLinkInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1ed52525_1c5f_48cb_b335_78b50a2ee642);
@@ -37,14 +33,10 @@ pub struct IContentLinkInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFontWeights(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IFontWeights {
     type Vtable = IFontWeights_Vtbl;
-}
-impl ::core::clone::Clone for IFontWeights {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFontWeights {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7880a444_01ab_4997_8517_df822a0c45f1);
@@ -56,14 +48,10 @@ pub struct IFontWeights_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFontWeightsStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IFontWeightsStatics {
     type Vtable = IFontWeightsStatics_Vtbl;
-}
-impl ::core::clone::Clone for IFontWeightsStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFontWeightsStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb3b579d5_1ba9_48eb_9dad_c095e8c23ba3);
@@ -86,14 +74,10 @@ pub struct IFontWeightsStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRichEditTextRange(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRichEditTextRange {
     type Vtable = IRichEditTextRange_Vtbl;
-}
-impl ::core::clone::Clone for IRichEditTextRange {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRichEditTextRange {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x374e3515_ba8a_4a6e_8c59_0dde3d0cf5cd);
@@ -107,6 +91,7 @@ pub struct IRichEditTextRange_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextCharacterFormat(::windows_core::IUnknown);
 impl ITextCharacterFormat {
     pub fn AllCaps(&self) -> ::windows_core::Result<FormatEffect> {
@@ -395,27 +380,11 @@ impl ITextCharacterFormat {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITextCharacterFormat, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for ITextCharacterFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextCharacterFormat {}
-impl ::core::fmt::Debug for ITextCharacterFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextCharacterFormat").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ITextCharacterFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{5adef3db-05fb-442d-8065-642afea02ced}");
 }
 unsafe impl ::windows_core::Interface for ITextCharacterFormat {
     type Vtable = ITextCharacterFormat_Vtbl;
-}
-impl ::core::clone::Clone for ITextCharacterFormat {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextCharacterFormat {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5adef3db_05fb_442d_8065_642afea02ced);
@@ -477,14 +446,10 @@ pub struct ITextCharacterFormat_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextConstantsStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITextConstantsStatics {
     type Vtable = ITextConstantsStatics_Vtbl;
-}
-impl ::core::clone::Clone for ITextConstantsStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextConstantsStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x779e7c33_189d_4bfa_97c8_10db135d976e);
@@ -504,6 +469,7 @@ pub struct ITextConstantsStatics_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextDocument(::windows_core::IUnknown);
 impl ITextDocument {
     pub fn CaretType(&self) -> ::windows_core::Result<CaretType> {
@@ -676,27 +642,11 @@ impl ITextDocument {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITextDocument, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for ITextDocument {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextDocument {}
-impl ::core::fmt::Debug for ITextDocument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextDocument").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ITextDocument {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{beee4ddb-90b2-408c-a2f6-0a0ac31e33e4}");
 }
 unsafe impl ::windows_core::Interface for ITextDocument {
     type Vtable = ITextDocument_Vtbl;
-}
-impl ::core::clone::Clone for ITextDocument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextDocument {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbeee4ddb_90b2_408c_a2f6_0a0ac31e33e4);
@@ -744,14 +694,10 @@ pub struct ITextDocument_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextDocument2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITextDocument2 {
     type Vtable = ITextDocument2_Vtbl;
-}
-impl ::core::clone::Clone for ITextDocument2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextDocument2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf2311112_8c89_49c9_9118_f057cbb814ee);
@@ -767,14 +713,10 @@ pub struct ITextDocument2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextDocument3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITextDocument3 {
     type Vtable = ITextDocument3_Vtbl;
-}
-impl ::core::clone::Clone for ITextDocument3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextDocument3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75ab03a1_a6f8_441d_aa18_0a851d6e5e3c);
@@ -787,14 +729,10 @@ pub struct ITextDocument3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextDocument4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITextDocument4 {
     type Vtable = ITextDocument4_Vtbl;
-}
-impl ::core::clone::Clone for ITextDocument4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextDocument4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x619c20f2_cb3b_4521_981f_2865b1b93f04);
@@ -809,6 +747,7 @@ pub struct ITextDocument4_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextParagraphFormat(::windows_core::IUnknown);
 impl ITextParagraphFormat {
     pub fn Alignment(&self) -> ::windows_core::Result<ParagraphAlignment> {
@@ -1083,27 +1022,11 @@ impl ITextParagraphFormat {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITextParagraphFormat, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for ITextParagraphFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextParagraphFormat {}
-impl ::core::fmt::Debug for ITextParagraphFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextParagraphFormat").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ITextParagraphFormat {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{2cf8cfa6-4676-498a-93f5-bbdbfc0bd883}");
 }
 unsafe impl ::windows_core::Interface for ITextParagraphFormat {
     type Vtable = ITextParagraphFormat_Vtbl;
-}
-impl ::core::clone::Clone for ITextParagraphFormat {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextParagraphFormat {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2cf8cfa6_4676_498a_93f5_bbdbfc0bd883);
@@ -1163,6 +1086,7 @@ pub struct ITextParagraphFormat_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextRange(::windows_core::IUnknown);
 impl ITextRange {
     pub fn Character(&self) -> ::windows_core::Result<u16> {
@@ -1489,27 +1413,11 @@ impl ITextRange {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITextRange, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for ITextRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextRange {}
-impl ::core::fmt::Debug for ITextRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextRange").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ITextRange {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{5b9e4e57-c072-42a0-8945-af503ee54768}");
 }
 unsafe impl ::windows_core::Interface for ITextRange {
     type Vtable = ITextRange_Vtbl;
-}
-impl ::core::clone::Clone for ITextRange {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextRange {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5b9e4e57_c072_42a0_8945_af503ee54768);
@@ -1591,6 +1499,7 @@ pub struct ITextRange_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITextSelection(::windows_core::IUnknown);
 impl ITextSelection {
     pub fn Options(&self) -> ::windows_core::Result<SelectionOptions> {
@@ -1982,27 +1891,11 @@ impl ITextSelection {
 }
 ::windows_core::imp::interface_hierarchy!(ITextSelection, ::windows_core::IUnknown, ::windows_core::IInspectable);
 impl ::windows_core::CanTryInto<ITextRange> for ITextSelection {}
-impl ::core::cmp::PartialEq for ITextSelection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITextSelection {}
-impl ::core::fmt::Debug for ITextSelection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITextSelection").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ITextSelection {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{a6d36724-f28f-430a-b2cf-c343671ec0e9}");
 }
 unsafe impl ::windows_core::Interface for ITextSelection {
     type Vtable = ITextSelection_Vtbl;
-}
-impl ::core::clone::Clone for ITextSelection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITextSelection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa6d36724_f28f_430a_b2cf_c343671ec0e9);
@@ -2024,6 +1917,7 @@ pub struct ITextSelection_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContentLinkInfo(::windows_core::IUnknown);
 impl ContentLinkInfo {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -2096,24 +1990,8 @@ impl ContentLinkInfo {
         unsafe { (::windows_core::Interface::vtable(this).SetLinkContentKind)(::windows_core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ContentLinkInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContentLinkInfo {}
-impl ::core::fmt::Debug for ContentLinkInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContentLinkInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ContentLinkInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.ContentLinkInfo;{1ed52525-1c5f-48cb-b335-78b50a2ee642})");
-}
-impl ::core::clone::Clone for ContentLinkInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ContentLinkInfo {
     type Vtable = IContentLinkInfo_Vtbl;
@@ -2129,6 +2007,7 @@ unsafe impl ::core::marker::Send for ContentLinkInfo {}
 unsafe impl ::core::marker::Sync for ContentLinkInfo {}
 #[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FontWeights(::windows_core::IUnknown);
 impl FontWeights {
     pub fn Black() -> ::windows_core::Result<FontWeight> {
@@ -2203,24 +2082,8 @@ impl FontWeights {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for FontWeights {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FontWeights {}
-impl ::core::fmt::Debug for FontWeights {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FontWeights").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for FontWeights {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.FontWeights;{7880a444-01ab-4997-8517-df822a0c45f1})");
-}
-impl ::core::clone::Clone for FontWeights {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for FontWeights {
     type Vtable = IFontWeights_Vtbl;
@@ -2236,6 +2099,7 @@ unsafe impl ::core::marker::Send for FontWeights {}
 unsafe impl ::core::marker::Sync for FontWeights {}
 #[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RichEditTextDocument(::windows_core::IUnknown);
 impl RichEditTextDocument {
     pub fn CaretType(&self) -> ::windows_core::Result<CaretType> {
@@ -2445,24 +2309,8 @@ impl RichEditTextDocument {
         unsafe { (::windows_core::Interface::vtable(this).SetMathMode)(::windows_core::Interface::as_raw(this), mode).ok() }
     }
 }
-impl ::core::cmp::PartialEq for RichEditTextDocument {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RichEditTextDocument {}
-impl ::core::fmt::Debug for RichEditTextDocument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RichEditTextDocument").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RichEditTextDocument {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.RichEditTextDocument;{beee4ddb-90b2-408c-a2f6-0a0ac31e33e4})");
-}
-impl ::core::clone::Clone for RichEditTextDocument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RichEditTextDocument {
     type Vtable = ITextDocument_Vtbl;
@@ -2479,6 +2327,7 @@ unsafe impl ::core::marker::Send for RichEditTextDocument {}
 unsafe impl ::core::marker::Sync for RichEditTextDocument {}
 #[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RichEditTextRange(::windows_core::IUnknown);
 impl RichEditTextRange {
     pub fn ContentLinkInfo(&self) -> ::windows_core::Result<ContentLinkInfo> {
@@ -2818,24 +2667,8 @@ impl RichEditTextRange {
         }
     }
 }
-impl ::core::cmp::PartialEq for RichEditTextRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RichEditTextRange {}
-impl ::core::fmt::Debug for RichEditTextRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RichEditTextRange").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RichEditTextRange {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.Text.RichEditTextRange;{5b9e4e57-c072-42a0-8945-af503ee54768})");
-}
-impl ::core::clone::Clone for RichEditTextRange {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RichEditTextRange {
     type Vtable = ITextRange_Vtbl;

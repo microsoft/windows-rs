@@ -6,14 +6,10 @@ pub mod ForceFeedback;
 pub mod Preview;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IArcadeStick(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IArcadeStick {
     type Vtable = IArcadeStick_Vtbl;
-}
-impl ::core::clone::Clone for IArcadeStick {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IArcadeStick {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb14a539d_befb_4c81_8051_15ecf3b13036);
@@ -27,14 +23,10 @@ pub struct IArcadeStick_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IArcadeStickStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IArcadeStickStatics {
     type Vtable = IArcadeStickStatics_Vtbl;
-}
-impl ::core::clone::Clone for IArcadeStickStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IArcadeStickStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c37b8c8_37b1_4ad8_9458_200f1a30018e);
@@ -66,14 +58,10 @@ pub struct IArcadeStickStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IArcadeStickStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IArcadeStickStatics2 {
     type Vtable = IArcadeStickStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IArcadeStickStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IArcadeStickStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x52b5d744_bb86_445a_b59c_596f0e2a49df);
@@ -86,14 +74,10 @@ pub struct IArcadeStickStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFlightStick(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IFlightStick {
     type Vtable = IFlightStick_Vtbl;
-}
-impl ::core::clone::Clone for IFlightStick {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFlightStick {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb4a2c01c_b83b_4459_a1a9_97b03c33da7c);
@@ -108,14 +92,10 @@ pub struct IFlightStick_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFlightStickStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IFlightStickStatics {
     type Vtable = IFlightStickStatics_Vtbl;
-}
-impl ::core::clone::Clone for IFlightStickStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFlightStickStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5514924a_fecc_435e_83dc_5cec8a18a520);
@@ -148,6 +128,7 @@ pub struct IFlightStickStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGameController(::windows_core::IUnknown);
 impl IGameController {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -229,27 +210,11 @@ impl IGameController {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGameController, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IGameController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGameController {}
-impl ::core::fmt::Debug for IGameController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGameController").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IGameController {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{1baf6522-5f64-42c5-8267-b9fe2215bfbd}");
 }
 unsafe impl ::windows_core::Interface for IGameController {
     type Vtable = IGameController_Vtbl;
-}
-impl ::core::clone::Clone for IGameController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGameController {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1baf6522_5f64_42c5_8267_b9fe2215bfbd);
@@ -291,6 +256,7 @@ pub struct IGameController_Vtbl {
 }
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGameControllerBatteryInfo(::windows_core::IUnknown);
 impl IGameControllerBatteryInfo {
     #[doc = "*Required features: `\"Devices_Power\"`*"]
@@ -304,27 +270,11 @@ impl IGameControllerBatteryInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGameControllerBatteryInfo, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IGameControllerBatteryInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGameControllerBatteryInfo {}
-impl ::core::fmt::Debug for IGameControllerBatteryInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGameControllerBatteryInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IGameControllerBatteryInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{dcecc681-3963-4da6-955d-553f3b6f6161}");
 }
 unsafe impl ::windows_core::Interface for IGameControllerBatteryInfo {
     type Vtable = IGameControllerBatteryInfo_Vtbl;
-}
-impl ::core::clone::Clone for IGameControllerBatteryInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGameControllerBatteryInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcecc681_3963_4da6_955d_553f3b6f6161);
@@ -340,14 +290,10 @@ pub struct IGameControllerBatteryInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGamepad(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGamepad {
     type Vtable = IGamepad_Vtbl;
-}
-impl ::core::clone::Clone for IGamepad {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGamepad {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbc7bb43c_0a69_3903_9e9d_a50f86a45de5);
@@ -362,14 +308,10 @@ pub struct IGamepad_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGamepad2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGamepad2 {
     type Vtable = IGamepad2_Vtbl;
-}
-impl ::core::clone::Clone for IGamepad2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGamepad2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3c1689bd_5915_4245_b0c0_c89fae0308ff);
@@ -382,14 +324,10 @@ pub struct IGamepad2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGamepadStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGamepadStatics {
     type Vtable = IGamepadStatics_Vtbl;
-}
-impl ::core::clone::Clone for IGamepadStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGamepadStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8bbce529_d49c_39e9_9560_e47dde96b7c8);
@@ -421,14 +359,10 @@ pub struct IGamepadStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGamepadStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGamepadStatics2 {
     type Vtable = IGamepadStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IGamepadStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGamepadStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x42676dc5_0856_47c4_9213_b395504c3a3c);
@@ -441,14 +375,10 @@ pub struct IGamepadStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHeadset(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IHeadset {
     type Vtable = IHeadset_Vtbl;
-}
-impl ::core::clone::Clone for IHeadset {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHeadset {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3fd156ef_6925_3fa8_9181_029c5223ae3b);
@@ -462,14 +392,10 @@ pub struct IHeadset_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRacingWheel(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRacingWheel {
     type Vtable = IRacingWheel_Vtbl;
-}
-impl ::core::clone::Clone for IRacingWheel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRacingWheel {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf546656f_e106_4c82_a90f_554012904b85);
@@ -492,14 +418,10 @@ pub struct IRacingWheel_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRacingWheelStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRacingWheelStatics {
     type Vtable = IRacingWheelStatics_Vtbl;
-}
-impl ::core::clone::Clone for IRacingWheelStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRacingWheelStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ac12cd5_581b_4936_9f94_69f1e6514c7d);
@@ -531,14 +453,10 @@ pub struct IRacingWheelStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRacingWheelStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRacingWheelStatics2 {
     type Vtable = IRacingWheelStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IRacingWheelStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRacingWheelStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe666bcaa_edfd_4323_a9f6_3c384048d1ed);
@@ -551,14 +469,10 @@ pub struct IRacingWheelStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawGameController(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRawGameController {
     type Vtable = IRawGameController_Vtbl;
-}
-impl ::core::clone::Clone for IRawGameController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRawGameController {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7cad6d91_a7e1_4f71_9a78_33e9c5dfea62);
@@ -582,14 +496,10 @@ pub struct IRawGameController_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawGameController2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRawGameController2 {
     type Vtable = IRawGameController2_Vtbl;
-}
-impl ::core::clone::Clone for IRawGameController2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRawGameController2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x43c0c035_bb73_4756_a787_3ed6bea617bd);
@@ -607,14 +517,10 @@ pub struct IRawGameController2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRawGameControllerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRawGameControllerStatics {
     type Vtable = IRawGameControllerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IRawGameControllerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRawGameControllerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb8d0792_e95a_4b19_afc7_0a59f8bf759e);
@@ -647,14 +553,10 @@ pub struct IRawGameControllerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUINavigationController(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUINavigationController {
     type Vtable = IUINavigationController_Vtbl;
-}
-impl ::core::clone::Clone for IUINavigationController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUINavigationController {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe5aeefdd_f50e_4a55_8cdc_d33229548175);
@@ -669,14 +571,10 @@ pub struct IUINavigationController_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUINavigationControllerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUINavigationControllerStatics {
     type Vtable = IUINavigationControllerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IUINavigationControllerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUINavigationControllerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2f14930a_f6f8_4a48_8d89_94786cca0c2e);
@@ -708,14 +606,10 @@ pub struct IUINavigationControllerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUINavigationControllerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUINavigationControllerStatics2 {
     type Vtable = IUINavigationControllerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IUINavigationControllerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUINavigationControllerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe0cb28e3_b20b_4b0b_9ed4_f3d53cec0de4);
@@ -728,6 +622,7 @@ pub struct IUINavigationControllerStatics2_Vtbl {
 }
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ArcadeStick(::windows_core::IUnknown);
 impl ArcadeStick {
     pub fn GetButtonLabel(&self, button: ArcadeStickButtons) -> ::windows_core::Result<GameControllerButtonLabel> {
@@ -890,24 +785,8 @@ impl ArcadeStick {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for ArcadeStick {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ArcadeStick {}
-impl ::core::fmt::Debug for ArcadeStick {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ArcadeStick").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ArcadeStick {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ArcadeStick;{b14a539d-befb-4c81-8051-15ecf3b13036})");
-}
-impl ::core::clone::Clone for ArcadeStick {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ArcadeStick {
     type Vtable = IArcadeStick_Vtbl;
@@ -925,6 +804,7 @@ unsafe impl ::core::marker::Send for ArcadeStick {}
 unsafe impl ::core::marker::Sync for ArcadeStick {}
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FlightStick(::windows_core::IUnknown);
 impl FlightStick {
     pub fn HatSwitchKind(&self) -> ::windows_core::Result<GameControllerSwitchKind> {
@@ -1089,24 +969,8 @@ impl FlightStick {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for FlightStick {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FlightStick {}
-impl ::core::fmt::Debug for FlightStick {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FlightStick").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for FlightStick {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.FlightStick;{b4a2c01c-b83b-4459-a1a9-97b03c33da7c})");
-}
-impl ::core::clone::Clone for FlightStick {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for FlightStick {
     type Vtable = IFlightStick_Vtbl;
@@ -1124,6 +988,7 @@ unsafe impl ::core::marker::Send for FlightStick {}
 unsafe impl ::core::marker::Sync for FlightStick {}
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Gamepad(::windows_core::IUnknown);
 impl Gamepad {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1297,24 +1162,8 @@ impl Gamepad {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for Gamepad {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Gamepad {}
-impl ::core::fmt::Debug for Gamepad {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Gamepad").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Gamepad {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Gamepad;{bc7bb43c-0a69-3903-9e9d-a50f86a45de5})");
-}
-impl ::core::clone::Clone for Gamepad {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Gamepad {
     type Vtable = IGamepad_Vtbl;
@@ -1332,6 +1181,7 @@ unsafe impl ::core::marker::Send for Gamepad {}
 unsafe impl ::core::marker::Sync for Gamepad {}
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Headset(::windows_core::IUnknown);
 impl Headset {
     #[doc = "*Required features: `\"Devices_Power\"`*"]
@@ -1358,24 +1208,8 @@ impl Headset {
         }
     }
 }
-impl ::core::cmp::PartialEq for Headset {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Headset {}
-impl ::core::fmt::Debug for Headset {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Headset").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Headset {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Headset;{3fd156ef-6925-3fa8-9181-029c5223ae3b})");
-}
-impl ::core::clone::Clone for Headset {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Headset {
     type Vtable = IHeadset_Vtbl;
@@ -1392,6 +1226,7 @@ unsafe impl ::core::marker::Send for Headset {}
 unsafe impl ::core::marker::Sync for Headset {}
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RacingWheel(::windows_core::IUnknown);
 impl RacingWheel {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1598,24 +1433,8 @@ impl RacingWheel {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for RacingWheel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RacingWheel {}
-impl ::core::fmt::Debug for RacingWheel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RacingWheel").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RacingWheel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.RacingWheel;{f546656f-e106-4c82-a90f-554012904b85})");
-}
-impl ::core::clone::Clone for RacingWheel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RacingWheel {
     type Vtable = IRacingWheel_Vtbl;
@@ -1633,6 +1452,7 @@ unsafe impl ::core::marker::Send for RacingWheel {}
 unsafe impl ::core::marker::Sync for RacingWheel {}
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RawGameController(::windows_core::IUnknown);
 impl RawGameController {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1864,24 +1684,8 @@ impl RawGameController {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for RawGameController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RawGameController {}
-impl ::core::fmt::Debug for RawGameController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RawGameController").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RawGameController {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.RawGameController;{7cad6d91-a7e1-4f71-9a78-33e9c5dfea62})");
-}
-impl ::core::clone::Clone for RawGameController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RawGameController {
     type Vtable = IRawGameController_Vtbl;
@@ -1899,6 +1703,7 @@ unsafe impl ::core::marker::Send for RawGameController {}
 unsafe impl ::core::marker::Sync for RawGameController {}
 #[doc = "*Required features: `\"Gaming_Input\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UINavigationController(::windows_core::IUnknown);
 impl UINavigationController {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2068,24 +1873,8 @@ impl UINavigationController {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for UINavigationController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UINavigationController {}
-impl ::core::fmt::Debug for UINavigationController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UINavigationController").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UINavigationController {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.UINavigationController;{e5aeefdd-f50e-4a55-8cdc-d33229548175})");
-}
-impl ::core::clone::Clone for UINavigationController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UINavigationController {
     type Vtable = IUINavigationController_Vtbl;

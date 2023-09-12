@@ -613,6 +613,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDot11AdHocInterface(::windows_core::IUnknown);
 impl IDot11AdHocInterface {
     pub unsafe fn GetDeviceSignature(&self, psignature: *mut ::windows_core::GUID) -> ::windows_core::Result<()> {
@@ -648,24 +649,8 @@ impl IDot11AdHocInterface {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDot11AdHocInterface, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDot11AdHocInterface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDot11AdHocInterface {}
-impl ::core::fmt::Debug for IDot11AdHocInterface {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDot11AdHocInterface").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDot11AdHocInterface {
     type Vtable = IDot11AdHocInterface_Vtbl;
-}
-impl ::core::clone::Clone for IDot11AdHocInterface {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDot11AdHocInterface {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f10cc2b_cf0d_42a0_acbe_e2de7007384d);
@@ -686,6 +671,7 @@ pub struct IDot11AdHocInterface_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDot11AdHocInterfaceNotificationSink(::windows_core::IUnknown);
 impl IDot11AdHocInterfaceNotificationSink {
     pub unsafe fn OnConnectionStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows_core::Result<()> {
@@ -693,24 +679,8 @@ impl IDot11AdHocInterfaceNotificationSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDot11AdHocInterfaceNotificationSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDot11AdHocInterfaceNotificationSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDot11AdHocInterfaceNotificationSink {}
-impl ::core::fmt::Debug for IDot11AdHocInterfaceNotificationSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDot11AdHocInterfaceNotificationSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDot11AdHocInterfaceNotificationSink {
     type Vtable = IDot11AdHocInterfaceNotificationSink_Vtbl;
-}
-impl ::core::clone::Clone for IDot11AdHocInterfaceNotificationSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDot11AdHocInterfaceNotificationSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f10cc2f_cf0d_42a0_acbe_e2de7007384d);
@@ -723,6 +693,7 @@ pub struct IDot11AdHocInterfaceNotificationSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDot11AdHocManager(::windows_core::IUnknown);
 impl IDot11AdHocManager {
     pub unsafe fn CreateNetwork<P0, P1, P2, P3>(&self, name: P0, password: P1, geographicalid: i32, pinterface: P2, psecurity: P3, pcontextguid: *const ::windows_core::GUID) -> ::windows_core::Result<IDot11AdHocNetwork>
@@ -759,24 +730,8 @@ impl IDot11AdHocManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDot11AdHocManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDot11AdHocManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDot11AdHocManager {}
-impl ::core::fmt::Debug for IDot11AdHocManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDot11AdHocManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDot11AdHocManager {
     type Vtable = IDot11AdHocManager_Vtbl;
-}
-impl ::core::clone::Clone for IDot11AdHocManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDot11AdHocManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f10cc26_cf0d_42a0_acbe_e2de7007384d);
@@ -796,6 +751,7 @@ pub struct IDot11AdHocManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDot11AdHocManagerNotificationSink(::windows_core::IUnknown);
 impl IDot11AdHocManagerNotificationSink {
     pub unsafe fn OnNetworkAdd<P0>(&self, piadhocnetwork: P0) -> ::windows_core::Result<()>
@@ -818,24 +774,8 @@ impl IDot11AdHocManagerNotificationSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDot11AdHocManagerNotificationSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDot11AdHocManagerNotificationSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDot11AdHocManagerNotificationSink {}
-impl ::core::fmt::Debug for IDot11AdHocManagerNotificationSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDot11AdHocManagerNotificationSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDot11AdHocManagerNotificationSink {
     type Vtable = IDot11AdHocManagerNotificationSink_Vtbl;
-}
-impl ::core::clone::Clone for IDot11AdHocManagerNotificationSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDot11AdHocManagerNotificationSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f10cc27_cf0d_42a0_acbe_e2de7007384d);
@@ -851,6 +791,7 @@ pub struct IDot11AdHocManagerNotificationSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDot11AdHocNetwork(::windows_core::IUnknown);
 impl IDot11AdHocNetwork {
     pub unsafe fn GetStatus(&self, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows_core::Result<()> {
@@ -902,24 +843,8 @@ impl IDot11AdHocNetwork {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDot11AdHocNetwork, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDot11AdHocNetwork {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDot11AdHocNetwork {}
-impl ::core::fmt::Debug for IDot11AdHocNetwork {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDot11AdHocNetwork").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDot11AdHocNetwork {
     type Vtable = IDot11AdHocNetwork_Vtbl;
-}
-impl ::core::clone::Clone for IDot11AdHocNetwork {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDot11AdHocNetwork {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f10cc29_cf0d_42a0_acbe_e2de7007384d);
@@ -946,6 +871,7 @@ pub struct IDot11AdHocNetwork_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDot11AdHocNetworkNotificationSink(::windows_core::IUnknown);
 impl IDot11AdHocNetworkNotificationSink {
     pub unsafe fn OnStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> ::windows_core::Result<()> {
@@ -956,24 +882,8 @@ impl IDot11AdHocNetworkNotificationSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDot11AdHocNetworkNotificationSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDot11AdHocNetworkNotificationSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDot11AdHocNetworkNotificationSink {}
-impl ::core::fmt::Debug for IDot11AdHocNetworkNotificationSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDot11AdHocNetworkNotificationSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDot11AdHocNetworkNotificationSink {
     type Vtable = IDot11AdHocNetworkNotificationSink_Vtbl;
-}
-impl ::core::clone::Clone for IDot11AdHocNetworkNotificationSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDot11AdHocNetworkNotificationSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f10cc2a_cf0d_42a0_acbe_e2de7007384d);
@@ -987,6 +897,7 @@ pub struct IDot11AdHocNetworkNotificationSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDot11AdHocSecuritySettings(::windows_core::IUnknown);
 impl IDot11AdHocSecuritySettings {
     pub unsafe fn GetDot11AuthAlgorithm(&self, pauth: *mut DOT11_ADHOC_AUTH_ALGORITHM) -> ::windows_core::Result<()> {
@@ -997,24 +908,8 @@ impl IDot11AdHocSecuritySettings {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDot11AdHocSecuritySettings, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDot11AdHocSecuritySettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDot11AdHocSecuritySettings {}
-impl ::core::fmt::Debug for IDot11AdHocSecuritySettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDot11AdHocSecuritySettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDot11AdHocSecuritySettings {
     type Vtable = IDot11AdHocSecuritySettings_Vtbl;
-}
-impl ::core::clone::Clone for IDot11AdHocSecuritySettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDot11AdHocSecuritySettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f10cc2e_cf0d_42a0_acbe_e2de7007384d);
@@ -1028,6 +923,7 @@ pub struct IDot11AdHocSecuritySettings_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumDot11AdHocInterfaces(::windows_core::IUnknown);
 impl IEnumDot11AdHocInterfaces {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IDot11AdHocInterface>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -1045,24 +941,8 @@ impl IEnumDot11AdHocInterfaces {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumDot11AdHocInterfaces, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumDot11AdHocInterfaces {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumDot11AdHocInterfaces {}
-impl ::core::fmt::Debug for IEnumDot11AdHocInterfaces {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumDot11AdHocInterfaces").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumDot11AdHocInterfaces {
     type Vtable = IEnumDot11AdHocInterfaces_Vtbl;
-}
-impl ::core::clone::Clone for IEnumDot11AdHocInterfaces {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumDot11AdHocInterfaces {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f10cc2c_cf0d_42a0_acbe_e2de7007384d);
@@ -1078,6 +958,7 @@ pub struct IEnumDot11AdHocInterfaces_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumDot11AdHocNetworks(::windows_core::IUnknown);
 impl IEnumDot11AdHocNetworks {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IDot11AdHocNetwork>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -1095,24 +976,8 @@ impl IEnumDot11AdHocNetworks {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumDot11AdHocNetworks, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumDot11AdHocNetworks {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumDot11AdHocNetworks {}
-impl ::core::fmt::Debug for IEnumDot11AdHocNetworks {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumDot11AdHocNetworks").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumDot11AdHocNetworks {
     type Vtable = IEnumDot11AdHocNetworks_Vtbl;
-}
-impl ::core::clone::Clone for IEnumDot11AdHocNetworks {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumDot11AdHocNetworks {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f10cc28_cf0d_42a0_acbe_e2de7007384d);
@@ -1128,6 +993,7 @@ pub struct IEnumDot11AdHocNetworks_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumDot11AdHocSecuritySettings(::windows_core::IUnknown);
 impl IEnumDot11AdHocSecuritySettings {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<IDot11AdHocSecuritySettings>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -1145,24 +1011,8 @@ impl IEnumDot11AdHocSecuritySettings {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumDot11AdHocSecuritySettings, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumDot11AdHocSecuritySettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumDot11AdHocSecuritySettings {}
-impl ::core::fmt::Debug for IEnumDot11AdHocSecuritySettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumDot11AdHocSecuritySettings").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumDot11AdHocSecuritySettings {
     type Vtable = IEnumDot11AdHocSecuritySettings_Vtbl;
-}
-impl ::core::clone::Clone for IEnumDot11AdHocSecuritySettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumDot11AdHocSecuritySettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f10cc2d_cf0d_42a0_acbe_e2de7007384d);

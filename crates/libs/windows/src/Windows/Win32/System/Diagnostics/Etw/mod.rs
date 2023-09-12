@@ -666,6 +666,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITraceEvent(::windows_core::IUnknown);
 impl ITraceEvent {
     pub unsafe fn Clone(&self) -> ::windows_core::Result<ITraceEvent> {
@@ -709,24 +710,8 @@ impl ITraceEvent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITraceEvent, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITraceEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITraceEvent {}
-impl ::core::fmt::Debug for ITraceEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITraceEvent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITraceEvent {
     type Vtable = ITraceEvent_Vtbl;
-}
-impl ::core::clone::Clone for ITraceEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITraceEvent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8cc97f40_9028_4ff3_9b62_7d1f79ca7bcb);
@@ -750,6 +735,7 @@ pub struct ITraceEvent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITraceEventCallback(::windows_core::IUnknown);
 impl ITraceEventCallback {
     pub unsafe fn OnBeginProcessTrace<P0, P1>(&self, headerevent: P0, relogger: P1) -> ::windows_core::Result<()>
@@ -774,24 +760,8 @@ impl ITraceEventCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITraceEventCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITraceEventCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITraceEventCallback {}
-impl ::core::fmt::Debug for ITraceEventCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITraceEventCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITraceEventCallback {
     type Vtable = ITraceEventCallback_Vtbl;
-}
-impl ::core::clone::Clone for ITraceEventCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITraceEventCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ed25501_593f_43e9_8f38_3ab46f5a4a52);
@@ -806,6 +776,7 @@ pub struct ITraceEventCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Etw\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITraceRelogger(::windows_core::IUnknown);
 impl ITraceRelogger {
     pub unsafe fn AddLogfileTraceStream<P0>(&self, logfilename: P0, usercontext: *const ::core::ffi::c_void) -> ::windows_core::Result<RELOGSTREAM_HANDLE>
@@ -860,24 +831,8 @@ impl ITraceRelogger {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITraceRelogger, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITraceRelogger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITraceRelogger {}
-impl ::core::fmt::Debug for ITraceRelogger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITraceRelogger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITraceRelogger {
     type Vtable = ITraceRelogger_Vtbl;
-}
-impl ::core::clone::Clone for ITraceRelogger {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITraceRelogger {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf754ad43_3bcc_4286_8009_9c5da214e84e);

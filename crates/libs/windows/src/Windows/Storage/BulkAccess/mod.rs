@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileInformationFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IFileInformationFactory {
     type Vtable = IFileInformationFactory_Vtbl;
-}
-impl ::core::clone::Clone for IFileInformationFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFileInformationFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x401d88be_960f_4d6d_a7d0_1a3861e76c83);
@@ -46,14 +42,10 @@ pub struct IFileInformationFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFileInformationFactoryFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IFileInformationFactoryFactory {
     type Vtable = IFileInformationFactoryFactory_Vtbl;
-}
-impl ::core::clone::Clone for IFileInformationFactoryFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFileInformationFactoryFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x84ea0e7d_e4a2_4f00_8afa_af5e0f826bd5);
@@ -81,6 +73,7 @@ pub struct IFileInformationFactoryFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Storage_BulkAccess\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorageItemInformation(::windows_core::IUnknown);
 impl IStorageItemInformation {
     #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
@@ -175,27 +168,11 @@ impl IStorageItemInformation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStorageItemInformation, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IStorageItemInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStorageItemInformation {}
-impl ::core::fmt::Debug for IStorageItemInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStorageItemInformation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IStorageItemInformation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{87a5cb8b-8972-4f40-8de0-d86fb179d8fa}");
 }
 unsafe impl ::windows_core::Interface for IStorageItemInformation {
     type Vtable = IStorageItemInformation_Vtbl;
-}
-impl ::core::clone::Clone for IStorageItemInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorageItemInformation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa);
@@ -247,6 +224,7 @@ pub struct IStorageItemInformation_Vtbl {
 }
 #[doc = "*Required features: `\"Storage_BulkAccess\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FileInformation(::windows_core::IUnknown);
 impl FileInformation {
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -676,24 +654,8 @@ impl FileInformation {
         }
     }
 }
-impl ::core::cmp::PartialEq for FileInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileInformation {}
-impl ::core::fmt::Debug for FileInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileInformation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for FileInformation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.BulkAccess.FileInformation;{87a5cb8b-8972-4f40-8de0-d86fb179d8fa})");
-}
-impl ::core::clone::Clone for FileInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for FileInformation {
     type Vtable = IStorageItemInformation_Vtbl;
@@ -719,6 +681,7 @@ impl ::windows_core::CanTryInto<super::IStorageItemProperties> for FileInformati
 impl ::windows_core::CanTryInto<super::IStorageItemPropertiesWithProvider> for FileInformation {}
 #[doc = "*Required features: `\"Storage_BulkAccess\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FileInformationFactory(::windows_core::IUnknown);
 impl FileInformationFactory {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -846,24 +809,8 @@ impl FileInformationFactory {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for FileInformationFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileInformationFactory {}
-impl ::core::fmt::Debug for FileInformationFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileInformationFactory").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for FileInformationFactory {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.BulkAccess.FileInformationFactory;{401d88be-960f-4d6d-a7d0-1a3861e76c83})");
-}
-impl ::core::clone::Clone for FileInformationFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for FileInformationFactory {
     type Vtable = IFileInformationFactory_Vtbl;
@@ -879,6 +826,7 @@ unsafe impl ::core::marker::Send for FileInformationFactory {}
 unsafe impl ::core::marker::Sync for FileInformationFactory {}
 #[doc = "*Required features: `\"Storage_BulkAccess\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FolderInformation(::windows_core::IUnknown);
 impl FolderInformation {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1401,24 +1349,8 @@ impl FolderInformation {
         }
     }
 }
-impl ::core::cmp::PartialEq for FolderInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FolderInformation {}
-impl ::core::fmt::Debug for FolderInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FolderInformation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for FolderInformation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.BulkAccess.FolderInformation;{87a5cb8b-8972-4f40-8de0-d86fb179d8fa})");
-}
-impl ::core::clone::Clone for FolderInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for FolderInformation {
     type Vtable = IStorageItemInformation_Vtbl;

@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IKnownRemoteSystemCapabilitiesStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IKnownRemoteSystemCapabilitiesStatics {
     type Vtable = IKnownRemoteSystemCapabilitiesStatics_Vtbl;
-}
-impl ::core::clone::Clone for IKnownRemoteSystemCapabilitiesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IKnownRemoteSystemCapabilitiesStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8108e380_7f8a_44e4_92cd_03b6469b94a3);
@@ -23,14 +19,10 @@ pub struct IKnownRemoteSystemCapabilitiesStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystem(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystem {
     type Vtable = IRemoteSystem_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystem {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xed5838cd_1e10_4a8c_b4a6_4e5fd6f97721);
@@ -47,14 +39,10 @@ pub struct IRemoteSystem_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystem2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystem2 {
     type Vtable = IRemoteSystem2_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystem2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystem2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x09dfe4ec_fb8b_4a08_a758_6876435d769e);
@@ -71,14 +59,10 @@ pub struct IRemoteSystem2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystem3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystem3 {
     type Vtable = IRemoteSystem3_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystem3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystem3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x72b4b495_b7c6_40be_831b_73562f12ffa8);
@@ -92,14 +76,10 @@ pub struct IRemoteSystem3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystem4(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystem4 {
     type Vtable = IRemoteSystem4_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystem4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystem4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf164ffe5_b987_4ca5_9926_fa0438be6273);
@@ -112,14 +92,10 @@ pub struct IRemoteSystem4_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystem5(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystem5 {
     type Vtable = IRemoteSystem5_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystem5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystem5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xeb2ad723_e5e2_4ae2_a7a7_a1097a098e90);
@@ -135,14 +111,10 @@ pub struct IRemoteSystem5_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystem6(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystem6 {
     type Vtable = IRemoteSystem6_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystem6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystem6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd4cda942_c027_533e_9384_3a19b4f7eef3);
@@ -155,14 +127,10 @@ pub struct IRemoteSystem6_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemAddedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemAddedEventArgs {
     type Vtable = IRemoteSystemAddedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemAddedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemAddedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f39560f_e534_4697_8836_7abea151516e);
@@ -175,14 +143,10 @@ pub struct IRemoteSystemAddedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemApp(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemApp {
     type Vtable = IRemoteSystemApp_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemApp {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemApp {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x80e5bcbd_d54d_41b1_9b16_6810a871ed4f);
@@ -202,14 +166,10 @@ pub struct IRemoteSystemApp_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemApp2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemApp2 {
     type Vtable = IRemoteSystemApp2_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemApp2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemApp2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6369bf15_0a96_577a_8ff6_c35904dfa8f3);
@@ -223,14 +183,10 @@ pub struct IRemoteSystemApp2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemAppRegistration(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemAppRegistration {
     type Vtable = IRemoteSystemAppRegistration_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemAppRegistration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemAppRegistration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb47947b5_7035_4a5a_b8df_962d8f8431f4);
@@ -251,14 +207,10 @@ pub struct IRemoteSystemAppRegistration_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemAppRegistrationStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemAppRegistrationStatics {
     type Vtable = IRemoteSystemAppRegistrationStatics_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemAppRegistrationStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemAppRegistrationStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x01b99840_cfd2_453f_ae25_c2539f086afd);
@@ -272,14 +224,10 @@ pub struct IRemoteSystemAppRegistrationStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemAuthorizationKindFilter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemAuthorizationKindFilter {
     type Vtable = IRemoteSystemAuthorizationKindFilter_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemAuthorizationKindFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemAuthorizationKindFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b0dde8e_04d0_40f4_a27f_c2acbbd6b734);
@@ -292,14 +240,10 @@ pub struct IRemoteSystemAuthorizationKindFilter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemAuthorizationKindFilterFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemAuthorizationKindFilterFactory {
     type Vtable = IRemoteSystemAuthorizationKindFilterFactory_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemAuthorizationKindFilterFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemAuthorizationKindFilterFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xad65df4d_b66a_45a4_8177_8caed75d9e5a);
@@ -312,14 +256,10 @@ pub struct IRemoteSystemAuthorizationKindFilterFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemConnectionInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemConnectionInfo {
     type Vtable = IRemoteSystemConnectionInfo_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemConnectionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemConnectionInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x23278bc3_0d09_52cb_9c6a_eed2940bee43);
@@ -332,14 +272,10 @@ pub struct IRemoteSystemConnectionInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemConnectionInfoStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemConnectionInfoStatics {
     type Vtable = IRemoteSystemConnectionInfoStatics_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemConnectionInfoStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemConnectionInfoStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xac831e2d_66c5_56d7_a4ce_705d94925ad6);
@@ -355,14 +291,10 @@ pub struct IRemoteSystemConnectionInfoStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemConnectionRequest(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemConnectionRequest {
     type Vtable = IRemoteSystemConnectionRequest_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemConnectionRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemConnectionRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x84ed4104_8d5e_4d72_8238_7621576c7a67);
@@ -375,14 +307,10 @@ pub struct IRemoteSystemConnectionRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemConnectionRequest2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemConnectionRequest2 {
     type Vtable = IRemoteSystemConnectionRequest2_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemConnectionRequest2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemConnectionRequest2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x12df6d6f_bffc_483a_8abe_d34a6c19f92b);
@@ -395,14 +323,10 @@ pub struct IRemoteSystemConnectionRequest2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemConnectionRequest3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemConnectionRequest3 {
     type Vtable = IRemoteSystemConnectionRequest3_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemConnectionRequest3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemConnectionRequest3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xde86c3e7_c9cc_5a50_b8d9_ba7b34bb8d0e);
@@ -415,14 +339,10 @@ pub struct IRemoteSystemConnectionRequest3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemConnectionRequestFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemConnectionRequestFactory {
     type Vtable = IRemoteSystemConnectionRequestFactory_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemConnectionRequestFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemConnectionRequestFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa0a0a20_baeb_4575_b530_810bb9786334);
@@ -435,14 +355,10 @@ pub struct IRemoteSystemConnectionRequestFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemConnectionRequestStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemConnectionRequestStatics {
     type Vtable = IRemoteSystemConnectionRequestStatics_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemConnectionRequestStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemConnectionRequestStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x86ca143d_8214_425c_8932_db49032d1306);
@@ -455,14 +371,10 @@ pub struct IRemoteSystemConnectionRequestStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemConnectionRequestStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemConnectionRequestStatics2 {
     type Vtable = IRemoteSystemConnectionRequestStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemConnectionRequestStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemConnectionRequestStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x460f1027_64ec_598e_a800_4f2ee58def19);
@@ -476,14 +388,10 @@ pub struct IRemoteSystemConnectionRequestStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemDiscoveryTypeFilter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemDiscoveryTypeFilter {
     type Vtable = IRemoteSystemDiscoveryTypeFilter_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemDiscoveryTypeFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemDiscoveryTypeFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x42d9041f_ee5a_43da_ac6a_6fee25460741);
@@ -496,14 +404,10 @@ pub struct IRemoteSystemDiscoveryTypeFilter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemDiscoveryTypeFilterFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemDiscoveryTypeFilterFactory {
     type Vtable = IRemoteSystemDiscoveryTypeFilterFactory_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemDiscoveryTypeFilterFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemDiscoveryTypeFilterFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f9eb993_c260_4161_92f2_9c021f23fe5d);
@@ -516,14 +420,10 @@ pub struct IRemoteSystemDiscoveryTypeFilterFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemEnumerationCompletedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemEnumerationCompletedEventArgs {
     type Vtable = IRemoteSystemEnumerationCompletedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemEnumerationCompletedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemEnumerationCompletedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6e83d5f_4030_4354_a060_14f1b22c545d);
@@ -535,30 +435,15 @@ pub struct IRemoteSystemEnumerationCompletedEventArgs_Vtbl {
 }
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemFilter(::windows_core::IUnknown);
 impl IRemoteSystemFilter {}
 ::windows_core::imp::interface_hierarchy!(IRemoteSystemFilter, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IRemoteSystemFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IRemoteSystemFilter {}
-impl ::core::fmt::Debug for IRemoteSystemFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IRemoteSystemFilter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IRemoteSystemFilter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{4a3ba9e4-99eb-45eb-ba16-0367728ff374}");
 }
 unsafe impl ::windows_core::Interface for IRemoteSystemFilter {
     type Vtable = IRemoteSystemFilter_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4a3ba9e4_99eb_45eb_ba16_0367728ff374);
@@ -570,14 +455,10 @@ pub struct IRemoteSystemFilter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemKindFilter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemKindFilter {
     type Vtable = IRemoteSystemKindFilter_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemKindFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemKindFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x38e1c9ec_22c3_4ef6_901a_bbb1c7aad4ed);
@@ -593,14 +474,10 @@ pub struct IRemoteSystemKindFilter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemKindFilterFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemKindFilterFactory {
     type Vtable = IRemoteSystemKindFilterFactory_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemKindFilterFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemKindFilterFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1fb18ee_99ea_40bc_9a39_c670aa804a28);
@@ -616,14 +493,10 @@ pub struct IRemoteSystemKindFilterFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemKindStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemKindStatics {
     type Vtable = IRemoteSystemKindStatics_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemKindStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemKindStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6317633_ab14_41d0_9553_796aadb882db);
@@ -640,14 +513,10 @@ pub struct IRemoteSystemKindStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemKindStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemKindStatics2 {
     type Vtable = IRemoteSystemKindStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemKindStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemKindStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb9e3a3d0_0466_4749_91e8_65f9d19a96a5);
@@ -662,14 +531,10 @@ pub struct IRemoteSystemKindStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemRemovedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemRemovedEventArgs {
     type Vtable = IRemoteSystemRemovedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemRemovedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemRemovedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8b3d16bb_7306_49ea_b7df_67d5714cb013);
@@ -682,14 +547,10 @@ pub struct IRemoteSystemRemovedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSession(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSession {
     type Vtable = IRemoteSystemSession_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSession {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x69476a01_9ada_490f_9549_d31cb14c9e95);
@@ -717,14 +578,10 @@ pub struct IRemoteSystemSession_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionAddedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionAddedEventArgs {
     type Vtable = IRemoteSystemSessionAddedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionAddedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionAddedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd585d754_bc97_4c39_99b4_beca76e04c3f);
@@ -737,14 +594,10 @@ pub struct IRemoteSystemSessionAddedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionController(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionController {
     type Vtable = IRemoteSystemSessionController_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionController {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe48b2dd2_6820_4867_b425_d89c0a3ef7ba);
@@ -772,14 +625,10 @@ pub struct IRemoteSystemSessionController_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionControllerFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionControllerFactory {
     type Vtable = IRemoteSystemSessionControllerFactory_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionControllerFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionControllerFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbfcc2f6b_ac3d_4199_82cd_6670a773ef2e);
@@ -793,14 +642,10 @@ pub struct IRemoteSystemSessionControllerFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionCreationResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionCreationResult {
     type Vtable = IRemoteSystemSessionCreationResult_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionCreationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionCreationResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa79812c2_37de_448c_8b83_a30aa3c4ead6);
@@ -814,14 +659,10 @@ pub struct IRemoteSystemSessionCreationResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionDisconnectedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionDisconnectedEventArgs {
     type Vtable = IRemoteSystemSessionDisconnectedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionDisconnectedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionDisconnectedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xde0bc69b_77c5_461c_8209_7c6c5d3111ab);
@@ -834,14 +675,10 @@ pub struct IRemoteSystemSessionDisconnectedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionInfo {
     type Vtable = IRemoteSystemSessionInfo_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff4df648_8b0a_4e9a_9905_69e4b841c588);
@@ -859,14 +696,10 @@ pub struct IRemoteSystemSessionInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionInvitation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionInvitation {
     type Vtable = IRemoteSystemSessionInvitation_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionInvitation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionInvitation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3e32cc91_51d7_4766_a121_25516c3b8294);
@@ -880,14 +713,10 @@ pub struct IRemoteSystemSessionInvitation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionInvitationListener(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionInvitationListener {
     type Vtable = IRemoteSystemSessionInvitationListener_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionInvitationListener {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionInvitationListener {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x08f4003f_bc71_49e1_874a_31ddff9a27b9);
@@ -907,14 +736,10 @@ pub struct IRemoteSystemSessionInvitationListener_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionInvitationReceivedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionInvitationReceivedEventArgs {
     type Vtable = IRemoteSystemSessionInvitationReceivedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionInvitationReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionInvitationReceivedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e964a2d_a10d_4edb_8dea_54d20ac19543);
@@ -927,14 +752,10 @@ pub struct IRemoteSystemSessionInvitationReceivedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionJoinRequest(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionJoinRequest {
     type Vtable = IRemoteSystemSessionJoinRequest_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionJoinRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionJoinRequest {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20600068_7994_4331_86d1_d89d882585ee);
@@ -948,14 +769,10 @@ pub struct IRemoteSystemSessionJoinRequest_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionJoinRequestedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionJoinRequestedEventArgs {
     type Vtable = IRemoteSystemSessionJoinRequestedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionJoinRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionJoinRequestedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdbca4fc3_82b9_4816_9c24_e40e61774bd8);
@@ -972,14 +789,10 @@ pub struct IRemoteSystemSessionJoinRequestedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionJoinResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionJoinResult {
     type Vtable = IRemoteSystemSessionJoinResult_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionJoinResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionJoinResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xce7b1f04_a03e_41a4_900b_1e79328c1267);
@@ -993,14 +806,10 @@ pub struct IRemoteSystemSessionJoinResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionMessageChannel(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionMessageChannel {
     type Vtable = IRemoteSystemSessionMessageChannel_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionMessageChannel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionMessageChannel {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9524d12a_73d9_4c10_b751_c26784437127);
@@ -1033,14 +842,10 @@ pub struct IRemoteSystemSessionMessageChannel_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionMessageChannelFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionMessageChannelFactory {
     type Vtable = IRemoteSystemSessionMessageChannelFactory_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionMessageChannelFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionMessageChannelFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x295e1c4a_bd16_4298_b7ce_415482b0e11d);
@@ -1054,14 +859,10 @@ pub struct IRemoteSystemSessionMessageChannelFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionOptions {
     type Vtable = IRemoteSystemSessionOptions_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x740ed755_8418_4f01_9353_e21c9ecc6cfc);
@@ -1075,14 +876,10 @@ pub struct IRemoteSystemSessionOptions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionParticipant(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionParticipant {
     type Vtable = IRemoteSystemSessionParticipant_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionParticipant {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionParticipant {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7e90058c_acf9_4729_8a17_44e7baed5dcc);
@@ -1099,14 +896,10 @@ pub struct IRemoteSystemSessionParticipant_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionParticipantAddedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionParticipantAddedEventArgs {
     type Vtable = IRemoteSystemSessionParticipantAddedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionParticipantAddedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionParticipantAddedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd35a57d8_c9a1_4bb7_b6b0_79bb91adf93d);
@@ -1119,14 +912,10 @@ pub struct IRemoteSystemSessionParticipantAddedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionParticipantRemovedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionParticipantRemovedEventArgs {
     type Vtable = IRemoteSystemSessionParticipantRemovedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionParticipantRemovedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionParticipantRemovedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x866ef088_de68_4abf_88a1_f90d16274192);
@@ -1139,14 +928,10 @@ pub struct IRemoteSystemSessionParticipantRemovedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionParticipantWatcher(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionParticipantWatcher {
     type Vtable = IRemoteSystemSessionParticipantWatcher_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionParticipantWatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionParticipantWatcher {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdcdd02cc_aa87_4d79_b6cc_4459b3e92075);
@@ -1185,14 +970,10 @@ pub struct IRemoteSystemSessionParticipantWatcher_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionRemovedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionRemovedEventArgs {
     type Vtable = IRemoteSystemSessionRemovedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionRemovedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionRemovedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaf82914e_39a1_4dea_9d63_43798d5bbbd0);
@@ -1205,14 +986,10 @@ pub struct IRemoteSystemSessionRemovedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionStatics {
     type Vtable = IRemoteSystemSessionStatics_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8524899f_fd20_44e3_9565_e75a3b14c66e);
@@ -1225,14 +1002,10 @@ pub struct IRemoteSystemSessionStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionUpdatedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionUpdatedEventArgs {
     type Vtable = IRemoteSystemSessionUpdatedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionUpdatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionUpdatedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x16875069_231e_4c91_8ec8_b3a39d9e55a3);
@@ -1245,14 +1018,10 @@ pub struct IRemoteSystemSessionUpdatedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionValueSetReceivedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionValueSetReceivedEventArgs {
     type Vtable = IRemoteSystemSessionValueSetReceivedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionValueSetReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionValueSetReceivedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x06f31785_2da5_4e58_a78f_9e8d0784ee25);
@@ -1269,14 +1038,10 @@ pub struct IRemoteSystemSessionValueSetReceivedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemSessionWatcher(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemSessionWatcher {
     type Vtable = IRemoteSystemSessionWatcher_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemSessionWatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemSessionWatcher {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8003e340_0c41_4a62_b6d7_bdbe2b19be2d);
@@ -1315,14 +1080,10 @@ pub struct IRemoteSystemSessionWatcher_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemStatics {
     type Vtable = IRemoteSystemStatics_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa485b392_ff2b_4b47_be62_743f2f140f30);
@@ -1347,14 +1108,10 @@ pub struct IRemoteSystemStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemStatics2 {
     type Vtable = IRemoteSystemStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c98edca_6f99_4c52_a272_ea4f36471744);
@@ -1367,14 +1124,10 @@ pub struct IRemoteSystemStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemStatics3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemStatics3 {
     type Vtable = IRemoteSystemStatics3_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemStatics3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemStatics3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9995f16f_0b3c_5ac5_b325_cc73f437dfcd);
@@ -1391,14 +1144,10 @@ pub struct IRemoteSystemStatics3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemStatusTypeFilter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemStatusTypeFilter {
     type Vtable = IRemoteSystemStatusTypeFilter_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemStatusTypeFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemStatusTypeFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c39514e_cbb6_4777_8534_2e0c521affa2);
@@ -1411,14 +1160,10 @@ pub struct IRemoteSystemStatusTypeFilter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemStatusTypeFilterFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemStatusTypeFilterFactory {
     type Vtable = IRemoteSystemStatusTypeFilterFactory_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemStatusTypeFilterFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemStatusTypeFilterFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x33cf78fa_d724_4125_ac7a_8d281e44c949);
@@ -1431,14 +1176,10 @@ pub struct IRemoteSystemStatusTypeFilterFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemUpdatedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemUpdatedEventArgs {
     type Vtable = IRemoteSystemUpdatedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemUpdatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemUpdatedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7502ff0e_dbcb_4155_b4ca_b30a04f27627);
@@ -1451,14 +1192,10 @@ pub struct IRemoteSystemUpdatedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemWatcher(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemWatcher {
     type Vtable = IRemoteSystemWatcher_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemWatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemWatcher {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d600c7e_2c07_48c5_889c_455d2b099771);
@@ -1496,14 +1233,10 @@ pub struct IRemoteSystemWatcher_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemWatcher2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemWatcher2 {
     type Vtable = IRemoteSystemWatcher2_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemWatcher2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemWatcher2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73436700_19ca_48f9_a4cd_780f7ad58c71);
@@ -1531,14 +1264,10 @@ pub struct IRemoteSystemWatcher2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemWatcher3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemWatcher3 {
     type Vtable = IRemoteSystemWatcher3_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemWatcher3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemWatcher3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf79c0fcf_a913_55d3_8413_418fcf15ba54);
@@ -1551,14 +1280,10 @@ pub struct IRemoteSystemWatcher3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemWatcherErrorOccurredEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemWatcherErrorOccurredEventArgs {
     type Vtable = IRemoteSystemWatcherErrorOccurredEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemWatcherErrorOccurredEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemWatcherErrorOccurredEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x74c5c6af_5114_4426_9216_20d81f8519ae);
@@ -1571,14 +1296,10 @@ pub struct IRemoteSystemWatcherErrorOccurredEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemWebAccountFilter(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemWebAccountFilter {
     type Vtable = IRemoteSystemWebAccountFilter_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemWebAccountFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemWebAccountFilter {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3fb75873_87c8_5d8f_977e_f69f96d67238);
@@ -1594,14 +1315,10 @@ pub struct IRemoteSystemWebAccountFilter_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IRemoteSystemWebAccountFilterFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IRemoteSystemWebAccountFilterFactory {
     type Vtable = IRemoteSystemWebAccountFilterFactory_Vtbl;
-}
-impl ::core::clone::Clone for IRemoteSystemWebAccountFilterFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IRemoteSystemWebAccountFilterFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x348a2709_5f4d_5127_b4a7_bf99d5252b1b);
@@ -1653,6 +1370,7 @@ impl ::windows_core::RuntimeName for KnownRemoteSystemCapabilities {
 }
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystem(::windows_core::IUnknown);
 impl RemoteSystem {
     pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1822,24 +1540,8 @@ impl RemoteSystem {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystem {}
-impl ::core::fmt::Debug for RemoteSystem {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystem").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystem {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystem;{ed5838cd-1e10-4a8c-b4a6-4e5fd6f97721})");
-}
-impl ::core::clone::Clone for RemoteSystem {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystem {
     type Vtable = IRemoteSystem_Vtbl;
@@ -1855,6 +1557,7 @@ unsafe impl ::core::marker::Send for RemoteSystem {}
 unsafe impl ::core::marker::Sync for RemoteSystem {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemAddedEventArgs(::windows_core::IUnknown);
 impl RemoteSystemAddedEventArgs {
     pub fn RemoteSystem(&self) -> ::windows_core::Result<RemoteSystem> {
@@ -1865,24 +1568,8 @@ impl RemoteSystemAddedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemAddedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemAddedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemAddedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemAddedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemAddedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemAddedEventArgs;{8f39560f-e534-4697-8836-7abea151516e})");
-}
-impl ::core::clone::Clone for RemoteSystemAddedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemAddedEventArgs {
     type Vtable = IRemoteSystemAddedEventArgs_Vtbl;
@@ -1898,6 +1585,7 @@ unsafe impl ::core::marker::Send for RemoteSystemAddedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemAddedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemApp(::windows_core::IUnknown);
 impl RemoteSystemApp {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1952,24 +1640,8 @@ impl RemoteSystemApp {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemApp {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemApp {}
-impl ::core::fmt::Debug for RemoteSystemApp {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemApp").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemApp {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemApp;{80e5bcbd-d54d-41b1-9b16-6810a871ed4f})");
-}
-impl ::core::clone::Clone for RemoteSystemApp {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemApp {
     type Vtable = IRemoteSystemApp_Vtbl;
@@ -1985,6 +1657,7 @@ unsafe impl ::core::marker::Send for RemoteSystemApp {}
 unsafe impl ::core::marker::Sync for RemoteSystemApp {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemAppRegistration(::windows_core::IUnknown);
 impl RemoteSystemAppRegistration {
     pub fn User(&self) -> ::windows_core::Result<super::User> {
@@ -2033,24 +1706,8 @@ impl RemoteSystemAppRegistration {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemAppRegistration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemAppRegistration {}
-impl ::core::fmt::Debug for RemoteSystemAppRegistration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemAppRegistration").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemAppRegistration {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemAppRegistration;{b47947b5-7035-4a5a-b8df-962d8f8431f4})");
-}
-impl ::core::clone::Clone for RemoteSystemAppRegistration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemAppRegistration {
     type Vtable = IRemoteSystemAppRegistration_Vtbl;
@@ -2066,6 +1723,7 @@ unsafe impl ::core::marker::Send for RemoteSystemAppRegistration {}
 unsafe impl ::core::marker::Sync for RemoteSystemAppRegistration {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemAuthorizationKindFilter(::windows_core::IUnknown);
 impl RemoteSystemAuthorizationKindFilter {
     pub fn RemoteSystemAuthorizationKind(&self) -> ::windows_core::Result<RemoteSystemAuthorizationKind> {
@@ -2087,24 +1745,8 @@ impl RemoteSystemAuthorizationKindFilter {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemAuthorizationKindFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemAuthorizationKindFilter {}
-impl ::core::fmt::Debug for RemoteSystemAuthorizationKindFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemAuthorizationKindFilter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemAuthorizationKindFilter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemAuthorizationKindFilter;{6b0dde8e-04d0-40f4-a27f-c2acbbd6b734})");
-}
-impl ::core::clone::Clone for RemoteSystemAuthorizationKindFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemAuthorizationKindFilter {
     type Vtable = IRemoteSystemAuthorizationKindFilter_Vtbl;
@@ -2121,6 +1763,7 @@ unsafe impl ::core::marker::Send for RemoteSystemAuthorizationKindFilter {}
 unsafe impl ::core::marker::Sync for RemoteSystemAuthorizationKindFilter {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemConnectionInfo(::windows_core::IUnknown);
 impl RemoteSystemConnectionInfo {
     pub fn IsProximal(&self) -> ::windows_core::Result<bool> {
@@ -2147,24 +1790,8 @@ impl RemoteSystemConnectionInfo {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemConnectionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemConnectionInfo {}
-impl ::core::fmt::Debug for RemoteSystemConnectionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemConnectionInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemConnectionInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemConnectionInfo;{23278bc3-0d09-52cb-9c6a-eed2940bee43})");
-}
-impl ::core::clone::Clone for RemoteSystemConnectionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemConnectionInfo {
     type Vtable = IRemoteSystemConnectionInfo_Vtbl;
@@ -2180,6 +1807,7 @@ unsafe impl ::core::marker::Send for RemoteSystemConnectionInfo {}
 unsafe impl ::core::marker::Sync for RemoteSystemConnectionInfo {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemConnectionRequest(::windows_core::IUnknown);
 impl RemoteSystemConnectionRequest {
     pub fn RemoteSystem(&self) -> ::windows_core::Result<RemoteSystem> {
@@ -2252,24 +1880,8 @@ impl RemoteSystemConnectionRequest {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemConnectionRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemConnectionRequest {}
-impl ::core::fmt::Debug for RemoteSystemConnectionRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemConnectionRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemConnectionRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemConnectionRequest;{84ed4104-8d5e-4d72-8238-7621576c7a67})");
-}
-impl ::core::clone::Clone for RemoteSystemConnectionRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemConnectionRequest {
     type Vtable = IRemoteSystemConnectionRequest_Vtbl;
@@ -2285,6 +1897,7 @@ unsafe impl ::core::marker::Send for RemoteSystemConnectionRequest {}
 unsafe impl ::core::marker::Sync for RemoteSystemConnectionRequest {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemDiscoveryTypeFilter(::windows_core::IUnknown);
 impl RemoteSystemDiscoveryTypeFilter {
     pub fn RemoteSystemDiscoveryType(&self) -> ::windows_core::Result<RemoteSystemDiscoveryType> {
@@ -2306,24 +1919,8 @@ impl RemoteSystemDiscoveryTypeFilter {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemDiscoveryTypeFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemDiscoveryTypeFilter {}
-impl ::core::fmt::Debug for RemoteSystemDiscoveryTypeFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemDiscoveryTypeFilter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemDiscoveryTypeFilter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemDiscoveryTypeFilter;{42d9041f-ee5a-43da-ac6a-6fee25460741})");
-}
-impl ::core::clone::Clone for RemoteSystemDiscoveryTypeFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemDiscoveryTypeFilter {
     type Vtable = IRemoteSystemDiscoveryTypeFilter_Vtbl;
@@ -2340,26 +1937,11 @@ unsafe impl ::core::marker::Send for RemoteSystemDiscoveryTypeFilter {}
 unsafe impl ::core::marker::Sync for RemoteSystemDiscoveryTypeFilter {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemEnumerationCompletedEventArgs(::windows_core::IUnknown);
 impl RemoteSystemEnumerationCompletedEventArgs {}
-impl ::core::cmp::PartialEq for RemoteSystemEnumerationCompletedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemEnumerationCompletedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemEnumerationCompletedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemEnumerationCompletedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemEnumerationCompletedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemEnumerationCompletedEventArgs;{c6e83d5f-4030-4354-a060-14f1b22c545d})");
-}
-impl ::core::clone::Clone for RemoteSystemEnumerationCompletedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemEnumerationCompletedEventArgs {
     type Vtable = IRemoteSystemEnumerationCompletedEventArgs_Vtbl;
@@ -2375,6 +1957,7 @@ unsafe impl ::core::marker::Send for RemoteSystemEnumerationCompletedEventArgs {
 unsafe impl ::core::marker::Sync for RemoteSystemEnumerationCompletedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemKindFilter(::windows_core::IUnknown);
 impl RemoteSystemKindFilter {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2403,24 +1986,8 @@ impl RemoteSystemKindFilter {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemKindFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemKindFilter {}
-impl ::core::fmt::Debug for RemoteSystemKindFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemKindFilter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemKindFilter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemKindFilter;{38e1c9ec-22c3-4ef6-901a-bbb1c7aad4ed})");
-}
-impl ::core::clone::Clone for RemoteSystemKindFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemKindFilter {
     type Vtable = IRemoteSystemKindFilter_Vtbl;
@@ -2502,6 +2069,7 @@ impl ::windows_core::RuntimeName for RemoteSystemKinds {
 }
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemRemovedEventArgs(::windows_core::IUnknown);
 impl RemoteSystemRemovedEventArgs {
     pub fn RemoteSystemId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2512,24 +2080,8 @@ impl RemoteSystemRemovedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemRemovedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemRemovedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemRemovedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemRemovedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemRemovedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemRemovedEventArgs;{8b3d16bb-7306-49ea-b7df-67d5714cb013})");
-}
-impl ::core::clone::Clone for RemoteSystemRemovedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemRemovedEventArgs {
     type Vtable = IRemoteSystemRemovedEventArgs_Vtbl;
@@ -2545,6 +2097,7 @@ unsafe impl ::core::marker::Send for RemoteSystemRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemRemovedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSession(::windows_core::IUnknown);
 impl RemoteSystemSession {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2623,24 +2176,8 @@ impl RemoteSystemSession {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSession {}
-impl ::core::fmt::Debug for RemoteSystemSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSession").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSession {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSession;{69476a01-9ada-490f-9549-d31cb14c9e95})");
-}
-impl ::core::clone::Clone for RemoteSystemSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSession {
     type Vtable = IRemoteSystemSession_Vtbl;
@@ -2658,6 +2195,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSession {}
 unsafe impl ::core::marker::Sync for RemoteSystemSession {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSessionAddedEventArgs(::windows_core::IUnknown);
 impl RemoteSystemSessionAddedEventArgs {
     pub fn SessionInfo(&self) -> ::windows_core::Result<RemoteSystemSessionInfo> {
@@ -2668,24 +2206,8 @@ impl RemoteSystemSessionAddedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionAddedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionAddedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemSessionAddedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionAddedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSessionAddedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionAddedEventArgs;{d585d754-bc97-4c39-99b4-beca76e04c3f})");
-}
-impl ::core::clone::Clone for RemoteSystemSessionAddedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSessionAddedEventArgs {
     type Vtable = IRemoteSystemSessionAddedEventArgs_Vtbl;
@@ -2701,6 +2223,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionAddedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionAddedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSessionController(::windows_core::IUnknown);
 impl RemoteSystemSessionController {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2763,24 +2286,8 @@ impl RemoteSystemSessionController {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionController {}
-impl ::core::fmt::Debug for RemoteSystemSessionController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionController").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSessionController {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionController;{e48b2dd2-6820-4867-b425-d89c0a3ef7ba})");
-}
-impl ::core::clone::Clone for RemoteSystemSessionController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSessionController {
     type Vtable = IRemoteSystemSessionController_Vtbl;
@@ -2796,6 +2303,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionController {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionController {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSessionCreationResult(::windows_core::IUnknown);
 impl RemoteSystemSessionCreationResult {
     pub fn Status(&self) -> ::windows_core::Result<RemoteSystemSessionCreationStatus> {
@@ -2813,24 +2321,8 @@ impl RemoteSystemSessionCreationResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionCreationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionCreationResult {}
-impl ::core::fmt::Debug for RemoteSystemSessionCreationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionCreationResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSessionCreationResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionCreationResult;{a79812c2-37de-448c-8b83-a30aa3c4ead6})");
-}
-impl ::core::clone::Clone for RemoteSystemSessionCreationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSessionCreationResult {
     type Vtable = IRemoteSystemSessionCreationResult_Vtbl;
@@ -2846,6 +2338,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionCreationResult {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionCreationResult {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSessionDisconnectedEventArgs(::windows_core::IUnknown);
 impl RemoteSystemSessionDisconnectedEventArgs {
     pub fn Reason(&self) -> ::windows_core::Result<RemoteSystemSessionDisconnectedReason> {
@@ -2856,24 +2349,8 @@ impl RemoteSystemSessionDisconnectedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionDisconnectedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionDisconnectedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemSessionDisconnectedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionDisconnectedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSessionDisconnectedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionDisconnectedEventArgs;{de0bc69b-77c5-461c-8209-7c6c5d3111ab})");
-}
-impl ::core::clone::Clone for RemoteSystemSessionDisconnectedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSessionDisconnectedEventArgs {
     type Vtable = IRemoteSystemSessionDisconnectedEventArgs_Vtbl;
@@ -2889,6 +2366,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionDisconnectedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionDisconnectedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSessionInfo(::windows_core::IUnknown);
 impl RemoteSystemSessionInfo {
     pub fn DisplayName(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -2915,24 +2393,8 @@ impl RemoteSystemSessionInfo {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionInfo {}
-impl ::core::fmt::Debug for RemoteSystemSessionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSessionInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionInfo;{ff4df648-8b0a-4e9a-9905-69e4b841c588})");
-}
-impl ::core::clone::Clone for RemoteSystemSessionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSessionInfo {
     type Vtable = IRemoteSystemSessionInfo_Vtbl;
@@ -2948,6 +2410,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionInfo {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionInfo {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSessionInvitation(::windows_core::IUnknown);
 impl RemoteSystemSessionInvitation {
     pub fn Sender(&self) -> ::windows_core::Result<RemoteSystem> {
@@ -2965,24 +2428,8 @@ impl RemoteSystemSessionInvitation {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionInvitation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionInvitation {}
-impl ::core::fmt::Debug for RemoteSystemSessionInvitation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionInvitation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSessionInvitation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionInvitation;{3e32cc91-51d7-4766-a121-25516c3b8294})");
-}
-impl ::core::clone::Clone for RemoteSystemSessionInvitation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSessionInvitation {
     type Vtable = IRemoteSystemSessionInvitation_Vtbl;
@@ -2998,6 +2445,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionInvitation {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionInvitation {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSessionInvitationListener(::windows_core::IUnknown);
 impl RemoteSystemSessionInvitationListener {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -3026,24 +2474,8 @@ impl RemoteSystemSessionInvitationListener {
         unsafe { (::windows_core::Interface::vtable(this).RemoveInvitationReceived)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionInvitationListener {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionInvitationListener {}
-impl ::core::fmt::Debug for RemoteSystemSessionInvitationListener {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionInvitationListener").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSessionInvitationListener {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionInvitationListener;{08f4003f-bc71-49e1-874a-31ddff9a27b9})");
-}
-impl ::core::clone::Clone for RemoteSystemSessionInvitationListener {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSessionInvitationListener {
     type Vtable = IRemoteSystemSessionInvitationListener_Vtbl;
@@ -3059,6 +2491,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionInvitationListener {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionInvitationListener {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSessionInvitationReceivedEventArgs(::windows_core::IUnknown);
 impl RemoteSystemSessionInvitationReceivedEventArgs {
     pub fn Invitation(&self) -> ::windows_core::Result<RemoteSystemSessionInvitation> {
@@ -3069,24 +2502,8 @@ impl RemoteSystemSessionInvitationReceivedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionInvitationReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionInvitationReceivedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemSessionInvitationReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionInvitationReceivedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSessionInvitationReceivedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionInvitationReceivedEventArgs;{5e964a2d-a10d-4edb-8dea-54d20ac19543})");
-}
-impl ::core::clone::Clone for RemoteSystemSessionInvitationReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSessionInvitationReceivedEventArgs {
     type Vtable = IRemoteSystemSessionInvitationReceivedEventArgs_Vtbl;
@@ -3102,6 +2519,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionInvitationReceivedEventA
 unsafe impl ::core::marker::Sync for RemoteSystemSessionInvitationReceivedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSessionJoinRequest(::windows_core::IUnknown);
 impl RemoteSystemSessionJoinRequest {
     pub fn Participant(&self) -> ::windows_core::Result<RemoteSystemSessionParticipant> {
@@ -3116,24 +2534,8 @@ impl RemoteSystemSessionJoinRequest {
         unsafe { (::windows_core::Interface::vtable(this).Accept)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionJoinRequest {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionJoinRequest {}
-impl ::core::fmt::Debug for RemoteSystemSessionJoinRequest {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionJoinRequest").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSessionJoinRequest {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionJoinRequest;{20600068-7994-4331-86d1-d89d882585ee})");
-}
-impl ::core::clone::Clone for RemoteSystemSessionJoinRequest {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSessionJoinRequest {
     type Vtable = IRemoteSystemSessionJoinRequest_Vtbl;
@@ -3149,6 +2551,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionJoinRequest {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionJoinRequest {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSessionJoinRequestedEventArgs(::windows_core::IUnknown);
 impl RemoteSystemSessionJoinRequestedEventArgs {
     pub fn JoinRequest(&self) -> ::windows_core::Result<RemoteSystemSessionJoinRequest> {
@@ -3168,24 +2571,8 @@ impl RemoteSystemSessionJoinRequestedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionJoinRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionJoinRequestedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemSessionJoinRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionJoinRequestedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSessionJoinRequestedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionJoinRequestedEventArgs;{dbca4fc3-82b9-4816-9c24-e40e61774bd8})");
-}
-impl ::core::clone::Clone for RemoteSystemSessionJoinRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSessionJoinRequestedEventArgs {
     type Vtable = IRemoteSystemSessionJoinRequestedEventArgs_Vtbl;
@@ -3201,6 +2588,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionJoinRequestedEventArgs {
 unsafe impl ::core::marker::Sync for RemoteSystemSessionJoinRequestedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSessionJoinResult(::windows_core::IUnknown);
 impl RemoteSystemSessionJoinResult {
     pub fn Status(&self) -> ::windows_core::Result<RemoteSystemSessionJoinStatus> {
@@ -3218,24 +2606,8 @@ impl RemoteSystemSessionJoinResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionJoinResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionJoinResult {}
-impl ::core::fmt::Debug for RemoteSystemSessionJoinResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionJoinResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSessionJoinResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionJoinResult;{ce7b1f04-a03e-41a4-900b-1e79328c1267})");
-}
-impl ::core::clone::Clone for RemoteSystemSessionJoinResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSessionJoinResult {
     type Vtable = IRemoteSystemSessionJoinResult_Vtbl;
@@ -3251,6 +2623,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionJoinResult {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionJoinResult {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSessionMessageChannel(::windows_core::IUnknown);
 impl RemoteSystemSessionMessageChannel {
     pub fn Session(&self) -> ::windows_core::Result<RemoteSystemSession> {
@@ -3340,24 +2713,8 @@ impl RemoteSystemSessionMessageChannel {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionMessageChannel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionMessageChannel {}
-impl ::core::fmt::Debug for RemoteSystemSessionMessageChannel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionMessageChannel").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSessionMessageChannel {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionMessageChannel;{9524d12a-73d9-4c10-b751-c26784437127})");
-}
-impl ::core::clone::Clone for RemoteSystemSessionMessageChannel {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSessionMessageChannel {
     type Vtable = IRemoteSystemSessionMessageChannel_Vtbl;
@@ -3373,6 +2730,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionMessageChannel {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionMessageChannel {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSessionOptions(::windows_core::IUnknown);
 impl RemoteSystemSessionOptions {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -3394,24 +2752,8 @@ impl RemoteSystemSessionOptions {
         unsafe { (::windows_core::Interface::vtable(this).SetIsInviteOnly)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionOptions {}
-impl ::core::fmt::Debug for RemoteSystemSessionOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSessionOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionOptions;{740ed755-8418-4f01-9353-e21c9ecc6cfc})");
-}
-impl ::core::clone::Clone for RemoteSystemSessionOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSessionOptions {
     type Vtable = IRemoteSystemSessionOptions_Vtbl;
@@ -3427,6 +2769,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionOptions {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionOptions {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSessionParticipant(::windows_core::IUnknown);
 impl RemoteSystemSessionParticipant {
     pub fn RemoteSystem(&self) -> ::windows_core::Result<RemoteSystem> {
@@ -3446,24 +2789,8 @@ impl RemoteSystemSessionParticipant {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionParticipant {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionParticipant {}
-impl ::core::fmt::Debug for RemoteSystemSessionParticipant {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionParticipant").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSessionParticipant {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionParticipant;{7e90058c-acf9-4729-8a17-44e7baed5dcc})");
-}
-impl ::core::clone::Clone for RemoteSystemSessionParticipant {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSessionParticipant {
     type Vtable = IRemoteSystemSessionParticipant_Vtbl;
@@ -3479,6 +2806,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionParticipant {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipant {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSessionParticipantAddedEventArgs(::windows_core::IUnknown);
 impl RemoteSystemSessionParticipantAddedEventArgs {
     pub fn Participant(&self) -> ::windows_core::Result<RemoteSystemSessionParticipant> {
@@ -3489,24 +2817,8 @@ impl RemoteSystemSessionParticipantAddedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionParticipantAddedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionParticipantAddedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemSessionParticipantAddedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionParticipantAddedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSessionParticipantAddedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionParticipantAddedEventArgs;{d35a57d8-c9a1-4bb7-b6b0-79bb91adf93d})");
-}
-impl ::core::clone::Clone for RemoteSystemSessionParticipantAddedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSessionParticipantAddedEventArgs {
     type Vtable = IRemoteSystemSessionParticipantAddedEventArgs_Vtbl;
@@ -3522,6 +2834,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionParticipantAddedEventArg
 unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipantAddedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSessionParticipantRemovedEventArgs(::windows_core::IUnknown);
 impl RemoteSystemSessionParticipantRemovedEventArgs {
     pub fn Participant(&self) -> ::windows_core::Result<RemoteSystemSessionParticipant> {
@@ -3532,24 +2845,8 @@ impl RemoteSystemSessionParticipantRemovedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionParticipantRemovedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionParticipantRemovedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemSessionParticipantRemovedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionParticipantRemovedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSessionParticipantRemovedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionParticipantRemovedEventArgs;{866ef088-de68-4abf-88a1-f90d16274192})");
-}
-impl ::core::clone::Clone for RemoteSystemSessionParticipantRemovedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSessionParticipantRemovedEventArgs {
     type Vtable = IRemoteSystemSessionParticipantRemovedEventArgs_Vtbl;
@@ -3565,6 +2862,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionParticipantRemovedEventA
 unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipantRemovedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSessionParticipantWatcher(::windows_core::IUnknown);
 impl RemoteSystemSessionParticipantWatcher {
     pub fn Start(&self) -> ::windows_core::Result<()> {
@@ -3637,24 +2935,8 @@ impl RemoteSystemSessionParticipantWatcher {
         unsafe { (::windows_core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionParticipantWatcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionParticipantWatcher {}
-impl ::core::fmt::Debug for RemoteSystemSessionParticipantWatcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionParticipantWatcher").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSessionParticipantWatcher {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionParticipantWatcher;{dcdd02cc-aa87-4d79-b6cc-4459b3e92075})");
-}
-impl ::core::clone::Clone for RemoteSystemSessionParticipantWatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSessionParticipantWatcher {
     type Vtable = IRemoteSystemSessionParticipantWatcher_Vtbl;
@@ -3670,6 +2952,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionParticipantWatcher {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipantWatcher {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSessionRemovedEventArgs(::windows_core::IUnknown);
 impl RemoteSystemSessionRemovedEventArgs {
     pub fn SessionInfo(&self) -> ::windows_core::Result<RemoteSystemSessionInfo> {
@@ -3680,24 +2963,8 @@ impl RemoteSystemSessionRemovedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionRemovedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionRemovedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemSessionRemovedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionRemovedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSessionRemovedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionRemovedEventArgs;{af82914e-39a1-4dea-9d63-43798d5bbbd0})");
-}
-impl ::core::clone::Clone for RemoteSystemSessionRemovedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSessionRemovedEventArgs {
     type Vtable = IRemoteSystemSessionRemovedEventArgs_Vtbl;
@@ -3713,6 +2980,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionRemovedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSessionUpdatedEventArgs(::windows_core::IUnknown);
 impl RemoteSystemSessionUpdatedEventArgs {
     pub fn SessionInfo(&self) -> ::windows_core::Result<RemoteSystemSessionInfo> {
@@ -3723,24 +2991,8 @@ impl RemoteSystemSessionUpdatedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionUpdatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionUpdatedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemSessionUpdatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionUpdatedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSessionUpdatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionUpdatedEventArgs;{16875069-231e-4c91-8ec8-b3a39d9e55a3})");
-}
-impl ::core::clone::Clone for RemoteSystemSessionUpdatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSessionUpdatedEventArgs {
     type Vtable = IRemoteSystemSessionUpdatedEventArgs_Vtbl;
@@ -3756,6 +3008,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionUpdatedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSessionValueSetReceivedEventArgs(::windows_core::IUnknown);
 impl RemoteSystemSessionValueSetReceivedEventArgs {
     pub fn Sender(&self) -> ::windows_core::Result<RemoteSystemSessionParticipant> {
@@ -3775,24 +3028,8 @@ impl RemoteSystemSessionValueSetReceivedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionValueSetReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionValueSetReceivedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemSessionValueSetReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionValueSetReceivedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSessionValueSetReceivedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionValueSetReceivedEventArgs;{06f31785-2da5-4e58-a78f-9e8d0784ee25})");
-}
-impl ::core::clone::Clone for RemoteSystemSessionValueSetReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSessionValueSetReceivedEventArgs {
     type Vtable = IRemoteSystemSessionValueSetReceivedEventArgs_Vtbl;
@@ -3808,6 +3045,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionValueSetReceivedEventArg
 unsafe impl ::core::marker::Sync for RemoteSystemSessionValueSetReceivedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemSessionWatcher(::windows_core::IUnknown);
 impl RemoteSystemSessionWatcher {
     pub fn Start(&self) -> ::windows_core::Result<()> {
@@ -3880,24 +3118,8 @@ impl RemoteSystemSessionWatcher {
         unsafe { (::windows_core::Interface::vtable(this).RemoveRemoved)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionWatcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionWatcher {}
-impl ::core::fmt::Debug for RemoteSystemSessionWatcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionWatcher").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemSessionWatcher {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemSessionWatcher;{8003e340-0c41-4a62-b6d7-bdbe2b19be2d})");
-}
-impl ::core::clone::Clone for RemoteSystemSessionWatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemSessionWatcher {
     type Vtable = IRemoteSystemSessionWatcher_Vtbl;
@@ -3913,6 +3135,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionWatcher {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionWatcher {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemStatusTypeFilter(::windows_core::IUnknown);
 impl RemoteSystemStatusTypeFilter {
     pub fn RemoteSystemStatusType(&self) -> ::windows_core::Result<RemoteSystemStatusType> {
@@ -3934,24 +3157,8 @@ impl RemoteSystemStatusTypeFilter {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemStatusTypeFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemStatusTypeFilter {}
-impl ::core::fmt::Debug for RemoteSystemStatusTypeFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemStatusTypeFilter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemStatusTypeFilter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemStatusTypeFilter;{0c39514e-cbb6-4777-8534-2e0c521affa2})");
-}
-impl ::core::clone::Clone for RemoteSystemStatusTypeFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemStatusTypeFilter {
     type Vtable = IRemoteSystemStatusTypeFilter_Vtbl;
@@ -3968,6 +3175,7 @@ unsafe impl ::core::marker::Send for RemoteSystemStatusTypeFilter {}
 unsafe impl ::core::marker::Sync for RemoteSystemStatusTypeFilter {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemUpdatedEventArgs(::windows_core::IUnknown);
 impl RemoteSystemUpdatedEventArgs {
     pub fn RemoteSystem(&self) -> ::windows_core::Result<RemoteSystem> {
@@ -3978,24 +3186,8 @@ impl RemoteSystemUpdatedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemUpdatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemUpdatedEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemUpdatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemUpdatedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemUpdatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemUpdatedEventArgs;{7502ff0e-dbcb-4155-b4ca-b30a04f27627})");
-}
-impl ::core::clone::Clone for RemoteSystemUpdatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemUpdatedEventArgs {
     type Vtable = IRemoteSystemUpdatedEventArgs_Vtbl;
@@ -4011,6 +3203,7 @@ unsafe impl ::core::marker::Send for RemoteSystemUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemUpdatedEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemWatcher(::windows_core::IUnknown);
 impl RemoteSystemWatcher {
     pub fn Start(&self) -> ::windows_core::Result<()> {
@@ -4119,24 +3312,8 @@ impl RemoteSystemWatcher {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemWatcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemWatcher {}
-impl ::core::fmt::Debug for RemoteSystemWatcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemWatcher").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemWatcher {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemWatcher;{5d600c7e-2c07-48c5-889c-455d2b099771})");
-}
-impl ::core::clone::Clone for RemoteSystemWatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemWatcher {
     type Vtable = IRemoteSystemWatcher_Vtbl;
@@ -4152,6 +3329,7 @@ unsafe impl ::core::marker::Send for RemoteSystemWatcher {}
 unsafe impl ::core::marker::Sync for RemoteSystemWatcher {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemWatcherErrorOccurredEventArgs(::windows_core::IUnknown);
 impl RemoteSystemWatcherErrorOccurredEventArgs {
     pub fn Error(&self) -> ::windows_core::Result<RemoteSystemWatcherError> {
@@ -4162,24 +3340,8 @@ impl RemoteSystemWatcherErrorOccurredEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemWatcherErrorOccurredEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemWatcherErrorOccurredEventArgs {}
-impl ::core::fmt::Debug for RemoteSystemWatcherErrorOccurredEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemWatcherErrorOccurredEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemWatcherErrorOccurredEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemWatcherErrorOccurredEventArgs;{74c5c6af-5114-4426-9216-20d81f8519ae})");
-}
-impl ::core::clone::Clone for RemoteSystemWatcherErrorOccurredEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemWatcherErrorOccurredEventArgs {
     type Vtable = IRemoteSystemWatcherErrorOccurredEventArgs_Vtbl;
@@ -4195,6 +3357,7 @@ unsafe impl ::core::marker::Send for RemoteSystemWatcherErrorOccurredEventArgs {
 unsafe impl ::core::marker::Sync for RemoteSystemWatcherErrorOccurredEventArgs {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct RemoteSystemWebAccountFilter(::windows_core::IUnknown);
 impl RemoteSystemWebAccountFilter {
     #[doc = "*Required features: `\"Security_Credentials\"`*"]
@@ -4223,24 +3386,8 @@ impl RemoteSystemWebAccountFilter {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for RemoteSystemWebAccountFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemWebAccountFilter {}
-impl ::core::fmt::Debug for RemoteSystemWebAccountFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemWebAccountFilter").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for RemoteSystemWebAccountFilter {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.RemoteSystems.RemoteSystemWebAccountFilter;{3fb75873-87c8-5d8f-977e-f69f96d67238})");
-}
-impl ::core::clone::Clone for RemoteSystemWebAccountFilter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for RemoteSystemWebAccountFilter {
     type Vtable = IRemoteSystemWebAccountFilter_Vtbl;

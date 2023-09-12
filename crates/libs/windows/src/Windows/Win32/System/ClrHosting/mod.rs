@@ -245,6 +245,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActionOnCLREvent(::windows_core::IUnknown);
 impl IActionOnCLREvent {
     pub unsafe fn OnEvent(&self, event: EClrEvent, data: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -252,24 +253,8 @@ impl IActionOnCLREvent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IActionOnCLREvent, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IActionOnCLREvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IActionOnCLREvent {}
-impl ::core::fmt::Debug for IActionOnCLREvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IActionOnCLREvent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IActionOnCLREvent {
     type Vtable = IActionOnCLREvent_Vtbl;
-}
-impl ::core::clone::Clone for IActionOnCLREvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IActionOnCLREvent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x607be24b_d91b_4e28_a242_61871ce56e35);
@@ -282,6 +267,7 @@ pub struct IActionOnCLREvent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IApartmentCallback(::windows_core::IUnknown);
 impl IApartmentCallback {
     pub unsafe fn DoCallback(&self, pfunc: usize, pdata: usize) -> ::windows_core::Result<()> {
@@ -289,24 +275,8 @@ impl IApartmentCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IApartmentCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IApartmentCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IApartmentCallback {}
-impl ::core::fmt::Debug for IApartmentCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IApartmentCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IApartmentCallback {
     type Vtable = IApartmentCallback_Vtbl;
-}
-impl ::core::clone::Clone for IApartmentCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IApartmentCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x178e5337_1528_4591_b1c9_1c6e484686d8);
@@ -319,6 +289,7 @@ pub struct IApartmentCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAppDomainBinding(::windows_core::IUnknown);
 impl IAppDomainBinding {
     pub unsafe fn OnAppDomain<P0>(&self, pappdomain: P0) -> ::windows_core::Result<()>
@@ -329,24 +300,8 @@ impl IAppDomainBinding {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAppDomainBinding, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IAppDomainBinding {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAppDomainBinding {}
-impl ::core::fmt::Debug for IAppDomainBinding {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAppDomainBinding").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAppDomainBinding {
     type Vtable = IAppDomainBinding_Vtbl;
-}
-impl ::core::clone::Clone for IAppDomainBinding {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAppDomainBinding {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c2b07a7_1e98_11d3_872f_00c04f79ed0d);
@@ -359,6 +314,7 @@ pub struct IAppDomainBinding_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRAppDomainResourceMonitor(::windows_core::IUnknown);
 impl ICLRAppDomainResourceMonitor {
     pub unsafe fn GetCurrentAllocated(&self, dwappdomainid: u32, pbytesallocated: *mut u64) -> ::windows_core::Result<()> {
@@ -372,24 +328,8 @@ impl ICLRAppDomainResourceMonitor {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRAppDomainResourceMonitor, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRAppDomainResourceMonitor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRAppDomainResourceMonitor {}
-impl ::core::fmt::Debug for ICLRAppDomainResourceMonitor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRAppDomainResourceMonitor").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRAppDomainResourceMonitor {
     type Vtable = ICLRAppDomainResourceMonitor_Vtbl;
-}
-impl ::core::clone::Clone for ICLRAppDomainResourceMonitor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRAppDomainResourceMonitor {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc62de18c_2e23_4aea_8423_b40c1fc59eae);
@@ -404,6 +344,7 @@ pub struct ICLRAppDomainResourceMonitor_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRAssemblyIdentityManager(::windows_core::IUnknown);
 impl ICLRAssemblyIdentityManager {
     pub unsafe fn GetCLRAssemblyReferenceList(&self, ppwzassemblyreferences: *const ::windows_core::PCWSTR, dwnumofreferences: u32) -> ::windows_core::Result<ICLRAssemblyReferenceList> {
@@ -460,24 +401,8 @@ impl ICLRAssemblyIdentityManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRAssemblyIdentityManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRAssemblyIdentityManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRAssemblyIdentityManager {}
-impl ::core::fmt::Debug for ICLRAssemblyIdentityManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRAssemblyIdentityManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRAssemblyIdentityManager {
     type Vtable = ICLRAssemblyIdentityManager_Vtbl;
-}
-impl ::core::clone::Clone for ICLRAssemblyIdentityManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRAssemblyIdentityManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x15f0a9da_3ff6_4393_9da9_fdfd284e6972);
@@ -505,6 +430,7 @@ pub struct ICLRAssemblyIdentityManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRAssemblyReferenceList(::windows_core::IUnknown);
 impl ICLRAssemblyReferenceList {
     pub unsafe fn IsStringAssemblyReferenceInList<P0>(&self, pwzassemblyname: P0) -> ::windows_core::Result<()>
@@ -521,24 +447,8 @@ impl ICLRAssemblyReferenceList {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRAssemblyReferenceList, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRAssemblyReferenceList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRAssemblyReferenceList {}
-impl ::core::fmt::Debug for ICLRAssemblyReferenceList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRAssemblyReferenceList").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRAssemblyReferenceList {
     type Vtable = ICLRAssemblyReferenceList_Vtbl;
-}
-impl ::core::clone::Clone for ICLRAssemblyReferenceList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRAssemblyReferenceList {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b2c9750_2e66_4bda_8b44_0a642c5cd733);
@@ -552,6 +462,7 @@ pub struct ICLRAssemblyReferenceList_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRControl(::windows_core::IUnknown);
 impl ICLRControl {
     pub unsafe fn GetCLRManager(&self, riid: *const ::windows_core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -566,24 +477,8 @@ impl ICLRControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRControl {}
-impl ::core::fmt::Debug for ICLRControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRControl {
     type Vtable = ICLRControl_Vtbl;
-}
-impl ::core::clone::Clone for ICLRControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9065597e_d1a1_4fb2_b6ba_7e1fce230f61);
@@ -597,6 +492,7 @@ pub struct ICLRControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRDebugManager(::windows_core::IUnknown);
 impl ICLRDebugManager {
     pub unsafe fn BeginConnection<P0>(&self, dwconnectionid: u32, szconnectionname: P0) -> ::windows_core::Result<()>
@@ -633,24 +529,8 @@ impl ICLRDebugManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRDebugManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRDebugManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRDebugManager {}
-impl ::core::fmt::Debug for ICLRDebugManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRDebugManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRDebugManager {
     type Vtable = ICLRDebugManager_Vtbl;
-}
-impl ::core::clone::Clone for ICLRDebugManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRDebugManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00dcaec6_2ac0_43a9_acf9_1e36c139b10d);
@@ -678,6 +558,7 @@ pub struct ICLRDebugManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRDebugging(::windows_core::IUnknown);
 impl ICLRDebugging {
     pub unsafe fn OpenVirtualProcess<P0, P1>(&self, modulebaseaddress: u64, pdatatarget: P0, plibraryprovider: P1, pmaxdebuggersupportedversion: *const CLR_DEBUGGING_VERSION, riidprocess: *const ::windows_core::GUID, ppprocess: *mut ::core::option::Option<::windows_core::IUnknown>, pversion: *mut CLR_DEBUGGING_VERSION, pdwflags: *mut CLR_DEBUGGING_PROCESS_FLAGS) -> ::windows_core::Result<()>
@@ -697,24 +578,8 @@ impl ICLRDebugging {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRDebugging, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRDebugging {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRDebugging {}
-impl ::core::fmt::Debug for ICLRDebugging {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRDebugging").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRDebugging {
     type Vtable = ICLRDebugging_Vtbl;
-}
-impl ::core::clone::Clone for ICLRDebugging {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRDebugging {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd28f3c5a_9634_4206_a509_477552eefb10);
@@ -731,6 +596,7 @@ pub struct ICLRDebugging_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRDebuggingLibraryProvider(::windows_core::IUnknown);
 impl ICLRDebuggingLibraryProvider {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -744,24 +610,8 @@ impl ICLRDebuggingLibraryProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRDebuggingLibraryProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRDebuggingLibraryProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRDebuggingLibraryProvider {}
-impl ::core::fmt::Debug for ICLRDebuggingLibraryProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRDebuggingLibraryProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRDebuggingLibraryProvider {
     type Vtable = ICLRDebuggingLibraryProvider_Vtbl;
-}
-impl ::core::clone::Clone for ICLRDebuggingLibraryProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRDebuggingLibraryProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3151c08d_4d09_4f9b_8838_2880bf18fe51);
@@ -777,6 +627,7 @@ pub struct ICLRDebuggingLibraryProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRDomainManager(::windows_core::IUnknown);
 impl ICLRDomainManager {
     pub unsafe fn SetAppDomainManagerType<P0, P1>(&self, wszappdomainmanagerassembly: P0, wszappdomainmanagertype: P1, dwinitializedomainflags: EInitializeNewDomainFlags) -> ::windows_core::Result<()>
@@ -791,24 +642,8 @@ impl ICLRDomainManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRDomainManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRDomainManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRDomainManager {}
-impl ::core::fmt::Debug for ICLRDomainManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRDomainManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRDomainManager {
     type Vtable = ICLRDomainManager_Vtbl;
-}
-impl ::core::clone::Clone for ICLRDomainManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRDomainManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x270d00a2_8e15_4d0b_adeb_37bc3e47df77);
@@ -822,6 +657,7 @@ pub struct ICLRDomainManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRErrorReportingManager(::windows_core::IUnknown);
 impl ICLRErrorReportingManager {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -837,24 +673,8 @@ impl ICLRErrorReportingManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRErrorReportingManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRErrorReportingManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRErrorReportingManager {}
-impl ::core::fmt::Debug for ICLRErrorReportingManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRErrorReportingManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRErrorReportingManager {
     type Vtable = ICLRErrorReportingManager_Vtbl;
-}
-impl ::core::clone::Clone for ICLRErrorReportingManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRErrorReportingManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x980d2f1a_bf79_4c08_812a_bb9778928f78);
@@ -872,6 +692,7 @@ pub struct ICLRErrorReportingManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRGCManager(::windows_core::IUnknown);
 impl ICLRGCManager {
     pub unsafe fn Collect(&self, generation: i32) -> ::windows_core::Result<()> {
@@ -885,24 +706,8 @@ impl ICLRGCManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRGCManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRGCManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRGCManager {}
-impl ::core::fmt::Debug for ICLRGCManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRGCManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRGCManager {
     type Vtable = ICLRGCManager_Vtbl;
-}
-impl ::core::clone::Clone for ICLRGCManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRGCManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x54d9007e_a8e2_4885_b7bf_f998deee4f2a);
@@ -917,6 +722,7 @@ pub struct ICLRGCManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRGCManager2(::windows_core::IUnknown);
 impl ICLRGCManager2 {
     pub unsafe fn Collect(&self, generation: i32) -> ::windows_core::Result<()> {
@@ -933,24 +739,8 @@ impl ICLRGCManager2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRGCManager2, ::windows_core::IUnknown, ICLRGCManager);
-impl ::core::cmp::PartialEq for ICLRGCManager2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRGCManager2 {}
-impl ::core::fmt::Debug for ICLRGCManager2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRGCManager2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRGCManager2 {
     type Vtable = ICLRGCManager2_Vtbl;
-}
-impl ::core::clone::Clone for ICLRGCManager2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRGCManager2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0603b793_a97a_4712_9cb4_0cd1c74c0f7c);
@@ -963,6 +753,7 @@ pub struct ICLRGCManager2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRHostBindingPolicyManager(::windows_core::IUnknown);
 impl ICLRHostBindingPolicyManager {
     pub unsafe fn ModifyApplicationPolicy<P0, P1>(&self, pwzsourceassemblyidentity: P0, pwztargetassemblyidentity: P1, pbapplicationpolicy: *const u8, cbapppolicysize: u32, dwpolicymodifyflags: u32, pbnewapplicationpolicy: *mut u8, pcbnewapppolicysize: *mut u32) -> ::windows_core::Result<()>
@@ -980,24 +771,8 @@ impl ICLRHostBindingPolicyManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRHostBindingPolicyManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRHostBindingPolicyManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRHostBindingPolicyManager {}
-impl ::core::fmt::Debug for ICLRHostBindingPolicyManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRHostBindingPolicyManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRHostBindingPolicyManager {
     type Vtable = ICLRHostBindingPolicyManager_Vtbl;
-}
-impl ::core::clone::Clone for ICLRHostBindingPolicyManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRHostBindingPolicyManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4b3545e7_1856_48c9_a8ba_24b21a753c09);
@@ -1011,6 +786,7 @@ pub struct ICLRHostBindingPolicyManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRHostProtectionManager(::windows_core::IUnknown);
 impl ICLRHostProtectionManager {
     pub unsafe fn SetProtectedCategories(&self, categories: EApiCategories) -> ::windows_core::Result<()> {
@@ -1021,24 +797,8 @@ impl ICLRHostProtectionManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRHostProtectionManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRHostProtectionManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRHostProtectionManager {}
-impl ::core::fmt::Debug for ICLRHostProtectionManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRHostProtectionManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRHostProtectionManager {
     type Vtable = ICLRHostProtectionManager_Vtbl;
-}
-impl ::core::clone::Clone for ICLRHostProtectionManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRHostProtectionManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x89f25f5c_ceef_43e1_9cfa_a68ce863aaac);
@@ -1052,6 +812,7 @@ pub struct ICLRHostProtectionManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRIoCompletionManager(::windows_core::IUnknown);
 impl ICLRIoCompletionManager {
     pub unsafe fn OnComplete(&self, dwerrorcode: u32, numberofbytestransferred: u32, pvoverlapped: *const ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -1059,24 +820,8 @@ impl ICLRIoCompletionManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRIoCompletionManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRIoCompletionManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRIoCompletionManager {}
-impl ::core::fmt::Debug for ICLRIoCompletionManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRIoCompletionManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRIoCompletionManager {
     type Vtable = ICLRIoCompletionManager_Vtbl;
-}
-impl ::core::clone::Clone for ICLRIoCompletionManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRIoCompletionManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2d74ce86_b8d6_4c84_b3a7_9768933b3c12);
@@ -1089,6 +834,7 @@ pub struct ICLRIoCompletionManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRMemoryNotificationCallback(::windows_core::IUnknown);
 impl ICLRMemoryNotificationCallback {
     pub unsafe fn OnMemoryNotification(&self, ememoryavailable: EMemoryAvailable) -> ::windows_core::Result<()> {
@@ -1096,24 +842,8 @@ impl ICLRMemoryNotificationCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRMemoryNotificationCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRMemoryNotificationCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRMemoryNotificationCallback {}
-impl ::core::fmt::Debug for ICLRMemoryNotificationCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRMemoryNotificationCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRMemoryNotificationCallback {
     type Vtable = ICLRMemoryNotificationCallback_Vtbl;
-}
-impl ::core::clone::Clone for ICLRMemoryNotificationCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRMemoryNotificationCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x47eb8e57_0846_4546_af76_6f42fcfc2649);
@@ -1126,6 +856,7 @@ pub struct ICLRMemoryNotificationCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRMetaHost(::windows_core::IUnknown);
 impl ICLRMetaHost {
     pub unsafe fn GetRuntime<P0, T>(&self, pwzversion: P0) -> ::windows_core::Result<T>
@@ -1172,24 +903,8 @@ impl ICLRMetaHost {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRMetaHost, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRMetaHost {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRMetaHost {}
-impl ::core::fmt::Debug for ICLRMetaHost {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRMetaHost").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRMetaHost {
     type Vtable = ICLRMetaHost_Vtbl;
-}
-impl ::core::clone::Clone for ICLRMetaHost {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRMetaHost {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd332db9e_b9b3_4125_8207_a14884f53216);
@@ -1214,6 +929,7 @@ pub struct ICLRMetaHost_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRMetaHostPolicy(::windows_core::IUnknown);
 impl ICLRMetaHostPolicy {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1229,24 +945,8 @@ impl ICLRMetaHostPolicy {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRMetaHostPolicy, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRMetaHostPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRMetaHostPolicy {}
-impl ::core::fmt::Debug for ICLRMetaHostPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRMetaHostPolicy").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRMetaHostPolicy {
     type Vtable = ICLRMetaHostPolicy_Vtbl;
-}
-impl ::core::clone::Clone for ICLRMetaHostPolicy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRMetaHostPolicy {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2190695_77b2_492e_8e14_c4b3a7fdd593);
@@ -1262,6 +962,7 @@ pub struct ICLRMetaHostPolicy_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLROnEventManager(::windows_core::IUnknown);
 impl ICLROnEventManager {
     pub unsafe fn RegisterActionOnEvent<P0>(&self, event: EClrEvent, paction: P0) -> ::windows_core::Result<()>
@@ -1278,24 +979,8 @@ impl ICLROnEventManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLROnEventManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLROnEventManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLROnEventManager {}
-impl ::core::fmt::Debug for ICLROnEventManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLROnEventManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLROnEventManager {
     type Vtable = ICLROnEventManager_Vtbl;
-}
-impl ::core::clone::Clone for ICLROnEventManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLROnEventManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1d0e0132_e64f_493d_9260_025c0e32c175);
@@ -1309,6 +994,7 @@ pub struct ICLROnEventManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRPolicyManager(::windows_core::IUnknown);
 impl ICLRPolicyManager {
     pub unsafe fn SetDefaultAction(&self, operation: EClrOperation, action: EPolicyAction) -> ::windows_core::Result<()> {
@@ -1331,24 +1017,8 @@ impl ICLRPolicyManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRPolicyManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRPolicyManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRPolicyManager {}
-impl ::core::fmt::Debug for ICLRPolicyManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRPolicyManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRPolicyManager {
     type Vtable = ICLRPolicyManager_Vtbl;
-}
-impl ::core::clone::Clone for ICLRPolicyManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRPolicyManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d290010_d781_45da_a6f8_aa5d711a730e);
@@ -1366,6 +1036,7 @@ pub struct ICLRPolicyManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRProbingAssemblyEnum(::windows_core::IUnknown);
 impl ICLRProbingAssemblyEnum {
     pub unsafe fn Get(&self, dwindex: u32, pwzbuffer: ::windows_core::PWSTR, pcchbuffersize: *mut u32) -> ::windows_core::Result<()> {
@@ -1373,24 +1044,8 @@ impl ICLRProbingAssemblyEnum {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRProbingAssemblyEnum, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRProbingAssemblyEnum {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRProbingAssemblyEnum {}
-impl ::core::fmt::Debug for ICLRProbingAssemblyEnum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRProbingAssemblyEnum").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRProbingAssemblyEnum {
     type Vtable = ICLRProbingAssemblyEnum_Vtbl;
-}
-impl ::core::clone::Clone for ICLRProbingAssemblyEnum {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRProbingAssemblyEnum {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd0c5fb1f_416b_4f97_81f4_7ac7dc24dd5d);
@@ -1403,6 +1058,7 @@ pub struct ICLRProbingAssemblyEnum_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRProfiling(::windows_core::IUnknown);
 impl ICLRProfiling {
     pub unsafe fn AttachProfiler<P0>(&self, dwprofileeprocessid: u32, dwmillisecondsmax: u32, pclsidprofiler: *const ::windows_core::GUID, wszprofilerpath: P0, pvclientdata: &[u8]) -> ::windows_core::Result<()>
@@ -1413,24 +1069,8 @@ impl ICLRProfiling {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRProfiling, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRProfiling {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRProfiling {}
-impl ::core::fmt::Debug for ICLRProfiling {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRProfiling").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRProfiling {
     type Vtable = ICLRProfiling_Vtbl;
-}
-impl ::core::clone::Clone for ICLRProfiling {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRProfiling {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb349abe3_b56f_4689_bfcd_76bf39d888ea);
@@ -1443,6 +1083,7 @@ pub struct ICLRProfiling_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRReferenceAssemblyEnum(::windows_core::IUnknown);
 impl ICLRReferenceAssemblyEnum {
     pub unsafe fn Get(&self, dwindex: u32, pwzbuffer: ::windows_core::PWSTR, pcchbuffersize: *mut u32) -> ::windows_core::Result<()> {
@@ -1450,24 +1091,8 @@ impl ICLRReferenceAssemblyEnum {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRReferenceAssemblyEnum, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRReferenceAssemblyEnum {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRReferenceAssemblyEnum {}
-impl ::core::fmt::Debug for ICLRReferenceAssemblyEnum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRReferenceAssemblyEnum").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRReferenceAssemblyEnum {
     type Vtable = ICLRReferenceAssemblyEnum_Vtbl;
-}
-impl ::core::clone::Clone for ICLRReferenceAssemblyEnum {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRReferenceAssemblyEnum {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd509cb5d_cf32_4876_ae61_67770cf91973);
@@ -1480,6 +1105,7 @@ pub struct ICLRReferenceAssemblyEnum_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRRuntimeHost(::windows_core::IUnknown);
 impl ICLRRuntimeHost {
     pub unsafe fn Start(&self) -> ::windows_core::Result<()> {
@@ -1532,24 +1158,8 @@ impl ICLRRuntimeHost {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRRuntimeHost, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRRuntimeHost {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRRuntimeHost {}
-impl ::core::fmt::Debug for ICLRRuntimeHost {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRRuntimeHost").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRRuntimeHost {
     type Vtable = ICLRRuntimeHost_Vtbl;
-}
-impl ::core::clone::Clone for ICLRRuntimeHost {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRRuntimeHost {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x90f1a06c_7712_4762_86b5_7a5eba6bdb02);
@@ -1573,6 +1183,7 @@ pub struct ICLRRuntimeHost_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRRuntimeInfo(::windows_core::IUnknown);
 impl ICLRRuntimeInfo {
     pub unsafe fn GetVersionString(&self, pwzbuffer: ::windows_core::PWSTR, pcchbuffer: *mut u32) -> ::windows_core::Result<()> {
@@ -1641,24 +1252,8 @@ impl ICLRRuntimeInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRRuntimeInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRRuntimeInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRRuntimeInfo {}
-impl ::core::fmt::Debug for ICLRRuntimeInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRRuntimeInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRRuntimeInfo {
     type Vtable = ICLRRuntimeInfo_Vtbl;
-}
-impl ::core::clone::Clone for ICLRRuntimeInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRRuntimeInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbd39d1d2_ba2f_486a_89b0_b4b0cb466891);
@@ -1694,6 +1289,7 @@ pub struct ICLRRuntimeInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRStrongName(::windows_core::IUnknown);
 impl ICLRStrongName {
     pub unsafe fn GetHashFromAssemblyFile<P0>(&self, pszfilepath: P0, pihashalg: *mut u32, pbhash: &mut [u8], pchhash: *mut u32) -> ::windows_core::Result<()>
@@ -1840,24 +1436,8 @@ impl ICLRStrongName {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRStrongName, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRStrongName {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRStrongName {}
-impl ::core::fmt::Debug for ICLRStrongName {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRStrongName").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRStrongName {
     type Vtable = ICLRStrongName_Vtbl;
-}
-impl ::core::clone::Clone for ICLRStrongName {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRStrongName {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9fd93ccf_3280_4391_b3a9_96e1cde77c8d);
@@ -1900,6 +1480,7 @@ pub struct ICLRStrongName_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRStrongName2(::windows_core::IUnknown);
 impl ICLRStrongName2 {
     pub unsafe fn StrongNameGetPublicKeyEx<P0>(&self, pwzkeycontainer: P0, pbkeyblob: *const u8, cbkeyblob: u32, ppbpublickeyblob: *mut *mut u8, pcbpublickeyblob: *mut u32, uhashalgid: u32, ureserved: u32) -> ::windows_core::Result<()>
@@ -1920,24 +1501,8 @@ impl ICLRStrongName2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRStrongName2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRStrongName2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRStrongName2 {}
-impl ::core::fmt::Debug for ICLRStrongName2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRStrongName2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRStrongName2 {
     type Vtable = ICLRStrongName2_Vtbl;
-}
-impl ::core::clone::Clone for ICLRStrongName2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRStrongName2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc22ed5c5_4b59_4975_90eb_85ea55c0069b);
@@ -1954,6 +1519,7 @@ pub struct ICLRStrongName2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRStrongName3(::windows_core::IUnknown);
 impl ICLRStrongName3 {
     pub unsafe fn StrongNameDigestGenerate<P0>(&self, wszfilepath: P0, ppbdigestblob: *mut *mut u8, pcbdigestblob: *mut u32, dwflags: u32) -> ::windows_core::Result<()>
@@ -1976,24 +1542,8 @@ impl ICLRStrongName3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRStrongName3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRStrongName3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRStrongName3 {}
-impl ::core::fmt::Debug for ICLRStrongName3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRStrongName3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRStrongName3 {
     type Vtable = ICLRStrongName3_Vtbl;
-}
-impl ::core::clone::Clone for ICLRStrongName3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRStrongName3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x22c7089b_bbd3_414a_b698_210f263f1fed);
@@ -2008,6 +1558,7 @@ pub struct ICLRStrongName3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRSyncManager(::windows_core::IUnknown);
 impl ICLRSyncManager {
     pub unsafe fn GetMonitorOwner(&self, cookie: usize) -> ::windows_core::Result<IHostTask> {
@@ -2027,24 +1578,8 @@ impl ICLRSyncManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRSyncManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRSyncManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRSyncManager {}
-impl ::core::fmt::Debug for ICLRSyncManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRSyncManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRSyncManager {
     type Vtable = ICLRSyncManager_Vtbl;
-}
-impl ::core::clone::Clone for ICLRSyncManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRSyncManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x55ff199d_ad21_48f9_a16c_f24ebbb8727d);
@@ -2060,6 +1595,7 @@ pub struct ICLRSyncManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRTask(::windows_core::IUnknown);
 impl ICLRTask {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2112,24 +1648,8 @@ impl ICLRTask {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRTask, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRTask {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRTask {}
-impl ::core::fmt::Debug for ICLRTask {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRTask").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRTask {
     type Vtable = ICLRTask_Vtbl;
-}
-impl ::core::clone::Clone for ICLRTask {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRTask {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28e66a4a_9906_4225_b231_9187c3eb8611);
@@ -2161,6 +1681,7 @@ pub struct ICLRTask_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRTask2(::windows_core::IUnknown);
 impl ICLRTask2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2219,24 +1740,8 @@ impl ICLRTask2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRTask2, ::windows_core::IUnknown, ICLRTask);
-impl ::core::cmp::PartialEq for ICLRTask2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRTask2 {}
-impl ::core::fmt::Debug for ICLRTask2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRTask2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRTask2 {
     type Vtable = ICLRTask2_Vtbl;
-}
-impl ::core::clone::Clone for ICLRTask2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRTask2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28e66a4a_9906_4225_b231_9187c3eb8612);
@@ -2250,6 +1755,7 @@ pub struct ICLRTask2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICLRTaskManager(::windows_core::IUnknown);
 impl ICLRTaskManager {
     pub unsafe fn CreateTask(&self) -> ::windows_core::Result<ICLRTask> {
@@ -2272,24 +1778,8 @@ impl ICLRTaskManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICLRTaskManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICLRTaskManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICLRTaskManager {}
-impl ::core::fmt::Debug for ICLRTaskManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICLRTaskManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICLRTaskManager {
     type Vtable = ICLRTaskManager_Vtbl;
-}
-impl ::core::clone::Clone for ICLRTaskManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICLRTaskManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4862efbe_3ae5_44f8_8feb_346190ee8a34);
@@ -2306,6 +1796,7 @@ pub struct ICLRTaskManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICatalogServices(::windows_core::IUnknown);
 impl ICatalogServices {
     pub unsafe fn Autodone(&self) -> ::windows_core::Result<()> {
@@ -2316,24 +1807,8 @@ impl ICatalogServices {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICatalogServices, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICatalogServices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICatalogServices {}
-impl ::core::fmt::Debug for ICatalogServices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICatalogServices").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICatalogServices {
     type Vtable = ICatalogServices_Vtbl;
-}
-impl ::core::clone::Clone for ICatalogServices {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICatalogServices {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x04c6be1e_1db1_4058_ab7a_700cccfbf254);
@@ -2347,6 +1822,7 @@ pub struct ICatalogServices_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorConfiguration(::windows_core::IUnknown);
 impl ICorConfiguration {
     pub unsafe fn SetGCThreadControl<P0>(&self, pgcthreadcontrol: P0) -> ::windows_core::Result<()>
@@ -2372,24 +1848,8 @@ impl ICorConfiguration {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorConfiguration, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICorConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorConfiguration {}
-impl ::core::fmt::Debug for ICorConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorConfiguration").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorConfiguration {
     type Vtable = ICorConfiguration_Vtbl;
-}
-impl ::core::clone::Clone for ICorConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorConfiguration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5c2b07a5_1e98_11d3_872f_00c04f79ed0d);
@@ -2405,6 +1865,7 @@ pub struct ICorConfiguration_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorRuntimeHost(::windows_core::IUnknown);
 impl ICorRuntimeHost {
     pub unsafe fn CreateLogicalThreadState(&self) -> ::windows_core::Result<()> {
@@ -2494,24 +1955,8 @@ impl ICorRuntimeHost {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorRuntimeHost, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICorRuntimeHost {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorRuntimeHost {}
-impl ::core::fmt::Debug for ICorRuntimeHost {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorRuntimeHost").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorRuntimeHost {
     type Vtable = ICorRuntimeHost_Vtbl;
-}
-impl ::core::clone::Clone for ICorRuntimeHost {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorRuntimeHost {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb2f6722_ab3a_11d2_9c40_00c04fa30a3e);
@@ -2545,6 +1990,7 @@ pub struct ICorRuntimeHost_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorThreadpool(::windows_core::IUnknown);
 impl ICorThreadpool {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Threading\"`*"]
@@ -2626,24 +2072,8 @@ impl ICorThreadpool {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorThreadpool, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICorThreadpool {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorThreadpool {}
-impl ::core::fmt::Debug for ICorThreadpool {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorThreadpool").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorThreadpool {
     type Vtable = ICorThreadpool_Vtbl;
-}
-impl ::core::clone::Clone for ICorThreadpool {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorThreadpool {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x84680d3a_b2c1_46e8_acc2_dbc0a359159a);
@@ -2690,6 +2120,7 @@ pub struct ICorThreadpool_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebuggerInfo(::windows_core::IUnknown);
 impl IDebuggerInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2700,24 +2131,8 @@ impl IDebuggerInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebuggerInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebuggerInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebuggerInfo {}
-impl ::core::fmt::Debug for IDebuggerInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebuggerInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebuggerInfo {
     type Vtable = IDebuggerInfo_Vtbl;
-}
-impl ::core::clone::Clone for IDebuggerInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebuggerInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbf24142d_a47d_4d24_a66d_8c2141944e44);
@@ -2733,6 +2148,7 @@ pub struct IDebuggerInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebuggerThreadControl(::windows_core::IUnknown);
 impl IDebuggerThreadControl {
     pub unsafe fn ThreadIsBlockingForDebugger(&self) -> ::windows_core::Result<()> {
@@ -2746,24 +2162,8 @@ impl IDebuggerThreadControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebuggerThreadControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebuggerThreadControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebuggerThreadControl {}
-impl ::core::fmt::Debug for IDebuggerThreadControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebuggerThreadControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebuggerThreadControl {
     type Vtable = IDebuggerThreadControl_Vtbl;
-}
-impl ::core::clone::Clone for IDebuggerThreadControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebuggerThreadControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x23d86786_0bb5_4774_8fb5_e3522add6246);
@@ -2778,6 +2178,7 @@ pub struct IDebuggerThreadControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGCHost(::windows_core::IUnknown);
 impl IGCHost {
     pub unsafe fn SetGCStartupLimits(&self, segmentsize: u32, maxgen0size: u32) -> ::windows_core::Result<()> {
@@ -2797,24 +2198,8 @@ impl IGCHost {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGCHost, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGCHost {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGCHost {}
-impl ::core::fmt::Debug for IGCHost {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGCHost").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGCHost {
     type Vtable = IGCHost_Vtbl;
-}
-impl ::core::clone::Clone for IGCHost {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGCHost {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfac34f6e_0dcd_47b5_8021_531bc5ecca63);
@@ -2831,6 +2216,7 @@ pub struct IGCHost_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGCHost2(::windows_core::IUnknown);
 impl IGCHost2 {
     pub unsafe fn SetGCStartupLimits(&self, segmentsize: u32, maxgen0size: u32) -> ::windows_core::Result<()> {
@@ -2853,24 +2239,8 @@ impl IGCHost2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGCHost2, ::windows_core::IUnknown, IGCHost);
-impl ::core::cmp::PartialEq for IGCHost2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGCHost2 {}
-impl ::core::fmt::Debug for IGCHost2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGCHost2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGCHost2 {
     type Vtable = IGCHost2_Vtbl;
-}
-impl ::core::clone::Clone for IGCHost2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGCHost2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa1d70cec_2dbe_4e2f_9291_fdf81438a1df);
@@ -2883,6 +2253,7 @@ pub struct IGCHost2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGCHostControl(::windows_core::IUnknown);
 impl IGCHostControl {
     pub unsafe fn RequestVirtualMemLimit(&self, sztmaxvirtualmemmb: usize, psztnewmaxvirtualmemmb: *mut usize) -> ::windows_core::Result<()> {
@@ -2890,24 +2261,8 @@ impl IGCHostControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGCHostControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGCHostControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGCHostControl {}
-impl ::core::fmt::Debug for IGCHostControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGCHostControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGCHostControl {
     type Vtable = IGCHostControl_Vtbl;
-}
-impl ::core::clone::Clone for IGCHostControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGCHostControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5513d564_8374_4cb9_aed9_0083f4160a1d);
@@ -2920,6 +2275,7 @@ pub struct IGCHostControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGCThreadControl(::windows_core::IUnknown);
 impl IGCThreadControl {
     pub unsafe fn ThreadIsBlockingForSuspension(&self) -> ::windows_core::Result<()> {
@@ -2933,24 +2289,8 @@ impl IGCThreadControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IGCThreadControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IGCThreadControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGCThreadControl {}
-impl ::core::fmt::Debug for IGCThreadControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGCThreadControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IGCThreadControl {
     type Vtable = IGCThreadControl_Vtbl;
-}
-impl ::core::clone::Clone for IGCThreadControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGCThreadControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf31d1788_c397_4725_87a5_6af3472c2791);
@@ -2965,6 +2305,7 @@ pub struct IGCThreadControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostAssemblyManager(::windows_core::IUnknown);
 impl IHostAssemblyManager {
     pub unsafe fn GetNonHostStoreAssemblies(&self) -> ::windows_core::Result<ICLRAssemblyReferenceList> {
@@ -2977,24 +2318,8 @@ impl IHostAssemblyManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHostAssemblyManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHostAssemblyManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHostAssemblyManager {}
-impl ::core::fmt::Debug for IHostAssemblyManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHostAssemblyManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHostAssemblyManager {
     type Vtable = IHostAssemblyManager_Vtbl;
-}
-impl ::core::clone::Clone for IHostAssemblyManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostAssemblyManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x613dabd7_62b2_493e_9e65_c1e32a1e0c5e);
@@ -3008,6 +2333,7 @@ pub struct IHostAssemblyManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostAssemblyStore(::windows_core::IUnknown);
 impl IHostAssemblyStore {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -3022,24 +2348,8 @@ impl IHostAssemblyStore {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHostAssemblyStore, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHostAssemblyStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHostAssemblyStore {}
-impl ::core::fmt::Debug for IHostAssemblyStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHostAssemblyStore").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHostAssemblyStore {
     type Vtable = IHostAssemblyStore_Vtbl;
-}
-impl ::core::clone::Clone for IHostAssemblyStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostAssemblyStore {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b102a88_3f7f_496d_8fa2_c35374e01af3);
@@ -3059,6 +2369,7 @@ pub struct IHostAssemblyStore_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostAutoEvent(::windows_core::IUnknown);
 impl IHostAutoEvent {
     pub unsafe fn Wait(&self, dwmilliseconds: u32, option: u32) -> ::windows_core::Result<()> {
@@ -3069,24 +2380,8 @@ impl IHostAutoEvent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHostAutoEvent, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHostAutoEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHostAutoEvent {}
-impl ::core::fmt::Debug for IHostAutoEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHostAutoEvent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHostAutoEvent {
     type Vtable = IHostAutoEvent_Vtbl;
-}
-impl ::core::clone::Clone for IHostAutoEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostAutoEvent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x50b0cfce_4063_4278_9673_e5cb4ed0bdb8);
@@ -3100,6 +2395,7 @@ pub struct IHostAutoEvent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostControl(::windows_core::IUnknown);
 impl IHostControl {
     pub unsafe fn GetHostManager(&self, riid: *const ::windows_core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -3113,24 +2409,8 @@ impl IHostControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHostControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHostControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHostControl {}
-impl ::core::fmt::Debug for IHostControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHostControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHostControl {
     type Vtable = IHostControl_Vtbl;
-}
-impl ::core::clone::Clone for IHostControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x02ca073c_7079_4860_880a_c2f7a449c991);
@@ -3144,6 +2424,7 @@ pub struct IHostControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostCrst(::windows_core::IUnknown);
 impl IHostCrst {
     pub unsafe fn Enter(&self, option: u32) -> ::windows_core::Result<()> {
@@ -3163,24 +2444,8 @@ impl IHostCrst {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHostCrst, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHostCrst {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHostCrst {}
-impl ::core::fmt::Debug for IHostCrst {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHostCrst").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHostCrst {
     type Vtable = IHostCrst_Vtbl;
-}
-impl ::core::clone::Clone for IHostCrst {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostCrst {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6df710a6_26a4_4a65_8cd5_7237b8bda8dc);
@@ -3199,6 +2464,7 @@ pub struct IHostCrst_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostGCManager(::windows_core::IUnknown);
 impl IHostGCManager {
     pub unsafe fn ThreadIsBlockingForSuspension(&self) -> ::windows_core::Result<()> {
@@ -3212,24 +2478,8 @@ impl IHostGCManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHostGCManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHostGCManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHostGCManager {}
-impl ::core::fmt::Debug for IHostGCManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHostGCManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHostGCManager {
     type Vtable = IHostGCManager_Vtbl;
-}
-impl ::core::clone::Clone for IHostGCManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostGCManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d4ec34e_f248_457b_b603_255faaba0d21);
@@ -3244,6 +2494,7 @@ pub struct IHostGCManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostIoCompletionManager(::windows_core::IUnknown);
 impl IHostIoCompletionManager {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3302,24 +2553,8 @@ impl IHostIoCompletionManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHostIoCompletionManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHostIoCompletionManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHostIoCompletionManager {}
-impl ::core::fmt::Debug for IHostIoCompletionManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHostIoCompletionManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHostIoCompletionManager {
     type Vtable = IHostIoCompletionManager_Vtbl;
-}
-impl ::core::clone::Clone for IHostIoCompletionManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostIoCompletionManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8bde9d80_ec06_41d6_83e6_22580effcc20);
@@ -3351,6 +2586,7 @@ pub struct IHostIoCompletionManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostMalloc(::windows_core::IUnknown);
 impl IHostMalloc {
     pub unsafe fn Alloc(&self, cbsize: usize, ecriticallevel: EMemoryCriticalLevel, ppmem: *mut *mut ::core::ffi::c_void) -> ::windows_core::Result<()> {
@@ -3364,24 +2600,8 @@ impl IHostMalloc {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHostMalloc, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHostMalloc {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHostMalloc {}
-impl ::core::fmt::Debug for IHostMalloc {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHostMalloc").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHostMalloc {
     type Vtable = IHostMalloc_Vtbl;
-}
-impl ::core::clone::Clone for IHostMalloc {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostMalloc {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1831991c_cc53_4a31_b218_04e910446479);
@@ -3396,6 +2616,7 @@ pub struct IHostMalloc_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostManualEvent(::windows_core::IUnknown);
 impl IHostManualEvent {
     pub unsafe fn Wait(&self, dwmilliseconds: u32, option: u32) -> ::windows_core::Result<()> {
@@ -3409,24 +2630,8 @@ impl IHostManualEvent {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHostManualEvent, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHostManualEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHostManualEvent {}
-impl ::core::fmt::Debug for IHostManualEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHostManualEvent").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHostManualEvent {
     type Vtable = IHostManualEvent_Vtbl;
-}
-impl ::core::clone::Clone for IHostManualEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostManualEvent {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1bf4ec38_affe_4fb9_85a6_525268f15b54);
@@ -3441,6 +2646,7 @@ pub struct IHostManualEvent_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostMemoryManager(::windows_core::IUnknown);
 impl IHostMemoryManager {
     pub unsafe fn CreateMalloc(&self, dwmalloctype: u32) -> ::windows_core::Result<IHostMalloc> {
@@ -3480,24 +2686,8 @@ impl IHostMemoryManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHostMemoryManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHostMemoryManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHostMemoryManager {}
-impl ::core::fmt::Debug for IHostMemoryManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHostMemoryManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHostMemoryManager {
     type Vtable = IHostMemoryManager_Vtbl;
-}
-impl ::core::clone::Clone for IHostMemoryManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostMemoryManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7bc698d1_f9e3_4460_9cde_d04248e9fa25);
@@ -3519,6 +2709,7 @@ pub struct IHostMemoryManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostPolicyManager(::windows_core::IUnknown);
 impl IHostPolicyManager {
     pub unsafe fn OnDefaultAction(&self, operation: EClrOperation, action: EPolicyAction) -> ::windows_core::Result<()> {
@@ -3532,24 +2723,8 @@ impl IHostPolicyManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHostPolicyManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHostPolicyManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHostPolicyManager {}
-impl ::core::fmt::Debug for IHostPolicyManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHostPolicyManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHostPolicyManager {
     type Vtable = IHostPolicyManager_Vtbl;
-}
-impl ::core::clone::Clone for IHostPolicyManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostPolicyManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7ae49844_b1e3_4683_ba7c_1e8212ea3b79);
@@ -3564,6 +2739,7 @@ pub struct IHostPolicyManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostSecurityContext(::windows_core::IUnknown);
 impl IHostSecurityContext {
     pub unsafe fn Capture(&self) -> ::windows_core::Result<IHostSecurityContext> {
@@ -3572,24 +2748,8 @@ impl IHostSecurityContext {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHostSecurityContext, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHostSecurityContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHostSecurityContext {}
-impl ::core::fmt::Debug for IHostSecurityContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHostSecurityContext").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHostSecurityContext {
     type Vtable = IHostSecurityContext_Vtbl;
-}
-impl ::core::clone::Clone for IHostSecurityContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostSecurityContext {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7e573ce4_0343_4423_98d7_6318348a1d3c);
@@ -3602,6 +2762,7 @@ pub struct IHostSecurityContext_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostSecurityManager(::windows_core::IUnknown);
 impl IHostSecurityManager {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3644,24 +2805,8 @@ impl IHostSecurityManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHostSecurityManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHostSecurityManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHostSecurityManager {}
-impl ::core::fmt::Debug for IHostSecurityManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHostSecurityManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHostSecurityManager {
     type Vtable = IHostSecurityManager_Vtbl;
-}
-impl ::core::clone::Clone for IHostSecurityManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostSecurityManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75ad2468_a349_4d02_a764_76a68aee0c4f);
@@ -3688,6 +2833,7 @@ pub struct IHostSecurityManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostSemaphore(::windows_core::IUnknown);
 impl IHostSemaphore {
     pub unsafe fn Wait(&self, dwmilliseconds: u32, option: u32) -> ::windows_core::Result<()> {
@@ -3699,24 +2845,8 @@ impl IHostSemaphore {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHostSemaphore, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHostSemaphore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHostSemaphore {}
-impl ::core::fmt::Debug for IHostSemaphore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHostSemaphore").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHostSemaphore {
     type Vtable = IHostSemaphore_Vtbl;
-}
-impl ::core::clone::Clone for IHostSemaphore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostSemaphore {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x855efd47_cc09_463a_a97d_16acab882661);
@@ -3730,6 +2860,7 @@ pub struct IHostSemaphore_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostSyncManager(::windows_core::IUnknown);
 impl IHostSyncManager {
     pub unsafe fn SetCLRSyncManager<P0>(&self, pmanager: P0) -> ::windows_core::Result<()>
@@ -3782,24 +2913,8 @@ impl IHostSyncManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHostSyncManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHostSyncManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHostSyncManager {}
-impl ::core::fmt::Debug for IHostSyncManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHostSyncManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHostSyncManager {
     type Vtable = IHostSyncManager_Vtbl;
-}
-impl ::core::clone::Clone for IHostSyncManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostSyncManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x234330c7_5f10_4f20_9615_5122dab7a0ac);
@@ -3826,6 +2941,7 @@ pub struct IHostSyncManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostTask(::windows_core::IUnknown);
 impl IHostTask {
     pub unsafe fn Start(&self) -> ::windows_core::Result<()> {
@@ -3852,24 +2968,8 @@ impl IHostTask {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHostTask, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHostTask {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHostTask {}
-impl ::core::fmt::Debug for IHostTask {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHostTask").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHostTask {
     type Vtable = IHostTask_Vtbl;
-}
-impl ::core::clone::Clone for IHostTask {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostTask {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc2275828_c4b1_4b55_82c9_92135f74df1a);
@@ -3887,6 +2987,7 @@ pub struct IHostTask_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostTaskManager(::windows_core::IUnknown);
 impl IHostTaskManager {
     pub unsafe fn GetCurrentTask(&self) -> ::windows_core::Result<IHostTask> {
@@ -3956,24 +3057,8 @@ impl IHostTaskManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHostTaskManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHostTaskManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHostTaskManager {}
-impl ::core::fmt::Debug for IHostTaskManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHostTaskManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHostTaskManager {
     type Vtable = IHostTaskManager_Vtbl;
-}
-impl ::core::clone::Clone for IHostTaskManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostTaskManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x997ff24c_43b7_4352_8667_0dc04fafd354);
@@ -4009,6 +3094,7 @@ pub struct IHostTaskManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IHostThreadpoolManager(::windows_core::IUnknown);
 impl IHostThreadpoolManager {
     #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -4036,24 +3122,8 @@ impl IHostThreadpoolManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IHostThreadpoolManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IHostThreadpoolManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IHostThreadpoolManager {}
-impl ::core::fmt::Debug for IHostThreadpoolManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IHostThreadpoolManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IHostThreadpoolManager {
     type Vtable = IHostThreadpoolManager_Vtbl;
-}
-impl ::core::clone::Clone for IHostThreadpoolManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IHostThreadpoolManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x983d50e2_cb15_466b_80fc_845dc6e8c5fd);
@@ -4074,6 +3144,7 @@ pub struct IHostThreadpoolManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IManagedObject(::windows_core::IUnknown);
 impl IManagedObject {
     pub unsafe fn GetSerializedBuffer(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -4085,24 +3156,8 @@ impl IManagedObject {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IManagedObject, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IManagedObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IManagedObject {}
-impl ::core::fmt::Debug for IManagedObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IManagedObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IManagedObject {
     type Vtable = IManagedObject_Vtbl;
-}
-impl ::core::clone::Clone for IManagedObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IManagedObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc3fcc19e_a970_11d2_8b5a_00a0c9b7c9c4);
@@ -4116,6 +3171,7 @@ pub struct IManagedObject_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IObjectHandle(::windows_core::IUnknown);
 impl IObjectHandle {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -4126,24 +3182,8 @@ impl IObjectHandle {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IObjectHandle, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IObjectHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IObjectHandle {}
-impl ::core::fmt::Debug for IObjectHandle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IObjectHandle").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IObjectHandle {
     type Vtable = IObjectHandle_Vtbl;
-}
-impl ::core::clone::Clone for IObjectHandle {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IObjectHandle {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc460e2b4_e199_412a_8456_84dc3e4838c3);
@@ -4159,6 +3199,7 @@ pub struct IObjectHandle_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITypeName(::windows_core::IUnknown);
 impl ITypeName {
     pub unsafe fn GetNameCount(&self) -> ::windows_core::Result<u32> {
@@ -4188,24 +3229,8 @@ impl ITypeName {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITypeName, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITypeName {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITypeName {}
-impl ::core::fmt::Debug for ITypeName {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITypeName").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITypeName {
     type Vtable = ITypeName_Vtbl;
-}
-impl ::core::clone::Clone for ITypeName {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITypeName {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb81ff171_20f3_11d2_8dcc_00a0c9b00522);
@@ -4224,6 +3249,7 @@ pub struct ITypeName_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITypeNameBuilder(::windows_core::IUnknown);
 impl ITypeNameBuilder {
     pub unsafe fn OpenGenericArguments(&self) -> ::windows_core::Result<()> {
@@ -4271,24 +3297,8 @@ impl ITypeNameBuilder {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITypeNameBuilder, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITypeNameBuilder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITypeNameBuilder {}
-impl ::core::fmt::Debug for ITypeNameBuilder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITypeNameBuilder").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITypeNameBuilder {
     type Vtable = ITypeNameBuilder_Vtbl;
-}
-impl ::core::clone::Clone for ITypeNameBuilder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITypeNameBuilder {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb81ff171_20f3_11d2_8dcc_00a0c9b00523);
@@ -4312,6 +3322,7 @@ pub struct ITypeNameBuilder_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_ClrHosting\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITypeNameFactory(::windows_core::IUnknown);
 impl ITypeNameFactory {
     pub unsafe fn ParseTypeName<P0>(&self, szname: P0, perror: *mut u32, pptypename: *mut ::core::option::Option<ITypeName>) -> ::windows_core::Result<()>
@@ -4326,24 +3337,8 @@ impl ITypeNameFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITypeNameFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITypeNameFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITypeNameFactory {}
-impl ::core::fmt::Debug for ITypeNameFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITypeNameFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITypeNameFactory {
     type Vtable = ITypeNameFactory_Vtbl;
-}
-impl ::core::clone::Clone for ITypeNameFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITypeNameFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb81ff171_20f3_11d2_8dcc_00a0c9b00521);

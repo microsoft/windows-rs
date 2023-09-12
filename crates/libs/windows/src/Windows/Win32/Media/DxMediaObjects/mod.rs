@@ -76,6 +76,7 @@ pub unsafe fn MoInitMediaType(pmt: *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::wind
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDMOQualityControl(::windows_core::IUnknown);
 impl IDMOQualityControl {
     pub unsafe fn SetNow(&self, rtnow: i64) -> ::windows_core::Result<()> {
@@ -90,24 +91,8 @@ impl IDMOQualityControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDMOQualityControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDMOQualityControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDMOQualityControl {}
-impl ::core::fmt::Debug for IDMOQualityControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDMOQualityControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDMOQualityControl {
     type Vtable = IDMOQualityControl_Vtbl;
-}
-impl ::core::clone::Clone for IDMOQualityControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDMOQualityControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x65abea96_cf36_453f_af8a_705e98f16260);
@@ -122,6 +107,7 @@ pub struct IDMOQualityControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDMOVideoOutputOptimizations(::windows_core::IUnknown);
 impl IDMOVideoOutputOptimizations {
     pub unsafe fn QueryOperationModePreferences(&self, uloutputstreamindex: u32) -> ::windows_core::Result<u32> {
@@ -141,24 +127,8 @@ impl IDMOVideoOutputOptimizations {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDMOVideoOutputOptimizations, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDMOVideoOutputOptimizations {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDMOVideoOutputOptimizations {}
-impl ::core::fmt::Debug for IDMOVideoOutputOptimizations {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDMOVideoOutputOptimizations").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDMOVideoOutputOptimizations {
     type Vtable = IDMOVideoOutputOptimizations_Vtbl;
-}
-impl ::core::clone::Clone for IDMOVideoOutputOptimizations {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDMOVideoOutputOptimizations {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbe8f4f4e_5b16_4d29_b350_7f6b5d9298ac);
@@ -174,6 +144,7 @@ pub struct IDMOVideoOutputOptimizations_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumDMO(::windows_core::IUnknown);
 impl IEnumDMO {
     pub unsafe fn Next(&self, citemstofetch: u32, pclsid: *mut ::windows_core::GUID, names: *mut ::windows_core::PWSTR, pcitemsfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -191,24 +162,8 @@ impl IEnumDMO {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumDMO, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumDMO {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumDMO {}
-impl ::core::fmt::Debug for IEnumDMO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumDMO").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumDMO {
     type Vtable = IEnumDMO_Vtbl;
-}
-impl ::core::clone::Clone for IEnumDMO {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumDMO {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c3cd98a_2bfa_4a53_9c27_5249ba64ba0f);
@@ -224,6 +179,7 @@ pub struct IEnumDMO_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaBuffer(::windows_core::IUnknown);
 impl IMediaBuffer {
     pub unsafe fn SetLength(&self, cblength: u32) -> ::windows_core::Result<()> {
@@ -238,24 +194,8 @@ impl IMediaBuffer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMediaBuffer, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMediaBuffer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMediaBuffer {}
-impl ::core::fmt::Debug for IMediaBuffer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMediaBuffer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMediaBuffer {
     type Vtable = IMediaBuffer_Vtbl;
-}
-impl ::core::clone::Clone for IMediaBuffer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaBuffer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x59eff8b9_938c_4a26_82f2_95cb84cdc837);
@@ -270,6 +210,7 @@ pub struct IMediaBuffer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaObject(::windows_core::IUnknown);
 impl IMediaObject {
     pub unsafe fn GetStreamCount(&self, pcinputstreams: *mut u32, pcoutputstreams: *mut u32) -> ::windows_core::Result<()> {
@@ -356,24 +297,8 @@ impl IMediaObject {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMediaObject, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMediaObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMediaObject {}
-impl ::core::fmt::Debug for IMediaObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMediaObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMediaObject {
     type Vtable = IMediaObject_Vtbl;
-}
-impl ::core::clone::Clone for IMediaObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd8ad0f58_5494_4102_97c5_ec798e59bcf4);
@@ -424,6 +349,7 @@ pub struct IMediaObject_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_DxMediaObjects\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMediaObjectInPlace(::windows_core::IUnknown);
 impl IMediaObjectInPlace {
     pub unsafe fn Process(&self, pdata: &mut [u8], reftimestart: i64, dwflags: u32) -> ::windows_core::Result<()> {
@@ -439,24 +365,8 @@ impl IMediaObjectInPlace {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMediaObjectInPlace, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMediaObjectInPlace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMediaObjectInPlace {}
-impl ::core::fmt::Debug for IMediaObjectInPlace {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMediaObjectInPlace").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMediaObjectInPlace {
     type Vtable = IMediaObjectInPlace_Vtbl;
-}
-impl ::core::clone::Clone for IMediaObjectInPlace {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMediaObjectInPlace {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x651b9ad0_0fc7_4aa9_9538_d89931010741);

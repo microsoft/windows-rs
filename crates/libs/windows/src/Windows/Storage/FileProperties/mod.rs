@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IBasicProperties(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IBasicProperties {
     type Vtable = IBasicProperties_Vtbl;
-}
-impl ::core::clone::Clone for IBasicProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IBasicProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd05d55db_785e_4a66_be02_9beec58aea81);
@@ -28,14 +24,10 @@ pub struct IBasicProperties_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDocumentProperties(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDocumentProperties {
     type Vtable = IDocumentProperties_Vtbl;
-}
-impl ::core::clone::Clone for IDocumentProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDocumentProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7eab19bc_1821_4923_b4a9_0aea404d0070);
@@ -59,14 +51,10 @@ pub struct IDocumentProperties_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGeotagHelperStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGeotagHelperStatics {
     type Vtable = IGeotagHelperStatics_Vtbl;
-}
-impl ::core::clone::Clone for IGeotagHelperStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGeotagHelperStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x41493244_2524_4655_86a6_ed16f5fc716b);
@@ -90,14 +78,10 @@ pub struct IGeotagHelperStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IImageProperties(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IImageProperties {
     type Vtable = IImageProperties_Vtbl;
-}
-impl ::core::clone::Clone for IImageProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IImageProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x523c9424_fcff_4275_afee_ecdb9ab47973);
@@ -144,14 +128,10 @@ pub struct IImageProperties_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMusicProperties(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IMusicProperties {
     type Vtable = IMusicProperties_Vtbl;
-}
-impl ::core::clone::Clone for IMusicProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMusicProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbc8aab62_66ec_419a_bc5d_ca65a4cb46da);
@@ -206,14 +186,10 @@ pub struct IMusicProperties_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorageItemContentProperties(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IStorageItemContentProperties {
     type Vtable = IStorageItemContentProperties_Vtbl;
-}
-impl ::core::clone::Clone for IStorageItemContentProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorageItemContentProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05294bad_bc38_48bf_85d7_770e0e2ae0ba);
@@ -241,6 +217,7 @@ pub struct IStorageItemContentProperties_Vtbl {
 }
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStorageItemExtraProperties(::windows_core::IUnknown);
 impl IStorageItemExtraProperties {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -278,27 +255,11 @@ impl IStorageItemExtraProperties {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IStorageItemExtraProperties, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IStorageItemExtraProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStorageItemExtraProperties {}
-impl ::core::fmt::Debug for IStorageItemExtraProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStorageItemExtraProperties").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IStorageItemExtraProperties {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{c54361b2-54cd-432b-bdbc-4b19c4b470d7}");
 }
 unsafe impl ::windows_core::Interface for IStorageItemExtraProperties {
     type Vtable = IStorageItemExtraProperties_Vtbl;
-}
-impl ::core::clone::Clone for IStorageItemExtraProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IStorageItemExtraProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc54361b2_54cd_432b_bdbc_4b19c4b470d7);
@@ -322,14 +283,10 @@ pub struct IStorageItemExtraProperties_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IThumbnailProperties(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IThumbnailProperties {
     type Vtable = IThumbnailProperties_Vtbl;
-}
-impl ::core::clone::Clone for IThumbnailProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IThumbnailProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x693dd42f_dbe7_49b5_b3b3_2893ac5d3423);
@@ -345,14 +302,10 @@ pub struct IThumbnailProperties_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IVideoProperties(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IVideoProperties {
     type Vtable = IVideoProperties_Vtbl;
-}
-impl ::core::clone::Clone for IVideoProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IVideoProperties {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x719ae507_68de_4db8_97de_49998c059f2f);
@@ -406,6 +359,7 @@ pub struct IVideoProperties_Vtbl {
 }
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct BasicProperties(::windows_core::IUnknown);
 impl BasicProperties {
     pub fn Size(&self) -> ::windows_core::Result<u64> {
@@ -467,24 +421,8 @@ impl BasicProperties {
         }
     }
 }
-impl ::core::cmp::PartialEq for BasicProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BasicProperties {}
-impl ::core::fmt::Debug for BasicProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BasicProperties").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for BasicProperties {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.BasicProperties;{d05d55db-785e-4a66-be02-9beec58aea81})");
-}
-impl ::core::clone::Clone for BasicProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for BasicProperties {
     type Vtable = IBasicProperties_Vtbl;
@@ -499,6 +437,7 @@ impl ::windows_core::RuntimeName for BasicProperties {
 impl ::windows_core::CanTryInto<IStorageItemExtraProperties> for BasicProperties {}
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DocumentProperties(::windows_core::IUnknown);
 impl DocumentProperties {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -575,24 +514,8 @@ impl DocumentProperties {
         }
     }
 }
-impl ::core::cmp::PartialEq for DocumentProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DocumentProperties {}
-impl ::core::fmt::Debug for DocumentProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DocumentProperties").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DocumentProperties {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.DocumentProperties;{7eab19bc-1821-4923-b4a9-0aea404d0070})");
-}
-impl ::core::clone::Clone for DocumentProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DocumentProperties {
     type Vtable = IDocumentProperties_Vtbl;
@@ -654,6 +577,7 @@ impl ::windows_core::RuntimeName for GeotagHelper {
 }
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ImageProperties(::windows_core::IUnknown);
 impl ImageProperties {
     pub fn Rating(&self) -> ::windows_core::Result<u32> {
@@ -806,24 +730,8 @@ impl ImageProperties {
         }
     }
 }
-impl ::core::cmp::PartialEq for ImageProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ImageProperties {}
-impl ::core::fmt::Debug for ImageProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ImageProperties").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ImageProperties {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.ImageProperties;{523c9424-fcff-4275-afee-ecdb9ab47973})");
-}
-impl ::core::clone::Clone for ImageProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ImageProperties {
     type Vtable = IImageProperties_Vtbl;
@@ -838,6 +746,7 @@ impl ::windows_core::RuntimeName for ImageProperties {
 impl ::windows_core::CanTryInto<IStorageItemExtraProperties> for ImageProperties {}
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MusicProperties(::windows_core::IUnknown);
 impl MusicProperties {
     pub fn Album(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1034,24 +943,8 @@ impl MusicProperties {
         }
     }
 }
-impl ::core::cmp::PartialEq for MusicProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MusicProperties {}
-impl ::core::fmt::Debug for MusicProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MusicProperties").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for MusicProperties {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.MusicProperties;{bc8aab62-66ec-419a-bc5d-ca65a4cb46da})");
-}
-impl ::core::clone::Clone for MusicProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for MusicProperties {
     type Vtable = IMusicProperties_Vtbl;
@@ -1066,6 +959,7 @@ impl ::windows_core::RuntimeName for MusicProperties {
 impl ::windows_core::CanTryInto<IStorageItemExtraProperties> for MusicProperties {}
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorageItemContentProperties(::windows_core::IUnknown);
 impl StorageItemContentProperties {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1138,24 +1032,8 @@ impl StorageItemContentProperties {
         }
     }
 }
-impl ::core::cmp::PartialEq for StorageItemContentProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageItemContentProperties {}
-impl ::core::fmt::Debug for StorageItemContentProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageItemContentProperties").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for StorageItemContentProperties {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.StorageItemContentProperties;{05294bad-bc38-48bf-85d7-770e0e2ae0ba})");
-}
-impl ::core::clone::Clone for StorageItemContentProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for StorageItemContentProperties {
     type Vtable = IStorageItemContentProperties_Vtbl;
@@ -1171,6 +1049,7 @@ impl ::windows_core::CanTryInto<IStorageItemExtraProperties> for StorageItemCont
 #[doc = "*Required features: `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct StorageItemThumbnail(::windows_core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 impl StorageItemThumbnail {
@@ -1327,28 +1206,8 @@ impl StorageItemThumbnail {
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl ::core::cmp::PartialEq for StorageItemThumbnail {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::cmp::Eq for StorageItemThumbnail {}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::fmt::Debug for StorageItemThumbnail {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorageItemThumbnail").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Storage_Streams")]
 impl ::windows_core::RuntimeType for StorageItemThumbnail {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.StorageItemThumbnail;{cc254827-4b3d-438f-9232-10c76bc7e038})");
-}
-#[cfg(feature = "Storage_Streams")]
-impl ::core::clone::Clone for StorageItemThumbnail {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows_core::Interface for StorageItemThumbnail {
@@ -1378,6 +1237,7 @@ impl ::windows_core::CanTryInto<super::Streams::IRandomAccessStream> for Storage
 impl ::windows_core::CanTryInto<super::Streams::IRandomAccessStreamWithContentType> for StorageItemThumbnail {}
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct VideoProperties(::windows_core::IUnknown);
 impl VideoProperties {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1560,24 +1420,8 @@ impl VideoProperties {
         }
     }
 }
-impl ::core::cmp::PartialEq for VideoProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VideoProperties {}
-impl ::core::fmt::Debug for VideoProperties {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoProperties").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for VideoProperties {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Storage.FileProperties.VideoProperties;{719ae507-68de-4db8-97de-49998c059f2f})");
-}
-impl ::core::clone::Clone for VideoProperties {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for VideoProperties {
     type Vtable = IVideoProperties_Vtbl;

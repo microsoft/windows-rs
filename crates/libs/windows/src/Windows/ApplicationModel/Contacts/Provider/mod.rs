@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactPickerUI(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContactPickerUI {
     type Vtable = IContactPickerUI_Vtbl;
-}
-impl ::core::clone::Clone for IContactPickerUI {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactPickerUI {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2cc1366_cf66_43c4_a96a_a5a112db4746);
@@ -38,14 +34,10 @@ pub struct IContactPickerUI_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactPickerUI2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContactPickerUI2 {
     type Vtable = IContactPickerUI2_Vtbl;
-}
-impl ::core::clone::Clone for IContactPickerUI2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactPickerUI2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e449e28_7b25_4999_9b0b_875400a1e8c8);
@@ -62,14 +54,10 @@ pub struct IContactPickerUI2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContactRemovedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IContactRemovedEventArgs {
     type Vtable = IContactRemovedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IContactRemovedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContactRemovedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6f354338_3302_4d13_ad8d_adcc0ff9e47c);
@@ -82,6 +70,7 @@ pub struct IContactRemovedEventArgs_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContactPickerUI(::windows_core::IUnknown);
 impl ContactPickerUI {
     #[doc = "*Required features: `\"deprecated\"`*"]
@@ -161,24 +150,8 @@ impl ContactPickerUI {
         }
     }
 }
-impl ::core::cmp::PartialEq for ContactPickerUI {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactPickerUI {}
-impl ::core::fmt::Debug for ContactPickerUI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactPickerUI").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ContactPickerUI {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.Provider.ContactPickerUI;{e2cc1366-cf66-43c4-a96a-a5a112db4746})");
-}
-impl ::core::clone::Clone for ContactPickerUI {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ContactPickerUI {
     type Vtable = IContactPickerUI_Vtbl;
@@ -192,6 +165,7 @@ impl ::windows_core::RuntimeName for ContactPickerUI {
 ::windows_core::imp::interface_hierarchy!(ContactPickerUI, ::windows_core::IUnknown, ::windows_core::IInspectable);
 #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ContactRemovedEventArgs(::windows_core::IUnknown);
 impl ContactRemovedEventArgs {
     pub fn Id(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -202,24 +176,8 @@ impl ContactRemovedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for ContactRemovedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactRemovedEventArgs {}
-impl ::core::fmt::Debug for ContactRemovedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactRemovedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ContactRemovedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.Provider.ContactRemovedEventArgs;{6f354338-3302-4d13-ad8d-adcc0ff9e47c})");
-}
-impl ::core::clone::Clone for ContactRemovedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ContactRemovedEventArgs {
     type Vtable = IContactRemovedEventArgs_Vtbl;

@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPdfDocument(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPdfDocument {
     type Vtable = IPdfDocument_Vtbl;
-}
-impl ::core::clone::Clone for IPdfDocument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPdfDocument {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xac7ebedd_80fa_4089_846e_81b77ff5a86c);
@@ -22,14 +18,10 @@ pub struct IPdfDocument_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPdfDocumentStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPdfDocumentStatics {
     type Vtable = IPdfDocumentStatics_Vtbl;
-}
-impl ::core::clone::Clone for IPdfDocumentStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPdfDocumentStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x433a0b5f_c007_4788_90f2_08143d922599);
@@ -57,14 +49,10 @@ pub struct IPdfDocumentStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPdfPage(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPdfPage {
     type Vtable = IPdfPage_Vtbl;
-}
-impl ::core::clone::Clone for IPdfPage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPdfPage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9db4b0c8_5320_4cfc_ad76_493fdad0e594);
@@ -96,14 +84,10 @@ pub struct IPdfPage_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPdfPageDimensions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPdfPageDimensions {
     type Vtable = IPdfPageDimensions_Vtbl;
-}
-impl ::core::clone::Clone for IPdfPageDimensions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPdfPageDimensions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x22170471_313e_44e8_835d_63a3e7624a10);
@@ -135,14 +119,10 @@ pub struct IPdfPageDimensions_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPdfPageRenderOptions(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IPdfPageRenderOptions {
     type Vtable = IPdfPageRenderOptions_Vtbl;
-}
-impl ::core::clone::Clone for IPdfPageRenderOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPdfPageRenderOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3c98056f_b7cf_4c29_9a04_52d90267f425);
@@ -178,6 +158,7 @@ pub struct IPdfPageRenderOptions_Vtbl {
 }
 #[doc = "*Required features: `\"Data_Pdf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PdfDocument(::windows_core::IUnknown);
 impl PdfDocument {
     pub fn GetPage(&self, pageindex: u32) -> ::windows_core::Result<PdfPage> {
@@ -251,24 +232,8 @@ impl PdfDocument {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for PdfDocument {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PdfDocument {}
-impl ::core::fmt::Debug for PdfDocument {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PdfDocument").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PdfDocument {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfDocument;{ac7ebedd-80fa-4089-846e-81b77ff5a86c})");
-}
-impl ::core::clone::Clone for PdfDocument {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PdfDocument {
     type Vtable = IPdfDocument_Vtbl;
@@ -284,6 +249,7 @@ unsafe impl ::core::marker::Send for PdfDocument {}
 unsafe impl ::core::marker::Sync for PdfDocument {}
 #[doc = "*Required features: `\"Data_Pdf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PdfPage(::windows_core::IUnknown);
 impl PdfPage {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -364,24 +330,8 @@ impl PdfPage {
         }
     }
 }
-impl ::core::cmp::PartialEq for PdfPage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PdfPage {}
-impl ::core::fmt::Debug for PdfPage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PdfPage").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PdfPage {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfPage;{9db4b0c8-5320-4cfc-ad76-493fdad0e594})");
-}
-impl ::core::clone::Clone for PdfPage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PdfPage {
     type Vtable = IPdfPage_Vtbl;
@@ -399,6 +349,7 @@ unsafe impl ::core::marker::Send for PdfPage {}
 unsafe impl ::core::marker::Sync for PdfPage {}
 #[doc = "*Required features: `\"Data_Pdf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PdfPageDimensions(::windows_core::IUnknown);
 impl PdfPageDimensions {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -447,24 +398,8 @@ impl PdfPageDimensions {
         }
     }
 }
-impl ::core::cmp::PartialEq for PdfPageDimensions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PdfPageDimensions {}
-impl ::core::fmt::Debug for PdfPageDimensions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PdfPageDimensions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PdfPageDimensions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfPageDimensions;{22170471-313e-44e8-835d-63a3e7624a10})");
-}
-impl ::core::clone::Clone for PdfPageDimensions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PdfPageDimensions {
     type Vtable = IPdfPageDimensions_Vtbl;
@@ -480,6 +415,7 @@ unsafe impl ::core::marker::Send for PdfPageDimensions {}
 unsafe impl ::core::marker::Sync for PdfPageDimensions {}
 #[doc = "*Required features: `\"Data_Pdf\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct PdfPageRenderOptions(::windows_core::IUnknown);
 impl PdfPageRenderOptions {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -564,24 +500,8 @@ impl PdfPageRenderOptions {
         unsafe { (::windows_core::Interface::vtable(this).SetBitmapEncoderId)(::windows_core::Interface::as_raw(this), value).ok() }
     }
 }
-impl ::core::cmp::PartialEq for PdfPageRenderOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PdfPageRenderOptions {}
-impl ::core::fmt::Debug for PdfPageRenderOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PdfPageRenderOptions").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for PdfPageRenderOptions {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfPageRenderOptions;{3c98056f-b7cf-4c29-9a04-52d90267f425})");
-}
-impl ::core::clone::Clone for PdfPageRenderOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for PdfPageRenderOptions {
     type Vtable = IPdfPageRenderOptions_Vtbl;

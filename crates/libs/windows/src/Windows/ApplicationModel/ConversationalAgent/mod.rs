@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActivationSignalDetectionConfiguration(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IActivationSignalDetectionConfiguration {
     type Vtable = IActivationSignalDetectionConfiguration_Vtbl;
-}
-impl ::core::clone::Clone for IActivationSignalDetectionConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IActivationSignalDetectionConfiguration {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x40d8be16_5217_581c_9ab2_ce9b2f2e8e00);
@@ -79,14 +75,10 @@ pub struct IActivationSignalDetectionConfiguration_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActivationSignalDetectionConfiguration2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IActivationSignalDetectionConfiguration2 {
     type Vtable = IActivationSignalDetectionConfiguration2_Vtbl;
-}
-impl ::core::clone::Clone for IActivationSignalDetectionConfiguration2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IActivationSignalDetectionConfiguration2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x71d9b022_562c_57ce_a78b_8b4ff0145bab);
@@ -112,14 +104,10 @@ pub struct IActivationSignalDetectionConfiguration2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActivationSignalDetectionConfigurationCreationResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IActivationSignalDetectionConfigurationCreationResult {
     type Vtable = IActivationSignalDetectionConfigurationCreationResult_Vtbl;
-}
-impl ::core::clone::Clone for IActivationSignalDetectionConfigurationCreationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IActivationSignalDetectionConfigurationCreationResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4c89bc1b_8d12_5e48_a71c_7f6bc1cd66e0);
@@ -133,14 +121,10 @@ pub struct IActivationSignalDetectionConfigurationCreationResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActivationSignalDetector(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IActivationSignalDetector {
     type Vtable = IActivationSignalDetector_Vtbl;
-}
-impl ::core::clone::Clone for IActivationSignalDetector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IActivationSignalDetector {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5bf345f_a4d0_5b2b_8e65_b3c55ee756ff);
@@ -198,14 +182,10 @@ pub struct IActivationSignalDetector_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IActivationSignalDetector2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IActivationSignalDetector2 {
     type Vtable = IActivationSignalDetector2_Vtbl;
-}
-impl ::core::clone::Clone for IActivationSignalDetector2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IActivationSignalDetector2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc7e2490a_baa5_59d2_85d1_ba42f7cf78c9);
@@ -236,14 +216,10 @@ pub struct IActivationSignalDetector2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConversationalAgentDetectorManager(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IConversationalAgentDetectorManager {
     type Vtable = IConversationalAgentDetectorManager_Vtbl;
-}
-impl ::core::clone::Clone for IConversationalAgentDetectorManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConversationalAgentDetectorManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xde94fbb0_597a_5df8_8cfb_9dbb583ba3ff);
@@ -271,14 +247,10 @@ pub struct IConversationalAgentDetectorManager_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConversationalAgentDetectorManager2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IConversationalAgentDetectorManager2 {
     type Vtable = IConversationalAgentDetectorManager2_Vtbl;
-}
-impl ::core::clone::Clone for IConversationalAgentDetectorManager2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConversationalAgentDetectorManager2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x84610f31_d7f3_52fe_9311_c9eb4e3eb30a);
@@ -295,14 +267,10 @@ pub struct IConversationalAgentDetectorManager2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConversationalAgentDetectorManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IConversationalAgentDetectorManagerStatics {
     type Vtable = IConversationalAgentDetectorManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IConversationalAgentDetectorManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConversationalAgentDetectorManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x36a8d283_fa0e_5693_8489_0fb2f0ab40d3);
@@ -315,14 +283,10 @@ pub struct IConversationalAgentDetectorManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConversationalAgentSession(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IConversationalAgentSession {
     type Vtable = IConversationalAgentSession_Vtbl;
-}
-impl ::core::clone::Clone for IConversationalAgentSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConversationalAgentSession {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdaaae09a_b7ba_57e5_ad13_df520f9b6fa7);
@@ -422,14 +386,10 @@ pub struct IConversationalAgentSession_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConversationalAgentSession2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IConversationalAgentSession2 {
     type Vtable = IConversationalAgentSession2_Vtbl;
-}
-impl ::core::clone::Clone for IConversationalAgentSession2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConversationalAgentSession2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa7a9fbf9_ac78_57ff_9596_acc7a1c9a607);
@@ -459,14 +419,10 @@ pub struct IConversationalAgentSession2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConversationalAgentSessionInterruptedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IConversationalAgentSessionInterruptedEventArgs {
     type Vtable = IConversationalAgentSessionInterruptedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IConversationalAgentSessionInterruptedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConversationalAgentSessionInterruptedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9766591f_f63d_5d3e_9bf2_bd0760552686);
@@ -478,14 +434,10 @@ pub struct IConversationalAgentSessionInterruptedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConversationalAgentSessionStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IConversationalAgentSessionStatics {
     type Vtable = IConversationalAgentSessionStatics_Vtbl;
-}
-impl ::core::clone::Clone for IConversationalAgentSessionStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConversationalAgentSessionStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa005166e_e954_576e_be04_11b8ed10f37b);
@@ -502,14 +454,10 @@ pub struct IConversationalAgentSessionStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConversationalAgentSignal(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IConversationalAgentSignal {
     type Vtable = IConversationalAgentSignal_Vtbl;
-}
-impl ::core::clone::Clone for IConversationalAgentSignal {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConversationalAgentSignal {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x20ed25f7_b120_51f2_8603_265d6a47f232);
@@ -545,14 +493,10 @@ pub struct IConversationalAgentSignal_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConversationalAgentSignal2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IConversationalAgentSignal2 {
     type Vtable = IConversationalAgentSignal2_Vtbl;
-}
-impl ::core::clone::Clone for IConversationalAgentSignal2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConversationalAgentSignal2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd0cc7ba9_9a7b_5c34_880e_b6146c904ecb);
@@ -566,14 +510,10 @@ pub struct IConversationalAgentSignal2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConversationalAgentSignalDetectedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IConversationalAgentSignalDetectedEventArgs {
     type Vtable = IConversationalAgentSignalDetectedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IConversationalAgentSignalDetectedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConversationalAgentSignalDetectedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4d57eb8f_f88a_599b_91d3_d604876708bc);
@@ -585,14 +525,10 @@ pub struct IConversationalAgentSignalDetectedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IConversationalAgentSystemStateChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IConversationalAgentSystemStateChangedEventArgs {
     type Vtable = IConversationalAgentSystemStateChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IConversationalAgentSystemStateChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IConversationalAgentSystemStateChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1c2c6e3e_2785_59a7_8e71_38adeef79928);
@@ -605,14 +541,10 @@ pub struct IConversationalAgentSystemStateChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDetectionConfigurationAvailabilityChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDetectionConfigurationAvailabilityChangedEventArgs {
     type Vtable = IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IDetectionConfigurationAvailabilityChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDetectionConfigurationAvailabilityChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5129c9fb_4be8_5f14_af2b_88d62b1b4462);
@@ -625,14 +557,10 @@ pub struct IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDetectionConfigurationAvailabilityInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDetectionConfigurationAvailabilityInfo {
     type Vtable = IDetectionConfigurationAvailabilityInfo_Vtbl;
-}
-impl ::core::clone::Clone for IDetectionConfigurationAvailabilityInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDetectionConfigurationAvailabilityInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb5affeb0_40f0_5398_b838_91979c2c6208);
@@ -648,14 +576,10 @@ pub struct IDetectionConfigurationAvailabilityInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDetectionConfigurationAvailabilityInfo2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDetectionConfigurationAvailabilityInfo2 {
     type Vtable = IDetectionConfigurationAvailabilityInfo2_Vtbl;
-}
-impl ::core::clone::Clone for IDetectionConfigurationAvailabilityInfo2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDetectionConfigurationAvailabilityInfo2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30e06433_38b3_5c4b_84c3_62b6e685b2ff);
@@ -671,6 +595,7 @@ pub struct IDetectionConfigurationAvailabilityInfo2_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ActivationSignalDetectionConfiguration(::windows_core::IUnknown);
 impl ActivationSignalDetectionConfiguration {
     pub fn SignalId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -919,24 +844,8 @@ impl ActivationSignalDetectionConfiguration {
         unsafe { (::windows_core::Interface::vtable(this).Close)(::windows_core::Interface::as_raw(this)).ok() }
     }
 }
-impl ::core::cmp::PartialEq for ActivationSignalDetectionConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivationSignalDetectionConfiguration {}
-impl ::core::fmt::Debug for ActivationSignalDetectionConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivationSignalDetectionConfiguration").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ActivationSignalDetectionConfiguration {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration;{40d8be16-5217-581c-9ab2-ce9b2f2e8e00})");
-}
-impl ::core::clone::Clone for ActivationSignalDetectionConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ActivationSignalDetectionConfiguration {
     type Vtable = IActivationSignalDetectionConfiguration_Vtbl;
@@ -954,6 +863,7 @@ unsafe impl ::core::marker::Send for ActivationSignalDetectionConfiguration {}
 unsafe impl ::core::marker::Sync for ActivationSignalDetectionConfiguration {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ActivationSignalDetectionConfigurationCreationResult(::windows_core::IUnknown);
 impl ActivationSignalDetectionConfigurationCreationResult {
     pub fn Status(&self) -> ::windows_core::Result<ActivationSignalDetectionConfigurationCreationStatus> {
@@ -971,24 +881,8 @@ impl ActivationSignalDetectionConfigurationCreationResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for ActivationSignalDetectionConfigurationCreationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivationSignalDetectionConfigurationCreationResult {}
-impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationCreationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivationSignalDetectionConfigurationCreationResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ActivationSignalDetectionConfigurationCreationResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationResult;{4c89bc1b-8d12-5e48-a71c-7f6bc1cd66e0})");
-}
-impl ::core::clone::Clone for ActivationSignalDetectionConfigurationCreationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ActivationSignalDetectionConfigurationCreationResult {
     type Vtable = IActivationSignalDetectionConfigurationCreationResult_Vtbl;
@@ -1004,6 +898,7 @@ unsafe impl ::core::marker::Send for ActivationSignalDetectionConfigurationCreat
 unsafe impl ::core::marker::Sync for ActivationSignalDetectionConfigurationCreationResult {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ActivationSignalDetector(::windows_core::IUnknown);
 impl ActivationSignalDetector {
     pub fn ProviderId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1190,24 +1085,8 @@ impl ActivationSignalDetector {
         }
     }
 }
-impl ::core::cmp::PartialEq for ActivationSignalDetector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivationSignalDetector {}
-impl ::core::fmt::Debug for ActivationSignalDetector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivationSignalDetector").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ActivationSignalDetector {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector;{b5bf345f-a4d0-5b2b-8e65-b3c55ee756ff})");
-}
-impl ::core::clone::Clone for ActivationSignalDetector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ActivationSignalDetector {
     type Vtable = IActivationSignalDetector_Vtbl;
@@ -1223,6 +1102,7 @@ unsafe impl ::core::marker::Send for ActivationSignalDetector {}
 unsafe impl ::core::marker::Sync for ActivationSignalDetector {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ConversationalAgentDetectorManager(::windows_core::IUnknown);
 impl ConversationalAgentDetectorManager {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1289,24 +1169,8 @@ impl ConversationalAgentDetectorManager {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for ConversationalAgentDetectorManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConversationalAgentDetectorManager {}
-impl ::core::fmt::Debug for ConversationalAgentDetectorManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConversationalAgentDetectorManager").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ConversationalAgentDetectorManager {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentDetectorManager;{de94fbb0-597a-5df8-8cfb-9dbb583ba3ff})");
-}
-impl ::core::clone::Clone for ConversationalAgentDetectorManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ConversationalAgentDetectorManager {
     type Vtable = IConversationalAgentDetectorManager_Vtbl;
@@ -1322,6 +1186,7 @@ unsafe impl ::core::marker::Send for ConversationalAgentDetectorManager {}
 unsafe impl ::core::marker::Sync for ConversationalAgentDetectorManager {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ConversationalAgentSession(::windows_core::IUnknown);
 impl ConversationalAgentSession {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1677,24 +1542,8 @@ impl ConversationalAgentSession {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for ConversationalAgentSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConversationalAgentSession {}
-impl ::core::fmt::Debug for ConversationalAgentSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConversationalAgentSession").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ConversationalAgentSession {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSession;{daaae09a-b7ba-57e5-ad13-df520f9b6fa7})");
-}
-impl ::core::clone::Clone for ConversationalAgentSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ConversationalAgentSession {
     type Vtable = IConversationalAgentSession_Vtbl;
@@ -1712,26 +1561,11 @@ unsafe impl ::core::marker::Send for ConversationalAgentSession {}
 unsafe impl ::core::marker::Sync for ConversationalAgentSession {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ConversationalAgentSessionInterruptedEventArgs(::windows_core::IUnknown);
 impl ConversationalAgentSessionInterruptedEventArgs {}
-impl ::core::cmp::PartialEq for ConversationalAgentSessionInterruptedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConversationalAgentSessionInterruptedEventArgs {}
-impl ::core::fmt::Debug for ConversationalAgentSessionInterruptedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConversationalAgentSessionInterruptedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ConversationalAgentSessionInterruptedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionInterruptedEventArgs;{9766591f-f63d-5d3e-9bf2-bd0760552686})");
-}
-impl ::core::clone::Clone for ConversationalAgentSessionInterruptedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ConversationalAgentSessionInterruptedEventArgs {
     type Vtable = IConversationalAgentSessionInterruptedEventArgs_Vtbl;
@@ -1747,6 +1581,7 @@ unsafe impl ::core::marker::Send for ConversationalAgentSessionInterruptedEventA
 unsafe impl ::core::marker::Sync for ConversationalAgentSessionInterruptedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ConversationalAgentSignal(::windows_core::IUnknown);
 impl ConversationalAgentSignal {
     pub fn IsSignalVerificationRequired(&self) -> ::windows_core::Result<bool> {
@@ -1841,24 +1676,8 @@ impl ConversationalAgentSignal {
         }
     }
 }
-impl ::core::cmp::PartialEq for ConversationalAgentSignal {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConversationalAgentSignal {}
-impl ::core::fmt::Debug for ConversationalAgentSignal {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConversationalAgentSignal").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ConversationalAgentSignal {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignal;{20ed25f7-b120-51f2-8603-265d6a47f232})");
-}
-impl ::core::clone::Clone for ConversationalAgentSignal {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ConversationalAgentSignal {
     type Vtable = IConversationalAgentSignal_Vtbl;
@@ -1874,26 +1693,11 @@ unsafe impl ::core::marker::Send for ConversationalAgentSignal {}
 unsafe impl ::core::marker::Sync for ConversationalAgentSignal {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ConversationalAgentSignalDetectedEventArgs(::windows_core::IUnknown);
 impl ConversationalAgentSignalDetectedEventArgs {}
-impl ::core::cmp::PartialEq for ConversationalAgentSignalDetectedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConversationalAgentSignalDetectedEventArgs {}
-impl ::core::fmt::Debug for ConversationalAgentSignalDetectedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConversationalAgentSignalDetectedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ConversationalAgentSignalDetectedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignalDetectedEventArgs;{4d57eb8f-f88a-599b-91d3-d604876708bc})");
-}
-impl ::core::clone::Clone for ConversationalAgentSignalDetectedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ConversationalAgentSignalDetectedEventArgs {
     type Vtable = IConversationalAgentSignalDetectedEventArgs_Vtbl;
@@ -1909,6 +1713,7 @@ unsafe impl ::core::marker::Send for ConversationalAgentSignalDetectedEventArgs 
 unsafe impl ::core::marker::Sync for ConversationalAgentSignalDetectedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ConversationalAgentSystemStateChangedEventArgs(::windows_core::IUnknown);
 impl ConversationalAgentSystemStateChangedEventArgs {
     pub fn SystemStateChangeType(&self) -> ::windows_core::Result<ConversationalAgentSystemStateChangeType> {
@@ -1919,24 +1724,8 @@ impl ConversationalAgentSystemStateChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for ConversationalAgentSystemStateChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConversationalAgentSystemStateChangedEventArgs {}
-impl ::core::fmt::Debug for ConversationalAgentSystemStateChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConversationalAgentSystemStateChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ConversationalAgentSystemStateChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangedEventArgs;{1c2c6e3e-2785-59a7-8e71-38adeef79928})");
-}
-impl ::core::clone::Clone for ConversationalAgentSystemStateChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for ConversationalAgentSystemStateChangedEventArgs {
     type Vtable = IConversationalAgentSystemStateChangedEventArgs_Vtbl;
@@ -1952,6 +1741,7 @@ unsafe impl ::core::marker::Send for ConversationalAgentSystemStateChangedEventA
 unsafe impl ::core::marker::Sync for ConversationalAgentSystemStateChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DetectionConfigurationAvailabilityChangedEventArgs(::windows_core::IUnknown);
 impl DetectionConfigurationAvailabilityChangedEventArgs {
     pub fn Kind(&self) -> ::windows_core::Result<DetectionConfigurationAvailabilityChangeKind> {
@@ -1962,24 +1752,8 @@ impl DetectionConfigurationAvailabilityChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for DetectionConfigurationAvailabilityChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DetectionConfigurationAvailabilityChangedEventArgs {}
-impl ::core::fmt::Debug for DetectionConfigurationAvailabilityChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DetectionConfigurationAvailabilityChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DetectionConfigurationAvailabilityChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangedEventArgs;{5129c9fb-4be8-5f14-af2b-88d62b1b4462})");
-}
-impl ::core::clone::Clone for DetectionConfigurationAvailabilityChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DetectionConfigurationAvailabilityChangedEventArgs {
     type Vtable = IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl;
@@ -1995,6 +1769,7 @@ unsafe impl ::core::marker::Send for DetectionConfigurationAvailabilityChangedEv
 unsafe impl ::core::marker::Sync for DetectionConfigurationAvailabilityChangedEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_ConversationalAgent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DetectionConfigurationAvailabilityInfo(::windows_core::IUnknown);
 impl DetectionConfigurationAvailabilityInfo {
     pub fn IsEnabled(&self) -> ::windows_core::Result<bool> {
@@ -2035,24 +1810,8 @@ impl DetectionConfigurationAvailabilityInfo {
         }
     }
 }
-impl ::core::cmp::PartialEq for DetectionConfigurationAvailabilityInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DetectionConfigurationAvailabilityInfo {}
-impl ::core::fmt::Debug for DetectionConfigurationAvailabilityInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DetectionConfigurationAvailabilityInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DetectionConfigurationAvailabilityInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityInfo;{b5affeb0-40f0-5398-b838-91979c2c6208})");
-}
-impl ::core::clone::Clone for DetectionConfigurationAvailabilityInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DetectionConfigurationAvailabilityInfo {
     type Vtable = IDetectionConfigurationAvailabilityInfo_Vtbl;

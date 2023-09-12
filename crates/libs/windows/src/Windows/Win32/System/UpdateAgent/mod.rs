@@ -1,6 +1,7 @@
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAutomaticUpdates(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAutomaticUpdates {
@@ -35,28 +36,8 @@ impl IAutomaticUpdates {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IAutomaticUpdates, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IAutomaticUpdates {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IAutomaticUpdates {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IAutomaticUpdates {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAutomaticUpdates").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IAutomaticUpdates {
     type Vtable = IAutomaticUpdates_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IAutomaticUpdates {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IAutomaticUpdates {
@@ -84,6 +65,7 @@ pub struct IAutomaticUpdates_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAutomaticUpdates2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAutomaticUpdates2 {
@@ -124,28 +106,8 @@ impl IAutomaticUpdates2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IAutomaticUpdates2, ::windows_core::IUnknown, super::Com::IDispatch, IAutomaticUpdates);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IAutomaticUpdates2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IAutomaticUpdates2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IAutomaticUpdates2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAutomaticUpdates2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IAutomaticUpdates2 {
     type Vtable = IAutomaticUpdates2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IAutomaticUpdates2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IAutomaticUpdates2 {
@@ -164,6 +126,7 @@ pub struct IAutomaticUpdates2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAutomaticUpdatesResults(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAutomaticUpdatesResults {
@@ -183,28 +146,8 @@ impl IAutomaticUpdatesResults {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IAutomaticUpdatesResults, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IAutomaticUpdatesResults {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IAutomaticUpdatesResults {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IAutomaticUpdatesResults {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAutomaticUpdatesResults").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IAutomaticUpdatesResults {
     type Vtable = IAutomaticUpdatesResults_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IAutomaticUpdatesResults {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IAutomaticUpdatesResults {
@@ -227,6 +170,7 @@ pub struct IAutomaticUpdatesResults_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAutomaticUpdatesSettings(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAutomaticUpdatesSettings {
@@ -273,28 +217,8 @@ impl IAutomaticUpdatesSettings {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IAutomaticUpdatesSettings, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IAutomaticUpdatesSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IAutomaticUpdatesSettings {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IAutomaticUpdatesSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAutomaticUpdatesSettings").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IAutomaticUpdatesSettings {
     type Vtable = IAutomaticUpdatesSettings_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IAutomaticUpdatesSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IAutomaticUpdatesSettings {
@@ -325,6 +249,7 @@ pub struct IAutomaticUpdatesSettings_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAutomaticUpdatesSettings2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAutomaticUpdatesSettings2 {
@@ -391,28 +316,8 @@ impl IAutomaticUpdatesSettings2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IAutomaticUpdatesSettings2, ::windows_core::IUnknown, super::Com::IDispatch, IAutomaticUpdatesSettings);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IAutomaticUpdatesSettings2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IAutomaticUpdatesSettings2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IAutomaticUpdatesSettings2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAutomaticUpdatesSettings2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IAutomaticUpdatesSettings2 {
     type Vtable = IAutomaticUpdatesSettings2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IAutomaticUpdatesSettings2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IAutomaticUpdatesSettings2 {
@@ -439,6 +344,7 @@ pub struct IAutomaticUpdatesSettings2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAutomaticUpdatesSettings3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAutomaticUpdatesSettings3 {
@@ -533,28 +439,8 @@ impl IAutomaticUpdatesSettings3 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IAutomaticUpdatesSettings3, ::windows_core::IUnknown, super::Com::IDispatch, IAutomaticUpdatesSettings, IAutomaticUpdatesSettings2);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IAutomaticUpdatesSettings3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IAutomaticUpdatesSettings3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IAutomaticUpdatesSettings3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAutomaticUpdatesSettings3").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IAutomaticUpdatesSettings3 {
     type Vtable = IAutomaticUpdatesSettings3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IAutomaticUpdatesSettings3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IAutomaticUpdatesSettings3 {
@@ -585,6 +471,7 @@ pub struct IAutomaticUpdatesSettings3_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICategory(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICategory {
@@ -636,28 +523,8 @@ impl ICategory {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICategory, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICategory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICategory {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICategory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICategory").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICategory {
     type Vtable = ICategory_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICategory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICategory {
@@ -693,6 +560,7 @@ pub struct ICategory_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICategoryCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICategoryCollection {
@@ -714,28 +582,8 @@ impl ICategoryCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ICategoryCollection, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ICategoryCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ICategoryCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ICategoryCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICategoryCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ICategoryCollection {
     type Vtable = ICategoryCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ICategoryCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ICategoryCollection {
@@ -755,6 +603,7 @@ pub struct ICategoryCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDownloadCompletedCallback(::windows_core::IUnknown);
 impl IDownloadCompletedCallback {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -768,24 +617,8 @@ impl IDownloadCompletedCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDownloadCompletedCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDownloadCompletedCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDownloadCompletedCallback {}
-impl ::core::fmt::Debug for IDownloadCompletedCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDownloadCompletedCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDownloadCompletedCallback {
     type Vtable = IDownloadCompletedCallback_Vtbl;
-}
-impl ::core::clone::Clone for IDownloadCompletedCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDownloadCompletedCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x77254866_9f5b_4c8e_b9e2_c77a8530d64b);
@@ -802,34 +635,15 @@ pub struct IDownloadCompletedCallback_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDownloadCompletedCallbackArgs(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDownloadCompletedCallbackArgs {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDownloadCompletedCallbackArgs, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDownloadCompletedCallbackArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDownloadCompletedCallbackArgs {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDownloadCompletedCallbackArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDownloadCompletedCallbackArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDownloadCompletedCallbackArgs {
     type Vtable = IDownloadCompletedCallbackArgs_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDownloadCompletedCallbackArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDownloadCompletedCallbackArgs {
@@ -844,6 +658,7 @@ pub struct IDownloadCompletedCallbackArgs_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDownloadJob(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDownloadJob {
@@ -881,28 +696,8 @@ impl IDownloadJob {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDownloadJob, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDownloadJob {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDownloadJob {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDownloadJob {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDownloadJob").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDownloadJob {
     type Vtable = IDownloadJob_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDownloadJob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDownloadJob {
@@ -935,6 +730,7 @@ pub struct IDownloadJob_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDownloadProgress(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDownloadProgress {
@@ -988,28 +784,8 @@ impl IDownloadProgress {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDownloadProgress, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDownloadProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDownloadProgress {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDownloadProgress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDownloadProgress").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDownloadProgress {
     type Vtable = IDownloadProgress_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDownloadProgress {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDownloadProgress {
@@ -1047,6 +823,7 @@ pub struct IDownloadProgress_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDownloadProgressChangedCallback(::windows_core::IUnknown);
 impl IDownloadProgressChangedCallback {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1060,24 +837,8 @@ impl IDownloadProgressChangedCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDownloadProgressChangedCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDownloadProgressChangedCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDownloadProgressChangedCallback {}
-impl ::core::fmt::Debug for IDownloadProgressChangedCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDownloadProgressChangedCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDownloadProgressChangedCallback {
     type Vtable = IDownloadProgressChangedCallback_Vtbl;
-}
-impl ::core::clone::Clone for IDownloadProgressChangedCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDownloadProgressChangedCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8c3f1cdd_6173_4591_aebd_a56a53ca77c1);
@@ -1094,6 +855,7 @@ pub struct IDownloadProgressChangedCallback_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDownloadProgressChangedCallbackArgs(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDownloadProgressChangedCallbackArgs {
@@ -1107,28 +869,8 @@ impl IDownloadProgressChangedCallbackArgs {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDownloadProgressChangedCallbackArgs, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDownloadProgressChangedCallbackArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDownloadProgressChangedCallbackArgs {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDownloadProgressChangedCallbackArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDownloadProgressChangedCallbackArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDownloadProgressChangedCallbackArgs {
     type Vtable = IDownloadProgressChangedCallbackArgs_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDownloadProgressChangedCallbackArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDownloadProgressChangedCallbackArgs {
@@ -1147,6 +889,7 @@ pub struct IDownloadProgressChangedCallbackArgs_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDownloadResult(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDownloadResult {
@@ -1168,28 +911,8 @@ impl IDownloadResult {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDownloadResult, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDownloadResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDownloadResult {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDownloadResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDownloadResult").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDownloadResult {
     type Vtable = IDownloadResult_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDownloadResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDownloadResult {
@@ -1210,6 +933,7 @@ pub struct IDownloadResult_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IImageInformation(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IImageInformation {
@@ -1233,28 +957,8 @@ impl IImageInformation {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IImageInformation, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IImageInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IImageInformation {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IImageInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IImageInformation").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IImageInformation {
     type Vtable = IImageInformation_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IImageInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IImageInformation {
@@ -1273,6 +977,7 @@ pub struct IImageInformation_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInstallationAgent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationAgent {
@@ -1289,28 +994,8 @@ impl IInstallationAgent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInstallationAgent, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInstallationAgent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInstallationAgent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInstallationAgent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInstallationAgent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInstallationAgent {
     type Vtable = IInstallationAgent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInstallationAgent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInstallationAgent {
@@ -1329,6 +1014,7 @@ pub struct IInstallationAgent_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInstallationBehavior(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationBehavior {
@@ -1356,28 +1042,8 @@ impl IInstallationBehavior {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInstallationBehavior, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInstallationBehavior {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInstallationBehavior {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInstallationBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInstallationBehavior").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInstallationBehavior {
     type Vtable = IInstallationBehavior_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInstallationBehavior {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInstallationBehavior {
@@ -1401,6 +1067,7 @@ pub struct IInstallationBehavior_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInstallationCompletedCallback(::windows_core::IUnknown);
 impl IInstallationCompletedCallback {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1414,24 +1081,8 @@ impl IInstallationCompletedCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInstallationCompletedCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInstallationCompletedCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInstallationCompletedCallback {}
-impl ::core::fmt::Debug for IInstallationCompletedCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInstallationCompletedCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInstallationCompletedCallback {
     type Vtable = IInstallationCompletedCallback_Vtbl;
-}
-impl ::core::clone::Clone for IInstallationCompletedCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInstallationCompletedCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x45f4f6f3_d602_4f98_9a8a_3efa152ad2d3);
@@ -1448,34 +1099,15 @@ pub struct IInstallationCompletedCallback_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInstallationCompletedCallbackArgs(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationCompletedCallbackArgs {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInstallationCompletedCallbackArgs, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInstallationCompletedCallbackArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInstallationCompletedCallbackArgs {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInstallationCompletedCallbackArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInstallationCompletedCallbackArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInstallationCompletedCallbackArgs {
     type Vtable = IInstallationCompletedCallbackArgs_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInstallationCompletedCallbackArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInstallationCompletedCallbackArgs {
@@ -1490,6 +1122,7 @@ pub struct IInstallationCompletedCallbackArgs_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInstallationJob(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationJob {
@@ -1527,28 +1160,8 @@ impl IInstallationJob {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInstallationJob, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInstallationJob {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInstallationJob {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInstallationJob {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInstallationJob").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInstallationJob {
     type Vtable = IInstallationJob_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInstallationJob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInstallationJob {
@@ -1581,6 +1194,7 @@ pub struct IInstallationJob_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInstallationProgress(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationProgress {
@@ -1606,28 +1220,8 @@ impl IInstallationProgress {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInstallationProgress, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInstallationProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInstallationProgress {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInstallationProgress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInstallationProgress").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInstallationProgress {
     type Vtable = IInstallationProgress_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInstallationProgress {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInstallationProgress {
@@ -1648,6 +1242,7 @@ pub struct IInstallationProgress_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInstallationProgressChangedCallback(::windows_core::IUnknown);
 impl IInstallationProgressChangedCallback {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1661,24 +1256,8 @@ impl IInstallationProgressChangedCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IInstallationProgressChangedCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IInstallationProgressChangedCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IInstallationProgressChangedCallback {}
-impl ::core::fmt::Debug for IInstallationProgressChangedCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInstallationProgressChangedCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IInstallationProgressChangedCallback {
     type Vtable = IInstallationProgressChangedCallback_Vtbl;
-}
-impl ::core::clone::Clone for IInstallationProgressChangedCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IInstallationProgressChangedCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe01402d5_f8da_43ba_a012_38894bd048f1);
@@ -1695,6 +1274,7 @@ pub struct IInstallationProgressChangedCallback_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInstallationProgressChangedCallbackArgs(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationProgressChangedCallbackArgs {
@@ -1708,28 +1288,8 @@ impl IInstallationProgressChangedCallbackArgs {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInstallationProgressChangedCallbackArgs, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInstallationProgressChangedCallbackArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInstallationProgressChangedCallbackArgs {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInstallationProgressChangedCallbackArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInstallationProgressChangedCallbackArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInstallationProgressChangedCallbackArgs {
     type Vtable = IInstallationProgressChangedCallbackArgs_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInstallationProgressChangedCallbackArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInstallationProgressChangedCallbackArgs {
@@ -1748,6 +1308,7 @@ pub struct IInstallationProgressChangedCallbackArgs_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInstallationResult(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationResult {
@@ -1775,28 +1336,8 @@ impl IInstallationResult {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInstallationResult, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInstallationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInstallationResult {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInstallationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInstallationResult").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInstallationResult {
     type Vtable = IInstallationResult_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInstallationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInstallationResult {
@@ -1821,6 +1362,7 @@ pub struct IInstallationResult_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IInvalidProductLicenseException(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInvalidProductLicenseException {
@@ -1844,28 +1386,8 @@ impl IInvalidProductLicenseException {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IInvalidProductLicenseException, ::windows_core::IUnknown, super::Com::IDispatch, IUpdateException);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IInvalidProductLicenseException {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IInvalidProductLicenseException {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IInvalidProductLicenseException {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IInvalidProductLicenseException").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IInvalidProductLicenseException {
     type Vtable = IInvalidProductLicenseException_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IInvalidProductLicenseException {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IInvalidProductLicenseException {
@@ -1880,6 +1402,7 @@ pub struct IInvalidProductLicenseException_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchCompletedCallback(::windows_core::IUnknown);
 impl ISearchCompletedCallback {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1893,24 +1416,8 @@ impl ISearchCompletedCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISearchCompletedCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISearchCompletedCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISearchCompletedCallback {}
-impl ::core::fmt::Debug for ISearchCompletedCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchCompletedCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISearchCompletedCallback {
     type Vtable = ISearchCompletedCallback_Vtbl;
-}
-impl ::core::clone::Clone for ISearchCompletedCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISearchCompletedCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88aee058_d4b0_4725_a2f1_814a67ae964c);
@@ -1927,34 +1434,15 @@ pub struct ISearchCompletedCallback_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchCompletedCallbackArgs(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISearchCompletedCallbackArgs {}
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISearchCompletedCallbackArgs, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISearchCompletedCallbackArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISearchCompletedCallbackArgs {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISearchCompletedCallbackArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchCompletedCallbackArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISearchCompletedCallbackArgs {
     type Vtable = ISearchCompletedCallbackArgs_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISearchCompletedCallbackArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISearchCompletedCallbackArgs {
@@ -1969,6 +1457,7 @@ pub struct ISearchCompletedCallbackArgs_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchJob(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISearchJob {
@@ -1994,28 +1483,8 @@ impl ISearchJob {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISearchJob, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISearchJob {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISearchJob {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISearchJob {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchJob").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISearchJob {
     type Vtable = ISearchJob_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISearchJob {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISearchJob {
@@ -2040,6 +1509,7 @@ pub struct ISearchJob_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISearchResult(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISearchResult {
@@ -2069,28 +1539,8 @@ impl ISearchResult {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISearchResult, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISearchResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISearchResult {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISearchResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISearchResult").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISearchResult {
     type Vtable = ISearchResult_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISearchResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISearchResult {
@@ -2118,6 +1568,7 @@ pub struct ISearchResult_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStringCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IStringCollection {
@@ -2174,28 +1625,8 @@ impl IStringCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IStringCollection, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IStringCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IStringCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IStringCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStringCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IStringCollection {
     type Vtable = IStringCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IStringCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IStringCollection {
@@ -2226,6 +1657,7 @@ pub struct IStringCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISystemInformation(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISystemInformation {
@@ -2243,28 +1675,8 @@ impl ISystemInformation {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(ISystemInformation, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for ISystemInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for ISystemInformation {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for ISystemInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISystemInformation").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for ISystemInformation {
     type Vtable = ISystemInformation_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for ISystemInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for ISystemInformation {
@@ -2284,6 +1696,7 @@ pub struct ISystemInformation_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdate(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdate {
@@ -2533,28 +1946,8 @@ impl IUpdate {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdate, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdate {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdate").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdate {
     type Vtable = IUpdate_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdate {
@@ -2701,6 +2094,7 @@ pub struct IUpdate_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdate2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdate2 {
@@ -2976,28 +2370,8 @@ impl IUpdate2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdate2, ::windows_core::IUnknown, super::Com::IDispatch, IUpdate);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdate2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdate2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdate2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdate2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdate2 {
     type Vtable = IUpdate2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdate2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdate2 {
@@ -3028,6 +2402,7 @@ pub struct IUpdate2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdate3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdate3 {
@@ -3309,28 +2684,8 @@ impl IUpdate3 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdate3, ::windows_core::IUnknown, super::Com::IDispatch, IUpdate, IUpdate2);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdate3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdate3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdate3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdate3").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdate3 {
     type Vtable = IUpdate3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdate3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdate3 {
@@ -3349,6 +2704,7 @@ pub struct IUpdate3_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdate4(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdate4 {
@@ -3636,28 +2992,8 @@ impl IUpdate4 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdate4, ::windows_core::IUnknown, super::Com::IDispatch, IUpdate, IUpdate2, IUpdate3);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdate4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdate4 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdate4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdate4").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdate4 {
     type Vtable = IUpdate4_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdate4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdate4 {
@@ -3676,6 +3012,7 @@ pub struct IUpdate4_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdate5(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdate5 {
@@ -3971,28 +3308,8 @@ impl IUpdate5 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdate5, ::windows_core::IUnknown, super::Com::IDispatch, IUpdate, IUpdate2, IUpdate3, IUpdate4);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdate5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdate5 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdate5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdate5").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdate5 {
     type Vtable = IUpdate5_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdate5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdate5 {
@@ -4009,6 +3326,7 @@ pub struct IUpdate5_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateCollection {
@@ -4073,28 +3391,8 @@ impl IUpdateCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateCollection, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateCollection {
     type Vtable = IUpdateCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateCollection {
@@ -4137,6 +3435,7 @@ pub struct IUpdateCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateDownloadContent(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateDownloadContent {
@@ -4148,28 +3447,8 @@ impl IUpdateDownloadContent {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateDownloadContent, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateDownloadContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateDownloadContent {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateDownloadContent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateDownloadContent").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateDownloadContent {
     type Vtable = IUpdateDownloadContent_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateDownloadContent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateDownloadContent {
@@ -4185,6 +3464,7 @@ pub struct IUpdateDownloadContent_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateDownloadContent2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateDownloadContent2 {
@@ -4202,28 +3482,8 @@ impl IUpdateDownloadContent2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateDownloadContent2, ::windows_core::IUnknown, super::Com::IDispatch, IUpdateDownloadContent);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateDownloadContent2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateDownloadContent2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateDownloadContent2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateDownloadContent2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateDownloadContent2 {
     type Vtable = IUpdateDownloadContent2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateDownloadContent2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateDownloadContent2 {
@@ -4242,6 +3502,7 @@ pub struct IUpdateDownloadContent2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateDownloadContentCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateDownloadContentCollection {
@@ -4263,28 +3524,8 @@ impl IUpdateDownloadContentCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateDownloadContentCollection, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateDownloadContentCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateDownloadContentCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateDownloadContentCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateDownloadContentCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateDownloadContentCollection {
     type Vtable = IUpdateDownloadContentCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateDownloadContentCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateDownloadContentCollection {
@@ -4305,6 +3546,7 @@ pub struct IUpdateDownloadContentCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateDownloadResult(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateDownloadResult {
@@ -4320,28 +3562,8 @@ impl IUpdateDownloadResult {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateDownloadResult, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateDownloadResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateDownloadResult {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateDownloadResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateDownloadResult").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateDownloadResult {
     type Vtable = IUpdateDownloadResult_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateDownloadResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateDownloadResult {
@@ -4358,6 +3580,7 @@ pub struct IUpdateDownloadResult_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateDownloader(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateDownloader {
@@ -4435,28 +3658,8 @@ impl IUpdateDownloader {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateDownloader, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateDownloader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateDownloader {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateDownloader {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateDownloader").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateDownloader {
     type Vtable = IUpdateDownloader_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateDownloader {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateDownloader {
@@ -4503,6 +3706,7 @@ pub struct IUpdateDownloader_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateException(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateException {
@@ -4522,28 +3726,8 @@ impl IUpdateException {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateException, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateException {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateException {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateException {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateException").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateException {
     type Vtable = IUpdateException_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateException {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateException {
@@ -4561,6 +3745,7 @@ pub struct IUpdateException_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateExceptionCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateExceptionCollection {
@@ -4582,28 +3767,8 @@ impl IUpdateExceptionCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateExceptionCollection, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateExceptionCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateExceptionCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateExceptionCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateExceptionCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateExceptionCollection {
     type Vtable = IUpdateExceptionCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateExceptionCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateExceptionCollection {
@@ -4624,6 +3789,7 @@ pub struct IUpdateExceptionCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateHistoryEntry(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateHistoryEntry {
@@ -4691,28 +3857,8 @@ impl IUpdateHistoryEntry {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateHistoryEntry, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateHistoryEntry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateHistoryEntry {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateHistoryEntry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateHistoryEntry").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateHistoryEntry {
     type Vtable = IUpdateHistoryEntry_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateHistoryEntry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateHistoryEntry {
@@ -4747,6 +3893,7 @@ pub struct IUpdateHistoryEntry_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateHistoryEntry2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateHistoryEntry2 {
@@ -4820,28 +3967,8 @@ impl IUpdateHistoryEntry2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateHistoryEntry2, ::windows_core::IUnknown, super::Com::IDispatch, IUpdateHistoryEntry);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateHistoryEntry2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateHistoryEntry2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateHistoryEntry2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateHistoryEntry2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateHistoryEntry2 {
     type Vtable = IUpdateHistoryEntry2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateHistoryEntry2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateHistoryEntry2 {
@@ -4860,6 +3987,7 @@ pub struct IUpdateHistoryEntry2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateHistoryEntryCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateHistoryEntryCollection {
@@ -4881,28 +4009,8 @@ impl IUpdateHistoryEntryCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateHistoryEntryCollection, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateHistoryEntryCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateHistoryEntryCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateHistoryEntryCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateHistoryEntryCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateHistoryEntryCollection {
     type Vtable = IUpdateHistoryEntryCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateHistoryEntryCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateHistoryEntryCollection {
@@ -4923,6 +4031,7 @@ pub struct IUpdateHistoryEntryCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateIdentity(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateIdentity {
@@ -4938,28 +4047,8 @@ impl IUpdateIdentity {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateIdentity, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateIdentity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateIdentity {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateIdentity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateIdentity").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateIdentity {
     type Vtable = IUpdateIdentity_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateIdentity {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateIdentity {
@@ -4976,6 +4065,7 @@ pub struct IUpdateIdentity_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateInstallationResult(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateInstallationResult {
@@ -4997,28 +4087,8 @@ impl IUpdateInstallationResult {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateInstallationResult, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateInstallationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateInstallationResult {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateInstallationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateInstallationResult").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateInstallationResult {
     type Vtable = IUpdateInstallationResult_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateInstallationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateInstallationResult {
@@ -5039,6 +4109,7 @@ pub struct IUpdateInstallationResult_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateInstaller(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateInstaller {
@@ -5193,28 +4264,8 @@ impl IUpdateInstaller {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateInstaller, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateInstaller {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateInstaller {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateInstaller {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateInstaller").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateInstaller {
     type Vtable = IUpdateInstaller_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateInstaller {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateInstaller {
@@ -5301,6 +4352,7 @@ pub struct IUpdateInstaller_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateInstaller2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateInstaller2 {
@@ -5469,28 +4521,8 @@ impl IUpdateInstaller2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateInstaller2, ::windows_core::IUnknown, super::Com::IDispatch, IUpdateInstaller);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateInstaller2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateInstaller2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateInstaller2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateInstaller2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateInstaller2 {
     type Vtable = IUpdateInstaller2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateInstaller2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateInstaller2 {
@@ -5513,6 +4545,7 @@ pub struct IUpdateInstaller2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateInstaller3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateInstaller3 {
@@ -5695,28 +4728,8 @@ impl IUpdateInstaller3 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateInstaller3, ::windows_core::IUnknown, super::Com::IDispatch, IUpdateInstaller, IUpdateInstaller2);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateInstaller3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateInstaller3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateInstaller3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateInstaller3").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateInstaller3 {
     type Vtable = IUpdateInstaller3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateInstaller3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateInstaller3 {
@@ -5739,6 +4752,7 @@ pub struct IUpdateInstaller3_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateInstaller4(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateInstaller4 {
@@ -5924,28 +4938,8 @@ impl IUpdateInstaller4 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateInstaller4, ::windows_core::IUnknown, super::Com::IDispatch, IUpdateInstaller, IUpdateInstaller2, IUpdateInstaller3);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateInstaller4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateInstaller4 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateInstaller4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateInstaller4").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateInstaller4 {
     type Vtable = IUpdateInstaller4_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateInstaller4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateInstaller4 {
@@ -5960,6 +4954,7 @@ pub struct IUpdateInstaller4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateLockdown(::windows_core::IUnknown);
 impl IUpdateLockdown {
     pub unsafe fn LockDown(&self, flags: i32) -> ::windows_core::Result<()> {
@@ -5967,24 +4962,8 @@ impl IUpdateLockdown {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUpdateLockdown, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUpdateLockdown {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUpdateLockdown {}
-impl ::core::fmt::Debug for IUpdateLockdown {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateLockdown").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUpdateLockdown {
     type Vtable = IUpdateLockdown_Vtbl;
-}
-impl ::core::clone::Clone for IUpdateLockdown {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUpdateLockdown {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa976c28d_75a1_42aa_94ae_8af8b872089a);
@@ -5998,6 +4977,7 @@ pub struct IUpdateLockdown_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateSearcher(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateSearcher {
@@ -6119,28 +5099,8 @@ impl IUpdateSearcher {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateSearcher, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateSearcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateSearcher {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateSearcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateSearcher").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateSearcher {
     type Vtable = IUpdateSearcher_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateSearcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateSearcher {
@@ -6203,6 +5163,7 @@ pub struct IUpdateSearcher_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateSearcher2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateSearcher2 {
@@ -6338,28 +5299,8 @@ impl IUpdateSearcher2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateSearcher2, ::windows_core::IUnknown, super::Com::IDispatch, IUpdateSearcher);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateSearcher2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateSearcher2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateSearcher2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateSearcher2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateSearcher2 {
     type Vtable = IUpdateSearcher2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateSearcher2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateSearcher2 {
@@ -6382,6 +5323,7 @@ pub struct IUpdateSearcher2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateSearcher3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateSearcher3 {
@@ -6524,28 +5466,8 @@ impl IUpdateSearcher3 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateSearcher3, ::windows_core::IUnknown, super::Com::IDispatch, IUpdateSearcher, IUpdateSearcher2);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateSearcher3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateSearcher3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateSearcher3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateSearcher3").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateSearcher3 {
     type Vtable = IUpdateSearcher3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateSearcher3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateSearcher3 {
@@ -6562,6 +5484,7 @@ pub struct IUpdateSearcher3_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateService(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateService {
@@ -6635,28 +5558,8 @@ impl IUpdateService {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateService, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateService {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateService {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateService {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateService").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateService {
     type Vtable = IUpdateService_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateService {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateService {
@@ -6705,6 +5608,7 @@ pub struct IUpdateService_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateService2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateService2 {
@@ -6784,28 +5688,8 @@ impl IUpdateService2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateService2, ::windows_core::IUnknown, super::Com::IDispatch, IUpdateService);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateService2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateService2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateService2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateService2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateService2 {
     type Vtable = IUpdateService2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateService2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateService2 {
@@ -6824,6 +5708,7 @@ pub struct IUpdateService2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateServiceCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateServiceCollection {
@@ -6845,28 +5730,8 @@ impl IUpdateServiceCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateServiceCollection, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateServiceCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateServiceCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateServiceCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateServiceCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateServiceCollection {
     type Vtable = IUpdateServiceCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateServiceCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateServiceCollection {
@@ -6887,6 +5752,7 @@ pub struct IUpdateServiceCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateServiceManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateServiceManager {
@@ -6946,28 +5812,8 @@ impl IUpdateServiceManager {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateServiceManager, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateServiceManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateServiceManager {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateServiceManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateServiceManager").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateServiceManager {
     type Vtable = IUpdateServiceManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateServiceManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateServiceManager {
@@ -7001,6 +5847,7 @@ pub struct IUpdateServiceManager_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateServiceManager2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateServiceManager2 {
@@ -7089,28 +5936,8 @@ impl IUpdateServiceManager2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateServiceManager2, ::windows_core::IUnknown, super::Com::IDispatch, IUpdateServiceManager);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateServiceManager2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateServiceManager2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateServiceManager2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateServiceManager2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateServiceManager2 {
     type Vtable = IUpdateServiceManager2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateServiceManager2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateServiceManager2 {
@@ -7135,6 +5962,7 @@ pub struct IUpdateServiceManager2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateServiceRegistration(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateServiceRegistration {
@@ -7162,28 +5990,8 @@ impl IUpdateServiceRegistration {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateServiceRegistration, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateServiceRegistration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateServiceRegistration {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateServiceRegistration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateServiceRegistration").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateServiceRegistration {
     type Vtable = IUpdateServiceRegistration_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateServiceRegistration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateServiceRegistration {
@@ -7208,6 +6016,7 @@ pub struct IUpdateServiceRegistration_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateSession(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateSession {
@@ -7263,28 +6072,8 @@ impl IUpdateSession {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateSession, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateSession {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateSession").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateSession {
     type Vtable = IUpdateSession_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateSession {
@@ -7325,6 +6114,7 @@ pub struct IUpdateSession_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateSession2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateSession2 {
@@ -7387,28 +6177,8 @@ impl IUpdateSession2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateSession2, ::windows_core::IUnknown, super::Com::IDispatch, IUpdateSession);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateSession2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateSession2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateSession2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateSession2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateSession2 {
     type Vtable = IUpdateSession2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateSession2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateSession2 {
@@ -7425,6 +6195,7 @@ pub struct IUpdateSession2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUpdateSession3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateSession3 {
@@ -7502,28 +6273,8 @@ impl IUpdateSession3 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUpdateSession3, ::windows_core::IUnknown, super::Com::IDispatch, IUpdateSession, IUpdateSession2);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUpdateSession3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUpdateSession3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUpdateSession3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUpdateSession3").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUpdateSession3 {
     type Vtable = IUpdateSession3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUpdateSession3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUpdateSession3 {
@@ -7546,6 +6297,7 @@ pub struct IUpdateSession3_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebProxy(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWebProxy {
@@ -7643,28 +6395,8 @@ impl IWebProxy {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWebProxy, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWebProxy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWebProxy {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWebProxy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebProxy").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWebProxy {
     type Vtable = IWebProxy_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWebProxy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWebProxy {
@@ -7717,6 +6449,7 @@ pub struct IWebProxy_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowsDriverUpdate(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsDriverUpdate {
@@ -7998,28 +6731,8 @@ impl IWindowsDriverUpdate {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWindowsDriverUpdate, ::windows_core::IUnknown, super::Com::IDispatch, IUpdate);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWindowsDriverUpdate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWindowsDriverUpdate {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWindowsDriverUpdate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsDriverUpdate").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWindowsDriverUpdate {
     type Vtable = IWindowsDriverUpdate_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWindowsDriverUpdate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWindowsDriverUpdate {
@@ -8042,6 +6755,7 @@ pub struct IWindowsDriverUpdate_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowsDriverUpdate2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsDriverUpdate2 {
@@ -8349,28 +7063,8 @@ impl IWindowsDriverUpdate2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWindowsDriverUpdate2, ::windows_core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWindowsDriverUpdate2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWindowsDriverUpdate2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWindowsDriverUpdate2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsDriverUpdate2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWindowsDriverUpdate2 {
     type Vtable = IWindowsDriverUpdate2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWindowsDriverUpdate2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWindowsDriverUpdate2 {
@@ -8401,6 +7095,7 @@ pub struct IWindowsDriverUpdate2_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowsDriverUpdate3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsDriverUpdate3 {
@@ -8714,28 +7409,8 @@ impl IWindowsDriverUpdate3 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWindowsDriverUpdate3, ::windows_core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate, IWindowsDriverUpdate2);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWindowsDriverUpdate3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWindowsDriverUpdate3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWindowsDriverUpdate3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsDriverUpdate3").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWindowsDriverUpdate3 {
     type Vtable = IWindowsDriverUpdate3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWindowsDriverUpdate3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWindowsDriverUpdate3 {
@@ -8754,6 +7429,7 @@ pub struct IWindowsDriverUpdate3_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowsDriverUpdate4(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsDriverUpdate4 {
@@ -9079,28 +7755,8 @@ impl IWindowsDriverUpdate4 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWindowsDriverUpdate4, ::windows_core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate, IWindowsDriverUpdate2, IWindowsDriverUpdate3);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWindowsDriverUpdate4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWindowsDriverUpdate4 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWindowsDriverUpdate4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsDriverUpdate4").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWindowsDriverUpdate4 {
     type Vtable = IWindowsDriverUpdate4_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWindowsDriverUpdate4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWindowsDriverUpdate4 {
@@ -9123,6 +7779,7 @@ pub struct IWindowsDriverUpdate4_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowsDriverUpdate5(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsDriverUpdate5 {
@@ -9456,28 +8113,8 @@ impl IWindowsDriverUpdate5 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWindowsDriverUpdate5, ::windows_core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate, IWindowsDriverUpdate2, IWindowsDriverUpdate3, IWindowsDriverUpdate4);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWindowsDriverUpdate5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWindowsDriverUpdate5 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWindowsDriverUpdate5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsDriverUpdate5").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWindowsDriverUpdate5 {
     type Vtable = IWindowsDriverUpdate5_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWindowsDriverUpdate5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWindowsDriverUpdate5 {
@@ -9494,6 +8131,7 @@ pub struct IWindowsDriverUpdate5_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowsDriverUpdateEntry(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsDriverUpdateEntry {
@@ -9533,28 +8171,8 @@ impl IWindowsDriverUpdateEntry {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWindowsDriverUpdateEntry, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWindowsDriverUpdateEntry {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWindowsDriverUpdateEntry {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWindowsDriverUpdateEntry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsDriverUpdateEntry").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWindowsDriverUpdateEntry {
     type Vtable = IWindowsDriverUpdateEntry_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWindowsDriverUpdateEntry {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWindowsDriverUpdateEntry {
@@ -9577,6 +8195,7 @@ pub struct IWindowsDriverUpdateEntry_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowsDriverUpdateEntryCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsDriverUpdateEntryCollection {
@@ -9598,28 +8217,8 @@ impl IWindowsDriverUpdateEntryCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWindowsDriverUpdateEntryCollection, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWindowsDriverUpdateEntryCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWindowsDriverUpdateEntryCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWindowsDriverUpdateEntryCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsDriverUpdateEntryCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWindowsDriverUpdateEntryCollection {
     type Vtable = IWindowsDriverUpdateEntryCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWindowsDriverUpdateEntryCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWindowsDriverUpdateEntryCollection {
@@ -9640,6 +8239,7 @@ pub struct IWindowsDriverUpdateEntryCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWindowsUpdateAgentInfo(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsUpdateAgentInfo {
@@ -9653,28 +8253,8 @@ impl IWindowsUpdateAgentInfo {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IWindowsUpdateAgentInfo, ::windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IWindowsUpdateAgentInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IWindowsUpdateAgentInfo {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IWindowsUpdateAgentInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsUpdateAgentInfo").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IWindowsUpdateAgentInfo {
     type Vtable = IWindowsUpdateAgentInfo_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IWindowsUpdateAgentInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IWindowsUpdateAgentInfo {

@@ -3167,6 +3167,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugExtendedProperty(::windows_core::IUnknown);
 impl IDebugExtendedProperty {
     pub unsafe fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> ::windows_core::Result<()> {
@@ -3202,24 +3203,8 @@ impl IDebugExtendedProperty {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugExtendedProperty, ::windows_core::IUnknown, IDebugProperty);
-impl ::core::cmp::PartialEq for IDebugExtendedProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugExtendedProperty {}
-impl ::core::fmt::Debug for IDebugExtendedProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugExtendedProperty").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugExtendedProperty {
     type Vtable = IDebugExtendedProperty_Vtbl;
-}
-impl ::core::clone::Clone for IDebugExtendedProperty {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugExtendedProperty {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51973c52_cb0c_11d0_b5c9_00a0244a0e7a);
@@ -3236,6 +3221,7 @@ pub struct IDebugExtendedProperty_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugProperty(::windows_core::IUnknown);
 impl IDebugProperty {
     pub unsafe fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> ::windows_core::Result<()> {
@@ -3262,24 +3248,8 @@ impl IDebugProperty {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugProperty, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugProperty {}
-impl ::core::fmt::Debug for IDebugProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugProperty").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugProperty {
     type Vtable = IDebugProperty_Vtbl;
-}
-impl ::core::clone::Clone for IDebugProperty {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugProperty {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51973c50_cb0c_11d0_b5c9_00a0244a0e7a);
@@ -3299,6 +3269,7 @@ pub struct IDebugProperty_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugPropertyEnumType_All(::windows_core::IUnknown);
 impl IDebugPropertyEnumType_All {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3307,24 +3278,8 @@ impl IDebugPropertyEnumType_All {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_All, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IDebugPropertyEnumType_All {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugPropertyEnumType_All {}
-impl ::core::fmt::Debug for IDebugPropertyEnumType_All {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugPropertyEnumType_All").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugPropertyEnumType_All {
     type Vtable = IDebugPropertyEnumType_All_Vtbl;
-}
-impl ::core::clone::Clone for IDebugPropertyEnumType_All {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugPropertyEnumType_All {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51973c55_cb0c_11d0_b5c9_00a0244a0e7a);
@@ -3337,6 +3292,7 @@ pub struct IDebugPropertyEnumType_All_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugPropertyEnumType_Arguments(::windows_core::IUnknown);
 impl IDebugPropertyEnumType_Arguments {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3345,24 +3301,8 @@ impl IDebugPropertyEnumType_Arguments {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_Arguments, ::windows_core::IUnknown, IDebugPropertyEnumType_All);
-impl ::core::cmp::PartialEq for IDebugPropertyEnumType_Arguments {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugPropertyEnumType_Arguments {}
-impl ::core::fmt::Debug for IDebugPropertyEnumType_Arguments {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugPropertyEnumType_Arguments").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugPropertyEnumType_Arguments {
     type Vtable = IDebugPropertyEnumType_Arguments_Vtbl;
-}
-impl ::core::clone::Clone for IDebugPropertyEnumType_Arguments {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugPropertyEnumType_Arguments {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51973c57_cb0c_11d0_b5c9_00a0244a0e7a);
@@ -3374,6 +3314,7 @@ pub struct IDebugPropertyEnumType_Arguments_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugPropertyEnumType_Locals(::windows_core::IUnknown);
 impl IDebugPropertyEnumType_Locals {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3382,24 +3323,8 @@ impl IDebugPropertyEnumType_Locals {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_Locals, ::windows_core::IUnknown, IDebugPropertyEnumType_All);
-impl ::core::cmp::PartialEq for IDebugPropertyEnumType_Locals {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugPropertyEnumType_Locals {}
-impl ::core::fmt::Debug for IDebugPropertyEnumType_Locals {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugPropertyEnumType_Locals").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugPropertyEnumType_Locals {
     type Vtable = IDebugPropertyEnumType_Locals_Vtbl;
-}
-impl ::core::clone::Clone for IDebugPropertyEnumType_Locals {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugPropertyEnumType_Locals {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51973c56_cb0c_11d0_b5c9_00a0244a0e7a);
@@ -3411,6 +3336,7 @@ pub struct IDebugPropertyEnumType_Locals_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugPropertyEnumType_LocalsPlusArgs(::windows_core::IUnknown);
 impl IDebugPropertyEnumType_LocalsPlusArgs {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3419,24 +3345,8 @@ impl IDebugPropertyEnumType_LocalsPlusArgs {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_LocalsPlusArgs, ::windows_core::IUnknown, IDebugPropertyEnumType_All);
-impl ::core::cmp::PartialEq for IDebugPropertyEnumType_LocalsPlusArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugPropertyEnumType_LocalsPlusArgs {}
-impl ::core::fmt::Debug for IDebugPropertyEnumType_LocalsPlusArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugPropertyEnumType_LocalsPlusArgs").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugPropertyEnumType_LocalsPlusArgs {
     type Vtable = IDebugPropertyEnumType_LocalsPlusArgs_Vtbl;
-}
-impl ::core::clone::Clone for IDebugPropertyEnumType_LocalsPlusArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugPropertyEnumType_LocalsPlusArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51973c58_cb0c_11d0_b5c9_00a0244a0e7a);
@@ -3448,6 +3358,7 @@ pub struct IDebugPropertyEnumType_LocalsPlusArgs_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDebugPropertyEnumType_Registers(::windows_core::IUnknown);
 impl IDebugPropertyEnumType_Registers {
     pub unsafe fn GetName(&self) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3456,24 +3367,8 @@ impl IDebugPropertyEnumType_Registers {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDebugPropertyEnumType_Registers, ::windows_core::IUnknown, IDebugPropertyEnumType_All);
-impl ::core::cmp::PartialEq for IDebugPropertyEnumType_Registers {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDebugPropertyEnumType_Registers {}
-impl ::core::fmt::Debug for IDebugPropertyEnumType_Registers {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDebugPropertyEnumType_Registers").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDebugPropertyEnumType_Registers {
     type Vtable = IDebugPropertyEnumType_Registers_Vtbl;
-}
-impl ::core::clone::Clone for IDebugPropertyEnumType_Registers {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDebugPropertyEnumType_Registers {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51973c59_cb0c_11d0_b5c9_00a0244a0e7a);
@@ -3485,6 +3380,7 @@ pub struct IDebugPropertyEnumType_Registers_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumDebugExtendedPropertyInfo(::windows_core::IUnknown);
 impl IEnumDebugExtendedPropertyInfo {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -3508,24 +3404,8 @@ impl IEnumDebugExtendedPropertyInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumDebugExtendedPropertyInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumDebugExtendedPropertyInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumDebugExtendedPropertyInfo {}
-impl ::core::fmt::Debug for IEnumDebugExtendedPropertyInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumDebugExtendedPropertyInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumDebugExtendedPropertyInfo {
     type Vtable = IEnumDebugExtendedPropertyInfo_Vtbl;
-}
-impl ::core::clone::Clone for IEnumDebugExtendedPropertyInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumDebugExtendedPropertyInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51973c53_cb0c_11d0_b5c9_00a0244a0e7a);
@@ -3545,6 +3425,7 @@ pub struct IEnumDebugExtendedPropertyInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumDebugPropertyInfo(::windows_core::IUnknown);
 impl IEnumDebugPropertyInfo {
     pub unsafe fn Next(&self, pi: &mut [DebugPropertyInfo], pceltsfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -3566,24 +3447,8 @@ impl IEnumDebugPropertyInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumDebugPropertyInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumDebugPropertyInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumDebugPropertyInfo {}
-impl ::core::fmt::Debug for IEnumDebugPropertyInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumDebugPropertyInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumDebugPropertyInfo {
     type Vtable = IEnumDebugPropertyInfo_Vtbl;
-}
-impl ::core::clone::Clone for IEnumDebugPropertyInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumDebugPropertyInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51973c51_cb0c_11d0_b5c9_00a0244a0e7a);
@@ -3600,6 +3465,7 @@ pub struct IEnumDebugPropertyInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IObjectSafety(::windows_core::IUnknown);
 impl IObjectSafety {
     pub unsafe fn GetInterfaceSafetyOptions(&self, riid: *const ::windows_core::GUID, pdwsupportedoptions: *mut u32, pdwenabledoptions: *mut u32) -> ::windows_core::Result<()> {
@@ -3610,24 +3476,8 @@ impl IObjectSafety {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IObjectSafety, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IObjectSafety {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IObjectSafety {}
-impl ::core::fmt::Debug for IObjectSafety {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IObjectSafety").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IObjectSafety {
     type Vtable = IObjectSafety_Vtbl;
-}
-impl ::core::clone::Clone for IObjectSafety {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IObjectSafety {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcb5bdc81_93c1_11cf_8f20_00805f2cd064);
@@ -3641,6 +3491,7 @@ pub struct IObjectSafety_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPerPropertyBrowsing2(::windows_core::IUnknown);
 impl IPerPropertyBrowsing2 {
     pub unsafe fn GetDisplayString(&self, dispid: i32) -> ::windows_core::Result<::windows_core::BSTR> {
@@ -3661,24 +3512,8 @@ impl IPerPropertyBrowsing2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPerPropertyBrowsing2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IPerPropertyBrowsing2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPerPropertyBrowsing2 {}
-impl ::core::fmt::Debug for IPerPropertyBrowsing2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPerPropertyBrowsing2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPerPropertyBrowsing2 {
     type Vtable = IPerPropertyBrowsing2_Vtbl;
-}
-impl ::core::clone::Clone for IPerPropertyBrowsing2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPerPropertyBrowsing2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51973c54_cb0c_11d0_b5c9_00a0244a0e7a);

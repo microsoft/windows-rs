@@ -967,6 +967,7 @@ pub unsafe fn XLATEOBJ_piVector(pxlo: *mut XLATEOBJ) -> *mut u32 {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICloneViewHelper(::windows_core::IUnknown);
 impl ICloneViewHelper {
     pub unsafe fn GetConnectedIDs<P0>(&self, wszadaptorname: P0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows_core::Result<()>
@@ -997,24 +998,8 @@ impl ICloneViewHelper {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICloneViewHelper, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICloneViewHelper {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICloneViewHelper {}
-impl ::core::fmt::Debug for ICloneViewHelper {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICloneViewHelper").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICloneViewHelper {
     type Vtable = ICloneViewHelper_Vtbl;
-}
-impl ::core::clone::Clone for ICloneViewHelper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICloneViewHelper {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf6a3d4c4_5632_4d83_b0a1_fb88712b1eb7);
@@ -1033,6 +1018,7 @@ pub struct ICloneViewHelper_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IViewHelper(::windows_core::IUnknown);
 impl IViewHelper {
     pub unsafe fn GetConnectedIDs<P0>(&self, wszadaptorname: P0, pulcount: *mut u32, pulid: *mut u32, ulflags: u32) -> ::windows_core::Result<()>
@@ -1070,24 +1056,8 @@ impl IViewHelper {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IViewHelper, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IViewHelper {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IViewHelper {}
-impl ::core::fmt::Debug for IViewHelper {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IViewHelper").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IViewHelper {
     type Vtable = IViewHelper_Vtbl;
-}
-impl ::core::clone::Clone for IViewHelper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IViewHelper {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe85ccef5_aaaa_47f0_b5e3_61f7aecdc4c1);

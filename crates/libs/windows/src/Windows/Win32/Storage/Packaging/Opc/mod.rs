@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcCertificateEnumerator(::windows_core::IUnknown);
 impl IOpcCertificateEnumerator {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -26,24 +27,8 @@ impl IOpcCertificateEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcCertificateEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcCertificateEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcCertificateEnumerator {}
-impl ::core::fmt::Debug for IOpcCertificateEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcCertificateEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcCertificateEnumerator {
     type Vtable = IOpcCertificateEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IOpcCertificateEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcCertificateEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x85131937_8f24_421f_b439_59ab24d140b8);
@@ -68,6 +53,7 @@ pub struct IOpcCertificateEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcCertificateSet(::windows_core::IUnknown);
 impl IOpcCertificateSet {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
@@ -86,24 +72,8 @@ impl IOpcCertificateSet {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcCertificateSet, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcCertificateSet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcCertificateSet {}
-impl ::core::fmt::Debug for IOpcCertificateSet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcCertificateSet").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcCertificateSet {
     type Vtable = IOpcCertificateSet_Vtbl;
-}
-impl ::core::clone::Clone for IOpcCertificateSet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcCertificateSet {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x56ea4325_8e2d_4167_b1a4_e486d24c8fa7);
@@ -124,6 +94,7 @@ pub struct IOpcCertificateSet_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcDigitalSignature(::windows_core::IUnknown);
 impl IOpcDigitalSignature {
     pub unsafe fn GetNamespaces(&self, prefixes: *mut *mut ::windows_core::PWSTR, namespaces: *mut *mut ::windows_core::PWSTR, count: *mut u32) -> ::windows_core::Result<()> {
@@ -187,24 +158,8 @@ impl IOpcDigitalSignature {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcDigitalSignature, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcDigitalSignature {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcDigitalSignature {}
-impl ::core::fmt::Debug for IOpcDigitalSignature {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcDigitalSignature").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcDigitalSignature {
     type Vtable = IOpcDigitalSignature_Vtbl;
-}
-impl ::core::clone::Clone for IOpcDigitalSignature {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcDigitalSignature {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x52ab21dd_1cd0_4949_bc80_0c1232d00cb4);
@@ -234,6 +189,7 @@ pub struct IOpcDigitalSignature_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcDigitalSignatureEnumerator(::windows_core::IUnknown);
 impl IOpcDigitalSignatureEnumerator {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -258,24 +214,8 @@ impl IOpcDigitalSignatureEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcDigitalSignatureEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcDigitalSignatureEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcDigitalSignatureEnumerator {}
-impl ::core::fmt::Debug for IOpcDigitalSignatureEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcDigitalSignatureEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcDigitalSignatureEnumerator {
     type Vtable = IOpcDigitalSignatureEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IOpcDigitalSignatureEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcDigitalSignatureEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x967b6882_0ba3_4358_b9e7_b64c75063c5e);
@@ -297,6 +237,7 @@ pub struct IOpcDigitalSignatureEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcDigitalSignatureManager(::windows_core::IUnknown);
 impl IOpcDigitalSignatureManager {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -358,24 +299,8 @@ impl IOpcDigitalSignatureManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcDigitalSignatureManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcDigitalSignatureManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcDigitalSignatureManager {}
-impl ::core::fmt::Debug for IOpcDigitalSignatureManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcDigitalSignatureManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcDigitalSignatureManager {
     type Vtable = IOpcDigitalSignatureManager_Vtbl;
-}
-impl ::core::clone::Clone for IOpcDigitalSignatureManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcDigitalSignatureManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd5e62a0b_696d_462f_94df_72e33cef2659);
@@ -413,6 +338,7 @@ pub struct IOpcDigitalSignatureManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcFactory(::windows_core::IUnknown);
 impl IOpcFactory {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -470,24 +396,8 @@ impl IOpcFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcFactory {}
-impl ::core::fmt::Debug for IOpcFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcFactory {
     type Vtable = IOpcFactory_Vtbl;
-}
-impl ::core::clone::Clone for IOpcFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6d0b4446_cd73_4ab3_94f4_8ccdf6116154);
@@ -521,6 +431,7 @@ pub struct IOpcFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcPackage(::windows_core::IUnknown);
 impl IOpcPackage {
     pub unsafe fn GetPartSet(&self) -> ::windows_core::Result<IOpcPartSet> {
@@ -533,24 +444,8 @@ impl IOpcPackage {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcPackage, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcPackage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcPackage {}
-impl ::core::fmt::Debug for IOpcPackage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcPackage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcPackage {
     type Vtable = IOpcPackage_Vtbl;
-}
-impl ::core::clone::Clone for IOpcPackage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcPackage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee70);
@@ -564,6 +459,7 @@ pub struct IOpcPackage_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcPart(::windows_core::IUnknown);
 impl IOpcPart {
     pub unsafe fn GetRelationshipSet(&self) -> ::windows_core::Result<IOpcRelationshipSet> {
@@ -592,24 +488,8 @@ impl IOpcPart {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcPart, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcPart {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcPart {}
-impl ::core::fmt::Debug for IOpcPart {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcPart").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcPart {
     type Vtable = IOpcPart_Vtbl;
-}
-impl ::core::clone::Clone for IOpcPart {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcPart {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee71);
@@ -632,6 +512,7 @@ pub struct IOpcPart_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcPartEnumerator(::windows_core::IUnknown);
 impl IOpcPartEnumerator {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -656,24 +537,8 @@ impl IOpcPartEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcPartEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcPartEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcPartEnumerator {}
-impl ::core::fmt::Debug for IOpcPartEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcPartEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcPartEnumerator {
     type Vtable = IOpcPartEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IOpcPartEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcPartEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee75);
@@ -695,6 +560,7 @@ pub struct IOpcPartEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcPartSet(::windows_core::IUnknown);
 impl IOpcPartSet {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -739,24 +605,8 @@ impl IOpcPartSet {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcPartSet, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcPartSet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcPartSet {}
-impl ::core::fmt::Debug for IOpcPartSet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcPartSet").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcPartSet {
     type Vtable = IOpcPartSet_Vtbl;
-}
-impl ::core::clone::Clone for IOpcPartSet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcPartSet {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee73);
@@ -786,6 +636,7 @@ pub struct IOpcPartSet_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcPartUri(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcPartUri {
@@ -988,28 +839,8 @@ impl IOpcPartUri {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IOpcPartUri, ::windows_core::IUnknown, super::super::super::System::Com::IUri, IOpcUri);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IOpcPartUri {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IOpcPartUri {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IOpcPartUri {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcPartUri").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IOpcPartUri {
     type Vtable = IOpcPartUri_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IOpcPartUri {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IOpcPartUri {
@@ -1035,6 +866,7 @@ pub struct IOpcPartUri_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcRelationship(::windows_core::IUnknown);
 impl IOpcRelationship {
     pub unsafe fn GetId(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -1063,24 +895,8 @@ impl IOpcRelationship {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcRelationship, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcRelationship {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcRelationship {}
-impl ::core::fmt::Debug for IOpcRelationship {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcRelationship").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcRelationship {
     type Vtable = IOpcRelationship_Vtbl;
-}
-impl ::core::clone::Clone for IOpcRelationship {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcRelationship {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee72);
@@ -1103,6 +919,7 @@ pub struct IOpcRelationship_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcRelationshipEnumerator(::windows_core::IUnknown);
 impl IOpcRelationshipEnumerator {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1127,24 +944,8 @@ impl IOpcRelationshipEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcRelationshipEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcRelationshipEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcRelationshipEnumerator {}
-impl ::core::fmt::Debug for IOpcRelationshipEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcRelationshipEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcRelationshipEnumerator {
     type Vtable = IOpcRelationshipEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IOpcRelationshipEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcRelationshipEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee76);
@@ -1166,6 +967,7 @@ pub struct IOpcRelationshipEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcRelationshipSelector(::windows_core::IUnknown);
 impl IOpcRelationshipSelector {
     pub unsafe fn GetSelectorType(&self) -> ::windows_core::Result<OPC_RELATIONSHIP_SELECTOR> {
@@ -1178,24 +980,8 @@ impl IOpcRelationshipSelector {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcRelationshipSelector, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcRelationshipSelector {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcRelationshipSelector {}
-impl ::core::fmt::Debug for IOpcRelationshipSelector {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcRelationshipSelector").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcRelationshipSelector {
     type Vtable = IOpcRelationshipSelector_Vtbl;
-}
-impl ::core::clone::Clone for IOpcRelationshipSelector {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcRelationshipSelector {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf8f26c7f_b28f_4899_84c8_5d5639ede75f);
@@ -1209,6 +995,7 @@ pub struct IOpcRelationshipSelector_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcRelationshipSelectorEnumerator(::windows_core::IUnknown);
 impl IOpcRelationshipSelectorEnumerator {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1233,24 +1020,8 @@ impl IOpcRelationshipSelectorEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcRelationshipSelectorEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcRelationshipSelectorEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcRelationshipSelectorEnumerator {}
-impl ::core::fmt::Debug for IOpcRelationshipSelectorEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcRelationshipSelectorEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcRelationshipSelectorEnumerator {
     type Vtable = IOpcRelationshipSelectorEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IOpcRelationshipSelectorEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcRelationshipSelectorEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5e50a181_a91b_48ac_88d2_bca3d8f8c0b1);
@@ -1272,6 +1043,7 @@ pub struct IOpcRelationshipSelectorEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcRelationshipSelectorSet(::windows_core::IUnknown);
 impl IOpcRelationshipSelectorSet {
     pub unsafe fn Create<P0>(&self, selector: OPC_RELATIONSHIP_SELECTOR, selectioncriterion: P0) -> ::windows_core::Result<IOpcRelationshipSelector>
@@ -1293,24 +1065,8 @@ impl IOpcRelationshipSelectorSet {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcRelationshipSelectorSet, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcRelationshipSelectorSet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcRelationshipSelectorSet {}
-impl ::core::fmt::Debug for IOpcRelationshipSelectorSet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcRelationshipSelectorSet").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcRelationshipSelectorSet {
     type Vtable = IOpcRelationshipSelectorSet_Vtbl;
-}
-impl ::core::clone::Clone for IOpcRelationshipSelectorSet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcRelationshipSelectorSet {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e34c269_a4d3_47c0_b5c4_87ff2b3b6136);
@@ -1325,6 +1081,7 @@ pub struct IOpcRelationshipSelectorSet_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcRelationshipSet(::windows_core::IUnknown);
 impl IOpcRelationshipSet {
     pub unsafe fn GetRelationship<P0>(&self, relationshipidentifier: P0) -> ::windows_core::Result<IOpcRelationship>
@@ -1379,24 +1136,8 @@ impl IOpcRelationshipSet {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcRelationshipSet, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcRelationshipSet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcRelationshipSet {}
-impl ::core::fmt::Debug for IOpcRelationshipSet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcRelationshipSet").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcRelationshipSet {
     type Vtable = IOpcRelationshipSet_Vtbl;
-}
-impl ::core::clone::Clone for IOpcRelationshipSet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcRelationshipSet {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x42195949_3b79_4fc8_89c6_fc7fb979ee74);
@@ -1424,6 +1165,7 @@ pub struct IOpcRelationshipSet_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcSignatureCustomObject(::windows_core::IUnknown);
 impl IOpcSignatureCustomObject {
     pub unsafe fn GetXml(&self, xmlmarkup: *mut *mut u8, count: *mut u32) -> ::windows_core::Result<()> {
@@ -1431,24 +1173,8 @@ impl IOpcSignatureCustomObject {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcSignatureCustomObject, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcSignatureCustomObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcSignatureCustomObject {}
-impl ::core::fmt::Debug for IOpcSignatureCustomObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcSignatureCustomObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcSignatureCustomObject {
     type Vtable = IOpcSignatureCustomObject_Vtbl;
-}
-impl ::core::clone::Clone for IOpcSignatureCustomObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcSignatureCustomObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5d77a19e_62c1_44e7_becd_45da5ae51a56);
@@ -1461,6 +1187,7 @@ pub struct IOpcSignatureCustomObject_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcSignatureCustomObjectEnumerator(::windows_core::IUnknown);
 impl IOpcSignatureCustomObjectEnumerator {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1485,24 +1212,8 @@ impl IOpcSignatureCustomObjectEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcSignatureCustomObjectEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcSignatureCustomObjectEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcSignatureCustomObjectEnumerator {}
-impl ::core::fmt::Debug for IOpcSignatureCustomObjectEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcSignatureCustomObjectEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcSignatureCustomObjectEnumerator {
     type Vtable = IOpcSignatureCustomObjectEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IOpcSignatureCustomObjectEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcSignatureCustomObjectEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5ee4fe1d_e1b0_4683_8079_7ea0fcf80b4c);
@@ -1524,6 +1235,7 @@ pub struct IOpcSignatureCustomObjectEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcSignatureCustomObjectSet(::windows_core::IUnknown);
 impl IOpcSignatureCustomObjectSet {
     pub unsafe fn Create(&self, xmlmarkup: &[u8]) -> ::windows_core::Result<IOpcSignatureCustomObject> {
@@ -1542,24 +1254,8 @@ impl IOpcSignatureCustomObjectSet {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcSignatureCustomObjectSet, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcSignatureCustomObjectSet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcSignatureCustomObjectSet {}
-impl ::core::fmt::Debug for IOpcSignatureCustomObjectSet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcSignatureCustomObjectSet").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcSignatureCustomObjectSet {
     type Vtable = IOpcSignatureCustomObjectSet_Vtbl;
-}
-impl ::core::clone::Clone for IOpcSignatureCustomObjectSet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcSignatureCustomObjectSet {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f792ac5_7947_4e11_bc3d_2659ff046ae1);
@@ -1574,6 +1270,7 @@ pub struct IOpcSignatureCustomObjectSet_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcSignaturePartReference(::windows_core::IUnknown);
 impl IOpcSignaturePartReference {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1599,24 +1296,8 @@ impl IOpcSignaturePartReference {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcSignaturePartReference, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcSignaturePartReference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcSignaturePartReference {}
-impl ::core::fmt::Debug for IOpcSignaturePartReference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcSignaturePartReference").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcSignaturePartReference {
     type Vtable = IOpcSignaturePartReference_Vtbl;
-}
-impl ::core::clone::Clone for IOpcSignaturePartReference {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcSignaturePartReference {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe24231ca_59f4_484e_b64b_36eeda36072c);
@@ -1636,6 +1317,7 @@ pub struct IOpcSignaturePartReference_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcSignaturePartReferenceEnumerator(::windows_core::IUnknown);
 impl IOpcSignaturePartReferenceEnumerator {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1660,24 +1342,8 @@ impl IOpcSignaturePartReferenceEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcSignaturePartReferenceEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcSignaturePartReferenceEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcSignaturePartReferenceEnumerator {}
-impl ::core::fmt::Debug for IOpcSignaturePartReferenceEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcSignaturePartReferenceEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcSignaturePartReferenceEnumerator {
     type Vtable = IOpcSignaturePartReferenceEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IOpcSignaturePartReferenceEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcSignaturePartReferenceEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x80eb1561_8c77_49cf_8266_459b356ee99a);
@@ -1699,6 +1365,7 @@ pub struct IOpcSignaturePartReferenceEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcSignaturePartReferenceSet(::windows_core::IUnknown);
 impl IOpcSignaturePartReferenceSet {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1723,24 +1390,8 @@ impl IOpcSignaturePartReferenceSet {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcSignaturePartReferenceSet, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcSignaturePartReferenceSet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcSignaturePartReferenceSet {}
-impl ::core::fmt::Debug for IOpcSignaturePartReferenceSet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcSignaturePartReferenceSet").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcSignaturePartReferenceSet {
     type Vtable = IOpcSignaturePartReferenceSet_Vtbl;
-}
-impl ::core::clone::Clone for IOpcSignaturePartReferenceSet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcSignaturePartReferenceSet {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6c9fe28c_ecd9_4b22_9d36_7fdde670fec0);
@@ -1758,6 +1409,7 @@ pub struct IOpcSignaturePartReferenceSet_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcSignatureReference(::windows_core::IUnknown);
 impl IOpcSignatureReference {
     pub unsafe fn GetId(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -1787,24 +1439,8 @@ impl IOpcSignatureReference {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcSignatureReference, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcSignatureReference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcSignatureReference {}
-impl ::core::fmt::Debug for IOpcSignatureReference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcSignatureReference").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcSignatureReference {
     type Vtable = IOpcSignatureReference_Vtbl;
-}
-impl ::core::clone::Clone for IOpcSignatureReference {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcSignatureReference {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b47005e_3011_4edc_be6f_0f65e5ab0342);
@@ -1825,6 +1461,7 @@ pub struct IOpcSignatureReference_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcSignatureReferenceEnumerator(::windows_core::IUnknown);
 impl IOpcSignatureReferenceEnumerator {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1849,24 +1486,8 @@ impl IOpcSignatureReferenceEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcSignatureReferenceEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcSignatureReferenceEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcSignatureReferenceEnumerator {}
-impl ::core::fmt::Debug for IOpcSignatureReferenceEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcSignatureReferenceEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcSignatureReferenceEnumerator {
     type Vtable = IOpcSignatureReferenceEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IOpcSignatureReferenceEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcSignatureReferenceEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcfa59a45_28b1_4868_969e_fa8097fdc12a);
@@ -1888,6 +1509,7 @@ pub struct IOpcSignatureReferenceEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcSignatureReferenceSet(::windows_core::IUnknown);
 impl IOpcSignatureReferenceSet {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1914,24 +1536,8 @@ impl IOpcSignatureReferenceSet {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcSignatureReferenceSet, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcSignatureReferenceSet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcSignatureReferenceSet {}
-impl ::core::fmt::Debug for IOpcSignatureReferenceSet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcSignatureReferenceSet").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcSignatureReferenceSet {
     type Vtable = IOpcSignatureReferenceSet_Vtbl;
-}
-impl ::core::clone::Clone for IOpcSignatureReferenceSet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcSignatureReferenceSet {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf3b02d31_ab12_42dd_9e2f_2b16761c3c1e);
@@ -1949,6 +1555,7 @@ pub struct IOpcSignatureReferenceSet_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcSignatureRelationshipReference(::windows_core::IUnknown);
 impl IOpcSignatureRelationshipReference {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -1978,24 +1585,8 @@ impl IOpcSignatureRelationshipReference {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcSignatureRelationshipReference, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcSignatureRelationshipReference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcSignatureRelationshipReference {}
-impl ::core::fmt::Debug for IOpcSignatureRelationshipReference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcSignatureRelationshipReference").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcSignatureRelationshipReference {
     type Vtable = IOpcSignatureRelationshipReference_Vtbl;
-}
-impl ::core::clone::Clone for IOpcSignatureRelationshipReference {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcSignatureRelationshipReference {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x57babac6_9d4a_4e50_8b86_e5d4051eae7c);
@@ -2016,6 +1607,7 @@ pub struct IOpcSignatureRelationshipReference_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcSignatureRelationshipReferenceEnumerator(::windows_core::IUnknown);
 impl IOpcSignatureRelationshipReferenceEnumerator {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2040,24 +1632,8 @@ impl IOpcSignatureRelationshipReferenceEnumerator {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcSignatureRelationshipReferenceEnumerator, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcSignatureRelationshipReferenceEnumerator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcSignatureRelationshipReferenceEnumerator {}
-impl ::core::fmt::Debug for IOpcSignatureRelationshipReferenceEnumerator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcSignatureRelationshipReferenceEnumerator").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcSignatureRelationshipReferenceEnumerator {
     type Vtable = IOpcSignatureRelationshipReferenceEnumerator_Vtbl;
-}
-impl ::core::clone::Clone for IOpcSignatureRelationshipReferenceEnumerator {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcSignatureRelationshipReferenceEnumerator {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x773ba3e4_f021_48e4_aa04_9816db5d3495);
@@ -2079,6 +1655,7 @@ pub struct IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcSignatureRelationshipReferenceSet(::windows_core::IUnknown);
 impl IOpcSignatureRelationshipReferenceSet {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -2108,24 +1685,8 @@ impl IOpcSignatureRelationshipReferenceSet {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcSignatureRelationshipReferenceSet, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcSignatureRelationshipReferenceSet {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcSignatureRelationshipReferenceSet {}
-impl ::core::fmt::Debug for IOpcSignatureRelationshipReferenceSet {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcSignatureRelationshipReferenceSet").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcSignatureRelationshipReferenceSet {
     type Vtable = IOpcSignatureRelationshipReferenceSet_Vtbl;
-}
-impl ::core::clone::Clone for IOpcSignatureRelationshipReferenceSet {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcSignatureRelationshipReferenceSet {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f863ca5_3631_404c_828d_807e0715069b);
@@ -2144,6 +1705,7 @@ pub struct IOpcSignatureRelationshipReferenceSet_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcSigningOptions(::windows_core::IUnknown);
 impl IOpcSigningOptions {
     pub unsafe fn GetSignatureId(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -2226,24 +1788,8 @@ impl IOpcSigningOptions {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOpcSigningOptions, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOpcSigningOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOpcSigningOptions {}
-impl ::core::fmt::Debug for IOpcSigningOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcSigningOptions").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOpcSigningOptions {
     type Vtable = IOpcSigningOptions_Vtbl;
-}
-impl ::core::clone::Clone for IOpcSigningOptions {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOpcSigningOptions {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x50d2d6a5_7aeb_46c0_b241_43ab0e9b407e);
@@ -2279,6 +1825,7 @@ pub struct IOpcSigningOptions_Vtbl {
 #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOpcUri(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IOpcUri {
@@ -2460,28 +2007,8 @@ impl IOpcUri {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IOpcUri, ::windows_core::IUnknown, super::super::super::System::Com::IUri);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IOpcUri {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IOpcUri {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IOpcUri {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOpcUri").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IOpcUri {
     type Vtable = IOpcUri_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IOpcUri {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IOpcUri {

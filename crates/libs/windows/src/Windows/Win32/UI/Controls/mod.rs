@@ -2106,6 +2106,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IImageList(::windows_core::IUnknown);
 impl IImageList {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -2271,24 +2272,8 @@ impl IImageList {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IImageList, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IImageList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IImageList {}
-impl ::core::fmt::Debug for IImageList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IImageList").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IImageList {
     type Vtable = IImageList_Vtbl;
-}
-impl ::core::clone::Clone for IImageList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IImageList {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x46eb5926_582e_4017_9fdf_e8998daa0950);
@@ -2371,6 +2356,7 @@ pub struct IImageList_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IImageList2(::windows_core::IUnknown);
 impl IImageList2 {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -2588,24 +2574,8 @@ impl IImageList2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IImageList2, ::windows_core::IUnknown, IImageList);
-impl ::core::cmp::PartialEq for IImageList2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IImageList2 {}
-impl ::core::fmt::Debug for IImageList2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IImageList2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IImageList2 {
     type Vtable = IImageList2_Vtbl;
-}
-impl ::core::clone::Clone for IImageList2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IImageList2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x192b9d83_50fc_457b_90a0_2b82a8b5dae1);

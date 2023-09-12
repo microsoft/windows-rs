@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdvertisingManagerForUser(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdvertisingManagerForUser {
     type Vtable = IAdvertisingManagerForUser_Vtbl;
-}
-impl ::core::clone::Clone for IAdvertisingManagerForUser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdvertisingManagerForUser {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x928bf3d0_cf7c_4ab0_a7dc_6dc5bcd44252);
@@ -21,14 +17,10 @@ pub struct IAdvertisingManagerForUser_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdvertisingManagerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdvertisingManagerStatics {
     type Vtable = IAdvertisingManagerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IAdvertisingManagerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdvertisingManagerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xadd3468c_a273_48cb_b346_3544522d5581);
@@ -41,14 +33,10 @@ pub struct IAdvertisingManagerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAdvertisingManagerStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAdvertisingManagerStatics2 {
     type Vtable = IAdvertisingManagerStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IAdvertisingManagerStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAdvertisingManagerStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdd0947af_1a6d_46b0_95bc_f3f9d6beb9fb);
@@ -61,14 +49,10 @@ pub struct IAdvertisingManagerStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAssignedAccessSettings(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAssignedAccessSettings {
     type Vtable = IAssignedAccessSettings_Vtbl;
-}
-impl ::core::clone::Clone for IAssignedAccessSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAssignedAccessSettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1bc57f1c_e971_5757_b8e0_512f8b8c46d2);
@@ -83,14 +67,10 @@ pub struct IAssignedAccessSettings_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAssignedAccessSettingsStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IAssignedAccessSettingsStatics {
     type Vtable = IAssignedAccessSettingsStatics_Vtbl;
-}
-impl ::core::clone::Clone for IAssignedAccessSettingsStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAssignedAccessSettingsStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x34a81d0d_8a29_5ef3_a7be_618e6ac3bd01);
@@ -104,14 +84,10 @@ pub struct IAssignedAccessSettingsStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDiagnosticsSettings(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDiagnosticsSettings {
     type Vtable = IDiagnosticsSettings_Vtbl;
-}
-impl ::core::clone::Clone for IDiagnosticsSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDiagnosticsSettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe5e9eccd_2711_44e0_973c_491d78048d24);
@@ -125,14 +101,10 @@ pub struct IDiagnosticsSettings_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDiagnosticsSettingsStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDiagnosticsSettingsStatics {
     type Vtable = IDiagnosticsSettingsStatics_Vtbl;
-}
-impl ::core::clone::Clone for IDiagnosticsSettingsStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDiagnosticsSettingsStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x72d2e80f_5390_4793_990b_3ccc7d6ac9c8);
@@ -146,14 +118,10 @@ pub struct IDiagnosticsSettingsStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFirstSignInSettings(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IFirstSignInSettings {
     type Vtable = IFirstSignInSettings_Vtbl;
-}
-impl ::core::clone::Clone for IFirstSignInSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFirstSignInSettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3e945153_3a5e_452e_a601_f5baad2a4870);
@@ -165,14 +133,10 @@ pub struct IFirstSignInSettings_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IFirstSignInSettingsStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IFirstSignInSettingsStatics {
     type Vtable = IFirstSignInSettingsStatics_Vtbl;
-}
-impl ::core::clone::Clone for IFirstSignInSettingsStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IFirstSignInSettingsStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1ce18f0f_1c41_4ea0_b7a2_6f0c1c7e8438);
@@ -185,14 +149,10 @@ pub struct IFirstSignInSettingsStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGlobalizationPreferencesForUser(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGlobalizationPreferencesForUser {
     type Vtable = IGlobalizationPreferencesForUser_Vtbl;
-}
-impl ::core::clone::Clone for IGlobalizationPreferencesForUser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGlobalizationPreferencesForUser {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x150f0795_4f6e_40ba_a010_e27d81bda7f5);
@@ -226,14 +186,10 @@ pub struct IGlobalizationPreferencesForUser_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGlobalizationPreferencesStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGlobalizationPreferencesStatics {
     type Vtable = IGlobalizationPreferencesStatics_Vtbl;
-}
-impl ::core::clone::Clone for IGlobalizationPreferencesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGlobalizationPreferencesStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x01bf4326_ed37_4e96_b0e9_c1340d1ea158);
@@ -266,14 +222,10 @@ pub struct IGlobalizationPreferencesStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGlobalizationPreferencesStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGlobalizationPreferencesStatics2 {
     type Vtable = IGlobalizationPreferencesStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IGlobalizationPreferencesStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGlobalizationPreferencesStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfcce85f1_4300_4cd0_9cac_1a8e7b7e18f4);
@@ -290,14 +242,10 @@ pub struct IGlobalizationPreferencesStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGlobalizationPreferencesStatics3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGlobalizationPreferencesStatics3 {
     type Vtable = IGlobalizationPreferencesStatics3_Vtbl;
-}
-impl ::core::clone::Clone for IGlobalizationPreferencesStatics3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGlobalizationPreferencesStatics3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1e059733_35f5_40d8_b9e8_aef3ef856fce);
@@ -310,14 +258,10 @@ pub struct IGlobalizationPreferencesStatics3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILockScreenImageFeedStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILockScreenImageFeedStatics {
     type Vtable = ILockScreenImageFeedStatics_Vtbl;
-}
-impl ::core::clone::Clone for ILockScreenImageFeedStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILockScreenImageFeedStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c0d73f6_03a9_41a6_9b01_495251ff51d5);
@@ -334,14 +278,10 @@ pub struct ILockScreenImageFeedStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILockScreenStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILockScreenStatics {
     type Vtable = ILockScreenStatics_Vtbl;
-}
-impl ::core::clone::Clone for ILockScreenStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILockScreenStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3ee9d3ad_b607_40ae_b426_7631d9821269);
@@ -370,16 +310,11 @@ pub struct ILockScreenStatics_Vtbl {
 #[doc(hidden)]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserInformationStatics(::windows_core::IUnknown);
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::Interface for IUserInformationStatics {
     type Vtable = IUserInformationStatics_Vtbl;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for IUserInformationStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows_core::ComInterface for IUserInformationStatics {
@@ -453,14 +388,10 @@ pub struct IUserInformationStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserProfilePersonalizationSettings(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserProfilePersonalizationSettings {
     type Vtable = IUserProfilePersonalizationSettings_Vtbl;
-}
-impl ::core::clone::Clone for IUserProfilePersonalizationSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserProfilePersonalizationSettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8ceddab4_7998_46d5_8dd3_184f1c5f9ab9);
@@ -480,14 +411,10 @@ pub struct IUserProfilePersonalizationSettings_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserProfilePersonalizationSettingsStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IUserProfilePersonalizationSettingsStatics {
     type Vtable = IUserProfilePersonalizationSettingsStatics_Vtbl;
-}
-impl ::core::clone::Clone for IUserProfilePersonalizationSettingsStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserProfilePersonalizationSettingsStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x91acb841_5037_454b_9883_bb772d08dd16);
@@ -533,6 +460,7 @@ impl ::windows_core::RuntimeName for AdvertisingManager {
 }
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AdvertisingManagerForUser(::windows_core::IUnknown);
 impl AdvertisingManagerForUser {
     pub fn AdvertisingId(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -550,24 +478,8 @@ impl AdvertisingManagerForUser {
         }
     }
 }
-impl ::core::cmp::PartialEq for AdvertisingManagerForUser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdvertisingManagerForUser {}
-impl ::core::fmt::Debug for AdvertisingManagerForUser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdvertisingManagerForUser").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AdvertisingManagerForUser {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.AdvertisingManagerForUser;{928bf3d0-cf7c-4ab0-a7dc-6dc5bcd44252})");
-}
-impl ::core::clone::Clone for AdvertisingManagerForUser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AdvertisingManagerForUser {
     type Vtable = IAdvertisingManagerForUser_Vtbl;
@@ -583,6 +495,7 @@ unsafe impl ::core::marker::Send for AdvertisingManagerForUser {}
 unsafe impl ::core::marker::Sync for AdvertisingManagerForUser {}
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct AssignedAccessSettings(::windows_core::IUnknown);
 impl AssignedAccessSettings {
     pub fn IsEnabled(&self) -> ::windows_core::Result<bool> {
@@ -627,24 +540,8 @@ impl AssignedAccessSettings {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for AssignedAccessSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AssignedAccessSettings {}
-impl ::core::fmt::Debug for AssignedAccessSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AssignedAccessSettings").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for AssignedAccessSettings {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.AssignedAccessSettings;{1bc57f1c-e971-5757-b8e0-512f8b8c46d2})");
-}
-impl ::core::clone::Clone for AssignedAccessSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for AssignedAccessSettings {
     type Vtable = IAssignedAccessSettings_Vtbl;
@@ -660,6 +557,7 @@ unsafe impl ::core::marker::Send for AssignedAccessSettings {}
 unsafe impl ::core::marker::Sync for AssignedAccessSettings {}
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DiagnosticsSettings(::windows_core::IUnknown);
 impl DiagnosticsSettings {
     pub fn CanUseDiagnosticsToTailorExperiences(&self) -> ::windows_core::Result<bool> {
@@ -697,24 +595,8 @@ impl DiagnosticsSettings {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for DiagnosticsSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DiagnosticsSettings {}
-impl ::core::fmt::Debug for DiagnosticsSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DiagnosticsSettings").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DiagnosticsSettings {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.DiagnosticsSettings;{e5e9eccd-2711-44e0-973c-491d78048d24})");
-}
-impl ::core::clone::Clone for DiagnosticsSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DiagnosticsSettings {
     type Vtable = IDiagnosticsSettings_Vtbl;
@@ -730,6 +612,7 @@ unsafe impl ::core::marker::Send for DiagnosticsSettings {}
 unsafe impl ::core::marker::Sync for DiagnosticsSettings {}
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct FirstSignInSettings(::windows_core::IUnknown);
 impl FirstSignInSettings {
     pub fn GetDefault() -> ::windows_core::Result<FirstSignInSettings> {
@@ -786,24 +669,8 @@ impl FirstSignInSettings {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for FirstSignInSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FirstSignInSettings {}
-impl ::core::fmt::Debug for FirstSignInSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FirstSignInSettings").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for FirstSignInSettings {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.FirstSignInSettings;{3e945153-3a5e-452e-a601-f5baad2a4870})");
-}
-impl ::core::clone::Clone for FirstSignInSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for FirstSignInSettings {
     type Vtable = IFirstSignInSettings_Vtbl;
@@ -933,6 +800,7 @@ impl ::windows_core::RuntimeName for GlobalizationPreferences {
 }
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GlobalizationPreferencesForUser(::windows_core::IUnknown);
 impl GlobalizationPreferencesForUser {
     pub fn User(&self) -> ::windows_core::Result<super::User> {
@@ -995,24 +863,8 @@ impl GlobalizationPreferencesForUser {
         }
     }
 }
-impl ::core::cmp::PartialEq for GlobalizationPreferencesForUser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GlobalizationPreferencesForUser {}
-impl ::core::fmt::Debug for GlobalizationPreferencesForUser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GlobalizationPreferencesForUser").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for GlobalizationPreferencesForUser {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.GlobalizationPreferencesForUser;{150f0795-4f6e-40ba-a010-e27d81bda7f5})");
-}
-impl ::core::clone::Clone for GlobalizationPreferencesForUser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for GlobalizationPreferencesForUser {
     type Vtable = IGlobalizationPreferencesForUser_Vtbl;
@@ -1252,6 +1104,7 @@ impl ::windows_core::RuntimeName for UserInformation {
 }
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct UserProfilePersonalizationSettings(::windows_core::IUnknown);
 impl UserProfilePersonalizationSettings {
     #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
@@ -1296,24 +1149,8 @@ impl UserProfilePersonalizationSettings {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for UserProfilePersonalizationSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserProfilePersonalizationSettings {}
-impl ::core::fmt::Debug for UserProfilePersonalizationSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserProfilePersonalizationSettings").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for UserProfilePersonalizationSettings {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.UserProfilePersonalizationSettings;{8ceddab4-7998-46d5-8dd3-184f1c5f9ab9})");
-}
-impl ::core::clone::Clone for UserProfilePersonalizationSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for UserProfilePersonalizationSettings {
     type Vtable = IUserProfilePersonalizationSettings_Vtbl;

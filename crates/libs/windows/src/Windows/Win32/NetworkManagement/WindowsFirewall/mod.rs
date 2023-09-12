@@ -69,6 +69,7 @@ where
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDynamicPortMapping(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDynamicPortMapping {
@@ -141,28 +142,8 @@ impl IDynamicPortMapping {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDynamicPortMapping, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDynamicPortMapping {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDynamicPortMapping {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDynamicPortMapping {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDynamicPortMapping").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDynamicPortMapping {
     type Vtable = IDynamicPortMapping_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDynamicPortMapping {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDynamicPortMapping {
@@ -197,6 +178,7 @@ pub struct IDynamicPortMapping_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDynamicPortMappingCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDynamicPortMappingCollection {
@@ -242,28 +224,8 @@ impl IDynamicPortMappingCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IDynamicPortMappingCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IDynamicPortMappingCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IDynamicPortMappingCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IDynamicPortMappingCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDynamicPortMappingCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IDynamicPortMappingCollection {
     type Vtable = IDynamicPortMappingCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IDynamicPortMappingCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IDynamicPortMappingCollection {
@@ -288,6 +250,7 @@ pub struct IDynamicPortMappingCollection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumNetConnection(::windows_core::IUnknown);
 impl IEnumNetConnection {
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<INetConnection>], pceltfetched: *mut u32) -> ::windows_core::Result<()> {
@@ -305,24 +268,8 @@ impl IEnumNetConnection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumNetConnection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumNetConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumNetConnection {}
-impl ::core::fmt::Debug for IEnumNetConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumNetConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumNetConnection {
     type Vtable = IEnumNetConnection_Vtbl;
-}
-impl ::core::clone::Clone for IEnumNetConnection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumNetConnection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08956a0_1cd3_11d1_b1c5_00805fc1270e);
@@ -338,6 +285,7 @@ pub struct IEnumNetConnection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumNetSharingEveryConnection(::windows_core::IUnknown);
 impl IEnumNetSharingEveryConnection {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -357,24 +305,8 @@ impl IEnumNetSharingEveryConnection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumNetSharingEveryConnection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumNetSharingEveryConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumNetSharingEveryConnection {}
-impl ::core::fmt::Debug for IEnumNetSharingEveryConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumNetSharingEveryConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumNetSharingEveryConnection {
     type Vtable = IEnumNetSharingEveryConnection_Vtbl;
-}
-impl ::core::clone::Clone for IEnumNetSharingEveryConnection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumNetSharingEveryConnection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08956b8_1cd3_11d1_b1c5_00805fc1270e);
@@ -393,6 +325,7 @@ pub struct IEnumNetSharingEveryConnection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumNetSharingPortMapping(::windows_core::IUnknown);
 impl IEnumNetSharingPortMapping {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -412,24 +345,8 @@ impl IEnumNetSharingPortMapping {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumNetSharingPortMapping, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumNetSharingPortMapping {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumNetSharingPortMapping {}
-impl ::core::fmt::Debug for IEnumNetSharingPortMapping {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumNetSharingPortMapping").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumNetSharingPortMapping {
     type Vtable = IEnumNetSharingPortMapping_Vtbl;
-}
-impl ::core::clone::Clone for IEnumNetSharingPortMapping {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumNetSharingPortMapping {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08956b0_1cd3_11d1_b1c5_00805fc1270e);
@@ -448,6 +365,7 @@ pub struct IEnumNetSharingPortMapping_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumNetSharingPrivateConnection(::windows_core::IUnknown);
 impl IEnumNetSharingPrivateConnection {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -467,24 +385,8 @@ impl IEnumNetSharingPrivateConnection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumNetSharingPrivateConnection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumNetSharingPrivateConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumNetSharingPrivateConnection {}
-impl ::core::fmt::Debug for IEnumNetSharingPrivateConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumNetSharingPrivateConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumNetSharingPrivateConnection {
     type Vtable = IEnumNetSharingPrivateConnection_Vtbl;
-}
-impl ::core::clone::Clone for IEnumNetSharingPrivateConnection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumNetSharingPrivateConnection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08956b5_1cd3_11d1_b1c5_00805fc1270e);
@@ -503,6 +405,7 @@ pub struct IEnumNetSharingPrivateConnection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumNetSharingPublicConnection(::windows_core::IUnknown);
 impl IEnumNetSharingPublicConnection {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`*"]
@@ -522,24 +425,8 @@ impl IEnumNetSharingPublicConnection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumNetSharingPublicConnection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumNetSharingPublicConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumNetSharingPublicConnection {}
-impl ::core::fmt::Debug for IEnumNetSharingPublicConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumNetSharingPublicConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumNetSharingPublicConnection {
     type Vtable = IEnumNetSharingPublicConnection_Vtbl;
-}
-impl ::core::clone::Clone for IEnumNetSharingPublicConnection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumNetSharingPublicConnection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08956b4_1cd3_11d1_b1c5_00805fc1270e);
@@ -559,6 +446,7 @@ pub struct IEnumNetSharingPublicConnection_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INATEventManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INATEventManager {
@@ -578,28 +466,8 @@ impl INATEventManager {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INATEventManager, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INATEventManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INATEventManager {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INATEventManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INATEventManager").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INATEventManager {
     type Vtable = INATEventManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INATEventManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INATEventManager {
@@ -615,6 +483,7 @@ pub struct INATEventManager_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INATExternalIPAddressCallback(::windows_core::IUnknown);
 impl INATExternalIPAddressCallback {
     pub unsafe fn NewExternalIPAddress<P0>(&self, bstrnewexternalipaddress: P0) -> ::windows_core::Result<()>
@@ -625,24 +494,8 @@ impl INATExternalIPAddressCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INATExternalIPAddressCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INATExternalIPAddressCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INATExternalIPAddressCallback {}
-impl ::core::fmt::Debug for INATExternalIPAddressCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INATExternalIPAddressCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INATExternalIPAddressCallback {
     type Vtable = INATExternalIPAddressCallback_Vtbl;
-}
-impl ::core::clone::Clone for INATExternalIPAddressCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INATExternalIPAddressCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9c416740_a34e_446f_ba06_abd04c3149ae);
@@ -655,6 +508,7 @@ pub struct INATExternalIPAddressCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INATNumberOfEntriesCallback(::windows_core::IUnknown);
 impl INATNumberOfEntriesCallback {
     pub unsafe fn NewNumberOfEntries(&self, lnewnumberofentries: i32) -> ::windows_core::Result<()> {
@@ -662,24 +516,8 @@ impl INATNumberOfEntriesCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INATNumberOfEntriesCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INATNumberOfEntriesCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INATNumberOfEntriesCallback {}
-impl ::core::fmt::Debug for INATNumberOfEntriesCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INATNumberOfEntriesCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INATNumberOfEntriesCallback {
     type Vtable = INATNumberOfEntriesCallback_Vtbl;
-}
-impl ::core::clone::Clone for INATNumberOfEntriesCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INATNumberOfEntriesCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc83a0a74_91ee_41b6_b67a_67e0f00bbd78);
@@ -692,6 +530,7 @@ pub struct INATNumberOfEntriesCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetConnection(::windows_core::IUnknown);
 impl INetConnection {
     pub unsafe fn Connect(&self) -> ::windows_core::Result<()> {
@@ -726,24 +565,8 @@ impl INetConnection {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetConnection, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetConnection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetConnection {}
-impl ::core::fmt::Debug for INetConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetConnection").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetConnection {
     type Vtable = INetConnection_Vtbl;
-}
-impl ::core::clone::Clone for INetConnection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetConnection {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08956a1_1cd3_11d1_b1c5_00805fc1270e);
@@ -762,6 +585,7 @@ pub struct INetConnection_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetConnectionConnectUi(::windows_core::IUnknown);
 impl INetConnectionConnectUi {
     pub unsafe fn SetConnection<P0>(&self, pcon: P0) -> ::windows_core::Result<()>
@@ -788,24 +612,8 @@ impl INetConnectionConnectUi {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetConnectionConnectUi, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetConnectionConnectUi {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetConnectionConnectUi {}
-impl ::core::fmt::Debug for INetConnectionConnectUi {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetConnectionConnectUi").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetConnectionConnectUi {
     type Vtable = INetConnectionConnectUi_Vtbl;
-}
-impl ::core::clone::Clone for INetConnectionConnectUi {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetConnectionConnectUi {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08956a3_1cd3_11d1_b1c5_00805fc1270e);
@@ -826,6 +634,7 @@ pub struct INetConnectionConnectUi_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetConnectionManager(::windows_core::IUnknown);
 impl INetConnectionManager {
     pub unsafe fn EnumConnections(&self, flags: NETCONMGR_ENUM_FLAGS) -> ::windows_core::Result<IEnumNetConnection> {
@@ -834,24 +643,8 @@ impl INetConnectionManager {
     }
 }
 ::windows_core::imp::interface_hierarchy!(INetConnectionManager, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for INetConnectionManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for INetConnectionManager {}
-impl ::core::fmt::Debug for INetConnectionManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetConnectionManager").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for INetConnectionManager {
     type Vtable = INetConnectionManager_Vtbl;
-}
-impl ::core::clone::Clone for INetConnectionManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INetConnectionManager {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc08956a2_1cd3_11d1_b1c5_00805fc1270e);
@@ -865,6 +658,7 @@ pub struct INetConnectionManager_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetConnectionProps(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetConnectionProps {
@@ -896,28 +690,8 @@ impl INetConnectionProps {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetConnectionProps, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetConnectionProps {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetConnectionProps {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetConnectionProps {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetConnectionProps").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetConnectionProps {
     type Vtable = INetConnectionProps_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetConnectionProps {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetConnectionProps {
@@ -938,6 +712,7 @@ pub struct INetConnectionProps_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetFwAuthorizedApplication(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwAuthorizedApplication {
@@ -1003,28 +778,8 @@ impl INetFwAuthorizedApplication {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetFwAuthorizedApplication, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetFwAuthorizedApplication {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetFwAuthorizedApplication {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetFwAuthorizedApplication {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetFwAuthorizedApplication").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetFwAuthorizedApplication {
     type Vtable = INetFwAuthorizedApplication_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetFwAuthorizedApplication {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetFwAuthorizedApplication {
@@ -1057,6 +812,7 @@ pub struct INetFwAuthorizedApplication_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetFwAuthorizedApplications(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwAuthorizedApplications {
@@ -1095,28 +851,8 @@ impl INetFwAuthorizedApplications {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetFwAuthorizedApplications, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetFwAuthorizedApplications {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetFwAuthorizedApplications {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetFwAuthorizedApplications {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetFwAuthorizedApplications").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetFwAuthorizedApplications {
     type Vtable = INetFwAuthorizedApplications_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetFwAuthorizedApplications {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetFwAuthorizedApplications {
@@ -1142,6 +878,7 @@ pub struct INetFwAuthorizedApplications_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetFwIcmpSettings(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwIcmpSettings {
@@ -1289,28 +1026,8 @@ impl INetFwIcmpSettings {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetFwIcmpSettings, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetFwIcmpSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetFwIcmpSettings {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetFwIcmpSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetFwIcmpSettings").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetFwIcmpSettings {
     type Vtable = INetFwIcmpSettings_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetFwIcmpSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetFwIcmpSettings {
@@ -1405,6 +1122,7 @@ pub struct INetFwIcmpSettings_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetFwMgr(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwMgr {
@@ -1442,28 +1160,8 @@ impl INetFwMgr {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetFwMgr, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetFwMgr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetFwMgr {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetFwMgr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetFwMgr").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetFwMgr {
     type Vtable = INetFwMgr_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetFwMgr {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetFwMgr {
@@ -1492,6 +1190,7 @@ pub struct INetFwMgr_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetFwOpenPort(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwOpenPort {
@@ -1567,28 +1266,8 @@ impl INetFwOpenPort {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetFwOpenPort, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetFwOpenPort {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetFwOpenPort {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetFwOpenPort {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetFwOpenPort").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetFwOpenPort {
     type Vtable = INetFwOpenPort_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetFwOpenPort {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetFwOpenPort {
@@ -1627,6 +1306,7 @@ pub struct INetFwOpenPort_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetFwOpenPorts(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwOpenPorts {
@@ -1659,28 +1339,8 @@ impl INetFwOpenPorts {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetFwOpenPorts, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetFwOpenPorts {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetFwOpenPorts {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetFwOpenPorts {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetFwOpenPorts").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetFwOpenPorts {
     type Vtable = INetFwOpenPorts_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetFwOpenPorts {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetFwOpenPorts {
@@ -1706,6 +1366,7 @@ pub struct INetFwOpenPorts_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetFwPolicy(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwPolicy {
@@ -1725,28 +1386,8 @@ impl INetFwPolicy {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetFwPolicy, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetFwPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetFwPolicy {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetFwPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetFwPolicy").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetFwPolicy {
     type Vtable = INetFwPolicy_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetFwPolicy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetFwPolicy {
@@ -1769,6 +1410,7 @@ pub struct INetFwPolicy_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetFwPolicy2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwPolicy2 {
@@ -1907,28 +1549,8 @@ impl INetFwPolicy2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetFwPolicy2, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetFwPolicy2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetFwPolicy2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetFwPolicy2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetFwPolicy2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetFwPolicy2 {
     type Vtable = INetFwPolicy2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetFwPolicy2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetFwPolicy2 {
@@ -2010,6 +1632,7 @@ pub struct INetFwPolicy2_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetFwProduct(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwProduct {
@@ -2042,28 +1665,8 @@ impl INetFwProduct {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetFwProduct, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetFwProduct {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetFwProduct {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetFwProduct {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetFwProduct").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetFwProduct {
     type Vtable = INetFwProduct_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetFwProduct {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetFwProduct {
@@ -2089,6 +1692,7 @@ pub struct INetFwProduct_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetFwProducts(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwProducts {
@@ -2119,28 +1723,8 @@ impl INetFwProducts {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetFwProducts, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetFwProducts {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetFwProducts {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetFwProducts {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetFwProducts").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetFwProducts {
     type Vtable = INetFwProducts_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetFwProducts {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetFwProducts {
@@ -2165,6 +1749,7 @@ pub struct INetFwProducts_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetFwProfile(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwProfile {
@@ -2262,28 +1847,8 @@ impl INetFwProfile {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetFwProfile, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetFwProfile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetFwProfile {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetFwProfile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetFwProfile").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetFwProfile {
     type Vtable = INetFwProfile_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetFwProfile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetFwProfile {
@@ -2351,6 +1916,7 @@ pub struct INetFwProfile_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetFwRemoteAdminSettings(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwRemoteAdminSettings {
@@ -2396,28 +1962,8 @@ impl INetFwRemoteAdminSettings {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetFwRemoteAdminSettings, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetFwRemoteAdminSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetFwRemoteAdminSettings {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetFwRemoteAdminSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetFwRemoteAdminSettings").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetFwRemoteAdminSettings {
     type Vtable = INetFwRemoteAdminSettings_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetFwRemoteAdminSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetFwRemoteAdminSettings {
@@ -2446,6 +1992,7 @@ pub struct INetFwRemoteAdminSettings_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetFwRule(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwRule {
@@ -2630,28 +2177,8 @@ impl INetFwRule {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetFwRule, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetFwRule {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetFwRule {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetFwRule {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetFwRule").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetFwRule {
     type Vtable = INetFwRule_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetFwRule {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetFwRule {
@@ -2720,6 +2247,7 @@ pub struct INetFwRule_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetFwRule2(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwRule2 {
@@ -2911,28 +2439,8 @@ impl INetFwRule2 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetFwRule2, ::windows_core::IUnknown, super::super::System::Com::IDispatch, INetFwRule);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetFwRule2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetFwRule2 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetFwRule2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetFwRule2").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetFwRule2 {
     type Vtable = INetFwRule2_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetFwRule2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetFwRule2 {
@@ -2949,6 +2457,7 @@ pub struct INetFwRule2_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetFwRule3(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwRule3 {
@@ -3197,28 +2706,8 @@ impl INetFwRule3 {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetFwRule3, ::windows_core::IUnknown, super::super::System::Com::IDispatch, INetFwRule, INetFwRule2);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetFwRule3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetFwRule3 {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetFwRule3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetFwRule3").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetFwRule3 {
     type Vtable = INetFwRule3_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetFwRule3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetFwRule3 {
@@ -3245,6 +2734,7 @@ pub struct INetFwRule3_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetFwRules(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwRules {
@@ -3283,28 +2773,8 @@ impl INetFwRules {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetFwRules, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetFwRules {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetFwRules {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetFwRules {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetFwRules").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetFwRules {
     type Vtable = INetFwRules_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetFwRules {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetFwRules {
@@ -3330,6 +2800,7 @@ pub struct INetFwRules_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetFwService(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwService {
@@ -3395,28 +2866,8 @@ impl INetFwService {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetFwService, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetFwService {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetFwService {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetFwService {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetFwService").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetFwService {
     type Vtable = INetFwService_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetFwService {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetFwService {
@@ -3455,6 +2906,7 @@ pub struct INetFwService_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetFwServiceRestriction(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwServiceRestriction {
@@ -3489,28 +2941,8 @@ impl INetFwServiceRestriction {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetFwServiceRestriction, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetFwServiceRestriction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetFwServiceRestriction {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetFwServiceRestriction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetFwServiceRestriction").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetFwServiceRestriction {
     type Vtable = INetFwServiceRestriction_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetFwServiceRestriction {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetFwServiceRestriction {
@@ -3537,6 +2969,7 @@ pub struct INetFwServiceRestriction_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetFwServices(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetFwServices {
@@ -3558,28 +2991,8 @@ impl INetFwServices {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetFwServices, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetFwServices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetFwServices {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetFwServices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetFwServices").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetFwServices {
     type Vtable = INetFwServices_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetFwServices {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetFwServices {
@@ -3600,6 +3013,7 @@ pub struct INetFwServices_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetSharingConfiguration(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetSharingConfiguration {
@@ -3659,28 +3073,8 @@ impl INetSharingConfiguration {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetSharingConfiguration, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetSharingConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetSharingConfiguration {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetSharingConfiguration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetSharingConfiguration").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetSharingConfiguration {
     type Vtable = INetSharingConfiguration_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetSharingConfiguration {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetSharingConfiguration {
@@ -3720,6 +3114,7 @@ pub struct INetSharingConfiguration_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetSharingEveryConnectionCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetSharingEveryConnectionCollection {
@@ -3735,28 +3130,8 @@ impl INetSharingEveryConnectionCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetSharingEveryConnectionCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetSharingEveryConnectionCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetSharingEveryConnectionCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetSharingEveryConnectionCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetSharingEveryConnectionCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetSharingEveryConnectionCollection {
     type Vtable = INetSharingEveryConnectionCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetSharingEveryConnectionCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetSharingEveryConnectionCollection {
@@ -3773,6 +3148,7 @@ pub struct INetSharingEveryConnectionCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetSharingManager(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetSharingManager {
@@ -3822,28 +3198,8 @@ impl INetSharingManager {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetSharingManager, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetSharingManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetSharingManager {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetSharingManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetSharingManager").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetSharingManager {
     type Vtable = INetSharingManager_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetSharingManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetSharingManager {
@@ -3882,6 +3238,7 @@ pub struct INetSharingManager_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetSharingPortMapping(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetSharingPortMapping {
@@ -3904,28 +3261,8 @@ impl INetSharingPortMapping {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetSharingPortMapping, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetSharingPortMapping {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetSharingPortMapping {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetSharingPortMapping {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetSharingPortMapping").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetSharingPortMapping {
     type Vtable = INetSharingPortMapping_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetSharingPortMapping {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetSharingPortMapping {
@@ -3947,6 +3284,7 @@ pub struct INetSharingPortMapping_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetSharingPortMappingCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetSharingPortMappingCollection {
@@ -3962,28 +3300,8 @@ impl INetSharingPortMappingCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetSharingPortMappingCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetSharingPortMappingCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetSharingPortMappingCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetSharingPortMappingCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetSharingPortMappingCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetSharingPortMappingCollection {
     type Vtable = INetSharingPortMappingCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetSharingPortMappingCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetSharingPortMappingCollection {
@@ -4000,6 +3318,7 @@ pub struct INetSharingPortMappingCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetSharingPortMappingProps(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetSharingPortMappingProps {
@@ -4041,28 +3360,8 @@ impl INetSharingPortMappingProps {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetSharingPortMappingProps, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetSharingPortMappingProps {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetSharingPortMappingProps {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetSharingPortMappingProps {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetSharingPortMappingProps").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetSharingPortMappingProps {
     type Vtable = INetSharingPortMappingProps_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetSharingPortMappingProps {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetSharingPortMappingProps {
@@ -4088,6 +3387,7 @@ pub struct INetSharingPortMappingProps_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetSharingPrivateConnectionCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetSharingPrivateConnectionCollection {
@@ -4103,28 +3403,8 @@ impl INetSharingPrivateConnectionCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetSharingPrivateConnectionCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetSharingPrivateConnectionCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetSharingPrivateConnectionCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetSharingPrivateConnectionCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetSharingPrivateConnectionCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetSharingPrivateConnectionCollection {
     type Vtable = INetSharingPrivateConnectionCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetSharingPrivateConnectionCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetSharingPrivateConnectionCollection {
@@ -4141,6 +3421,7 @@ pub struct INetSharingPrivateConnectionCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INetSharingPublicConnectionCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetSharingPublicConnectionCollection {
@@ -4156,28 +3437,8 @@ impl INetSharingPublicConnectionCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(INetSharingPublicConnectionCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for INetSharingPublicConnectionCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for INetSharingPublicConnectionCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for INetSharingPublicConnectionCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INetSharingPublicConnectionCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for INetSharingPublicConnectionCollection {
     type Vtable = INetSharingPublicConnectionCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for INetSharingPublicConnectionCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for INetSharingPublicConnectionCollection {
@@ -4194,6 +3455,7 @@ pub struct INetSharingPublicConnectionCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStaticPortMapping(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IStaticPortMapping {
@@ -4254,28 +3516,8 @@ impl IStaticPortMapping {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IStaticPortMapping, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IStaticPortMapping {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IStaticPortMapping {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IStaticPortMapping {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStaticPortMapping").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IStaticPortMapping {
     type Vtable = IStaticPortMapping_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IStaticPortMapping {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IStaticPortMapping {
@@ -4307,6 +3549,7 @@ pub struct IStaticPortMapping_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IStaticPortMappingCollection(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IStaticPortMappingCollection {
@@ -4349,28 +3592,8 @@ impl IStaticPortMappingCollection {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IStaticPortMappingCollection, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IStaticPortMappingCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IStaticPortMappingCollection {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IStaticPortMappingCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStaticPortMappingCollection").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IStaticPortMappingCollection {
     type Vtable = IStaticPortMappingCollection_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IStaticPortMappingCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IStaticPortMappingCollection {
@@ -4396,6 +3619,7 @@ pub struct IStaticPortMappingCollection_Vtbl {
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUPnPNAT(::windows_core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IUPnPNAT {
@@ -4421,28 +3645,8 @@ impl IUPnPNAT {
 #[cfg(feature = "Win32_System_Com")]
 ::windows_core::imp::interface_hierarchy!(IUPnPNAT, ::windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for IUPnPNAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for IUPnPNAT {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for IUPnPNAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUPnPNAT").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::Interface for IUPnPNAT {
     type Vtable = IUPnPNAT_Vtbl;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for IUPnPNAT {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows_core::ComInterface for IUPnPNAT {

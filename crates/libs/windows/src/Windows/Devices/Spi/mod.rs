@@ -2,14 +2,10 @@
 pub mod Provider;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpiBusInfo(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpiBusInfo {
     type Vtable = ISpiBusInfo_Vtbl;
-}
-impl ::core::clone::Clone for ISpiBusInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpiBusInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9929444a_54f2_48c6_b952_9c32fc02c669);
@@ -28,14 +24,10 @@ pub struct ISpiBusInfo_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpiConnectionSettings(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpiConnectionSettings {
     type Vtable = ISpiConnectionSettings_Vtbl;
-}
-impl ::core::clone::Clone for ISpiConnectionSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpiConnectionSettings {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5283a37f_f935_4b9f_a7a7_3a7890afa5ce);
@@ -57,14 +49,10 @@ pub struct ISpiConnectionSettings_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpiConnectionSettingsFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpiConnectionSettingsFactory {
     type Vtable = ISpiConnectionSettingsFactory_Vtbl;
-}
-impl ::core::clone::Clone for ISpiConnectionSettingsFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpiConnectionSettingsFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff99081e_10c4_44b7_9fea_a748b5a46f31);
@@ -77,14 +65,10 @@ pub struct ISpiConnectionSettingsFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpiController(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpiController {
     type Vtable = ISpiController_Vtbl;
-}
-impl ::core::clone::Clone for ISpiController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpiController {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa8d3c829_9895_4159_a934_8741f1ee6d27);
@@ -97,14 +81,10 @@ pub struct ISpiController_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpiControllerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpiControllerStatics {
     type Vtable = ISpiControllerStatics_Vtbl;
-}
-impl ::core::clone::Clone for ISpiControllerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpiControllerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d5229e2_138b_4e48_b964_4f2f79b9c5a2);
@@ -124,14 +104,10 @@ pub struct ISpiControllerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpiDevice(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ISpiDevice {
     type Vtable = ISpiDevice_Vtbl;
-}
-impl ::core::clone::Clone for ISpiDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpiDevice {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x05d5356d_11b6_4d39_84d5_95dfb4c9f2ce);
@@ -149,6 +125,7 @@ pub struct ISpiDevice_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Spi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpiDeviceStatics(::windows_core::IUnknown);
 impl ISpiDeviceStatics {
     pub fn GetDeviceSelector(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -186,27 +163,11 @@ impl ISpiDeviceStatics {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpiDeviceStatics, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for ISpiDeviceStatics {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpiDeviceStatics {}
-impl ::core::fmt::Debug for ISpiDeviceStatics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpiDeviceStatics").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for ISpiDeviceStatics {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{a278e559-5720-4d3f-bd93-56f5ff5a5879}");
 }
 unsafe impl ::windows_core::Interface for ISpiDeviceStatics {
     type Vtable = ISpiDeviceStatics_Vtbl;
-}
-impl ::core::clone::Clone for ISpiDeviceStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpiDeviceStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa278e559_5720_4d3f_bd93_56f5ff5a5879);
@@ -225,6 +186,7 @@ pub struct ISpiDeviceStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Spi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpiBusInfo(::windows_core::IUnknown);
 impl SpiBusInfo {
     pub fn ChipSelectLineCount(&self) -> ::windows_core::Result<i32> {
@@ -258,24 +220,8 @@ impl SpiBusInfo {
         }
     }
 }
-impl ::core::cmp::PartialEq for SpiBusInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpiBusInfo {}
-impl ::core::fmt::Debug for SpiBusInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpiBusInfo").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SpiBusInfo {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.SpiBusInfo;{9929444a-54f2-48c6-b952-9c32fc02c669})");
-}
-impl ::core::clone::Clone for SpiBusInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SpiBusInfo {
     type Vtable = ISpiBusInfo_Vtbl;
@@ -291,6 +237,7 @@ unsafe impl ::core::marker::Send for SpiBusInfo {}
 unsafe impl ::core::marker::Sync for SpiBusInfo {}
 #[doc = "*Required features: `\"Devices_Spi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpiConnectionSettings(::windows_core::IUnknown);
 impl SpiConnectionSettings {
     pub fn ChipSelectLine(&self) -> ::windows_core::Result<i32> {
@@ -360,24 +307,8 @@ impl SpiConnectionSettings {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for SpiConnectionSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpiConnectionSettings {}
-impl ::core::fmt::Debug for SpiConnectionSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpiConnectionSettings").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SpiConnectionSettings {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.SpiConnectionSettings;{5283a37f-f935-4b9f-a7a7-3a7890afa5ce})");
-}
-impl ::core::clone::Clone for SpiConnectionSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SpiConnectionSettings {
     type Vtable = ISpiConnectionSettings_Vtbl;
@@ -393,6 +324,7 @@ unsafe impl ::core::marker::Send for SpiConnectionSettings {}
 unsafe impl ::core::marker::Sync for SpiConnectionSettings {}
 #[doc = "*Required features: `\"Devices_Spi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpiController(::windows_core::IUnknown);
 impl SpiController {
     pub fn GetDevice<P0>(&self, settings: P0) -> ::windows_core::Result<SpiDevice>
@@ -430,24 +362,8 @@ impl SpiController {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for SpiController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpiController {}
-impl ::core::fmt::Debug for SpiController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpiController").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SpiController {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.SpiController;{a8d3c829-9895-4159-a934-8741f1ee6d27})");
-}
-impl ::core::clone::Clone for SpiController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SpiController {
     type Vtable = ISpiController_Vtbl;
@@ -463,6 +379,7 @@ unsafe impl ::core::marker::Send for SpiController {}
 unsafe impl ::core::marker::Sync for SpiController {}
 #[doc = "*Required features: `\"Devices_Spi\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SpiDevice(::windows_core::IUnknown);
 impl SpiDevice {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -536,24 +453,8 @@ impl SpiDevice {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for SpiDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpiDevice {}
-impl ::core::fmt::Debug for SpiDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpiDevice").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for SpiDevice {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.SpiDevice;{05d5356d-11b6-4d39-84d5-95dfb4c9f2ce})");
-}
-impl ::core::clone::Clone for SpiDevice {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for SpiDevice {
     type Vtable = ISpiDevice_Vtbl;

@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebUICommandBar(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebUICommandBar {
     type Vtable = IWebUICommandBar_Vtbl;
-}
-impl ::core::clone::Clone for IWebUICommandBar {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebUICommandBar {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa4fc0016_dbe5_41ad_8d7b_14698bd6911d);
@@ -67,14 +63,10 @@ pub struct IWebUICommandBar_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebUICommandBarBitmapIcon(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebUICommandBarBitmapIcon {
     type Vtable = IWebUICommandBarBitmapIcon_Vtbl;
-}
-impl ::core::clone::Clone for IWebUICommandBarBitmapIcon {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebUICommandBarBitmapIcon {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x858f4f45_08d8_4a46_81ec_00015b0b1c6c);
@@ -94,14 +86,10 @@ pub struct IWebUICommandBarBitmapIcon_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebUICommandBarBitmapIconFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebUICommandBarBitmapIconFactory {
     type Vtable = IWebUICommandBarBitmapIconFactory_Vtbl;
-}
-impl ::core::clone::Clone for IWebUICommandBarBitmapIconFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebUICommandBarBitmapIconFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf3f7d78a_7673_444a_be62_ac12d31c2231);
@@ -117,14 +105,10 @@ pub struct IWebUICommandBarBitmapIconFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebUICommandBarConfirmationButton(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebUICommandBarConfirmationButton {
     type Vtable = IWebUICommandBarConfirmationButton_Vtbl;
-}
-impl ::core::clone::Clone for IWebUICommandBarConfirmationButton {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebUICommandBarConfirmationButton {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x86e7824a_e3d5_4eb6_b2ff_8f018a172105);
@@ -146,30 +130,15 @@ pub struct IWebUICommandBarConfirmationButton_Vtbl {
 }
 #[doc = "*Required features: `\"UI_WebUI_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebUICommandBarElement(::windows_core::IUnknown);
 impl IWebUICommandBarElement {}
 ::windows_core::imp::interface_hierarchy!(IWebUICommandBarElement, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IWebUICommandBarElement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebUICommandBarElement {}
-impl ::core::fmt::Debug for IWebUICommandBarElement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebUICommandBarElement").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IWebUICommandBarElement {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{c9069ec2-284a-4633-8aad-637a27e282c3}");
 }
 unsafe impl ::windows_core::Interface for IWebUICommandBarElement {
     type Vtable = IWebUICommandBarElement_Vtbl;
-}
-impl ::core::clone::Clone for IWebUICommandBarElement {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebUICommandBarElement {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc9069ec2_284a_4633_8aad_637a27e282c3);
@@ -181,30 +150,15 @@ pub struct IWebUICommandBarElement_Vtbl {
 }
 #[doc = "*Required features: `\"UI_WebUI_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebUICommandBarIcon(::windows_core::IUnknown);
 impl IWebUICommandBarIcon {}
 ::windows_core::imp::interface_hierarchy!(IWebUICommandBarIcon, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IWebUICommandBarIcon {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWebUICommandBarIcon {}
-impl ::core::fmt::Debug for IWebUICommandBarIcon {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWebUICommandBarIcon").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for IWebUICommandBarIcon {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"{d587655d-2014-42be-969a-7d14ca6c8a49}");
 }
 unsafe impl ::windows_core::Interface for IWebUICommandBarIcon {
     type Vtable = IWebUICommandBarIcon_Vtbl;
-}
-impl ::core::clone::Clone for IWebUICommandBarIcon {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebUICommandBarIcon {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd587655d_2014_42be_969a_7d14ca6c8a49);
@@ -216,14 +170,10 @@ pub struct IWebUICommandBarIcon_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebUICommandBarIconButton(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebUICommandBarIconButton {
     type Vtable = IWebUICommandBarIconButton_Vtbl;
-}
-impl ::core::clone::Clone for IWebUICommandBarIconButton {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebUICommandBarIconButton {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8f1bc93a_3a7c_4842_a0cf_aff6ea308586);
@@ -253,14 +203,10 @@ pub struct IWebUICommandBarIconButton_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebUICommandBarItemInvokedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebUICommandBarItemInvokedEventArgs {
     type Vtable = IWebUICommandBarItemInvokedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IWebUICommandBarItemInvokedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebUICommandBarItemInvokedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x304edbdd_e741_41ef_bdc4_a45cea2a4f70);
@@ -273,14 +219,10 @@ pub struct IWebUICommandBarItemInvokedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebUICommandBarSizeChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebUICommandBarSizeChangedEventArgs {
     type Vtable = IWebUICommandBarSizeChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IWebUICommandBarSizeChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebUICommandBarSizeChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfbf1e2f6_3029_4719_8378_92f82b87af1e);
@@ -296,14 +238,10 @@ pub struct IWebUICommandBarSizeChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebUICommandBarStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebUICommandBarStatics {
     type Vtable = IWebUICommandBarStatics_Vtbl;
-}
-impl ::core::clone::Clone for IWebUICommandBarStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebUICommandBarStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1449cdb9_a506_45be_8f42_b2837e2fe0c9);
@@ -316,14 +254,10 @@ pub struct IWebUICommandBarStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebUICommandBarSymbolIcon(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebUICommandBarSymbolIcon {
     type Vtable = IWebUICommandBarSymbolIcon_Vtbl;
-}
-impl ::core::clone::Clone for IWebUICommandBarSymbolIcon {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebUICommandBarSymbolIcon {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd4935477_fd26_46ed_8658_1a3f4400e7b3);
@@ -337,14 +271,10 @@ pub struct IWebUICommandBarSymbolIcon_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWebUICommandBarSymbolIconFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IWebUICommandBarSymbolIconFactory {
     type Vtable = IWebUICommandBarSymbolIconFactory_Vtbl;
-}
-impl ::core::clone::Clone for IWebUICommandBarSymbolIconFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWebUICommandBarSymbolIconFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x51be1a1f_3730_429e_b622_14e2b7bf6a07);
@@ -357,6 +287,7 @@ pub struct IWebUICommandBarSymbolIconFactory_Vtbl {
 }
 #[doc = "*Required features: `\"UI_WebUI_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUICommandBar(::windows_core::IUnknown);
 impl WebUICommandBar {
     pub fn Visible(&self) -> ::windows_core::Result<bool> {
@@ -518,24 +449,8 @@ impl WebUICommandBar {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for WebUICommandBar {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebUICommandBar {}
-impl ::core::fmt::Debug for WebUICommandBar {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUICommandBar").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WebUICommandBar {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBar;{a4fc0016-dbe5-41ad-8d7b-14698bd6911d})");
-}
-impl ::core::clone::Clone for WebUICommandBar {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WebUICommandBar {
     type Vtable = IWebUICommandBar_Vtbl;
@@ -551,6 +466,7 @@ unsafe impl ::core::marker::Send for WebUICommandBar {}
 unsafe impl ::core::marker::Sync for WebUICommandBar {}
 #[doc = "*Required features: `\"UI_WebUI_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUICommandBarBitmapIcon(::windows_core::IUnknown);
 impl WebUICommandBarBitmapIcon {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -595,24 +511,8 @@ impl WebUICommandBarBitmapIcon {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for WebUICommandBarBitmapIcon {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebUICommandBarBitmapIcon {}
-impl ::core::fmt::Debug for WebUICommandBarBitmapIcon {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUICommandBarBitmapIcon").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WebUICommandBarBitmapIcon {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarBitmapIcon;{858f4f45-08d8-4a46-81ec-00015b0b1c6c})");
-}
-impl ::core::clone::Clone for WebUICommandBarBitmapIcon {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WebUICommandBarBitmapIcon {
     type Vtable = IWebUICommandBarBitmapIcon_Vtbl;
@@ -629,6 +529,7 @@ unsafe impl ::core::marker::Send for WebUICommandBarBitmapIcon {}
 unsafe impl ::core::marker::Sync for WebUICommandBarBitmapIcon {}
 #[doc = "*Required features: `\"UI_WebUI_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUICommandBarConfirmationButton(::windows_core::IUnknown);
 impl WebUICommandBarConfirmationButton {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -668,24 +569,8 @@ impl WebUICommandBarConfirmationButton {
         unsafe { (::windows_core::Interface::vtable(this).RemoveItemInvoked)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl ::core::cmp::PartialEq for WebUICommandBarConfirmationButton {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebUICommandBarConfirmationButton {}
-impl ::core::fmt::Debug for WebUICommandBarConfirmationButton {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUICommandBarConfirmationButton").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WebUICommandBarConfirmationButton {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarConfirmationButton;{86e7824a-e3d5-4eb6-b2ff-8f018a172105})");
-}
-impl ::core::clone::Clone for WebUICommandBarConfirmationButton {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WebUICommandBarConfirmationButton {
     type Vtable = IWebUICommandBarConfirmationButton_Vtbl;
@@ -702,6 +587,7 @@ unsafe impl ::core::marker::Send for WebUICommandBarConfirmationButton {}
 unsafe impl ::core::marker::Sync for WebUICommandBarConfirmationButton {}
 #[doc = "*Required features: `\"UI_WebUI_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUICommandBarIconButton(::windows_core::IUnknown);
 impl WebUICommandBarIconButton {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -788,24 +674,8 @@ impl WebUICommandBarIconButton {
         unsafe { (::windows_core::Interface::vtable(this).RemoveItemInvoked)(::windows_core::Interface::as_raw(this), token).ok() }
     }
 }
-impl ::core::cmp::PartialEq for WebUICommandBarIconButton {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebUICommandBarIconButton {}
-impl ::core::fmt::Debug for WebUICommandBarIconButton {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUICommandBarIconButton").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WebUICommandBarIconButton {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarIconButton;{8f1bc93a-3a7c-4842-a0cf-aff6ea308586})");
-}
-impl ::core::clone::Clone for WebUICommandBarIconButton {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WebUICommandBarIconButton {
     type Vtable = IWebUICommandBarIconButton_Vtbl;
@@ -822,6 +692,7 @@ unsafe impl ::core::marker::Send for WebUICommandBarIconButton {}
 unsafe impl ::core::marker::Sync for WebUICommandBarIconButton {}
 #[doc = "*Required features: `\"UI_WebUI_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUICommandBarItemInvokedEventArgs(::windows_core::IUnknown);
 impl WebUICommandBarItemInvokedEventArgs {
     pub fn IsPrimaryCommand(&self) -> ::windows_core::Result<bool> {
@@ -832,24 +703,8 @@ impl WebUICommandBarItemInvokedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for WebUICommandBarItemInvokedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebUICommandBarItemInvokedEventArgs {}
-impl ::core::fmt::Debug for WebUICommandBarItemInvokedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUICommandBarItemInvokedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WebUICommandBarItemInvokedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarItemInvokedEventArgs;{304edbdd-e741-41ef-bdc4-a45cea2a4f70})");
-}
-impl ::core::clone::Clone for WebUICommandBarItemInvokedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WebUICommandBarItemInvokedEventArgs {
     type Vtable = IWebUICommandBarItemInvokedEventArgs_Vtbl;
@@ -865,6 +720,7 @@ unsafe impl ::core::marker::Send for WebUICommandBarItemInvokedEventArgs {}
 unsafe impl ::core::marker::Sync for WebUICommandBarItemInvokedEventArgs {}
 #[doc = "*Required features: `\"UI_WebUI_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUICommandBarSizeChangedEventArgs(::windows_core::IUnknown);
 impl WebUICommandBarSizeChangedEventArgs {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -877,24 +733,8 @@ impl WebUICommandBarSizeChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for WebUICommandBarSizeChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebUICommandBarSizeChangedEventArgs {}
-impl ::core::fmt::Debug for WebUICommandBarSizeChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUICommandBarSizeChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WebUICommandBarSizeChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarSizeChangedEventArgs;{fbf1e2f6-3029-4719-8378-92f82b87af1e})");
-}
-impl ::core::clone::Clone for WebUICommandBarSizeChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WebUICommandBarSizeChangedEventArgs {
     type Vtable = IWebUICommandBarSizeChangedEventArgs_Vtbl;
@@ -910,6 +750,7 @@ unsafe impl ::core::marker::Send for WebUICommandBarSizeChangedEventArgs {}
 unsafe impl ::core::marker::Sync for WebUICommandBarSizeChangedEventArgs {}
 #[doc = "*Required features: `\"UI_WebUI_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct WebUICommandBarSymbolIcon(::windows_core::IUnknown);
 impl WebUICommandBarSymbolIcon {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -942,24 +783,8 @@ impl WebUICommandBarSymbolIcon {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for WebUICommandBarSymbolIcon {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebUICommandBarSymbolIcon {}
-impl ::core::fmt::Debug for WebUICommandBarSymbolIcon {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebUICommandBarSymbolIcon").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for WebUICommandBarSymbolIcon {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.Core.WebUICommandBarSymbolIcon;{d4935477-fd26-46ed-8658-1a3f4400e7b3})");
-}
-impl ::core::clone::Clone for WebUICommandBarSymbolIcon {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for WebUICommandBarSymbolIcon {
     type Vtable = IWebUICommandBarSymbolIcon_Vtbl;
@@ -1007,6 +832,7 @@ impl ::windows_core::RuntimeType for WebUICommandBarClosedDisplayMode {
 }
 #[doc = "*Required features: `\"UI_WebUI_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MenuClosedEventHandler(pub ::windows_core::IUnknown);
 impl MenuClosedEventHandler {
     pub fn new<F: FnMut() -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
@@ -1056,24 +882,8 @@ impl<F: FnMut() -> ::windows_core::Result<()> + ::core::marker::Send + 'static> 
         ((*this).invoke)().into()
     }
 }
-impl ::core::cmp::PartialEq for MenuClosedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MenuClosedEventHandler {}
-impl ::core::fmt::Debug for MenuClosedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MenuClosedEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for MenuClosedEventHandler {
     type Vtable = MenuClosedEventHandler_Vtbl;
-}
-impl ::core::clone::Clone for MenuClosedEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for MenuClosedEventHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x435387c8_4dd0_4c52_9489_d390ce7721d2);
@@ -1089,6 +899,7 @@ pub struct MenuClosedEventHandler_Vtbl {
 }
 #[doc = "*Required features: `\"UI_WebUI_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct MenuOpenedEventHandler(pub ::windows_core::IUnknown);
 impl MenuOpenedEventHandler {
     pub fn new<F: FnMut() -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
@@ -1138,24 +949,8 @@ impl<F: FnMut() -> ::windows_core::Result<()> + ::core::marker::Send + 'static> 
         ((*this).invoke)().into()
     }
 }
-impl ::core::cmp::PartialEq for MenuOpenedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MenuOpenedEventHandler {}
-impl ::core::fmt::Debug for MenuOpenedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MenuOpenedEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for MenuOpenedEventHandler {
     type Vtable = MenuOpenedEventHandler_Vtbl;
-}
-impl ::core::clone::Clone for MenuOpenedEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for MenuOpenedEventHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x18dc0ad3_678f_4c19_8963_cc1c49a5ef9e);
@@ -1171,6 +966,7 @@ pub struct MenuOpenedEventHandler_Vtbl {
 }
 #[doc = "*Required features: `\"UI_WebUI_Core\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct SizeChangedEventHandler(pub ::windows_core::IUnknown);
 impl SizeChangedEventHandler {
     pub fn new<F: FnMut(::core::option::Option<&WebUICommandBarSizeChangedEventArgs>) -> ::windows_core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
@@ -1223,24 +1019,8 @@ impl<F: FnMut(::core::option::Option<&WebUICommandBarSizeChangedEventArgs>) -> :
         ((*this).invoke)(::windows_core::from_raw_borrowed(&eventargs)).into()
     }
 }
-impl ::core::cmp::PartialEq for SizeChangedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SizeChangedEventHandler {}
-impl ::core::fmt::Debug for SizeChangedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SizeChangedEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for SizeChangedEventHandler {
     type Vtable = SizeChangedEventHandler_Vtbl;
-}
-impl ::core::clone::Clone for SizeChangedEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for SizeChangedEventHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd49cfe3c_dd2e_4c28_b627_303a7f911af5);

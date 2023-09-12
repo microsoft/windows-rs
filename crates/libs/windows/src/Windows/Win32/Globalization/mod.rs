@@ -8310,6 +8310,7 @@ pub unsafe fn utrans_unregisterID(id: *const u16, idlength: i32) {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IComprehensiveSpellCheckProvider(::windows_core::IUnknown);
 impl IComprehensiveSpellCheckProvider {
     pub unsafe fn ComprehensiveCheck<P0>(&self, text: P0) -> ::windows_core::Result<IEnumSpellingError>
@@ -8321,24 +8322,8 @@ impl IComprehensiveSpellCheckProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IComprehensiveSpellCheckProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IComprehensiveSpellCheckProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IComprehensiveSpellCheckProvider {}
-impl ::core::fmt::Debug for IComprehensiveSpellCheckProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IComprehensiveSpellCheckProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IComprehensiveSpellCheckProvider {
     type Vtable = IComprehensiveSpellCheckProvider_Vtbl;
-}
-impl ::core::clone::Clone for IComprehensiveSpellCheckProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IComprehensiveSpellCheckProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0c58f8de_8e94_479e_9717_70c42c4ad2c3);
@@ -8351,6 +8336,7 @@ pub struct IComprehensiveSpellCheckProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumCodePage(::windows_core::IUnknown);
 impl IEnumCodePage {
     pub unsafe fn Clone(&self, ppenum: ::core::option::Option<*const ::core::option::Option<IEnumCodePage>>) -> ::windows_core::Result<()> {
@@ -8367,24 +8353,8 @@ impl IEnumCodePage {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumCodePage, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumCodePage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumCodePage {}
-impl ::core::fmt::Debug for IEnumCodePage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumCodePage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumCodePage {
     type Vtable = IEnumCodePage_Vtbl;
-}
-impl ::core::clone::Clone for IEnumCodePage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumCodePage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x275c23e3_3747_11d0_9fea_00aa003f8646);
@@ -8400,6 +8370,7 @@ pub struct IEnumCodePage_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumRfc1766(::windows_core::IUnknown);
 impl IEnumRfc1766 {
     pub unsafe fn Clone(&self, ppenum: ::core::option::Option<*const ::core::option::Option<IEnumRfc1766>>) -> ::windows_core::Result<()> {
@@ -8416,24 +8387,8 @@ impl IEnumRfc1766 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumRfc1766, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumRfc1766 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumRfc1766 {}
-impl ::core::fmt::Debug for IEnumRfc1766 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumRfc1766").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumRfc1766 {
     type Vtable = IEnumRfc1766_Vtbl;
-}
-impl ::core::clone::Clone for IEnumRfc1766 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumRfc1766 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3dc39d1d_c030_11d0_b81b_00c04fc9b31f);
@@ -8449,6 +8404,7 @@ pub struct IEnumRfc1766_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumScript(::windows_core::IUnknown);
 impl IEnumScript {
     pub unsafe fn Clone(&self, ppenum: ::core::option::Option<*const ::core::option::Option<IEnumScript>>) -> ::windows_core::Result<()> {
@@ -8465,24 +8421,8 @@ impl IEnumScript {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumScript, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumScript {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumScript {}
-impl ::core::fmt::Debug for IEnumScript {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumScript").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumScript {
     type Vtable = IEnumScript_Vtbl;
-}
-impl ::core::clone::Clone for IEnumScript {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumScript {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xae5f1430_388b_11d2_8380_00c04f8f5da1);
@@ -8498,6 +8438,7 @@ pub struct IEnumScript_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEnumSpellingError(::windows_core::IUnknown);
 impl IEnumSpellingError {
     pub unsafe fn Next(&self, value: *mut ::core::option::Option<ISpellingError>) -> ::windows_core::HRESULT {
@@ -8505,24 +8446,8 @@ impl IEnumSpellingError {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEnumSpellingError, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEnumSpellingError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEnumSpellingError {}
-impl ::core::fmt::Debug for IEnumSpellingError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEnumSpellingError").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEnumSpellingError {
     type Vtable = IEnumSpellingError_Vtbl;
-}
-impl ::core::clone::Clone for IEnumSpellingError {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEnumSpellingError {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x803e3bd4_2828_4410_8290_418d1d73c762);
@@ -8535,6 +8460,7 @@ pub struct IEnumSpellingError_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLangCodePages(::windows_core::IUnknown);
 impl IMLangCodePages {
     pub unsafe fn GetCharCodePages(&self, chsrc: u16) -> ::windows_core::Result<u32> {
@@ -8554,24 +8480,8 @@ impl IMLangCodePages {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLangCodePages, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMLangCodePages {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLangCodePages {}
-impl ::core::fmt::Debug for IMLangCodePages {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLangCodePages").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLangCodePages {
     type Vtable = IMLangCodePages_Vtbl;
-}
-impl ::core::clone::Clone for IMLangCodePages {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLangCodePages {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x359f3443_bd4a_11d0_b188_00aa0038c969);
@@ -8587,6 +8497,7 @@ pub struct IMLangCodePages_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLangConvertCharset(::windows_core::IUnknown);
 impl IMLangConvertCharset {
     pub unsafe fn Initialize(&self, uisrccodepage: u32, uidstcodepage: u32, dwproperty: u32) -> ::windows_core::Result<()> {
@@ -8621,24 +8532,8 @@ impl IMLangConvertCharset {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLangConvertCharset, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMLangConvertCharset {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLangConvertCharset {}
-impl ::core::fmt::Debug for IMLangConvertCharset {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLangConvertCharset").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLangConvertCharset {
     type Vtable = IMLangConvertCharset_Vtbl;
-}
-impl ::core::clone::Clone for IMLangConvertCharset {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLangConvertCharset {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd66d6f98_cdaa_11d0_b822_00c04fc9b31f);
@@ -8657,6 +8552,7 @@ pub struct IMLangConvertCharset_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLangFontLink(::windows_core::IUnknown);
 impl IMLangFontLink {
     pub unsafe fn GetCharCodePages(&self, chsrc: u16) -> ::windows_core::Result<u32> {
@@ -8705,24 +8601,8 @@ impl IMLangFontLink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLangFontLink, ::windows_core::IUnknown, IMLangCodePages);
-impl ::core::cmp::PartialEq for IMLangFontLink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLangFontLink {}
-impl ::core::fmt::Debug for IMLangFontLink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLangFontLink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLangFontLink {
     type Vtable = IMLangFontLink_Vtbl;
-}
-impl ::core::clone::Clone for IMLangFontLink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLangFontLink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x359f3441_bd4a_11d0_b188_00aa0038c969);
@@ -8747,6 +8627,7 @@ pub struct IMLangFontLink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLangFontLink2(::windows_core::IUnknown);
 impl IMLangFontLink2 {
     pub unsafe fn GetCharCodePages(&self, chsrc: u16) -> ::windows_core::Result<u32> {
@@ -8809,24 +8690,8 @@ impl IMLangFontLink2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLangFontLink2, ::windows_core::IUnknown, IMLangCodePages);
-impl ::core::cmp::PartialEq for IMLangFontLink2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLangFontLink2 {}
-impl ::core::fmt::Debug for IMLangFontLink2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLangFontLink2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLangFontLink2 {
     type Vtable = IMLangFontLink2_Vtbl;
-}
-impl ::core::clone::Clone for IMLangFontLink2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLangFontLink2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdccfc162_2b38_11d2_b7ec_00c04f8f5d9a);
@@ -8857,6 +8722,7 @@ pub struct IMLangFontLink2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLangLineBreakConsole(::windows_core::IUnknown);
 impl IMLangLineBreakConsole {
     pub unsafe fn BreakLineML<P0>(&self, psrcmlstr: P0, lsrcpos: i32, lsrclen: i32, cmincolumns: i32, cmaxcolumns: i32, pllinelen: ::core::option::Option<*mut i32>, plskiplen: ::core::option::Option<*mut i32>) -> ::windows_core::Result<()>
@@ -8873,24 +8739,8 @@ impl IMLangLineBreakConsole {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLangLineBreakConsole, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMLangLineBreakConsole {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLangLineBreakConsole {}
-impl ::core::fmt::Debug for IMLangLineBreakConsole {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLangLineBreakConsole").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLangLineBreakConsole {
     type Vtable = IMLangLineBreakConsole_Vtbl;
-}
-impl ::core::clone::Clone for IMLangLineBreakConsole {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLangLineBreakConsole {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5be2ee1_bfd7_11d0_b188_00aa0038c969);
@@ -8905,6 +8755,7 @@ pub struct IMLangLineBreakConsole_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLangString(::windows_core::IUnknown);
 impl IMLangString {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -8932,24 +8783,8 @@ impl IMLangString {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLangString, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMLangString {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLangString {}
-impl ::core::fmt::Debug for IMLangString {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLangString").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLangString {
     type Vtable = IMLangString_Vtbl;
-}
-impl ::core::clone::Clone for IMLangString {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLangString {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc04d65ce_b70d_11d0_b188_00aa0038c969);
@@ -8968,6 +8803,7 @@ pub struct IMLangString_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLangStringAStr(::windows_core::IUnknown);
 impl IMLangStringAStr {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -9022,24 +8858,8 @@ impl IMLangStringAStr {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLangStringAStr, ::windows_core::IUnknown, IMLangString);
-impl ::core::cmp::PartialEq for IMLangStringAStr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLangStringAStr {}
-impl ::core::fmt::Debug for IMLangStringAStr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLangStringAStr").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLangStringAStr {
     type Vtable = IMLangStringAStr_Vtbl;
-}
-impl ::core::clone::Clone for IMLangStringAStr {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLangStringAStr {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc04d65d2_b70d_11d0_b188_00aa0038c969);
@@ -9059,6 +8879,7 @@ pub struct IMLangStringAStr_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLangStringBufA(::windows_core::IUnknown);
 impl IMLangStringBufA {
     pub unsafe fn GetStatus(&self, plflags: ::core::option::Option<*mut i32>, pcchbuf: ::core::option::Option<*mut i32>) -> ::windows_core::Result<()> {
@@ -9081,24 +8902,8 @@ impl IMLangStringBufA {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLangStringBufA, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMLangStringBufA {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLangStringBufA {}
-impl ::core::fmt::Debug for IMLangStringBufA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLangStringBufA").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLangStringBufA {
     type Vtable = IMLangStringBufA_Vtbl;
-}
-impl ::core::clone::Clone for IMLangStringBufA {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLangStringBufA {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd24acd23_ba72_11d0_b188_00aa0038c969);
@@ -9115,6 +8920,7 @@ pub struct IMLangStringBufA_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLangStringBufW(::windows_core::IUnknown);
 impl IMLangStringBufW {
     pub unsafe fn GetStatus(&self, plflags: ::core::option::Option<*mut i32>, pcchbuf: ::core::option::Option<*mut i32>) -> ::windows_core::Result<()> {
@@ -9137,24 +8943,8 @@ impl IMLangStringBufW {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLangStringBufW, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMLangStringBufW {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLangStringBufW {}
-impl ::core::fmt::Debug for IMLangStringBufW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLangStringBufW").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLangStringBufW {
     type Vtable = IMLangStringBufW_Vtbl;
-}
-impl ::core::clone::Clone for IMLangStringBufW {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLangStringBufW {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd24acd21_ba72_11d0_b188_00aa0038c969);
@@ -9171,6 +8961,7 @@ pub struct IMLangStringBufW_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMLangStringWStr(::windows_core::IUnknown);
 impl IMLangStringWStr {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -9225,24 +9016,8 @@ impl IMLangStringWStr {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMLangStringWStr, ::windows_core::IUnknown, IMLangString);
-impl ::core::cmp::PartialEq for IMLangStringWStr {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMLangStringWStr {}
-impl ::core::fmt::Debug for IMLangStringWStr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMLangStringWStr").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMLangStringWStr {
     type Vtable = IMLangStringWStr_Vtbl;
-}
-impl ::core::clone::Clone for IMLangStringWStr {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMLangStringWStr {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc04d65d0_b70d_11d0_b188_00aa0038c969);
@@ -9262,6 +9037,7 @@ pub struct IMLangStringWStr_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMultiLanguage(::windows_core::IUnknown);
 impl IMultiLanguage {
     pub unsafe fn GetNumberOfCodePageInfo(&self) -> ::windows_core::Result<u32> {
@@ -9329,24 +9105,8 @@ impl IMultiLanguage {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMultiLanguage, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMultiLanguage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMultiLanguage {}
-impl ::core::fmt::Debug for IMultiLanguage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMultiLanguage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMultiLanguage {
     type Vtable = IMultiLanguage_Vtbl;
-}
-impl ::core::clone::Clone for IMultiLanguage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMultiLanguage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x275c23e1_3747_11d0_9fea_00aa003f8646);
@@ -9373,6 +9133,7 @@ pub struct IMultiLanguage_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMultiLanguage2(::windows_core::IUnknown);
 impl IMultiLanguage2 {
     pub unsafe fn GetNumberOfCodePageInfo(&self) -> ::windows_core::Result<u32> {
@@ -9511,24 +9272,8 @@ impl IMultiLanguage2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMultiLanguage2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMultiLanguage2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMultiLanguage2 {}
-impl ::core::fmt::Debug for IMultiLanguage2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMultiLanguage2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMultiLanguage2 {
     type Vtable = IMultiLanguage2_Vtbl;
-}
-impl ::core::clone::Clone for IMultiLanguage2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMultiLanguage2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdccfc164_2b38_11d2_b7ec_00c04f8f5d9a);
@@ -9579,6 +9324,7 @@ pub struct IMultiLanguage2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMultiLanguage3(::windows_core::IUnknown);
 impl IMultiLanguage3 {
     pub unsafe fn GetNumberOfCodePageInfo(&self) -> ::windows_core::Result<u32> {
@@ -9732,24 +9478,8 @@ impl IMultiLanguage3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMultiLanguage3, ::windows_core::IUnknown, IMultiLanguage2);
-impl ::core::cmp::PartialEq for IMultiLanguage3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMultiLanguage3 {}
-impl ::core::fmt::Debug for IMultiLanguage3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMultiLanguage3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMultiLanguage3 {
     type Vtable = IMultiLanguage3_Vtbl;
-}
-impl ::core::clone::Clone for IMultiLanguage3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMultiLanguage3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4e5868ab_b157_4623_9acc_6a1d9caebe04);
@@ -9766,6 +9496,7 @@ pub struct IMultiLanguage3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IOptionDescription(::windows_core::IUnknown);
 impl IOptionDescription {
     pub unsafe fn Id(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -9788,24 +9519,8 @@ impl IOptionDescription {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IOptionDescription, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IOptionDescription {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOptionDescription {}
-impl ::core::fmt::Debug for IOptionDescription {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IOptionDescription").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IOptionDescription {
     type Vtable = IOptionDescription_Vtbl;
-}
-impl ::core::clone::Clone for IOptionDescription {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IOptionDescription {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x432e5f85_35cf_4606_a801_6f70277e1d7a);
@@ -9824,6 +9539,7 @@ pub struct IOptionDescription_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpellCheckProvider(::windows_core::IUnknown);
 impl ISpellCheckProvider {
     pub unsafe fn LanguageTag(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -9890,24 +9606,8 @@ impl ISpellCheckProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpellCheckProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpellCheckProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpellCheckProvider {}
-impl ::core::fmt::Debug for ISpellCheckProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpellCheckProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpellCheckProvider {
     type Vtable = ISpellCheckProvider_Vtbl;
-}
-impl ::core::clone::Clone for ISpellCheckProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpellCheckProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x73e976e0_8ed4_4eb1_80d7_1be0a16b0c38);
@@ -9938,6 +9638,7 @@ pub struct ISpellCheckProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpellCheckProviderFactory(::windows_core::IUnknown);
 impl ISpellCheckProviderFactory {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -9964,24 +9665,8 @@ impl ISpellCheckProviderFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpellCheckProviderFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpellCheckProviderFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpellCheckProviderFactory {}
-impl ::core::fmt::Debug for ISpellCheckProviderFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpellCheckProviderFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpellCheckProviderFactory {
     type Vtable = ISpellCheckProviderFactory_Vtbl;
-}
-impl ::core::clone::Clone for ISpellCheckProviderFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpellCheckProviderFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f671e11_77d6_4c92_aefb_615215e3a4be);
@@ -10002,6 +9687,7 @@ pub struct ISpellCheckProviderFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpellChecker(::windows_core::IUnknown);
 impl ISpellChecker {
     pub unsafe fn LanguageTag(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -10090,24 +9776,8 @@ impl ISpellChecker {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpellChecker, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpellChecker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpellChecker {}
-impl ::core::fmt::Debug for ISpellChecker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpellChecker").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpellChecker {
     type Vtable = ISpellChecker_Vtbl;
-}
-impl ::core::clone::Clone for ISpellChecker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpellChecker {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb6fd0b71_e2bc_4653_8d05_f197e412770b);
@@ -10139,6 +9809,7 @@ pub struct ISpellChecker_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpellChecker2(::windows_core::IUnknown);
 impl ISpellChecker2 {
     pub unsafe fn LanguageTag(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -10233,24 +9904,8 @@ impl ISpellChecker2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpellChecker2, ::windows_core::IUnknown, ISpellChecker);
-impl ::core::cmp::PartialEq for ISpellChecker2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpellChecker2 {}
-impl ::core::fmt::Debug for ISpellChecker2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpellChecker2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpellChecker2 {
     type Vtable = ISpellChecker2_Vtbl;
-}
-impl ::core::clone::Clone for ISpellChecker2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpellChecker2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe7ed1c71_87f7_4378_a840_c9200dacee47);
@@ -10263,6 +9918,7 @@ pub struct ISpellChecker2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpellCheckerChangedEventHandler(::windows_core::IUnknown);
 impl ISpellCheckerChangedEventHandler {
     pub unsafe fn Invoke<P0>(&self, sender: P0) -> ::windows_core::Result<()>
@@ -10273,24 +9929,8 @@ impl ISpellCheckerChangedEventHandler {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpellCheckerChangedEventHandler, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpellCheckerChangedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpellCheckerChangedEventHandler {}
-impl ::core::fmt::Debug for ISpellCheckerChangedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpellCheckerChangedEventHandler").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpellCheckerChangedEventHandler {
     type Vtable = ISpellCheckerChangedEventHandler_Vtbl;
-}
-impl ::core::clone::Clone for ISpellCheckerChangedEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpellCheckerChangedEventHandler {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0b83a5b0_792f_4eab_9799_acf52c5ed08a);
@@ -10303,6 +9943,7 @@ pub struct ISpellCheckerChangedEventHandler_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpellCheckerFactory(::windows_core::IUnknown);
 impl ISpellCheckerFactory {
     #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -10329,24 +9970,8 @@ impl ISpellCheckerFactory {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpellCheckerFactory, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpellCheckerFactory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpellCheckerFactory {}
-impl ::core::fmt::Debug for ISpellCheckerFactory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpellCheckerFactory").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpellCheckerFactory {
     type Vtable = ISpellCheckerFactory_Vtbl;
-}
-impl ::core::clone::Clone for ISpellCheckerFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpellCheckerFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8e018a9d_2415_4677_bf08_794ea61f94bb);
@@ -10367,6 +9992,7 @@ pub struct ISpellCheckerFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISpellingError(::windows_core::IUnknown);
 impl ISpellingError {
     pub unsafe fn StartIndex(&self) -> ::windows_core::Result<u32> {
@@ -10387,24 +10013,8 @@ impl ISpellingError {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISpellingError, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISpellingError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISpellingError {}
-impl ::core::fmt::Debug for ISpellingError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISpellingError").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISpellingError {
     type Vtable = ISpellingError_Vtbl;
-}
-impl ::core::clone::Clone for ISpellingError {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISpellingError {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb7c82d61_fbe8_4b47_9b27_6c0d2e0de0a3);
@@ -10420,6 +10030,7 @@ pub struct ISpellingError_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IUserDictionariesRegistrar(::windows_core::IUnknown);
 impl IUserDictionariesRegistrar {
     pub unsafe fn RegisterUserDictionary<P0, P1>(&self, dictionarypath: P0, languagetag: P1) -> ::windows_core::Result<()>
@@ -10438,24 +10049,8 @@ impl IUserDictionariesRegistrar {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IUserDictionariesRegistrar, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IUserDictionariesRegistrar {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IUserDictionariesRegistrar {}
-impl ::core::fmt::Debug for IUserDictionariesRegistrar {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IUserDictionariesRegistrar").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IUserDictionariesRegistrar {
     type Vtable = IUserDictionariesRegistrar_Vtbl;
-}
-impl ::core::clone::Clone for IUserDictionariesRegistrar {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IUserDictionariesRegistrar {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaa176b85_0e12_4844_8e1a_eef1da77f586);

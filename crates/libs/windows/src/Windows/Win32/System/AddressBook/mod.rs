@@ -424,6 +424,7 @@ pub unsafe fn WrapStoreEntryID(ulflags: u32, lpszdllname: *const i8, cborigentry
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IABContainer(::windows_core::IUnknown);
 impl IABContainer {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
@@ -511,24 +512,8 @@ impl IABContainer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IABContainer, ::windows_core::IUnknown, IMAPIProp, IMAPIContainer);
-impl ::core::cmp::PartialEq for IABContainer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IABContainer {}
-impl ::core::fmt::Debug for IABContainer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IABContainer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IABContainer {
     type Vtable = IABContainer_Vtbl;
-}
-impl ::core::clone::Clone for IABContainer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IABContainer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -547,6 +532,7 @@ pub struct IABContainer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAddrBook(::windows_core::IUnknown);
 impl IAddrBook {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
@@ -665,24 +651,8 @@ impl IAddrBook {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAddrBook, ::windows_core::IUnknown, IMAPIProp);
-impl ::core::cmp::PartialEq for IAddrBook {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAddrBook {}
-impl ::core::fmt::Debug for IAddrBook {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAddrBook").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAddrBook {
     type Vtable = IAddrBook_Vtbl;
-}
-impl ::core::clone::Clone for IAddrBook {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAddrBook {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -733,6 +703,7 @@ pub struct IAddrBook_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IAttach(::windows_core::IUnknown);
 impl IAttach {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
@@ -780,24 +751,8 @@ impl IAttach {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IAttach, ::windows_core::IUnknown, IMAPIProp);
-impl ::core::cmp::PartialEq for IAttach {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IAttach {}
-impl ::core::fmt::Debug for IAttach {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAttach").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IAttach {
     type Vtable = IAttach_Vtbl;
-}
-impl ::core::clone::Clone for IAttach {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IAttach {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -809,6 +764,7 @@ pub struct IAttach_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDistList(::windows_core::IUnknown);
 impl IDistList {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
@@ -896,24 +852,8 @@ impl IDistList {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IDistList, ::windows_core::IUnknown, IMAPIProp, IMAPIContainer);
-impl ::core::cmp::PartialEq for IDistList {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IDistList {}
-impl ::core::fmt::Debug for IDistList {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IDistList").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IDistList {
     type Vtable = IDistList_Vtbl;
-}
-impl ::core::clone::Clone for IDistList {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDistList {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -932,6 +872,7 @@ pub struct IDistList_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMAPIAdviseSink(::windows_core::IUnknown);
 impl IMAPIAdviseSink {
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -941,24 +882,8 @@ impl IMAPIAdviseSink {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMAPIAdviseSink, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMAPIAdviseSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMAPIAdviseSink {}
-impl ::core::fmt::Debug for IMAPIAdviseSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMAPIAdviseSink").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMAPIAdviseSink {
     type Vtable = IMAPIAdviseSink_Vtbl;
-}
-impl ::core::clone::Clone for IMAPIAdviseSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMAPIAdviseSink {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -974,6 +899,7 @@ pub struct IMAPIAdviseSink_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMAPIContainer(::windows_core::IUnknown);
 impl IMAPIContainer {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
@@ -1042,24 +968,8 @@ impl IMAPIContainer {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMAPIContainer, ::windows_core::IUnknown, IMAPIProp);
-impl ::core::cmp::PartialEq for IMAPIContainer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMAPIContainer {}
-impl ::core::fmt::Debug for IMAPIContainer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMAPIContainer").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMAPIContainer {
     type Vtable = IMAPIContainer_Vtbl;
-}
-impl ::core::clone::Clone for IMAPIContainer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMAPIContainer {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -1082,6 +992,7 @@ pub struct IMAPIContainer_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMAPIControl(::windows_core::IUnknown);
 impl IMAPIControl {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32) -> ::windows_core::Result<*mut MAPIERROR> {
@@ -1096,24 +1007,8 @@ impl IMAPIControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMAPIControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMAPIControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMAPIControl {}
-impl ::core::fmt::Debug for IMAPIControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMAPIControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMAPIControl {
     type Vtable = IMAPIControl_Vtbl;
-}
-impl ::core::clone::Clone for IMAPIControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMAPIControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -1128,6 +1023,7 @@ pub struct IMAPIControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMAPIFolder(::windows_core::IUnknown);
 impl IMAPIFolder {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
@@ -1250,24 +1146,8 @@ impl IMAPIFolder {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMAPIFolder, ::windows_core::IUnknown, IMAPIProp, IMAPIContainer);
-impl ::core::cmp::PartialEq for IMAPIFolder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMAPIFolder {}
-impl ::core::fmt::Debug for IMAPIFolder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMAPIFolder").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMAPIFolder {
     type Vtable = IMAPIFolder_Vtbl;
-}
-impl ::core::clone::Clone for IMAPIFolder {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMAPIFolder {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -1290,6 +1170,7 @@ pub struct IMAPIFolder_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMAPIProgress(::windows_core::IUnknown);
 impl IMAPIProgress {
     pub unsafe fn Progress(&self, ulvalue: u32, ulcount: u32, ultotal: u32) -> ::windows_core::Result<()> {
@@ -1309,24 +1190,8 @@ impl IMAPIProgress {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMAPIProgress, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMAPIProgress {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMAPIProgress {}
-impl ::core::fmt::Debug for IMAPIProgress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMAPIProgress").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMAPIProgress {
     type Vtable = IMAPIProgress_Vtbl;
-}
-impl ::core::clone::Clone for IMAPIProgress {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMAPIProgress {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -1343,6 +1208,7 @@ pub struct IMAPIProgress_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMAPIProp(::windows_core::IUnknown);
 impl IMAPIProp {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
@@ -1390,24 +1256,8 @@ impl IMAPIProp {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMAPIProp, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMAPIProp {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMAPIProp {}
-impl ::core::fmt::Debug for IMAPIProp {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMAPIProp").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMAPIProp {
     type Vtable = IMAPIProp_Vtbl;
-}
-impl ::core::clone::Clone for IMAPIProp {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMAPIProp {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -1436,6 +1286,7 @@ pub struct IMAPIProp_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMAPIStatus(::windows_core::IUnknown);
 impl IMAPIStatus {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
@@ -1495,24 +1346,8 @@ impl IMAPIStatus {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMAPIStatus, ::windows_core::IUnknown, IMAPIProp);
-impl ::core::cmp::PartialEq for IMAPIStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMAPIStatus {}
-impl ::core::fmt::Debug for IMAPIStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMAPIStatus").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMAPIStatus {
     type Vtable = IMAPIStatus_Vtbl;
-}
-impl ::core::clone::Clone for IMAPIStatus {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMAPIStatus {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -1528,6 +1363,7 @@ pub struct IMAPIStatus_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMAPITable(::windows_core::IUnknown);
 impl IMAPITable {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
@@ -1612,24 +1448,8 @@ impl IMAPITable {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMAPITable, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMAPITable {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMAPITable {}
-impl ::core::fmt::Debug for IMAPITable {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMAPITable").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMAPITable {
     type Vtable = IMAPITable_Vtbl;
-}
-impl ::core::clone::Clone for IMAPITable {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMAPITable {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -1676,6 +1496,7 @@ pub struct IMAPITable_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMailUser(::windows_core::IUnknown);
 impl IMailUser {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
@@ -1723,24 +1544,8 @@ impl IMailUser {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMailUser, ::windows_core::IUnknown, IMAPIProp);
-impl ::core::cmp::PartialEq for IMailUser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMailUser {}
-impl ::core::fmt::Debug for IMailUser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMailUser").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMailUser {
     type Vtable = IMailUser_Vtbl;
-}
-impl ::core::clone::Clone for IMailUser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMailUser {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -1752,6 +1557,7 @@ pub struct IMailUser_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMessage(::windows_core::IUnknown);
 impl IMessage {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
@@ -1831,24 +1637,8 @@ impl IMessage {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMessage, ::windows_core::IUnknown, IMAPIProp);
-impl ::core::cmp::PartialEq for IMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMessage {}
-impl ::core::fmt::Debug for IMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMessage").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMessage {
     type Vtable = IMessage_Vtbl;
-}
-impl ::core::clone::Clone for IMessage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMessage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -1871,6 +1661,7 @@ pub struct IMessage_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMsgStore(::windows_core::IUnknown);
 impl IMsgStore {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
@@ -1969,24 +1760,8 @@ impl IMsgStore {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMsgStore, ::windows_core::IUnknown, IMAPIProp);
-impl ::core::cmp::PartialEq for IMsgStore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMsgStore {}
-impl ::core::fmt::Debug for IMsgStore {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMsgStore").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMsgStore {
     type Vtable = IMsgStore_Vtbl;
-}
-impl ::core::clone::Clone for IMsgStore {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMsgStore {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -2014,6 +1789,7 @@ pub struct IMsgStore_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProfSect(::windows_core::IUnknown);
 impl IProfSect {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
@@ -2061,24 +1837,8 @@ impl IProfSect {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IProfSect, ::windows_core::IUnknown, IMAPIProp);
-impl ::core::cmp::PartialEq for IProfSect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IProfSect {}
-impl ::core::fmt::Debug for IProfSect {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProfSect").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IProfSect {
     type Vtable = IProfSect_Vtbl;
-}
-impl ::core::clone::Clone for IProfSect {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProfSect {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -2090,6 +1850,7 @@ pub struct IProfSect_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IPropData(::windows_core::IUnknown);
 impl IPropData {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
@@ -2149,24 +1910,8 @@ impl IPropData {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IPropData, ::windows_core::IUnknown, IMAPIProp);
-impl ::core::cmp::PartialEq for IPropData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPropData {}
-impl ::core::fmt::Debug for IPropData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPropData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IPropData {
     type Vtable = IPropData_Vtbl;
-}
-impl ::core::clone::Clone for IPropData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IPropData {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -2182,6 +1927,7 @@ pub struct IPropData_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IProviderAdmin(::windows_core::IUnknown);
 impl IProviderAdmin {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32) -> ::windows_core::Result<*mut MAPIERROR> {
@@ -2207,24 +1953,8 @@ impl IProviderAdmin {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IProviderAdmin, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IProviderAdmin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IProviderAdmin {}
-impl ::core::fmt::Debug for IProviderAdmin {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IProviderAdmin").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IProviderAdmin {
     type Vtable = IProviderAdmin_Vtbl;
-}
-impl ::core::clone::Clone for IProviderAdmin {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IProviderAdmin {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -2244,6 +1974,7 @@ pub struct IProviderAdmin_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITableData(::windows_core::IUnknown);
 impl ITableData {
     pub unsafe fn HrGetView(&self, lpssortorderset: *mut SSortOrderSet, lpfcallerrelease: *mut CALLERRELEASE, ulcallerdata: u32, lppmapitable: *mut ::core::option::Option<IMAPITable>) -> ::windows_core::Result<()> {
@@ -2291,24 +2022,8 @@ impl ITableData {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ITableData, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ITableData {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ITableData {}
-impl ::core::fmt::Debug for ITableData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ITableData").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ITableData {
     type Vtable = ITableData_Vtbl;
-}
-impl ::core::clone::Clone for ITableData {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITableData {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();
@@ -2353,6 +2068,7 @@ pub struct ITableData_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWABExtInit(::windows_core::IUnknown);
 impl IWABExtInit {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -2362,24 +2078,8 @@ impl IWABExtInit {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWABExtInit, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWABExtInit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWABExtInit {}
-impl ::core::fmt::Debug for IWABExtInit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWABExtInit").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWABExtInit {
     type Vtable = IWABExtInit_Vtbl;
-}
-impl ::core::clone::Clone for IWABExtInit {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWABExtInit {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xea22ebf0_87a4_11d1_9acf_00a0c91f9c8b);
@@ -2395,6 +2095,7 @@ pub struct IWABExtInit_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_AddressBook\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IWABObject(::windows_core::IUnknown);
 impl IWABObject {
     pub unsafe fn GetLastError(&self, hresult: ::windows_core::HRESULT, ulflags: u32, lppmapierror: *mut *mut MAPIERROR) -> ::windows_core::Result<()> {
@@ -2487,24 +2188,8 @@ impl IWABObject {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IWABObject, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IWABObject {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWABObject {}
-impl ::core::fmt::Debug for IWABObject {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWABObject").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IWABObject {
     type Vtable = IWABObject_Vtbl;
-}
-impl ::core::clone::Clone for IWABObject {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IWABObject {
     const IID: ::windows_core::GUID = ::windows_core::GUID::zeroed();

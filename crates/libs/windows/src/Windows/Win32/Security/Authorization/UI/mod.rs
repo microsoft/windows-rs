@@ -33,6 +33,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEffectivePermission(::windows_core::IUnknown);
 impl IEffectivePermission {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -47,24 +48,8 @@ impl IEffectivePermission {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEffectivePermission, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEffectivePermission {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEffectivePermission {}
-impl ::core::fmt::Debug for IEffectivePermission {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEffectivePermission").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEffectivePermission {
     type Vtable = IEffectivePermission_Vtbl;
-}
-impl ::core::clone::Clone for IEffectivePermission {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEffectivePermission {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x3853dc76_9f35_407c_88a1_d19344365fbc);
@@ -80,6 +65,7 @@ pub struct IEffectivePermission_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IEffectivePermission2(::windows_core::IUnknown);
 impl IEffectivePermission2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -127,24 +113,8 @@ impl IEffectivePermission2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IEffectivePermission2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IEffectivePermission2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IEffectivePermission2 {}
-impl ::core::fmt::Debug for IEffectivePermission2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IEffectivePermission2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IEffectivePermission2 {
     type Vtable = IEffectivePermission2_Vtbl;
-}
-impl ::core::clone::Clone for IEffectivePermission2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IEffectivePermission2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x941fabca_dd47_4fca_90bb_b0e10255f20d);
@@ -176,6 +146,7 @@ pub struct IEffectivePermission2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISecurityInformation(::windows_core::IUnknown);
 impl ISecurityInformation {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -216,24 +187,8 @@ impl ISecurityInformation {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISecurityInformation, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISecurityInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISecurityInformation {}
-impl ::core::fmt::Debug for ISecurityInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISecurityInformation").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISecurityInformation {
     type Vtable = ISecurityInformation_Vtbl;
-}
-impl ::core::clone::Clone for ISecurityInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISecurityInformation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x965fc360_16ff_11d0_91cb_00aa00bbb723);
@@ -261,6 +216,7 @@ pub struct ISecurityInformation_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISecurityInformation2(::windows_core::IUnknown);
 impl ISecurityInformation2 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -276,24 +232,8 @@ impl ISecurityInformation2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISecurityInformation2, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISecurityInformation2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISecurityInformation2 {}
-impl ::core::fmt::Debug for ISecurityInformation2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISecurityInformation2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISecurityInformation2 {
     type Vtable = ISecurityInformation2_Vtbl;
-}
-impl ::core::clone::Clone for ISecurityInformation2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISecurityInformation2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc3ccfdb4_6f88_11d2_a3ce_00c04fb1782a);
@@ -313,6 +253,7 @@ pub struct ISecurityInformation2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISecurityInformation3(::windows_core::IUnknown);
 impl ISecurityInformation3 {
     pub unsafe fn GetFullResourceName(&self) -> ::windows_core::Result<::windows_core::PWSTR> {
@@ -329,24 +270,8 @@ impl ISecurityInformation3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISecurityInformation3, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISecurityInformation3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISecurityInformation3 {}
-impl ::core::fmt::Debug for ISecurityInformation3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISecurityInformation3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISecurityInformation3 {
     type Vtable = ISecurityInformation3_Vtbl;
-}
-impl ::core::clone::Clone for ISecurityInformation3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISecurityInformation3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xe2cdc9cc_31bd_4f8f_8c8b_b641af516a1a);
@@ -363,6 +288,7 @@ pub struct ISecurityInformation3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISecurityInformation4(::windows_core::IUnknown);
 impl ISecurityInformation4 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -372,24 +298,8 @@ impl ISecurityInformation4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISecurityInformation4, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISecurityInformation4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISecurityInformation4 {}
-impl ::core::fmt::Debug for ISecurityInformation4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISecurityInformation4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISecurityInformation4 {
     type Vtable = ISecurityInformation4_Vtbl;
-}
-impl ::core::clone::Clone for ISecurityInformation4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISecurityInformation4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xea961070_cd14_4621_ace4_f63c03e583e4);
@@ -405,6 +315,7 @@ pub struct ISecurityInformation4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization_UI\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ISecurityObjectTypeInfo(::windows_core::IUnknown);
 impl ISecurityObjectTypeInfo {
     pub unsafe fn GetInheritSource(&self, si: u32, pacl: *mut super::super::ACL, ppinheritarray: *mut *mut super::INHERITED_FROMA) -> ::windows_core::Result<()> {
@@ -412,24 +323,8 @@ impl ISecurityObjectTypeInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ISecurityObjectTypeInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ISecurityObjectTypeInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ISecurityObjectTypeInfo {}
-impl ::core::fmt::Debug for ISecurityObjectTypeInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ISecurityObjectTypeInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ISecurityObjectTypeInfo {
     type Vtable = ISecurityObjectTypeInfo_Vtbl;
-}
-impl ::core::clone::Clone for ISecurityObjectTypeInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ISecurityObjectTypeInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfc3066eb_79ef_444b_9111_d18a75ebf2fa);

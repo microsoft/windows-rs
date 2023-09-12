@@ -1,5 +1,6 @@
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerAssemblyReferenceProvider(::windows_core::IUnknown);
 impl ICorProfilerAssemblyReferenceProvider {
     #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`*"]
@@ -9,24 +10,8 @@ impl ICorProfilerAssemblyReferenceProvider {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerAssemblyReferenceProvider, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICorProfilerAssemblyReferenceProvider {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerAssemblyReferenceProvider {}
-impl ::core::fmt::Debug for ICorProfilerAssemblyReferenceProvider {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerAssemblyReferenceProvider").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerAssemblyReferenceProvider {
     type Vtable = ICorProfilerAssemblyReferenceProvider_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerAssemblyReferenceProvider {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerAssemblyReferenceProvider {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x66a78c24_2eef_4f65_b45f_dd1d8038bf3c);
@@ -42,6 +27,7 @@ pub struct ICorProfilerAssemblyReferenceProvider_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerCallback(::windows_core::IUnknown);
 impl ICorProfilerCallback {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> ::windows_core::Result<()>
@@ -292,24 +278,8 @@ impl ICorProfilerCallback {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerCallback, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICorProfilerCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerCallback {}
-impl ::core::fmt::Debug for ICorProfilerCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerCallback").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerCallback {
     type Vtable = ICorProfilerCallback_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerCallback {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x176fbed1_a55c_4796_98ca_a9da0ef883e7);
@@ -414,6 +384,7 @@ pub struct ICorProfilerCallback_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerCallback10(::windows_core::IUnknown);
 impl ICorProfilerCallback10 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> ::windows_core::Result<()>
@@ -771,24 +742,8 @@ impl ICorProfilerCallback10 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerCallback10, ::windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6, ICorProfilerCallback7, ICorProfilerCallback8, ICorProfilerCallback9);
-impl ::core::cmp::PartialEq for ICorProfilerCallback10 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerCallback10 {}
-impl ::core::fmt::Debug for ICorProfilerCallback10 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerCallback10").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerCallback10 {
     type Vtable = ICorProfilerCallback10_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerCallback10 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerCallback10 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcec5b60e_c69c_495f_87f6_84d28ee16ffb);
@@ -802,6 +757,7 @@ pub struct ICorProfilerCallback10_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerCallback11(::windows_core::IUnknown);
 impl ICorProfilerCallback11 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> ::windows_core::Result<()>
@@ -1164,24 +1120,8 @@ impl ICorProfilerCallback11 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerCallback11, ::windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6, ICorProfilerCallback7, ICorProfilerCallback8, ICorProfilerCallback9, ICorProfilerCallback10);
-impl ::core::cmp::PartialEq for ICorProfilerCallback11 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerCallback11 {}
-impl ::core::fmt::Debug for ICorProfilerCallback11 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerCallback11").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerCallback11 {
     type Vtable = ICorProfilerCallback11_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerCallback11 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerCallback11 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x42350846_aaed_47f7_b128_fd0c98881cde);
@@ -1197,6 +1137,7 @@ pub struct ICorProfilerCallback11_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerCallback2(::windows_core::IUnknown);
 impl ICorProfilerCallback2 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> ::windows_core::Result<()>
@@ -1473,24 +1414,8 @@ impl ICorProfilerCallback2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerCallback2, ::windows_core::IUnknown, ICorProfilerCallback);
-impl ::core::cmp::PartialEq for ICorProfilerCallback2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerCallback2 {}
-impl ::core::fmt::Debug for ICorProfilerCallback2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerCallback2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerCallback2 {
     type Vtable = ICorProfilerCallback2_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerCallback2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerCallback2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8a8cc829_ccf2_49fe_bbae_0f022228071a);
@@ -1513,6 +1438,7 @@ pub struct ICorProfilerCallback2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerCallback3(::windows_core::IUnknown);
 impl ICorProfilerCallback3 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> ::windows_core::Result<()>
@@ -1801,24 +1727,8 @@ impl ICorProfilerCallback3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerCallback3, ::windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2);
-impl ::core::cmp::PartialEq for ICorProfilerCallback3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerCallback3 {}
-impl ::core::fmt::Debug for ICorProfilerCallback3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerCallback3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerCallback3 {
     type Vtable = ICorProfilerCallback3_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerCallback3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerCallback3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4fd2ed52_7731_4b8d_9469_03d2cc3086c5);
@@ -1833,6 +1743,7 @@ pub struct ICorProfilerCallback3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerCallback4(::windows_core::IUnknown);
 impl ICorProfilerCallback4 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> ::windows_core::Result<()>
@@ -2152,24 +2063,8 @@ impl ICorProfilerCallback4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerCallback4, ::windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3);
-impl ::core::cmp::PartialEq for ICorProfilerCallback4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerCallback4 {}
-impl ::core::fmt::Debug for ICorProfilerCallback4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerCallback4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerCallback4 {
     type Vtable = ICorProfilerCallback4_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerCallback4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerCallback4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7b63b2e3_107d_4d48_b2f6_f61e229470d2);
@@ -2193,6 +2088,7 @@ pub struct ICorProfilerCallback4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerCallback5(::windows_core::IUnknown);
 impl ICorProfilerCallback5 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> ::windows_core::Result<()>
@@ -2515,24 +2411,8 @@ impl ICorProfilerCallback5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerCallback5, ::windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4);
-impl ::core::cmp::PartialEq for ICorProfilerCallback5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerCallback5 {}
-impl ::core::fmt::Debug for ICorProfilerCallback5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerCallback5").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerCallback5 {
     type Vtable = ICorProfilerCallback5_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerCallback5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerCallback5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x8dfba405_8c9f_45f8_bffa_83b14cef78b5);
@@ -2545,6 +2425,7 @@ pub struct ICorProfilerCallback5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerCallback6(::windows_core::IUnknown);
 impl ICorProfilerCallback6 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> ::windows_core::Result<()>
@@ -2874,24 +2755,8 @@ impl ICorProfilerCallback6 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerCallback6, ::windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5);
-impl ::core::cmp::PartialEq for ICorProfilerCallback6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerCallback6 {}
-impl ::core::fmt::Debug for ICorProfilerCallback6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerCallback6").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerCallback6 {
     type Vtable = ICorProfilerCallback6_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerCallback6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerCallback6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfc13df4b_4448_4f4f_950c_ba8d19d00c36);
@@ -2904,6 +2769,7 @@ pub struct ICorProfilerCallback6_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerCallback7(::windows_core::IUnknown);
 impl ICorProfilerCallback7 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> ::windows_core::Result<()>
@@ -3236,24 +3102,8 @@ impl ICorProfilerCallback7 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerCallback7, ::windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6);
-impl ::core::cmp::PartialEq for ICorProfilerCallback7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerCallback7 {}
-impl ::core::fmt::Debug for ICorProfilerCallback7 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerCallback7").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerCallback7 {
     type Vtable = ICorProfilerCallback7_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerCallback7 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerCallback7 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf76a2dba_1d52_4539_866c_2aa518f9efc3);
@@ -3266,6 +3116,7 @@ pub struct ICorProfilerCallback7_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerCallback8(::windows_core::IUnknown);
 impl ICorProfilerCallback8 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> ::windows_core::Result<()>
@@ -3614,24 +3465,8 @@ impl ICorProfilerCallback8 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerCallback8, ::windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6, ICorProfilerCallback7);
-impl ::core::cmp::PartialEq for ICorProfilerCallback8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerCallback8 {}
-impl ::core::fmt::Debug for ICorProfilerCallback8 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerCallback8").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerCallback8 {
     type Vtable = ICorProfilerCallback8_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerCallback8 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerCallback8 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5bed9b15_c079_4d47_bfe2_215a140c07e0);
@@ -3651,6 +3486,7 @@ pub struct ICorProfilerCallback8_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerCallback9(::windows_core::IUnknown);
 impl ICorProfilerCallback9 {
     pub unsafe fn Initialize<P0>(&self, picorprofilerinfounk: P0) -> ::windows_core::Result<()>
@@ -4002,24 +3838,8 @@ impl ICorProfilerCallback9 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerCallback9, ::windows_core::IUnknown, ICorProfilerCallback, ICorProfilerCallback2, ICorProfilerCallback3, ICorProfilerCallback4, ICorProfilerCallback5, ICorProfilerCallback6, ICorProfilerCallback7, ICorProfilerCallback8);
-impl ::core::cmp::PartialEq for ICorProfilerCallback9 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerCallback9 {}
-impl ::core::fmt::Debug for ICorProfilerCallback9 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerCallback9").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerCallback9 {
     type Vtable = ICorProfilerCallback9_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerCallback9 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerCallback9 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27583ec3_c8f5_482f_8052_194b8ce4705a);
@@ -4032,6 +3852,7 @@ pub struct ICorProfilerCallback9_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerFunctionControl(::windows_core::IUnknown);
 impl ICorProfilerFunctionControl {
     pub unsafe fn SetCodegenFlags(&self, flags: u32) -> ::windows_core::Result<()> {
@@ -4047,24 +3868,8 @@ impl ICorProfilerFunctionControl {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerFunctionControl, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICorProfilerFunctionControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerFunctionControl {}
-impl ::core::fmt::Debug for ICorProfilerFunctionControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerFunctionControl").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerFunctionControl {
     type Vtable = ICorProfilerFunctionControl_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerFunctionControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerFunctionControl {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf0963021_e1ea_4732_8581_e01b0bd3c0c6);
@@ -4082,6 +3887,7 @@ pub struct ICorProfilerFunctionControl_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerFunctionEnum(::windows_core::IUnknown);
 impl ICorProfilerFunctionEnum {
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
@@ -4103,24 +3909,8 @@ impl ICorProfilerFunctionEnum {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerFunctionEnum, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICorProfilerFunctionEnum {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerFunctionEnum {}
-impl ::core::fmt::Debug for ICorProfilerFunctionEnum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerFunctionEnum").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerFunctionEnum {
     type Vtable = ICorProfilerFunctionEnum_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerFunctionEnum {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerFunctionEnum {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xff71301a_b994_429d_a10b_b345a65280ef);
@@ -4137,6 +3927,7 @@ pub struct ICorProfilerFunctionEnum_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerInfo(::windows_core::IUnknown);
 impl ICorProfilerInfo {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
@@ -4271,24 +4062,8 @@ impl ICorProfilerInfo {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICorProfilerInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerInfo {}
-impl ::core::fmt::Debug for ICorProfilerInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerInfo").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerInfo {
     type Vtable = ICorProfilerInfo_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerInfo {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x28b5557d_3f3f_48b4_90b2_5f9eea2f6c48);
@@ -4348,6 +4123,7 @@ pub struct ICorProfilerInfo_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerInfo10(::windows_core::IUnknown);
 impl ICorProfilerInfo10 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
@@ -4699,24 +4475,8 @@ impl ICorProfilerInfo10 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo10, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8, ICorProfilerInfo9);
-impl ::core::cmp::PartialEq for ICorProfilerInfo10 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerInfo10 {}
-impl ::core::fmt::Debug for ICorProfilerInfo10 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerInfo10").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerInfo10 {
     type Vtable = ICorProfilerInfo10_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerInfo10 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerInfo10 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2f1b5152_c869_40c9_aa5f_3abe026bd720);
@@ -4740,6 +4500,7 @@ pub struct ICorProfilerInfo10_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerInfo11(::windows_core::IUnknown);
 impl ICorProfilerInfo11 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
@@ -5104,24 +4865,8 @@ impl ICorProfilerInfo11 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo11, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8, ICorProfilerInfo9, ICorProfilerInfo10);
-impl ::core::cmp::PartialEq for ICorProfilerInfo11 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerInfo11 {}
-impl ::core::fmt::Debug for ICorProfilerInfo11 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerInfo11").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerInfo11 {
     type Vtable = ICorProfilerInfo11_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerInfo11 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerInfo11 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x06398876_8987_4154_b621_40a00d6e4d04);
@@ -5135,6 +4880,7 @@ pub struct ICorProfilerInfo11_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerInfo12(::windows_core::IUnknown);
 impl ICorProfilerInfo12 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
@@ -5537,24 +5283,8 @@ impl ICorProfilerInfo12 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo12, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8, ICorProfilerInfo9, ICorProfilerInfo10, ICorProfilerInfo11);
-impl ::core::cmp::PartialEq for ICorProfilerInfo12 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerInfo12 {}
-impl ::core::fmt::Debug for ICorProfilerInfo12 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerInfo12").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerInfo12 {
     type Vtable = ICorProfilerInfo12_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerInfo12 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerInfo12 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x27b24ccd_1cb1_47c5_96ee_98190dc30959);
@@ -5579,6 +5309,7 @@ pub struct ICorProfilerInfo12_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerInfo13(::windows_core::IUnknown);
 impl ICorProfilerInfo13 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
@@ -5991,24 +5722,8 @@ impl ICorProfilerInfo13 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo13, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8, ICorProfilerInfo9, ICorProfilerInfo10, ICorProfilerInfo11, ICorProfilerInfo12);
-impl ::core::cmp::PartialEq for ICorProfilerInfo13 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerInfo13 {}
-impl ::core::fmt::Debug for ICorProfilerInfo13 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerInfo13").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerInfo13 {
     type Vtable = ICorProfilerInfo13_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerInfo13 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerInfo13 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e6c7ee2_0701_4ec2_9d29_2e8733b66934);
@@ -6023,6 +5738,7 @@ pub struct ICorProfilerInfo13_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerInfo14(::windows_core::IUnknown);
 impl ICorProfilerInfo14 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
@@ -6449,24 +6165,8 @@ impl ICorProfilerInfo14 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo14, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8, ICorProfilerInfo9, ICorProfilerInfo10, ICorProfilerInfo11, ICorProfilerInfo12, ICorProfilerInfo13);
-impl ::core::cmp::PartialEq for ICorProfilerInfo14 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerInfo14 {}
-impl ::core::fmt::Debug for ICorProfilerInfo14 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerInfo14").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerInfo14 {
     type Vtable = ICorProfilerInfo14_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerInfo14 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerInfo14 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf460e352_d76d_4fe9_835f_f6af9d6e862d);
@@ -6481,6 +6181,7 @@ pub struct ICorProfilerInfo14_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerInfo2(::windows_core::IUnknown);
 impl ICorProfilerInfo2 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
@@ -6688,24 +6389,8 @@ impl ICorProfilerInfo2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo2, ::windows_core::IUnknown, ICorProfilerInfo);
-impl ::core::cmp::PartialEq for ICorProfilerInfo2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerInfo2 {}
-impl ::core::fmt::Debug for ICorProfilerInfo2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerInfo2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerInfo2 {
     type Vtable = ICorProfilerInfo2_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerInfo2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerInfo2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xcc0935cd_a518_487d_b0bb_a93214e65478);
@@ -6741,6 +6426,7 @@ pub struct ICorProfilerInfo2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerInfo3(::windows_core::IUnknown);
 impl ICorProfilerInfo3 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
@@ -6995,24 +6681,8 @@ impl ICorProfilerInfo3 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo3, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2);
-impl ::core::cmp::PartialEq for ICorProfilerInfo3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerInfo3 {}
-impl ::core::fmt::Debug for ICorProfilerInfo3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerInfo3").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerInfo3 {
     type Vtable = ICorProfilerInfo3_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerInfo3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerInfo3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb555ed4f_452a_4e54_8b39_b5360bad32a0);
@@ -7041,6 +6711,7 @@ pub struct ICorProfilerInfo3_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerInfo4(::windows_core::IUnknown);
 impl ICorProfilerInfo4 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
@@ -7328,24 +6999,8 @@ impl ICorProfilerInfo4 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo4, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3);
-impl ::core::cmp::PartialEq for ICorProfilerInfo4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerInfo4 {}
-impl ::core::fmt::Debug for ICorProfilerInfo4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerInfo4").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerInfo4 {
     type Vtable = ICorProfilerInfo4_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerInfo4 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerInfo4 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x0d8fdcaa_6257_47bf_b1bf_94dac88466ee);
@@ -7367,6 +7022,7 @@ pub struct ICorProfilerInfo4_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerInfo5(::windows_core::IUnknown);
 impl ICorProfilerInfo5 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
@@ -7660,24 +7316,8 @@ impl ICorProfilerInfo5 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo5, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4);
-impl ::core::cmp::PartialEq for ICorProfilerInfo5 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerInfo5 {}
-impl ::core::fmt::Debug for ICorProfilerInfo5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerInfo5").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerInfo5 {
     type Vtable = ICorProfilerInfo5_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerInfo5 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerInfo5 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x07602928_ce38_4b83_81e7_74adaf781214);
@@ -7691,6 +7331,7 @@ pub struct ICorProfilerInfo5_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerInfo6(::windows_core::IUnknown);
 impl ICorProfilerInfo6 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
@@ -7989,24 +7630,8 @@ impl ICorProfilerInfo6 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo6, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5);
-impl ::core::cmp::PartialEq for ICorProfilerInfo6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerInfo6 {}
-impl ::core::fmt::Debug for ICorProfilerInfo6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerInfo6").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerInfo6 {
     type Vtable = ICorProfilerInfo6_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerInfo6 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerInfo6 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf30a070d_bffb_46a7_b1d8_8781ef7b698a);
@@ -8022,6 +7647,7 @@ pub struct ICorProfilerInfo6_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerInfo7(::windows_core::IUnknown);
 impl ICorProfilerInfo7 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
@@ -8330,24 +7956,8 @@ impl ICorProfilerInfo7 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo7, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6);
-impl ::core::cmp::PartialEq for ICorProfilerInfo7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerInfo7 {}
-impl ::core::fmt::Debug for ICorProfilerInfo7 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerInfo7").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerInfo7 {
     type Vtable = ICorProfilerInfo7_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerInfo7 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerInfo7 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9aeecc0d_63e0_4187_8c00_e312f503f663);
@@ -8362,6 +7972,7 @@ pub struct ICorProfilerInfo7_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerInfo8(::windows_core::IUnknown);
 impl ICorProfilerInfo8 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
@@ -8682,24 +8293,8 @@ impl ICorProfilerInfo8 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo8, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7);
-impl ::core::cmp::PartialEq for ICorProfilerInfo8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerInfo8 {}
-impl ::core::fmt::Debug for ICorProfilerInfo8 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerInfo8").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerInfo8 {
     type Vtable = ICorProfilerInfo8_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerInfo8 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerInfo8 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc5ac80a6_782e_4716_8044_39598c60cfbf);
@@ -8717,6 +8312,7 @@ pub struct ICorProfilerInfo8_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerInfo9(::windows_core::IUnknown);
 impl ICorProfilerInfo9 {
     pub unsafe fn GetClassFromObject(&self, objectid: usize) -> ::windows_core::Result<usize> {
@@ -9046,24 +8642,8 @@ impl ICorProfilerInfo9 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerInfo9, ::windows_core::IUnknown, ICorProfilerInfo, ICorProfilerInfo2, ICorProfilerInfo3, ICorProfilerInfo4, ICorProfilerInfo5, ICorProfilerInfo6, ICorProfilerInfo7, ICorProfilerInfo8);
-impl ::core::cmp::PartialEq for ICorProfilerInfo9 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerInfo9 {}
-impl ::core::fmt::Debug for ICorProfilerInfo9 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerInfo9").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerInfo9 {
     type Vtable = ICorProfilerInfo9_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerInfo9 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerInfo9 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x008170db_f8cc_4796_9a51_dc8aa0b47012);
@@ -9078,6 +8658,7 @@ pub struct ICorProfilerInfo9_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerMethodEnum(::windows_core::IUnknown);
 impl ICorProfilerMethodEnum {
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
@@ -9099,24 +8680,8 @@ impl ICorProfilerMethodEnum {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerMethodEnum, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICorProfilerMethodEnum {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerMethodEnum {}
-impl ::core::fmt::Debug for ICorProfilerMethodEnum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerMethodEnum").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerMethodEnum {
     type Vtable = ICorProfilerMethodEnum_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerMethodEnum {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerMethodEnum {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xfccee788_0088_454b_a811_c99f298d1942);
@@ -9133,6 +8698,7 @@ pub struct ICorProfilerMethodEnum_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerModuleEnum(::windows_core::IUnknown);
 impl ICorProfilerModuleEnum {
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
@@ -9154,24 +8720,8 @@ impl ICorProfilerModuleEnum {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerModuleEnum, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICorProfilerModuleEnum {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerModuleEnum {}
-impl ::core::fmt::Debug for ICorProfilerModuleEnum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerModuleEnum").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerModuleEnum {
     type Vtable = ICorProfilerModuleEnum_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerModuleEnum {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerModuleEnum {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb0266d75_2081_4493_af7f_028ba34db891);
@@ -9188,6 +8738,7 @@ pub struct ICorProfilerModuleEnum_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerObjectEnum(::windows_core::IUnknown);
 impl ICorProfilerObjectEnum {
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
@@ -9209,24 +8760,8 @@ impl ICorProfilerObjectEnum {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerObjectEnum, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICorProfilerObjectEnum {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerObjectEnum {}
-impl ::core::fmt::Debug for ICorProfilerObjectEnum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerObjectEnum").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerObjectEnum {
     type Vtable = ICorProfilerObjectEnum_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerObjectEnum {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerObjectEnum {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c6269bd_2d13_4321_ae12_6686365fd6af);
@@ -9243,6 +8778,7 @@ pub struct ICorProfilerObjectEnum_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICorProfilerThreadEnum(::windows_core::IUnknown);
 impl ICorProfilerThreadEnum {
     pub unsafe fn Skip(&self, celt: u32) -> ::windows_core::Result<()> {
@@ -9264,24 +8800,8 @@ impl ICorProfilerThreadEnum {
     }
 }
 ::windows_core::imp::interface_hierarchy!(ICorProfilerThreadEnum, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for ICorProfilerThreadEnum {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ICorProfilerThreadEnum {}
-impl ::core::fmt::Debug for ICorProfilerThreadEnum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICorProfilerThreadEnum").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for ICorProfilerThreadEnum {
     type Vtable = ICorProfilerThreadEnum_Vtbl;
-}
-impl ::core::clone::Clone for ICorProfilerThreadEnum {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICorProfilerThreadEnum {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x571194f7_25ed_419f_aa8b_7016b3159701);
@@ -9298,6 +8818,7 @@ pub struct ICorProfilerThreadEnum_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Diagnostics_ClrProfiling\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMethodMalloc(::windows_core::IUnknown);
 impl IMethodMalloc {
     pub unsafe fn Alloc(&self, cb: u32) -> *mut ::core::ffi::c_void {
@@ -9305,24 +8826,8 @@ impl IMethodMalloc {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMethodMalloc, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMethodMalloc {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMethodMalloc {}
-impl ::core::fmt::Debug for IMethodMalloc {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMethodMalloc").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMethodMalloc {
     type Vtable = IMethodMalloc_Vtbl;
-}
-impl ::core::clone::Clone for IMethodMalloc {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMethodMalloc {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa0efb28b_6ee2_4d7b_b983_a75ef7beedb8);

@@ -1343,6 +1343,7 @@ pub unsafe fn WsXmlStringEquals(string1: *const WS_XML_STRING, string2: *const W
 }
 #[doc = "*Required features: `\"Win32_Networking_WindowsWebServices\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IContentPrefetcherTaskTrigger(::windows_core::IUnknown);
 impl IContentPrefetcherTaskTrigger {
     pub unsafe fn TriggerContentPrefetcherTask<P0>(&self, packagefullname: P0) -> ::windows_core::Result<()>
@@ -1360,24 +1361,8 @@ impl IContentPrefetcherTaskTrigger {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IContentPrefetcherTaskTrigger, ::windows_core::IUnknown, ::windows_core::IInspectable);
-impl ::core::cmp::PartialEq for IContentPrefetcherTaskTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IContentPrefetcherTaskTrigger {}
-impl ::core::fmt::Debug for IContentPrefetcherTaskTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IContentPrefetcherTaskTrigger").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IContentPrefetcherTaskTrigger {
     type Vtable = IContentPrefetcherTaskTrigger_Vtbl;
-}
-impl ::core::clone::Clone for IContentPrefetcherTaskTrigger {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IContentPrefetcherTaskTrigger {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1b35a14a_6094_4799_a60e_e474e15d4dc9);

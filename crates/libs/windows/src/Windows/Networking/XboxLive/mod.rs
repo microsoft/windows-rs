@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXboxLiveDeviceAddress(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXboxLiveDeviceAddress {
     type Vtable = IXboxLiveDeviceAddress_Vtbl;
-}
-impl ::core::clone::Clone for IXboxLiveDeviceAddress {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXboxLiveDeviceAddress {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xf5bbd279_3c86_4b57_a31a_b9462408fd01);
@@ -37,14 +33,10 @@ pub struct IXboxLiveDeviceAddress_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXboxLiveDeviceAddressStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXboxLiveDeviceAddressStatics {
     type Vtable = IXboxLiveDeviceAddressStatics_Vtbl;
-}
-impl ::core::clone::Clone for IXboxLiveDeviceAddressStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXboxLiveDeviceAddressStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5954a819_4a79_4931_827c_7f503e963263);
@@ -64,14 +56,10 @@ pub struct IXboxLiveDeviceAddressStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXboxLiveEndpointPair(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXboxLiveEndpointPair {
     type Vtable = IXboxLiveEndpointPair_Vtbl;
-}
-impl ::core::clone::Clone for IXboxLiveEndpointPair {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXboxLiveEndpointPair {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1e9a839b_813e_44e0_b87f_c87a093475e4);
@@ -104,14 +92,10 @@ pub struct IXboxLiveEndpointPair_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXboxLiveEndpointPairCreationResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXboxLiveEndpointPairCreationResult {
     type Vtable = IXboxLiveEndpointPairCreationResult_Vtbl;
-}
-impl ::core::clone::Clone for IXboxLiveEndpointPairCreationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXboxLiveEndpointPairCreationResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd9a8bb95_2aab_4d1e_9794_33ecc0dcf0fe);
@@ -127,14 +111,10 @@ pub struct IXboxLiveEndpointPairCreationResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXboxLiveEndpointPairStateChangedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXboxLiveEndpointPairStateChangedEventArgs {
     type Vtable = IXboxLiveEndpointPairStateChangedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IXboxLiveEndpointPairStateChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXboxLiveEndpointPairStateChangedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x592e3b55_de08_44e7_ac3b_b9b9a169583a);
@@ -148,14 +128,10 @@ pub struct IXboxLiveEndpointPairStateChangedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXboxLiveEndpointPairStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXboxLiveEndpointPairStatics {
     type Vtable = IXboxLiveEndpointPairStatics_Vtbl;
-}
-impl ::core::clone::Clone for IXboxLiveEndpointPairStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXboxLiveEndpointPairStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x64316b30_217a_4243_8ee1_6729281d27db);
@@ -169,14 +145,10 @@ pub struct IXboxLiveEndpointPairStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXboxLiveEndpointPairTemplate(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXboxLiveEndpointPairTemplate {
     type Vtable = IXboxLiveEndpointPairTemplate_Vtbl;
-}
-impl ::core::clone::Clone for IXboxLiveEndpointPairTemplate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXboxLiveEndpointPairTemplate {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6b286ecf_3457_40ce_b9a1_c0cfe0213ea7);
@@ -222,14 +194,10 @@ pub struct IXboxLiveEndpointPairTemplate_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXboxLiveEndpointPairTemplateStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXboxLiveEndpointPairTemplateStatics {
     type Vtable = IXboxLiveEndpointPairTemplateStatics_Vtbl;
-}
-impl ::core::clone::Clone for IXboxLiveEndpointPairTemplateStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXboxLiveEndpointPairTemplateStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1e13137b_737b_4a23_bc64_0870f75655ba);
@@ -246,14 +214,10 @@ pub struct IXboxLiveEndpointPairTemplateStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXboxLiveInboundEndpointPairCreatedEventArgs(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXboxLiveInboundEndpointPairCreatedEventArgs {
     type Vtable = IXboxLiveInboundEndpointPairCreatedEventArgs_Vtbl;
-}
-impl ::core::clone::Clone for IXboxLiveInboundEndpointPairCreatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXboxLiveInboundEndpointPairCreatedEventArgs {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xdc183b62_22ba_48d2_80de_c23968bd198b);
@@ -266,14 +230,10 @@ pub struct IXboxLiveInboundEndpointPairCreatedEventArgs_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXboxLiveQualityOfServiceMeasurement(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXboxLiveQualityOfServiceMeasurement {
     type Vtable = IXboxLiveQualityOfServiceMeasurement_Vtbl;
-}
-impl ::core::clone::Clone for IXboxLiveQualityOfServiceMeasurement {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXboxLiveQualityOfServiceMeasurement {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4d682bce_a5d6_47e6_a236_cfde5fbdf2ed);
@@ -322,14 +282,10 @@ pub struct IXboxLiveQualityOfServiceMeasurement_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXboxLiveQualityOfServiceMeasurementStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXboxLiveQualityOfServiceMeasurementStatics {
     type Vtable = IXboxLiveQualityOfServiceMeasurementStatics_Vtbl;
-}
-impl ::core::clone::Clone for IXboxLiveQualityOfServiceMeasurementStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXboxLiveQualityOfServiceMeasurementStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6e352dca_23cf_440a_b077_5e30857a8234);
@@ -358,14 +314,10 @@ pub struct IXboxLiveQualityOfServiceMeasurementStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXboxLiveQualityOfServiceMetricResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXboxLiveQualityOfServiceMetricResult {
     type Vtable = IXboxLiveQualityOfServiceMetricResult_Vtbl;
-}
-impl ::core::clone::Clone for IXboxLiveQualityOfServiceMetricResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXboxLiveQualityOfServiceMetricResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xaeec53d1_3561_4782_b0cf_d3ae29d9fa87);
@@ -381,14 +333,10 @@ pub struct IXboxLiveQualityOfServiceMetricResult_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IXboxLiveQualityOfServicePrivatePayloadResult(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IXboxLiveQualityOfServicePrivatePayloadResult {
     type Vtable = IXboxLiveQualityOfServicePrivatePayloadResult_Vtbl;
-}
-impl ::core::clone::Clone for IXboxLiveQualityOfServicePrivatePayloadResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IXboxLiveQualityOfServicePrivatePayloadResult {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x5a6302ae_6f38_41c0_9fcc_ea6cb978cafc);
@@ -406,6 +354,7 @@ pub struct IXboxLiveQualityOfServicePrivatePayloadResult_Vtbl {
 }
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XboxLiveDeviceAddress(::windows_core::IUnknown);
 impl XboxLiveDeviceAddress {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -518,24 +467,8 @@ impl XboxLiveDeviceAddress {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for XboxLiveDeviceAddress {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XboxLiveDeviceAddress {}
-impl ::core::fmt::Debug for XboxLiveDeviceAddress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveDeviceAddress").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XboxLiveDeviceAddress {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveDeviceAddress;{f5bbd279-3c86-4b57-a31a-b9462408fd01})");
-}
-impl ::core::clone::Clone for XboxLiveDeviceAddress {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XboxLiveDeviceAddress {
     type Vtable = IXboxLiveDeviceAddress_Vtbl;
@@ -551,6 +484,7 @@ unsafe impl ::core::marker::Send for XboxLiveDeviceAddress {}
 unsafe impl ::core::marker::Sync for XboxLiveDeviceAddress {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XboxLiveEndpointPair(::windows_core::IUnknown);
 impl XboxLiveEndpointPair {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -659,24 +593,8 @@ impl XboxLiveEndpointPair {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for XboxLiveEndpointPair {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XboxLiveEndpointPair {}
-impl ::core::fmt::Debug for XboxLiveEndpointPair {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveEndpointPair").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XboxLiveEndpointPair {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveEndpointPair;{1e9a839b-813e-44e0-b87f-c87a093475e4})");
-}
-impl ::core::clone::Clone for XboxLiveEndpointPair {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XboxLiveEndpointPair {
     type Vtable = IXboxLiveEndpointPair_Vtbl;
@@ -692,6 +610,7 @@ unsafe impl ::core::marker::Send for XboxLiveEndpointPair {}
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPair {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XboxLiveEndpointPairCreationResult(::windows_core::IUnknown);
 impl XboxLiveEndpointPairCreationResult {
     pub fn DeviceAddress(&self) -> ::windows_core::Result<XboxLiveDeviceAddress> {
@@ -723,24 +642,8 @@ impl XboxLiveEndpointPairCreationResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for XboxLiveEndpointPairCreationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XboxLiveEndpointPairCreationResult {}
-impl ::core::fmt::Debug for XboxLiveEndpointPairCreationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveEndpointPairCreationResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XboxLiveEndpointPairCreationResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationResult;{d9a8bb95-2aab-4d1e-9794-33ecc0dcf0fe})");
-}
-impl ::core::clone::Clone for XboxLiveEndpointPairCreationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XboxLiveEndpointPairCreationResult {
     type Vtable = IXboxLiveEndpointPairCreationResult_Vtbl;
@@ -756,6 +659,7 @@ unsafe impl ::core::marker::Send for XboxLiveEndpointPairCreationResult {}
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPairCreationResult {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XboxLiveEndpointPairStateChangedEventArgs(::windows_core::IUnknown);
 impl XboxLiveEndpointPairStateChangedEventArgs {
     pub fn OldState(&self) -> ::windows_core::Result<XboxLiveEndpointPairState> {
@@ -773,24 +677,8 @@ impl XboxLiveEndpointPairStateChangedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for XboxLiveEndpointPairStateChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XboxLiveEndpointPairStateChangedEventArgs {}
-impl ::core::fmt::Debug for XboxLiveEndpointPairStateChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveEndpointPairStateChangedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XboxLiveEndpointPairStateChangedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveEndpointPairStateChangedEventArgs;{592e3b55-de08-44e7-ac3b-b9b9a169583a})");
-}
-impl ::core::clone::Clone for XboxLiveEndpointPairStateChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XboxLiveEndpointPairStateChangedEventArgs {
     type Vtable = IXboxLiveEndpointPairStateChangedEventArgs_Vtbl;
@@ -806,6 +694,7 @@ unsafe impl ::core::marker::Send for XboxLiveEndpointPairStateChangedEventArgs {
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPairStateChangedEventArgs {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XboxLiveEndpointPairTemplate(::windows_core::IUnknown);
 impl XboxLiveEndpointPairTemplate {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -945,24 +834,8 @@ impl XboxLiveEndpointPairTemplate {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for XboxLiveEndpointPairTemplate {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XboxLiveEndpointPairTemplate {}
-impl ::core::fmt::Debug for XboxLiveEndpointPairTemplate {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveEndpointPairTemplate").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XboxLiveEndpointPairTemplate {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveEndpointPairTemplate;{6b286ecf-3457-40ce-b9a1-c0cfe0213ea7})");
-}
-impl ::core::clone::Clone for XboxLiveEndpointPairTemplate {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XboxLiveEndpointPairTemplate {
     type Vtable = IXboxLiveEndpointPairTemplate_Vtbl;
@@ -978,6 +851,7 @@ unsafe impl ::core::marker::Send for XboxLiveEndpointPairTemplate {}
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPairTemplate {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XboxLiveInboundEndpointPairCreatedEventArgs(::windows_core::IUnknown);
 impl XboxLiveInboundEndpointPairCreatedEventArgs {
     pub fn EndpointPair(&self) -> ::windows_core::Result<XboxLiveEndpointPair> {
@@ -988,24 +862,8 @@ impl XboxLiveInboundEndpointPairCreatedEventArgs {
         }
     }
 }
-impl ::core::cmp::PartialEq for XboxLiveInboundEndpointPairCreatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XboxLiveInboundEndpointPairCreatedEventArgs {}
-impl ::core::fmt::Debug for XboxLiveInboundEndpointPairCreatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveInboundEndpointPairCreatedEventArgs").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XboxLiveInboundEndpointPairCreatedEventArgs {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveInboundEndpointPairCreatedEventArgs;{dc183b62-22ba-48d2-80de-c23968bd198b})");
-}
-impl ::core::clone::Clone for XboxLiveInboundEndpointPairCreatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XboxLiveInboundEndpointPairCreatedEventArgs {
     type Vtable = IXboxLiveInboundEndpointPairCreatedEventArgs_Vtbl;
@@ -1021,6 +879,7 @@ unsafe impl ::core::marker::Send for XboxLiveInboundEndpointPairCreatedEventArgs
 unsafe impl ::core::marker::Sync for XboxLiveInboundEndpointPairCreatedEventArgs {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XboxLiveQualityOfServiceMeasurement(::windows_core::IUnknown);
 impl XboxLiveQualityOfServiceMeasurement {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1217,24 +1076,8 @@ impl XboxLiveQualityOfServiceMeasurement {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for XboxLiveQualityOfServiceMeasurement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XboxLiveQualityOfServiceMeasurement {}
-impl ::core::fmt::Debug for XboxLiveQualityOfServiceMeasurement {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveQualityOfServiceMeasurement").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XboxLiveQualityOfServiceMeasurement {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement;{4d682bce-a5d6-47e6-a236-cfde5fbdf2ed})");
-}
-impl ::core::clone::Clone for XboxLiveQualityOfServiceMeasurement {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XboxLiveQualityOfServiceMeasurement {
     type Vtable = IXboxLiveQualityOfServiceMeasurement_Vtbl;
@@ -1250,6 +1093,7 @@ unsafe impl ::core::marker::Send for XboxLiveQualityOfServiceMeasurement {}
 unsafe impl ::core::marker::Sync for XboxLiveQualityOfServiceMeasurement {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XboxLiveQualityOfServiceMetricResult(::windows_core::IUnknown);
 impl XboxLiveQualityOfServiceMetricResult {
     pub fn Status(&self) -> ::windows_core::Result<XboxLiveQualityOfServiceMeasurementStatus> {
@@ -1281,24 +1125,8 @@ impl XboxLiveQualityOfServiceMetricResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for XboxLiveQualityOfServiceMetricResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XboxLiveQualityOfServiceMetricResult {}
-impl ::core::fmt::Debug for XboxLiveQualityOfServiceMetricResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveQualityOfServiceMetricResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XboxLiveQualityOfServiceMetricResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetricResult;{aeec53d1-3561-4782-b0cf-d3ae29d9fa87})");
-}
-impl ::core::clone::Clone for XboxLiveQualityOfServiceMetricResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XboxLiveQualityOfServiceMetricResult {
     type Vtable = IXboxLiveQualityOfServiceMetricResult_Vtbl;
@@ -1314,6 +1142,7 @@ unsafe impl ::core::marker::Send for XboxLiveQualityOfServiceMetricResult {}
 unsafe impl ::core::marker::Sync for XboxLiveQualityOfServiceMetricResult {}
 #[doc = "*Required features: `\"Networking_XboxLive\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct XboxLiveQualityOfServicePrivatePayloadResult(::windows_core::IUnknown);
 impl XboxLiveQualityOfServicePrivatePayloadResult {
     pub fn Status(&self) -> ::windows_core::Result<XboxLiveQualityOfServiceMeasurementStatus> {
@@ -1340,24 +1169,8 @@ impl XboxLiveQualityOfServicePrivatePayloadResult {
         }
     }
 }
-impl ::core::cmp::PartialEq for XboxLiveQualityOfServicePrivatePayloadResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XboxLiveQualityOfServicePrivatePayloadResult {}
-impl ::core::fmt::Debug for XboxLiveQualityOfServicePrivatePayloadResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XboxLiveQualityOfServicePrivatePayloadResult").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for XboxLiveQualityOfServicePrivatePayloadResult {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveQualityOfServicePrivatePayloadResult;{5a6302ae-6f38-41c0-9fcc-ea6cb978cafc})");
-}
-impl ::core::clone::Clone for XboxLiveQualityOfServicePrivatePayloadResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for XboxLiveQualityOfServicePrivatePayloadResult {
     type Vtable = IXboxLiveQualityOfServicePrivatePayloadResult_Vtbl;

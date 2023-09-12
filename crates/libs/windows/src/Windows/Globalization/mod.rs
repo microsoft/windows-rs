@@ -10,14 +10,10 @@ pub mod NumberFormatting;
 pub mod PhoneNumberFormatting;
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IApplicationLanguagesStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IApplicationLanguagesStatics {
     type Vtable = IApplicationLanguagesStatics_Vtbl;
-}
-impl ::core::clone::Clone for IApplicationLanguagesStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IApplicationLanguagesStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x75b40847_0a4c_4a92_9565_fd63c95f7aed);
@@ -39,14 +35,10 @@ pub struct IApplicationLanguagesStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IApplicationLanguagesStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IApplicationLanguagesStatics2 {
     type Vtable = IApplicationLanguagesStatics2_Vtbl;
-}
-impl ::core::clone::Clone for IApplicationLanguagesStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IApplicationLanguagesStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1df0de4f_072b_4d7b_8f06_cb2db40f2bb5);
@@ -62,14 +54,10 @@ pub struct IApplicationLanguagesStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICalendar(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICalendar {
     type Vtable = ICalendar_Vtbl;
-}
-impl ::core::clone::Clone for ICalendar {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICalendar {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xca30221d_86d9_40fb_a26b_d44eb7cf08ea);
@@ -191,14 +179,10 @@ pub struct ICalendar_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICalendarFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICalendarFactory {
     type Vtable = ICalendarFactory_Vtbl;
-}
-impl ::core::clone::Clone for ICalendarFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICalendarFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x83f58412_e56b_4c75_a66e_0f63d57758a6);
@@ -218,14 +202,10 @@ pub struct ICalendarFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICalendarFactory2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICalendarFactory2 {
     type Vtable = ICalendarFactory2_Vtbl;
-}
-impl ::core::clone::Clone for ICalendarFactory2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICalendarFactory2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb44b378c_ca7e_4590_9e72_ea2bec1a5115);
@@ -241,14 +221,10 @@ pub struct ICalendarFactory2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICalendarIdentifiersStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICalendarIdentifiersStatics {
     type Vtable = ICalendarIdentifiersStatics_Vtbl;
-}
-impl ::core::clone::Clone for ICalendarIdentifiersStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICalendarIdentifiersStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x80653f68_2cb2_4c1f_b590_f0f52bf4fd1a);
@@ -269,14 +245,10 @@ pub struct ICalendarIdentifiersStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICalendarIdentifiersStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICalendarIdentifiersStatics2 {
     type Vtable = ICalendarIdentifiersStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ICalendarIdentifiersStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICalendarIdentifiersStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7df4d488_5fd0_42a7_95b5_7d98d823075f);
@@ -289,14 +261,10 @@ pub struct ICalendarIdentifiersStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICalendarIdentifiersStatics3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICalendarIdentifiersStatics3 {
     type Vtable = ICalendarIdentifiersStatics3_Vtbl;
-}
-impl ::core::clone::Clone for ICalendarIdentifiersStatics3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICalendarIdentifiersStatics3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2c225423_1fad_40c0_9334_a8eb90db04f5);
@@ -313,14 +281,10 @@ pub struct ICalendarIdentifiersStatics3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IClockIdentifiersStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IClockIdentifiersStatics {
     type Vtable = IClockIdentifiersStatics_Vtbl;
-}
-impl ::core::clone::Clone for IClockIdentifiersStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IClockIdentifiersStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x523805bb_12ec_4f83_bc31_b1b4376b0808);
@@ -334,14 +298,10 @@ pub struct IClockIdentifiersStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICurrencyAmount(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICurrencyAmount {
     type Vtable = ICurrencyAmount_Vtbl;
-}
-impl ::core::clone::Clone for ICurrencyAmount {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICurrencyAmount {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x74b49942_eb75_443a_95b3_7d723f56f93c);
@@ -355,14 +315,10 @@ pub struct ICurrencyAmount_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICurrencyAmountFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICurrencyAmountFactory {
     type Vtable = ICurrencyAmountFactory_Vtbl;
-}
-impl ::core::clone::Clone for ICurrencyAmountFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICurrencyAmountFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x48d7168f_ef3b_4aee_a6a1_4b036fe03ff0);
@@ -375,14 +331,10 @@ pub struct ICurrencyAmountFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICurrencyIdentifiersStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICurrencyIdentifiersStatics {
     type Vtable = ICurrencyIdentifiersStatics_Vtbl;
-}
-impl ::core::clone::Clone for ICurrencyIdentifiersStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICurrencyIdentifiersStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9f1d091b_d586_4913_9b6a_a9bd2dc12874);
@@ -551,14 +503,10 @@ pub struct ICurrencyIdentifiersStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICurrencyIdentifiersStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICurrencyIdentifiersStatics2 {
     type Vtable = ICurrencyIdentifiersStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ICurrencyIdentifiersStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICurrencyIdentifiersStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x1814797f_c3b2_4c33_9591_980011950d37);
@@ -571,14 +519,10 @@ pub struct ICurrencyIdentifiersStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ICurrencyIdentifiersStatics3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ICurrencyIdentifiersStatics3 {
     type Vtable = ICurrencyIdentifiersStatics3_Vtbl;
-}
-impl ::core::clone::Clone for ICurrencyIdentifiersStatics3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ICurrencyIdentifiersStatics3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x4fb23bfa_ed25_4f4d_857f_237f1748c21c);
@@ -594,14 +538,10 @@ pub struct ICurrencyIdentifiersStatics3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGeographicRegion(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGeographicRegion {
     type Vtable = IGeographicRegion_Vtbl;
-}
-impl ::core::clone::Clone for IGeographicRegion {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGeographicRegion {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x01e9a621_4a64_4ed9_954f_9edeb07bd903);
@@ -623,14 +563,10 @@ pub struct IGeographicRegion_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGeographicRegionFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGeographicRegionFactory {
     type Vtable = IGeographicRegionFactory_Vtbl;
-}
-impl ::core::clone::Clone for IGeographicRegionFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGeographicRegionFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x53425270_77b4_426b_859f_81e19d512546);
@@ -643,14 +579,10 @@ pub struct IGeographicRegionFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IGeographicRegionStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IGeographicRegionStatics {
     type Vtable = IGeographicRegionStatics_Vtbl;
-}
-impl ::core::clone::Clone for IGeographicRegionStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IGeographicRegionStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x29e28974_7ad9_4ef4_8799_b3b44fadec08);
@@ -663,14 +595,10 @@ pub struct IGeographicRegionStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IJapanesePhoneme(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IJapanesePhoneme {
     type Vtable = IJapanesePhoneme_Vtbl;
-}
-impl ::core::clone::Clone for IJapanesePhoneme {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IJapanesePhoneme {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x2f6a9300_e85b_43e6_897d_5d82f862df21);
@@ -685,14 +613,10 @@ pub struct IJapanesePhoneme_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IJapanesePhoneticAnalyzerStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IJapanesePhoneticAnalyzerStatics {
     type Vtable = IJapanesePhoneticAnalyzerStatics_Vtbl;
-}
-impl ::core::clone::Clone for IJapanesePhoneticAnalyzerStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IJapanesePhoneticAnalyzerStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x88ab9e90_93de_41b2_b4d5_8edb227fd1c2);
@@ -712,14 +636,10 @@ pub struct IJapanesePhoneticAnalyzerStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILanguage(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILanguage {
     type Vtable = ILanguage_Vtbl;
-}
-impl ::core::clone::Clone for ILanguage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILanguage {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xea79a752_f7c2_4265_b1bd_c4dec4e4f080);
@@ -735,14 +655,10 @@ pub struct ILanguage_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILanguage2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILanguage2 {
     type Vtable = ILanguage2_Vtbl;
-}
-impl ::core::clone::Clone for ILanguage2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILanguage2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x6a47e5b5_d94d_4886_a404_a5a5b9d5b494);
@@ -755,14 +671,10 @@ pub struct ILanguage2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILanguage3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILanguage3 {
     type Vtable = ILanguage3_Vtbl;
-}
-impl ::core::clone::Clone for ILanguage3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILanguage3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xc6af3d10_641a_5ba4_bb43_5e12aed75954);
@@ -775,14 +687,10 @@ pub struct ILanguage3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILanguageExtensionSubtags(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILanguageExtensionSubtags {
     type Vtable = ILanguageExtensionSubtags_Vtbl;
-}
-impl ::core::clone::Clone for ILanguageExtensionSubtags {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILanguageExtensionSubtags {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7d7daf45_368d_4364_852b_dec927037b85);
@@ -798,14 +706,10 @@ pub struct ILanguageExtensionSubtags_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILanguageFactory(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILanguageFactory {
     type Vtable = ILanguageFactory_Vtbl;
-}
-impl ::core::clone::Clone for ILanguageFactory {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILanguageFactory {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x9b0252ac_0c27_44f8_b792_9793fb66c63e);
@@ -818,14 +722,10 @@ pub struct ILanguageFactory_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILanguageStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILanguageStatics {
     type Vtable = ILanguageStatics_Vtbl;
-}
-impl ::core::clone::Clone for ILanguageStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILanguageStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xb23cd557_0865_46d4_89b8_d59be8990f0d);
@@ -839,14 +739,10 @@ pub struct ILanguageStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILanguageStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILanguageStatics2 {
     type Vtable = ILanguageStatics2_Vtbl;
-}
-impl ::core::clone::Clone for ILanguageStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILanguageStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x30199f6e_914b_4b2a_9d6e_e3b0e27dbe4f);
@@ -859,14 +755,10 @@ pub struct ILanguageStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ILanguageStatics3(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ILanguageStatics3 {
     type Vtable = ILanguageStatics3_Vtbl;
-}
-impl ::core::clone::Clone for ILanguageStatics3 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ILanguageStatics3 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd15ecb5a_71de_5752_9542_fac5b4f27261);
@@ -882,14 +774,10 @@ pub struct ILanguageStatics3_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INumeralSystemIdentifiersStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for INumeralSystemIdentifiersStatics {
     type Vtable = INumeralSystemIdentifiersStatics_Vtbl;
-}
-impl ::core::clone::Clone for INumeralSystemIdentifiersStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INumeralSystemIdentifiersStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xa5c662c3_68c9_4d3d_b765_972029e21dec);
@@ -937,14 +825,10 @@ pub struct INumeralSystemIdentifiersStatics_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct INumeralSystemIdentifiersStatics2(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for INumeralSystemIdentifiersStatics2 {
     type Vtable = INumeralSystemIdentifiersStatics2_Vtbl;
-}
-impl ::core::clone::Clone for INumeralSystemIdentifiersStatics2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for INumeralSystemIdentifiersStatics2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7f003228_9ddb_4a34_9104_0260c091a7c7);
@@ -968,14 +852,10 @@ pub struct INumeralSystemIdentifiersStatics2_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct ITimeZoneOnCalendar(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for ITimeZoneOnCalendar {
     type Vtable = ITimeZoneOnCalendar_Vtbl;
-}
-impl ::core::clone::Clone for ITimeZoneOnCalendar {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for ITimeZoneOnCalendar {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xbb3c25e5_46cf_4317_a3f5_02621ad54478);
@@ -1044,6 +924,7 @@ impl ::windows_core::RuntimeName for ApplicationLanguages {
 }
 #[doc = "*Required features: `\"Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Calendar(::windows_core::IUnknown);
 impl Calendar {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -1741,24 +1622,8 @@ impl Calendar {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for Calendar {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Calendar {}
-impl ::core::fmt::Debug for Calendar {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Calendar").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Calendar {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.Calendar;{ca30221d-86d9-40fb-a26b-d44eb7cf08ea})");
-}
-impl ::core::clone::Clone for Calendar {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Calendar {
     type Vtable = ICalendar_Vtbl;
@@ -1910,6 +1775,7 @@ impl ::windows_core::RuntimeName for ClockIdentifiers {
 }
 #[doc = "*Required features: `\"Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct CurrencyAmount(::windows_core::IUnknown);
 impl CurrencyAmount {
     pub fn Amount(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -1938,24 +1804,8 @@ impl CurrencyAmount {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for CurrencyAmount {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CurrencyAmount {}
-impl ::core::fmt::Debug for CurrencyAmount {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CurrencyAmount").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for CurrencyAmount {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.CurrencyAmount;{74b49942-eb75-443a-95b3-7d723f56f93c})");
-}
-impl ::core::clone::Clone for CurrencyAmount {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for CurrencyAmount {
     type Vtable = ICurrencyAmount_Vtbl;
@@ -2965,6 +2815,7 @@ impl ::windows_core::RuntimeName for CurrencyIdentifiers {
 }
 #[doc = "*Required features: `\"Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct GeographicRegion(::windows_core::IUnknown);
 impl GeographicRegion {
     pub fn new() -> ::windows_core::Result<Self> {
@@ -3048,24 +2899,8 @@ impl GeographicRegion {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for GeographicRegion {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GeographicRegion {}
-impl ::core::fmt::Debug for GeographicRegion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeographicRegion").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for GeographicRegion {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.GeographicRegion;{01e9a621-4a64-4ed9-954f-9edeb07bd903})");
-}
-impl ::core::clone::Clone for GeographicRegion {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for GeographicRegion {
     type Vtable = IGeographicRegion_Vtbl;
@@ -3081,6 +2916,7 @@ unsafe impl ::core::marker::Send for GeographicRegion {}
 unsafe impl ::core::marker::Sync for GeographicRegion {}
 #[doc = "*Required features: `\"Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct JapanesePhoneme(::windows_core::IUnknown);
 impl JapanesePhoneme {
     pub fn DisplayText(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -3105,24 +2941,8 @@ impl JapanesePhoneme {
         }
     }
 }
-impl ::core::cmp::PartialEq for JapanesePhoneme {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for JapanesePhoneme {}
-impl ::core::fmt::Debug for JapanesePhoneme {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JapanesePhoneme").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for JapanesePhoneme {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.JapanesePhoneme;{2f6a9300-e85b-43e6-897d-5d82f862df21})");
-}
-impl ::core::clone::Clone for JapanesePhoneme {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for JapanesePhoneme {
     type Vtable = IJapanesePhoneme_Vtbl;
@@ -3164,6 +2984,7 @@ impl ::windows_core::RuntimeName for JapanesePhoneticAnalyzer {
 }
 #[doc = "*Required features: `\"Globalization\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct Language(::windows_core::IUnknown);
 impl Language {
     pub fn LanguageTag(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -3273,24 +3094,8 @@ impl Language {
         SHARED.call(callback)
     }
 }
-impl ::core::cmp::PartialEq for Language {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Language {}
-impl ::core::fmt::Debug for Language {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Language").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for Language {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Globalization.Language;{ea79a752-f7c2-4265-b1bd-c4dec4e4f080})");
-}
-impl ::core::clone::Clone for Language {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for Language {
     type Vtable = ILanguage_Vtbl;

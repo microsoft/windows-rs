@@ -784,6 +784,7 @@ pub unsafe fn STGMEDIUM_UserUnmarshal64(param0: *const u32, param1: *const u8, p
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMarshal(::windows_core::IUnknown);
 impl IMarshal {
     pub unsafe fn GetUnmarshalClass(&self, riid: *const ::windows_core::GUID, pv: ::core::option::Option<*const ::core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: ::core::option::Option<*const ::core::ffi::c_void>, mshlflags: u32) -> ::windows_core::Result<::windows_core::GUID> {
@@ -817,24 +818,8 @@ impl IMarshal {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMarshal, ::windows_core::IUnknown);
-impl ::core::cmp::PartialEq for IMarshal {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMarshal {}
-impl ::core::fmt::Debug for IMarshal {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMarshal").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMarshal {
     type Vtable = IMarshal_Vtbl;
-}
-impl ::core::clone::Clone for IMarshal {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMarshal {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x00000003_0000_0000_c000_000000000046);
@@ -852,6 +837,7 @@ pub struct IMarshal_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMarshal2(::windows_core::IUnknown);
 impl IMarshal2 {
     pub unsafe fn GetUnmarshalClass(&self, riid: *const ::windows_core::GUID, pv: ::core::option::Option<*const ::core::ffi::c_void>, dwdestcontext: u32, pvdestcontext: ::core::option::Option<*const ::core::ffi::c_void>, mshlflags: u32) -> ::windows_core::Result<::windows_core::GUID> {
@@ -885,24 +871,8 @@ impl IMarshal2 {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMarshal2, ::windows_core::IUnknown, IMarshal);
-impl ::core::cmp::PartialEq for IMarshal2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMarshal2 {}
-impl ::core::fmt::Debug for IMarshal2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMarshal2").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMarshal2 {
     type Vtable = IMarshal2_Vtbl;
-}
-impl ::core::clone::Clone for IMarshal2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMarshal2 {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x000001cf_0000_0000_c000_000000000046);
@@ -914,6 +884,7 @@ pub struct IMarshal2_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IMarshalingStream(::windows_core::IUnknown);
 impl IMarshalingStream {
     pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: ::core::option::Option<*mut u32>) -> ::windows_core::HRESULT {
@@ -961,24 +932,8 @@ impl IMarshalingStream {
     }
 }
 ::windows_core::imp::interface_hierarchy!(IMarshalingStream, ::windows_core::IUnknown, super::ISequentialStream, super::IStream);
-impl ::core::cmp::PartialEq for IMarshalingStream {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IMarshalingStream {}
-impl ::core::fmt::Debug for IMarshalingStream {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMarshalingStream").field(&self.0).finish()
-    }
-}
 unsafe impl ::windows_core::Interface for IMarshalingStream {
     type Vtable = IMarshalingStream_Vtbl;
-}
-impl ::core::clone::Clone for IMarshalingStream {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IMarshalingStream {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0xd8f2f5e6_6102_4863_9f26_389a4676efde);

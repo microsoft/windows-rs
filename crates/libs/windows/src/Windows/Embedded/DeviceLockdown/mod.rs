@@ -1,13 +1,9 @@
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceLockdownProfileInformation(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceLockdownProfileInformation {
     type Vtable = IDeviceLockdownProfileInformation_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceLockdownProfileInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceLockdownProfileInformation {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x7980e14e_45b1_4a96_92fc_62756b739678);
@@ -20,14 +16,10 @@ pub struct IDeviceLockdownProfileInformation_Vtbl {
 }
 #[doc(hidden)]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct IDeviceLockdownProfileStatics(::windows_core::IUnknown);
 unsafe impl ::windows_core::Interface for IDeviceLockdownProfileStatics {
     type Vtable = IDeviceLockdownProfileStatics_Vtbl;
-}
-impl ::core::clone::Clone for IDeviceLockdownProfileStatics {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::ComInterface for IDeviceLockdownProfileStatics {
     const IID: ::windows_core::GUID = ::windows_core::GUID::from_u128(0x622f6965_f9a8_41a1_a691_88cd80c7a069);
@@ -89,6 +81,7 @@ impl ::windows_core::RuntimeName for DeviceLockdownProfile {
 }
 #[doc = "*Required features: `\"Embedded_DeviceLockdown\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq, ::core::fmt::Debug, ::core::clone::Clone)]
 pub struct DeviceLockdownProfileInformation(::windows_core::IUnknown);
 impl DeviceLockdownProfileInformation {
     pub fn Name(&self) -> ::windows_core::Result<::windows_core::HSTRING> {
@@ -99,24 +92,8 @@ impl DeviceLockdownProfileInformation {
         }
     }
 }
-impl ::core::cmp::PartialEq for DeviceLockdownProfileInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceLockdownProfileInformation {}
-impl ::core::fmt::Debug for DeviceLockdownProfileInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceLockdownProfileInformation").field(&self.0).finish()
-    }
-}
 impl ::windows_core::RuntimeType for DeviceLockdownProfileInformation {
     const SIGNATURE: ::windows_core::imp::ConstBuffer = ::windows_core::imp::ConstBuffer::from_slice(b"rc(Windows.Embedded.DeviceLockdown.DeviceLockdownProfileInformation;{7980e14e-45b1-4a96-92fc-62756b739678})");
-}
-impl ::core::clone::Clone for DeviceLockdownProfileInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
 }
 unsafe impl ::windows_core::Interface for DeviceLockdownProfileInformation {
     type Vtable = IDeviceLockdownProfileInformation_Vtbl;
