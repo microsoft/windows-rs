@@ -106,3 +106,12 @@ pub fn gen_win_handle(writer: &Writer, def: TypeDef) -> TokenStream {
 
     tokens
 }
+
+fn type_def_usable_for(reader: &Reader, row: TypeDef) -> Option<TypeDef> {
+    if let Some(attribute) = reader.find_attribute(row, "AlsoUsableForAttribute") {
+        if let Some((_, Value::String(name))) = reader.attribute_args(attribute).get(0) {
+            return reader.get_type_def(TypeName::new(reader.type_def_namespace(row), name.as_str())).next();
+        }
+    }
+    None
+}

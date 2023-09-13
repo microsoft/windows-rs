@@ -183,3 +183,27 @@ fn read_literal_array(input: &str, len: usize) -> (Vec<&str>, &str) {
 
     (result, read_token(input, b'}'))
 }
+
+fn field_guid(reader: &Reader, row: Field) -> Option<GUID> {
+    reader.find_attribute(row, "GuidAttribute").map(|attribute| GUID::from_args(&reader.attribute_args(attribute)))
+}
+
+fn field_is_ansi(reader: &Reader, row: Field) -> bool {
+    reader.find_attribute(row, "NativeEncodingAttribute").is_some_and(|attribute| matches!(reader.attribute_args(attribute).get(0), Some((_, Value::String(encoding))) if encoding == "ansi"))
+}
+
+fn type_has_replacement(reader: &Reader, ty: &Type) -> bool {
+    match ty {
+        Type::HRESULT | Type::PCSTR | Type::PCWSTR => true,
+        Type::TypeDef(row, _) => type_def_is_handle(reader, *row) || reader.type_def_kind(*row) == TypeKind::Enum,
+        _ => false,
+    }
+}
+
+fn type_underlying_type(reader: &Reader, ty: &Type) -> Type {
+    match ty {
+        Type::TypeDef(row, _) => reader.type_def_underlying_type(*row),
+        Type::HRESULT => Type::I32,
+        _ => ty.clone(),
+    }
+}

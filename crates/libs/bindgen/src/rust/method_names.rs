@@ -28,3 +28,29 @@ impl MethodNames {
         }
     }
 }
+
+fn method_def_special_name(reader: &Reader, row: MethodDef) -> String {
+    let name = reader.method_def_name(row);
+    if reader.method_def_flags(row).contains(MethodAttributes::SpecialName) {
+        if name.starts_with("get") {
+            name[4..].to_string()
+        } else if name.starts_with("put") {
+            format!("Set{}", &name[4..])
+        } else if name.starts_with("add") {
+            name[4..].to_string()
+        } else if name.starts_with("remove") {
+            format!("Remove{}", &name[7..])
+        } else {
+            name.to_string()
+        }
+    } else {
+        if let Some(attribute) = reader.find_attribute(row, "OverloadAttribute") {
+            for (_, arg) in reader.attribute_args(attribute) {
+                if let Value::String(name) = arg {
+                    return name;
+                }
+            }
+        }
+        name.to_string()
+    }
+}

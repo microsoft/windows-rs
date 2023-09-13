@@ -144,7 +144,7 @@ fn gen_winrt_abi_args(writer: &Writer, params: &[SignatureParam]) -> TokenStream
                 }
             } else if type_is_non_exclusive_winrt_interface(writer.reader, &param.ty) {
                 quote! { #name.try_into_param()?.abi(), }
-            } else if signature_param_is_borrowed(writer.reader, param) {
+            } else if type_is_borrowed(writer.reader, &param.ty) {
                 quote! { #name.into_param().abi(), }
             } else if type_is_blittable(writer.reader, &param.ty) {
                 if param.ty.is_const_ref() {

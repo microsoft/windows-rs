@@ -1178,6 +1178,33 @@ fn gen_const_ptrs(pointers: usize) -> TokenStream {
     "*const ".repeat(pointers).into()
 }
 
+fn type_def_async_kind(reader: &Reader, row: TypeDef) -> AsyncKind {
+    match reader.type_def_type_name(row) {
+        TypeName::IAsyncAction => AsyncKind::Action,
+        TypeName::IAsyncActionWithProgress => AsyncKind::ActionWithProgress,
+        TypeName::IAsyncOperation => AsyncKind::Operation,
+        TypeName::IAsyncOperationWithProgress => AsyncKind::OperationWithProgress,
+        _ => AsyncKind::None,
+    }
+}
+
+fn type_def_is_agile(reader: &Reader, row: TypeDef) -> bool {
+    for attribute in reader.attributes(row) {
+        match reader.attribute_name(attribute) {
+            "AgileAttribute" => return true,
+            "MarshalingBehaviorAttribute" => {
+                if let Some((_, Value::EnumDef(_, value))) = reader.attribute_args(attribute).get(0) {
+                    if let Value::I32(2) = **value {
+                        return true;
+                    }
+                }
+            }
+            _ => {}
+        }
+    }
+    matches!(reader.type_def_type_name(row), TypeName::IAsyncAction | TypeName::IAsyncActionWithProgress | TypeName::IAsyncOperation | TypeName::IAsyncOperationWithProgress)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

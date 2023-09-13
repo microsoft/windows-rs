@@ -158,3 +158,27 @@ fn gen_conversions(writer: &Writer, def: TypeDef, name: &TokenStream, interfaces
 
     tokens
 }
+
+fn type_def_has_default_constructor(reader: &Reader, row: TypeDef) -> bool {
+    for attribute in reader.attributes(row) {
+        if reader.attribute_name(attribute) == "ActivatableAttribute" {
+            if reader.attribute_args(attribute).iter().any(|arg| matches!(arg.1, Value::TypeName(_))) {
+                continue;
+            } else {
+                return true;
+            }
+        }
+    }
+    false
+}
+
+fn type_def_has_default_interface(reader: &Reader, row: TypeDef) -> bool {
+    reader.type_def_interface_impls(row).any(|imp| reader.has_attribute(imp, "DefaultAttribute"))
+}
+
+fn type_is_exclusive(reader: &Reader, ty: &Type) -> bool {
+    match ty {
+        Type::TypeDef(row, _) => type_def_is_exclusive(reader, *row),
+        _ => false,
+    }
+}
