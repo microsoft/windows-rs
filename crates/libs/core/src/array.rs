@@ -103,6 +103,8 @@ impl<T: Type<T>> Array<T> {
     #[doc(hidden)]
     /// Get a mutable pointer to the array's length
     ///
+    /// # Safety
+    ///
     /// This function is safe but writing to the pointer is not. Calling this without
     /// a subsequent call to `set_abi` is likely to either leak memory or cause UB
     pub unsafe fn set_abi_len(&mut self) -> *mut u32 {
