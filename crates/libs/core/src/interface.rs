@@ -16,7 +16,7 @@ pub unsafe trait Interface: Sized {
 
     /// Cast this interface as a reference to the supplied interfaces `Vtable`
     ///
-    /// # SAFETY
+    /// # Safety
     ///
     /// This is safe if `T` is an equivalent interface to `Self` or a super interface.
     /// In other words, `T::Vtable` must be equivalent to the beginning of `Self::Vtable`.
@@ -65,6 +65,7 @@ pub unsafe trait Interface: Sized {
     }
 }
 
+/// # Safety
 #[doc(hidden)]
 pub unsafe fn from_raw_borrowed<T: Interface>(raw: &*mut std::ffi::c_void) -> Option<&T> {
     T::from_raw_borrowed(raw)

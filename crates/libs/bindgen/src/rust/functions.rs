@@ -265,3 +265,16 @@ fn handle_last_error(writer: &Writer, def: MethodDef, signature: &Signature) -> 
     }
     false
 }
+
+fn method_def_extern_abi(reader: &Reader, def: MethodDef) -> &'static str {
+    let impl_map = reader.method_def_impl_map(def).expect("ImplMap not found");
+    let flags = reader.impl_map_flags(impl_map);
+
+    if flags.contains(PInvokeAttributes::CallConvPlatformapi) {
+        "system"
+    } else if flags.contains(PInvokeAttributes::CallConvCdecl) {
+        "cdecl"
+    } else {
+        unimplemented!()
+    }
+}

@@ -41,7 +41,7 @@ pub unsafe trait ComInterface: Interface + Clone {
 
     /// Call `QueryInterface` on this interface
     ///
-    /// # SAFETY
+    /// # Safety
     ///
     /// `interface` must be a non-null, valid pointer for writing an interface pointer
     #[doc(hidden)]
