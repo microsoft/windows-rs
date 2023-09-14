@@ -73,8 +73,8 @@ pub mod Nested {
                 Method: Method::<Identity, Impl, OFFSET>,
             }
         }
-        pub fn matches(iid: &::windows_core::GUID) -> bool {
-            iid == &<IThing as ::windows_core::ComInterface>::IID
+        pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+            *iid == <IThing as ::windows_core::ComInterface>::IID
         }
     }
 }
@@ -382,13 +382,13 @@ impl<F: FnMut(i32) -> ::windows_core::Result<i32> + ::core::marker::Send + 'stat
     };
     unsafe extern "system" fn QueryInterface(
         this: *mut ::core::ffi::c_void,
-        iid: &::windows_core::GUID,
-        interface: *mut *const ::core::ffi::c_void,
+        iid: *const ::windows_core::GUID,
+        interface: *mut *mut ::core::ffi::c_void,
     ) -> ::windows_core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<Callback as ::windows_core::ComInterface>::IID
-            || iid == &<::windows_core::IUnknown as ::windows_core::ComInterface>::IID
-            || iid == &<::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID
+        *interface = if *iid == <Callback as ::windows_core::ComInterface>::IID
+            || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID
+            || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID
         {
             &mut (*this).vtable as *mut _ as _
         } else {
@@ -643,7 +643,7 @@ impl IClass_Vtbl {
             Input: Input::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IClass as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IClass as ::windows_core::ComInterface>::IID
     }
 }
