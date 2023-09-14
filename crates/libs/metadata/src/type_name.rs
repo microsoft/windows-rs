@@ -30,7 +30,6 @@ impl<'a> TypeName<'a> {
     pub const IVectorView: Self = Self::from_const("Windows.Foundation.Collections", "IVectorView");
     pub const IVector: Self = Self::from_const("Windows.Foundation.Collections", "IVector");
 
-    pub const NTSTATUS: Self = Self::from_const("Windows.Win32.Foundation", "NTSTATUS");
     pub const PWSTR: Self = Self::from_const("Windows.Win32.Foundation", "PWSTR");
     pub const PSTR: Self = Self::from_const("Windows.Win32.Foundation", "PSTR");
     pub const BSTR: Self = Self::from_const("Windows.Win32.Foundation", "BSTR");

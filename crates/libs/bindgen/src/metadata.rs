@@ -293,7 +293,6 @@ pub fn signature_kind(reader: &Reader, signature: &Signature) -> SignatureKind {
                 SignatureKind::ResultVoid
             }
         }
-        Type::TypeDef(def, _) if reader.type_def_type_name(*def) == TypeName::NTSTATUS => SignatureKind::ResultVoid,
         Type::TypeDef(def, _) if reader.type_def_type_name(*def) == TypeName::WIN32_ERROR => SignatureKind::ResultVoid,
         Type::TypeDef(def, _) if reader.type_def_type_name(*def) == TypeName::BOOL && method_def_last_error(reader, signature.def) => SignatureKind::ResultVoid,
         _ if type_is_struct(reader, &signature.return_type) => SignatureKind::ReturnStruct,
