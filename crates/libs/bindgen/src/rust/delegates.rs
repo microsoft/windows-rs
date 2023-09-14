@@ -102,12 +102,12 @@ fn gen_win_delegate(writer: &Writer, def: TypeDef) -> TokenStream {
                 Invoke: Self::Invoke,
                 #(#named_phantoms)*
             };
-            unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows_core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows_core::HRESULT {
+            unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
                 let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
 
-                *interface = if iid == &<#ident as ::windows_core::ComInterface>::IID ||
-                    iid == &<::windows_core::IUnknown as ::windows_core::ComInterface>::IID ||
-                    iid == &<::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID {
+                *interface = if *iid == <#ident as ::windows_core::ComInterface>::IID ||
+                    *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID ||
+                    *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID {
                         &mut (*this).vtable as *mut _ as _
                     } else {
                         ::core::ptr::null_mut()
