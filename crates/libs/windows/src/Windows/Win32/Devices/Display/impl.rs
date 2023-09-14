@@ -39,8 +39,8 @@ impl ICloneViewHelper_Vtbl {
             Commit: Commit::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICloneViewHelper as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICloneViewHelper as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Devices_Display\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -104,7 +104,7 @@ impl IViewHelper_Vtbl {
             GetProceedOnNewConfiguration: GetProceedOnNewConfiguration::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IViewHelper as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IViewHelper as ::windows_core::ComInterface>::IID
     }
 }

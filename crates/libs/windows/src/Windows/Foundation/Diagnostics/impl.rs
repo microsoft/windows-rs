@@ -30,8 +30,8 @@ impl IErrorReportingSettings_Vtbl {
             GetErrorOptions: GetErrorOptions::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IErrorReportingSettings as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IErrorReportingSettings as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`, `\"Storage\"`, `\"implement\"`*"]
@@ -118,8 +118,8 @@ impl IFileLoggingSession_Vtbl {
             RemoveLogFileGenerated: RemoveLogFileGenerated::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFileLoggingSession as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IFileLoggingSession as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`, `\"implement\"`*"]
@@ -222,8 +222,8 @@ impl ILoggingChannel_Vtbl {
             RemoveLoggingEnabled: RemoveLoggingEnabled::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILoggingChannel as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ILoggingChannel as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`, `\"Storage\"`, `\"implement\"`*"]
@@ -290,8 +290,8 @@ impl ILoggingSession_Vtbl {
             RemoveLoggingChannel: RemoveLoggingChannel::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILoggingSession as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ILoggingSession as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`, `\"implement\"`*"]
@@ -429,7 +429,7 @@ impl ILoggingTarget_Vtbl {
             StartActivityWithFieldsAndOptions: StartActivityWithFieldsAndOptions::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILoggingTarget as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ILoggingTarget as ::windows_core::ComInterface>::IID
     }
 }

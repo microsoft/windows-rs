@@ -17,8 +17,8 @@ impl IAnimationObject_Vtbl {
             PopulatePropertyInfo: PopulatePropertyInfo::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAnimationObject as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAnimationObject as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Composition\"`, `\"implement\"`*"]
@@ -30,8 +30,8 @@ impl ICompositionAnimationBase_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositionAnimationBase_Impl, const OFFSET: isize>() -> ICompositionAnimationBase_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, ICompositionAnimationBase, OFFSET>() }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICompositionAnimationBase as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICompositionAnimationBase as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Composition\"`, `\"implement\"`*"]
@@ -67,8 +67,8 @@ impl ICompositionSupportsSystemBackdrop_Vtbl {
             SetSystemBackdrop: SetSystemBackdrop::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICompositionSupportsSystemBackdrop as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICompositionSupportsSystemBackdrop as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Composition\"`, `\"implement\"`*"]
@@ -80,8 +80,8 @@ impl ICompositionSurface_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ICompositionSurface_Impl, const OFFSET: isize>() -> ICompositionSurface_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, ICompositionSurface, OFFSET>() }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICompositionSurface as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICompositionSurface as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Composition\"`, `\"implement\"`*"]
@@ -110,8 +110,8 @@ impl ICompositionSurfaceFacade_Vtbl {
             GetRealSurface: GetRealSurface::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICompositionSurfaceFacade as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICompositionSurfaceFacade as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Composition\"`, `\"implement\"`*"]
@@ -123,8 +123,8 @@ impl IVisualElement_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IVisualElement_Impl, const OFFSET: isize>() -> IVisualElement_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IVisualElement, OFFSET>() }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVisualElement as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVisualElement as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Composition\"`, `\"implement\"`*"]
@@ -153,7 +153,7 @@ impl IVisualElement2_Vtbl {
             GetVisualInternal: GetVisualInternal::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVisualElement2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVisualElement2 as ::windows_core::ComInterface>::IID
     }
 }

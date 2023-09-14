@@ -87,7 +87,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
             SetStartedProcessing: SetStartedProcessing::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAccessoryNotificationTriggerDetails as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAccessoryNotificationTriggerDetails as ::windows_core::ComInterface>::IID
     }
 }

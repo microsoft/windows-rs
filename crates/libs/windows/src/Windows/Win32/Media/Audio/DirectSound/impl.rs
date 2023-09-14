@@ -79,8 +79,8 @@ impl IDirectSound_Vtbl {
             Initialize: Initialize::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSound as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSound as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Graphics_Direct3D\"`, `\"implement\"`*"]
@@ -264,8 +264,8 @@ impl IDirectSound3DBuffer_Vtbl {
             SetVelocity: SetVelocity::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSound3DBuffer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSound3DBuffer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Graphics_Direct3D\"`, `\"implement\"`*"]
@@ -416,8 +416,8 @@ impl IDirectSound3DListener_Vtbl {
             CommitDeferredSettings: CommitDeferredSettings::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSound3DListener as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSound3DListener as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -443,8 +443,8 @@ impl IDirectSound8_Vtbl {
         }
         Self { base__: IDirectSound_Vtbl::new::<Identity, Impl, OFFSET>(), VerifyCertification: VerifyCertification::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSound8 as ::windows_core::ComInterface>::IID || iid == &<IDirectSound as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSound8 as ::windows_core::ComInterface>::IID || *iid == <IDirectSound as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
@@ -607,8 +607,8 @@ impl IDirectSoundBuffer_Vtbl {
             Restore: Restore::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundBuffer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSoundBuffer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
@@ -642,8 +642,8 @@ impl IDirectSoundBuffer8_Vtbl {
             GetObjectInPath: GetObjectInPath::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundBuffer8 as ::windows_core::ComInterface>::IID || iid == &<IDirectSoundBuffer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSoundBuffer8 as ::windows_core::ComInterface>::IID || *iid == <IDirectSoundBuffer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
@@ -683,8 +683,8 @@ impl IDirectSoundCapture_Vtbl {
             Initialize: Initialize::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundCapture as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSoundCapture as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
@@ -772,8 +772,8 @@ impl IDirectSoundCaptureBuffer_Vtbl {
             Unlock: Unlock::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundCaptureBuffer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSoundCaptureBuffer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
@@ -800,8 +800,8 @@ impl IDirectSoundCaptureBuffer8_Vtbl {
             GetFXStatus: GetFXStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundCaptureBuffer8 as ::windows_core::ComInterface>::IID || iid == &<IDirectSoundCaptureBuffer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSoundCaptureBuffer8 as ::windows_core::ComInterface>::IID || *iid == <IDirectSoundCaptureBuffer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -857,8 +857,8 @@ impl IDirectSoundCaptureFXAec_Vtbl {
             Reset: Reset::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundCaptureFXAec as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSoundCaptureFXAec as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -901,8 +901,8 @@ impl IDirectSoundCaptureFXNoiseSuppress_Vtbl {
             Reset: Reset::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundCaptureFXNoiseSuppress as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSoundCaptureFXNoiseSuppress as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
@@ -929,8 +929,8 @@ impl IDirectSoundFXChorus_Vtbl {
             GetAllParameters: GetAllParameters::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundFXChorus as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSoundFXChorus as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
@@ -957,8 +957,8 @@ impl IDirectSoundFXCompressor_Vtbl {
             GetAllParameters: GetAllParameters::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundFXCompressor as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSoundFXCompressor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
@@ -985,8 +985,8 @@ impl IDirectSoundFXDistortion_Vtbl {
             GetAllParameters: GetAllParameters::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundFXDistortion as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSoundFXDistortion as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
@@ -1013,8 +1013,8 @@ impl IDirectSoundFXEcho_Vtbl {
             GetAllParameters: GetAllParameters::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundFXEcho as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSoundFXEcho as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
@@ -1041,8 +1041,8 @@ impl IDirectSoundFXFlanger_Vtbl {
             GetAllParameters: GetAllParameters::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundFXFlanger as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSoundFXFlanger as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
@@ -1075,8 +1075,8 @@ impl IDirectSoundFXGargle_Vtbl {
             GetAllParameters: GetAllParameters::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundFXGargle as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSoundFXGargle as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
@@ -1143,8 +1143,8 @@ impl IDirectSoundFXI3DL2Reverb_Vtbl {
             GetQuality: GetQuality::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundFXI3DL2Reverb as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSoundFXI3DL2Reverb as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
@@ -1177,8 +1177,8 @@ impl IDirectSoundFXParamEq_Vtbl {
             GetAllParameters: GetAllParameters::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundFXParamEq as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSoundFXParamEq as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"implement\"`*"]
@@ -1211,8 +1211,8 @@ impl IDirectSoundFXWavesReverb_Vtbl {
             GetAllParameters: GetAllParameters::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundFXWavesReverb as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSoundFXWavesReverb as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1232,8 +1232,8 @@ impl IDirectSoundFullDuplex_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Initialize: Initialize::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundFullDuplex as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSoundFullDuplex as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1253,7 +1253,7 @@ impl IDirectSoundNotify_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetNotificationPositions: SetNotificationPositions::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirectSoundNotify as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirectSoundNotify as ::windows_core::ComInterface>::IID
     }
 }

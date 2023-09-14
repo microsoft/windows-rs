@@ -18,8 +18,8 @@ impl IRadialControllerConfigurationInterop_Vtbl {
             GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRadialControllerConfigurationInterop as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IRadialControllerConfigurationInterop as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Radial\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -42,8 +42,8 @@ impl IRadialControllerIndependentInputSourceInterop_Vtbl {
             CreateForWindow: CreateForWindow::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRadialControllerIndependentInputSourceInterop as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IRadialControllerIndependentInputSourceInterop as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Radial\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -66,7 +66,7 @@ impl IRadialControllerInterop_Vtbl {
             CreateForWindow: CreateForWindow::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRadialControllerInterop as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IRadialControllerInterop as ::windows_core::ComInterface>::IID
     }
 }

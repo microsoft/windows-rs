@@ -27,8 +27,8 @@ impl IStorageProviderItemPropertySource_Vtbl {
             GetItemProperties: GetItemProperties::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageProviderItemPropertySource as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStorageProviderItemPropertySource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`, `\"implement\"`*"]
@@ -56,8 +56,8 @@ impl IStorageProviderPropertyCapabilities_Vtbl {
             IsPropertySupported: IsPropertySupported::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageProviderPropertyCapabilities as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStorageProviderPropertyCapabilities as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -109,8 +109,8 @@ impl IStorageProviderStatusUISource_Vtbl {
             RemoveStatusUIChanged: RemoveStatusUIChanged::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageProviderStatusUISource as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStorageProviderStatusUISource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`, `\"implement\"`*"]
@@ -139,8 +139,8 @@ impl IStorageProviderStatusUISourceFactory_Vtbl {
             GetStatusUISource: GetStatusUISource::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageProviderStatusUISourceFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStorageProviderStatusUISourceFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -220,8 +220,8 @@ impl IStorageProviderUICommand_Vtbl {
             Invoke: Invoke::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageProviderUICommand as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStorageProviderUICommand as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`, `\"implement\"`*"]
@@ -250,7 +250,7 @@ impl IStorageProviderUriSource_Vtbl {
             GetContentInfoForPath: GetContentInfoForPath::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageProviderUriSource as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStorageProviderUriSource as ::windows_core::ComInterface>::IID
     }
 }

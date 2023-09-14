@@ -12,8 +12,8 @@ impl IAccIdentity_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIdentityString: GetIdentityString::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAccIdentity as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAccIdentity as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -33,8 +33,8 @@ impl IAccPropServer_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetPropValue: GetPropValue::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAccPropServer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAccPropServer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -155,8 +155,8 @@ impl IAccPropServices_Vtbl {
             DecomposeHmenuIdentityString: DecomposeHmenuIdentityString::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAccPropServices as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAccPropServices as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -409,8 +409,8 @@ impl IAccessible_Vtbl {
             put_accValue: put_accValue::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAccessible as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAccessible as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IDispatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -472,8 +472,8 @@ impl IAccessibleEx_Vtbl {
             ConvertReturnedElement: ConvertReturnedElement::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAccessibleEx as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAccessibleEx as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -499,8 +499,8 @@ impl IAccessibleHandler_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AccessibleObjectFromID: AccessibleObjectFromID::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAccessibleHandler as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAccessibleHandler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -542,8 +542,8 @@ impl IAccessibleHostingElementProviders_Vtbl {
             GetObjectIdForProvider: GetObjectIdForProvider::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAccessibleHostingElementProviders as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAccessibleHostingElementProviders as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -605,8 +605,8 @@ impl IAccessibleWindowlessSite_Vtbl {
             GetParentAccessible: GetParentAccessible::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAccessibleWindowlessSite as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAccessibleWindowlessSite as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -684,8 +684,8 @@ impl IAnnotationProvider_Vtbl {
             Target: Target::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAnnotationProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAnnotationProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -708,8 +708,8 @@ impl ICustomNavigationProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Navigate: Navigate::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICustomNavigationProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICustomNavigationProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -742,8 +742,8 @@ impl IDockProvider_Vtbl {
             DockPosition: DockPosition::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDockProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDockProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -811,8 +811,8 @@ impl IDragProvider_Vtbl {
             GetGrabbedItems: GetGrabbedItems::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDragProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDragProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -854,8 +854,8 @@ impl IDropTargetProvider_Vtbl {
             DropTargetEffects: DropTargetEffects::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDropTargetProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDropTargetProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -895,8 +895,8 @@ impl IExpandCollapseProvider_Vtbl {
             ExpandCollapseState: ExpandCollapseState::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IExpandCollapseProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IExpandCollapseProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -974,8 +974,8 @@ impl IGridItemProvider_Vtbl {
             ContainingGrid: ContainingGrid::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGridItemProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IGridItemProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -1027,8 +1027,8 @@ impl IGridProvider_Vtbl {
             ColumnCount: ColumnCount::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGridProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IGridProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -1045,8 +1045,8 @@ impl IInvokeProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInvokeProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInvokeProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -1072,8 +1072,8 @@ impl IItemContainerProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FindItemByProperty: FindItemByProperty::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IItemContainerProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IItemContainerProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1253,8 +1253,8 @@ impl ILegacyIAccessibleProvider_Vtbl {
             DefaultAction: DefaultAction::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILegacyIAccessibleProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ILegacyIAccessibleProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1316,8 +1316,8 @@ impl IMultipleViewProvider_Vtbl {
             GetSupportedViews: GetSupportedViews::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMultipleViewProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMultipleViewProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -1340,8 +1340,8 @@ impl IObjectModelProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetUnderlyingObjectModel: GetUnderlyingObjectModel::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IObjectModelProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IObjectModelProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1361,8 +1361,8 @@ impl IProxyProviderWinEventHandler_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), RespondToWinEvent: RespondToWinEvent::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProxyProviderWinEventHandler as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IProxyProviderWinEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -1399,8 +1399,8 @@ impl IProxyProviderWinEventSink_Vtbl {
             AddStructureChangedEvent: AddStructureChangedEvent::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IProxyProviderWinEventSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IProxyProviderWinEventSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1501,8 +1501,8 @@ impl IRangeValueProvider_Vtbl {
             SmallChange: SmallChange::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRangeValueProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IRangeValueProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1532,8 +1532,8 @@ impl IRawElementProviderAdviseEvents_Vtbl {
             AdviseEventRemoved: AdviseEventRemoved::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRawElementProviderAdviseEvents as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IRawElementProviderAdviseEvents as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1621,8 +1621,8 @@ impl IRawElementProviderFragment_Vtbl {
             FragmentRoot: FragmentRoot::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRawElementProviderFragment as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IRawElementProviderFragment as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -1661,8 +1661,8 @@ impl IRawElementProviderFragmentRoot_Vtbl {
             GetFocus: GetFocus::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRawElementProviderFragmentRoot as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IRawElementProviderFragmentRoot as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1688,8 +1688,8 @@ impl IRawElementProviderHostingAccessibles_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetEmbeddedAccessibles: GetEmbeddedAccessibles::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRawElementProviderHostingAccessibles as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IRawElementProviderHostingAccessibles as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1718,8 +1718,8 @@ impl IRawElementProviderHwndOverride_Vtbl {
             GetOverrideProviderForHwnd: GetOverrideProviderForHwnd::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRawElementProviderHwndOverride as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IRawElementProviderHwndOverride as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -1787,8 +1787,8 @@ impl IRawElementProviderSimple_Vtbl {
             HostRawElementProvider: HostRawElementProvider::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRawElementProviderSimple as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IRawElementProviderSimple as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -1808,8 +1808,8 @@ impl IRawElementProviderSimple2_Vtbl {
         }
         Self { base__: IRawElementProviderSimple_Vtbl::new::<Identity, Impl, OFFSET>(), ShowContextMenu: ShowContextMenu::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRawElementProviderSimple2 as ::windows_core::ComInterface>::IID || iid == &<IRawElementProviderSimple as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IRawElementProviderSimple2 as ::windows_core::ComInterface>::IID || *iid == <IRawElementProviderSimple as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -1835,8 +1835,8 @@ impl IRawElementProviderSimple3_Vtbl {
         }
         Self { base__: IRawElementProviderSimple2_Vtbl::new::<Identity, Impl, OFFSET>(), GetMetadataValue: GetMetadataValue::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRawElementProviderSimple3 as ::windows_core::ComInterface>::IID || iid == &<IRawElementProviderSimple as ::windows_core::ComInterface>::IID || iid == &<IRawElementProviderSimple2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IRawElementProviderSimple3 as ::windows_core::ComInterface>::IID || *iid == <IRawElementProviderSimple as ::windows_core::ComInterface>::IID || *iid == <IRawElementProviderSimple2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -1878,8 +1878,8 @@ impl IRawElementProviderWindowlessSite_Vtbl {
             GetRuntimeIdPrefix: GetRuntimeIdPrefix::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRawElementProviderWindowlessSite as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IRawElementProviderWindowlessSite as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -1906,8 +1906,8 @@ impl IRichEditUiaInformation_Vtbl {
             IsVisible: IsVisible::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRichEditUiaInformation as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IRichEditUiaInformation as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -1930,8 +1930,8 @@ impl IRicheditWindowlessAccessibility_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateProvider: CreateProvider::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IRicheditWindowlessAccessibility as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IRicheditWindowlessAccessibility as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -1948,8 +1948,8 @@ impl IScrollItemProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ScrollIntoView: ScrollIntoView::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IScrollItemProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IScrollItemProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2057,8 +2057,8 @@ impl IScrollProvider_Vtbl {
             VerticallyScrollable: VerticallyScrollable::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IScrollProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IScrollProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2121,8 +2121,8 @@ impl ISelectionItemProvider_Vtbl {
             SelectionContainer: SelectionContainer::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISelectionItemProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISelectionItemProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2177,8 +2177,8 @@ impl ISelectionProvider_Vtbl {
             IsSelectionRequired: IsSelectionRequired::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISelectionProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISelectionProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2246,8 +2246,8 @@ impl ISelectionProvider2_Vtbl {
             ItemCount: ItemCount::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISelectionProvider2 as ::windows_core::ComInterface>::IID || iid == &<ISelectionProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISelectionProvider2 as ::windows_core::ComInterface>::IID || *iid == <ISelectionProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2302,8 +2302,8 @@ impl ISpreadsheetItemProvider_Vtbl {
             GetAnnotationTypes: GetAnnotationTypes::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISpreadsheetItemProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISpreadsheetItemProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -2326,8 +2326,8 @@ impl ISpreadsheetProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetItemByName: GetItemByName::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISpreadsheetProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISpreadsheetProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -2431,8 +2431,8 @@ impl IStylesProvider_Vtbl {
             ExtendedProperties: ExtendedProperties::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStylesProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStylesProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -2459,8 +2459,8 @@ impl ISynchronizedInputProvider_Vtbl {
             Cancel: Cancel::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISynchronizedInputProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISynchronizedInputProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2502,8 +2502,8 @@ impl ITableItemProvider_Vtbl {
             GetColumnHeaderItems: GetColumnHeaderItems::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITableItemProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ITableItemProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2558,8 +2558,8 @@ impl ITableProvider_Vtbl {
             RowOrColumnMajor: RowOrColumnMajor::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITableProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ITableProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -2598,8 +2598,8 @@ impl ITextChildProvider_Vtbl {
             TextRange: TextRange::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITextChildProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ITextChildProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2641,8 +2641,8 @@ impl ITextEditProvider_Vtbl {
             GetConversionTarget: GetConversionTarget::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITextEditProvider as ::windows_core::ComInterface>::IID || iid == &<ITextProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ITextEditProvider as ::windows_core::ComInterface>::IID || *iid == <ITextProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2736,8 +2736,8 @@ impl ITextProvider_Vtbl {
             SupportedTextSelection: SupportedTextSelection::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITextProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ITextProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -2773,8 +2773,8 @@ impl ITextProvider2_Vtbl {
             GetCaretRange: GetCaretRange::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITextProvider2 as ::windows_core::ComInterface>::IID || iid == &<ITextProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ITextProvider2 as ::windows_core::ComInterface>::IID || *iid == <ITextProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -2988,8 +2988,8 @@ impl ITextRangeProvider_Vtbl {
             GetChildren: GetChildren::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITextRangeProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ITextRangeProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -3009,8 +3009,8 @@ impl ITextRangeProvider2_Vtbl {
         }
         Self { base__: ITextRangeProvider_Vtbl::new::<Identity, Impl, OFFSET>(), ShowContextMenu: ShowContextMenu::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITextRangeProvider2 as ::windows_core::ComInterface>::IID || iid == &<ITextRangeProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ITextRangeProvider2 as ::windows_core::ComInterface>::IID || *iid == <ITextRangeProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -3043,8 +3043,8 @@ impl IToggleProvider_Vtbl {
             ToggleState: ToggleState::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IToggleProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IToggleProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3120,8 +3120,8 @@ impl ITransformProvider_Vtbl {
             CanRotate: CanRotate::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransformProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ITransformProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3203,8 +3203,8 @@ impl ITransformProvider2_Vtbl {
             ZoomByUnit: ZoomByUnit::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITransformProvider2 as ::windows_core::ComInterface>::IID || iid == &<ITransformProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ITransformProvider2 as ::windows_core::ComInterface>::IID || *iid == <ITransformProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -3851,8 +3851,8 @@ impl IUIAutomation_Vtbl {
             ElementFromIAccessibleBuildCache: ElementFromIAccessibleBuildCache::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomation as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomation as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -3928,8 +3928,8 @@ impl IUIAutomation2_Vtbl {
             SetTransactionTimeout: SetTransactionTimeout::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomation2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomation2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -3959,8 +3959,8 @@ impl IUIAutomation3_Vtbl {
             RemoveTextEditTextChangedEventHandler: RemoveTextEditTextChangedEventHandler::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomation3 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomation3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -3990,8 +3990,8 @@ impl IUIAutomation4_Vtbl {
             RemoveChangesEventHandler: RemoveChangesEventHandler::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomation4 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation3 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomation4 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation3 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -4021,8 +4021,8 @@ impl IUIAutomation5_Vtbl {
             RemoveNotificationEventHandler: RemoveNotificationEventHandler::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomation5 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation3 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation4 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomation5 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation4 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -4119,8 +4119,8 @@ impl IUIAutomation6_Vtbl {
             RemoveActiveTextPositionChangedEventHandler: RemoveActiveTextPositionChangedEventHandler::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomation6 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation3 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation4 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomation5 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomation6 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation4 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomation5 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -4140,8 +4140,8 @@ impl IUIAutomationActiveTextPositionChangedEventHandler_Vtbl {
             HandleActiveTextPositionChangedEvent: HandleActiveTextPositionChangedEvent::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationActiveTextPositionChangedEventHandler as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationActiveTextPositionChangedEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -4190,8 +4190,8 @@ impl IUIAutomationAndCondition_Vtbl {
             GetChildren: GetChildren::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationAndCondition as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationCondition as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationAndCondition as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationCondition as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -4334,8 +4334,8 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             CachedTarget: CachedTarget::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationAnnotationPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationAnnotationPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4361,8 +4361,8 @@ impl IUIAutomationBoolCondition_Vtbl {
         }
         Self { base__: IUIAutomationCondition_Vtbl::new::<Identity, Impl, OFFSET>(), BooleanValue: BooleanValue::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationBoolCondition as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationCondition as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationBoolCondition as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationCondition as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -4462,8 +4462,8 @@ impl IUIAutomationCacheRequest_Vtbl {
             SetAutomationElementMode: SetAutomationElementMode::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationCacheRequest as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationCacheRequest as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -4483,8 +4483,8 @@ impl IUIAutomationChangesEventHandler_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleChangesEvent: HandleChangesEvent::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationChangesEventHandler as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationChangesEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -4494,8 +4494,8 @@ impl IUIAutomationCondition_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IUIAutomationCondition_Impl, const OFFSET: isize>() -> IUIAutomationCondition_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationCondition as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationCondition as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -4518,8 +4518,8 @@ impl IUIAutomationCustomNavigationPattern_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Navigate: Navigate::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationCustomNavigationPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationCustomNavigationPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -4565,8 +4565,8 @@ impl IUIAutomationDockPattern_Vtbl {
             CachedDockPosition: CachedDockPosition::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationDockPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationDockPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -4686,8 +4686,8 @@ impl IUIAutomationDragPattern_Vtbl {
             GetCachedGrabbedItems: GetCachedGrabbedItems::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationDragPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationDragPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -4755,8 +4755,8 @@ impl IUIAutomationDropTargetPattern_Vtbl {
             CachedDropTargetEffects: CachedDropTargetEffects::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationDropTargetPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationDropTargetPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -5814,8 +5814,8 @@ impl IUIAutomationElement_Vtbl {
             GetClickablePoint: GetClickablePoint::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationElement as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -5909,8 +5909,8 @@ impl IUIAutomationElement2_Vtbl {
             CachedFlowsFrom: CachedFlowsFrom::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationElement2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -5959,8 +5959,8 @@ impl IUIAutomationElement3_Vtbl {
             CachedIsPeripheral: CachedIsPeripheral::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationElement3 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationElement3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -6106,8 +6106,8 @@ impl IUIAutomationElement4_Vtbl {
             CachedAnnotationObjects: CachedAnnotationObjects::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationElement4 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement3 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationElement4 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement3 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -6175,8 +6175,8 @@ impl IUIAutomationElement5_Vtbl {
             CachedLocalizedLandmarkType: CachedLocalizedLandmarkType::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationElement5 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement3 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement4 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationElement5 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement4 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -6218,8 +6218,8 @@ impl IUIAutomationElement6_Vtbl {
             CachedFullDescription: CachedFullDescription::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationElement6 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement3 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement4 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement5 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationElement6 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement4 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement5 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -6300,8 +6300,8 @@ impl IUIAutomationElement7_Vtbl {
             GetCurrentMetadataValue: GetCurrentMetadataValue::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationElement7 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement3 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement4 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement5 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement6 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationElement7 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement4 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement5 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement6 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -6343,8 +6343,8 @@ impl IUIAutomationElement8_Vtbl {
             CachedHeadingLevel: CachedHeadingLevel::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationElement8 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement3 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement4 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement5 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement6 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement7 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationElement8 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement4 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement5 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement6 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement7 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -6386,8 +6386,8 @@ impl IUIAutomationElement9_Vtbl {
             CachedIsDialog: CachedIsDialog::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationElement9 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement3 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement4 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement5 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement6 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement7 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationElement8 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationElement9 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement4 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement5 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement6 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement7 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationElement8 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -6426,8 +6426,8 @@ impl IUIAutomationElementArray_Vtbl {
             GetElement: GetElement::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationElementArray as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationElementArray as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -6444,8 +6444,8 @@ impl IUIAutomationEventHandler_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleAutomationEvent: HandleAutomationEvent::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationEventHandler as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -6507,8 +6507,8 @@ impl IUIAutomationEventHandlerGroup_Vtbl {
             AddTextEditTextChangedEventHandler: AddTextEditTextChangedEventHandler::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationEventHandlerGroup as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationEventHandlerGroup as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -6561,8 +6561,8 @@ impl IUIAutomationExpandCollapsePattern_Vtbl {
             CachedExpandCollapseState: CachedExpandCollapseState::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationExpandCollapsePattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationExpandCollapsePattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -6579,8 +6579,8 @@ impl IUIAutomationFocusChangedEventHandler_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleFocusChangedEvent: HandleFocusChangedEvent::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationFocusChangedEventHandler as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationFocusChangedEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -6723,8 +6723,8 @@ impl IUIAutomationGridItemPattern_Vtbl {
             CachedColumnSpan: CachedColumnSpan::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationGridItemPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationGridItemPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -6802,8 +6802,8 @@ impl IUIAutomationGridPattern_Vtbl {
             CachedColumnCount: CachedColumnCount::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationGridPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationGridPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -6820,8 +6820,8 @@ impl IUIAutomationInvokePattern_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Invoke: Invoke::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationInvokePattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationInvokePattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -6847,8 +6847,8 @@ impl IUIAutomationItemContainerPattern_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), FindItemByProperty: FindItemByProperty::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationItemContainerPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationItemContainerPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -7158,8 +7158,8 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             GetIAccessible: GetIAccessible::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationLegacyIAccessiblePattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationLegacyIAccessiblePattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -7247,8 +7247,8 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
             GetCachedSupportedViews: GetCachedSupportedViews::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationMultipleViewPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationMultipleViewPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -7271,8 +7271,8 @@ impl IUIAutomationNotCondition_Vtbl {
         }
         Self { base__: IUIAutomationCondition_Vtbl::new::<Identity, Impl, OFFSET>(), GetChild: GetChild::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationNotCondition as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationCondition as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationNotCondition as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationCondition as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -7289,8 +7289,8 @@ impl IUIAutomationNotificationEventHandler_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), HandleNotificationEvent: HandleNotificationEvent::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationNotificationEventHandler as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationNotificationEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -7313,8 +7313,8 @@ impl IUIAutomationObjectModelPattern_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetUnderlyingObjectModel: GetUnderlyingObjectModel::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationObjectModelPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationObjectModelPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -7363,8 +7363,8 @@ impl IUIAutomationOrCondition_Vtbl {
             GetChildren: GetChildren::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationOrCondition as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationCondition as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationOrCondition as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationCondition as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -7397,8 +7397,8 @@ impl IUIAutomationPatternHandler_Vtbl {
             Dispatch: Dispatch::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationPatternHandler as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationPatternHandler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -7428,8 +7428,8 @@ impl IUIAutomationPatternInstance_Vtbl {
             CallMethod: CallMethod::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationPatternInstance as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationPatternInstance as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -7452,8 +7452,8 @@ impl IUIAutomationPropertyChangedEventHandler_Vtbl {
             HandlePropertyChangedEvent: HandlePropertyChangedEvent::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationPropertyChangedEventHandler as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationPropertyChangedEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -7508,8 +7508,8 @@ impl IUIAutomationPropertyCondition_Vtbl {
             PropertyConditionFlags: PropertyConditionFlags::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationPropertyCondition as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationCondition as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationPropertyCondition as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationCondition as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -7551,8 +7551,8 @@ impl IUIAutomationProxyFactory_Vtbl {
             ProxyFactoryId: ProxyFactoryId::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationProxyFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationProxyFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -7701,8 +7701,8 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             GetWinEventsForAutomationEvent: GetWinEventsForAutomationEvent::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationProxyFactoryEntry as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationProxyFactoryEntry as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -7799,8 +7799,8 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
             RestoreDefaultTable: RestoreDefaultTable::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationProxyFactoryMapping as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationProxyFactoryMapping as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -7979,8 +7979,8 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             CachedSmallChange: CachedSmallChange::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationRangeValuePattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationRangeValuePattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -8029,8 +8029,8 @@ impl IUIAutomationRegistrar_Vtbl {
             RegisterPattern: RegisterPattern::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationRegistrar as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationRegistrar as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -8047,8 +8047,8 @@ impl IUIAutomationScrollItemPattern_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), ScrollIntoView: ScrollIntoView::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationScrollItemPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationScrollItemPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -8234,8 +8234,8 @@ impl IUIAutomationScrollPattern_Vtbl {
             CachedVerticallyScrollable: CachedVerticallyScrollable::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationScrollPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationScrollPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -8324,8 +8324,8 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
             CachedSelectionContainer: CachedSelectionContainer::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationSelectionItemPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationSelectionItemPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -8419,8 +8419,8 @@ impl IUIAutomationSelectionPattern_Vtbl {
             CachedIsSelectionRequired: CachedIsSelectionRequired::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationSelectionPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationSelectionPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -8540,8 +8540,8 @@ impl IUIAutomationSelectionPattern2_Vtbl {
             CachedItemCount: CachedItemCount::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationSelectionPattern2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationSelectionPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationSelectionPattern2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationSelectionPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -8635,8 +8635,8 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
             GetCachedAnnotationTypes: GetCachedAnnotationTypes::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationSpreadsheetItemPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationSpreadsheetItemPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -8659,8 +8659,8 @@ impl IUIAutomationSpreadsheetPattern_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetItemByName: GetItemByName::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationSpreadsheetPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationSpreadsheetPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -8683,8 +8683,8 @@ impl IUIAutomationStructureChangedEventHandler_Vtbl {
             HandleStructureChangedEvent: HandleStructureChangedEvent::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationStructureChangedEventHandler as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationStructureChangedEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -8893,8 +8893,8 @@ impl IUIAutomationStylesPattern_Vtbl {
             GetCachedExtendedPropertiesAsArray: GetCachedExtendedPropertiesAsArray::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationStylesPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationStylesPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -8921,8 +8921,8 @@ impl IUIAutomationSynchronizedInputPattern_Vtbl {
             Cancel: Cancel::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationSynchronizedInputPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationSynchronizedInputPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -8987,8 +8987,8 @@ impl IUIAutomationTableItemPattern_Vtbl {
             GetCachedColumnHeaderItems: GetCachedColumnHeaderItems::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationTableItemPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationTableItemPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -9079,8 +9079,8 @@ impl IUIAutomationTablePattern_Vtbl {
             CachedRowOrColumnMajor: CachedRowOrColumnMajor::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationTablePattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationTablePattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -9119,8 +9119,8 @@ impl IUIAutomationTextChildPattern_Vtbl {
             TextRange: TextRange::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationTextChildPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationTextChildPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -9162,8 +9162,8 @@ impl IUIAutomationTextEditPattern_Vtbl {
             GetConversionTarget: GetConversionTarget::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationTextEditPattern as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationTextPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationTextEditPattern as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationTextPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -9186,8 +9186,8 @@ impl IUIAutomationTextEditTextChangedEventHandler_Vtbl {
             HandleTextEditTextChangedEvent: HandleTextEditTextChangedEvent::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationTextEditTextChangedEventHandler as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationTextEditTextChangedEventHandler as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -9281,8 +9281,8 @@ impl IUIAutomationTextPattern_Vtbl {
             SupportedTextSelection: SupportedTextSelection::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationTextPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationTextPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -9318,8 +9318,8 @@ impl IUIAutomationTextPattern2_Vtbl {
             GetCaretRange: GetCaretRange::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationTextPattern2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationTextPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationTextPattern2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationTextPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -9533,8 +9533,8 @@ impl IUIAutomationTextRange_Vtbl {
             GetChildren: GetChildren::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationTextRange as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationTextRange as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -9554,8 +9554,8 @@ impl IUIAutomationTextRange2_Vtbl {
         }
         Self { base__: IUIAutomationTextRange_Vtbl::new::<Identity, Impl, OFFSET>(), ShowContextMenu: ShowContextMenu::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationTextRange2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationTextRange as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationTextRange2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationTextRange as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -9610,8 +9610,8 @@ impl IUIAutomationTextRange3_Vtbl {
             GetAttributeValues: GetAttributeValues::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationTextRange3 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationTextRange as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationTextRange2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationTextRange3 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationTextRange as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationTextRange2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -9650,8 +9650,8 @@ impl IUIAutomationTextRangeArray_Vtbl {
             GetElement: GetElement::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationTextRangeArray as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationTextRangeArray as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -9697,8 +9697,8 @@ impl IUIAutomationTogglePattern_Vtbl {
             CachedToggleState: CachedToggleState::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationTogglePattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationTogglePattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -9813,8 +9813,8 @@ impl IUIAutomationTransformPattern_Vtbl {
             CachedCanRotate: CachedCanRotate::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationTransformPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationTransformPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -9948,8 +9948,8 @@ impl IUIAutomationTransformPattern2_Vtbl {
             CachedZoomMaximum: CachedZoomMaximum::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationTransformPattern2 as ::windows_core::ComInterface>::IID || iid == &<IUIAutomationTransformPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationTransformPattern2 as ::windows_core::ComInterface>::IID || *iid == <IUIAutomationTransformPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -10131,8 +10131,8 @@ impl IUIAutomationTreeWalker_Vtbl {
             Condition: Condition::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationTreeWalker as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationTreeWalker as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -10207,8 +10207,8 @@ impl IUIAutomationValuePattern_Vtbl {
             CachedIsReadOnly: CachedIsReadOnly::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationValuePattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationValuePattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -10225,8 +10225,8 @@ impl IUIAutomationVirtualizedItemPattern_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Realize: Realize::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationVirtualizedItemPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationVirtualizedItemPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -10425,8 +10425,8 @@ impl IUIAutomationWindowPattern_Vtbl {
             CachedWindowInteractionState: CachedWindowInteractionState::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUIAutomationWindowPattern as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUIAutomationWindowPattern as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -10475,8 +10475,8 @@ impl IValueProvider_Vtbl {
             IsReadOnly: IsReadOnly::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IValueProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IValueProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"implement\"`*"]
@@ -10493,8 +10493,8 @@ impl IVirtualizedItemProvider_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Realize: Realize::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVirtualizedItemProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVirtualizedItemProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -10615,7 +10615,7 @@ impl IWindowProvider_Vtbl {
             IsTopmost: IsTopmost::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWindowProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWindowProvider as ::windows_core::ComInterface>::IID
     }
 }

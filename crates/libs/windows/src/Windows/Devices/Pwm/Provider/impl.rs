@@ -110,8 +110,8 @@ impl IPwmControllerProvider_Vtbl {
             SetPulseParameters: SetPulseParameters::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPwmControllerProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IPwmControllerProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_Pwm_Provider\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -140,7 +140,7 @@ impl IPwmProvider_Vtbl {
         }
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IPwmProvider, OFFSET>(), GetControllers: GetControllers::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPwmProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IPwmProvider as ::windows_core::ComInterface>::IID
     }
 }

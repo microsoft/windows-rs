@@ -28,8 +28,8 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterable_Vtbl<T> {
             T: ::core::marker::PhantomData::<T>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IIterable<T> as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IIterable<T> as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -101,8 +101,8 @@ impl<T: ::windows_core::RuntimeType + 'static> IIterator_Vtbl<T> {
             T: ::core::marker::PhantomData::<T>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IIterator<T> as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IIterator<T> as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -151,8 +151,8 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
             V: ::core::marker::PhantomData::<V>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IKeyValuePair<K, V> as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IKeyValuePair<K, V> as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -254,8 +254,8 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
             V: ::core::marker::PhantomData::<V>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMap<K, V> as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMap<K, V> as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -301,8 +301,8 @@ impl<K: ::windows_core::RuntimeType + 'static> IMapChangedEventArgs_Vtbl<K> {
             K: ::core::marker::PhantomData::<K>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMapChangedEventArgs<K> as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMapChangedEventArgs<K> as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -370,8 +370,8 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
             V: ::core::marker::PhantomData::<V>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMapView<K, V> as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMapView<K, V> as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -412,8 +412,8 @@ impl<K: ::windows_core::RuntimeType + 'static, V: ::windows_core::RuntimeType + 
             V: ::core::marker::PhantomData::<V>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IObservableMap<K, V> as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IObservableMap<K, V> as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -452,8 +452,8 @@ impl<T: ::windows_core::RuntimeType + 'static> IObservableVector_Vtbl<T> {
             T: ::core::marker::PhantomData::<T>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IObservableVector<T> as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IObservableVector<T> as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -465,8 +465,8 @@ impl IPropertySet_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IPropertySet_Impl, const OFFSET: isize>() -> IPropertySet_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IPropertySet, OFFSET>() }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertySet as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IPropertySet as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -601,8 +601,8 @@ impl<T: ::windows_core::RuntimeType + 'static> IVector_Vtbl<T> {
             T: ::core::marker::PhantomData::<T>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVector<T> as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVector<T> as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -643,8 +643,8 @@ impl IVectorChangedEventArgs_Vtbl {
             Index: Index::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVectorChangedEventArgs as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVectorChangedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -716,8 +716,8 @@ impl<T: ::windows_core::RuntimeType + 'static> IVectorView_Vtbl<T> {
             T: ::core::marker::PhantomData::<T>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVectorView<T> as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVectorView<T> as ::windows_core::ComInterface>::IID
     }
 }
 #[::windows_implement::implement(IIterable<T>)]

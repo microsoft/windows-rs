@@ -519,8 +519,8 @@ impl ITextCharacterFormat_Vtbl {
             IsEqual: IsEqual::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITextCharacterFormat as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ITextCharacterFormat as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Text\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -816,8 +816,8 @@ impl ITextDocument_Vtbl {
             Undo: Undo::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITextDocument as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ITextDocument as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Text\"`, `\"implement\"`*"]
@@ -1313,8 +1313,8 @@ impl ITextParagraphFormat_Vtbl {
             SetLineSpacing: SetLineSpacing::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITextParagraphFormat as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ITextParagraphFormat as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Text\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -1852,8 +1852,8 @@ impl ITextRange_Vtbl {
             StartOf: StartOf::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITextRange as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ITextRange as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Text\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -1989,7 +1989,7 @@ impl ITextSelection_Vtbl {
             TypeText: TypeText::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITextSelection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ITextSelection as ::windows_core::ComInterface>::IID
     }
 }

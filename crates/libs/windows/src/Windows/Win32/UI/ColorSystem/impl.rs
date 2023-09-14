@@ -112,8 +112,8 @@ impl IDeviceModelPlugIn_Vtbl {
             GetNeutralAxis: GetNeutralAxis::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDeviceModelPlugIn as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDeviceModelPlugIn as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"implement\"`*"]
@@ -140,7 +140,7 @@ impl IGamutMapModelPlugIn_Vtbl {
             SourceToDestinationAppearanceColors: SourceToDestinationAppearanceColors::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGamutMapModelPlugIn as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IGamutMapModelPlugIn as ::windows_core::ComInterface>::IID
     }
 }

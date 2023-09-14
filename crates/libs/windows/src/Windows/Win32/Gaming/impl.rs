@@ -45,8 +45,8 @@ impl IGameExplorer_Vtbl {
             VerifyAccess: VerifyAccess::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGameExplorer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IGameExplorer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -89,8 +89,8 @@ impl IGameExplorer2_Vtbl {
             CheckAccess: CheckAccess::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGameExplorer2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IGameExplorer2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -232,8 +232,8 @@ impl IGameStatistics_Vtbl {
             GetLastPlayedCategory: GetLastPlayedCategory::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGameStatistics as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IGameStatistics as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"implement\"`*"]
@@ -260,8 +260,8 @@ impl IGameStatisticsMgr_Vtbl {
             RemoveGameStatistics: RemoveGameStatistics::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGameStatisticsMgr as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IGameStatisticsMgr as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -337,8 +337,8 @@ impl IXblIdpAuthManager_Vtbl {
             GetTokenAndSignatureWithTokenResult: GetTokenAndSignatureWithTokenResult::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXblIdpAuthManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXblIdpAuthManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -367,8 +367,8 @@ impl IXblIdpAuthManager2_Vtbl {
             GetUserlessTokenAndSignatureWithTokenResult: GetUserlessTokenAndSignatureWithTokenResult::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXblIdpAuthManager2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXblIdpAuthManager2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"implement\"`*"]
@@ -641,8 +641,8 @@ impl IXblIdpAuthTokenResult_Vtbl {
             GetTitleRestrictions: GetTitleRestrictions::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXblIdpAuthTokenResult as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXblIdpAuthTokenResult as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Gaming\"`, `\"implement\"`*"]
@@ -694,7 +694,7 @@ impl IXblIdpAuthTokenResult2_Vtbl {
             GetUniqueModernGamertag: GetUniqueModernGamertag::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXblIdpAuthTokenResult2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXblIdpAuthTokenResult2 as ::windows_core::ComInterface>::IID
     }
 }

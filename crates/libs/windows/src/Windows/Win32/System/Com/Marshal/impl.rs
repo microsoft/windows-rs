@@ -62,8 +62,8 @@ impl IMarshal_Vtbl {
             DisconnectObject: DisconnectObject::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMarshal as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMarshal as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"implement\"`*"]
@@ -73,8 +73,8 @@ impl IMarshal2_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IMarshal2_Impl, const OFFSET: isize>() -> IMarshal2_Vtbl {
         Self { base__: IMarshal_Vtbl::new::<Identity, Impl, OFFSET>() }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMarshal2 as ::windows_core::ComInterface>::IID || iid == &<IMarshal as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMarshal2 as ::windows_core::ComInterface>::IID || *iid == <IMarshal as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -103,7 +103,7 @@ impl IMarshalingStream_Vtbl {
             GetMarshalingContextAttribute: GetMarshalingContextAttribute::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMarshalingStream as ::windows_core::ComInterface>::IID || iid == &<super::ISequentialStream as ::windows_core::ComInterface>::IID || iid == &<super::IStream as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMarshalingStream as ::windows_core::ComInterface>::IID || *iid == <super::ISequentialStream as ::windows_core::ComInterface>::IID || *iid == <super::IStream as ::windows_core::ComInterface>::IID
     }
 }

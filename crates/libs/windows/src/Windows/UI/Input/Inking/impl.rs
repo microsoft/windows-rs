@@ -24,8 +24,8 @@ impl IInkPointFactory_Vtbl {
         }
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IInkPointFactory, OFFSET>(), CreateInkPoint: CreateInkPoint::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInkPointFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInkPointFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Input_Inking\"`, `\"implement\"`*"]
@@ -51,8 +51,8 @@ impl IInkPresenterRulerFactory_Vtbl {
         }
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, IInkPresenterRulerFactory, OFFSET>(), Create: Create::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInkPresenterRulerFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInkPresenterRulerFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Input_Inking\"`, `\"Foundation_Numerics\"`, `\"implement\"`*"]
@@ -163,8 +163,8 @@ impl IInkPresenterStencil_Vtbl {
             SetTransform: SetTransform::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInkPresenterStencil as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInkPresenterStencil as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Input_Inking\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -217,8 +217,8 @@ impl IInkRecognizerContainer_Vtbl {
             GetRecognizers: GetRecognizers::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInkRecognizerContainer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInkRecognizerContainer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Input_Inking\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -404,7 +404,7 @@ impl IInkStrokeContainer_Vtbl {
             GetRecognitionResults: GetRecognitionResults::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInkStrokeContainer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInkStrokeContainer as ::windows_core::ComInterface>::IID
     }
 }

@@ -21,8 +21,8 @@ impl IBindCallbackRedirect_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Redirect: Redirect::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBindCallbackRedirect as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IBindCallbackRedirect as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -45,8 +45,8 @@ impl IBindHttpSecurity_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIgnoreCertMask: GetIgnoreCertMask::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBindHttpSecurity as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IBindHttpSecurity as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -69,8 +69,8 @@ impl IBindProtocol_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateBinding: CreateBinding::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBindProtocol as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IBindProtocol as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -103,8 +103,8 @@ impl ICatalogFileInfo_Vtbl {
             GetJavaTrust: GetJavaTrust::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICatalogFileInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICatalogFileInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -124,8 +124,8 @@ impl ICodeInstall_Vtbl {
         }
         Self { base__: IWindowForBindingUI_Vtbl::new::<Identity, Impl, OFFSET>(), OnCodeInstallProblem: OnCodeInstallProblem::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICodeInstall as ::windows_core::ComInterface>::IID || iid == &<IWindowForBindingUI as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICodeInstall as ::windows_core::ComInterface>::IID || *iid == <IWindowForBindingUI as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -159,8 +159,8 @@ impl IDataFilter_Vtbl {
             SetEncodingLevel: SetEncodingLevel::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDataFilter as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDataFilter as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -199,8 +199,8 @@ impl IEncodingFilterFactory_Vtbl {
             GetDefaultFilter: GetDefaultFilter::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEncodingFilterFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IEncodingFilterFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -226,8 +226,8 @@ impl IGetBindHandle_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetBindHandle: GetBindHandle::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGetBindHandle as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IGetBindHandle as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -266,8 +266,8 @@ impl IHttpNegotiate_Vtbl {
             OnResponse: OnResponse::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHttpNegotiate as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IHttpNegotiate as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -284,8 +284,8 @@ impl IHttpNegotiate2_Vtbl {
         }
         Self { base__: IHttpNegotiate_Vtbl::new::<Identity, Impl, OFFSET>(), GetRootSecurityId: GetRootSecurityId::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHttpNegotiate2 as ::windows_core::ComInterface>::IID || iid == &<IHttpNegotiate as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IHttpNegotiate2 as ::windows_core::ComInterface>::IID || *iid == <IHttpNegotiate as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -305,8 +305,8 @@ impl IHttpNegotiate3_Vtbl {
             GetSerializedClientCertContext: GetSerializedClientCertContext::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHttpNegotiate3 as ::windows_core::ComInterface>::IID || iid == &<IHttpNegotiate as ::windows_core::ComInterface>::IID || iid == &<IHttpNegotiate2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IHttpNegotiate3 as ::windows_core::ComInterface>::IID || *iid == <IHttpNegotiate as ::windows_core::ComInterface>::IID || *iid == <IHttpNegotiate2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -326,8 +326,8 @@ impl IHttpSecurity_Vtbl {
         }
         Self { base__: IWindowForBindingUI_Vtbl::new::<Identity, Impl, OFFSET>(), OnSecurityProblem: OnSecurityProblem::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHttpSecurity as ::windows_core::ComInterface>::IID || iid == &<IWindowForBindingUI as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IHttpSecurity as ::windows_core::ComInterface>::IID || *iid == <IWindowForBindingUI as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -337,8 +337,8 @@ impl IInternet_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: IInternet_Impl, const OFFSET: isize>() -> IInternet_Vtbl {
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>() }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternet as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInternet as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -368,8 +368,8 @@ impl IInternetBindInfo_Vtbl {
             GetBindString: GetBindString::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetBindInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInternetBindInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"implement\"`*"]
@@ -389,8 +389,8 @@ impl IInternetBindInfoEx_Vtbl {
         }
         Self { base__: IInternetBindInfo_Vtbl::new::<Identity, Impl, OFFSET>(), GetBindInfoEx: GetBindInfoEx::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetBindInfoEx as ::windows_core::ComInterface>::IID || iid == &<IInternetBindInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInternetBindInfoEx as ::windows_core::ComInterface>::IID || *iid == <IInternetBindInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -424,8 +424,8 @@ impl IInternetHostSecurityManager_Vtbl {
             QueryCustomPolicy: QueryCustomPolicy::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetHostSecurityManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInternetHostSecurityManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -458,8 +458,8 @@ impl IInternetPriority_Vtbl {
             GetPriority: GetPriority::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetPriority as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInternetPriority as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -509,8 +509,8 @@ impl IInternetProtocol_Vtbl {
             UnlockRequest: UnlockRequest::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetProtocol as ::windows_core::ComInterface>::IID || iid == &<IInternetProtocolRoot as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInternetProtocol as ::windows_core::ComInterface>::IID || *iid == <IInternetProtocolRoot as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -530,8 +530,8 @@ impl IInternetProtocolEx_Vtbl {
         }
         Self { base__: IInternetProtocol_Vtbl::new::<Identity, Impl, OFFSET>(), StartEx: StartEx::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetProtocolEx as ::windows_core::ComInterface>::IID || iid == &<IInternetProtocolRoot as ::windows_core::ComInterface>::IID || iid == &<IInternetProtocol as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInternetProtocolEx as ::windows_core::ComInterface>::IID || *iid == <IInternetProtocolRoot as ::windows_core::ComInterface>::IID || *iid == <IInternetProtocol as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -572,8 +572,8 @@ impl IInternetProtocolInfo_Vtbl {
             QueryInfo: QueryInfo::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetProtocolInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInternetProtocolInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -631,8 +631,8 @@ impl IInternetProtocolRoot_Vtbl {
             Resume: Resume::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetProtocolRoot as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInternetProtocolRoot as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -673,8 +673,8 @@ impl IInternetProtocolSink_Vtbl {
             ReportResult: ReportResult::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetProtocolSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInternetProtocolSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -708,8 +708,8 @@ impl IInternetProtocolSinkStackable_Vtbl {
             RollbackSwitch: RollbackSwitch::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetProtocolSinkStackable as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInternetProtocolSinkStackable as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -784,8 +784,8 @@ impl IInternetSecurityManager_Vtbl {
             GetZoneMappings: GetZoneMappings::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetSecurityManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInternetSecurityManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -802,8 +802,8 @@ impl IInternetSecurityManagerEx_Vtbl {
         }
         Self { base__: IInternetSecurityManager_Vtbl::new::<Identity, Impl, OFFSET>(), ProcessUrlActionEx: ProcessUrlActionEx::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetSecurityManagerEx as ::windows_core::ComInterface>::IID || iid == &<IInternetSecurityManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInternetSecurityManagerEx as ::windows_core::ComInterface>::IID || *iid == <IInternetSecurityManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -844,8 +844,8 @@ impl IInternetSecurityManagerEx2_Vtbl {
             QueryCustomPolicyEx2: QueryCustomPolicyEx2::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetSecurityManagerEx2 as ::windows_core::ComInterface>::IID || iid == &<IInternetSecurityManager as ::windows_core::ComInterface>::IID || iid == &<IInternetSecurityManagerEx as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInternetSecurityManagerEx2 as ::windows_core::ComInterface>::IID || *iid == <IInternetSecurityManager as ::windows_core::ComInterface>::IID || *iid == <IInternetSecurityManagerEx as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -881,8 +881,8 @@ impl IInternetSecurityMgrSite_Vtbl {
             EnableModeless: EnableModeless::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetSecurityMgrSite as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInternetSecurityMgrSite as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -944,8 +944,8 @@ impl IInternetSession_Vtbl {
             GetSessionOption: GetSessionOption::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetSession as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInternetSession as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -972,8 +972,8 @@ impl IInternetThreadSwitch_Vtbl {
             Continue: Continue::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetThreadSwitch as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInternetThreadSwitch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1079,8 +1079,8 @@ impl IInternetZoneManager_Vtbl {
             CopyTemplatePoliciesToZone: CopyTemplatePoliciesToZone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetZoneManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInternetZoneManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1110,8 +1110,8 @@ impl IInternetZoneManagerEx_Vtbl {
             SetZoneActionPolicyEx: SetZoneActionPolicyEx::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetZoneManagerEx as ::windows_core::ComInterface>::IID || iid == &<IInternetZoneManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInternetZoneManagerEx as ::windows_core::ComInterface>::IID || *iid == <IInternetZoneManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1155,8 +1155,8 @@ impl IInternetZoneManagerEx2_Vtbl {
             FixUnsecureSettings: FixUnsecureSettings::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInternetZoneManagerEx2 as ::windows_core::ComInterface>::IID || iid == &<IInternetZoneManager as ::windows_core::ComInterface>::IID || iid == &<IInternetZoneManagerEx as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInternetZoneManagerEx2 as ::windows_core::ComInterface>::IID || *iid == <IInternetZoneManager as ::windows_core::ComInterface>::IID || *iid == <IInternetZoneManagerEx as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -1173,8 +1173,8 @@ impl IMonikerProp_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), PutProperty: PutProperty::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMonikerProp as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMonikerProp as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1244,8 +1244,8 @@ impl IPersistMoniker_Vtbl {
             GetCurMoniker: GetCurMoniker::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPersistMoniker as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IPersistMoniker as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Data_Xml_MsXml\"`, `\"implement\"`*"]
@@ -1289,8 +1289,8 @@ impl ISoftDistExt_Vtbl {
             AsyncInstallDistributionUnit: AsyncInstallDistributionUnit::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISoftDistExt as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISoftDistExt as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -1329,8 +1329,8 @@ impl IUriBuilderFactory_Vtbl {
             CreateInitializedIUriBuilder: CreateInitializedIUriBuilder::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUriBuilderFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUriBuilderFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -1353,8 +1353,8 @@ impl IUriContainer_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetIUri: GetIUri::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IUriContainer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IUriContainer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -1371,8 +1371,8 @@ impl IWinInetCacheHints_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetCacheExtension: SetCacheExtension::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWinInetCacheHints as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWinInetCacheHints as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -1389,8 +1389,8 @@ impl IWinInetCacheHints2_Vtbl {
         }
         Self { base__: IWinInetCacheHints_Vtbl::new::<Identity, Impl, OFFSET>(), SetCacheExtension2: SetCacheExtension2::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWinInetCacheHints2 as ::windows_core::ComInterface>::IID || iid == &<IWinInetCacheHints as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWinInetCacheHints2 as ::windows_core::ComInterface>::IID || *iid == <IWinInetCacheHints as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -1417,8 +1417,8 @@ impl IWinInetFileStream_Vtbl {
             SetDeleteFile: SetDeleteFile::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWinInetFileStream as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWinInetFileStream as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -1435,8 +1435,8 @@ impl IWinInetHttpInfo_Vtbl {
         }
         Self { base__: IWinInetInfo_Vtbl::new::<Identity, Impl, OFFSET>(), QueryInfo: QueryInfo::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWinInetHttpInfo as ::windows_core::ComInterface>::IID || iid == &<IWinInetInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWinInetHttpInfo as ::windows_core::ComInterface>::IID || *iid == <IWinInetInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -1453,8 +1453,8 @@ impl IWinInetHttpTimeouts_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetRequestTimeouts: GetRequestTimeouts::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWinInetHttpTimeouts as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWinInetHttpTimeouts as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -1471,8 +1471,8 @@ impl IWinInetInfo_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), QueryOption: QueryOption::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWinInetInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWinInetInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1498,8 +1498,8 @@ impl IWindowForBindingUI_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetWindow: GetWindow::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWindowForBindingUI as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWindowForBindingUI as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -1516,8 +1516,8 @@ impl IWrappedProtocol_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetWrapperCode: GetWrapperCode::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWrappedProtocol as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWrappedProtocol as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -1557,8 +1557,8 @@ impl IZoneIdentifier_Vtbl {
             Remove: Remove::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IZoneIdentifier as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IZoneIdentifier as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_Urlmon\"`, `\"implement\"`*"]
@@ -1625,7 +1625,7 @@ impl IZoneIdentifier2_Vtbl {
             RemoveAppZoneId: RemoveAppZoneId::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IZoneIdentifier2 as ::windows_core::ComInterface>::IID || iid == &<IZoneIdentifier as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IZoneIdentifier2 as ::windows_core::ComInterface>::IID || *iid == <IZoneIdentifier as ::windows_core::ComInterface>::IID
     }
 }

@@ -78,7 +78,7 @@ impl IPropertyAnimation_Vtbl {
             Control2: Control2::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPropertyAnimation as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IPropertyAnimation as ::windows_core::ComInterface>::IID
     }
 }

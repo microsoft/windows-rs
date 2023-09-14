@@ -41,8 +41,8 @@ impl IAudioEffectDefinition_Vtbl {
             Properties: Properties::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IAudioEffectDefinition as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IAudioEffectDefinition as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`, `\"Media_MediaProperties\"`, `\"implement\"`*"]
@@ -115,8 +115,8 @@ impl IBasicAudioEffect_Vtbl {
             DiscardQueuedFrames: DiscardQueuedFrames::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBasicAudioEffect as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IBasicAudioEffect as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`, `\"Graphics_DirectX_Direct3D11\"`, `\"Media_MediaProperties\"`, `\"implement\"`*"]
@@ -215,8 +215,8 @@ impl IBasicVideoEffect_Vtbl {
             DiscardQueuedFrames: DiscardQueuedFrames::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBasicVideoEffect as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IBasicVideoEffect as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`, `\"Graphics_DirectX_Direct3D11\"`, `\"Media_MediaProperties\"`, `\"implement\"`*"]
@@ -275,8 +275,8 @@ impl IVideoCompositor_Vtbl {
             DiscardQueuedFrames: DiscardQueuedFrames::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVideoCompositor as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVideoCompositor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -322,8 +322,8 @@ impl IVideoCompositorDefinition_Vtbl {
             Properties: Properties::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVideoCompositorDefinition as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVideoCompositorDefinition as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -369,7 +369,7 @@ impl IVideoEffectDefinition_Vtbl {
             Properties: Properties::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVideoEffectDefinition as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVideoEffectDefinition as ::windows_core::ComInterface>::IID
     }
 }

@@ -119,8 +119,8 @@ impl ICeeGen_Vtbl {
             ComputePointer: ComputePointer::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICeeGen as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICeeGen as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"implement\"`*"]
@@ -137,8 +137,8 @@ impl IHostFilter_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), MarkToken: MarkToken::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHostFilter as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IHostFilter as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"implement\"`*"]
@@ -155,8 +155,8 @@ impl IMapToken_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Map: Map::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMapToken as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMapToken as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"implement\"`*"]
@@ -239,8 +239,8 @@ impl IMetaDataAssemblyEmit_Vtbl {
             SetManifestResourceProps: SetManifestResourceProps::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMetaDataAssemblyEmit as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMetaDataAssemblyEmit as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"implement\"`*"]
@@ -351,8 +351,8 @@ impl IMetaDataAssemblyImport_Vtbl {
             FindAssembliesByName: FindAssembliesByName::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMetaDataAssemblyImport as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMetaDataAssemblyImport as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"implement\"`*"]
@@ -404,8 +404,8 @@ impl IMetaDataDispenser_Vtbl {
             OpenScopeOnMemory: OpenScopeOnMemory::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMetaDataDispenser as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMetaDataDispenser as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_System_Variant\"`, `\"implement\"`*"]
@@ -469,8 +469,8 @@ impl IMetaDataDispenserEx_Vtbl {
             FindAssemblyModule: FindAssemblyModule::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMetaDataDispenserEx as ::windows_core::ComInterface>::IID || iid == &<IMetaDataDispenser as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMetaDataDispenserEx as ::windows_core::ComInterface>::IID || *iid == <IMetaDataDispenser as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -843,8 +843,8 @@ impl IMetaDataEmit_Vtbl {
             MergeEnd: MergeEnd::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMetaDataEmit as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMetaDataEmit as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -916,8 +916,8 @@ impl IMetaDataEmit2_Vtbl {
             ResetENCLog: ResetENCLog::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMetaDataEmit2 as ::windows_core::ComInterface>::IID || iid == &<IMetaDataEmit as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMetaDataEmit2 as ::windows_core::ComInterface>::IID || *iid == <IMetaDataEmit as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"implement\"`*"]
@@ -934,8 +934,8 @@ impl IMetaDataError_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnError: OnError::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMetaDataError as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMetaDataError as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -972,8 +972,8 @@ impl IMetaDataFilter_Vtbl {
             IsTokenMarked: IsTokenMarked::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMetaDataFilter as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMetaDataFilter as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1471,8 +1471,8 @@ impl IMetaDataImport_Vtbl {
             IsGlobal: IsGlobal::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMetaDataImport as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMetaDataImport as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1544,8 +1544,8 @@ impl IMetaDataImport2_Vtbl {
             EnumMethodSpecs: EnumMethodSpecs::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMetaDataImport2 as ::windows_core::ComInterface>::IID || iid == &<IMetaDataImport as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMetaDataImport2 as ::windows_core::ComInterface>::IID || *iid == <IMetaDataImport as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"implement\"`*"]
@@ -1562,8 +1562,8 @@ impl IMetaDataInfo_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetFileMapping: GetFileMapping::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMetaDataInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMetaDataInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"implement\"`*"]
@@ -1709,8 +1709,8 @@ impl IMetaDataTables_Vtbl {
             GetNextUserString: GetNextUserString::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMetaDataTables as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMetaDataTables as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"implement\"`*"]
@@ -1737,8 +1737,8 @@ impl IMetaDataTables2_Vtbl {
             GetMetaDataStreamInfo: GetMetaDataStreamInfo::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMetaDataTables2 as ::windows_core::ComInterface>::IID || iid == &<IMetaDataTables as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMetaDataTables2 as ::windows_core::ComInterface>::IID || *iid == <IMetaDataTables as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"implement\"`*"]
@@ -1765,8 +1765,8 @@ impl IMetaDataValidate_Vtbl {
             ValidateMetaData: ValidateMetaData::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMetaDataValidate as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMetaDataValidate as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"implement\"`*"]
@@ -1786,8 +1786,8 @@ impl IMetaDataWinMDImport_Vtbl {
             GetUntransformedTypeRefProps: GetUntransformedTypeRefProps::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMetaDataWinMDImport as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMetaDataWinMDImport as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Metadata\"`, `\"implement\"`*"]

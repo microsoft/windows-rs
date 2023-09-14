@@ -91,8 +91,8 @@ impl INSNetSourceCreator_Vtbl {
             Shutdown: Shutdown::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INSNetSourceCreator as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <INSNetSourceCreator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -158,8 +158,8 @@ impl INSSBuffer_Vtbl {
             GetBufferAndLength: GetBufferAndLength::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INSSBuffer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <INSSBuffer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -192,8 +192,8 @@ impl INSSBuffer2_Vtbl {
             SetSampleProperties: SetSampleProperties::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INSSBuffer2 as ::windows_core::ComInterface>::IID || iid == &<INSSBuffer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <INSSBuffer2 as ::windows_core::ComInterface>::IID || *iid == <INSSBuffer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -220,8 +220,8 @@ impl INSSBuffer3_Vtbl {
             GetProperty: GetProperty::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INSSBuffer3 as ::windows_core::ComInterface>::IID || iid == &<INSSBuffer as ::windows_core::ComInterface>::IID || iid == &<INSSBuffer2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <INSSBuffer3 as ::windows_core::ComInterface>::IID || *iid == <INSSBuffer as ::windows_core::ComInterface>::IID || *iid == <INSSBuffer2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -254,8 +254,8 @@ impl INSSBuffer4_Vtbl {
             GetPropertyByIndex: GetPropertyByIndex::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INSSBuffer4 as ::windows_core::ComInterface>::IID || iid == &<INSSBuffer as ::windows_core::ComInterface>::IID || iid == &<INSSBuffer2 as ::windows_core::ComInterface>::IID || iid == &<INSSBuffer3 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <INSSBuffer4 as ::windows_core::ComInterface>::IID || *iid == <INSSBuffer as ::windows_core::ComInterface>::IID || *iid == <INSSBuffer2 as ::windows_core::ComInterface>::IID || *iid == <INSSBuffer3 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -308,8 +308,8 @@ impl IWMAddressAccess_Vtbl {
             RemoveAccessEntry: RemoveAccessEntry::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMAddressAccess as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMAddressAccess as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -336,8 +336,8 @@ impl IWMAddressAccess2_Vtbl {
             AddAccessEntryEx: AddAccessEntryEx::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMAddressAccess2 as ::windows_core::ComInterface>::IID || iid == &<IWMAddressAccess as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMAddressAccess2 as ::windows_core::ComInterface>::IID || *iid == <IWMAddressAccess as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -389,8 +389,8 @@ impl IWMAuthorizer_Vtbl {
             GetSharedData: GetSharedData::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMAuthorizer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMAuthorizer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -451,8 +451,8 @@ impl IWMBackupRestoreProps_Vtbl {
             RemoveAllProps: RemoveAllProps::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMBackupRestoreProps as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMBackupRestoreProps as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -499,8 +499,8 @@ impl IWMBandwidthSharing_Vtbl {
             SetBandwidth: SetBandwidth::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMBandwidthSharing as ::windows_core::ComInterface>::IID || iid == &<IWMStreamList as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMBandwidthSharing as ::windows_core::ComInterface>::IID || *iid == <IWMStreamList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -539,8 +539,8 @@ impl IWMClientConnections_Vtbl {
             GetClientProperties: GetClientProperties::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMClientConnections as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMClientConnections as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -557,8 +557,8 @@ impl IWMClientConnections2_Vtbl {
         }
         Self { base__: IWMClientConnections_Vtbl::new::<Identity, Impl, OFFSET>(), GetClientInfo: GetClientInfo::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMClientConnections2 as ::windows_core::ComInterface>::IID || iid == &<IWMClientConnections as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMClientConnections2 as ::windows_core::ComInterface>::IID || *iid == <IWMClientConnections as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -610,8 +610,8 @@ impl IWMCodecInfo_Vtbl {
             GetCodecFormat: GetCodecFormat::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMCodecInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMCodecInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -638,8 +638,8 @@ impl IWMCodecInfo2_Vtbl {
             GetCodecFormatDesc: GetCodecFormatDesc::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMCodecInfo2 as ::windows_core::ComInterface>::IID || iid == &<IWMCodecInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMCodecInfo2 as ::windows_core::ComInterface>::IID || *iid == <IWMCodecInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -680,8 +680,8 @@ impl IWMCodecInfo3_Vtbl {
             GetCodecEnumerationSetting: GetCodecEnumerationSetting::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMCodecInfo3 as ::windows_core::ComInterface>::IID || iid == &<IWMCodecInfo as ::windows_core::ComInterface>::IID || iid == &<IWMCodecInfo2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMCodecInfo3 as ::windows_core::ComInterface>::IID || *iid == <IWMCodecInfo as ::windows_core::ComInterface>::IID || *iid == <IWMCodecInfo2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -698,8 +698,8 @@ impl IWMCredentialCallback_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), AcquireCredentials: AcquireCredentials::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMCredentialCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMCredentialCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -716,8 +716,8 @@ impl IWMDRMEditor_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetDRMProperty: GetDRMProperty::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDRMEditor as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDRMEditor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -744,8 +744,8 @@ impl IWMDRMMessageParser_Vtbl {
             ParseLicenseRequestMsg: ParseLicenseRequestMsg::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDRMMessageParser as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDRMMessageParser as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -814,8 +814,8 @@ impl IWMDRMReader_Vtbl {
             GetDRMProperty: GetDRMProperty::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDRMReader as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDRMReader as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -859,8 +859,8 @@ impl IWMDRMReader2_Vtbl {
             TryNextLicense: TryNextLicense::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDRMReader2 as ::windows_core::ComInterface>::IID || iid == &<IWMDRMReader as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDRMReader2 as ::windows_core::ComInterface>::IID || *iid == <IWMDRMReader as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -880,8 +880,8 @@ impl IWMDRMReader3_Vtbl {
         }
         Self { base__: IWMDRMReader2_Vtbl::new::<Identity, Impl, OFFSET>(), GetInclusionList: GetInclusionList::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDRMReader3 as ::windows_core::ComInterface>::IID || iid == &<IWMDRMReader as ::windows_core::ComInterface>::IID || iid == &<IWMDRMReader2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDRMReader3 as ::windows_core::ComInterface>::IID || *iid == <IWMDRMReader as ::windows_core::ComInterface>::IID || *iid == <IWMDRMReader2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -904,8 +904,8 @@ impl IWMDRMTranscryptionManager_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), CreateTranscryptor: CreateTranscryptor::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDRMTranscryptionManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDRMTranscryptionManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -946,8 +946,8 @@ impl IWMDRMTranscryptor_Vtbl {
             Close: Close::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDRMTranscryptor as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDRMTranscryptor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1003,8 +1003,8 @@ impl IWMDRMTranscryptor2_Vtbl {
             GetDuration: GetDuration::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDRMTranscryptor2 as ::windows_core::ComInterface>::IID || iid == &<IWMDRMTranscryptor as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDRMTranscryptor2 as ::windows_core::ComInterface>::IID || *iid == <IWMDRMTranscryptor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -1045,8 +1045,8 @@ impl IWMDRMWriter_Vtbl {
             SetDRMAttribute: SetDRMAttribute::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDRMWriter as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDRMWriter as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1066,8 +1066,8 @@ impl IWMDRMWriter2_Vtbl {
         }
         Self { base__: IWMDRMWriter_Vtbl::new::<Identity, Impl, OFFSET>(), SetWMDRMNetEncryption: SetWMDRMNetEncryption::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDRMWriter2 as ::windows_core::ComInterface>::IID || iid == &<IWMDRMWriter as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDRMWriter2 as ::windows_core::ComInterface>::IID || *iid == <IWMDRMWriter as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1087,8 +1087,8 @@ impl IWMDRMWriter3_Vtbl {
         }
         Self { base__: IWMDRMWriter2_Vtbl::new::<Identity, Impl, OFFSET>(), SetProtectStreamSamples: SetProtectStreamSamples::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDRMWriter3 as ::windows_core::ComInterface>::IID || iid == &<IWMDRMWriter as ::windows_core::ComInterface>::IID || iid == &<IWMDRMWriter2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDRMWriter3 as ::windows_core::ComInterface>::IID || *iid == <IWMDRMWriter as ::windows_core::ComInterface>::IID || *iid == <IWMDRMWriter2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -1173,8 +1173,8 @@ impl IWMDeviceRegistration_Vtbl {
             GetRegisteredDeviceByID: GetRegisteredDeviceByID::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMDeviceRegistration as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMDeviceRegistration as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -1200,8 +1200,8 @@ impl IWMGetSecureChannel_Vtbl {
             GetPeerSecureChannelInterface: GetPeerSecureChannelInterface::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMGetSecureChannel as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMGetSecureChannel as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -1316,8 +1316,8 @@ impl IWMHeaderInfo_Vtbl {
             RemoveScript: RemoveScript::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMHeaderInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMHeaderInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -1350,8 +1350,8 @@ impl IWMHeaderInfo2_Vtbl {
             GetCodecInfo: GetCodecInfo::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMHeaderInfo2 as ::windows_core::ComInterface>::IID || iid == &<IWMHeaderInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMHeaderInfo2 as ::windows_core::ComInterface>::IID || *iid == <IWMHeaderInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -1419,8 +1419,8 @@ impl IWMHeaderInfo3_Vtbl {
             AddCodecInfo: AddCodecInfo::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMHeaderInfo3 as ::windows_core::ComInterface>::IID || iid == &<IWMHeaderInfo as ::windows_core::ComInterface>::IID || iid == &<IWMHeaderInfo2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMHeaderInfo3 as ::windows_core::ComInterface>::IID || *iid == <IWMHeaderInfo as ::windows_core::ComInterface>::IID || *iid == <IWMHeaderInfo2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -1437,8 +1437,8 @@ impl IWMIStreamProps_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), GetProperty: GetProperty::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMIStreamProps as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMIStreamProps as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -1471,8 +1471,8 @@ impl IWMImageInfo_Vtbl {
             GetImage: GetImage::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMImageInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMImageInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -1499,8 +1499,8 @@ impl IWMIndexer_Vtbl {
             Cancel: Cancel::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMIndexer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMIndexer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -1517,8 +1517,8 @@ impl IWMIndexer2_Vtbl {
         }
         Self { base__: IWMIndexer_Vtbl::new::<Identity, Impl, OFFSET>(), Configure: Configure::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMIndexer2 as ::windows_core::ComInterface>::IID || iid == &<IWMIndexer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMIndexer2 as ::windows_core::ComInterface>::IID || *iid == <IWMIndexer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1548,8 +1548,8 @@ impl IWMInputMediaProps_Vtbl {
             GetGroupName: GetGroupName::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMInputMediaProps as ::windows_core::ComInterface>::IID || iid == &<IWMMediaProps as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMInputMediaProps as ::windows_core::ComInterface>::IID || *iid == <IWMMediaProps as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -1595,8 +1595,8 @@ impl IWMLanguageList_Vtbl {
             AddLanguageByRFC1766String: AddLanguageByRFC1766String::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMLanguageList as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMLanguageList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -1623,8 +1623,8 @@ impl IWMLicenseBackup_Vtbl {
             CancelLicenseBackup: CancelLicenseBackup::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMLicenseBackup as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMLicenseBackup as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -1651,8 +1651,8 @@ impl IWMLicenseRestore_Vtbl {
             CancelLicenseRestore: CancelLicenseRestore::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMLicenseRestore as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMLicenseRestore as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -1679,8 +1679,8 @@ impl IWMLicenseRevocationAgent_Vtbl {
             ProcessLRB: ProcessLRB::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMLicenseRevocationAgent as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMLicenseRevocationAgent as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1723,8 +1723,8 @@ impl IWMMediaProps_Vtbl {
             SetMediaType: SetMediaType::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMMediaProps as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMMediaProps as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -1758,8 +1758,8 @@ impl IWMMetadataEditor_Vtbl {
             Flush: Flush::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMMetadataEditor as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMMetadataEditor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -1776,8 +1776,8 @@ impl IWMMetadataEditor2_Vtbl {
         }
         Self { base__: IWMMetadataEditor_Vtbl::new::<Identity, Impl, OFFSET>(), OpenEx: OpenEx::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMMetadataEditor2 as ::windows_core::ComInterface>::IID || iid == &<IWMMetadataEditor as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMMetadataEditor2 as ::windows_core::ComInterface>::IID || *iid == <IWMMetadataEditor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -1810,8 +1810,8 @@ impl IWMMutualExclusion_Vtbl {
             SetType: SetType::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMMutualExclusion as ::windows_core::ComInterface>::IID || iid == &<IWMStreamList as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMMutualExclusion as ::windows_core::ComInterface>::IID || *iid == <IWMStreamList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -1900,8 +1900,8 @@ impl IWMMutualExclusion2_Vtbl {
             RemoveStreamForRecord: RemoveStreamForRecord::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMMutualExclusion2 as ::windows_core::ComInterface>::IID || iid == &<IWMStreamList as ::windows_core::ComInterface>::IID || iid == &<IWMMutualExclusion as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMMutualExclusion2 as ::windows_core::ComInterface>::IID || *iid == <IWMStreamList as ::windows_core::ComInterface>::IID || *iid == <IWMMutualExclusion as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -1931,8 +1931,8 @@ impl IWMOutputMediaProps_Vtbl {
             GetConnectionName: GetConnectionName::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMOutputMediaProps as ::windows_core::ComInterface>::IID || iid == &<IWMMediaProps as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMOutputMediaProps as ::windows_core::ComInterface>::IID || *iid == <IWMMediaProps as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -1965,8 +1965,8 @@ impl IWMPacketSize_Vtbl {
             SetMaxPacketSize: SetMaxPacketSize::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMPacketSize as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMPacketSize as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -1999,8 +1999,8 @@ impl IWMPacketSize2_Vtbl {
             SetMinPacketSize: SetMinPacketSize::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMPacketSize2 as ::windows_core::ComInterface>::IID || iid == &<IWMPacketSize as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMPacketSize2 as ::windows_core::ComInterface>::IID || *iid == <IWMPacketSize as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -2017,8 +2017,8 @@ impl IWMPlayerHook_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), PreDecode: PreDecode::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMPlayerHook as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMPlayerHook as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -2041,8 +2041,8 @@ impl IWMPlayerTimestampHook_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), MapTimestamp: MapTimestamp::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMPlayerTimestampHook as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMPlayerTimestampHook as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -2229,8 +2229,8 @@ impl IWMProfile_Vtbl {
             CreateNewMutualExclusion: CreateNewMutualExclusion::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMProfile as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMProfile as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -2253,8 +2253,8 @@ impl IWMProfile2_Vtbl {
         }
         Self { base__: IWMProfile_Vtbl::new::<Identity, Impl, OFFSET>(), GetProfileID: GetProfileID::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMProfile2 as ::windows_core::ComInterface>::IID || iid == &<IWMProfile as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMProfile2 as ::windows_core::ComInterface>::IID || *iid == <IWMProfile as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -2393,8 +2393,8 @@ impl IWMProfile3_Vtbl {
             GetExpectedPacketCount: GetExpectedPacketCount::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMProfile3 as ::windows_core::ComInterface>::IID || iid == &<IWMProfile as ::windows_core::ComInterface>::IID || iid == &<IWMProfile2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMProfile3 as ::windows_core::ComInterface>::IID || *iid == <IWMProfile as ::windows_core::ComInterface>::IID || *iid == <IWMProfile2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -2479,8 +2479,8 @@ impl IWMProfileManager_Vtbl {
             LoadSystemProfile: LoadSystemProfile::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMProfileManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMProfileManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -2507,8 +2507,8 @@ impl IWMProfileManager2_Vtbl {
             SetSystemProfileVersion: SetSystemProfileVersion::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMProfileManager2 as ::windows_core::ComInterface>::IID || iid == &<IWMProfileManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMProfileManager2 as ::windows_core::ComInterface>::IID || *iid == <IWMProfileManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -2535,8 +2535,8 @@ impl IWMProfileManagerLanguage_Vtbl {
             SetUserLanguageID: SetUserLanguageID::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMProfileManagerLanguage as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMProfileManagerLanguage as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -2591,8 +2591,8 @@ impl IWMPropertyVault_Vtbl {
             Clear: Clear::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMPropertyVault as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMPropertyVault as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -2609,8 +2609,8 @@ impl IWMProximityDetection_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), StartDetection: StartDetection::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMProximityDetection as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMProximityDetection as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -2724,8 +2724,8 @@ impl IWMReader_Vtbl {
             Resume: Resume::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMReader as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMReader as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2755,8 +2755,8 @@ impl IWMReaderAccelerator_Vtbl {
             Notify: Notify::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMReaderAccelerator as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMReaderAccelerator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -2966,8 +2966,8 @@ impl IWMReaderAdvanced_Vtbl {
             NotifyLateDelivery: NotifyLateDelivery::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMReaderAdvanced as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMReaderAdvanced as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3106,8 +3106,8 @@ impl IWMReaderAdvanced2_Vtbl {
             OpenStream: OpenStream::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMReaderAdvanced2 as ::windows_core::ComInterface>::IID || iid == &<IWMReaderAdvanced as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMReaderAdvanced2 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3137,8 +3137,8 @@ impl IWMReaderAdvanced3_Vtbl {
             StartAtPosition: StartAtPosition::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMReaderAdvanced3 as ::windows_core::ComInterface>::IID || iid == &<IWMReaderAdvanced as ::windows_core::ComInterface>::IID || iid == &<IWMReaderAdvanced2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMReaderAdvanced3 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3241,8 +3241,8 @@ impl IWMReaderAdvanced4_Vtbl {
             GetURL: GetURL::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMReaderAdvanced4 as ::windows_core::ComInterface>::IID || iid == &<IWMReaderAdvanced as ::windows_core::ComInterface>::IID || iid == &<IWMReaderAdvanced2 as ::windows_core::ComInterface>::IID || iid == &<IWMReaderAdvanced3 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMReaderAdvanced4 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced2 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced3 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3262,8 +3262,8 @@ impl IWMReaderAdvanced5_Vtbl {
         }
         Self { base__: IWMReaderAdvanced4_Vtbl::new::<Identity, Impl, OFFSET>(), SetPlayerHook: SetPlayerHook::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMReaderAdvanced5 as ::windows_core::ComInterface>::IID || iid == &<IWMReaderAdvanced as ::windows_core::ComInterface>::IID || iid == &<IWMReaderAdvanced2 as ::windows_core::ComInterface>::IID || iid == &<IWMReaderAdvanced3 as ::windows_core::ComInterface>::IID || iid == &<IWMReaderAdvanced4 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMReaderAdvanced5 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced2 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced3 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced4 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -3283,8 +3283,8 @@ impl IWMReaderAdvanced6_Vtbl {
         }
         Self { base__: IWMReaderAdvanced5_Vtbl::new::<Identity, Impl, OFFSET>(), SetProtectStreamSamples: SetProtectStreamSamples::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMReaderAdvanced6 as ::windows_core::ComInterface>::IID || iid == &<IWMReaderAdvanced as ::windows_core::ComInterface>::IID || iid == &<IWMReaderAdvanced2 as ::windows_core::ComInterface>::IID || iid == &<IWMReaderAdvanced3 as ::windows_core::ComInterface>::IID || iid == &<IWMReaderAdvanced4 as ::windows_core::ComInterface>::IID || iid == &<IWMReaderAdvanced5 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMReaderAdvanced6 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced2 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced3 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced4 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderAdvanced5 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -3311,8 +3311,8 @@ impl IWMReaderAllocatorEx_Vtbl {
             AllocateForOutputEx: AllocateForOutputEx::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMReaderAllocatorEx as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMReaderAllocatorEx as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -3329,8 +3329,8 @@ impl IWMReaderCallback_Vtbl {
         }
         Self { base__: IWMStatusCallback_Vtbl::new::<Identity, Impl, OFFSET>(), OnSample: OnSample::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMReaderCallback as ::windows_core::ComInterface>::IID || iid == &<IWMStatusCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMReaderCallback as ::windows_core::ComInterface>::IID || *iid == <IWMStatusCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3388,8 +3388,8 @@ impl IWMReaderCallbackAdvanced_Vtbl {
             AllocateForOutput: AllocateForOutput::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMReaderCallbackAdvanced as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMReaderCallbackAdvanced as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3708,8 +3708,8 @@ impl IWMReaderNetworkConfig_Vtbl {
             ResetLoggingUrlList: ResetLoggingUrlList::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMReaderNetworkConfig as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMReaderNetworkConfig as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -3858,8 +3858,8 @@ impl IWMReaderNetworkConfig2_Vtbl {
             GetMaxNetPacketSize: GetMaxNetPacketSize::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMReaderNetworkConfig2 as ::windows_core::ComInterface>::IID || iid == &<IWMReaderNetworkConfig as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMReaderNetworkConfig2 as ::windows_core::ComInterface>::IID || *iid == <IWMReaderNetworkConfig as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -3906,8 +3906,8 @@ impl IWMReaderPlaylistBurn_Vtbl {
             EndPlaylistBurn: EndPlaylistBurn::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMReaderPlaylistBurn as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMReaderPlaylistBurn as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -3947,8 +3947,8 @@ impl IWMReaderStreamClock_Vtbl {
             KillTimer: KillTimer::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMReaderStreamClock as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMReaderStreamClock as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -3981,8 +3981,8 @@ impl IWMReaderTimecode_Vtbl {
             GetTimecodeRangeBounds: GetTimecodeRangeBounds::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMReaderTimecode as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMReaderTimecode as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -3999,8 +3999,8 @@ impl IWMReaderTypeNegotiation_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), TryOutputProps: TryOutputProps::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMReaderTypeNegotiation as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMReaderTypeNegotiation as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -4027,8 +4027,8 @@ impl IWMRegisterCallback_Vtbl {
             Unadvise: Unadvise::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMRegisterCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMRegisterCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4196,8 +4196,8 @@ impl IWMRegisteredDevice_Vtbl {
             Close: Close::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMRegisteredDevice as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMRegisteredDevice as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -4236,8 +4236,8 @@ impl IWMSBufferAllocator_Vtbl {
             AllocatePageSizeBuffer: AllocatePageSizeBuffer::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMSBufferAllocator as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMSBufferAllocator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4348,8 +4348,8 @@ impl IWMSInternalAdminNetSource_Vtbl {
             IsUsingIE: IsUsingIE::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMSInternalAdminNetSource as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMSInternalAdminNetSource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4393,8 +4393,8 @@ impl IWMSInternalAdminNetSource2_Vtbl {
             FindProxyForURLEx: FindProxyForURLEx::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMSInternalAdminNetSource2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMSInternalAdminNetSource2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4471,8 +4471,8 @@ impl IWMSInternalAdminNetSource3_Vtbl {
             GetCredentialsEx2: GetCredentialsEx2::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMSInternalAdminNetSource3 as ::windows_core::ComInterface>::IID || iid == &<IWMSInternalAdminNetSource2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMSInternalAdminNetSource3 as ::windows_core::ComInterface>::IID || *iid == <IWMSInternalAdminNetSource2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4571,8 +4571,8 @@ impl IWMSecureChannel_Vtbl {
             WMSC_SetSharedData: WMSC_SetSharedData::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMSecureChannel as ::windows_core::ComInterface>::IID || iid == &<IWMAuthorizer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMSecureChannel as ::windows_core::ComInterface>::IID || *iid == <IWMAuthorizer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -4589,8 +4589,8 @@ impl IWMStatusCallback_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnStatus: OnStatus::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMStatusCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMStatusCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -4704,8 +4704,8 @@ impl IWMStreamConfig_Vtbl {
             SetBufferWindow: SetBufferWindow::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMStreamConfig as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMStreamConfig as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -4772,8 +4772,8 @@ impl IWMStreamConfig2_Vtbl {
             RemoveAllDataUnitExtensions: RemoveAllDataUnitExtensions::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMStreamConfig2 as ::windows_core::ComInterface>::IID || iid == &<IWMStreamConfig as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMStreamConfig2 as ::windows_core::ComInterface>::IID || *iid == <IWMStreamConfig as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -4800,8 +4800,8 @@ impl IWMStreamConfig3_Vtbl {
             SetLanguage: SetLanguage::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMStreamConfig3 as ::windows_core::ComInterface>::IID || iid == &<IWMStreamConfig as ::windows_core::ComInterface>::IID || iid == &<IWMStreamConfig2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMStreamConfig3 as ::windows_core::ComInterface>::IID || *iid == <IWMStreamConfig as ::windows_core::ComInterface>::IID || *iid == <IWMStreamConfig2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -4835,8 +4835,8 @@ impl IWMStreamList_Vtbl {
             RemoveStream: RemoveStream::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMStreamList as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMStreamList as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -4866,8 +4866,8 @@ impl IWMStreamPrioritization_Vtbl {
             SetPriorityRecords: SetPriorityRecords::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMStreamPrioritization as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMStreamPrioritization as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -5090,8 +5090,8 @@ impl IWMSyncReader_Vtbl {
             OpenStream: OpenStream::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMSyncReader as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMSyncReader as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"implement\"`*"]
@@ -5167,8 +5167,8 @@ impl IWMSyncReader2_Vtbl {
             GetAllocateForStream: GetAllocateForStream::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMSyncReader2 as ::windows_core::ComInterface>::IID || iid == &<IWMSyncReader as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMSyncReader2 as ::windows_core::ComInterface>::IID || *iid == <IWMSyncReader as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5224,8 +5224,8 @@ impl IWMVideoMediaProps_Vtbl {
             SetQuality: SetQuality::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMVideoMediaProps as ::windows_core::ComInterface>::IID || iid == &<IWMMediaProps as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMVideoMediaProps as ::windows_core::ComInterface>::IID || *iid == <IWMMediaProps as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -5258,8 +5258,8 @@ impl IWMWatermarkInfo_Vtbl {
             GetWatermarkEntry: GetWatermarkEntry::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMWatermarkInfo as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMWatermarkInfo as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -5393,8 +5393,8 @@ impl IWMWriter_Vtbl {
             Flush: Flush::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMWriter as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMWriter as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5517,8 +5517,8 @@ impl IWMWriterAdvanced_Vtbl {
             GetSyncTolerance: GetSyncTolerance::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMWriterAdvanced as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMWriterAdvanced as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5548,8 +5548,8 @@ impl IWMWriterAdvanced2_Vtbl {
             SetInputSetting: SetInputSetting::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMWriterAdvanced2 as ::windows_core::ComInterface>::IID || iid == &<IWMWriterAdvanced as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMWriterAdvanced2 as ::windows_core::ComInterface>::IID || *iid == <IWMWriterAdvanced as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5579,8 +5579,8 @@ impl IWMWriterAdvanced3_Vtbl {
             SetNonBlocking: SetNonBlocking::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMWriterAdvanced3 as ::windows_core::ComInterface>::IID || iid == &<IWMWriterAdvanced as ::windows_core::ComInterface>::IID || iid == &<IWMWriterAdvanced2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMWriterAdvanced3 as ::windows_core::ComInterface>::IID || *iid == <IWMWriterAdvanced as ::windows_core::ComInterface>::IID || *iid == <IWMWriterAdvanced2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5600,8 +5600,8 @@ impl IWMWriterFileSink_Vtbl {
         }
         Self { base__: IWMWriterSink_Vtbl::new::<Identity, Impl, OFFSET>(), Open: Open::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMWriterFileSink as ::windows_core::ComInterface>::IID || iid == &<IWMWriterSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMWriterFileSink as ::windows_core::ComInterface>::IID || *iid == <IWMWriterSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5690,8 +5690,8 @@ impl IWMWriterFileSink2_Vtbl {
             IsClosed: IsClosed::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMWriterFileSink2 as ::windows_core::ComInterface>::IID || iid == &<IWMWriterSink as ::windows_core::ComInterface>::IID || iid == &<IWMWriterFileSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMWriterFileSink2 as ::windows_core::ComInterface>::IID || *iid == <IWMWriterSink as ::windows_core::ComInterface>::IID || *iid == <IWMWriterFileSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5781,8 +5781,8 @@ impl IWMWriterFileSink3_Vtbl {
             CompleteOperations: CompleteOperations::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMWriterFileSink3 as ::windows_core::ComInterface>::IID || iid == &<IWMWriterSink as ::windows_core::ComInterface>::IID || iid == &<IWMWriterFileSink as ::windows_core::ComInterface>::IID || iid == &<IWMWriterFileSink2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMWriterFileSink3 as ::windows_core::ComInterface>::IID || *iid == <IWMWriterSink as ::windows_core::ComInterface>::IID || *iid == <IWMWriterFileSink as ::windows_core::ComInterface>::IID || *iid == <IWMWriterFileSink2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5866,8 +5866,8 @@ impl IWMWriterNetworkSink_Vtbl {
             Close: Close::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMWriterNetworkSink as ::windows_core::ComInterface>::IID || iid == &<IWMWriterSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMWriterNetworkSink as ::windows_core::ComInterface>::IID || *iid == <IWMWriterSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -5976,8 +5976,8 @@ impl IWMWriterPostView_Vtbl {
             GetAllocateForPostView: GetAllocateForPostView::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMWriterPostView as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMWriterPostView as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -6004,8 +6004,8 @@ impl IWMWriterPostViewCallback_Vtbl {
             AllocateForPostView: AllocateForPostView::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMWriterPostViewCallback as ::windows_core::ComInterface>::IID || iid == &<IWMStatusCallback as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMWriterPostViewCallback as ::windows_core::ComInterface>::IID || *iid == <IWMStatusCallback as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"implement\"`*"]
@@ -6059,8 +6059,8 @@ impl IWMWriterPreprocess_Vtbl {
             EndPreprocessingPass: EndPreprocessingPass::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMWriterPreprocess as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMWriterPreprocess as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -6097,8 +6097,8 @@ impl IWMWriterPushSink_Vtbl {
             EndSession: EndSession::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMWriterPushSink as ::windows_core::ComInterface>::IID || iid == &<IWMWriterSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMWriterPushSink as ::windows_core::ComInterface>::IID || *iid == <IWMWriterSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -6161,7 +6161,7 @@ impl IWMWriterSink_Vtbl {
             OnEndWriting: OnEndWriting::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWMWriterSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWMWriterSink as ::windows_core::ComInterface>::IID
     }
 }
