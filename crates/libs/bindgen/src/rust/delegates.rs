@@ -105,6 +105,10 @@ fn gen_win_delegate(writer: &Writer, def: TypeDef) -> TokenStream {
             unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
                 let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
 
+                if iid.is_null() || interface.is_null() {
+                    return ::windows_core::HRESULT(-2147467261); // E_POINTER
+                }
+
                 *interface = if *iid == <#ident as ::windows_core::ComInterface>::IID ||
                     *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID ||
                     *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID {

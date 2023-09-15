@@ -126,6 +126,10 @@ impl TearOff {
     unsafe extern "system" fn StrongQueryInterface(ptr: *mut std::ffi::c_void, iid: *const crate::GUID, interface: *mut *mut std::ffi::c_void) -> crate::HRESULT {
         let this = Self::from_strong_ptr(ptr);
 
+        if iid.is_null() || interface.is_null() {
+            return ::windows_core::HRESULT(-2147467261); // E_POINTER
+        }
+
         // Only directly respond to queries for the the tear-off's strong interface. This is
         // effectively a self-query.
         if *iid == IWeakReferenceSource::IID {
@@ -141,6 +145,10 @@ impl TearOff {
 
     unsafe extern "system" fn WeakQueryInterface(ptr: *mut std::ffi::c_void, iid: *const crate::GUID, interface: *mut *mut std::ffi::c_void) -> crate::HRESULT {
         let this = Self::from_weak_ptr(ptr);
+
+        if iid.is_null() || interface.is_null() {
+            return ::windows_core::HRESULT(-2147467261); // E_POINTER
+        }
 
         // While the weak vtable is packed into the same allocation as the strong vtable and
         // tear-off, it represents a distinct COM identity and thus does not share or delegate to
