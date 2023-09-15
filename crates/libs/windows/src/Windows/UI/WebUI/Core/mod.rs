@@ -857,6 +857,9 @@ impl<F: FnMut() -> ::windows_core::Result<()> + ::core::marker::Send + 'static> 
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return ::windows_core::HRESULT(-2147467261);
+        }
         *interface = if *iid == <MenuClosedEventHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
@@ -924,6 +927,9 @@ impl<F: FnMut() -> ::windows_core::Result<()> + ::core::marker::Send + 'static> 
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return ::windows_core::HRESULT(-2147467261);
+        }
         *interface = if *iid == <MenuOpenedEventHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
@@ -994,6 +1000,9 @@ impl<F: FnMut(::core::option::Option<&WebUICommandBarSizeChangedEventArgs>) -> :
     };
     unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: *const ::windows_core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows_core::HRESULT {
         let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        if iid.is_null() || interface.is_null() {
+            return ::windows_core::HRESULT(-2147467261);
+        }
         *interface = if *iid == <SizeChangedEventHandler as ::windows_core::ComInterface>::IID || *iid == <::windows_core::IUnknown as ::windows_core::ComInterface>::IID || *iid == <::windows_core::imp::IAgileObject as ::windows_core::ComInterface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
         if (*interface).is_null() {
             ::windows_core::HRESULT(-2147467262)
