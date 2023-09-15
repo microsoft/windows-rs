@@ -53,8 +53,8 @@ impl IMidiMessage_Vtbl {
             Type: Type::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMidiMessage as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMidiMessage as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_Midi\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -100,7 +100,7 @@ impl IMidiOutPort_Vtbl {
             DeviceId: DeviceId::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMidiOutPort as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMidiOutPort as ::windows_core::ComInterface>::IID
     }
 }

@@ -55,8 +55,8 @@ impl ISmsBinaryMessage_Vtbl {
             SetData: SetData::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISmsBinaryMessage as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISmsBinaryMessage as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`, `\"implement\"`*"]
@@ -195,8 +195,8 @@ impl ISmsDevice_Vtbl {
             RemoveSmsDeviceStatusChanged: RemoveSmsDeviceStatusChanged::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISmsDevice as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISmsDevice as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_Sms\"`, `\"implement\"`*"]
@@ -237,8 +237,8 @@ impl ISmsMessage_Vtbl {
             MessageClass: MessageClass::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISmsMessage as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISmsMessage as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_Sms\"`, `\"implement\"`*"]
@@ -320,8 +320,8 @@ impl ISmsMessageBase_Vtbl {
             SimIccId: SimIccId::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISmsMessageBase as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISmsMessageBase as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation_Collections\"`, `\"deprecated\"`, `\"implement\"`*"]
@@ -488,7 +488,7 @@ impl ISmsTextMessage_Vtbl {
             ToBinaryMessages: ToBinaryMessages::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISmsTextMessage as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISmsTextMessage as ::windows_core::ComInterface>::IID
     }
 }

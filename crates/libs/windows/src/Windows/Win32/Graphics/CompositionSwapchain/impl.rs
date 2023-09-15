@@ -32,8 +32,8 @@ impl ICompositionFramePresentStatistics_Vtbl {
             GetDisplayInstanceArray: GetDisplayInstanceArray::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICompositionFramePresentStatistics as ::windows_core::ComInterface>::IID || iid == &<IPresentStatistics as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICompositionFramePresentStatistics as ::windows_core::ComInterface>::IID || *iid == <IPresentStatistics as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -84,8 +84,8 @@ impl IIndependentFlipFramePresentStatistics_Vtbl {
             GetPresentDuration: GetPresentDuration::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IIndependentFlipFramePresentStatistics as ::windows_core::ComInterface>::IID || iid == &<IPresentStatistics as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IIndependentFlipFramePresentStatistics as ::windows_core::ComInterface>::IID || *iid == <IPresentStatistics as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"implement\"`*"]
@@ -112,8 +112,8 @@ impl IPresentStatistics_Vtbl {
             GetKind: GetKind::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPresentStatistics as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IPresentStatistics as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"implement\"`*"]
@@ -140,8 +140,8 @@ impl IPresentStatusPresentStatistics_Vtbl {
             GetPresentStatus: GetPresentStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPresentStatusPresentStatistics as ::windows_core::ComInterface>::IID || iid == &<IPresentStatistics as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IPresentStatusPresentStatistics as ::windows_core::ComInterface>::IID || *iid == <IPresentStatistics as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -183,8 +183,8 @@ impl IPresentationBuffer_Vtbl {
             IsAvailable: IsAvailable::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPresentationBuffer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IPresentationBuffer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"implement\"`*"]
@@ -201,8 +201,8 @@ impl IPresentationContent_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), SetTag: SetTag::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPresentationContent as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IPresentationContent as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"implement\"`*"]
@@ -242,8 +242,8 @@ impl IPresentationFactory_Vtbl {
             CreatePresentationManager: CreatePresentationManager::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPresentationFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IPresentationFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -386,8 +386,8 @@ impl IPresentationManager_Vtbl {
             GetNextPresentStatistics: GetNextPresentStatistics::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPresentationManager as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IPresentationManager as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`, `\"implement\"`*"]
@@ -459,7 +459,7 @@ impl IPresentationSurface_Vtbl {
             SetLetterboxingMargins: SetLetterboxingMargins::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPresentationSurface as ::windows_core::ComInterface>::IID || iid == &<IPresentationContent as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IPresentationSurface as ::windows_core::ComInterface>::IID || *iid == <IPresentationContent as ::windows_core::ComInterface>::IID
     }
 }

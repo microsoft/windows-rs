@@ -188,8 +188,8 @@ impl IDiskQuotaControl_Vtbl {
             ShutdownNameResolution: ShutdownNameResolution::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDiskQuotaControl as ::windows_core::ComInterface>::IID || iid == &<super::super::System::Com::IConnectionPointContainer as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDiskQuotaControl as ::windows_core::ComInterface>::IID || *iid == <super::super::System::Com::IConnectionPointContainer as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"implement\"`*"]
@@ -206,8 +206,8 @@ impl IDiskQuotaEvents_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), OnUserNameChanged: OnUserNameChanged::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDiskQuotaEvents as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDiskQuotaEvents as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -328,8 +328,8 @@ impl IDiskQuotaUser_Vtbl {
             GetAccountStatus: GetAccountStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDiskQuotaUser as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDiskQuotaUser as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"implement\"`*"]
@@ -370,8 +370,8 @@ impl IDiskQuotaUserBatch_Vtbl {
             FlushToDisk: FlushToDisk::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDiskQuotaUserBatch as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDiskQuotaUserBatch as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"implement\"`*"]
@@ -418,7 +418,7 @@ impl IEnumDiskQuotaUsers_Vtbl {
             Clone: Clone::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IEnumDiskQuotaUsers as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IEnumDiskQuotaUsers as ::windows_core::ComInterface>::IID
     }
 }

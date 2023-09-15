@@ -32,7 +32,7 @@ impl IClassFactory_Impl for Factory {
     ) -> Result<()> {
         assert!(outer.is_none());
         let unknown: IInspectable = Object().into();
-        unsafe { unknown.query(&*iid, object as *mut _).ok() }
+        unsafe { unknown.query(iid, object).ok() }
     }
 
     fn LockServer(&self, lock: BOOL) -> Result<()> {

@@ -56,8 +56,8 @@ impl IImageScannerFormatConfiguration_Vtbl {
             IsFormatSupported: IsFormatSupported::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IImageScannerFormatConfiguration as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IImageScannerFormatConfiguration as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_Scanners\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -416,7 +416,7 @@ impl IImageScannerSourceConfiguration_Vtbl {
             SetContrast: SetContrast::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IImageScannerSourceConfiguration as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IImageScannerSourceConfiguration as ::windows_core::ComInterface>::IID
     }
 }

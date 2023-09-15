@@ -173,8 +173,8 @@ impl IBitmapFrame_Vtbl {
             GetPixelDataTransformedAsync: GetPixelDataTransformedAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBitmapFrame as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IBitmapFrame as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"implement\"`*"]
@@ -234,8 +234,8 @@ impl IBitmapFrameWithSoftwareBitmap_Vtbl {
             GetSoftwareBitmapTransformedAsync: GetSoftwareBitmapTransformedAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBitmapFrameWithSoftwareBitmap as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IBitmapFrameWithSoftwareBitmap as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Graphics_Imaging\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -267,7 +267,7 @@ impl IBitmapPropertiesView_Vtbl {
             GetPropertiesAsync: GetPropertiesAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IBitmapPropertiesView as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IBitmapPropertiesView as ::windows_core::ComInterface>::IID
     }
 }

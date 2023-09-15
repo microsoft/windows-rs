@@ -24,8 +24,8 @@ impl ICompositionCapabilitiesInteropFactory_Vtbl {
             GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICompositionCapabilitiesInteropFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICompositionCapabilitiesInteropFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -83,8 +83,8 @@ impl ICompositionDrawingSurfaceInterop_Vtbl {
             SuspendDraw: SuspendDraw::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICompositionDrawingSurfaceInterop as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICompositionDrawingSurfaceInterop as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -104,8 +104,8 @@ impl ICompositionDrawingSurfaceInterop2_Vtbl {
         }
         Self { base__: ICompositionDrawingSurfaceInterop_Vtbl::new::<Identity, Impl, OFFSET>(), CopySurface: CopySurface::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICompositionDrawingSurfaceInterop2 as ::windows_core::ComInterface>::IID || iid == &<ICompositionDrawingSurfaceInterop as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICompositionDrawingSurfaceInterop2 as ::windows_core::ComInterface>::IID || *iid == <ICompositionDrawingSurfaceInterop as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"implement\"`*"]
@@ -138,8 +138,8 @@ impl ICompositionGraphicsDeviceInterop_Vtbl {
             SetRenderingDevice: SetRenderingDevice::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICompositionGraphicsDeviceInterop as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICompositionGraphicsDeviceInterop as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"UI_Composition_Desktop\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -175,8 +175,8 @@ impl ICompositorDesktopInterop_Vtbl {
             EnsureOnThread: EnsureOnThread::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICompositorDesktopInterop as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICompositorDesktopInterop as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"UI_Composition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -231,8 +231,8 @@ impl ICompositorInterop_Vtbl {
             CreateGraphicsDevice: CreateGraphicsDevice::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICompositorInterop as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICompositorInterop as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -258,8 +258,8 @@ impl IDesktopWindowTargetInterop_Vtbl {
         }
         Self { base__: ::windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(), Hwnd: Hwnd::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDesktopWindowTargetInterop as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDesktopWindowTargetInterop as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`, `\"implement\"`*"]
@@ -282,7 +282,7 @@ impl IVisualInteractionSourceInterop_Vtbl {
             TryRedirectForManipulation: TryRedirectForManipulation::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IVisualInteractionSourceInterop as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IVisualInteractionSourceInterop as ::windows_core::ComInterface>::IID
     }
 }

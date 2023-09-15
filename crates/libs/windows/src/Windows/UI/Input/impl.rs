@@ -53,7 +53,7 @@ impl IPointerPointTransform_Vtbl {
             TransformBounds: TransformBounds::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPointerPointTransform as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IPointerPointTransform as ::windows_core::ComInterface>::IID
     }
 }

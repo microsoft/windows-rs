@@ -37,8 +37,8 @@ impl IDisplayDeviceInterop_Vtbl {
             OpenSharedHandle: OpenSharedHandle::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDisplayDeviceInterop as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDisplayDeviceInterop as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_System_WinRT_Display\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -80,7 +80,7 @@ impl IDisplayPathInterop_Vtbl {
             GetSourceId: GetSourceId::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDisplayPathInterop as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDisplayPathInterop as ::windows_core::ComInterface>::IID
     }
 }

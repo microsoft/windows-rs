@@ -33,8 +33,8 @@ impl ISysStorageProviderEventSource_Vtbl {
             RemoveEventReceived: RemoveEventReceived::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISysStorageProviderEventSource as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISysStorageProviderEventSource as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"System_Implementation_FileExplorer\"`, `\"implement\"`*"]
@@ -77,8 +77,8 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
             GetEventSource: GetEventSource::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISysStorageProviderHandlerFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISysStorageProviderHandlerFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"System_Implementation_FileExplorer\"`, `\"Foundation\"`, `\"Web_Http\"`, `\"implement\"`*"]
@@ -110,7 +110,7 @@ impl ISysStorageProviderHttpRequestProvider_Vtbl {
             SendRequestAsync: SendRequestAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISysStorageProviderHttpRequestProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISysStorageProviderHttpRequestProvider as ::windows_core::ComInterface>::IID
     }
 }

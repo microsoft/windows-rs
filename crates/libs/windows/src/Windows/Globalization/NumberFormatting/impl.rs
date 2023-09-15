@@ -52,8 +52,8 @@ impl INumberFormatter_Vtbl {
             FormatDouble: FormatDouble::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INumberFormatter as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <INumberFormatter as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"implement\"`*"]
@@ -110,8 +110,8 @@ impl INumberFormatter2_Vtbl {
             FormatDouble: FormatDouble::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INumberFormatter2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <INumberFormatter2 as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -286,8 +286,8 @@ impl INumberFormatterOptions_Vtbl {
             ResolvedGeographicRegion: ResolvedGeographicRegion::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INumberFormatterOptions as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <INumberFormatterOptions as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -347,8 +347,8 @@ impl INumberParser_Vtbl {
             ParseDouble: ParseDouble::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INumberParser as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <INumberParser as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"implement\"`*"]
@@ -441,8 +441,8 @@ impl INumberRounder_Vtbl {
             RoundDouble: RoundDouble::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INumberRounder as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <INumberRounder as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"implement\"`*"]
@@ -478,8 +478,8 @@ impl INumberRounderOption_Vtbl {
             SetNumberRounder: SetNumberRounder::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<INumberRounderOption as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <INumberRounderOption as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"implement\"`*"]
@@ -514,8 +514,8 @@ impl ISignedZeroOption_Vtbl {
             SetIsZeroSigned: SetIsZeroSigned::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISignedZeroOption as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISignedZeroOption as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Globalization_NumberFormatting\"`, `\"implement\"`*"]
@@ -550,7 +550,7 @@ impl ISignificantDigitsOption_Vtbl {
             SetSignificantDigits: SetSignificantDigits::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISignificantDigitsOption as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISignificantDigitsOption as ::windows_core::ComInterface>::IID
     }
 }

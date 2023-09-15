@@ -46,8 +46,8 @@ impl IFilter_Vtbl {
             BindRegion: BindRegion::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFilter as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IFilter as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_IndexServer\"`, `\"implement\"`*"]
@@ -74,7 +74,7 @@ impl IPhraseSink_Vtbl {
             PutPhrase: PutPhrase::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IPhraseSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IPhraseSink as ::windows_core::ComInterface>::IID
     }
 }

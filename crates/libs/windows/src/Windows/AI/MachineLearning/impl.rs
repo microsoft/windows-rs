@@ -64,8 +64,8 @@ impl ILearningModelFeatureDescriptor_Vtbl {
             IsRequired: IsRequired::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILearningModelFeatureDescriptor as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ILearningModelFeatureDescriptor as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"implement\"`*"]
@@ -90,8 +90,8 @@ impl ILearningModelFeatureValue_Vtbl {
         }
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, ILearningModelFeatureValue, OFFSET>(), Kind: Kind::<Identity, Impl, OFFSET> }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILearningModelFeatureValue as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ILearningModelFeatureValue as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"implement\"`*"]
@@ -103,8 +103,8 @@ impl ILearningModelOperatorProvider_Vtbl {
     pub const fn new<Identity: ::windows_core::IUnknownImpl<Impl = Impl>, Impl: ILearningModelOperatorProvider_Impl, const OFFSET: isize>() -> ILearningModelOperatorProvider_Vtbl {
         Self { base__: ::windows_core::IInspectable_Vtbl::new::<Identity, ILearningModelOperatorProvider, OFFSET>() }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ILearningModelOperatorProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ILearningModelOperatorProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"AI_MachineLearning\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -149,7 +149,7 @@ impl ITensor_Vtbl {
             Shape: Shape::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ITensor as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ITensor as ::windows_core::ComInterface>::IID
     }
 }

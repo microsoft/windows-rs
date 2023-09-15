@@ -55,7 +55,7 @@ impl ISearchPaneQueryChangedEventArgs_Vtbl {
             LinguisticDetails: LinguisticDetails::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISearchPaneQueryChangedEventArgs as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISearchPaneQueryChangedEventArgs as ::windows_core::ComInterface>::IID
     }
 }

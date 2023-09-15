@@ -64,8 +64,8 @@ impl IContactField_Vtbl {
             Value: Value::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContactField as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IContactField as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`, `\"implement\"`*"]
@@ -122,8 +122,8 @@ impl IContactFieldFactory_Vtbl {
             CreateField_Custom: CreateField_Custom::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContactFieldFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IContactFieldFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -183,8 +183,8 @@ impl IContactInstantMessageFieldFactory_Vtbl {
             CreateInstantMessage_All: CreateInstantMessage_All::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContactInstantMessageFieldFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IContactInstantMessageFieldFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`, `\"implement\"`*"]
@@ -241,7 +241,7 @@ impl IContactLocationFieldFactory_Vtbl {
             CreateLocation_All: CreateLocation_All::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IContactLocationFieldFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IContactLocationFieldFactory as ::windows_core::ComInterface>::IID
     }
 }

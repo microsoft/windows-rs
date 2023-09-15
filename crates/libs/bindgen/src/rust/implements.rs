@@ -28,7 +28,7 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
         }
     }
 
-    let mut matches = quote! { iid == &<#type_ident as ::windows_core::ComInterface>::IID };
+    let mut matches = quote! { *iid == <#type_ident as ::windows_core::ComInterface>::IID };
 
     if let Some(Type::TypeDef(def, _)) = vtables.last() {
         requires.combine(&gen_required_trait(writer, *def, &[]))
@@ -39,7 +39,7 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
             let name = writer.type_def_name(*def, generics);
 
             matches.combine(&quote! {
-                || iid == &<#name as ::windows_core::ComInterface>::IID
+                || *iid == <#name as ::windows_core::ComInterface>::IID
             })
         }
     }
@@ -142,7 +142,7 @@ pub fn writer(writer: &Writer, def: TypeDef) -> TokenStream {
                         #(#named_phantoms)*
                     }
                 }
-                pub fn matches(iid: &::windows_core::GUID) -> bool {
+                pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
                     #matches
                 }
             }

@@ -37,8 +37,8 @@ impl IDefaultAudioDeviceChangedEventArgs_Vtbl {
             Role: Role::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDefaultAudioDeviceChangedEventArgs as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDefaultAudioDeviceChangedEventArgs as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation_Collections\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`, `\"implement\"`*"]
@@ -98,7 +98,7 @@ impl IMediaDeviceController_Vtbl {
             SetMediaStreamPropertiesAsync: SetMediaStreamPropertiesAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IMediaDeviceController as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IMediaDeviceController as ::windows_core::ComInterface>::IID
     }
 }

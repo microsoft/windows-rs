@@ -32,7 +32,7 @@ impl IDirect3DDevice9On12_Vtbl {
             ReturnUnderlyingResource: ReturnUnderlyingResource::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IDirect3DDevice9On12 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IDirect3DDevice9On12 as ::windows_core::ComInterface>::IID
     }
 }

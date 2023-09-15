@@ -139,8 +139,8 @@ impl IFhConfigMgr_Vtbl {
             QueryProtectionStatus: QueryProtectionStatus::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFhConfigMgr as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IFhConfigMgr as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"Win32_Foundation\"`, `\"implement\"`*"]
@@ -197,8 +197,8 @@ impl IFhReassociation_Vtbl {
             PerformReassociation: PerformReassociation::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFhReassociation as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IFhReassociation as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"implement\"`*"]
@@ -231,8 +231,8 @@ impl IFhScopeIterator_Vtbl {
             GetItem: GetItem::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFhScopeIterator as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IFhScopeIterator as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_FileHistory\"`, `\"implement\"`*"]
@@ -271,7 +271,7 @@ impl IFhTarget_Vtbl {
             GetNumericalProperty: GetNumericalProperty::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IFhTarget as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IFhTarget as ::windows_core::ComInterface>::IID
     }
 }

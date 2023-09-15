@@ -594,8 +594,8 @@ impl IWebViewControl_Vtbl {
             RemoveWebResourceRequested: RemoveWebResourceRequested::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWebViewControl as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWebViewControl as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Web_UI\"`, `\"implement\"`*"]
@@ -617,7 +617,7 @@ impl IWebViewControl2_Vtbl {
             AddInitializeScript: AddInitializeScript::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWebViewControl2 as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWebViewControl2 as ::windows_core::ComInterface>::IID
     }
 }

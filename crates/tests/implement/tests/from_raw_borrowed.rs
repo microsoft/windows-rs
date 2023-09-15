@@ -25,7 +25,7 @@ impl IServiceProvider_Impl for Borrowed {
     ) -> Result<()> {
         unsafe {
             let unknown: IUnknown = self.cast()?;
-            unknown.query(&*iid, object as _).ok()
+            unknown.query(iid, object).ok()
         }
     }
 }

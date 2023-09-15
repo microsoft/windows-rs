@@ -38,8 +38,8 @@ impl ICustomGameControllerFactory_Vtbl {
             OnGameControllerRemoved: OnGameControllerRemoved::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICustomGameControllerFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICustomGameControllerFactory as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Gaming_Input_Custom\"`, `\"implement\"`*"]
@@ -68,8 +68,8 @@ impl IGameControllerInputSink_Vtbl {
             OnInputSuspended: OnInputSuspended::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGameControllerInputSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IGameControllerInputSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Gaming_Input_Custom\"`, `\"implement\"`*"]
@@ -149,8 +149,8 @@ impl IGameControllerProvider_Vtbl {
             IsConnected: IsConnected::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGameControllerProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IGameControllerProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Gaming_Input_Custom\"`, `\"implement\"`*"]
@@ -179,8 +179,8 @@ impl IGipGameControllerInputSink_Vtbl {
             OnMessageReceived: OnMessageReceived::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IGipGameControllerInputSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IGipGameControllerInputSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Gaming_Input_Custom\"`, `\"implement\"`*"]
@@ -202,8 +202,8 @@ impl IHidGameControllerInputSink_Vtbl {
             OnInputReportReceived: OnInputReportReceived::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IHidGameControllerInputSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IHidGameControllerInputSink as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Gaming_Input_Custom\"`, `\"implement\"`*"]
@@ -225,7 +225,7 @@ impl IXusbGameControllerInputSink_Vtbl {
             OnInputReceived: OnInputReceived::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IXusbGameControllerInputSink as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IXusbGameControllerInputSink as ::windows_core::ComInterface>::IID
     }
 }

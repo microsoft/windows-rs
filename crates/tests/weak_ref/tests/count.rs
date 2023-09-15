@@ -6,10 +6,10 @@ use windows::Win32::System::WinRT::IWeakReferenceSource;
 fn test() {
     // Ref count starts at 1
     let count = WeakRefCount::new();
-    assert!(count.add_ref() == 2);
-    assert!(count.add_ref() == 3);
-    assert!(count.release() == 2);
-    assert!(count.release() == 1);
+    assert_eq!(count.add_ref(), 2);
+    assert_eq!(count.add_ref(), 3);
+    assert_eq!(count.release(), 2);
+    assert_eq!(count.release(), 1);
 
     // Query implies add_ref
     unsafe {
@@ -17,8 +17,8 @@ fn test() {
     }
 
     // Ref count is now owned by tearoff
-    assert!(count.add_ref() == 3);
-    assert!(count.release() == 2);
-    assert!(count.release() == 1);
-    assert!(count.release() == 0);
+    assert_eq!(count.add_ref(), 3);
+    assert_eq!(count.release(), 2);
+    assert_eq!(count.release(), 1);
+    assert_eq!(count.release(), 0);
 }

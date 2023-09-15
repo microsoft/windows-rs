@@ -45,7 +45,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
         let offset = proc_macro2::Literal::usize_unsuffixed(count);
         quote! {
             else if #vtbl_ident::matches(iid) {
-                &self.vtables.#offset as *const _ as *const _
+                &self.vtables.#offset as *const _ as *mut _
             }
         }
     });
@@ -104,12 +104,12 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             fn get_impl(&self) -> &Self::Impl {
                 &self.this
             }
-            unsafe fn QueryInterface(&self, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            unsafe fn QueryInterface(&self, iid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
                 unsafe {
-                    *interface = if iid == &<::windows::core::IUnknown as ::windows::core::ComInterface>::IID
-                        || iid == &<::windows::core::IInspectable as ::windows::core::ComInterface>::IID
-                        || iid == &<::windows::core::imp::IAgileObject as ::windows::core::ComInterface>::IID {
-                            &self.identity as *const _ as *const _
+                    *interface = if *iid == <::windows::core::IUnknown as ::windows::core::ComInterface>::IID
+                        || *iid == <::windows::core::IInspectable as ::windows::core::ComInterface>::IID
+                        || *iid == <::windows::core::imp::IAgileObject as ::windows::core::ComInterface>::IID {
+                            &self.identity as *const _ as *mut _
                     } #(#queries)* else {
                         ::core::ptr::null_mut()
                     };

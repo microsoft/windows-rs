@@ -22,8 +22,8 @@ impl IWCNConnectNotify_Vtbl {
             ConnectFailed: ConnectFailed::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWCNConnectNotify as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWCNConnectNotify as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsConnectNow\"`, `\"implement\"`*"]
@@ -119,7 +119,7 @@ impl IWCNDevice_Vtbl {
             SetNFCPasswordParams: SetNFCPasswordParams::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IWCNDevice as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IWCNDevice as ::windows_core::ComInterface>::IID
     }
 }

@@ -108,8 +108,8 @@ impl IInkAnalysisNode_Vtbl {
             GetStrokeIds: GetStrokeIds::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInkAnalysisNode as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInkAnalysisNode as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`, `\"implement\"`*"]
@@ -138,7 +138,7 @@ impl IInkAnalyzerFactory_Vtbl {
             CreateAnalyzer: CreateAnalyzer::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IInkAnalyzerFactory as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IInkAnalyzerFactory as ::windows_core::ComInterface>::IID
     }
 }

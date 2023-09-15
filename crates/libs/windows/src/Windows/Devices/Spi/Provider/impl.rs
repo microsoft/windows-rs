@@ -24,8 +24,8 @@ impl ISpiControllerProvider_Vtbl {
             GetDeviceProvider: GetDeviceProvider::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISpiControllerProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISpiControllerProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_Spi_Provider\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -99,8 +99,8 @@ impl ISpiDeviceProvider_Vtbl {
             TransferFullDuplex: TransferFullDuplex::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISpiDeviceProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISpiDeviceProvider as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Devices_Spi_Provider\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -132,7 +132,7 @@ impl ISpiProvider_Vtbl {
             GetControllersAsync: GetControllersAsync::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ISpiProvider as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ISpiProvider as ::windows_core::ComInterface>::IID
     }
 }

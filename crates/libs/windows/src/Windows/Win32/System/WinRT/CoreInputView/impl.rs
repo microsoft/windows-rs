@@ -18,7 +18,7 @@ impl ICoreFrameworkInputViewInterop_Vtbl {
             GetForWindow: GetForWindow::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<ICoreFrameworkInputViewInterop as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <ICoreFrameworkInputViewInterop as ::windows_core::ComInterface>::IID
     }
 }

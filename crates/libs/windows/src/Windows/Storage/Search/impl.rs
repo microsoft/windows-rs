@@ -90,8 +90,8 @@ impl IIndexableContent_Vtbl {
             SetStreamContentType: SetStreamContentType::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IIndexableContent as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IIndexableContent as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Search\"`, `\"Foundation_Collections\"`, `\"implement\"`*"]
@@ -344,8 +344,8 @@ impl IStorageFolderQueryOperations_Vtbl {
             IsCommonFileQuerySupported: IsCommonFileQuerySupported::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageFolderQueryOperations as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStorageFolderQueryOperations as ::windows_core::ComInterface>::IID
     }
 }
 #[doc = "*Required features: `\"Storage_Search\"`, `\"Foundation\"`, `\"implement\"`*"]
@@ -466,7 +466,7 @@ impl IStorageQueryResultBase_Vtbl {
             ApplyNewQueryOptions: ApplyNewQueryOptions::<Identity, Impl, OFFSET>,
         }
     }
-    pub fn matches(iid: &::windows_core::GUID) -> bool {
-        iid == &<IStorageQueryResultBase as ::windows_core::ComInterface>::IID
+    pub unsafe fn matches(iid: *const ::windows_core::GUID) -> bool {
+        *iid == <IStorageQueryResultBase as ::windows_core::ComInterface>::IID
     }
 }
