@@ -188,13 +188,11 @@ fn make_reproducible(lib: &std::path::Path) {
         let skip_member = match &buf[..4] {
             b"/   " => true, // Linker member
             b"//  " => true, // Long names table
-            _ => false
+            _ => false,
         };
 
         // Timestamp, User ID, Group ID, and Mode
-        archive
-            .seek(SeekFrom::Current(12 + 6 + 6 + 8))
-            .unwrap();
+        archive.seek(SeekFrom::Current(12 + 6 + 6 + 8)).unwrap();
 
         // Size, sans header
         archive.read_exact(&mut buf[..10]).unwrap();
